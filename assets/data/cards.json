@@ -1,0 +1,2256 @@
+[
+  {
+    "name": "O Louco",
+    "title": "O Inocente",
+    "image": "assets/cards/fool.jpg",
+    "number": 0,
+    "isMajorArcana": true,
+    "eighth_greater": "Confiança no universo, coragem para recomeçar.",
+    "eighth_lesser": "Imprudência, irresponsabilidade, negligência.",
+    "order": "00",
+    "element": "Ar",
+    "sign": null,
+    "planet": "Urano",
+    "description": "O Louco é a manifestação do potencial absoluto, uma explosão de energia criativa antes da ordem ou da forma. Representa o início de tudo, onde a liberdade encontra o caos, e a criação é apenas uma possibilidade latente. O elemento Ar confere-lhe leveza e movimento, enquanto Urano traz a força transformadora e inesperada da mudança. Ele não é guiado por lógica, mas pela intuição pura e pelo desejo de explorar o desconhecido. Sua jornada é um salto de fé, onde cada passo abre caminho para novas realidades. O Louco nos lembra que toda criação começa com a coragem de sair do chão, abraçar o risco e confiar no fluxo da vida.",
+    "hebrew_letter": "Aleph (א)",
+    "astrology": "Urano",
+    "description_symbolic": "Eis o Louco, a carta número zero, que não tem início nem fim, pois ele é o eterno círculo da criação. Ele é o espírito primordial, a explosão do Big Bang cósmico, a energia inominável que se lança no abismo da existência. Com um sorriso no rosto e um pé já no precipício, ele simboliza a confiança absoluta na jornada. Não há medo, apenas a certeza de que, seja qual for o caminho, ele é o caminho certo.",
+    "message_esoteric": "O Louco não é insensato, mas aquele que está além da lógica mortal. Ele é o caos criativo do deus Pã, a força bruta de Dionísio, a energia de Shiva antes da dança. Ele nos ensina a confiar na jornada, a abandonar as amarras do ego e a mergulhar no desconhecido. Ele é o iniciado que deu o primeiro passo sem olhar para trás.",
+    "meditation_reflection": [
+      "O que eu estou evitando por medo do desconhecido?",
+      "Estou disposto a confiar no processo, mesmo sem saber o resultado?",
+      "Como posso permitir que o caos criativo se manifeste em minha vida?"
+    ],
+    "internal_alchemy": "O Louco é o ar que respiras, o vento que não se pode capturar. Ele é a respiração inicial de um projeto, de uma ideia, de uma vida. Ele nos lembra que, antes de sermos algo, somos nada — e que é nesse nada que reside todo o potencial.",
+    "magical_practice": "Conecte-se com o Louco permitindo-se sonhar sem limitações. Visualize-se pulando de um precipício, sabendo que o universo o apoiará. Ouça o som do silêncio, pois é ali que o Louco sussurra.",
+    "past_present_future": {
+      "past": "Uma fase de inocência e espontaneidade, marcada pela liberdade de seguir novos caminhos sem medo.",
+      "present": "Um momento de confiança e coragem, onde o salto no desconhecido é necessário para avançar.",
+      "future": "O potencial de algo grandioso, mas que exigirá fé absoluta para que se realize."
+    }
+  },
+  {
+    "name": "O Mago",
+    "title": "O Manifestador",
+    "image": "assets/cards/magician.jpg",
+    "number": 1,
+    "isMajorArcana": true,
+    "eighth_greater": "Domínio e controle das forças internas e externas.",
+    "eighth_lesser": "Manipulação, abuso de poder, ilusão.",
+    "order": "01",
+    "element": "Ar",
+    "sign": null,
+    "planet": "Mercúrio",
+    "description": "O Mago é a personificação do poder criativo e da manifestação consciente. Ele canaliza a energia divina para o mundo material, conectando os reinos espiritual e terreno. Regido por Mercúrio, ele reflete inteligência, comunicação e habilidade para transformar intenção em realidade. Suas ferramentas – o bastão, a espada, a taça e o disco – simbolizam o domínio sobre os quatro elementos e a capacidade de moldá-los com sua vontade. O Mago nos lembra que o universo é moldável e que o poder de criar reside na mente e na concentração. Porém, ele alerta para o uso responsável desse poder, evitando a ilusão e a manipulação para fins egoístas.",
+    "hebrew_letter": "Beth (ב)",
+    "astrology": "Mercúrio",
+    "description_symbolic": "O Mago é o mestre da vontade, o alquimista supremo que transforma intenção em manifestação. Ele é o intermediário entre o divino e o mundano, manipulando os elementos do universo para criar algo novo. Na carta, ele é representado rodeado pelos instrumentos sagrados: o bastão, a taça, a espada e o disco — símbolos dos quatro elementos. O Mago não apenas comanda essas forças, mas as integra como uma extensão de sua própria essência. Ele representa o verbo criador, o poder do logos que molda a realidade.",
+    "message_esoteric": "O Mago nos ensina que tudo começa com a vontade. Ele é a manifestação da consciência em ação, a prova de que o universo responde àqueles que sabem como exercer seu poder pessoal. Ele nos lembra que somos criadores, e que o domínio da mente e da palavra é a chave para moldar a realidade. É o símbolo da ação deliberada e da autoconfiança.",
+    "meditation_reflection": [
+      "Como posso usar meus talentos para criar algo significativo?",
+      "Estou agindo com intenção clara ou apenas reagindo às circunstâncias?",
+      "Quais ferramentas tenho à minha disposição que podem transformar minha vida?"
+    ],
+    "internal_alchemy": "O Mago representa a alquimia interna, onde ideias se tornam realidade. Ele nos desafia a dominar nossos pensamentos, palavras e ações para nos tornarmos mestres de nosso próprio destino. Ele simboliza a habilidade de equilibrar força e sutileza, ação e contemplação.",
+    "magical_practice": "Para conectar-se ao Mago, visualize-se segurando os quatro instrumentos: bastão, taça, espada e disco. Concentre-se em sua intenção e declare em voz alta o que deseja criar. Use afirmações poderosas e claras para reforçar sua conexão com o poder criador.",
+    "past_present_future": {
+      "past": "Uma fase de aprendizado e descoberta de habilidades pessoais, onde o potencial começou a se revelar.",
+      "present": "Um momento de ação e manifestação, onde a confiança e o domínio pessoal são cruciais.",
+      "future": "A promessa de um novo empreendimento ou criação, desde que haja foco e intenção clara."
+    }
+  },
+  {
+    "name": "A Sacerdotisa",
+    "title": "A Guardiã do Mistério",
+    "image": "assets/cards/high_priestess.jpg",
+    "number": 2,
+    "isMajorArcana": true,
+    "eighth_greater": "Sabedoria intuitiva, conexão espiritual profunda.",
+    "eighth_lesser": "Segredos ocultos, repressão, mistério não revelado.",
+    "order": "02",
+    "element": "Água",
+    "sign": null,
+    "planet": "Lua",
+    "description": "Sua carta é dois, e seu elemento é Água. Esta é a representação da Deusa, o complemento do Mago. Ela possui sua habilidade e capacidade, mas com muito mais conhecimento e psiquismo. Mais sutil e profunda, ela representa as forças da natureza e os ciclos naturais. A Sacerdotisa é a ponte entre o eu consciente e o inconsciente, entre o mundo físico e o espiritual. Representada por uma mulher velada, ela guarda os segredos mais íntimos da vida.",
+    "hebrew_letter": "Gimel (ג)",
+    "astrology": "Lua",
+    "description_symbolic": "A Sacerdotisa é a guardiã dos mistérios, a ponte entre o consciente e o inconsciente. Ela se senta em silêncio, envolta por um véu que simboliza o desconhecido, ocultando verdades profundas e revelando-as apenas aos que estão prontos. Sua conexão com a Lua reflete a intuição, o mistério e o fluxo cíclico da existência. Com o rolo da Torá em seu colo, ela guarda o conhecimento sagrado e inatingível, simbolizando a sabedoria pura que transcende o racional.",
+    "message_esoteric": "A Sacerdotisa nos ensina a confiar em nossa intuição, a olhar além da superfície e a buscar as respostas dentro de nós mesmos. Ela é o espaço entre os pensamentos, o silêncio entre as palavras, onde a verdadeira sabedoria reside. Esta carta nos convida a entrar no templo interior e ouvir a voz da alma.",
+    "meditation_reflection": [
+      "Estou ouvindo minha intuição ou deixando minha mente dominar?",
+      "Quais mistérios dentro de mim precisam ser explorados?",
+      "Como posso acessar o silêncio e a sabedoria interior?"
+    ],
+    "internal_alchemy": "A Sacerdotisa representa a alquimia da introspecção e da intuição. Ela nos lembra que o verdadeiro poder reside no entendimento silencioso e na paciência. O conhecimento oculto só se revela àqueles que o buscam com humildade e perseverança.",
+    "magical_practice": "Para conectar-se à Sacerdotisa, pratique a meditação silenciosa sob a luz da Lua. Visualize-se atravessando um véu e entrando em um templo interno, onde você encontra um pergaminho com as respostas que procura. Escreva suas percepções após a prática.",
+    "past_present_future": {
+      "past": "Um período de mistério e silêncio, onde o aprendizado veio de fontes intuitivas ou ocultas.",
+      "present": "Um momento de introspecção e paciência, onde as respostas ainda estão escondidas, mas se aproximam.",
+      "future": "A revelação de um segredo ou o acesso a uma sabedoria profunda, desde que você confie em sua intuição."
+    }
+  },
+  {
+    "name": "A Imperatriz",
+    "title": "A Mãe Divina",
+    "image": "assets/cards/empress.jpg",
+    "number": 3,
+    "isMajorArcana": true,
+    "eighth_greater": "Criatividade, fertilidade, conexão com a natureza.",
+    "eighth_lesser": "Excesso de indulgência, possessividade, falta de controle.",
+    "order": "03",
+    "element": "Terra",
+    "sign": null,
+    "planet": "Vênus",
+    "description": "Sua carta é três, e seu planeta é Vênus. Ela representa a força criativa da natureza e a energia do amor incondicional. Simboliza a abundância, a fertilidade e a nutrição que permeiam a vida. A Imperatriz é a essência da criação, tanto física quanto espiritual, conectando o divino à matéria. Ela também representa a harmonia com os ciclos naturais e o prazer sensorial.",
+    "hebrew_letter": "Daleth (ד)",
+    "astrology": "Vênus",
+    "description_symbolic": "A Imperatriz é a mãe divina, a fonte de toda a criação, fertilidade e abundância. Ela é a união do amor e da beleza, expressando a harmonia natural do universo. Sentada em seu trono, cercada por símbolos de crescimento e vida, ela governa com um coração aberto e generoso. Tudo que ela toca floresce, representando o poder do amor e do cuidado como forças criativas.",
+    "message_esoteric": "A Imperatriz nos lembra de nutrir nossas ideias, nossos relacionamentos e a nós mesmos. Ela nos ensina que o amor e a conexão com o mundo natural são essenciais para uma vida plena. É a carta da abundância, mas também do cuidado, que nos orienta a criar com intenção e amor.",
+    "meditation_reflection": [
+      "Estou cuidando bem de mim mesmo e dos outros ao meu redor?",
+      "Como posso permitir que minha criatividade floresça?",
+      "Estou em harmonia com as forças da natureza em minha vida?"
+    ],
+    "internal_alchemy": "A Imperatriz representa a alquimia do amor e da criatividade. Ela nos desafia a cultivar nosso jardim interno, alimentando o que queremos ver crescer em nossas vidas. Ela também nos lembra que a criação exige paciência e cuidado.",
+    "magical_practice": "Conecte-se à Imperatriz passando tempo na natureza ou criando algo com suas mãos. Visualize-se cercado por um campo fértil e vibrante, onde suas intenções crescem com força e graça.",
+    "past_present_future": {
+      "past": "Um período de crescimento e criatividade, marcado por momentos de abundância e conexão.",
+      "present": "Um chamado para nutrir suas ideias e cuidar de suas relações com paciência e amor.",
+      "future": "A promessa de prosperidade e harmonia, desde que você cultive suas intenções com dedicação."
+    }
+  },
+  {
+    "name": "O Imperador",
+    "title": "O Regente",
+    "image": "assets/cards/emperor.jpg",
+    "number": 4,
+    "isMajorArcana": true,
+    "eighth_greater": "Autoridade, estabilidade, estrutura sólida.",
+    "eighth_lesser": "Rigidez, tirania, controle excessivo.",
+    "order": "04",
+    "element": "Fogo",
+    "sign": "Áries",
+    "planet": null,
+    "description": "Sua carta é quatro, e seu signo é Áries. Ele é o arquétipo da autoridade, da ordem e da estrutura. Representa o controle, a disciplina e a estabilidade. O Imperador governa com sabedoria, trazendo proteção e regras que sustentam o equilíbrio do mundo material. Ele é a personificação da força masculina que organiza o caos.",
+    "hebrew_letter": "Heh (ה)",
+    "astrology": "Áries",
+    "description_symbolic": "O Imperador representa a estrutura, a ordem e a autoridade. Ele é o arquétipo do pai, que governa com disciplina e sabedoria. Seu trono de pedra simboliza estabilidade, enquanto o cetro em sua mão representa o poder que ele exerce sobre o mundo material. Ele é o construtor do reino, trazendo ordem ao caos e garantindo que as leis sejam cumpridas.",
+    "message_esoteric": "O Imperador nos ensina a importância da estrutura e da responsabilidade. Ele nos desafia a tomar o controle de nossas vidas e a governar nosso próprio reino interno com justiça e sabedoria. Sua lição é que a liberdade só pode existir dentro de limites bem definidos.",
+    "meditation_reflection": [
+      "Estou assumindo a responsabilidade pelas áreas da minha vida que precisam de ordem?",
+      "Como posso criar uma base estável para alcançar meus objetivos?",
+      "Que estruturas ou regras eu preciso implementar para alcançar o equilíbrio?"
+    ],
+    "internal_alchemy": "O Imperador representa a alquimia do domínio e da organização. Ele nos lembra que a verdadeira autoridade vem de dentro, e que o autodomínio é essencial para liderar com sucesso.",
+    "magical_practice": "Para conectar-se ao Imperador, visualize-se sentado em um trono, governando com sabedoria e justiça. Afirme seu poder interior e estabeleça limites claros para si mesmo e para os outros.",
+    "past_present_future": {
+      "past": "Um tempo de estrutura e ordem, onde regras claras ajudaram a estabelecer sua base.",
+      "present": "Um momento de responsabilidade e controle, onde você precisa assumir o comando de sua vida.",
+      "future": "A promessa de estabilidade e sucesso, desde que você estabeleça limites claros e se mantenha disciplinado."
+    }
+  },
+  {
+    "name": "O Hierofante",
+    "title": "O Mestre Espiritual",
+    "image": "assets/cards/hierophant.jpg",
+    "number": 5,
+    "isMajorArcana": true,
+    "eighth_greater": "Sabedoria, grande estudioso das ciências e religiões.",
+    "eighth_lesser": "Intolerância, fanatismo, dogmatismo.",
+    "order": "05",
+    "element": "Terra",
+    "sign": "Touro",
+    "planet": null,
+    "description": "Sua carta é cinco, e seu signo é Touro. Representa a sabedoria sagrada e a conexão com o divino através das tradições espirituais. Ele é o mediador entre o céu e a terra, guiando-nos para um entendimento mais profundo das verdades universais. O Hierofante é também o professor espiritual, aquele que nos conduz por caminhos seguros.",
+    "hebrew_letter": "Vav (ו)",
+    "astrology": "Touro",
+    "description_symbolic": "O Hierofante é o guardião da sabedoria sagrada, o professor espiritual que transmite o conhecimento divino. Ele é o mediador entre o céu e a terra, canalizando as verdades superiores para o mundo físico. Sentado em um trono, cercado por símbolos de fé e tradição, ele representa as estruturas espirituais e os rituais que conectam o humano ao divino.",
+    "message_esoteric": "O Hierofante nos ensina que o conhecimento sagrado deve ser buscado e transmitido com reverência. Ele nos lembra que somos parte de uma linhagem espiritual maior e que as tradições têm valor como guias em nossa jornada.",
+    "meditation_reflection": [
+      "Que ensinamentos espirituais ou filosóficos têm guiado minha vida?",
+      "Estou aberto a aprender com as tradições e a compartilhar o que sei?",
+      "Como posso ser um canal para a sabedoria divina em meu dia a dia?"
+    ],
+    "internal_alchemy": "O Hierofante simboliza a alquimia do aprendizado e do ensino. Ele nos convida a explorar as tradições espirituais e a encontrar sabedoria nos rituais e práticas que conectam o humano ao divino.",
+    "magical_practice": "Conecte-se ao Hierofante explorando um texto sagrado ou realizando um ritual que honre sua linhagem espiritual. Medite sobre seu papel como estudante e professor, e esteja aberto ao fluxo do conhecimento divino.",
+    "past_present_future": {
+      "past": "Um período de aprendizado e conexão com tradições ou sistemas espirituais que moldaram sua visão de mundo.",
+      "present": "Um momento de busca por significado e orientação espiritual, onde as tradições podem oferecer clareza.",
+      "future": "A promessa de sabedoria e crescimento espiritual, desde que você esteja disposto a aprender e a ensinar."
+    }
+  },
+  {
+    "name": "Os Enamorados",
+    "title": "A Escolha",
+    "image": "assets/cards/lovers.jpg",
+    "number": 6,
+    "isMajorArcana": true,
+    "eighth_greater": "Harmonia, amor verdadeiro, escolhas conscientes.",
+    "eighth_lesser": "Dúvidas, indecisão, relações conflituosas.",
+    "order": "06",
+    "element": "Ar",
+    "sign": "Gêmeos",
+    "planet": null,
+    "description": "Sua carta é seis, e seu signo é Gêmeos. Representa a escolha consciente, o amor verdadeiro e a harmonia entre opostos. Os Enamorados falam da união de forças que se complementam, seja em relacionamentos, seja na jornada interna do eu. É uma carta que nos lembra da importância de seguir o coração e assumir responsabilidade por nossas escolhas.",
+    "hebrew_letter": "Zayin (ז)",
+    "astrology": "Gêmeos",
+    "description_symbolic": "Os Enamorados representam a união dos opostos, o equilíbrio entre as polaridades. Eles simbolizam não apenas o amor romântico, mas a escolha consciente que leva à harmonia. Na carta, figuras masculinas e femininas estão unidas sob a bênção de um anjo, sugerindo uma conexão espiritual que transcende o plano físico.",
+    "message_esoteric": "Esta carta nos ensina que o verdadeiro amor e união vêm da integração das dualidades dentro de nós mesmos. Os Enamorados simbolizam escolhas significativas que moldam nosso destino, desafiando-nos a agir com o coração e a mente alinhados.",
+    "meditation_reflection": [
+      "Estou em harmonia com minhas escolhas e relacionamentos?",
+      "Que aspectos de mim mesmo preciso integrar para alcançar equilíbrio?",
+      "Como minhas decisões estão moldando meu futuro?"
+    ],
+    "internal_alchemy": "Os Enamorados representam a alquimia da fusão, onde forças opostas se unem para criar algo maior. Eles nos lembram que todas as decisões importantes exigem equilíbrio e intenção consciente.",
+    "magical_practice": "Para conectar-se aos Enamorados, visualize o equilíbrio perfeito entre luz e sombra dentro de você. Medite sobre as escolhas que você precisa fazer e peça clareza ao universo para agir em alinhamento com sua verdade.",
+    "past_present_future": {
+      "past": "Um relacionamento ou decisão significativa que moldou seu caminho.",
+      "present": "Um momento de escolha ou união que requer equilíbrio e clareza.",
+      "future": "A promessa de harmonia e realização, desde que as decisões sejam feitas com intenção e amor."
+    }
+  },
+  {
+    "name": "O Carro",
+    "title": "O Conquistador",
+    "image": "assets/cards/chariot.jpg",
+    "number": 7,
+    "isMajorArcana": true,
+    "eighth_greater": "Determinação, controle, triunfo sobre desafios.",
+    "eighth_lesser": "Arrogância, impulsividade, perda de direção.",
+    "order": "07",
+    "element": "Água",
+    "sign": "Câncer",
+    "planet": null,
+    "description": "Sua carta é sete, e seu signo é Câncer. Representa o controle, a determinação e a força de vontade que superam os obstáculos. O Carro simboliza o triunfo do espírito sobre a matéria, conquistado através da autodisciplina e do foco. Ele é o veículo da vitória e do avanço na jornada da vida.",
+    "hebrew_letter": "Cheth (ח)",
+    "astrology": "Câncer",
+    "description_symbolic": "O Carro é a carta do triunfo através da vontade e determinação. Representado por um guerreiro conduzindo uma carruagem puxada por esfinges ou cavalos, ele simboliza o controle das forças opostas e o avanço em direção aos objetivos. É a vitória conquistada pelo equilíbrio interno e pela disciplina.",
+    "message_esoteric": "O Carro ensina que o sucesso exige foco, disciplina e controle sobre nossas emoções e ações. Ele nos lembra que a verdadeira vitória vem de dentro, da habilidade de dirigir nossa própria carruagem com determinação.",
+    "meditation_reflection": [
+      "Estou mantendo o controle sobre minha vida e minhas escolhas?",
+      "Quais forças internas ou externas preciso alinhar para alcançar meu objetivo?",
+      "Como posso avançar com confiança em direção aos meus sonhos?"
+    ],
+    "internal_alchemy": "O Carro representa a alquimia da disciplina e do movimento. Ele nos desafia a tomar as rédeas de nossa vida e a alinhar todas as partes de nosso ser para avançar com propósito e poder.",
+    "magical_practice": "Conecte-se ao Carro visualizando-se conduzindo uma carruagem com confiança e clareza. Afirme seu poder interior para dirigir sua vida em direção aos seus objetivos.",
+    "past_present_future": {
+      "past": "Um momento de progresso e avanço que exigiu determinação.",
+      "present": "Uma jornada está em andamento, exigindo disciplina e foco.",
+      "future": "A vitória e o sucesso estão próximos, desde que você continue no controle de sua direção."
+    }
+  },
+  {
+    "name": "A Justiça",
+    "title": "A Balança",
+    "image": "assets/cards/justice.jpg",
+    "number": 8,
+    "isMajorArcana": true,
+    "eighth_greater": "Equilíbrio, verdade, justiça imparcial.",
+    "eighth_lesser": "Desonestidade, parcialidade, desequilíbrio.",
+    "order": "08",
+    "element": "Ar",
+    "sign": "Libra",
+    "planet": null,
+    "description": "Sua carta é oito, e seu signo é Libra. Representa o equilíbrio, a verdade e a imparcialidade. A Justiça fala da necessidade de responsabilidade pelas ações e das consequências naturais que decorrem de nossas escolhas. Ela também simboliza a busca pela harmonia em todos os aspectos da vida.",
+    "hebrew_letter": "Lamed (ל)",
+    "astrology": "Libra",
+    "description_symbolic": "A Justiça é o equilíbrio cósmico. Cada ação tem uma reação, e tudo está em perfeito ajuste no universo. Com a espada da verdade em uma mão e a balança da harmonia na outra, ela simboliza a busca pela integridade e pela honestidade. É a personificação do karma e das leis universais.",
+    "message_esoteric": "A Justiça nos ensina que o universo opera em equilíbrio perfeito. Suas escolhas têm consequências, e suas ações moldam seu destino. Esta carta o convida a olhar honestamente para suas ações e a buscar harmonia interna e externa.",
+    "meditation_reflection": [
+      "Estou sendo honesto comigo mesmo e com os outros?",
+      "Como minhas ações estão contribuindo para o equilíbrio ou o desequilíbrio em minha vida?",
+      "Estou assumindo responsabilidade pelas consequências de minhas escolhas?"
+    ],
+    "internal_alchemy": "A Justiça simboliza a alquimia do equilíbrio. Ela nos desafia a integrar nossos pensamentos e ações, alinhando-nos com a verdade e a integridade. A harmonia interna reflete-se no mundo externo.",
+    "magical_practice": "Conecte-se à Justiça refletindo sobre uma decisão ou ação que precisa de equilíbrio. Visualize-se segurando uma balança, equilibrando seus desejos com suas responsabilidades. Afirme seu compromisso com a verdade.",
+    "past_present_future": {
+      "past": "Uma situação onde a justiça ou o equilíbrio desempenhou um papel importante.",
+      "present": "Um momento de avaliar suas escolhas e ações para garantir harmonia e honestidade.",
+      "future": "O resultado de suas ações será justo e equilibrado, desde que você atue com integridade."
+    }
+  },
+  {
+    "name": "O Eremita",
+    "title": "O Sábio",
+    "image": "assets/cards/hermit.jpg",
+    "number": 9,
+    "isMajorArcana": true,
+    "eighth_greater": "Busca interna, sabedoria, introspecção.",
+    "eighth_lesser": "Isolamento, solidão excessiva, fuga.",
+    "order": "09",
+    "element": "Terra",
+    "sign": "Virgem",
+    "planet": null,
+    "description": "Sua carta é nove, e seu signo é Virgem. Representa a introspecção, a sabedoria interior e a busca pelo autoconhecimento. O Eremita é aquele que se afasta do mundo para iluminar sua própria jornada e trazer clareza ao caminho dos outros. Ele carrega a luz da verdade e da sabedoria espiritual.",
+    "hebrew_letter": "Yod (י)",
+    "astrology": "Virgem",
+    "description_symbolic": "O Eremita é o guia espiritual, que caminha sozinho na escuridão carregando a lanterna da sabedoria. Ele simboliza a busca pela verdade interior e pela iluminação. Representa a introspecção necessária para encontrar respostas que não estão no mundo externo, mas dentro de nós mesmos.",
+    "message_esoteric": "O Eremita ensina que a verdadeira sabedoria vem de dentro. Ele nos convida a nos retirarmos do ruído externo para ouvir a voz interior. Esta carta nos lembra que momentos de solidão podem ser necessários para encontrar o verdadeiro propósito.",
+    "meditation_reflection": [
+      "Estou reservando tempo suficiente para reflexão e introspecção?",
+      "Que lições posso aprender ao olhar para dentro de mim mesmo?",
+      "Estou fugindo ou buscando a verdadeira sabedoria em meu isolamento?"
+    ],
+    "internal_alchemy": "O Eremita representa a alquimia do autoconhecimento. Ele nos desafia a enfrentar nossa escuridão interior e a encontrar a luz que brilha em nossa própria alma.",
+    "magical_practice": "Conecte-se ao Eremita dedicando um momento ao silêncio e à meditação. Visualize-se caminhando em uma caverna escura com uma lanterna, encontrando sabedoria e clareza no caminho.",
+    "past_present_future": {
+      "past": "Um período de isolamento ou reflexão profunda que levou a um entendimento maior.",
+      "present": "Um momento de introspecção e busca por respostas internas.",
+      "future": "Clareza e sabedoria virão como resultado de sua jornada interior."
+    }
+  },
+  {
+    "name": "A Roda da Fortuna",
+    "title": "O Destino",
+    "image": "assets/cards/wheel_of_fortune.jpg",
+    "number": 10,
+    "isMajorArcana": true,
+    "eighth_greater": "Ciclos positivos, sorte, mudanças inevitáveis.",
+    "eighth_lesser": "Repetição de erros, instabilidade, resistência à mudança.",
+    "order": 10,
+    "element": "Fogo",
+    "sign": null,
+    "planet": "Júpiter",
+    "description": "Sua carta é dez, e seu planeta é Júpiter. Representa os ciclos da vida, a sorte e as mudanças inevitáveis. A Roda da Fortuna nos lembra que tudo está em constante movimento e que devemos aceitar as fases da vida com graça e adaptação.",
+    "hebrew_letter": "Kaph (כ)",
+    "astrology": "Júpiter",
+    "description_symbolic": "A Roda da Fortuna é o ciclo eterno da vida, onde tudo está em movimento constante. No centro, está o equilíbrio, enquanto as bordas da roda giram em ciclos de altos e baixos. Ela representa a inevitabilidade da mudança e a oportunidade que vem com cada giro.",
+    "message_esoteric": "A Roda da Fortuna nos ensina que a vida é feita de ciclos. Devemos abraçar tanto os momentos de sorte quanto os desafios, reconhecendo que tudo é temporário. Esta carta nos lembra de encontrar equilíbrio em meio às mudanças.",
+    "meditation_reflection": [
+      "Estou aceitando as mudanças da vida com graça ou resistindo a elas?",
+      "Que padrões ou ciclos estão se repetindo na minha vida?",
+      "Como posso aproveitar as oportunidades que surgem com as mudanças?"
+    ],
+    "internal_alchemy": "A Roda da Fortuna representa a alquimia da adaptação. Ela nos desafia a encontrar equilíbrio em meio às flutuações da vida, transformando desafios em oportunidades e aceitando o fluxo do universo.",
+    "magical_practice": "Conecte-se à Roda da Fortuna refletindo sobre os ciclos em sua vida. Visualize uma roda girando e veja-se no centro dela, estável e em equilíbrio, enquanto o mundo ao seu redor muda.",
+    "past_present_future": {
+      "past": "Um ciclo de mudanças ou eventos inesperados que moldaram sua jornada.",
+      "present": "Um momento de movimento e mudança, trazendo novas oportunidades e desafios.",
+      "future": "A promessa de sorte ou transformação, desde que você esteja aberto ao fluxo da vida."
+    }
+  },
+  {
+    "name": "A Força",
+    "title": "O Coração Valente",
+    "image": "assets/cards/strength.jpg",
+    "number": 11,
+    "isMajorArcana": true,
+    "eighth_greater": "Coragem, domínio sobre as emoções, força interior.",
+    "eighth_lesser": "Fraqueza, medo, falta de controle emocional.",
+    "order": 11,
+    "element": "Fogo",
+    "sign": "Leão",
+    "planet": null,
+    "description": "Sua carta é onze, e seu signo é Leão. Representa a coragem, o autocontrole e o domínio sobre as emoções. A Força não é sobre agressão, mas sobre a habilidade de superar desafios com paciência, confiança e compaixão.",
+    "hebrew_letter": "Teth (ט)",
+    "astrology": "Leão",
+    "description_symbolic": "A Força é o domínio gentil e compassivo das emoções e dos instintos. Representada por uma figura controlando um leão, ela simboliza a coragem e a confiança que vêm de dentro. Não é a força bruta que prevalece, mas o equilíbrio entre o poder e a paciência.",
+    "message_esoteric": "A Força nos ensina que a verdadeira coragem vem do domínio interno. Ela nos convida a enfrentar nossos medos com calma e compaixão, encontrando equilíbrio em meio aos desafios. Esta carta nos lembra que a força reside em nossas ações conscientes e não em reações impulsivas.",
+    "meditation_reflection": [
+      "Estou enfrentando desafios com coragem e paciência?",
+      "Como posso dominar minhas emoções e agir com equilíbrio?",
+      "Que força interior posso acessar para superar os obstáculos à minha frente?"
+    ],
+    "internal_alchemy": "A Força simboliza a alquimia da coragem e da paciência. Ela nos desafia a integrar nossos instintos com nossa consciência superior, canalizando nossa energia de forma equilibrada e focada.",
+    "magical_practice": "Conecte-se à Força visualizando-se acalmando um leão com sua presença tranquila. Afirme sua capacidade de enfrentar desafios com coragem, confiança e compaixão.",
+    "past_present_future": {
+      "past": "Um momento em que a paciência e a coragem foram essenciais para superar desafios.",
+      "present": "Um desafio atual que exige autocontrole e força interior para ser enfrentado.",
+      "future": "A promessa de vitória e equilíbrio, desde que você permaneça calmo e confiante."
+    }
+  },
+  {
+    "name": "A Morte",
+    "title": "A Transformação",
+    "image": "assets/cards/death.jpg",
+    "number": 13,
+    "isMajorArcana": true,
+    "eighth_greater": "Transformação, renascimento, novos ciclos.",
+    "eighth_lesser": "Resistência à mudança, medo do desconhecido.",
+    "order": 13,
+    "element": "Água",
+    "sign": "Escorpião",
+    "planet": null,
+    "description": "Sua carta é treze, e seu signo é Escorpião. Representa a transformação, o renascimento e os finais necessários para novos começos. A Morte não é algo a temer, mas uma mudança inevitável que traz crescimento e renovação.",
+    "hebrew_letter": "Nun (נ)",
+    "astrology": "Escorpião",
+    "description_symbolic": "A Morte é a transformação absoluta, o renascimento que vem com o fim de um ciclo. Representada por um ceifador ou um esqueleto, ela simboliza o despojamento do velho para abrir espaço para o novo. É o processo natural de deixar ir o que não serve mais para que algo mais significativo possa emergir.",
+    "message_esoteric": "A Morte nos ensina que o fim é apenas o início de uma nova jornada. Ela nos convida a aceitar as mudanças e a confiar que cada transformação é uma oportunidade para renascimento e crescimento espiritual.",
+    "meditation_reflection": [
+      "Estou resistindo a mudanças necessárias em minha vida?",
+      "Que aspectos antigos ou limitantes preciso deixar para trás?",
+      "Como posso acolher a transformação com confiança e gratidão?"
+    ],
+    "internal_alchemy": "A Morte simboliza a alquimia da transmutação. Ela nos desafia a liberar velhos padrões e crenças, permitindo que novas energias floresçam. É o processo de morte e renascimento interno que nos conecta ao nosso potencial mais elevado.",
+    "magical_practice": "Conecte-se à Morte visualizando-se deixando para trás um fardo ou uma parte do passado que não lhe serve mais. Imagine uma luz nova emergindo à medida que você aceita a transformação. Afirme sua abertura para novos começos.",
+    "past_present_future": {
+      "past": "Um final significativo ou uma transformação que mudou sua direção.",
+      "present": "Uma fase de transição e renascimento que exige que você libere o velho.",
+      "future": "A promessa de crescimento e renovação, desde que você abrace a mudança e confie no processo."
+    }
+  },
+  {
+    "name": "A Temperança",
+    "title": "A Harmonia",
+    "image": "assets/cards/temperance.jpg",
+    "number": 14,
+    "isMajorArcana": true,
+    "eighth_greater": "Equilíbrio, harmonia, paciência.",
+    "eighth_lesser": "Excesso, falta de moderação, descontrole.",
+    "order": 14,
+    "element": "Fogo",
+    "sign": "Sagitário",
+    "planet": null,
+    "description": "Sua carta é catorze, e seu signo é Sagitário. Representa o equilíbrio, a harmonia e a moderação. A Temperança nos ensina a combinar forças opostas de forma criativa e a buscar a paz interior através da paciência.",
+    "hebrew_letter": "Samekh (ס)",
+    "astrology": "Sagitário",
+    "description_symbolic": "A Temperança é a arte de combinar opostos para criar algo novo. Representada por um anjo que mistura líquidos entre dois vasos, ela simboliza o equilíbrio, a harmonia e a paciência necessárias para alcançar um estado de paz. É a fusão das energias divina e terrena.",
+    "message_esoteric": "A Temperança nos ensina que a moderação e o equilíbrio são fundamentais para a harmonia interna e externa. Ela nos convida a integrar forças opostas e a encontrar paz em meio ao caos, confiando no fluxo da vida.",
+    "meditation_reflection": [
+      "Estou buscando equilíbrio em minha vida ou me entregando a extremos?",
+      "Como posso integrar aspectos opostos de mim mesmo ou da minha vida?",
+      "Que práticas posso adotar para alcançar harmonia e paz interior?"
+    ],
+    "internal_alchemy": "A Temperança simboliza a alquimia da integração. Ela nos desafia a combinar diferentes aspectos de nós mesmos, encontrando unidade e equilíbrio. É o processo de harmonizar o espírito e a matéria para criar algo elevado.",
+    "magical_practice": "Conecte-se à Temperança visualizando dois aspectos opostos em sua vida sendo integrados em um fluxo harmonioso. Imagine uma luz dourada envolvendo você, trazendo equilíbrio e paz. Afirme sua capacidade de harmonizar os extremos.",
+    "past_present_future": {
+      "past": "Um momento de equilíbrio e harmonia que trouxe clareza e crescimento.",
+      "present": "Um chamado para buscar moderação e integrar forças opostas em sua vida.",
+      "future": "A promessa de paz e harmonia, desde que você permaneça paciente e confiante no processo."
+    }
+  },
+  {
+    "name": "O Diabo",
+    "title":  "O Tentador",
+    "image": "assets/cards/devil.jpg",
+    "number": 15,
+    "isMajorArcana": true,
+    "eighth_greater": "Conexão com desejos terrenos, força magnética.",
+    "eighth_lesser": "Dependência, vícios, obsessão.",
+    "order": 15,
+    "element": "Terra",
+    "sign": "Capricórnio",
+    "planet": null,
+    "description": "Sua carta é quinze, e seu signo é Capricórnio. Representa as armadilhas dos desejos terrenos, os vícios e as ilusões que nos aprisionam. O Diabo nos desafia a enfrentar nossas sombras e nos libertar do que nos impede de crescer.",
+    "hebrew_letter": "Ayin (ע)",
+    "astrology": "Capricórnio",
+    "description_symbolic": "O Diabo é o reflexo dos desejos terrenos e das correntes invisíveis que nos prendem. Representado por uma figura imponente que aprisiona duas almas, ele simboliza as amarras das ilusões, dos vícios e das obsessões. Mas ele também nos lembra que essas correntes podem ser quebradas com consciência e força de vontade.",
+    "message_esoteric": "O Diabo nos ensina que os maiores aprisionamentos vêm de dentro. Ele nos desafia a olhar para nossas sombras e desejos, reconhecendo o poder que temos para nos libertar das ilusões e das limitações autoimpostas.",
+    "meditation_reflection": [
+      "Que aspectos de mim mesmo estou evitando ou negando?",
+      "Estou preso a desejos ou padrões que não me servem mais?",
+      "Como posso transformar minhas sombras em poder criativo e libertador?"
+    ],
+    "internal_alchemy": "O Diabo simboliza a alquimia da aceitação e da libertação. Ele nos convida a enfrentar nossos medos e desejos, usando-os como combustível para a transformação. Através da autoconsciência, encontramos verdadeira liberdade.",
+    "magical_practice": "Conecte-se ao Diabo refletindo sobre as áreas em que você se sente preso. Visualize as correntes que o seguram sendo quebradas, libertando-o para seguir em frente. Afirme sua liberdade e poder interior.",
+    "past_present_future": {
+      "past": "Um período de vícios ou dependências que o ensinaram lições importantes.",
+      "present": "Um momento de confronto com desejos ou limitações que exigem consciência e superação.",
+      "future": "A promessa de liberdade e crescimento, desde que você enfrente e libere suas sombras."
+    }
+  },
+  {
+    "name": "A Torre",
+    "title": "A Revelação",
+    "image": "assets/cards/tower.jpg",
+    "number": 16,
+    "isMajorArcana": true,
+    "eighth_greater": "Destruição de ilusões, liberação.",
+    "eighth_lesser": "Caos, crise, mudanças dolorosas.",
+    "order": 16,
+    "element": "Fogo",
+    "sign": null,
+    "planet": "Marte",
+    "description": "Sua carta é dezesseis, e seu planeta é Marte. Representa a destruição das ilusões e a necessidade de começar de novo. A Torre é um lembrete de que, às vezes, o colapso é necessário para reconstruirmos algo mais forte e verdadeiro.",
+    "hebrew_letter": "Peh (פ)",
+    "astrology": "Marte",
+    "description_symbolic": "A Torre é a desconstrução abrupta que nos liberta de estruturas ilusórias. Representada por uma torre sendo destruída por raios, ela simboliza a quebra de velhos paradigmas e a revelação da verdade. É um chamado para aceitar o caos como parte do crescimento.",
+    "message_esoteric": "A Torre ensina que grandes mudanças e destruições podem ser o início de algo muito maior. Ela nos convida a abraçar o colapso como uma oportunidade para reconstruir com base na autenticidade.",
+    "meditation_reflection": [
+      "Estou me apegando a ilusões ou estruturas que não me servem mais?",
+      "Como posso abraçar mudanças inesperadas em minha vida?",
+      "Que lições posso aprender com o caos ao meu redor?"
+    ],
+    "internal_alchemy": "A Torre simboliza a alquimia da destruição e renovação. Ela nos lembra que, para crescer, devemos liberar o velho e nos abrir para o novo.",
+    "magical_practice": "Conecte-se à Torre refletindo sobre algo que precisa ser liberado em sua vida. Visualize a quebra desse padrão como um relâmpago, abrindo espaço para algo mais verdadeiro.",
+    "past_present_future": {
+      "past": "Um colapso ou ruptura que trouxe grandes mudanças e crescimento.",
+      "present": "Um momento de caos ou transformação que exige aceitação e força.",
+      "future": "Uma liberação necessária que abrirá caminho para algo melhor."
+    }
+  },
+  {
+    "name": "A Estrela",
+    "title": "A Esperança",
+    "image": "assets/cards/star.jpg",
+    "number": 17,
+    "isMajorArcana": true,
+    "eighth_greater": "Esperança, inspiração, renovação.",
+    "eighth_lesser": "Desânimo, pessimismo, falta de fé.",
+    "order": 17,
+    "element": "Ar",
+    "sign": "Aquário",
+    "planet": null,
+    "description": "Sua carta é dezessete, e seu signo é Aquário. Representa a esperança, a inspiração e a renovação. A Estrela nos guia com sua luz, lembrando-nos de confiar no universo e em nosso potencial de transformação.",
+    "hebrew_letter": "Tzaddi (צ)",
+    "astrology": "Aquário",
+    "description_symbolic": "A Estrela é o farol de esperança e inspiração. Representada por uma figura derramando água sobre a terra e na água, ela simboliza a renovação e a conexão espiritual. É o chamado para confiar no universo e seguir em frente com fé.",
+    "message_esoteric": "A Estrela nos ensina que a esperança e a inspiração são guias poderosos em tempos difíceis. Ela nos convida a olhar para o futuro com otimismo e a confiar no fluxo divino.",
+    "meditation_reflection": [
+      "Estou permitindo que a esperança e a inspiração me guiem?",
+      "Que aspectos de minha vida precisam de renovação?",
+      "Como posso fortalecer minha conexão com o universo?"
+    ],
+    "internal_alchemy": "A Estrela simboliza a alquimia da renovação espiritual. Ela nos lembra que a fé e a confiança no fluxo divino trazem luz e clareza em tempos de escuridão.",
+    "magical_practice": "Conecte-se à Estrela visualizando uma luz brilhante guiando-o em direção a um futuro melhor. Afirme sua confiança no universo e em sua capacidade de transformação.",
+    "past_present_future": {
+      "past": "Um momento de renovação ou inspiração que trouxe clareza e esperança.",
+      "present": "Um chamado para abraçar a esperança e a confiança no futuro.",
+      "future": "A promessa de renovação e harmonia, desde que você mantenha a fé."
+    }
+  },
+  {
+    "name": "A Lua",
+    "title": "O Mistério",
+    "image": "assets/cards/moon.jpg",
+    "number": 18,
+    "isMajorArcana": true,
+    "eighth_greater": "Intuição, mistério, sonhos reveladores.",
+    "eighth_lesser": "Engano, confusão, medo.",
+    "order": 18,
+    "element": "Água",
+    "sign": "Peixes",
+    "planet": null,
+    "description": "Sua carta é dezoito, e seu signo é Peixes. Representa o mistério, os sonhos e as emoções ocultas. A Lua ilumina o caminho incerto, pedindo que confiemos em nossa intuição para navegar por terrenos desconhecidos.",
+    "hebrew_letter": "Qoph (ק)",
+    "astrology": "Peixes",
+    "description_symbolic": "A Lua é o reflexo do inconsciente, iluminando os mistérios e as sombras. Representada por um caminho sinuoso sob a luz da lua, ela simboliza a incerteza, os sonhos e as emoções profundas. É um convite para confiar na intuição.",
+    "message_esoteric": "A Lua nos ensina que nem tudo é como parece. Ela nos convida a mergulhar no mistério e nos sonhos para encontrar a verdade oculta e enfrentar nossos medos.",
+    "meditation_reflection": [
+      "Estou ouvindo minha intuição ou sendo guiado pelo medo?",
+      "Que mistérios ou emoções ocultas estou pronto para explorar?",
+      "Como posso usar meus sonhos para obter clareza e sabedoria?"
+    ],
+    "internal_alchemy": "A Lua simboliza a alquimia da introspecção emocional. Ela nos desafia a navegar pelas sombras de nossa mente e a encontrar a clareza em meio à incerteza.",
+    "magical_practice": "Conecte-se à Lua refletindo sob sua luz e prestando atenção aos seus sonhos. Visualize um caminho iluminado pela luz da lua, guiando-o com sabedoria e intuição.",
+    "past_present_future": {
+      "past": "Um período de mistério ou confusão que trouxe lições valiosas.",
+      "present": "Um momento de confiar na intuição para navegar por situações incertas.",
+      "future": "A promessa de clareza e verdade, desde que você enfrente suas sombras e confie em si mesmo."
+    }
+  },
+  {
+    "name": "O Sol",
+    "title": "A Clareza",
+    "image": "assets/cards/sun.jpg",
+    "number": 19,
+    "isMajorArcana": true,
+    "eighth_greater": "Felicidade, clareza, sucesso.",
+    "eighth_lesser": "Arrogância, egocentrismo, superexposição.",
+    "order": 19,
+    "element": "Fogo",
+    "sign": null,
+    "planet": "Sol",
+    "description": "Sua carta é dezenove, e seu planeta é o Sol. Representa a alegria, a clareza e o sucesso. O Sol nos lembra de celebrar as vitórias da vida e de nos aquecermos na luz da verdade e da vitalidade.",
+    "hebrew_letter": "Resh (ר)",
+    "astrology": "Sol",
+    "description_symbolic": "O Sol é a fonte de vida e iluminação. Representado por uma figura radiante sob o brilho do sol, ele simboliza clareza, alegria e energia vital. Ele é o despertar da consciência e a vitória sobre a escuridão.",
+    "message_esoteric": "O Sol nos ensina que a verdade e a clareza iluminam o caminho para o sucesso. Ele nos convida a celebrar a vida, reconhecer nossas realizações e abraçar a alegria como uma força vital.",
+    "meditation_reflection": [
+      "Estou reconhecendo minhas conquistas e celebrando minhas vitórias?",
+      "Como posso trazer mais clareza e luz para minha vida?",
+      "Estou me aquecendo na energia positiva ou me deixando ofuscar pelo ego?"
+    ],
+    "internal_alchemy": "O Sol simboliza a alquimia da iluminação e da vitalidade. Ele nos desafia a abraçar nossa energia mais autêntica e a brilhar sem medo, compartilhando nossa luz com o mundo.",
+    "magical_practice": "Conecte-se ao Sol meditando sob sua luz e visualizando sua energia iluminando todas as áreas da sua vida. Afirme sua força interior e vitalidade.",
+    "past_present_future": {
+      "past": "Um período de sucesso ou clareza que trouxe crescimento e alegria.",
+      "present": "Um momento de celebração e reconhecimento de suas conquistas.",
+      "future": "A promessa de sucesso e vitalidade, desde que você permaneça fiel à sua verdade."
+    }
+  },
+  {
+    "name": "O Julgamento",
+    "title": "A Renovação",
+    "image": "assets/cards/judgement.jpg",
+    "number": 20,
+    "isMajorArcana": true,
+    "eighth_greater": "Renovação, transformação, libertação.",
+    "eighth_lesser": "Resistência ao chamado, medo do julgamento.",
+    "order": 20,
+    "element": "Fogo",
+    "sign": null,
+    "planet": "Plutão",
+    "description": "Sua carta é vinte, e seu elemento é Fogo. Representa a renovação, o despertar espiritual e o chamado para algo maior. O Julgamento nos encoraja a deixar o passado para trás e abraçar nosso verdadeiro propósito.",
+    "hebrew_letter": "Shin (ש)",
+    "astrology": "Plutão",
+    "description_symbolic": "O Julgamento é o chamado para um renascimento espiritual. Representado por figuras ascendendo ao som de uma trombeta, ele simboliza a libertação e o despertar para um novo nível de consciência.",
+    "message_esoteric": "O Julgamento nos ensina que devemos deixar o passado para trás e responder ao chamado de nossa alma. Ele nos convida a nos libertarmos de arrependimentos e a nos entregarmos à transformação.",
+    "meditation_reflection": [
+      "Estou ouvindo o chamado de minha alma para algo maior?",
+      "O que preciso deixar para trás para abraçar meu propósito?",
+      "Como posso transformar meu passado em aprendizado e renovação?"
+    ],
+    "internal_alchemy": "O Julgamento simboliza a alquimia do despertar espiritual. Ele nos desafia a abraçar a transformação e a renascer com um propósito mais elevado, libertando-nos de arrependimentos e limitações.",
+    "magical_practice": "Conecte-se ao Julgamento visualizando uma trombeta tocando em seu coração, despertando-o para um novo propósito. Afirme sua libertação do passado e sua prontidão para um novo começo.",
+    "past_present_future": {
+      "past": "Um momento de despertar ou transformação que mudou sua perspectiva.",
+      "present": "Um chamado para renascer e abraçar seu verdadeiro propósito.",
+      "future": "A promessa de renovação e libertação, desde que você aceite o chamado."
+    }
+  },
+  {
+    "name": "O Mundo",
+    "title": "A Realização",
+    "image": "assets/cards/world.jpg",
+    "number": 21,
+    "isMajorArcana": true,
+    "eighth_greater": "Conclusão, plenitude, realização.",
+    "eighth_lesser": "Estagnação, sensação de algo inacabado.",
+    "order": 21,
+    "element": "Terra",
+    "sign": null,
+    "planet": "Saturno",
+    "description": "Sua carta é vinte e um, e seu planeta é Saturno. Representa a realização, a plenitude e o fim de um ciclo. O Mundo é a recompensa final, o equilíbrio entre o espiritual e o material, e a integração de todas as lições aprendidas.",
+    "hebrew_letter": "Tav (ת)",
+    "astrology": "Saturno",
+    "description_symbolic": "O Mundo é o círculo completo, a integração de todas as coisas. Representado por uma figura em equilíbrio dentro de uma coroa de louros, ele simboliza a realização e a união do espiritual e do material.",
+    "message_esoteric": "O Mundo nos ensina que a plenitude vem da integração de todas as partes de nós mesmos. Ele nos convida a celebrar nossas conquistas e a reconhecer a harmonia entre o interior e o exterior.",
+    "meditation_reflection": [
+      "Estou celebrando minhas realizações ou focando apenas no próximo objetivo?",
+      "Como posso integrar minhas experiências em um todo harmonioso?",
+      "O que posso fazer para encontrar equilíbrio entre o espiritual e o material?"
+    ],
+    "internal_alchemy": "O Mundo simboliza a alquimia da integração e da conclusão. Ele nos desafia a unir todas as lições aprendidas e a viver em harmonia com nosso propósito maior.",
+    "magical_practice": "Conecte-se ao Mundo visualizando-se dentro de um círculo de luz, representando plenitude e equilíbrio. Afirme sua completude e realização.",
+    "past_present_future": {
+      "past": "Um ciclo completo ou realização significativa que trouxe aprendizado e equilíbrio.",
+      "present": "Um momento de celebração e integração de suas experiências.",
+      "future": "A promessa de plenitude e realização, desde que você permaneça em harmonia consigo mesmo."
+    }
+  },
+  {
+    "name": "Ás de Paus",
+    "title": "Fonte de Poder",
+    "image": "assets/cards/ace_of_wands.jpg",
+    "number": 1,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Início de projetos criativos, energia bruta, potencial.",
+    "eighth_lesser": "Falta de direção, bloqueios criativos, hesitação.",
+    "order": 22,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Representa o início da força criativa. É a centelha da inspiração, a energia bruta que leva à ação e à realização. Simboliza potencial puro e oportunidades emocionantes.",
+    "description_symbolic": "O Ás de Paus é a faísca da criação, a energia primordial que acende o fogo do desejo e da inspiração. É a oportunidade de transformar ideias em ação, o potencial puro esperando ser explorado.",
+    "message_esoteric": "Este é o chamado para abraçar novas ideias e seguir sua paixão. O Ás de Paus simboliza a força vital que nos impulsiona a explorar novos territórios e a iniciar projetos com entusiasmo.",
+    "meditation_reflection": [
+      "Quais novas ideias ou projetos estou pronto para iniciar?",
+      "Estou aproveitando o potencial criativo em minha vida?",
+      "Como posso acender a faísca da inspiração em meu dia a dia?"
+    ],
+    "internal_alchemy": "O Ás de Paus simboliza a alquimia da criação. Ele nos lembra que toda ação começa com uma faísca de inspiração, e que cabe a nós alimentar essa energia com foco e determinação.",
+    "magical_practice": "Conecte-se ao Ás de Paus visualizando um fogo brilhante acendendo dentro de você. Afirme sua energia criativa e sua prontidão para iniciar novos projetos.",
+    "past_present_future": {
+      "past": "Um início recente trouxe inspiração e energia criativa.",
+      "present": "Uma oportunidade para começar algo novo e emocionante.",
+      "future": "O potencial para grandes realizações, desde que você aproveite a energia inicial."
+    }
+  },
+  {
+    "name": "Dois de Paus",
+    "title": "Domínio",
+    "image": "assets/cards/two_of_wands.jpg",
+    "number": 2,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Planejamento estratégico, visão de futuro, decisões.",
+    "eighth_lesser": "Indecisão, medo do desconhecido, inação.",
+    "order": 23,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Representa domínio e força de vontade. É a habilidade de tomar decisões estratégicas e o desejo de expandir horizontes. Simboliza controle e planejamento.",
+    "description_symbolic": "O Dois de Paus é a representação do planejamento estratégico e do controle. É o momento de tomar decisões importantes e estabelecer uma base sólida para expansão futura.",
+    "message_esoteric": "Este é o chamado para equilibrar visão e ação. O Dois de Paus simboliza a importância de planejar antes de avançar, mantendo uma visão clara do futuro.",
+    "meditation_reflection": [
+      "Estou tomando decisões estratégicas para expandir meus horizontes?",
+      "Como posso equilibrar ação e planejamento em minha vida?",
+      "Estou aproveitando meu potencial para moldar meu futuro?"
+    ],
+    "internal_alchemy": "O Dois de Paus simboliza a alquimia da visão e da vontade. Ele nos desafia a alinhar nossas intenções com ações estratégicas, construindo uma base para o crescimento futuro.",
+    "magical_practice": "Conecte-se ao Dois de Paus visualizando-se segurando o mundo em suas mãos, representando sua visão e domínio. Afirme sua habilidade de tomar decisões estratégicas.",
+    "past_present_future": {
+      "past": "Uma decisão recente estabeleceu uma base para o progresso futuro.",
+      "present": "Um momento de planejamento e definição de metas para o futuro.",
+      "future": "O potencial de expansão e sucesso, desde que você mantenha o foco em sua visão."
+    }
+  },
+  {
+    "name": "Três de Paus",
+    "title": "Virtude",
+    "image": "assets/cards/three_of_wands.jpg",
+    "number": 3,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Expansão, progresso, exploração de novas oportunidades.",
+    "eighth_lesser": "Falta de visão, frustração, atraso em planos.",
+    "order": 24,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza virtude e progresso. Reflete a exploração e a abertura para novas oportunidades, com uma visão clara do futuro.",
+    "description_symbolic": "O Três de Paus é a expansão da visão. Representa progresso, exploração e a coragem de se aventurar em novos territórios. É o momento de agir com confiança no futuro.",
+    "message_esoteric": "Este é o chamado para explorar novas oportunidades e expandir seus horizontes. O Três de Paus simboliza progresso contínuo e o sucesso que vem com visão e coragem.",
+    "meditation_reflection": [
+      "Estou explorando todas as oportunidades disponíveis para mim?",
+      "Como posso expandir minha visão e progredir em direção aos meus objetivos?",
+      "Estou pronto para me aventurar em novos territórios com confiança?"
+    ],
+    "internal_alchemy": "O Três de Paus simboliza a alquimia da expansão. Ele nos desafia a ir além de nossas zonas de conforto e a explorar o desconhecido com coragem e determinação.",
+    "magical_practice": "Conecte-se ao Três de Paus visualizando um horizonte amplo e aberto. Afirme sua coragem para explorar novas oportunidades e expandir sua visão.",
+    "past_present_future": {
+      "past": "Uma fase de progresso inicial que abriu portas para novas possibilidades.",
+      "present": "Um momento de expansão e exploração de novas oportunidades.",
+      "future": "O sucesso está à vista, desde que você continue avançando com confiança."
+    }
+  },
+  {
+    "name": "Quatro de Paus",
+    "title": "Complemento",
+    "image": "assets/cards/four_of_wands.jpg",
+    "number": 4,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Celebração, harmonia, conclusão positiva.",
+    "eighth_lesser": "Instabilidade, conflitos domésticos, falta de apoio.",
+    "order": 25,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Representa celebração e harmonia. Reflete um momento de descanso e apreciação após o esforço, simbolizando estabilidade e realização.",
+    "description_symbolic": "O Quatro de Paus é o alicerce estável que permite a celebração e a alegria. Representa um momento de harmonia e conclusão positiva, onde o esforço é recompensado com um senso de comunidade e realização.",
+    "message_esoteric": "Esta carta ensina a importância de celebrar as pequenas e grandes conquistas da vida. O Quatro de Paus é um lembrete de que momentos de harmonia e estabilidade devem ser apreciados.",
+    "meditation_reflection": [
+      "Estou reconhecendo e celebrando minhas realizações?",
+      "Como posso criar mais harmonia e estabilidade em minha vida?",
+      "Quais áreas da minha vida estão prontas para uma conclusão positiva?"
+    ],
+    "internal_alchemy": "O Quatro de Paus simboliza a alquimia da harmonia e da celebração. Ele nos convida a reconhecer nossas conquistas e a valorizar os momentos de estabilidade.",
+    "magical_practice": "Conecte-se ao Quatro de Paus visualizando um espaço seguro e harmonioso onde você pode celebrar suas realizações. Afirme sua gratidão por momentos de estabilidade.",
+    "past_present_future": {
+      "past": "Uma realização ou conclusão positiva que trouxe harmonia.",
+      "present": "Um momento para celebrar e apreciar as conquistas.",
+      "future": "A promessa de estabilidade e harmonia, desde que você continue valorizando seus esforços."
+    }
+  },
+  {
+    "name": "Cinco de Paus",
+    "title": "Luta",
+    "image": "assets/cards/five_of_wands.jpg",
+    "number": 5,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Competição saudável, superação de desafios.",
+    "eighth_lesser": "Conflitos desnecessários, caos, desentendimentos.",
+    "order": 26,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Representa conflitos e desafios. É a luta pelo progresso, trazendo crescimento através da superação de obstáculos.",
+    "description_symbolic": "O Cinco de Paus é o caos criativo da competição. Representa desafios que, embora difíceis, trazem crescimento e força. É a luta que nos empurra para a frente.",
+    "message_esoteric": "Esta carta ensina que os desafios são oportunidades para crescer. O Cinco de Paus simboliza a importância de abraçar os conflitos como ferramentas de aprendizado.",
+    "meditation_reflection": [
+      "Como posso transformar desafios em oportunidades de crescimento?",
+      "Estou enfrentando conflitos com coragem e resiliência?",
+      "Quais lições posso aprender dos obstáculos em meu caminho?"
+    ],
+    "internal_alchemy": "O Cinco de Paus simboliza a alquimia da superação. Ele nos desafia a encontrar força na adversidade e a usar os conflitos como um trampolim para o progresso.",
+    "magical_practice": "Conecte-se ao Cinco de Paus visualizando-se superando um desafio com confiança e determinação. Afirme sua resiliência e capacidade de crescimento.",
+    "past_present_future": {
+      "past": "Um período de desafios que trouxe crescimento e aprendizado.",
+      "present": "Uma luta ou conflito que exige coragem e resiliência.",
+      "future": "A promessa de progresso e força, desde que você enfrente os desafios com determinação."
+    }
+  },
+  {
+    "name": "Seis de Paus",
+    "title": "Vitória",
+    "image": "assets/cards/six_of_wands.jpg",
+    "number": 6,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Reconhecimento, sucesso público, triunfo.",
+    "eighth_lesser": "Arrogância, excesso de confiança, dúvidas internas.",
+    "order": 27,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza triunfo e reconhecimento. É o sucesso público conquistado após esforço e perseverança.",
+    "description_symbolic": "O Seis de Paus é a vitória merecida. Representa o reconhecimento público e o triunfo obtido através de esforço e dedicação. É o momento de brilhar e inspirar outros com seu sucesso.",
+    "message_esoteric": "Esta carta ensina que o sucesso vem com responsabilidade. O Seis de Paus nos convida a celebrar nossas vitórias enquanto permanecemos humildes e inspiradores para os outros.",
+    "meditation_reflection": [
+      "Estou celebrando meu sucesso de maneira equilibrada?",
+      "Como posso inspirar os outros com minhas realizações?",
+      "Estou pronto para aceitar reconhecimento com humildade e gratidão?"
+    ],
+    "internal_alchemy": "O Seis de Paus simboliza a alquimia do triunfo. Ele nos lembra que o sucesso verdadeiro é compartilhado e que a vitória inspira tanto a nós quanto aos outros.",
+    "magical_practice": "Conecte-se ao Seis de Paus visualizando-se sendo reconhecido por suas conquistas. Afirme sua capacidade de inspirar e liderar com humildade.",
+    "past_present_future": {
+      "past": "Uma vitória recente trouxe reconhecimento e inspiração.",
+      "present": "Um momento de sucesso e celebração de suas conquistas.",
+      "future": "A promessa de triunfo e reconhecimento, desde que você mantenha o equilíbrio e a humildade."
+    }
+  },
+  {
+    "name": "Sete de Paus",
+    "title": "Coragem",
+    "image": "assets/cards/seven_of_wands.jpg",
+    "number": 7,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Defesa de território, perseverança, resiliência.",
+    "eighth_lesser": "Pressão, exaustão, sentimento de sobrecarga.",
+    "order": 28,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Representa coragem e resiliência. Simboliza a defesa de território e a luta contra a adversidade.",
+    "description_symbolic": "O Sete de Paus é a batalha para manter o que foi conquistado. Representa coragem, perseverança e a força para defender seu território contra os desafios e adversidades.",
+    "message_esoteric": "Esta carta ensina que o verdadeiro valor vem da coragem em tempos de adversidade. O Sete de Paus nos convida a lutar pelo que é importante e a confiar em nossa capacidade de resistência.",
+    "meditation_reflection": [
+      "Estou defendendo o que é importante para mim com coragem e perseverança?",
+      "Como posso usar minha força interior para superar desafios?",
+      "Estou equilibrando resiliência com autocuidado?"
+    ],
+    "internal_alchemy": "O Sete de Paus simboliza a alquimia da perseverança. Ele nos lembra que a coragem e a determinação são as chaves para proteger nossas conquistas e seguir em frente.",
+    "magical_practice": "Conecte-se ao Sete de Paus visualizando-se firmemente enraizado enquanto enfrenta desafios. Afirme sua coragem e resiliência.",
+    "past_present_future": {
+      "past": "Uma situação onde a coragem foi essencial para superar dificuldades.",
+      "present": "Um momento de defender suas conquistas e valores com firmeza.",
+      "future": "A promessa de vitória, desde que você continue resiliente e determinado."
+    }
+  },
+  {
+    "name": "Oito de Paus",
+    "title": "Rapidez",
+    "image": "assets/cards/eight_of_wands.jpg",
+    "number": 8,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Movimento rápido, progresso, finalização de tarefas.",
+    "eighth_lesser": "Desorganização, pressa, falta de foco.",
+    "order": 29,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Reflete movimento rápido e progresso. Simboliza a conclusão de tarefas e a energia de avanço.",
+    "description_symbolic": "O Oito de Paus é o símbolo de movimento rápido e foco. Representa progresso acelerado, oportunidades inesperadas e a energia que flui livremente em direção à realização.",
+    "message_esoteric": "Esta carta ensina que, quando as energias estão alinhadas, o progresso pode ser rápido e eficiente. O Oito de Paus nos convida a manter o foco e aproveitar o impulso.",
+    "meditation_reflection": [
+      "Estou aproveitando o momento para avançar em direção aos meus objetivos?",
+      "Como posso manter o foco enquanto avanço rapidamente?",
+      "Estou organizando minhas prioridades para maximizar o progresso?"
+    ],
+    "internal_alchemy": "O Oito de Paus simboliza a alquimia do impulso e do progresso. Ele nos desafia a canalizar nossa energia de maneira direcionada para alcançar resultados rápidos e eficazes.",
+    "magical_practice": "Conecte-se ao Oito de Paus visualizando flechas rápidas atingindo seus objetivos com precisão. Afirme seu foco e energia direcionada.",
+    "past_present_future": {
+      "past": "Um momento de progresso rápido que trouxe mudanças significativas.",
+      "present": "Um período de movimento e avanço acelerado em direção aos seus objetivos.",
+      "future": "A promessa de realização, desde que você mantenha o foco e o impulso."
+    }
+  },
+  {
+    "name": "Nove de Paus",
+    "title": "Força",
+    "image": "assets/cards/nine_of_wands.jpg",
+    "number": 9,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Resiliência, proteção, superação de desafios.",
+    "eighth_lesser": "Desconfiança, cansaço extremo, resistência desnecessária.",
+    "order": 30,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Representa força e resistência. É a perseverança diante das dificuldades e a proteção de conquistas.",
+    "description_symbolic": "O Nove de Paus é a resistência final antes da vitória. Representa força, proteção e a coragem para continuar, mesmo diante de cansaço e desafios.",
+    "message_esoteric": "Esta carta ensina que, mesmo em tempos de exaustão, a resiliência pode levar à vitória. O Nove de Paus nos convida a proteger nossas conquistas e a confiar em nossa força.",
+    "meditation_reflection": [
+      "Estou protegendo minhas conquistas e mantendo minha força diante dos desafios?",
+      "Como posso equilibrar resistência com descanso para evitar exaustão?",
+      "Estou permitindo que a desconfiança me impeça de avançar?"
+    ],
+    "internal_alchemy": "O Nove de Paus simboliza a alquimia da resiliência. Ele nos desafia a manter nossa força e perseverança, mesmo quando enfrentamos desafios contínuos.",
+    "magical_practice": "Conecte-se ao Nove de Paus visualizando-se erguendo um escudo protetor ao seu redor, garantindo sua segurança e força. Afirme sua capacidade de superar qualquer desafio.",
+    "past_present_future": {
+      "past": "Um período de dificuldades que fortaleceu sua resiliência.",
+      "present": "Um momento de proteger suas conquistas e permanecer forte.",
+      "future": "A promessa de vitória, desde que você mantenha sua força e perseverança."
+    }
+  },
+  {
+    "name": "Dez de Paus",
+    "title": "Opressão",
+    "image": "assets/cards/ten_of_wands.jpg",
+    "number": 10,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Responsabilidade, cumprimento de objetivos.",
+    "eighth_lesser": "Sobrecarga, estresse, cansaço extremo.",
+    "order": 31,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza opressão e sobrecarga. É a responsabilidade pesada que vem com o sucesso e a necessidade de equilíbrio.",
+    "description_symbolic": "O Dez de Paus representa o peso das responsabilidades e a pressão de levar tudo sobre os ombros. Simboliza o esforço necessário para cumprir metas, mas também o perigo do esgotamento.",
+    "message_esoteric": "Esta carta ensina que o sucesso pode vir com grandes responsabilidades. O Dez de Paus nos convida a equilibrar nossas tarefas e delegar quando necessário.",
+    "meditation_reflection": [
+      "Estou assumindo mais responsabilidades do que posso carregar?",
+      "Como posso encontrar equilíbrio em meio às minhas obrigações?",
+      "Quais tarefas podem ser delegadas para aliviar minha carga?"
+    ],
+    "internal_alchemy": "O Dez de Paus simboliza a alquimia do esforço e da responsabilidade. Ele nos desafia a encontrar equilíbrio em meio às pressões, garantindo que não nos sobrecarreguemos.",
+    "magical_practice": "Conecte-se ao Dez de Paus visualizando um fardo pesado sendo aliviado de seus ombros. Afirme sua capacidade de encontrar equilíbrio e delegar responsabilidades.",
+    "past_present_future": {
+      "past": "Um período de grandes responsabilidades que testou sua resiliência.",
+      "present": "Um momento de sobrecarga que exige equilíbrio e priorização.",
+      "future": "O cumprimento de objetivos, desde que você gerencie suas responsabilidades com sabedoria."
+    }
+  },
+  {
+    "name": "Pajem de Paus",
+    "title": "Exploração",
+    "image": "assets/cards/page_of_wands.jpg",
+    "number": 11,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Descoberta, entusiasmo, potencial criativo.",
+    "eighth_lesser": "Imaturidade, falta de direção, impulsividade.",
+    "order": 32,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Representa entusiasmo e potencial criativo. Simboliza exploração e descoberta de novas ideias.",
+    "description_symbolic": "O Pajem de Paus é a energia jovem da curiosidade e da exploração. Ele simboliza o entusiasmo por novas aventuras e a descoberta do potencial criativo.",
+    "message_esoteric": "Esta carta ensina que o entusiasmo é o início de toda grande jornada. O Pajem de Paus nos convida a explorar novas ideias com curiosidade e coragem.",
+    "meditation_reflection": [
+      "Estou aberto a explorar novas ideias e caminhos?",
+      "Como posso cultivar entusiasmo em minhas ações?",
+      "Estou equilibrando curiosidade com responsabilidade?"
+    ],
+    "internal_alchemy": "O Pajem de Paus simboliza a alquimia da curiosidade. Ele nos desafia a explorar nosso potencial criativo e a embarcar em novas jornadas com entusiasmo.",
+    "magical_practice": "Conecte-se ao Pajem de Paus visualizando-se em um campo aberto, explorando novas possibilidades. Afirme sua curiosidade e energia criativa.",
+    "past_present_future": {
+      "past": "Um início cheio de entusiasmo e curiosidade por novas possibilidades.",
+      "present": "Um momento de exploração e descoberta de novas ideias.",
+      "future": "O potencial para grandes realizações, desde que você mantenha seu entusiasmo."
+    }
+  },
+  {
+    "name": "Cavaleiro de Paus",
+    "title": "Aventura",
+    "image": "assets/cards/knight_of_wands.jpg",
+    "number": 12,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Energia, determinação, paixão.",
+    "eighth_lesser": "Impaciência, imprudência, instabilidade.",
+    "order": 33,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza energia e determinação. Reflete paixão e ambição, mas também impulsividade.",
+    "description_symbolic": "O Cavaleiro de Paus é a energia da aventura e da paixão. Ele simboliza a determinação e a coragem para perseguir seus objetivos, mas também alerta contra a imprudência.",
+    "message_esoteric": "Esta carta ensina que a paixão e a energia são poderosas quando direcionadas. O Cavaleiro de Paus nos convida a agir com coragem, mas com atenção para não sermos imprudentes.",
+    "meditation_reflection": [
+      "Estou agindo com coragem ou sendo impulsivo?",
+      "Como posso canalizar minha energia de forma produtiva?",
+      "Estou equilibrando determinação com planejamento?"
+    ],
+    "internal_alchemy": "O Cavaleiro de Paus simboliza a alquimia da paixão e da ação. Ele nos desafia a canalizar nossa energia de maneira direcionada para alcançar nossos objetivos.",
+    "magical_practice": "Conecte-se ao Cavaleiro de Paus visualizando-se cavalgando em direção aos seus objetivos com energia e confiança. Afirme sua coragem e determinação.",
+    "past_present_future": {
+      "past": "Uma fase de energia e ambição que o impulsionou para a frente.",
+      "present": "Um momento de agir com paixão e determinação.",
+      "future": "O sucesso está próximo, desde que você equilibre coragem com planejamento."
+    }
+  },
+  {
+    "name": "Rainha de Paus",
+    "title": "Paixão",
+    "image": "assets/cards/queen_of_wands.jpg",
+    "number": 13,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Confiança, carisma, inspiração criativa.",
+    "eighth_lesser": "Arrogância, ciúmes, manipulação.",
+    "order": 34,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Representa confiança e carisma. É uma figura inspiradora, com energia criativa e liderança natural.",
+    "description_symbolic": "A Rainha de Paus é a personificação do carisma e da paixão. Ela simboliza confiança, energia criativa e liderança inspiradora, mas também alerta contra o egoísmo e a manipulação.",
+    "message_esoteric": "Esta carta ensina que a verdadeira liderança vem da inspiração e da confiança. A Rainha de Paus nos convida a liderar com autenticidade e a inspirar os outros com nosso carisma.",
+    "meditation_reflection": [
+      "Estou liderando com confiança e autenticidade?",
+      "Como posso inspirar os outros com minha energia criativa?",
+      "Estou equilibrando minha paixão com compaixão pelos outros?"
+    ],
+    "internal_alchemy": "A Rainha de Paus simboliza a alquimia do carisma e da paixão. Ela nos desafia a abraçar nossa energia criativa e a liderar com autenticidade.",
+    "magical_practice": "Conecte-se à Rainha de Paus visualizando-se cercado por uma aura de confiança e paixão. Afirme sua capacidade de inspirar e liderar.",
+    "past_present_future": {
+      "past": "Um período de confiança e liderança que trouxe energia positiva.",
+      "present": "Um momento de liderar com carisma e paixão.",
+      "future": "A promessa de sucesso e inspiração, desde que você mantenha sua autenticidade."
+    }
+  },
+  {
+    "name": "Rei de Paus",
+    "title": "Liderança",
+    "image": "assets/cards/king_of_wands.jpg",
+    "number": 14,
+    "isMajorArcana": false,
+    "suit": "Paus",
+    "eighth_greater": "Visão inspiradora, autoridade positiva.",
+    "eighth_lesser": "Autoritarismo, impulsividade, orgulho.",
+    "order": 35,
+    "element": "Fogo",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza visão e liderança. Representa a autoridade positiva e a habilidade de inspirar outros.",
+    "description_symbolic": "O Rei de Paus é o líder visionário. Ele combina paixão e sabedoria para inspirar os outros, mantendo o equilíbrio entre energia criativa e responsabilidade.",
+    "message_esoteric": "Esta carta ensina que a verdadeira liderança vem da inspiração e da confiança. O Rei de Paus nos convida a liderar com visão e compaixão, sem perder o equilíbrio.",
+    "meditation_reflection": [
+      "Estou liderando com inspiração e responsabilidade?",
+      "Como posso equilibrar paixão e sabedoria em minhas ações?",
+      "Estou usando minha autoridade de maneira positiva e construtiva?"
+    ],
+    "internal_alchemy": "O Rei de Paus simboliza a alquimia da liderança e da visão. Ele nos desafia a usar nossa energia criativa de forma responsável e a inspirar os outros.",
+    "magical_practice": "Conecte-se ao Rei de Paus visualizando-se como um líder confiante, cercado por luz e energia criativa. Afirme sua habilidade de liderar com sabedoria e inspiração.",
+    "past_present_future": {
+      "past": "Uma posição de liderança ou responsabilidade trouxe crescimento pessoal.",
+      "present": "Um momento para liderar com confiança e visão.",
+      "future": "A promessa de sucesso e reconhecimento, desde que você mantenha equilíbrio e responsabilidade."
+    }
+  },
+  {
+    "name": "Ás de Copas",
+    "title": "Raiz da Água",
+    "image": "assets/cards/ace_of_cups.jpg",
+    "number": 1,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Amor puro, novos começos emocionais, conexão espiritual.",
+    "eighth_lesser": "Bloqueios emocionais, repressão de sentimentos, vazio interior.",
+    "order": 36,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Representa o início de uma nova conexão emocional. Simboliza amor puro, intuição e renovação espiritual.",
+    "description_symbolic": "O Ás de Copas é a fonte de amor e emoção. Representa o potencial para novos começos emocionais e espirituais, simbolizando a pureza do coração.",
+    "message_esoteric": "Esta carta ensina que o amor e a intuição são os fundamentos de todas as conexões profundas. O Ás de Copas nos convida a abrir o coração e a abraçar novos começos emocionais.",
+    "meditation_reflection": [
+      "Estou aberto para novos começos emocionais?",
+      "Como posso cultivar mais amor e intuição em minha vida?",
+      "Estou permitindo que meu coração esteja alinhado com minha espiritualidade?"
+    ],
+    "internal_alchemy": "O Ás de Copas simboliza a alquimia do amor e da renovação emocional. Ele nos desafia a cultivar emoções positivas e a nos conectar profundamente com nossos sentimentos.",
+    "magical_practice": "Conecte-se ao Ás de Copas visualizando um cálice transbordando de luz dourada. Afirme sua abertura para novos começos emocionais e espirituais.",
+    "past_present_future": {
+      "past": "Um início emocional ou espiritual trouxe inspiração e renovação.",
+      "present": "Um momento para abrir o coração e abraçar novas conexões.",
+      "future": "O potencial de novos começos emocionais, desde que você esteja receptivo."
+    }
+  },
+  {
+    "name": "Dois de Copas",
+    "title": "Amor",
+    "image": "assets/cards/two_of_cups.jpg",
+    "number": 2,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Parceria, harmonia, união emocional.",
+    "eighth_lesser": "Desequilíbrio, conflitos emocionais, separação.",
+    "order": 37,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza harmonia e união emocional. É a conexão profunda entre duas pessoas ou forças complementares.",
+    "description_symbolic": "O Dois de Copas representa a união harmoniosa e o equilíbrio emocional. Ele simboliza uma conexão profunda e mutuamente benéfica, seja em relacionamentos ou parcerias.",
+    "message_esoteric": "Esta carta ensina que o amor e a harmonia são essenciais para a conexão verdadeira. O Dois de Copas nos convida a cultivar relacionamentos equilibrados e enriquecedores.",
+    "meditation_reflection": [
+      "Estou nutrindo relações emocionais saudáveis e harmoniosas?",
+      "Como posso trazer mais equilíbrio e reciprocidade para minhas conexões?",
+      "Estou aberto para parcerias emocionais profundas e significativas?"
+    ],
+    "internal_alchemy": "O Dois de Copas simboliza a alquimia da união emocional. Ele nos desafia a encontrar harmonia dentro de nós mesmos e em nossos relacionamentos.",
+    "magical_practice": "Conecte-se ao Dois de Copas visualizando duas energias fluindo harmoniosamente entre dois cálices. Afirme sua capacidade de criar e manter conexões equilibradas.",
+    "past_present_future": {
+      "past": "Uma parceria ou união emocional significativa trouxe equilíbrio e crescimento.",
+      "present": "Um momento para fortalecer ou formar conexões emocionais profundas.",
+      "future": "A promessa de harmonia e união, desde que você mantenha equilíbrio e reciprocidade."
+    }
+  },
+  {
+    "name": "Três de Copas",
+    "title": "Abundância",
+    "image": "assets/cards/three_of_cups.jpg",
+    "number": 3,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Celebração, amizade, alegria compartilhada.",
+    "eighth_lesser": "Excessos, superficialidade, exclusão social.",
+    "order": 38,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Representa celebração e alegria compartilhada. Simboliza amizades e momentos de felicidade coletiva.",
+    "description_symbolic": "O Três de Copas é a celebração das conexões e da alegria compartilhada. Representa amizades, momentos felizes e a abundância emocional que vem com a comunidade.",
+    "message_esoteric": "Esta carta ensina que a felicidade compartilhada é multiplicada. O Três de Copas nos convida a celebrar as amizades e os momentos de alegria.",
+    "meditation_reflection": [
+      "Estou celebrando minhas conexões e os momentos de alegria em minha vida?",
+      "Como posso cultivar relacionamentos mais significativos?",
+      "Estou equilibrando celebração com gratidão?"
+    ],
+    "internal_alchemy": "O Três de Copas simboliza a alquimia da abundância emocional. Ele nos desafia a valorizar as conexões e a encontrar alegria nas coisas simples.",
+    "magical_practice": "Conecte-se ao Três de Copas visualizando uma celebração harmoniosa e alegre. Afirme sua gratidão pelas amizades e pela alegria compartilhada.",
+    "past_present_future": {
+      "past": "Um momento de celebração ou alegria compartilhada trouxe conexões profundas.",
+      "present": "Um período para valorizar amizades e celebrar conquistas.",
+      "future": "Mais alegria e celebrações estão por vir, desde que você cultive suas conexões."
+    }
+  },
+  {
+    "name": "Quatro de Copas",
+    "title": "Luxúria",
+    "image": "assets/cards/four_of_cups.jpg",
+    "number": 4,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Introspecção, reavaliação, busca interior.",
+    "eighth_lesser": "Apatia, descontentamento, tédio emocional.",
+    "order": 39,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Reflete introspecção e reavaliação emocional. Simboliza tédio ou descontentamento temporário.",
+    "description_symbolic": "O Quatro de Copas é a pausa para introspecção e reavaliação. Ele simboliza a necessidade de buscar dentro de si mesmo a clareza emocional.",
+    "message_esoteric": "Esta carta ensina que momentos de introspecção são necessários para encontrar direção emocional. O Quatro de Copas nos convida a reavaliar o que realmente importa.",
+    "meditation_reflection": [
+      "Estou valorizando as oportunidades emocionais que me cercam?",
+      "Como posso transformar tédio ou descontentamento em clareza emocional?",
+      "Estou permitindo que a introspecção me guie para um caminho melhor?"
+    ],
+    "internal_alchemy": "O Quatro de Copas simboliza a alquimia da reavaliação. Ele nos desafia a transformar momentos de apatia em clareza e propósito.",
+    "magical_practice": "Conecte-se ao Quatro de Copas visualizando um cálice sendo preenchido com luz dourada, representando clareza emocional. Afirme sua prontidão para reavaliar e seguir em frente.",
+    "past_present_future": {
+      "past": "Um período de introspecção trouxe clareza emocional.",
+      "present": "Um momento para reavaliar suas prioridades emocionais.",
+      "future": "Mais clareza e satisfação emocional, desde que você abrace a introspecção."
+    }
+  },
+  {
+    "name": "Cinco de Copas",
+    "title": "Decepção",
+    "image": "assets/cards/five_of_cups.jpg",
+    "number": 5,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Aceitação, aprendizado com perdas, superação.",
+    "eighth_lesser": "Desespero, arrependimento, foco no passado.",
+    "order": 40,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Representa perda e arrependimento. Simboliza aprendizado com as adversidades e aceitação do passado.",
+    "description_symbolic": "O Cinco de Copas reflete a dor da perda, mas também a oportunidade de aprender com as adversidades. Representa a necessidade de olhar para frente e reconhecer o que ainda permanece.",
+    "message_esoteric": "Esta carta ensina que a aceitação é o primeiro passo para a cura emocional. O Cinco de Copas nos convida a focar no que pode ser reconstruído, em vez do que foi perdido.",
+    "meditation_reflection": [
+      "Estou focando mais no passado do que nas possibilidades futuras?",
+      "Como posso transformar arrependimento em aprendizado?",
+      "Estou pronto para aceitar e seguir em frente emocionalmente?"
+    ],
+    "internal_alchemy": "O Cinco de Copas simboliza a alquimia do desapego. Ele nos desafia a transformar a dor da perda em força e resiliência.",
+    "magical_practice": "Conecte-se ao Cinco de Copas visualizando-se liberando o passado e focando no que permanece positivo. Afirme sua capacidade de cura emocional.",
+    "past_present_future": {
+      "past": "Uma perda emocional ou arrependimento que trouxe aprendizado.",
+      "present": "Um momento de aceitar e curar feridas emocionais.",
+      "future": "A promessa de superação e renovação emocional, desde que você deixe o passado para trás."
+    }
+  },
+  {
+    "name": "Seis de Copas",
+    "title": "Prazer",
+    "image": "assets/cards/six_of_cups.jpg",
+    "number": 6,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Memórias felizes, nostalgia, bondade.",
+    "eighth_lesser": "Vício no passado, dificuldade em seguir em frente.",
+    "order": 41,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza nostalgia e memórias felizes. Representa bondade e simplicidade emocional.",
+    "description_symbolic": "O Seis de Copas é a recordação do passado e a alegria que vem das memórias felizes. Ele simboliza bondade, generosidade e a simplicidade emocional que muitas vezes perdemos.",
+    "message_esoteric": "Esta carta ensina que olhar para o passado pode ser reconfortante, mas viver nele pode nos impedir de avançar. O Seis de Copas nos convida a encontrar equilíbrio entre nostalgia e progresso.",
+    "meditation_reflection": [
+      "Estou preso em memórias do passado ou permitindo que elas me inspirem?",
+      "Como posso trazer mais simplicidade emocional para minha vida?",
+      "Estou sendo gentil comigo mesmo e com os outros?"
+    ],
+    "internal_alchemy": "O Seis de Copas simboliza a alquimia da simplicidade emocional. Ele nos desafia a encontrar alegria nas pequenas coisas e a equilibrar nostalgia com gratidão pelo presente.",
+    "magical_practice": "Conecte-se ao Seis de Copas visualizando memórias felizes como um campo florido ao seu redor. Afirme sua gratidão pelo passado e sua abertura para o futuro.",
+    "past_present_future": {
+      "past": "Memórias felizes ou uma reconexão emocional com o passado.",
+      "present": "Um momento de simplicidade e bondade emocional.",
+      "future": "Mais alegria e conexão emocional, desde que você equilibre nostalgia com progresso."
+    }
+  },
+  {
+    "name": "Sete de Copas",
+    "title": "Ilusão",
+    "image": "assets/cards/seven_of_cups.jpg",
+    "number": 7,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Sonhos, criatividade, imaginação.",
+    "eighth_lesser": "Confusão, escolhas difíceis, ilusões.",
+    "order": 42,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Representa escolhas e ilusões. Simboliza sonhos e a necessidade de discernimento emocional.",
+    "description_symbolic": "O Sete de Copas é a carta dos sonhos e da imaginação, mas também das ilusões. Representa a necessidade de discernir o que é real do que é fantasia.",
+    "message_esoteric": "Esta carta ensina que nem todas as opções são o que parecem. O Sete de Copas nos convida a escolher com sabedoria e a evitar ilusões.",
+    "meditation_reflection": [
+      "Estou discernindo entre fantasia e realidade em minhas escolhas?",
+      "Como posso usar minha criatividade para tomar decisões mais conscientes?",
+      "Estou permitindo que ilusões me distraiam de meus objetivos?"
+    ],
+    "internal_alchemy": "O Sete de Copas simboliza a alquimia da escolha e do discernimento. Ele nos desafia a transformar a confusão em clareza, focando no que realmente importa.",
+    "magical_practice": "Conecte-se ao Sete de Copas visualizando-se escolhendo um cálice que irradia luz clara e verdadeira. Afirme sua capacidade de discernir e decidir com sabedoria.",
+    "past_present_future": {
+      "past": "Um período de escolhas e sonhos que moldaram seu caminho.",
+      "present": "Um momento de discernimento entre ilusões e realidades.",
+      "future": "Mais clareza e direção, desde que você escolha com sabedoria."
+    }
+  },
+  {
+    "name": "Oito de Copas",
+    "title": "Indolência",
+    "image": "assets/cards/eight_of_cups.jpg",
+    "number": 8,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Busca de propósito, desapego, crescimento espiritual.",
+    "eighth_lesser": "Fuga, abandono, falta de propósito.",
+    "order": 43,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Reflete desapego e busca de propósito. Simboliza deixar o passado para trás em busca de algo maior.",
+    "description_symbolic": "O Oito de Copas é a busca por algo mais significativo. Representa a coragem de deixar para trás o que não serve mais e explorar novos caminhos emocionais.",
+    "message_esoteric": "Esta carta ensina que o crescimento espiritual exige desapego. O Oito de Copas nos convida a buscar nosso propósito com coragem e determinação.",
+    "meditation_reflection": [
+      "Estou pronto para deixar o passado para trás e buscar algo maior?",
+      "Como posso encontrar propósito em minhas ações?",
+      "Estou resistindo ao desapego necessário para o meu crescimento?"
+    ],
+    "internal_alchemy": "O Oito de Copas simboliza a alquimia do desapego. Ele nos desafia a abandonar o que não serve mais e a avançar com coragem.",
+    "magical_practice": "Conecte-se ao Oito de Copas visualizando-se caminhando em direção a uma montanha iluminada. Afirme sua prontidão para deixar o passado para trás.",
+    "past_present_future": {
+      "past": "Um período de desapego trouxe crescimento e clareza.",
+      "present": "Um momento para deixar para trás o que não serve mais.",
+      "future": "O crescimento espiritual e emocional está próximo, desde que você siga em frente."
+    }
+  },
+  {
+    "name": "Nove de Copas",
+    "title": "Felicidade",
+    "image": "assets/cards/nine_of_cups.jpg",
+    "number": 9,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Satisfação emocional, realização, gratidão.",
+    "eighth_lesser": "Excesso de indulgência, egoísmo, superficialidade.",
+    "order": 44,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Representa satisfação e realização emocional. Simboliza gratidão e harmonia interior.",
+    "description_symbolic": "O Nove de Copas é a plenitude emocional e a gratidão pelas conquistas. Representa a satisfação que vem do alinhamento emocional com seus desejos.",
+    "message_esoteric": "Esta carta ensina que a verdadeira felicidade vem de dentro. O Nove de Copas nos convida a celebrar nossas conquistas e a cultivar gratidão.",
+    "meditation_reflection": [
+      "Estou reconhecendo e valorizando minhas conquistas?",
+      "Como posso cultivar mais gratidão em minha vida?",
+      "Estou equilibrando satisfação emocional com humildade?"
+    ],
+    "internal_alchemy": "O Nove de Copas simboliza a alquimia da satisfação e gratidão. Ele nos desafia a valorizar nossas conquistas e a cultivar harmonia interior.",
+    "magical_practice": "Conecte-se ao Nove de Copas visualizando-se cercado por cálices brilhantes, simbolizando satisfação e alegria. Afirme sua gratidão e plenitude emocional.",
+    "past_present_future": {
+      "past": "Um momento de realização e gratidão trouxe felicidade emocional.",
+      "present": "Um período de celebrar suas conquistas e cultivar gratidão.",
+      "future": "Mais satisfação e realização emocional estão por vir."
+    }
+  },
+  {
+    "name": "Dez de Copas",
+    "title": "Satisfação",
+    "image": "assets/cards/ten_of_cups.jpg",
+    "number": 10,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Harmonia familiar, alegria duradoura, plenitude emocional.",
+    "eighth_lesser": "Conflitos familiares, expectativas frustradas, desconexão.",
+    "order": 45,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza felicidade duradoura e harmonia familiar. Representa alegria e plenitude emocional.",
+    "description_symbolic": "O Dez de Copas é a carta da plenitude emocional e da harmonia. Representa alegria duradoura em conexões profundas e relacionamentos significativos.",
+    "message_esoteric": "Esta carta ensina que a felicidade duradoura vem do amor e da conexão emocional. O Dez de Copas nos convida a cultivar harmonia e alegria em nossos relacionamentos.",
+    "meditation_reflection": [
+      "Estou cultivando harmonia em minhas conexões emocionais?",
+      "Como posso valorizar mais as pessoas que amo?",
+      "Estou permitindo que a alegria emocional floresça em minha vida?"
+    ],
+    "internal_alchemy": "O Dez de Copas simboliza a alquimia da harmonia emocional. Ele nos desafia a criar e manter relacionamentos cheios de amor e alegria.",
+    "magical_practice": "Conecte-se ao Dez de Copas visualizando um arco-íris brilhante sobre sua vida emocional, simbolizando plenitude e harmonia. Afirme sua felicidade emocional e conexão familiar.",
+    "past_present_future": {
+      "past": "Um período de harmonia familiar e felicidade emocional.",
+      "present": "Um momento de alegria e plenitude emocional.",
+      "future": "Mais harmonia e alegria estão por vir, desde que você cultive essas conexões."
+    }
+  },
+  {
+    "name": "Pajem de Copas",
+    "title": "O Sonhador",
+    "image": "assets/cards/page_of_cups.jpg",
+    "number": 11,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Novas oportunidades emocionais, criatividade, empatia.",
+    "eighth_lesser": "Imaturidade emocional, fuga da realidade, insegurança.",
+    "order": 46,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Representa novas oportunidades emocionais e criatividade. Simboliza empatia e abertura para novas conexões.",
+    "description_symbolic": "O Pajem de Copas é a energia jovial do sonhador. Ele simboliza novas oportunidades emocionais e o despertar da criatividade.",
+    "message_esoteric": "Esta carta ensina que abrir o coração para novas experiências traz crescimento emocional. O Pajem de Copas nos convida a explorar nossa criatividade e empatia.",
+    "meditation_reflection": [
+      "Estou aberto a novas oportunidades emocionais?",
+      "Como posso usar minha criatividade para me conectar com os outros?",
+      "Estou equilibrando minhas emoções com maturidade?"
+    ],
+    "internal_alchemy": "O Pajem de Copas simboliza a alquimia da curiosidade emocional. Ele nos desafia a explorar novas formas de conexão e empatia.",
+    "magical_practice": "Conecte-se ao Pajem de Copas visualizando-se segurando um cálice brilhante, simbolizando novos começos emocionais. Afirme sua abertura para criatividade e empatia.",
+    "past_present_future": {
+      "past": "Um início emocional ou criativo trouxe inspiração.",
+      "present": "Um momento de explorar novas conexões emocionais e criatividade.",
+      "future": "Novas oportunidades emocionais e criativas estão por vir."
+    }
+  },
+  {
+    "name": "Cavaleiro de Copas",
+    "title": "O Mensageiro",
+    "image": "assets/cards/knight_of_cups.jpg",
+    "number": 12,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Romantismo, busca por ideais, charme.",
+    "eighth_lesser": "Falta de comprometimento, ilusões, manipulação emocional.",
+    "order": 47,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza romantismo e idealismo. Reflete charme e busca por ideais elevados.",
+    "description_symbolic": "O Cavaleiro de Copas é o portador de mensagens emocionais e ideais. Ele simboliza a busca por beleza, amor e conexões profundas.",
+    "message_esoteric": "Esta carta ensina que o romantismo e a busca por ideais podem enriquecer a alma, mas é importante equilibrar sonhos com realidade.",
+    "meditation_reflection": [
+      "Estou buscando meus ideais com autenticidade?",
+      "Como posso equilibrar romantismo e realidade em minha vida?",
+      "Estou mantendo meu coração aberto para novas possibilidades?"
+    ],
+    "internal_alchemy": "O Cavaleiro de Copas simboliza a alquimia do romantismo e da inspiração emocional. Ele nos desafia a buscar beleza e significado em nossas ações.",
+    "magical_practice": "Conecte-se ao Cavaleiro de Copas visualizando-se cavalgando em direção aos seus ideais com um cálice de luz. Afirme sua busca por amor e propósito.",
+    "past_present_future": {
+      "past": "Um momento de romantismo ou busca por ideais trouxe aprendizado.",
+      "present": "Um período de seguir seus ideais com charme e inspiração.",
+      "future": "Novas aventuras emocionais e conexões inspiradoras estão por vir."
+    }
+  },
+  {
+    "name": "Rainha de Copas",
+    "title": "A Empática",
+    "image": "assets/cards/queen_of_cups.jpg",
+    "number": 13,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Intuição, cuidado, conexão emocional profunda.",
+    "eighth_lesser": "Sensibilidade excessiva, dependência emocional, instabilidade.",
+    "order": 48,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Representa intuição e cuidado emocional. É uma figura compassiva e profundamente conectada ao espiritual.",
+    "description_symbolic": "A Rainha de Copas é a personificação da empatia e da intuição. Ela simboliza cuidado emocional profundo e uma conexão espiritual que guia suas ações.",
+    "message_esoteric": "Esta carta ensina que a empatia e a intuição são presentes poderosos. A Rainha de Copas nos convida a cuidar de nós mesmos e dos outros com compaixão.",
+    "meditation_reflection": [
+      "Estou nutrindo minha intuição e empatia?",
+      "Como posso cuidar melhor de minhas emoções e das emoções dos outros?",
+      "Estou equilibrando minha sensibilidade com força emocional?"
+    ],
+    "internal_alchemy": "A Rainha de Copas simboliza a alquimia da empatia e da intuição. Ela nos desafia a ouvir nossa voz interior e a agir com compaixão.",
+    "magical_practice": "Conecte-se à Rainha de Copas visualizando-se cercado por um oceano calmo, representando sua intuição e cuidado. Afirme sua conexão emocional e espiritual.",
+    "past_present_future": {
+      "past": "Um período de conexão emocional profunda e intuição trouxe crescimento.",
+      "present": "Um momento de nutrir sua empatia e agir com compaixão.",
+      "future": "Mais conexões emocionais profundas e intuição estão por vir."
+    }
+  },
+  {
+    "name": "Rei de Copas",
+    "title": "O Diplomata",
+    "image": "assets/cards/king_of_cups.jpg",
+    "number": 14,
+    "isMajorArcana": false,
+    "suit": "Copas",
+    "eighth_greater": "Estabilidade emocional, sabedoria, compaixão.",
+    "eighth_lesser": "Repressão emocional, manipulação, distanciamento.",
+    "order": 49,
+    "element": "Água",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza estabilidade emocional e sabedoria. Representa compaixão equilibrada com racionalidade.",
+    "description_symbolic": "O Rei de Copas é a figura da estabilidade emocional e da sabedoria. Ele simboliza compaixão equilibrada com força interior e discernimento.",
+    "message_esoteric": "Esta carta ensina que a verdadeira força vem do equilíbrio emocional. O Rei de Copas nos convida a liderar com compaixão e sabedoria.",
+    "meditation_reflection": [
+      "Estou equilibrando emoção e razão em minhas decisões?",
+      "Como posso liderar com compaixão e sabedoria?",
+      "Estou mantendo estabilidade emocional em tempos de desafio?"
+    ],
+    "internal_alchemy": "O Rei de Copas simboliza a alquimia da sabedoria emocional. Ele nos desafia a equilibrar compaixão e força, agindo com clareza e propósito.",
+    "magical_practice": "Conecte-se ao Rei de Copas visualizando-se sentado em um trono cercado por águas calmas. Afirme sua estabilidade emocional e compaixão.",
+    "past_present_future": {
+      "past": "Um período de sabedoria emocional e liderança trouxe equilíbrio.",
+      "present": "Um momento de liderar com compaixão e clareza emocional.",
+      "future": "Mais estabilidade e sabedoria emocional estão por vir."
+    }
+  },
+  {
+    "name": "Ás de Espadas",
+    "title": "Raiz do Ar",
+    "image": "assets/cards/ace_of_swords.jpg",
+    "number": 1,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Clareza mental, verdade, novas ideias.",
+    "eighth_lesser": "Confusão, decisões precipitadas, falta de direção.",
+    "order": 50,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Representa clareza mental e novas ideias. Simboliza a verdade e a força intelectual para enfrentar desafios.",
+    "description_symbolic": "O Ás de Espadas é a faísca da clareza mental e da verdade. Ele simboliza o início de ideias poderosas e a capacidade de cortar ilusões.",
+    "message_esoteric": "Esta carta ensina que a verdade é a base do progresso. O Ás de Espadas nos convida a abraçar novas ideias e a agir com clareza.",
+    "meditation_reflection": [
+      "Estou permitindo que a verdade guie minhas ações?",
+      "Como posso trazer mais clareza para minhas ideias?",
+      "Estou agindo com propósito e discernimento?"
+    ],
+    "internal_alchemy": "O Ás de Espadas simboliza a alquimia da clareza mental. Ele nos desafia a abraçar a verdade e a agir com propósito em nossas decisões.",
+    "magical_practice": "Conecte-se ao Ás de Espadas visualizando uma lâmina brilhante cortando as nuvens da confusão. Afirme sua clareza mental e determinação.",
+    "past_present_future": {
+      "past": "Um momento de clareza e verdade trouxe novas ideias.",
+      "present": "Um período de agir com clareza e propósito.",
+      "future": "Novas ideias e verdades serão reveladas, desde que você mantenha o foco."
+    }
+  },
+  {
+    "name": "Dois de Espadas",
+    "title": "Paz",
+    "image": "assets/cards/two_of_swords.jpg",
+    "number": 2,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Equilíbrio, escolha ponderada, tranquilidade.",
+    "eighth_lesser": "Indecisão, repressão de emoções, negação.",
+    "order": 51,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza equilíbrio e tomada de decisões. Reflete a necessidade de ponderar antes de agir.",
+    "description_symbolic": "O Dois de Espadas representa o momento de buscar equilíbrio e clareza antes de tomar uma decisão. Ele simboliza a necessidade de introspecção para alcançar tranquilidade mental.",
+    "message_esoteric": "Esta carta ensina que o equilíbrio é alcançado através da ponderação. O Dois de Espadas nos convida a pausar e refletir antes de agir.",
+    "meditation_reflection": [
+      "Estou ponderando todas as opções antes de tomar uma decisão?",
+      "Como posso trazer mais equilíbrio para minha vida?",
+      "Estou enfrentando as verdades ou as evitando?"
+    ],
+    "internal_alchemy": "O Dois de Espadas simboliza a alquimia da reflexão e da escolha ponderada. Ele nos desafia a alcançar paz interior antes de agir.",
+    "magical_practice": "Conecte-se ao Dois de Espadas visualizando duas espadas equilibradas em harmonia. Afirme sua capacidade de tomar decisões equilibradas e ponderadas.",
+    "past_present_future": {
+      "past": "Um momento de reflexão trouxe clareza e equilíbrio.",
+      "present": "Um período para ponderar decisões e buscar tranquilidade.",
+      "future": "Mais equilíbrio e clareza estão por vir, desde que você paute suas escolhas na introspecção."
+    }
+  },
+  {
+    "name": "Três de Espadas",
+    "title": "Aflição",
+    "image": "assets/cards/three_of_swords.jpg",
+    "number": 3,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Aprendizado através da dor, liberação emocional.",
+    "eighth_lesser": "Coração partido, traição, tristeza profunda.",
+    "order": 52,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Representa dor emocional e aprendizado. Simboliza o crescimento através das adversidades.",
+    "description_symbolic": "O Três de Espadas é a dor do aprendizado. Ele simboliza o processo de cura que surge ao enfrentar a verdade emocional, mesmo que difícil.",
+    "message_esoteric": "Esta carta ensina que o sofrimento pode ser um mestre poderoso. O Três de Espadas nos convida a liberar a dor e crescer a partir dela.",
+    "meditation_reflection": [
+      "Estou enfrentando minha dor ou tentando evitá-la?",
+      "Como posso transformar sofrimento em crescimento?",
+      "Estou permitindo que o tempo e a verdade curem meu coração?"
+    ],
+    "internal_alchemy": "O Três de Espadas simboliza a alquimia da cura emocional. Ele nos desafia a encontrar força nas adversidades e a liberar o sofrimento.",
+    "magical_practice": "Conecte-se ao Três de Espadas visualizando-se removendo as espadas de um coração e curando as feridas com luz dourada. Afirme sua capacidade de cura emocional.",
+    "past_present_future": {
+      "past": "Uma experiência dolorosa trouxe aprendizado e crescimento.",
+      "present": "Um momento para enfrentar e curar suas emoções.",
+      "future": "Mais clareza e paz emocional estão por vir, desde que você abrace o processo de cura."
+    }
+  },
+  {
+    "name": "Quatro de Espadas",
+    "title": "Trégua",
+    "image": "assets/cards/four_of_swords.jpg",
+    "number": 4,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Recuperação, descanso, planejamento estratégico.",
+    "eighth_lesser": "Estagnação, procrastinação, esgotamento mental.",
+    "order": 53,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Reflete descanso e recuperação. Simboliza planejamento e pausa estratégica.",
+    "description_symbolic": "O Quatro de Espadas é a pausa necessária para recuperar forças. Ele simboliza descanso, reflexão e o planejamento estratégico para o próximo passo.",
+    "message_esoteric": "Esta carta ensina que a pausa é essencial para o progresso. O Quatro de Espadas nos convida a refletir e recuperar antes de avançar.",
+    "meditation_reflection": [
+      "Estou permitindo-me descansar antes de tomar decisões importantes?",
+      "Como posso recuperar forças e clareza mental?",
+      "Estou planejando estrategicamente ou agindo impulsivamente?"
+    ],
+    "internal_alchemy": "O Quatro de Espadas simboliza a alquimia do repouso. Ele nos desafia a encontrar clareza e renovação através da pausa.",
+    "magical_practice": "Conecte-se ao Quatro de Espadas visualizando-se em um espaço tranquilo, recuperando sua energia. Afirme sua capacidade de descanso e renovação.",
+    "past_present_future": {
+      "past": "Um momento de pausa trouxe clareza e renovação.",
+      "present": "Um período para descansar e planejar estrategicamente.",
+      "future": "Mais clareza e sucesso estão por vir, desde que você priorize a recuperação."
+    }
+  },
+  {
+    "name": "Cinco de Espadas",
+    "title": "Derrota",
+    "image": "assets/cards/five_of_swords.jpg",
+    "number": 5,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Aprendizado com erros, redefinição de prioridades.",
+    "eighth_lesser": "Conflitos desnecessários, ressentimento, egoísmo.",
+    "order": 54,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza conflito e redefinição de prioridades. Representa a necessidade de aprender com erros.",
+    "description_symbolic": "O Cinco de Espadas reflete os desafios e conflitos que testam nossas prioridades. Ele simboliza o aprendizado que surge ao enfrentar falhas e redefinir caminhos.",
+    "message_esoteric": "Esta carta ensina que os erros são lições valiosas. O Cinco de Espadas nos convida a aprender com os conflitos e a ajustar nosso curso.",
+    "meditation_reflection": [
+      "Estou aprendendo com meus erros ou repetindo-os?",
+      "Como posso redefinir minhas prioridades de forma construtiva?",
+      "Estou evitando conflitos desnecessários ou alimentando ressentimentos?"
+    ],
+    "internal_alchemy": "O Cinco de Espadas simboliza a alquimia do aprendizado através dos desafios. Ele nos desafia a crescer a partir de nossas falhas e a encontrar sabedoria nos conflitos.",
+    "magical_practice": "Conecte-se ao Cinco de Espadas visualizando-se soltando uma espada que representa o fardo de conflitos passados. Afirme sua capacidade de aprender e avançar.",
+    "past_present_future": {
+      "past": "Conflitos e erros passados trouxeram aprendizado e crescimento.",
+      "present": "Um momento de redefinir prioridades e aprender com desafios.",
+      "future": "Mais clareza e paz estão por vir, desde que você tire lições dos conflitos."
+    }
+  },
+  {
+    "name": "Seis de Espadas",
+    "title": "Ciência",
+    "image": "assets/cards/six_of_swords.jpg",
+    "number": 6,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Transição, solução de problemas, cura.",
+    "eighth_lesser": "Fuga, estagnação, dificuldade em seguir em frente.",
+    "order": 55,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Representa transição e cura. Simboliza deixar para trás o que não serve mais e buscar soluções.",
+    "description_symbolic": "O Seis de Espadas é o símbolo de uma jornada rumo à cura e ao progresso. Ele representa a necessidade de avançar, deixando o passado para trás.",
+    "message_esoteric": "Esta carta ensina que a transição pode ser dolorosa, mas é necessária para a cura. O Seis de Espadas nos convida a confiar no processo de mudança.",
+    "meditation_reflection": [
+      "Estou permitindo que a mudança me guie para um futuro melhor?",
+      "Como posso encontrar cura ao deixar o passado para trás?",
+      "Estou aceitando a transição ou resistindo ao progresso?"
+    ],
+    "internal_alchemy": "O Seis de Espadas simboliza a alquimia da transição e da cura. Ele nos desafia a navegar pelo desconhecido com coragem e esperança.",
+    "magical_practice": "Conecte-se ao Seis de Espadas visualizando-se cruzando um rio calmo em direção a uma terra promissora. Afirme sua prontidão para mudanças e cura.",
+    "past_present_future": {
+      "past": "Uma transição difícil trouxe aprendizado e crescimento.",
+      "present": "Um momento de deixar o passado para trás e buscar progresso.",
+      "future": "Mais cura e realização estão por vir, desde que você continue avançando."
+    }
+  },
+  {
+    "name": "Sete de Espadas",
+    "title": "Futilidade",
+    "image": "assets/cards/seven_of_swords.jpg",
+    "number": 7,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Estratégia, inteligência, pensamento criativo.",
+    "eighth_lesser": "Engano, traição, auto-sabotagem.",
+    "order": 56,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Reflete estratégia e inteligência. Simboliza a busca por soluções criativas em situações desafiadoras.",
+    "description_symbolic": "O Sete de Espadas é a carta da inteligência estratégica. Ele simboliza a necessidade de ser criativo e pensar fora da caixa em situações difíceis.",
+    "message_esoteric": "Esta carta ensina que a estratégia e a inteligência são ferramentas poderosas. O Sete de Espadas nos convida a usar nossa criatividade para superar desafios.",
+    "meditation_reflection": [
+      "Estou usando minha inteligência de forma ética e eficaz?",
+      "Como posso abordar desafios com pensamento criativo?",
+      "Estou evitando auto-sabotagem em minha busca por soluções?"
+    ],
+    "internal_alchemy": "O Sete de Espadas simboliza a alquimia da criatividade e da estratégia. Ele nos desafia a encontrar soluções inteligentes e éticas para problemas complexos.",
+    "magical_practice": "Conecte-se ao Sete de Espadas visualizando-se resolvendo um labirinto com clareza e criatividade. Afirme sua capacidade de superar desafios com inteligência.",
+    "past_present_future": {
+      "past": "Uma situação desafiadora exigiu criatividade e estratégia.",
+      "present": "Um momento para usar inteligência e pensamento estratégico.",
+      "future": "Soluções inovadoras e progresso estão por vir, desde que você evite auto-sabotagem."
+    }
+  },
+  {
+    "name": "Oito de Espadas",
+    "title": "Interferência",
+    "image": "assets/cards/eight_of_swords.jpg",
+    "number": 8,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Superação de medos, libertação mental.",
+    "eighth_lesser": "Limitações autoimpostas, paralisia, medo.",
+    "order": 57,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Representa limitações autoimpostas. Simboliza a necessidade de superar medos e se libertar.",
+    "description_symbolic": "O Oito de Espadas é o símbolo da prisão mental que criamos para nós mesmos. Ele reflete os medos e limitações que nos paralisam, mas que podem ser superados com clareza e coragem.",
+    "message_esoteric": "Esta carta ensina que as maiores prisões são aquelas que criamos em nossas mentes. O Oito de Espadas nos convida a romper com os medos autoimpostos.",
+    "meditation_reflection": [
+      "Estou permitindo que meus medos me paralisem?",
+      "Como posso libertar minha mente de limitações autoimpostas?",
+      "Estou buscando clareza para superar desafios internos?"
+    ],
+    "internal_alchemy": "O Oito de Espadas simboliza a alquimia da libertação mental. Ele nos desafia a superar os medos internos e a tomar controle de nossos pensamentos.",
+    "magical_practice": "Conecte-se ao Oito de Espadas visualizando-se rompendo correntes invisíveis que representam limitações mentais. Afirme sua capacidade de se libertar.",
+    "past_present_future": {
+      "past": "Um período de limitações mentais trouxe crescimento e reflexão.",
+      "present": "Um momento para enfrentar e superar medos autoimpostos.",
+      "future": "Mais liberdade mental está por vir, desde que você enfrente suas limitações internas."
+    }
+  },
+  {
+    "name": "Nove de Espadas",
+    "title": "Crueldade",
+    "image": "assets/cards/nine_of_swords.jpg",
+    "number": 9,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Reconhecimento de padrões negativos, cura mental.",
+    "eighth_lesser": "Ansiedade, culpa, tormento mental.",
+    "order": 58,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza ansiedade e tormento mental. Representa a necessidade de enfrentar medos internos.",
+    "description_symbolic": "O Nove de Espadas é a personificação da ansiedade e do tormento mental. Ele reflete preocupações que nos consomem e a importância de enfrentá-las para encontrar cura.",
+    "message_esoteric": "Esta carta ensina que o reconhecimento do sofrimento é o primeiro passo para a cura. O Nove de Espadas nos convida a enfrentar nossos medos internos.",
+    "meditation_reflection": [
+      "Estou permitindo que a ansiedade controle meus pensamentos?",
+      "Como posso encontrar paz ao enfrentar meus medos?",
+      "Estou buscando maneiras saudáveis de lidar com o tormento mental?"
+    ],
+    "internal_alchemy": "O Nove de Espadas simboliza a alquimia da cura mental. Ele nos desafia a transformar a ansiedade em clareza e a buscar paz interior.",
+    "magical_practice": "Conecte-se ao Nove de Espadas visualizando uma luz suave dissipando a escuridão em sua mente. Afirme sua capacidade de superar ansiedades.",
+    "past_present_future": {
+      "past": "Um período de tormento mental trouxe aprendizado e autoconsciência.",
+      "present": "Um momento de enfrentar e processar suas ansiedades.",
+      "future": "Mais clareza e paz estão por vir, desde que você enfrente seus medos internos."
+    }
+  },
+  {
+    "name": "Dez de Espadas",
+    "title": "Ruína",
+    "image": "assets/cards/ten_of_swords.jpg",
+    "number": 10,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Fim de um ciclo, aceitação, novos começos.",
+    "eighth_lesser": "Fracasso, traição, colapso.",
+    "order": 59,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Reflete o fim de um ciclo. Simboliza aceitação e novos começos após a adversidade.",
+    "description_symbolic": "O Dez de Espadas representa o colapso total, mas também a libertação que vem com o fim de um ciclo. Ele simboliza aceitação e o renascimento que segue a adversidade.",
+    "message_esoteric": "Esta carta ensina que mesmo nos momentos mais difíceis, há uma promessa de renascimento. O Dez de Espadas nos convida a aceitar o fim e buscar novos começos.",
+    "meditation_reflection": [
+      "Estou aceitando o fim de ciclos que não me servem mais?",
+      "Como posso transformar adversidades em oportunidades de crescimento?",
+      "Estou permitindo que o renascimento siga a aceitação?"
+    ],
+    "internal_alchemy": "O Dez de Espadas simboliza a alquimia do renascimento. Ele nos desafia a abraçar novos começos após momentos de adversidade.",
+    "magical_practice": "Conecte-se ao Dez de Espadas visualizando o sol nascendo no horizonte após uma longa noite. Afirme sua prontidão para novos começos.",
+    "past_present_future": {
+      "past": "Um período de colapso trouxe crescimento e transformação.",
+      "present": "Um momento de aceitar o fim de um ciclo e buscar renascimento.",
+      "future": "Novos começos estão por vir, desde que você aceite e deixe o passado para trás."
+    }
+  },
+  {
+    "name": "Pajem de Espadas",
+    "title": "O Investigador",
+    "image": "assets/cards/page_of_swords.jpg",
+    "number": 11,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Curiosidade, inteligência, pensamento lógico.",
+    "eighth_lesser": "Fofoca, desconfiança, impulsividade.",
+    "order": 60,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Representa curiosidade e pensamento lógico. Simboliza inteligência e novas aprendizagens.",
+    "description_symbolic": "O Pajem de Espadas é o buscador da verdade e do conhecimento. Ele simboliza curiosidade, inteligência e o desejo de explorar novas ideias.",
+    "message_esoteric": "Esta carta ensina que a curiosidade é o início de toda descoberta. O Pajem de Espadas nos convida a explorar o mundo com inteligência e lógica.",
+    "meditation_reflection": [
+      "Estou permitindo que minha curiosidade me guie para novas aprendizagens?",
+      "Como posso usar minha inteligência para crescer e explorar novas ideias?",
+      "Estou equilibrando curiosidade com paciência e reflexão?"
+    ],
+    "internal_alchemy": "O Pajem de Espadas simboliza a alquimia do aprendizado. Ele nos desafia a buscar a verdade com curiosidade e inteligência.",
+    "magical_practice": "Conecte-se ao Pajem de Espadas visualizando-se explorando um caminho iluminado pelo conhecimento. Afirme sua curiosidade e sede por aprendizado.",
+    "past_present_future": {
+      "past": "Um período de aprendizagem trouxe crescimento intelectual.",
+      "present": "Um momento para explorar novas ideias e buscar conhecimento.",
+      "future": "Mais aprendizado e crescimento intelectual estão por vir, desde que você mantenha sua curiosidade."
+    }
+  },
+  {
+    "name": "Cavaleiro de Espadas",
+    "title": "O Guerreiro",
+    "image": "assets/cards/knight_of_swords.jpg",
+    "number": 12,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Determinação, ação rápida, foco.",
+    "eighth_lesser": "Impulsividade, agressividade, falta de planejamento.",
+    "order": 61,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza ação rápida e determinação. Representa foco e avanço com energia intensa.",
+    "description_symbolic": "O Cavaleiro de Espadas é a força da ação direta e decisiva. Ele simboliza determinação e coragem para enfrentar desafios, mas alerta contra a impulsividade.",
+    "message_esoteric": "Esta carta ensina que foco e ação são essenciais, mas devem ser equilibrados com reflexão. O Cavaleiro de Espadas nos convida a avançar com determinação e estratégia.",
+    "meditation_reflection": [
+      "Estou avançando com determinação ou agindo impulsivamente?",
+      "Como posso equilibrar ação rápida com planejamento?",
+      "Estou mantendo o foco em meus objetivos?"
+    ],
+    "internal_alchemy": "O Cavaleiro de Espadas simboliza a alquimia da ação e do foco. Ele nos desafia a agir com coragem e inteligência.",
+    "magical_practice": "Conecte-se ao Cavaleiro de Espadas visualizando-se empunhando uma espada brilhante e avançando com determinação. Afirme sua coragem e foco.",
+    "past_present_future": {
+      "past": "Um momento de ação decisiva trouxe mudanças significativas.",
+      "present": "Um período de avançar com determinação e foco.",
+      "future": "Sucesso está por vir, desde que você equilibre ação com planejamento."
+    }
+  },
+  {
+    "name": "Rainha de Espadas",
+    "title": "A Analista",
+    "image": "assets/cards/queen_of_swords.jpg",
+    "number": 13,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Clareza, verdade, independência.",
+    "eighth_lesser": "Frieza, insensibilidade, isolamento emocional.",
+    "order": 62,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Representa clareza e independência. Simboliza verdade e a habilidade de discernir com precisão.",
+    "description_symbolic": "A Rainha de Espadas é a personificação da lógica e da clareza mental. Ela simboliza verdade, discernimento e independência, mas também alerta contra a frieza emocional.",
+    "message_esoteric": "Esta carta ensina que a clareza mental é essencial para tomar decisões justas. A Rainha de Espadas nos convida a buscar a verdade com compaixão e discernimento.",
+    "meditation_reflection": [
+      "Estou tomando decisões baseadas em clareza e verdade?",
+      "Como posso equilibrar lógica e empatia em minhas ações?",
+      "Estou cultivando independência sem me isolar emocionalmente?"
+    ],
+    "internal_alchemy": "A Rainha de Espadas simboliza a alquimia da clareza e da verdade. Ela nos desafia a agir com independência e discernimento.",
+    "magical_practice": "Conecte-se à Rainha de Espadas visualizando-se segurando uma espada que brilha com a luz da verdade. Afirme sua clareza e independência.",
+    "past_present_future": {
+      "past": "Um momento de clareza mental trouxe sabedoria e crescimento.",
+      "present": "Um período para buscar verdade e tomar decisões justas.",
+      "future": "Mais clareza e sucesso estão por vir, desde que você aja com discernimento."
+    }
+  },
+  {
+    "name": "Rei de Espadas",
+    "title": "O Estrategista",
+    "image": "assets/cards/king_of_swords.jpg",
+    "number": 14,
+    "isMajorArcana": false,
+    "suit": "Espadas",
+    "eighth_greater": "Liderança intelectual, lógica, discernimento.",
+    "eighth_lesser": "Rigidez, autoritarismo, manipulação.",
+    "order": 63,
+    "element": "Ar",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza liderança intelectual e lógica. Representa julgamento justo e autoridade mental.",
+    "description_symbolic": "O Rei de Espadas é o símbolo de liderança intelectual e estratégia. Ele representa lógica, julgamento justo e a autoridade que vem do conhecimento.",
+    "message_esoteric": "Esta carta ensina que a verdadeira liderança vem da sabedoria e do discernimento. O Rei de Espadas nos convida a liderar com justiça e clareza.",
+    "meditation_reflection": [
+      "Estou liderando com sabedoria e justiça?",
+      "Como posso usar minha inteligência para o bem maior?",
+      "Estou equilibrando lógica com compaixão em minhas decisões?"
+    ],
+    "internal_alchemy": "O Rei de Espadas simboliza a alquimia da liderança intelectual. Ele nos desafia a liderar com justiça, lógica e sabedoria.",
+    "magical_practice": "Conecte-se ao Rei de Espadas visualizando-se sentado em um trono, cercado por uma aura de clareza e autoridade. Afirme sua liderança e discernimento.",
+    "past_present_future": {
+      "past": "Um período de liderança intelectual trouxe conquistas e aprendizado.",
+      "present": "Um momento de tomar decisões justas e liderar com sabedoria.",
+      "future": "Mais sucesso e liderança estão por vir, desde que você mantenha seu discernimento."
+    }
+  },
+  {
+    "name": "Ás de Ouros",
+    "title": "Raiz da Terra",
+    "image": "assets/cards/ace_of_pentacles.jpg",
+    "number": 1,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Novos começos materiais, prosperidade, oportunidades.",
+    "eighth_lesser": "Bloqueios financeiros, falta de oportunidade, desperdício.",
+    "order": 64,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Representa novos começos materiais e prosperidade. Simboliza oportunidades tangíveis e abundância.",
+    "description_symbolic": "O Ás de Ouros é a promessa de prosperidade e novos começos no mundo material. Ele simboliza oportunidades tangíveis e a abundância que vem com esforço.",
+    "message_esoteric": "Esta carta ensina que o início de algo grande exige esforço e dedicação. O Ás de Ouros nos convida a aproveitar as oportunidades materiais com sabedoria.",
+    "meditation_reflection": [
+      "Estou pronto para abraçar novas oportunidades materiais?",
+      "Como posso cultivar prosperidade em minha vida?",
+      "Estou aproveitando os recursos à minha disposição com sabedoria?"
+    ],
+    "internal_alchemy": "O Ás de Ouros simboliza a alquimia da abundância. Ele nos desafia a transformar potencial em prosperidade.",
+    "magical_practice": "Conecte-se ao Ás de Ouros visualizando-se segurando um disco dourado, simbolizando oportunidades e abundância. Afirme sua capacidade de prosperar.",
+    "past_present_future": {
+      "past": "Um novo começo trouxe oportunidades materiais significativas.",
+      "present": "Um período de abraçar oportunidades e cultivar prosperidade.",
+      "future": "Mais prosperidade e sucesso estão por vir, desde que você aproveite as oportunidades com sabedoria."
+    }
+  },
+  {
+    "name": "Dois de Ouros",
+    "title": "Mudança",
+    "image": "assets/cards/two_of_pentacles.jpg",
+    "number": 2,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Equilíbrio, adaptabilidade, administração eficiente.",
+    "eighth_lesser": "Desequilíbrio, sobrecarga, desorganização.",
+    "order": 65,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza equilíbrio e adaptabilidade. Representa administração eficiente de recursos e prioridades.",
+    "description_symbolic": "O Dois de Ouros representa o equilíbrio necessário para lidar com mudanças e desafios materiais. Ele simboliza a adaptabilidade e a habilidade de gerenciar recursos com eficiência.",
+    "message_esoteric": "Esta carta ensina que equilíbrio e adaptabilidade são essenciais para o sucesso. O Dois de Ouros nos convida a encontrar harmonia em meio às mudanças.",
+    "meditation_reflection": [
+      "Estou equilibrando minhas prioridades de forma eficaz?",
+      "Como posso me adaptar melhor às mudanças em minha vida?",
+      "Estou administrando meus recursos com eficiência?"
+    ],
+    "internal_alchemy": "O Dois de Ouros simboliza a alquimia da adaptabilidade. Ele nos desafia a encontrar equilíbrio e harmonia em meio às mudanças.",
+    "magical_practice": "Conecte-se ao Dois de Ouros visualizando-se equilibrando dois discos brilhantes em harmonia perfeita. Afirme sua capacidade de gerenciar mudanças e recursos.",
+    "past_present_future": {
+      "past": "Um período de equilíbrio e adaptabilidade trouxe progresso.",
+      "present": "Um momento de gerenciar mudanças e priorizar com eficiência.",
+      "future": "Mais equilíbrio e sucesso estão por vir, desde que você permaneça adaptável."
+    }
+  },
+  {
+    "name": "Três de Ouros",
+    "title": "Trabalho",
+    "image": "assets/cards/three_of_pentacles.jpg",
+    "number": 3,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Colaboração, aprendizado, execução bem planejada.",
+    "eighth_lesser": "Falta de esforço, desentendimentos, trabalho mal executado.",
+    "order": 66,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Reflete colaboração e planejamento. Simboliza aprendizado e execução cuidadosa.",
+    "description_symbolic": "O Três de Ouros é a representação do esforço conjunto e da habilidade em ação. Ele simboliza o valor da colaboração e da atenção ao detalhe para alcançar o sucesso.",
+    "message_esoteric": "Esta carta ensina que o trabalho bem executado exige cooperação e planejamento. O Três de Ouros nos convida a buscar aprendizado constante e parcerias construtivas.",
+    "meditation_reflection": [
+      "Estou colaborando efetivamente com os outros?",
+      "Como posso melhorar a execução de meus projetos?",
+      "Estou valorizando o aprendizado em minha jornada?"
+    ],
+    "internal_alchemy": "O Três de Ouros simboliza a alquimia do esforço conjunto. Ele nos desafia a usar nossas habilidades para contribuir com projetos maiores.",
+    "magical_practice": "Conecte-se ao Três de Ouros visualizando-se em harmonia com outros enquanto trabalha em um projeto significativo. Afirme sua dedicação ao aprendizado e à colaboração.",
+    "past_present_future": {
+      "past": "Um esforço colaborativo trouxe aprendizado e progresso.",
+      "present": "Um momento para investir em parcerias e executar com cuidado.",
+      "future": "Mais sucesso está por vir, desde que você continue colaborando e aprendendo."
+    }
+  },
+  {
+    "name": "Quatro de Ouros",
+    "title": "Poder",
+    "image": "assets/cards/four_of_pentacles.jpg",
+    "number": 4,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Estabilidade financeira, segurança, controle.",
+    "eighth_lesser": "Apego, avareza, medo de perder.",
+    "order": 67,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Representa estabilidade financeira e controle. Simboliza segurança, mas também apego excessivo.",
+    "description_symbolic": "O Quatro de Ouros reflete a necessidade de estabilidade, mas alerta contra o apego excessivo ao material. Ele simboliza a segurança que pode se transformar em possessividade.",
+    "message_esoteric": "Esta carta ensina que o equilíbrio entre segurança e generosidade é essencial. O Quatro de Ouros nos convida a cultivar estabilidade sem nos tornarmos prisioneiros do medo de perder.",
+    "meditation_reflection": [
+      "Estou mantendo um equilíbrio saudável entre segurança e generosidade?",
+      "Como posso liberar o medo de perder para encontrar mais liberdade?",
+      "Estou construindo estabilidade de forma sustentável?"
+    ],
+    "internal_alchemy": "O Quatro de Ouros simboliza a alquimia da segurança e do desapego. Ele nos desafia a buscar equilíbrio e a evitar o aprisionamento ao material.",
+    "magical_practice": "Conecte-se ao Quatro de Ouros visualizando-se segurando um disco dourado com confiança, mas sem possessividade. Afirme sua segurança e liberdade.",
+    "past_present_future": {
+      "past": "Um momento de segurança e controle financeiro trouxe estabilidade.",
+      "present": "Um período para equilibrar apego e liberdade material.",
+      "future": "Mais estabilidade está por vir, desde que você evite possessividade."
+    }
+  },
+  {
+    "name": "Cinco de Ouros",
+    "title": "Preocupação",
+    "image": "assets/cards/five_of_pentacles.jpg",
+    "number": 5,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Superação de adversidades, ajuda inesperada.",
+    "eighth_lesser": "Perdas materiais, dificuldades financeiras, isolamento.",
+    "order": 68,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza perdas e desafios materiais. Representa a necessidade de buscar ajuda e superar adversidades.",
+    "description_symbolic": "O Cinco de Ouros reflete tempos difíceis, mas também o potencial de superação e esperança. Ele simboliza a importância de buscar ajuda e não enfrentar desafios sozinho.",
+    "message_esoteric": "Esta carta ensina que mesmo nos momentos de maior dificuldade, a ajuda está disponível. O Cinco de Ouros nos convida a procurar apoio e a acreditar na superação.",
+    "meditation_reflection": [
+      "Estou buscando ajuda em tempos de necessidade?",
+      "Como posso transformar dificuldades em oportunidades de crescimento?",
+      "Estou mantendo a esperança durante os desafios?"
+    ],
+    "internal_alchemy": "O Cinco de Ouros simboliza a alquimia da resiliência. Ele nos desafia a encontrar força em meio às dificuldades e a buscar apoio quando necessário.",
+    "magical_practice": "Conecte-se ao Cinco de Ouros visualizando-se saindo de uma tempestade para a luz. Afirme sua capacidade de superar adversidades.",
+    "past_present_future": {
+      "past": "Um período de desafios trouxe resiliência e aprendizado.",
+      "present": "Um momento para buscar apoio e enfrentar adversidades.",
+      "future": "A superação está por vir, desde que você mantenha a esperança."
+    }
+  },
+  {
+    "name": "Seis de Ouros",
+    "title": "Sucesso",
+    "image": "assets/cards/six_of_pentacles.jpg",
+    "number": 6,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Generosidade, equilíbrio financeiro, gratidão.",
+    "eighth_lesser": "Dependência, expectativas frustradas, desigualdade.",
+    "order": 69,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Representa generosidade e equilíbrio financeiro. Simboliza gratidão e harmonia na troca de recursos.",
+    "description_symbolic": "O Seis de Ouros é a representação da harmonia na troca de recursos. Ele simboliza a importância de dar e receber com equilíbrio e gratidão.",
+    "message_esoteric": "Esta carta ensina que a generosidade é uma via de mão dupla. O Seis de Ouros nos convida a cultivar harmonia nas trocas materiais e emocionais.",
+    "meditation_reflection": [
+      "Estou equilibrando dar e receber em minha vida?",
+      "Como posso cultivar mais gratidão e generosidade?",
+      "Estou valorizando as oportunidades de ajudar os outros?"
+    ],
+    "internal_alchemy": "O Seis de Ouros simboliza a alquimia da generosidade. Ele nos desafia a encontrar equilíbrio e gratidão em nossas trocas.",
+    "magical_practice": "Conecte-se ao Seis de Ouros visualizando-se equilibrando dois pratos cheios de recursos. Afirme sua generosidade e gratidão.",
+    "past_present_future": {
+      "past": "Um ato de generosidade trouxe harmonia e gratidão.",
+      "present": "Um momento para equilibrar dar e receber.",
+      "future": "Mais harmonia e abundância estão por vir, desde que você cultive a generosidade."
+    }
+  },
+  {
+    "name": "Sete de Ouros",
+    "title": "Fracasso",
+    "image": "assets/cards/seven_of_pentacles.jpg",
+    "number": 7,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Planejamento a longo prazo, paciência, colheita futura.",
+    "eighth_lesser": "Desmotivação, falta de progresso, impaciência.",
+    "order": 70,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Reflete paciência e planejamento a longo prazo. Simboliza o esforço em direção a uma colheita futura.",
+    "description_symbolic": "O Sete de Ouros simboliza o trabalho paciente e o planejamento cuidadoso. Ele nos lembra que o progresso requer tempo e dedicação contínua.",
+    "message_esoteric": "Esta carta ensina que a paciência é essencial para o sucesso. O Sete de Ouros nos convida a confiar no processo e a continuar investindo no que realmente importa.",
+    "meditation_reflection": [
+      "Estou dedicando tempo e esforço suficientes para alcançar meus objetivos?",
+      "Como posso cultivar paciência em minha jornada?",
+      "Estou avaliando regularmente meu progresso e ajustando meu plano?"
+    ],
+    "internal_alchemy": "O Sete de Ouros simboliza a alquimia do crescimento paciente. Ele nos desafia a valorizar o processo tanto quanto o resultado.",
+    "magical_practice": "Conecte-se ao Sete de Ouros visualizando uma colheita abundante crescendo lentamente. Afirme sua paciência e dedicação.",
+    "past_present_future": {
+      "past": "Um período de trabalho paciente trouxe crescimento sólido.",
+      "present": "Um momento para avaliar seu progresso e planejar cuidadosamente.",
+      "future": "Uma colheita abundante está por vir, desde que você mantenha sua paciência e esforço."
+    }
+  },
+  {
+    "name": "Oito de Ouros",
+    "title": "Prudência",
+    "image": "assets/cards/eight_of_pentacles.jpg",
+    "number": 8,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Dedicação, aprendizado, habilidade refinada.",
+    "eighth_lesser": "Falta de empenho, trabalho negligente, desatenção.",
+    "order": 71,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Representa dedicação e habilidade refinada. Simboliza o aprendizado constante e o esforço diligente.",
+    "description_symbolic": "O Oito de Ouros reflete o aperfeiçoamento e a dedicação. Ele simboliza o trabalho paciente necessário para alcançar a excelência.",
+    "message_esoteric": "Esta carta ensina que o aprendizado e a prática são as chaves para o progresso. O Oito de Ouros nos convida a investir tempo e esforço para aprimorar nossas habilidades.",
+    "meditation_reflection": [
+      "Estou investindo o esforço necessário para alcançar a excelência?",
+      "Como posso melhorar minhas habilidades através do aprendizado contínuo?",
+      "Estou sendo paciente com meu progresso?"
+    ],
+    "internal_alchemy": "O Oito de Ouros simboliza a alquimia da prática e do aprimoramento. Ele nos desafia a trabalhar com diligência e propósito.",
+    "magical_practice": "Conecte-se ao Oito de Ouros visualizando-se lapidando uma obra-prima com paciência e cuidado. Afirme sua dedicação e habilidade.",
+    "past_present_future": {
+      "past": "Um período de aprendizado trouxe progresso e desenvolvimento.",
+      "present": "Um momento para investir em prática e aprimoramento.",
+      "future": "Mais progresso está por vir, desde que você continue se dedicando."
+    }
+  },
+  {
+    "name": "Nove de Ouros",
+    "title": "Ganhos",
+    "image": "assets/cards/nine_of_pentacles.jpg",
+    "number": 9,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Independência, segurança material, realização pessoal.",
+    "eighth_lesser": "Dependência, isolamento, arrogância.",
+    "order": 72,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza independência e realização pessoal. Representa segurança material e harmonia com o ambiente.",
+    "description_symbolic": "O Nove de Ouros é o símbolo de independência e segurança conquistada através de esforço próprio. Ele reflete satisfação pessoal e harmonia.",
+    "message_esoteric": "Esta carta ensina que a verdadeira independência vem da autossuficiência. O Nove de Ouros nos convida a celebrar nossas conquistas materiais e emocionais.",
+    "meditation_reflection": [
+      "Estou valorizando minhas conquistas e minha independência?",
+      "Como posso harmonizar segurança material com equilíbrio emocional?",
+      "Estou cultivando gratidão por tudo o que alcancei?"
+    ],
+    "internal_alchemy": "O Nove de Ouros simboliza a alquimia da independência e da harmonia. Ele nos desafia a valorizar o que conquistamos com esforço.",
+    "magical_practice": "Conecte-se ao Nove de Ouros visualizando-se em um jardim repleto de prosperidade. Afirme sua autossuficiência e gratidão.",
+    "past_present_future": {
+      "past": "Um período de esforço trouxe conquistas e segurança.",
+      "present": "Um momento de celebrar sua independência e realizações.",
+      "future": "Mais segurança e satisfação estão por vir, desde que você mantenha seus esforços."
+    }
+  },
+  {
+    "name": "Dez de Ouros",
+    "title": "Riqueza",
+    "image": "assets/cards/ten_of_pentacles.jpg",
+    "number": 10,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Estabilidade, legado, prosperidade duradoura.",
+    "eighth_lesser": "Conflitos familiares, instabilidade, ganância.",
+    "order": 73,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Representa legado e estabilidade duradoura. Simboliza prosperidade e realização no nível familiar.",
+    "description_symbolic": "O Dez de Ouros reflete a prosperidade acumulada e o legado duradouro. Ele simboliza estabilidade e harmonia que se estendem às gerações futuras.",
+    "message_esoteric": "Esta carta ensina que a verdadeira riqueza está no legado que deixamos. O Dez de Ouros nos convida a construir algo duradouro e significativo.",
+    "meditation_reflection": [
+      "Estou construindo um legado significativo para o futuro?",
+      "Como posso compartilhar minha prosperidade de forma construtiva?",
+      "Estou cultivando harmonia e estabilidade em minha vida familiar?"
+    ],
+    "internal_alchemy": "O Dez de Ouros simboliza a alquimia da estabilidade e do legado. Ele nos desafia a pensar no impacto de nossas ações a longo prazo.",
+    "magical_practice": "Conecte-se ao Dez de Ouros visualizando-se cercado por uma árvore frondosa que representa seu legado. Afirme sua estabilidade e prosperidade duradoura.",
+    "past_present_future": {
+      "past": "Um período de construção trouxe estabilidade e prosperidade.",
+      "present": "Um momento de aproveitar os frutos de seu legado.",
+      "future": "Mais prosperidade e impacto duradouro estão por vir, desde que você continue cultivando harmonia."
+    }
+  },
+  {
+    "name": "Pajem de Ouros",
+    "title": "O Estudante",
+    "image": "assets/cards/page_of_pentacles.jpg",
+    "number": 11,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Novos aprendizados, ambição, oportunidades.",
+    "eighth_lesser": "Procrastinação, falta de foco, superficialidade.",
+    "order": 74,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Representa ambição e novos aprendizados. Simboliza a busca por oportunidades práticas.",
+    "description_symbolic": "O Pajem de Ouros é o símbolo do aprendizado e da ambição. Ele representa novas oportunidades práticas e a busca por conhecimento.",
+    "message_esoteric": "Esta carta ensina que a base do progresso está na curiosidade e no aprendizado. O Pajem de Ouros nos convida a explorar novas oportunidades com dedicação.",
+    "meditation_reflection": [
+      "Estou aproveitando novas oportunidades de aprendizado?",
+      "Como posso aplicar meu conhecimento de forma prática?",
+      "Estou cultivando ambição de forma saudável?"
+    ],
+    "internal_alchemy": "O Pajem de Ouros simboliza a alquimia do aprendizado e da ambição. Ele nos desafia a buscar conhecimento e aplicá-lo para alcançar nossos objetivos.",
+    "magical_practice": "Conecte-se ao Pajem de Ouros visualizando-se abrindo um livro de ouro, cheio de oportunidades. Afirme sua ambição e curiosidade.",
+    "past_present_future": {
+      "past": "Um período de aprendizado trouxe novas oportunidades.",
+      "present": "Um momento para explorar novos caminhos com ambição.",
+      "future": "Mais oportunidades estão por vir, desde que você mantenha seu foco e dedicação."
+    }
+  },
+  {
+    "name": "Cavaleiro de Ouros",
+    "title": "O Trabalhador",
+    "image": "assets/cards/knight_of_pentacles.jpg",
+    "number": 12,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Persistência, disciplina, confiabilidade.",
+    "eighth_lesser": "Rigidez, teimosia, lentidão excessiva.",
+    "order": 75,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza persistência e confiabilidade. Representa disciplina e determinação sólida.",
+    "description_symbolic": "O Cavaleiro de Ouros é o símbolo da disciplina e do esforço contínuo. Ele representa confiabilidade e persistência para alcançar objetivos práticos.",
+    "message_esoteric": "Esta carta ensina que a perseverança é a chave para o sucesso. O Cavaleiro de Ouros nos convida a trabalhar com determinação e paciência.",
+    "meditation_reflection": [
+      "Estou sendo consistente e confiável em meus esforços?",
+      "Como posso cultivar disciplina para alcançar meus objetivos?",
+      "Estou equilibrando persistência com flexibilidade?"
+    ],
+    "internal_alchemy": "O Cavaleiro de Ouros simboliza a alquimia da disciplina e da determinação. Ele nos desafia a manter o foco mesmo diante de desafios.",
+    "magical_practice": "Conecte-se ao Cavaleiro de Ouros visualizando-se plantando sementes que crescerão com seu esforço. Afirme sua persistência e confiabilidade.",
+    "past_present_future": {
+      "past": "Um período de esforço persistente trouxe progresso sólido.",
+      "present": "Um momento para trabalhar com disciplina e determinação.",
+      "future": "Mais sucesso e estabilidade estão por vir, desde que você mantenha sua persistência."
+    }
+  },
+  {
+    "name": "Rainha de Ouros",
+    "title": "A Nutridora",
+    "image": "assets/cards/queen_of_pentacles.jpg",
+    "number": 13,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Generosidade, praticidade, conforto material.",
+    "eighth_lesser": "Materialismo, possessividade, negligência.",
+    "order": 76,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Representa generosidade e praticidade. Simboliza cuidado e conforto material.",
+    "description_symbolic": "A Rainha de Ouros é a personificação do cuidado e da generosidade prática. Ela simboliza conforto, segurança e harmonia com o mundo material.",
+    "message_esoteric": "Esta carta ensina que a verdadeira riqueza está no cuidado com os outros. A Rainha de Ouros nos convida a nutrir e apoiar quem nos rodeia.",
+    "meditation_reflection": [
+      "Estou cuidando de mim mesmo e dos outros com generosidade?",
+      "Como posso equilibrar praticidade e compaixão em minha vida?",
+      "Estou valorizando o conforto material sem cair no materialismo excessivo?"
+    ],
+    "internal_alchemy": "A Rainha de Ouros simboliza a alquimia do cuidado e da generosidade. Ela nos desafia a cultivar harmonia e abundância.",
+    "magical_practice": "Conecte-se à Rainha de Ouros visualizando-se cercado por um campo fértil e abundante. Afirme sua generosidade e harmonia.",
+    "past_present_future": {
+      "past": "Um período de cuidado e generosidade trouxe harmonia e segurança.",
+      "present": "Um momento de nutrir e apoiar suas conexões e seu ambiente.",
+      "future": "Mais abundância e harmonia estão por vir, desde que você continue nutrindo o que é importante."
+    }
+  },
+  {
+    "name": "Rei de Ouros",
+    "title": "O Provedor",
+    "image": "assets/cards/king_of_pentacles.jpg",
+    "number": 14,
+    "isMajorArcana": false,
+    "suit": "Ouros",
+    "eighth_greater": "Abundância, liderança, estabilidade.",
+    "eighth_lesser": "Ganância, controle excessivo, inflexibilidade.",
+    "order": 77,
+    "element": "Terra",
+    "sign": null,
+    "planet": null,
+    "description": "Simboliza abundância e liderança prática. Representa estabilidade financeira e sabedoria material.",
+    "description_symbolic": "O Rei de Ouros é a personificação da liderança e da estabilidade financeira. Ele simboliza abundância e a habilidade de administrar recursos com sabedoria.",
+    "message_esoteric": "Esta carta ensina que a verdadeira liderança está no uso responsável da abundância. O Rei de Ouros nos convida a construir estabilidade e a compartilhar prosperidade.",
+    "meditation_reflection": [
+      "Estou liderando com sabedoria e responsabilidade?",
+      "Como posso usar minha abundância para apoiar os outros?",
+      "Estou cultivando estabilidade em todas as áreas da minha vida?"
+    ],
+    "internal_alchemy": "O Rei de Ouros simboliza a alquimia da liderança e da prosperidade. Ele nos desafia a ser provedores sábios e responsáveis.",
+    "magical_practice": "Conecte-se ao Rei de Ouros visualizando-se em um trono rodeado por símbolos de abundância. Afirme sua liderança e estabilidade.",
+    "past_present_future": {
+      "past": "Um período de liderança prática trouxe estabilidade e abundância.",
+      "present": "Um momento de liderar com sabedoria e cultivar prosperidade.",
+      "future": "Mais sucesso e estabilidade estão por vir, desde que você continue agindo com responsabilidade."
+    }
+  }
+]

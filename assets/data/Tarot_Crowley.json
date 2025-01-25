@@ -1,0 +1,64 @@
+{
+    "cards": [
+        {
+            "name": "O Louco (The Fool)",
+            "element": "Ar",
+            "astrology": "Urano",
+            "hebrew_letter": "Aleph (א)",
+            "description_symbolic": "Eis o Louco, a carta número zero, que não tem início nem fim, pois ele é o eterno círculo da criação. Ele é o espírito primordial, a explosão do Big Bang cósmico, a energia inominável que se lança no abismo da existência. Com um sorriso no rosto e um pé já no precipício, ele simboliza a confiança absoluta na jornada. Não há medo, apenas a certeza de que, seja qual for o caminho, ele é o caminho certo.",
+            "message_esoteric": "O Louco não é insensato, mas aquele que está além da lógica mortal. Ele é o caos criativo do deus Pã, a força bruta de Dionísio, a energia de Shiva antes da dança. Ele nos ensina a confiar na jornada, a abandonar as amarras do ego e a mergulhar no desconhecido. Ele é o iniciado que deu o primeiro passo sem olhar para trás.",
+            "meditation_reflection": [
+                "O que eu estou evitando por medo do desconhecido?",
+                "Estou disposto a confiar no processo, mesmo sem saber o resultado?",
+                "Como posso permitir que o caos criativo se manifeste em minha vida?"
+            ],
+            "internal_alchemy": "O Louco é o ar que respiras, o vento que não se pode capturar. Ele é a respiração inicial de um projeto, de uma ideia, de uma vida. Ele nos lembra que, antes de sermos algo, somos nada — e que é nesse nada que reside todo o potencial.",
+            "magical_practice": "Conecte-se com o Louco permitindo-se sonhar sem limitações. Visualize-se pulando de um precipício, sabendo que o universo o apoiará. Ouça o som do silêncio, pois é ali que o Louco sussurra.",
+            "past_present_future": {
+                "past": "Uma fase de inocência e espontaneidade, marcada pela liberdade de seguir novos caminhos sem medo.",
+                "present": "Um momento de confiança e coragem, onde o salto no desconhecido é necessário para avançar.",
+                "future": "O potencial de algo grandioso, mas que exigirá fé absoluta para que se realize."
+            }
+        },
+        {
+            "name": "O Mago (The Magus)",
+            "hebrew_letter": "Beth (ב)",
+            "element": "Mercúrio",
+            "astrology": "Mercúrio",
+            "description_symbolic": "O Mago é o mestre da vontade, o alquimista supremo que transforma intenção em manifestação. Ele é o intermediário entre o divino e o mundano, manipulando os elementos do universo para criar algo novo. Na carta, ele é representado rodeado pelos instrumentos sagrados: o bastão, a taça, a espada e o disco — símbolos dos quatro elementos. O Mago não apenas comanda essas forças, mas as integra como uma extensão de sua própria essência. Ele representa o verbo criador, o poder do logos que molda a realidade.",
+            "message_esoteric": "O Mago nos ensina que tudo começa com a vontade. Ele é a manifestação da consciência em ação, a prova de que o universo responde àqueles que sabem como exercer seu poder pessoal. Ele nos lembra que somos criadores, e que o domínio da mente e da palavra é a chave para moldar a realidade. É o símbolo da ação deliberada e da autoconfiança.",
+            "meditation_reflection": [
+                "Como posso usar meus talentos para criar algo significativo?",
+                "Estou agindo com intenção clara ou apenas reagindo às circunstâncias?",
+                "Quais ferramentas tenho à minha disposição que podem transformar minha vida?"
+            ],
+            "internal_alchemy": "O Mago representa a alquimia interna, onde ideias se tornam realidade. Ele nos desafia a dominar nossos pensamentos, palavras e ações para nos tornarmos mestres de nosso próprio destino. Ele simboliza a habilidade de equilibrar força e sutileza, ação e contemplação.",
+            "magical_practice": "Para conectar-se ao Mago, visualize-se segurando os quatro instrumentos: bastão, taça, espada e disco. Concentre-se em sua intenção e declare em voz alta o que deseja criar. Use afirmações poderosas e claras para reforçar sua conexão com o poder criador.",
+            "past_present_future": {
+                "past": "Uma fase de aprendizado e descoberta de habilidades pessoais, onde o potencial começou a se revelar.",
+                "present": "Um momento de ação e manifestação, onde a confiança e o domínio pessoal são cruciais.",
+                "future": "A promessa de um novo empreendimento ou criação, desde que haja foco e intenção clara."
+            }
+        },
+        {
+            "name": "A Sacerdotisa (The Priestess)",
+            "hebrew_letter": "Gimel (ג)",
+            "element": "Lua",
+            "astrology": "A Lua",
+            "description_symbolic": "A Sacerdotisa é a guardiã dos mistérios, a ponte entre o consciente e o inconsciente. Ela se senta em silêncio, envolta por um véu que simboliza o desconhecido, ocultando verdades profundas e revelando-as apenas aos que estão prontos. Sua conexão com a Lua reflete a intuição, o mistério e o fluxo cíclico da existência. Com o rolo da Torá em seu colo, ela guarda o conhecimento sagrado e inatingível, simbolizando a sabedoria pura que transcende o racional.",
+            "message_esoteric": "A Sacerdotisa nos ensina a confiar em nossa intuição, a olhar além da superfície e a buscar as respostas dentro de nós mesmos. Ela é o espaço entre os pensamentos, o silêncio entre as palavras, onde a verdadeira sabedoria reside. Esta carta nos convida a entrar no templo interior e ouvir a voz da alma.",
+            "meditation_reflection": [
+                "Estou ouvindo minha intuição ou deixando minha mente dominar?",
+                "Quais mistérios dentro de mim precisam ser explorados?",
+                "Como posso acessar o silêncio e a sabedoria interior?"
+            ],
+            "internal_alchemy": "A Sacerdotisa representa a alquimia da introspecção e da intuição. Ela nos lembra que o verdadeiro poder reside no entendimento silencioso e na paciência. O conhecimento oculto só se revela àqueles que o buscam com humildade e perseverança.",
+            "magical_practice": "Para conectar-se à Sacerdotisa, pratique a meditação silenciosa sob a luz da Lua. Visualize-se atravessando um véu e entrando em um templo interno, onde você encontra um pergaminho com as respostas que procura. Escreva suas percepções após a prática.",
+            "past_present_future": {
+                "past": "Um período de mistério e silêncio, onde o aprendizado veio de fontes intuitivas ou ocultas.",
+                "present": "Um momento de introspecção e paciência, onde as respostas ainda estão escondidas, mas se aproximam.",
+                "future": "A revelação de um segredo ou o acesso a uma sabedoria profunda, desde que você confie em sua intuição."
+            }
+        }
+    ]
+}
