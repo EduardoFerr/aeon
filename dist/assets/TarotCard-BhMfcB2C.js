@@ -3,6 +3,7 @@ class s extends HTMLElement{constructor(){super(),this.isFlipped=!0}connectedCal
                 <div class="card-inner">
                     <div class="card-front">
                         <img src="assets/cards/crowley-${this.cardData.order}.jpg" alt="${this.cardData.name}">
+                        <p class="card-element ${this.cardData.element}">${this.cardData.name}</p>
                     </div>
                     <div class="card-back"></div>
                 </div>
