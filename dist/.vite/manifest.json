@@ -12,7 +12,7 @@
     "src": "assets/bg-mobile.webp"
   },
   "index.html": {
-    "file": "assets/index-CPAS1IgG.js",
+    "file": "assets/index-CflqtO60.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -20,7 +20,7 @@
       "src/components/TarotCard.js"
     ],
     "css": [
-      "assets/css/index-BS2eGYzD.css"
+      "assets/css/index-Dc0Ls6zv.css"
     ],
     "assets": [
       "assets/bg-desktop-DalWbQbu.webp",
