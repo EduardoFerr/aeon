@@ -2,28 +2,173 @@
     scrollbar-width: none;
     /* Esconde a barra no Firefox */
 }
+/* Para dispositivos em modo retrato */
+@media (orientation: landscape) {
+    body {
+        background-image: url("../assets/bg-desktop.webp");
+    }
+}
 
+/* Para dispositivos em modo paisagem */
+@media (orientation: portrait) {
+    body {
+        background-image: url("../assets/bg-mobile.webp");
+    }
+}
 /* Estilo geral para o corpo */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #000000;
-    background-image: url("../assets/bg.webp");
-    background-position: top;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center;
     color: #333;
+    height: 100vh;
+    background-size: cover;
 }
+
+
+/* Header */
+header {
+    background-color: #00000050;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: xxx-large;
+    text-align: center;
+    color: #fdce1675;
+    margin: 0;
+    -webkit-text-stroke: 1px #ffffff30;
+    text-stroke: 1px #ffffff30;
+}
+
+.bg {
+    background: #ffffffad;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ffc107; /* Cor dourada ao passar o mouse */
+    box-shadow: 0 4px 6px rgba(190, 156, 2, 0.1);
+}
+
+/* Main */
+main {
+    padding: 20px;
+    min-height: 65%;
+}
+
+/* Footer */
+footer {
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.522);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+footer nav {
+    margin-top: 10px;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer nav ul li {
+    display: inline-block;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #ffc107;
+    font-size: 0.9rem;
+    transition: color 0.2s ease-in-out;
+}
+
+footer nav ul li a:hover {
+    color: #ffffff;
+}
+
+/* Breadcrumb (se utilizado no HTML) */
+nav[aria-label="breadcrumb"] {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #222222;
+    border-radius: 5px;
+}
+
+nav[aria-label="breadcrumb"] ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 5px;
+}
+
+nav[aria-label="breadcrumb"] ol li {
+    color: #ffffff;
+}
+
+nav[aria-label="breadcrumb"] ol li a {
+    text-decoration: none;
+    color: #ffc107;
+}
+
+nav[aria-label="breadcrumb"] ol li a:hover {
+    color: #ffffff;
+}
+
 
 /* Títulos principais */
 h1 {
     font-size: xxx-large;
     text-align: center;
-    color: #ffffff;
-    margin: 20px 0;
-    -webkit-text-stroke: 3px #000000;
-    text-stroke: 1px #000000;
+    color: #491c43d9;
+    margin: 0;
+    -webkit-text-stroke: 1px #9d9930;
+    text-stroke: 1px #9d9930;
 }
 
 /* Botões globais */
@@ -32,9 +177,9 @@ button {
     margin: 20px auto;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #000000;
+    background-color: #00000087;
     color: white;
-    border: 2px solid white;
+    border: 2px solid #ffffff96;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -55,9 +200,9 @@ button:hover {
     margin: 10px auto;
     padding: 10px 15px;
     font-size: 16px;
-    background-color: #000000;
-    color: white;
-    border: 2px solid white;
+    background-color: #00000099;
+    color: #ffffff;
+    border: 2px solid #ffffff7a;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -135,7 +280,7 @@ button:hover {
 }
 
 .history-screen li {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9d0;
     margin: 10px auto;
     padding: 10px;
     border: 1px solid #ddd;

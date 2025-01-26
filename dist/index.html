@@ -1,16 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR"> <!-- Mudei o idioma para português, ajustando para o público-alvo -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarot App</title>
-  <script type="module" crossorigin src="/assets/index-CDja0Xt-.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CiKvttcM.css">
+    <meta name="description" content="Descubra o significado das cartas do Tarot de Thoth com este aplicativo. Exploração completa dos Arcanos Maiores e Menores.">
+    <meta name="author" content="Seu Nome ou Nome da Marca">
+    <meta name="keywords" content="Tarot, Tarot de Thoth, Significado das Cartas, Leitura de Tarot, Arcanos Maiores, Arcanos Menores">
+    
+    <!-- Open Graph para melhor visualização nas redes sociais -->
+    <meta property="og:title" content="Tarot App - Descubra o Tarot de Thoth">
+    <meta property="og:description" content="Explore os significados das cartas do Tarot de Thoth e aprenda a fazer leituras precisas.">
+    <meta property="og:image" content="https://seusite.com/imagens/tarot-thoth.jpg">
+    <meta property="og:url" content="https://seusite.com">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- CSS principal -->
+
+    <title>Tarot App - Explore o Tarot de Thoth</title>
+  <script type="module" crossorigin src="/assets/index-Bmg22aad.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-D6MDyxva.css">
 </head>
 <body>
-    <div id="app">
-        <home-screen></home-screen>
-    </div>
-    <tarot-card-info hidden></tarot-card-info>
+    <header>
+        <h1>Aeon</h1>
+        <nav aria-label="Menu principal">
+            <ul>
+                <li><a href="#" data-page="home">Início</a></li>
+                <li><a href="#" data-page="all-cards">Significados das Cartas</a></li>
+                <li><a href="#" data-page="three-card-game">Como Fazer uma Leitura</a></li>
+                <li><a href="#" data-page="history">Histórico</a></li>
+            </ul>
+        </nav>        
+    </header>
+
+    <main>
+        <div id="app">
+            <home-screen></home-screen>
+        </div>
+        <tarot-card-info hidden></tarot-card-info>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tarot App. Todos os direitos reservados.</p>
+        <nav aria-label="Links secundários">
+            <ul>
+                <li><a href="/sobre">Sobre Nós</a></li>
+                <li><a href="/contato">Contato</a></li>
+                <li><a href="/politica-privacidade">Política de Privacidade</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <!-- Script principal -->
+
+    <!-- Schema.org para SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Tarot App",
+        "url": "https://seusite.com",
+        "description": "Explore o significado das cartas do Tarot de Thoth e aprenda como fazer leituras de tarot precisas.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Tarot App",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://seusite.com/imagens/logo.jpg"
+            }
+        }
+    }
+    </script>
 </body>
 </html>
