@@ -31,19 +31,19 @@ body {
 
 /* Header */
 header {
-  background-color: #00000050;
+  background-color: #000000a3;
   padding: 10px 20px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-  font-size: xxx-large;
-  text-align: center;
-  color: #fdce1675;
-  margin: 0;
-  -webkit-text-stroke: 1px #ffffff30;
-  text-stroke: 1px #ffffff30;
+    font-size: xxx-large;
+    text-align: center;
+    color: #4d007b;
+    margin: 0;
+    -webkit-text-stroke: 1px #ffe218c9;
+    text-stroke: 1px #ffe218c9;
 }
 
 .bg {
