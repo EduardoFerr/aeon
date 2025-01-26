@@ -1,0 +1,37 @@
+{
+  "assets/back.jpg": {
+    "file": "assets/back-CfPYlJdo.jpg",
+    "src": "assets/back.jpg"
+  },
+  "assets/bg-desktop.webp": {
+    "file": "assets/bg-desktop-DalWbQbu.webp",
+    "src": "assets/bg-desktop.webp"
+  },
+  "assets/bg-mobile.webp": {
+    "file": "assets/bg-mobile-BRrqDACq.webp",
+    "src": "assets/bg-mobile.webp"
+  },
+  "index.html": {
+    "file": "assets/index-CPAS1IgG.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/components/TarotCard.js"
+    ],
+    "css": [
+      "assets/css/index-BS2eGYzD.css"
+    ],
+    "assets": [
+      "assets/bg-desktop-DalWbQbu.webp",
+      "assets/bg-mobile-BRrqDACq.webp",
+      "assets/back-CfPYlJdo.jpg"
+    ]
+  },
+  "src/components/TarotCard.js": {
+    "file": "assets/TarotCard-BhMfcB2C.js",
+    "name": "TarotCard",
+    "src": "src/components/TarotCard.js",
+    "isDynamicEntry": true
+  }
+}

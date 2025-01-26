@@ -7,6 +7,7 @@ export default defineConfig({
     port: 3000,
   },
   build: {
+    manifest: true,
     rollupOptions: {
       output: {
         assetFileNames: ({ name }) => {
