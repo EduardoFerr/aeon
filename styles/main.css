@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #000000;
     background-image: url("../assets/bg.webp");
     background-position: top;
     background-repeat: no-repeat;
@@ -100,6 +100,7 @@ button:hover {
     /* Adapta a largura ao tamanho do cartão */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+
 }
 
 .card p {
@@ -158,6 +159,7 @@ button:hover {
     height: 180px;
     position: relative;
     box-shadow: 0px 0px 10px 2px;
+    border-radius: 10px;
 }
 
 .tarot-card.arcano-maior {
@@ -206,11 +208,19 @@ button:hover {
     backface-visibility: hidden;
     /* Oculta a face oposta */
     border-radius: 10px;
+    background-image: url('../assets/back.jpg');
+    background-repeat: round;
+    background-attachment: fixed;
 }
 
 .card-front>img,
 .card-back>img {
     width: 100%;
+    border-radius: 10px;
+}
+
+#card-image {
+    border-radius: 10px;
 }
 
 .card-front {
@@ -333,6 +343,7 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    border-radius: 10px;
 }
 
 #card-meditation-reflection {
@@ -343,6 +354,7 @@ button:hover {
     padding: 10px;
     flex-direction: column;
     text-align: left;
+    border-radius: 10px;
 }
 
 #card-past-present-future {
@@ -352,4 +364,5 @@ button:hover {
     flex-wrap: wrap;
     padding: 10px;
     justify-content: center;
+    border-radius: 10px;
 }

@@ -18,9 +18,7 @@ export class TarotCard extends HTMLElement {
                     <div class="card-front">
                         <img src="assets/cards/crowley-${this.cardData.order}.jpg" alt="${this.cardData.name}">
                     </div>
-                    <div class="card-back">
-                        <img src="assets/back.jpg" alt="Verso da Carta">
-                    </div>
+                    <div class="card-back"></div>
                 </div>
             </div>
         `;
