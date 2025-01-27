@@ -28,18 +28,26 @@ export class ThreeCardGameScreen extends HTMLElement {
             // Embaralha e seleciona 3 cartas
             const shuffled = cards.sort(() => 0.5 - Math.random()).slice(0, 3);
             const container = this.querySelector('#cards');
-
+            // Rótulos das posições
+            const labels = ['Passado', 'Presente', 'Futuro'];
             // Renderiza as cartas no container usando o TarotCard
             container.innerHTML = shuffled
                 .map(
-                    (card) => `
+                    (card, index) => `
+                    <div  class="card-three">
+                        <h3>${labels[index]}</h3>
                         <tarot-card data-card='${JSON.stringify(card)}' show-back></tarot-card>
+                    </div>
                     `
                 )
                 .join('');
 
             // Salva a leitura no histórico
-            saveToHistory(shuffled);
+            saveToHistory({
+                passado: shuffled[0],
+                presente: shuffled[1],
+                futuro: shuffled[2],
+            });
         } catch (error) {
             console.error('Erro ao carregar as cartas:', error);
         }

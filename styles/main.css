@@ -92,7 +92,6 @@ footer {
   color: #ffffff;
   text-align: center;
   padding: 20px;
-  margin-top: 20px;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -258,6 +257,19 @@ button:hover {
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
+}
+
+.card-three{
+    -webkit-text-stroke: 1px #9d993000;
+    text-stroke: 1px #9d993000;
+    color: #ffffff;
+    /* font-size: large; */
+    background: #0000008a;
+    border-radius: 10px;
+    justify-items: center;
+}
+.card-three > h3{
+    margin: 0;
 }
 
 .three-card-game h1 {
