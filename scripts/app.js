@@ -6,3 +6,4 @@ import '../src/components/HistoryScreen.js';
 import '../src/components/TarotCardInfo.js';
 
 window.navigateTo = navigateTo;
+
