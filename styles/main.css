@@ -64,6 +64,10 @@ nav ul {
 }
 
 nav ul li {
+  display: inline-block;
+}
+
+header nav ul li {
     display: inline-block;
     border-style: outset;
     align-content: center;
