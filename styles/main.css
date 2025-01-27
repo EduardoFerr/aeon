@@ -267,6 +267,7 @@ button:hover {
     background: #0000008a;
     border-radius: 10px;
     justify-items: center;
+    padding: 10px
 }
 .card-three > h3{
     margin: 0;
