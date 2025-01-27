@@ -253,10 +253,11 @@ button:hover {
 
 /* Estilos específicos para ThreeCardGameScreen */
 .three-card-game .card-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card-three{
