@@ -3,13 +3,25 @@ export function navigateTo(page) {
     appContainer.innerHTML = '';
 
     if (page === 'all-cards') {
-        appContainer.innerHTML = '<all-cards-screen></all-cards-screen>';
+        import('../components/AllCardsScreen.js').then(  () =>{
+            appContainer.innerHTML = '<all-cards-screen></all-cards-screen>';
+        }).finally(async () =>{
+            await  import('../components/TarotCardInfo.js')
+        })
     } else if (page === 'three-card-game') {
-        appContainer.innerHTML = '<three-card-game-screen></three-card-game-screen>';
+        import('../components/ThreeCardGameScreen.js').then( () => {
+            appContainer.innerHTML = '<three-card-game-screen></three-card-game-screen>';
+        }).finally(async () => {
+            await  import('../components/TarotCardInfo.js');
+        })
     } else if (page === 'history') {
-        appContainer.innerHTML = '<history-screen></history-screen>';
+        import('../components/HistoryScreen.js').then(() => {
+            appContainer.innerHTML = '<history-screen></history-screen>';
+        })
     } else {
-        appContainer.innerHTML = '<home-screen></home-screen>';
+        import('../components/HomeScreen.js').then(()=>{
+            appContainer.innerHTML = '<home-screen></home-screen>';
+        });
     }
 }
 export function setupNavigation() {

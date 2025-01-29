@@ -1,5 +1,3 @@
-import { navigateTo } from '../utils/navigation.js';
-
 export class HomeScreen extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
