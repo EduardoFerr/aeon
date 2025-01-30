@@ -5,12 +5,12 @@ export class AllCardsScreen extends HTMLElement {
     async connectedCallback() {
         this.innerHTML = `
             <div class="all-cards-screen">
-                <h1>Todas as Cartas</h1>
                 <div class="card-container" id="all-cards"></div>
                 <button onclick="navigateTo('home')">Voltar</button>
             </div>
         `;
 
+        document.querySelector('header>h1').textContent = "Todas as Cartas"
         // Carregar e renderizar as cartas
         await this.renderCards();
     }
