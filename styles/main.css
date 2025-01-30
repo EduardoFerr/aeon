@@ -313,7 +313,7 @@ button:hover {
 }
 
 .history-screen li {
-    background-color: #000000dd;
+    background-color: #f9f9f9d0;
     margin: 10px auto;
     padding: 10px;
     border: 1px solid #ddd;
@@ -325,7 +325,7 @@ button:hover {
 }
 
 .history-screen li:hover {
-    background-color: #55006e98;
+    background-color: #f0f0ff;
 }
 
 /* Estilo básico da carta */
