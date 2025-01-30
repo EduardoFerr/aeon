@@ -9,6 +9,7 @@ export class HomeScreen extends HTMLElement {
                 <button onclick="navigateTo('history')">Ver Histórico</button>
             </div>
         `;
+        document.querySelector('header>h1').textContent = "Tarot de Thoth"
     }
 }
 
