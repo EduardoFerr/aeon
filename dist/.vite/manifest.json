@@ -7,10 +7,6 @@
     "file": "assets/storage-CiteaeKf.js",
     "name": "storage"
   },
-  "assets/back.jpg": {
-    "file": "assets/back-CfPYlJdo.jpg",
-    "src": "assets/back.jpg"
-  },
   "assets/bg-desktop.webp": {
     "file": "assets/bg-desktop-DalWbQbu.webp",
     "src": "assets/bg-desktop.webp"
@@ -20,7 +16,7 @@
     "src": "assets/bg-mobile.webp"
   },
   "index.html": {
-    "file": "assets/index-DOz7LL4m.js",
+    "file": "assets/index-53r1_7YF.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -33,16 +29,15 @@
       "src/components/HomeScreen.js"
     ],
     "css": [
-      "assets/css/index-DI7PKI4z.css"
+      "assets/css/index-DcN7vvvN.css"
     ],
     "assets": [
       "assets/bg-desktop-DalWbQbu.webp",
-      "assets/bg-mobile-BRrqDACq.webp",
-      "assets/back-CfPYlJdo.jpg"
+      "assets/bg-mobile-BRrqDACq.webp"
     ]
   },
   "src/components/AllCardsScreen.js": {
-    "file": "assets/AllCardsScreen-BZ1IALqm.js",
+    "file": "assets/AllCardsScreen-609sMkLr.js",
     "name": "AllCardsScreen",
     "src": "src/components/AllCardsScreen.js",
     "isDynamicEntry": true,
