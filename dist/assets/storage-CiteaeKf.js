@@ -1,0 +1,1 @@
+function e(o){const t=JSON.parse(localStorage.getItem("tarotHistory"))||[];t.push({date:new Date().toLocaleString(),cards:o}),localStorage.setItem("tarotHistory",JSON.stringify(t))}function r(){return JSON.parse(localStorage.getItem("tarotHistory"))||[]}export{r as g,e as s};

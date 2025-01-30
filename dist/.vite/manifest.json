@@ -1,4 +1,12 @@
 {
+  "_cardsUtil-H_foYc3n.js": {
+    "file": "assets/cardsUtil-H_foYc3n.js",
+    "name": "cardsUtil"
+  },
+  "_storage-CiteaeKf.js": {
+    "file": "assets/storage-CiteaeKf.js",
+    "name": "storage"
+  },
   "assets/back.jpg": {
     "file": "assets/back-CfPYlJdo.jpg",
     "src": "assets/back.jpg"
@@ -12,15 +20,18 @@
     "src": "assets/bg-mobile.webp"
   },
   "index.html": {
-    "file": "assets/index-4NBJFWIa.js",
+    "file": "assets/index-BO0WYuw9.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "src/components/TarotCard.js"
+      "src/components/AllCardsScreen.js",
+      "src/components/ThreeCardGameScreen.js",
+      "src/components/HistoryScreen.js",
+      "src/components/HomeScreen.js"
     ],
     "css": [
-      "assets/css/index-udR-98CU.css"
+      "assets/css/index-DuqBk7y8.css"
     ],
     "assets": [
       "assets/bg-desktop-DalWbQbu.webp",
@@ -28,10 +39,51 @@
       "assets/back-CfPYlJdo.jpg"
     ]
   },
+  "src/components/AllCardsScreen.js": {
+    "file": "assets/AllCardsScreen-CBKyWEfc.js",
+    "name": "AllCardsScreen",
+    "src": "src/components/AllCardsScreen.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html",
+      "_cardsUtil-H_foYc3n.js"
+    ],
+    "dynamicImports": [
+      "src/components/TarotCard.js"
+    ]
+  },
+  "src/components/HistoryScreen.js": {
+    "file": "assets/HistoryScreen-D9ZpGrox.js",
+    "name": "HistoryScreen",
+    "src": "src/components/HistoryScreen.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_storage-CiteaeKf.js"
+    ]
+  },
+  "src/components/HomeScreen.js": {
+    "file": "assets/HomeScreen-1yj78_qs.js",
+    "name": "HomeScreen",
+    "src": "src/components/HomeScreen.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html"
+    ]
+  },
   "src/components/TarotCard.js": {
     "file": "assets/TarotCard-BhMfcB2C.js",
     "name": "TarotCard",
     "src": "src/components/TarotCard.js",
     "isDynamicEntry": true
+  },
+  "src/components/ThreeCardGameScreen.js": {
+    "file": "assets/ThreeCardGameScreen-C4r1fayO.js",
+    "name": "ThreeCardGameScreen",
+    "src": "src/components/ThreeCardGameScreen.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_storage-CiteaeKf.js",
+      "_cardsUtil-H_foYc3n.js"
+    ]
   }
 }
