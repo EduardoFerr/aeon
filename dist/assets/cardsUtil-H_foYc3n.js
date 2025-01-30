@@ -1,1 +1,0 @@
-let a=null;async function o(){if(a)return a;try{const s=await(await fetch("assets/data/cards.json")).json();return a=s,s}catch(r){throw console.error("Erro ao carregar as cartas:",r),r}}export{o as l};

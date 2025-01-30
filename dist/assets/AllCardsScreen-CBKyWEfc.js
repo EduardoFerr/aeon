@@ -1,4 +1,4 @@
-import{_ as s}from"./index-2Lp1_GI-.js";import{l as c}from"./cardsUtil-H_foYc3n.js";s(()=>import("./TarotCard-BhMfcB2C.js"),[]);class o extends HTMLElement{async connectedCallback(){this.innerHTML=`
+import{_ as s}from"./index-BO0WYuw9.js";import{l as c}from"./cardsUtil-H_foYc3n.js";s(()=>import("./TarotCard-BhMfcB2C.js"),[]);class o extends HTMLElement{async connectedCallback(){this.innerHTML=`
             <div class="all-cards-screen">
                 <div class="card-container" id="all-cards"></div>
                 <button onclick="navigateTo('home')">Voltar</button>
