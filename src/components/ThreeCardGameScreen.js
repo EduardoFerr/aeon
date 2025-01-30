@@ -8,7 +8,6 @@ export class ThreeCardGameScreen extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="three-card-game">
-                <h1>Jogo das 3 Cartas</h1>
                 <div class="card-container" id="cards"></div>
                 <button id="drawCards">Sortear Cartas</button>
                 <button onclick="navigateTo('home')">Voltar</button>

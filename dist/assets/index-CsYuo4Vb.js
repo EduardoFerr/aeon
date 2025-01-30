@@ -13,7 +13,6 @@
                         <tarot-card data-card='${JSON.stringify(a)}'></tarot-card>
                     `).join("")}catch(e){console.error("Erro ao carregar as cartas:",e)}}}customElements.define("all-cards-screen",E);function L(n){console.log(n);const e=JSON.parse(localStorage.getItem("tarotHistory"))||[];e.push({date:new Date().toLocaleString(),cards:n}),localStorage.setItem("tarotHistory",JSON.stringify(e))}function q(){return JSON.parse(localStorage.getItem("tarotHistory"))||[]}class H extends HTMLElement{connectedCallback(){this.innerHTML=`
             <div class="three-card-game">
-                <h1>Jogo das 3 Cartas</h1>
                 <div class="card-container" id="cards"></div>
                 <button id="drawCards">Sortear Cartas</button>
                 <button onclick="navigateTo('home')">Voltar</button>
