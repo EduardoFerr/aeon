@@ -25,15 +25,14 @@
                     </div>
                     `).join(""),L({passado:t[0],presente:t[1],futuro:t[2]})}catch(e){console.error("Erro ao carregar as cartas:",e)}}}customElements.define("three-card-game-screen",H);class M extends HTMLElement{connectedCallback(){const e=q();this.innerHTML=`
             <div class="history-screen">
-                <h1>Histórico de Leituras</h1>
                 <ul>
-                    ${e.map(t=>`
-                            <li>${t.date}: ${t.cards.map(a=>a.name).join(", ")}</li>
-                        `).join("")}
+                    ${e.map(t=>{const a=Array.isArray(t.cards)?t.cards:[];return`
+                                <li>${t.date}: ${a.map(r=>r.name).join(", ")}</li>
+                            `}).join("")}
                 </ul>
                 <button onclick="navigateTo('home')">Voltar</button>
             </div>
-        `}}customElements.define("history-screen",M);class x extends HTMLElement{connectedCallback(){this.innerHTML=`
+        `,document.querySelector("header>h1").textContent="Histórico de Leituras"}}customElements.define("history-screen",M);class x extends HTMLElement{connectedCallback(){this.innerHTML=`
             <div class="tarot-card-info">
                 <div class="info-content">
                     <h3 id="card-title"></h3>
