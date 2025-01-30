@@ -4,4 +4,4 @@ class e extends HTMLElement{connectedCallback(){this.innerHTML=`
                 <button onclick="navigateTo('three-card-game')">Jogo das 3 Cartas</button>
                 <button onclick="navigateTo('history')">Ver Histórico</button>
             </div>
-        `}}customElements.define("home-screen",e);export{e as HomeScreen};
+        `,document.querySelector("header>h1").textContent="Tarot de Thoth"}}customElements.define("home-screen",e);export{e as HomeScreen};

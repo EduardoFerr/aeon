@@ -5,7 +5,7 @@ import{s as d}from"./storage-CiteaeKf.js";import{l as c}from"./cardsUtil-H_foYc3
                 <button id="drawCards">Sortear Cartas</button>
                 <button onclick="navigateTo('home')">Voltar</button>
             </div>
-        `,document.getElementById("drawCards").addEventListener("click",this.drawThreeCards.bind(this))}async drawThreeCards(){try{const a=(await c()).sort(()=>.5-Math.random()).slice(0,3),e=this.querySelector("#cards"),t=["Passado","Presente","Futuro"];e.innerHTML=a.map((s,o)=>`
+        `,document.querySelector("header>h1").textContent="Jogo das 3 Cartas",document.getElementById("drawCards").addEventListener("click",this.drawThreeCards.bind(this))}async drawThreeCards(){try{const a=(await c()).sort(()=>.5-Math.random()).slice(0,3),e=this.querySelector("#cards"),t=["Passado","Presente","Futuro"];e.innerHTML=a.map((s,o)=>`
                     <div  class="card-three">
                         <h3>${t[o]}</h3>
                         <tarot-card data-card='${JSON.stringify(s)}' show-back></tarot-card>
