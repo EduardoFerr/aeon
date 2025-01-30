@@ -2,6 +2,7 @@
   scrollbar-width: none;
   font-family: serif;
 }
+
 /* Para dispositivos em modo retrato */
 @media (orientation: landscape) {
   body {
@@ -16,6 +17,7 @@
         place-self: center;
   }
 }
+
 /* Estilo geral para o corpo */
 body {
   font-family: Arial, sans-serif;
@@ -28,6 +30,7 @@ body {
     color: #ffffff;
   height: 100vh;
   background-size: cover;
+
 }
 
 /* Header */
@@ -322,7 +325,7 @@ button:hover {
 }
 
 .history-screen li:hover {
-  background-color: #3700b3;
+  background-color: #f0f0ff;
 }
 
 /* Estilo básico da carta */
