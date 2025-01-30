@@ -8,7 +8,7 @@ export class HistoryScreen extends HTMLElement {
                 <ul>
                     ${history
                         .map((entry) => {
-                            const cards = Array.isArray(entry.cards) ? entry.cards : [];
+                            const cards = Object.values(entry.cards);
                             return `
                                 <li>${entry.date}: ${cards
                                     .map((card) => card.name)
