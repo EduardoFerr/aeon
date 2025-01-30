@@ -14,7 +14,6 @@ export class ThreeCardGameScreen extends HTMLElement {
                 <button onclick="navigateTo('home')">Voltar</button>
             </div>
         `;
-        document.querySelector('header>h1').textContent = "Jogo das 3 Cartas"
 
         document.getElementById('drawCards').addEventListener('click', this.drawThreeCards.bind(this));
     }
