@@ -1,11 +1,7 @@
 {
-  "_cardsUtil-H_foYc3n.js": {
-    "file": "assets/cardsUtil-H_foYc3n.js",
-    "name": "cardsUtil"
-  },
-  "_storage-CiteaeKf.js": {
-    "file": "assets/storage-CiteaeKf.js",
-    "name": "storage"
+  "assets/back.jpg": {
+    "file": "assets/back-CfPYlJdo.jpg",
+    "src": "assets/back.jpg"
   },
   "assets/bg-desktop.webp": {
     "file": "assets/bg-desktop-DalWbQbu.webp",
@@ -16,74 +12,26 @@
     "src": "assets/bg-mobile.webp"
   },
   "index.html": {
-    "file": "assets/index-53r1_7YF.js",
+    "file": "assets/index-4NBJFWIa.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "src/components/AllCardsScreen.js",
-      "src/components/TarotCardInfo.js",
-      "src/components/ThreeCardGameScreen.js",
-      "src/components/TarotCardInfo.js",
-      "src/components/HistoryScreen.js",
-      "src/components/HomeScreen.js"
+      "src/components/TarotCard.js"
     ],
     "css": [
-      "assets/css/index-DcN7vvvN.css"
+      "assets/css/index-udR-98CU.css"
     ],
     "assets": [
       "assets/bg-desktop-DalWbQbu.webp",
-      "assets/bg-mobile-BRrqDACq.webp"
+      "assets/bg-mobile-BRrqDACq.webp",
+      "assets/back-CfPYlJdo.jpg"
     ]
-  },
-  "src/components/AllCardsScreen.js": {
-    "file": "assets/AllCardsScreen-609sMkLr.js",
-    "name": "AllCardsScreen",
-    "src": "src/components/AllCardsScreen.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "index.html",
-      "_cardsUtil-H_foYc3n.js"
-    ],
-    "dynamicImports": [
-      "src/components/TarotCard.js"
-    ]
-  },
-  "src/components/HistoryScreen.js": {
-    "file": "assets/HistoryScreen-B-wf3VAU.js",
-    "name": "HistoryScreen",
-    "src": "src/components/HistoryScreen.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_storage-CiteaeKf.js"
-    ]
-  },
-  "src/components/HomeScreen.js": {
-    "file": "assets/HomeScreen-BaG2jz_V.js",
-    "name": "HomeScreen",
-    "src": "src/components/HomeScreen.js",
-    "isDynamicEntry": true
   },
   "src/components/TarotCard.js": {
     "file": "assets/TarotCard-BhMfcB2C.js",
     "name": "TarotCard",
     "src": "src/components/TarotCard.js",
     "isDynamicEntry": true
-  },
-  "src/components/TarotCardInfo.js": {
-    "file": "assets/TarotCardInfo-CLYiRl7V.js",
-    "name": "TarotCardInfo",
-    "src": "src/components/TarotCardInfo.js",
-    "isDynamicEntry": true
-  },
-  "src/components/ThreeCardGameScreen.js": {
-    "file": "assets/ThreeCardGameScreen-DCiGzISn.js",
-    "name": "ThreeCardGameScreen",
-    "src": "src/components/ThreeCardGameScreen.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_storage-CiteaeKf.js",
-      "_cardsUtil-H_foYc3n.js"
-    ]
   }
 }

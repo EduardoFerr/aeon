@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
-
   "scripts": {
-    "critical": "node critical.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -15,8 +12,5 @@
   "license": "ISC",
   "dependencies": {
     "vite": "^6.0.11"
-  },
-  "devDependencies": {
-    "critical": "^7.2.1"
   }
 }
