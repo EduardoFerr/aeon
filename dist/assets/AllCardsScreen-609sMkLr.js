@@ -1,4 +1,4 @@
-import{_ as s}from"./index-DOz7LL4m.js";import{l as o}from"./cardsUtil-H_foYc3n.js";s(()=>import("./TarotCard-BhMfcB2C.js"),[]);class c extends HTMLElement{async connectedCallback(){this.innerHTML=`
+import{_ as s}from"./index-53r1_7YF.js";import{l as o}from"./cardsUtil-H_foYc3n.js";s(()=>import("./TarotCard-BhMfcB2C.js"),[]);class c extends HTMLElement{async connectedCallback(){this.innerHTML=`
             <div class="all-cards-screen">
                 <h1>Todas as Cartas</h1>
                 <div class="card-container" id="all-cards"></div>
