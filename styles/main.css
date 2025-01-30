@@ -188,16 +188,16 @@ h1 {
 
 /* Botões globais */
 button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #00000087;
-  color: white;
-  border: 2px solid #ffffff96;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4d007b;
+    color: white;
+    border: 2px solid #ffe218c9;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
