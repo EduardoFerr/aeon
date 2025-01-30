@@ -3,6 +3,7 @@ import { getHistory } from '../utils/storage.js';
 export class HistoryScreen extends HTMLElement {
     connectedCallback() {
         const history = getHistory();
+        document.querySelector('header>h1').textContent = "Histórico de Leituras";
         this.innerHTML = `
             <div class="history-screen">
                 <h1>Histórico de Leituras</h1>

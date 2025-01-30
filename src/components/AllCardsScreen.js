@@ -10,7 +10,6 @@ export class AllCardsScreen extends HTMLElement {
             </div>
         `;
 
-        document.querySelector('header>h1').textContent = "Todas as Cartas"
         // Carregar e renderizar as cartas
         await this.renderCards();
     }

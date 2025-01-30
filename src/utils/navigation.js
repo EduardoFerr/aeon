@@ -1,39 +1,63 @@
 export function navigateTo(page) {
     const appContainer = document.getElementById('app');
-    appContainer.innerHTML = '';
+    appContainer.innerHTML = ''; // Limpa o conteúdo anterior
 
-    if (page === 'all-cards') {
-        appContainer.innerHTML = '<all-cards-screen></all-cards-screen>';
-    } else if (page === 'three-card-game') {
-        appContainer.innerHTML = '<three-card-game-screen></three-card-game-screen>';
-    } else if (page === 'history') {
-        appContainer.innerHTML = '<history-screen></history-screen>';
-    } else {
-        appContainer.innerHTML = '<home-screen></home-screen>';
+    let pageTitle = ''; // Definirá o título da página dinamicamente
+
+    let pageImport; // O módulo a ser importado depende da página
+    let componentTag; // O componente customizado a ser renderizado
+
+    switch (page) {
+        case 'all-cards':
+            pageTitle = "Todas as cartas";
+            pageImport = import('../components/AllCardsScreen.js');
+            componentTag = '<all-cards-screen></all-cards-screen>';
+            break;
+        case 'three-card-game':
+            pageTitle = "Jogo das 3 cartas";
+            pageImport = import('../components/ThreeCardGameScreen.js');
+            componentTag = '<three-card-game-screen></three-card-game-screen>';
+            break;
+        case 'history':
+            pageImport = import('../components/HistoryScreen.js');
+            componentTag = '<history-screen></history-screen>';
+            break;
+        default: // Página inicial
+            pageTitle = "Home";
+            pageImport = import('../components/HomeScreen.js');
+            componentTag = '<home-screen></home-screen>';
+            break;
     }
+
+    pageImport.then(() => {
+        if (pageTitle) {
+            const headerTitle = document.querySelector('header > h1');
+            if (headerTitle) {
+                headerTitle.textContent = pageTitle;
+            }
+        }
+        appContainer.innerHTML = componentTag;
+    });
 }
+
 export function setupNavigation() {
-    const links = document.querySelectorAll('nav a'); // Seleciona todos os links no menu
+    const links = document.querySelectorAll('nav a');
     links.forEach(link => {
         link.addEventListener('click', (event) => {
-            const href = link.getAttribute('href'); // Obtém o valor do atributo href
-
-            // Permite a navegação padrão para links que levam a páginas externas (como .html)
+            const href = link.getAttribute('href');
             if (href && href.endsWith('.html')) {
-                return; // Não interrompe a navegação
+                return;
             }
 
-            // Intercepta a navegação apenas para links internos (data-page)
-            event.preventDefault(); // Evita o comportamento padrão do link
-            const page = link.getAttribute('data-page'); // Obtém o valor do atributo data-page
-            console.log('Navegando para:', page); // Log para depuração
-            navigateTo(page); // Chama a função de navegação com a página correspondente
+            event.preventDefault();
+            const page = link.getAttribute('data-page');
+            console.log('Navegando para:', page);
+            navigateTo(page);
         });
     });
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    setupNavigation(); // Configura os links do menu
-    navigateTo('home'); // Carrega a página inicial por padrão
+    setupNavigation();
+    navigateTo('home');
 });
