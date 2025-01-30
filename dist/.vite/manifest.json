@@ -20,7 +20,7 @@
     "src": "assets/bg-mobile.webp"
   },
   "index.html": {
-    "file": "assets/index-D_NjZ1G0.js",
+    "file": "assets/index-DOz7LL4m.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -33,7 +33,7 @@
       "src/components/HomeScreen.js"
     ],
     "css": [
-      "assets/css/index-B_jyCf7Z.css"
+      "assets/css/index-DI7PKI4z.css"
     ],
     "assets": [
       "assets/bg-desktop-DalWbQbu.webp",
@@ -42,7 +42,7 @@
     ]
   },
   "src/components/AllCardsScreen.js": {
-    "file": "assets/AllCardsScreen-BoeRgi0D.js",
+    "file": "assets/AllCardsScreen-BZ1IALqm.js",
     "name": "AllCardsScreen",
     "src": "src/components/AllCardsScreen.js",
     "isDynamicEntry": true,
@@ -55,7 +55,7 @@
     ]
   },
   "src/components/HistoryScreen.js": {
-    "file": "assets/HistoryScreen-CV4qqLk3.js",
+    "file": "assets/HistoryScreen-B-wf3VAU.js",
     "name": "HistoryScreen",
     "src": "src/components/HistoryScreen.js",
     "isDynamicEntry": true,
@@ -64,7 +64,7 @@
     ]
   },
   "src/components/HomeScreen.js": {
-    "file": "assets/HomeScreen-CGVC5hbc.js",
+    "file": "assets/HomeScreen-BaG2jz_V.js",
     "name": "HomeScreen",
     "src": "src/components/HomeScreen.js",
     "isDynamicEntry": true
@@ -82,7 +82,7 @@
     "isDynamicEntry": true
   },
   "src/components/ThreeCardGameScreen.js": {
-    "file": "assets/ThreeCardGameScreen-BDXKOPVQ.js",
+    "file": "assets/ThreeCardGameScreen-DCiGzISn.js",
     "name": "ThreeCardGameScreen",
     "src": "src/components/ThreeCardGameScreen.js",
     "isDynamicEntry": true,
