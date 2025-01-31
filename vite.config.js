@@ -8,14 +8,19 @@ export default defineConfig({
     port: 3000,
   },
   build: {
+    base: '/',
     manifest: true,
     rollupOptions: {
       output: {
         assetFileNames: ({ name }) => {
           if (name && name.endsWith('.css')) {
-            return 'assets/css/[name]-[hash][extname]'; // Adiciona hash nos arquivos CSS
+            return 'assets/css/[name]-[hash][extname]';
           }
-          return 'assets/[name]-[hash][extname]'; // Para outros assets
+          // Evite adicionar hash em arquivos críticos como manifestos ou ícones
+          if (name === 'site.webmanifest' || name === 'favicon.ico') {
+            return '[name][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
         },
       },
     },
