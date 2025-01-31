@@ -24,11 +24,6 @@ export default defineConfig({
   plugins: [
     viteStaticCopy({
       targets: [
-        { src: 'assets/favicon/favicon.ico', dest: '.' },
-        { src: 'assets/favicon/apple-touch-icon.png', dest: '.' },
-        { src: 'assets/favicon/favicon-32x32.png', dest: '.' },
-        { src: 'assets/favicon/favicon-16x16.png', dest: '.' },
-        { src: 'assets/favicon/site.webmanifest', dest: '.' },
         {
           src: 'ads.txt', // Arquivo de origem
           dest: '.' // Copia para a raiz do diretório de saída
