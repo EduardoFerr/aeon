@@ -1,7 +1,7 @@
 {
-  "_main-Bz_5I3dn.css": {
-    "file": "assets/main-Bz_5I3dn.css",
-    "src": "_main-Bz_5I3dn.css"
+  "_main-BnispGCv.css": {
+    "file": "assets/main-BnispGCv.css",
+    "src": "_main-BnispGCv.css"
   },
   "assets/back.jpg": {
     "file": "assets/back-CfPYlJdo.jpg",
@@ -16,7 +16,7 @@
     "src": "assets/bg-mobile.webp"
   },
   "index.html": {
-    "file": "assets/main-CEXtZMIr.js",
+    "file": "assets/main-BbaentCJ.js",
     "name": "main",
     "src": "index.html",
     "isEntry": true,
@@ -24,7 +24,7 @@
       "src/components/TarotCard.js"
     ],
     "css": [
-      "assets/main-Bz_5I3dn.css"
+      "assets/main-BnispGCv.css"
     ],
     "assets": [
       "assets/bg-desktop-DalWbQbu.webp",
