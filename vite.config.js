@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   server: {
@@ -20,4 +21,14 @@ export default defineConfig({
     },
     cssCodeSplit: true, // Certifique-se de que o CSS seja separado em arquivos
   },
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'ads.txt', // Arquivo de origem
+          dest: '.' // Copia para a raiz do diretório de saída
+        }
+      ]
+    })
+  ]
 });
