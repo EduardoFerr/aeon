@@ -1,4 +1,8 @@
 {
+  "_main-CyMDlr0l.css": {
+    "file": "assets/main-CyMDlr0l.css",
+    "src": "_main-CyMDlr0l.css"
+  },
   "assets/back.jpg": {
     "file": "assets/back-CfPYlJdo.jpg",
     "src": "assets/back.jpg"
@@ -12,15 +16,15 @@
     "src": "assets/bg-mobile.webp"
   },
   "index.html": {
-    "file": "assets/index-B--wOM_2.js",
-    "name": "index",
+    "file": "assets/main-CY7kQEXf.js",
+    "name": "main",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
       "src/components/TarotCard.js"
     ],
     "css": [
-      "assets/css/index-CyMDlr0l.css"
+      "assets/main-CyMDlr0l.css"
     ],
     "assets": [
       "assets/bg-desktop-DalWbQbu.webp",
