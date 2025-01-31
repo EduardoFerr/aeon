@@ -37,6 +37,7 @@ header {
   padding: 10px 20px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100vw;
 }
 
 header h1 {
@@ -106,6 +107,7 @@ main {
 
 /* Footer */
 footer {
+  width: 100vw;
   height: 10vh;
   background-color: rgba(0, 0, 0, 0.522);
   color: #ffffff;
