@@ -17,7 +17,7 @@ export default defineConfig({
             return 'assets/css/[name]-[hash][extname]';
           }
           // Evite adicionar hash em arquivos críticos como manifestos ou ícones
-          if (name === 'site.webmanifest' || name === 'favicon.ico') {
+          if (name === 'manifest.json' || name === 'favicon.ico') {
             return '[name][extname]';
           }
           return 'assets/[name]-[hash][extname]';
