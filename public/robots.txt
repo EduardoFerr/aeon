@@ -1,0 +1,16 @@
+# Bloqueia diretórios críticos ou irrelevantes para indexação
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /vite/
+
+# Permite acesso ao manifesto, favicon e páginas públicas
+Allow: /manifest.json
+Allow: /favicon.ico
+Allow: /icons/
+Allow: /index.html
+
+# Sitemap para facilitar a indexação das páginas
+Sitemap: https://aeonfool.com/sitemap.xml

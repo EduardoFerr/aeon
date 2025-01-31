@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   server: {
@@ -16,7 +16,6 @@ export default defineConfig({
           if (name && name.endsWith('.css')) {
             return 'assets/css/[name]-[hash][extname]';
           }
-          // Evite adicionar hash em arquivos críticos como manifestos ou ícones
           if (name === 'manifest.json' || name === 'favicon.ico') {
             return '[name][extname]';
           }
@@ -24,16 +23,34 @@ export default defineConfig({
         },
       },
     },
-    cssCodeSplit: true, // Certifique-se de que o CSS seja separado em arquivos
+    cssCodeSplit: true,
   },
   plugins: [
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'ads.txt', // Arquivo de origem
-          dest: '.' // Copia para a raiz do diretório de saída
-        }
-      ]
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'robots.txt', 'icons/*.png'],
+      manifest: {
+        name: 'Aeon Fool',
+        short_name: 'Aeon Fool',
+        description: 'Explorando o Tarot de Thoth, de Aleister Crowley, com leituras e sabedoria esotérica.',
+        start_url: '/index.html',
+        scope: '/',
+        display: 'standalone',
+        theme_color: '#000000',
+        background_color: '#000000',
+        icons: [
+          {
+            src: '/icons/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/icons/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      }
     })
   ]
 });
