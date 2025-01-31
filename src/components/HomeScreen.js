@@ -29,7 +29,7 @@ export class HomeScreen extends HTMLElement {
             </section>
         `;
 
-        document.querySelector('header>h1').textContent = "Tarot de Thoth";
+        document.querySelector('header>h1').textContent = "Aeon Fool";
     }
 }
 

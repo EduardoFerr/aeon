@@ -10,7 +10,7 @@ export class AllCardsScreen extends HTMLElement {
             </section>
         `;
 
-        document.querySelector('header>h1').textContent = "Todas as Cartas"
+        document.querySelector('header>h1').textContent = "Tarot de Thoth"
         // Carregar e renderizar as cartas
         await this.renderCards();
     }
