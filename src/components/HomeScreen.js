@@ -30,7 +30,6 @@ export class HomeScreen extends HTMLElement {
         `;
 
         document.querySelector('header>h1').textContent = "Tarot de Thoth";
-        document.getElementById('home').hidden = true
     }
 }
 
