@@ -4,7 +4,7 @@ export class HistoryScreen extends HTMLElement {
     connectedCallback() {
         const history = getHistory();
         this.innerHTML = `
-            <div class="history-screen">
+            <section class="history-screen">
                 <ul>
                     ${history
                         .map((entry) => {
@@ -18,7 +18,7 @@ export class HistoryScreen extends HTMLElement {
                         .join('')}
                 </ul>
                 <button onclick="navigateTo('home')">Voltar</button>
-            </div>
+            </section>
         `;
         document.querySelector('header>h1').textContent = "Histórico de Leituras";
     }

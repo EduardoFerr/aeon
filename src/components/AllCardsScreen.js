@@ -4,10 +4,10 @@ import { loadCards } from '../utils/cardsUtil.js';
 export class AllCardsScreen extends HTMLElement {
     async connectedCallback() {
         this.innerHTML = `
-            <div class="all-cards-screen">
+            <section class="all-cards-screen">
                 <div class="card-container" id="all-cards"></div>
                 <button onclick="navigateTo('home')">Voltar</button>
-            </div>
+            </section>
         `;
 
         document.querySelector('header>h1').textContent = "Todas as Cartas"

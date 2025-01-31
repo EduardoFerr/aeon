@@ -34,21 +34,23 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-  
+    <!-- Inicialização do Partytown -->
+    <script src="/~partytown/partytown.js" async></script>
 
     <!-- Google Analytics (via Partytown) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-YVN8XV3KS1"
-      
     ></script>
-    <script async >
+    <script async>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-YVN8XV3KS1');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-YVN8XV3KS1");
     </script>
-    <title>Sobre Nós - Tarot App</title>
+    <title>Aeon Fool - Bem vindo!</title>
     <!-- Google Adsense (via Partytown) -->
     <script
       type="text/partytown"
@@ -56,25 +58,47 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- CSS principal -->
+    <!-- CSS principal -->
+    <style>
+      .scroll-to-top {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          box-shadow: 0px 0px 20px 2px rgb(255 255 255 / 51%);
+          cursor: pointer;
+          display: none;
+          /* Escondido por padrão */
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          z-index: 1000;
+      }
 
+
+  </style>
 
     <title>Tarot App - Explore o Tarot de Thoth</title>
-    <script type="module" crossorigin src="/assets/main-CY7kQEXf.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-CyMDlr0l.css">
+    <script type="module" crossorigin src="/assets/main-CEXtZMIr.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-Bz_5I3dn.css">
   <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
 
   <body>
+    <button id="scrollToTop" class="scroll-to-top" title="Voltar ao topo">
+      ⬆
+    </button>
+
     <header>
       <h1>Tarot de Thoth</h1>
       <nav aria-label="Menu principal">
         <ul>
-          <li><a href="#" data-page="home">Início</a></li>
-          <li><a href="#" data-page="all-cards">Significados das Cartas</a></li>
-          <li>
-            <a href="#" data-page="three-card-game">Como Fazer uma Leitura</a>
-          </li>
-          <li><a href="livro.html">Guia (versão beta)</a></li>
+          <li><a href="#" data-page="home">🏠 Início</a></li>
+          <li><a href="#" data-page="all-cards">🃏 Cartas</a></li>
+          <li><a href="#" data-page="three-card-game">🔮 Leitura</a></li>
+          <li><a href="#" data-page="history">📜 Histórico</a></li>
+          <li><a href="livro.html">📖 Guia</a></li>
         </ul>
       </nav>
     </header>
@@ -99,8 +123,7 @@
       </nav>
     </footer>
 
-    <!-- Script principal -->
-
+    <!-- Script principal -->
 
     <!-- Schema.org para SEO -->
     <script type="application/ld+json">
@@ -125,6 +148,28 @@
           "@id": "https://aeonfool.com"
         }
       }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollToTopButton = document.getElementById("scrollToTop");
+
+        // Mostra o botão apenas quando o usuário rolar a página para baixo
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            scrollToTopButton.style.display = "flex"; // Mostra o botão
+          } else {
+            scrollToTopButton.style.display = "none"; // Esconde o botão
+          }
+        });
+
+        // Volta ao topo quando o botão é clicado
+        scrollToTopButton.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth", // Faz a rolagem suave
+          });
+        });
+      });
     </script>
   </body>
 </html>
