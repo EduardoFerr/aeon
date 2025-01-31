@@ -34,13 +34,13 @@ body {
 /* Header */
 header {
   background-color: #000000a3;
-  padding: 10px 20px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100vw;
+  width: 100%;
 }
 
 header h1 {
+  padding: 10px;
   font-size: xxx-large;
   text-align: center;
   color: #4d007b;
@@ -64,7 +64,7 @@ nav {
 
 nav ul {
   list-style: none;
-  padding: 0;
+  padding: 10px;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -107,7 +107,6 @@ main {
 
 /* Footer */
 footer {
-  width: 100vw;
   height: 10vh;
   background-color: rgba(0, 0, 0, 0.522);
   color: #ffffff;

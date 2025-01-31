@@ -61,7 +61,6 @@ export class ThreeCardGameScreen extends HTMLElement {
             </section>
         `;
         document.querySelector('header>h1').textContent = "Jogo das 3 Cartas"
-
         document.getElementById('drawCards').addEventListener('click', this.drawThreeCards.bind(this));
     }
 
