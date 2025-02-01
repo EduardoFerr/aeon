@@ -26,8 +26,6 @@ body {
   background-attachment: fixed;
   background-position: center;
   color: #ffffff;
-  height: 100vh;
-  width: 100%;
   background-size: cover;
 }
 body#book{
@@ -39,7 +37,6 @@ header {
   background-color: #000000a3;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
 }
 
 header h1 {
