@@ -30,6 +30,9 @@ body {
   width: 100%;
   background-size: cover;
 }
+body#book{
+  width: auto;
+}
 
 /* Header */
 header {
