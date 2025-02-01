@@ -3,7 +3,7 @@ name: Deploy Vite Project to GitHub Pages
 on:
   push:
     branches:
-      - main  # Aqui é o branch principal do seu projeto. Altere se necessário.
+      - main  # Branch principal do projeto
 
 jobs:
   build:
@@ -13,19 +13,19 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Set up Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: 16  # Altere se estiver usando uma versão diferente do Node.js
+          node-version: 18  # Usando Node.js 18 (LTS)
 
-      - name: Install dependencies
+      - name: Install project dependencies
         run: npm install
 
-      - name: Build the project
+      - name: Build the Vite project
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Certifique-se de que o build está na pasta correta
+          publish_dir: ./dist  # Diretório do build final
