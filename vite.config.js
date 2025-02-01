@@ -7,6 +7,10 @@ import fs from "node:fs/promises";
 export default defineConfig({
   build: {
     base: "./",
+    build: {
+      outDir: "dist",  // Diretório final da build
+    },
+    publicDir: "public",
     manifest: true,
     rollupOptions: {
       input: {
