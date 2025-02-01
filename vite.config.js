@@ -6,7 +6,7 @@ import fs from "node:fs/promises";
 
 export default defineConfig({
   build: {
-    base: "/",
+    base: "./",
     manifest: true,
     rollupOptions: {
       input: {
