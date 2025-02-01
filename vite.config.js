@@ -36,7 +36,7 @@ export default defineConfig({
         description:
           "Explorando o Tarot de Thoth, de Aleister Crowley, com leituras e sabedoria esotérica.",
         start_url: "/index.html",
-        scope: "./",
+        scope: "./dist/",
         display: "standalone",
         theme_color: "#000000",
         background_color: "#000000",
@@ -54,8 +54,6 @@ export default defineConfig({
         ],
       },
     }),
-    partytownVite({
-      dest: path.resolve(__dirname, "dist/~partytown"),
-    }),
+
   ],
 });
