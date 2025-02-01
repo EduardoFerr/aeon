@@ -5,14 +5,14 @@
 /* Para dispositivos em modo retrato */
 @media (orientation: landscape) {
   body {
-    background-image: url("../assets/bg-desktop.webp");
+    background-image: url("/assets/bg-desktop.webp");
   }
 }
 
 /* Para dispositivos em modo paisagem */
 @media (orientation: portrait) {
   body {
-    background-image: url("../assets/bg-mobile.webp");
+    background-image: url("/assets/bg-mobile.webp");
     place-self: center;
   }
 }
@@ -27,6 +27,7 @@ body {
   background-position: center;
   color: #ffffff;
   height: 100vh;
+  width: 100%;
   background-size: cover;
 }
 
@@ -378,6 +379,7 @@ button:hover {
   position: relative;
   box-shadow: 0px 0px 10px 2px;
   border-radius: 10px;
+  
 }
 
 .card-element {
@@ -435,7 +437,7 @@ button:hover {
   backface-visibility: hidden;
   /* Oculta a face oposta */
   border-radius: 10px;
-  background-image: url("../assets/back.jpg");
+  background-image: url("/assets/back.jpg");
   background-repeat: round;
   background-attachment: fixed;
 }

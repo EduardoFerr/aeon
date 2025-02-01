@@ -1,41 +1,32 @@
 {
-  "_main--gnNEVSd.css": {
-    "file": "assets/main--gnNEVSd.css",
-    "src": "_main--gnNEVSd.css"
-  },
-  "assets/back.jpg": {
-    "file": "assets/back-CfPYlJdo.jpg",
-    "src": "assets/back.jpg"
-  },
-  "assets/bg-desktop.webp": {
-    "file": "assets/bg-desktop-DalWbQbu.webp",
-    "src": "assets/bg-desktop.webp"
-  },
-  "assets/bg-mobile.webp": {
-    "file": "assets/bg-mobile-BRrqDACq.webp",
-    "src": "assets/bg-mobile.webp"
+  "_main-Dwlc6byq.css": {
+    "file": "assets/main-Dwlc6byq.css",
+    "src": "_main-Dwlc6byq.css"
   },
   "index.html": {
-    "file": "assets/main-drIjXkkd.js",
+    "file": "assets/main-CpUtO2p4.js",
     "name": "main",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "src/components/TarotCard.js"
+      "src/components/TarotCard.js",
+      "src/components/TarotCardInfo.js",
+      "src/components/TarotCardInfo.js"
     ],
     "css": [
-      "assets/main--gnNEVSd.css"
-    ],
-    "assets": [
-      "assets/bg-desktop-DalWbQbu.webp",
-      "assets/bg-mobile-BRrqDACq.webp",
-      "assets/back-CfPYlJdo.jpg"
+      "assets/main-Dwlc6byq.css"
     ]
   },
   "src/components/TarotCard.js": {
-    "file": "assets/TarotCard-DGDAberQ.js",
+    "file": "assets/TarotCard-Bh-unjn7.js",
     "name": "TarotCard",
     "src": "src/components/TarotCard.js",
+    "isDynamicEntry": true
+  },
+  "src/components/TarotCardInfo.js": {
+    "file": "assets/TarotCardInfo-7sZO2UmR.js",
+    "name": "TarotCardInfo",
+    "src": "src/components/TarotCardInfo.js",
     "isDynamicEntry": true
   }
 }

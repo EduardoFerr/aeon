@@ -8,9 +8,16 @@ export default defineConfig({
   build: {
     base: "./",
     build: {
-      outDir: "dist",  // Diretório final da build
+      outDir: "dist", // Diretório final da build
+      minify: "terser", // Usa o Terser como minificador
+      terserOptions: {
+        format: {
+          comments: false, // Remove todos os comentários
+        },
+      },
     },
     publicDir: "public",
+
     manifest: true,
     rollupOptions: {
       input: {
@@ -31,7 +38,7 @@ export default defineConfig({
       registerType: "autoUpdate",
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
-        sourcemap: true
+        sourcemap: true,
       },
       includeAssets: ["favicon.ico", "robots.txt", "icons/*.png"],
       manifest: {
@@ -40,7 +47,7 @@ export default defineConfig({
         description:
           "Explorando o Tarot de Thoth, de Aleister Crowley, com leituras e sabedoria esotérica.",
         start_url: "/index.html",
-        scope: "./dist/",
+        scope: "/",
         display: "standalone",
         theme_color: "#000000",
         background_color: "#000000",
@@ -58,6 +65,11 @@ export default defineConfig({
         ],
       },
     }),
-
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"), // Alias para a pasta src
+      "@public": path.resolve(__dirname, "public"), // Alias para public
+    },
+  },
 });

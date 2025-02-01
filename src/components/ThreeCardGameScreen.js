@@ -1,5 +1,6 @@
 import { saveToHistory } from '../utils/storage.js';
 import { loadCards } from '../utils/cardsUtil.js';
+import('./TarotCardInfo.js');
 
 /**
  * Componente para o jogo das 3 cartas de tarot.

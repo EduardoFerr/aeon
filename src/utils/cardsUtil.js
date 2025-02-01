@@ -11,7 +11,7 @@ export async function loadCards() {
     }
 
     try {
-        const response = await fetch('data/cards.json');
+        const response = await fetch('/data/cards.json');
         const cards = await response.json();
         cardsCache = cards; // Armazena no cache
         return cards;

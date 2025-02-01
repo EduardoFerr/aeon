@@ -26,7 +26,6 @@ export function setupNavigation() {
             // Intercepta a navegação apenas para links internos (data-page)
             event.preventDefault(); // Evita o comportamento padrão do link
             const page = link.getAttribute('data-page'); // Obtém o valor do atributo data-page
-            console.log('Navegando para:', page); // Log para depuração
             navigateTo(page); // Chama a função de navegação com a página correspondente
         });
     });

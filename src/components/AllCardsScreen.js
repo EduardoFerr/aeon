@@ -1,4 +1,6 @@
 import('./TarotCard.js');
+import('./TarotCardInfo.js');
+
 import { loadCards } from '../utils/cardsUtil.js';
 
 export class AllCardsScreen extends HTMLElement {
@@ -12,7 +14,7 @@ export class AllCardsScreen extends HTMLElement {
 
         document.querySelector('header>h1').textContent = "Tarot de Thoth"
         // Carregar e renderizar as cartas
-        await this.renderCards();
+        await this.renderCards()
     }
 
     async renderCards() {

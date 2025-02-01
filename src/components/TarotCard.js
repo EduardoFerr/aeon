@@ -11,17 +11,23 @@ export class TarotCard extends HTMLElement {
         this.cardData = JSON.parse(this.getAttribute('data-card')); // Dados da carta
         const showBack = this.hasAttribute('show-back'); // Mostrar verso
 
+
         // Define o conteúdo inicial
-        this.innerHTML = `
-            <div class="tarot-card ${showBack ? 'flipped' : ''} ${this.cardData.isMajorArcana? 'arcano-maior': ''} ${this.cardData.element}" >
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="cards/crowley-${this.cardData.order}.jpg" alt="${this.cardData.name}">
-                        <p class="card-element ${this.cardData.element}">${this.cardData.name}</p>
-                    </div>
-                    <div class="card-back"></div>
+        const cardInnerContent = this.cardData
+        ? `
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="assets/cards/crowley-${this.cardData.order}.jpg" alt="${this.cardData.name}">
+                    <p class="card-element ${this.cardData.element}">${this.cardData.name}</p>
                 </div>
+                <div class="card-back"></div>
             </div>
+        `
+        : '';
+        this.innerHTML = `
+        <div class="tarot-card ${showBack ? 'flipped' : ''} ${this.cardData?.isMajorArcana ? 'arcano-maior' : ''} ${this.cardData?.element || ''}">
+            ${cardInnerContent}
+        </div>
         `;
 
         // Adiciona o evento de clique
