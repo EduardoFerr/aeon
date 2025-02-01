@@ -65,7 +65,7 @@ export class TarotCardInfo extends HTMLElement {
 
         // Atualiza os elementos do modal com os dados da carta
         this.querySelector('.info-content').dataset.element =  cardData.element 
-        this.querySelector('#card-image').src = `assets/cards/crowley-${cardData.order}.jpg` || 'assets/back.jpg';
+        this.querySelector('#card-image').src = `cards/crowley-${cardData.order}.jpg` || 'assets/back.jpg';
         this.querySelector('#card-image').alt = cardData.name || not_found;
 
         this.querySelector('#card-title').textContent = cardData.title || not_found;

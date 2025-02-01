@@ -16,7 +16,7 @@
     "src": "assets/bg-mobile.webp"
   },
   "index.html": {
-    "file": "assets/main-BqlO0NVX.js",
+    "file": "assets/main-drIjXkkd.js",
     "name": "main",
     "src": "index.html",
     "isEntry": true,
@@ -33,7 +33,7 @@
     ]
   },
   "src/components/TarotCard.js": {
-    "file": "assets/TarotCard-BhMfcB2C.js",
+    "file": "assets/TarotCard-DGDAberQ.js",
     "name": "TarotCard",
     "src": "src/components/TarotCard.js",
     "isDynamicEntry": true
