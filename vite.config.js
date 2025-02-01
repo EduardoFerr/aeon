@@ -36,7 +36,7 @@ export default defineConfig({
         description:
           "Explorando o Tarot de Thoth, de Aleister Crowley, com leituras e sabedoria esotérica.",
         start_url: "/index.html",
-        scope: "/",
+        scope: "./",
         display: "standalone",
         theme_color: "#000000",
         background_color: "#000000",
