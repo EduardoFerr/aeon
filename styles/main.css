@@ -5,14 +5,14 @@
 /* Para dispositivos em modo retrato */
 @media (orientation: landscape) {
   body {
-    background-image: url("assets/bg-desktop.webp");
+    background-image: url("/assets/bg-desktop.webp");
   }
 }
 
 /* Para dispositivos em modo paisagem */
 @media (orientation: portrait) {
   body {
-    background-image: url("assets/bg-mobile.webp");
+    background-image: url("/assets/bg-mobile.webp");
     place-self: center;
   }
 }
