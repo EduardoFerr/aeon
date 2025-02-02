@@ -1,10 +1,10 @@
 {
-  "_main-D5ceqdOM.css": {
-    "file": "assets/main-D5ceqdOM.css",
-    "src": "_main-D5ceqdOM.css"
+  "_main-BVb4aQGV.css": {
+    "file": "assets/main-BVb4aQGV.css",
+    "src": "_main-BVb4aQGV.css"
   },
   "index.html": {
-    "file": "assets/main-2fBxZT3j.js",
+    "file": "assets/main-FabfIUAx.js",
     "name": "main",
     "src": "index.html",
     "isEntry": true,
@@ -14,8 +14,12 @@
       "src/components/TarotCardInfo.js"
     ],
     "css": [
-      "assets/main-D5ceqdOM.css"
+      "assets/main-BVb4aQGV.css"
     ]
+  },
+  "livro.html": {
+    "file": "assets/livro-B-xXHpDF.css",
+    "src": "livro.html"
   },
   "src/components/TarotCard.js": {
     "file": "assets/TarotCard-Bh-unjn7.js",

@@ -1,68 +1,173 @@
+body {
+  font-family: Georgia, serif;
+  color: #f1f1f1;
+  background-color: #121212;
+  line-height: 1.8;
+}
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+h1,
+h2,
+h3 {
+  font-family: Merriweather, serif;
+  color: #fc0;
+  margin-top: 30px;
+}
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 2px solid #444;
+  padding-bottom: 10px;
+}
+h2 {
+  font-size: 2rem;
+  padding-left: 10px;
+  border-left: 4px solid #fc0;
+}
+h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+li,
+p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-align: justify;
+}
+ul {
+  padding-left: 20px;
+}
+a {
+  color: #fc0;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+blockquote {
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #2a2a2a;
+  border-left: 4px solid #fc0;
+  font-style: italic;
+  color: #d0d0d0;
+}
+header {
+  background-color: #1c1c1c;
+  padding: 20px 10px;
+  border-bottom: 2px solid #444;
+}
+header h1 {
+  font-size: 2.8rem;
+  color: #fc0;
+  text-shadow: 1px 1px 4px #000;
+}
+nav ul {
+  padding: 0;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: #f1f1f1;
+  padding: 5px 10px;
+  border: 2px solid #fc0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.scroll-to-top,
+nav ul li a:hover {
+  background-color: #fc0;
+  color: #000;
+}
+.scroll-to-top {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.scroll-to-top:hover {
+  background-color: #f1c40f;
+}
+footer {
+  background-color: #1c1c1c;
+  padding: 20px;
+  color: #f1f1f1;
+  border-top: 2px solid #444;
+}
+footer a {
+  color: #fc0;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
 * {
   scrollbar-width: none;
   font-family: serif;
 }
-/* Para dispositivos em modo retrato */
 @media (orientation: landscape) {
   body {
-    background-image: url("/assets/bg-desktop.webp");
+    background-image: url(/assets/bg-desktop.webp);
   }
 }
-
-/* Para dispositivos em modo paisagem */
 @media (orientation: portrait) {
   body {
-    background-image: url("/assets/bg-mobile.webp");
+    background-image: url(/assets/bg-mobile.webp);
     place-self: center;
   }
 }
-/* Estilo geral para o corpo */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  background-color: #000;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
-  color: #ffffff;
+  background-position: 50%;
+  color: #fff;
   background-size: cover;
 }
-body#book{
+body#book {
   width: auto;
 }
-
-/* Header */
 header {
-  background-color: #000000a3;
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.64);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
+header,
+header h1 {
+  text-align: center;
+}
 header h1 {
   padding: 10px;
   font-size: xxx-large;
-  text-align: center;
   color: #4d007b;
   margin: 0;
-  -webkit-text-stroke: 1px #ffe218c9;
-  text-stroke: 1px #ffe218c9;
-
+  -webkit-text-stroke: 1px rgba(255, 226, 24, 0.79);
+  text-stroke: 1px rgba(255, 226, 24, 0.79);
 }
-
 body > main > ol > li * {
-  color: white;
+  color: #fff;
 }
-
 .bg {
-  background: #000000;
-  box-shadow: 0px -13px 20px 8px #000000;
+  background: #000;
+  box-shadow: 0 -13px 20px 8px #000;
 }
-
 nav {
   margin-top: 10px;
 }
-
 nav ul {
   list-style: none;
   padding: 10px;
@@ -71,64 +176,51 @@ nav ul {
   justify-content: center;
   gap: 5px;
 }
-
+header nav ul li,
 nav ul li {
   display: inline-block;
 }
-
 header nav ul li {
-  display: inline-block;
   border-style: outset;
   align-content: center;
   background: #4d007b;
   border-radius: 10px;
-  border-color: #ffe218c9;
+  border-color: rgba(255, 226, 24, 0.79);
   padding: 5px;
-  box-shadow: 0px 0px 20px 2px rgb(255 255 255 / 51%);
+  box-shadow: 0 0 20px 2px rgb(255 255 255/51%);
 }
-
 nav ul li a {
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
   font-size: 1rem;
   transition: color 0.2s ease-in-out;
 }
-
 nav ul li a:hover {
   color: #ffc107;
-  /* Cor dourada ao passar o mouse */
   box-shadow: 0 4px 6px rgba(190, 156, 2, 0.1);
 }
-
-/* Main */
 main {
   padding: 20px;
   min-height: 65%;
 }
-
 body#book main p {
   text-align: justify;
 }
-
-/* Footer */
 footer {
   height: 10vh;
   background-color: rgba(0, 0, 0, 0.522);
-  color: #ffffff;
+  color: #fff;
   text-align: center;
   padding-top: 10px;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
-
 footer p {
   margin: 0;
   font-size: 0.9rem;
 }
-
 footer nav {
   margin-top: 10px;
 }
-
 footer nav ul {
   list-style: none;
   padding: 0;
@@ -137,31 +229,25 @@ footer nav ul {
   justify-content: center;
   gap: 15px;
 }
-
 footer nav ul li {
   display: inline-block;
 }
-
 footer nav ul li a {
   text-decoration: none;
   color: #ffc107;
   font-size: 0.9rem;
   transition: color 0.2s ease-in-out;
 }
-
 footer nav ul li a:hover {
-  color: #ffffff;
+  color: #fff;
 }
-
-/* Breadcrumb (se utilizado no HTML) */
 nav[aria-label="breadcrumb"] {
   font-size: 0.9rem;
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #222222;
+  background-color: #222;
   border-radius: 5px;
 }
-
 nav[aria-label="breadcrumb"] ol {
   list-style: none;
   padding: 0;
@@ -169,94 +255,80 @@ nav[aria-label="breadcrumb"] ol {
   display: flex;
   gap: 5px;
 }
-
 nav[aria-label="breadcrumb"] ol li {
-  color: #ffffff;
+  color: #fff;
 }
-
 nav[aria-label="breadcrumb"] ol li a {
   text-decoration: none;
   color: #ffc107;
 }
-
 nav[aria-label="breadcrumb"] ol li a:hover {
-  color: #ffffff;
+  color: #fff;
 }
-
-/* Títulos principais */
-h1, h2, h3{
+h1,
+h2,
+h3 {
   text-align: center;
 }
 h1 {
   font-size: xxx-large;
-  color: #491c43d9;
+  color: rgba(73, 28, 67, 0.85);
   margin: 0;
   -webkit-text-stroke: 1px #9d9930;
   text-stroke: 1px #9d9930;
 }
-
-
-/* Botões globais */
 button {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
   font-size: 16px;
   background-color: #4d007b;
-  color: white;
-  border: 2px solid #ffe218c9;
+  color: #fff;
+  border: 2px solid rgba(255, 226, 24, 0.79);
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-
 button:hover {
   background-color: #3700b3;
 }
-
-/* Estilos específicos para HomeScreen */
 .home-screen {
   text-align: center;
   background-color: #4d007b;
-  color: #ffffff;
-  font-family: "Georgia", serif;
+  color: #fff;
+  font-family: Georgia, serif;
   border-radius: 10px;
-  border-color: #ffe218c9;
+  border-color: rgba(255, 226, 24, 0.79);
   padding: 5px;
-  box-shadow: 0px 0px 20px 2px rgb(255 255 255 / 51%);
+  box-shadow: 0 0 20px 2px rgb(255 255 255/51%);
   width: 90%;
   justify-self: center;
 }
-
 .home-screen button {
   display: block;
   margin: 10px auto;
   padding: 10px 15px;
   font-size: 16px;
-  background-color: #000000d0;
-  color: #ffffff;
-  border: 2px solid #ffffff7a;
+  background-color: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  border: 2px solid hsla(0, 0%, 100%, 0.48);
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-
 .home-screen button:hover {
   background-color: #3700b3;
 }
-
 .intro h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: #f1c40f;
 }
-
 .intro p {
   font-size: 1.2rem;
   color: #d0d0d0;
   margin-bottom: 20px;
 }
-
 .hermetic-knowledge {
   background-color: #2a2a3d;
   padding: 20px;
@@ -274,12 +346,9 @@ button:hover {
   border-radius: 8px;
   cursor: pointer;
 }
-
 .nav-button:hover {
   background-color: #5b2c6f;
 }
-
-/* Estilos específicos para AllCardsScreen */
 .all-cards-screen .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -287,41 +356,32 @@ button:hover {
   gap: 15px;
   padding: 15px;
 }
-
-/* Estilos específicos para cartas */
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 120px;
-  /* Largura padrão para mobile */
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
-
 .card img {
   width: 100%;
-  /* Adapta a largura ao tamanho do cartão */
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
 .card p {
   margin: 10px 0;
   font-size: 14px;
   text-align: center;
   color: #444;
 }
-
-/* Estilos específicos para ThreeCardGameScreen */
 .three-card-game .card-container {
   display: flex;
   gap: 20px;
@@ -329,40 +389,32 @@ button:hover {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .card-three {
-  -webkit-text-stroke: 1px #9d993000;
-  text-stroke: 1px #9d993000;
-  color: #ffffff;
-  /* font-size: large; */
-  background: #0000008a;
+  -webkit-text-stroke: 1px rgba(157, 153, 48, 0);
+  text-stroke: 1px rgba(157, 153, 48, 0);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.54);
   border-radius: 10px;
   justify-items: center;
   padding: 10px;
 }
-
 .card-three > h3 {
   margin: 0;
 }
-
 .three-card-game h1 {
   text-align: center;
   color: #f4f4f4;
 }
-
-/* Estilos específicos para HistoryScreen */
 .history-screen {
   padding: 20px;
   text-align: center;
 }
-
 .history-screen ul {
   list-style: none;
   padding: 0;
 }
-
 .history-screen li {
-  background-color: #000000dd;
+  background-color: rgba(0, 0, 0, 0.87);
   margin: 10px auto;
   padding: 10px;
   border: 1px solid #ddd;
@@ -372,59 +424,47 @@ button:hover {
   max-width: 500px;
   text-align: left;
 }
-
 .history-screen li:hover {
   background-color: #3700b3;
 }
-
-/* Estilo básico da carta */
 .tarot-card {
   perspective: 1000px;
-  /* Necessário para o efeito 3D */
   display: inline-block;
   width: 120px;
   height: 180px;
   position: relative;
-  box-shadow: 0px 0px 10px 2px;
+  box-shadow: 0 0 10px 2px;
   border-radius: 10px;
-  
 }
-
 .card-element {
   position: absolute;
   bottom: -14px;
   margin: 0;
   font-size: small;
-  color: white;
+  color: #fff;
   width: 100%;
   text-align: center;
 }
-
 .arcano-maior {
-  border: 1px outset rgb(27, 0, 63);
-  background: rgb(27, 0, 63, 0.5);
+  border: 1px outset #1b003f;
+  background: rgba(27, 0, 63, 0.5);
 }
-
 .Ar {
-  box-shadow: 0px 0px 10px 2px rgb(19, 88, 0);
-  background: rgb(19, 88, 0, 0.5);
+  box-shadow: 0 0 10px 2px #135800;
+  background: rgba(19, 88, 0, 0.5);
 }
-
 .Terra {
-  box-shadow: 0px 0px 10px 2px rgb(73, 58, 0);
-  background: rgb(73, 78, 0, 0.5);
+  box-shadow: 0 0 10px 2px #493a00;
+  background: rgba(73, 78, 0, 0.5);
 }
-
 .Água {
-  box-shadow: 0px 0px 10px 2px rgb(0, 7, 73);
-  background: rgb(0, 7, 73, 0.5);
+  box-shadow: 0 0 10px 2px #000749;
+  background: rgba(0, 7, 73, 0.5);
 }
-
 .Fogo {
-  box-shadow: 0px 0px 10px 2px rgb(99, 0, 0);
-  background: rgb(99, 0, 0, 0.5);
+  box-shadow: 0 0 10px 2px #630000;
+  background: rgba(99, 0, 0, 0.5);
 }
-
 .card-inner {
   position: relative;
   width: 100%;
@@ -432,47 +472,41 @@ button:hover {
   transform-style: preserve-3d;
   transition: transform 0.6s;
 }
-
 .tarot-card.flipped .card-inner {
   transform: rotateY(180deg);
 }
-
-.card-front,
-.card-back {
+.card-back,
+.card-front {
   position: absolute;
-  width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  /* Oculta a face oposta */
-  border-radius: 10px;
-  background-image: url("/assets/back.jpg");
+  background-image: url(/assets/back.jpg);
   background-repeat: round;
   background-attachment: fixed;
 }
-
-.card-front > img,
-.card-back > img {
+.card-back,
+.card-back > img,
+.card-front,
+.card-front > img {
   width: 100%;
   border-radius: 10px;
 }
-
 #card-image {
   border-radius: 10px;
 }
-
 .card-front {
   transform: rotateY(0deg);
 }
-
 .card-back {
   transform: rotateY(180deg);
   background-color: #333;
+}
+.card-back,
+.tarot-card-info {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-/* Estilos para o TarotCardInfo */
 .tarot-card-info {
   overflow: auto;
   position: fixed;
@@ -482,67 +516,50 @@ button:hover {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1000;
   opacity: 0;
   pointer-events: none;
   transform: scale(0.95);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 .tarot-card-info:not(.hidden) {
   opacity: 1;
   pointer-events: auto;
   transform: scale(1);
 }
-
 .info-content {
   background-color: #222;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   max-width: 90vw;
-  /* Limita a largura máxima */
   max-height: 80vh;
-  /* Limita a altura máxima */
   overflow-y: auto;
-  /* Adiciona rolagem caso necessário */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
   animation: fadeIn 0.3s ease-in-out;
 }
-
 .info-content[data-element="Ar"] {
   background-color: rgba(19, 88, 0, 0.5);
 }
-
 .info-content[data-element="Terra"] {
   background-color: rgba(73, 58, 0, 0.5);
 }
-
 .info-content[data-element="Água"] {
   background-color: rgba(0, 7, 73, 0.5);
 }
-
 .info-content[data-element="Fogo"] {
   background-color: rgba(99, 0, 0, 0.5);
 }
-
 .info-content h2 {
   margin: 0 0 15px;
   font-size: 28px;
   color: #ffc107;
-  /* Destaque dourado */
 }
-
 .info-content h3 {
   margin: 0 0 15px;
   font-size: 20px;
   color: #ffc107;
-  /* Destaque dourado */
 }
-
 .info-content p {
   margin: 10px 0;
   font-size: 18px;
@@ -550,15 +567,14 @@ button:hover {
   color: #ddd;
   padding: 10px;
 }
-
 .info-content button {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   background-color: #444;
-  color: white;
-  border: 2px solid white;
+  color: #fff;
+  border: 2px solid #fff;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
@@ -566,38 +582,30 @@ button:hover {
   margin-top: 20px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
 .info-content button:hover {
   background-color: #555;
   transform: scale(1.05);
-  /* Efeito visual ao passar o mouse */
 }
-
 .card-border {
-  border: 1px solid;
-  margin: 0 0 10px 0;
-  padding: 10px;
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+#card-meditation-reflection,
+.card-border {
+  border: 1px solid;
+  margin: 0 0 10px;
+  padding: 10px;
+  display: flex;
   border-radius: 10px;
 }
-
 #card-meditation-reflection {
-  display: flex;
   align-items: center;
-  border: 1px solid;
-  margin: 0 0 10px 0;
-  padding: 10px;
   flex-direction: column;
   text-align: left;
-  border-radius: 10px;
 }
-
 #card-past-present-future {
   display: flex;
   border: 1px solid;
-  /* margin: 0 0 10px 0; */
   flex-wrap: wrap;
   padding: 10px;
   justify-content: center;
