@@ -1,10 +1,10 @@
 {
-  "_main-HjTA3MKg.css": {
-    "file": "assets/main-HjTA3MKg.css",
-    "src": "_main-HjTA3MKg.css"
+  "_main-D5ceqdOM.css": {
+    "file": "assets/main-D5ceqdOM.css",
+    "src": "_main-D5ceqdOM.css"
   },
   "index.html": {
-    "file": "assets/main-pxCSH01Y.js",
+    "file": "assets/main-2fBxZT3j.js",
     "name": "main",
     "src": "index.html",
     "isEntry": true,
@@ -14,7 +14,7 @@
       "src/components/TarotCardInfo.js"
     ],
     "css": [
-      "assets/main-HjTA3MKg.css"
+      "assets/main-D5ceqdOM.css"
     ]
   },
   "src/components/TarotCard.js": {

@@ -105,6 +105,11 @@ main {
   min-height: 65%;
 }
 
+main p {
+  text-align: justify;
+  padding: 0px 3%;
+}
+
 /* Footer */
 footer {
   height: 10vh;
@@ -179,14 +184,17 @@ nav[aria-label="breadcrumb"] ol li a:hover {
 }
 
 /* Títulos principais */
+h1, h2, h3{
+  text-align: center;
+}
 h1 {
   font-size: xxx-large;
-  text-align: center;
   color: #491c43d9;
   margin: 0;
   -webkit-text-stroke: 1px #9d9930;
   text-stroke: 1px #9d9930;
 }
+
 
 /* Botões globais */
 button {
