@@ -360,6 +360,36 @@
     }
   },
   {
+    "name": "O Enforcado",
+    "title": "A Rendição Iluminada",
+    "image": "assets/cards/hanged_man.jpg",
+    "number": 12,
+    "isMajorArcana": true,
+    "eighth_greater": "Sacrifício, nova perspectiva, entrega ao fluxo da vida.",
+    "eighth_lesser": "Resistência, estagnação, medo de se soltar.",
+    "order": 12,
+    "element": "Água",
+    "sign": "Netuno",
+    "planet": null,
+    "description": "O Enforcado, representando o número doze e associado a Netuno, simboliza um momento de pausa e introspecção. No Tarot de Thoth, ele não está preso contra sua vontade, mas se entrega voluntariamente à posição invertida para obter um novo entendimento. O elemento Água reflete a fluidez e o caráter intuitivo desta carta, indicando que grandes revelações surgem quando nos permitimos soltar e confiar no processo.",
+    "hebrew_letter": "Mem (מ)",
+    "astrology": "Netuno",
+    "description_symbolic": "O Enforcado é retratado de cabeça para baixo, geralmente com uma expressão serena, sugerindo aceitação e iluminação. No Tarot de Thoth, ele representa a inversão da perspectiva comum, um convite para enxergar além das ilusões materiais. Sua posição sugere que a verdadeira sabedoria vem ao abrir mão do controle e permitir que a vida siga seu curso.",
+    "message_esoteric": "O Enforcado nos ensina que o verdadeiro crescimento ocorre quando nos rendemos às experiências, sem resistência. Às vezes, precisamos abandonar velhos padrões e ver o mundo de um ângulo diferente para alcançar a iluminação.",
+    "meditation_reflection": [
+      "Quais padrões antigos preciso soltar para evoluir?",
+      "Estou me permitindo ver as situações sob uma nova perspectiva?",
+      "Como posso transformar desafios em oportunidades de aprendizado?"
+    ],
+    "internal_alchemy": "O Enforcado representa a alquimia do desapego. Ao liberar a necessidade de controle, transformamos a incerteza em sabedoria e desenvolvemos uma conexão mais profunda com o fluxo universal.",
+    "magical_practice": "Para conectar-se a O Enforcado, visualize-se pendurado de cabeça para baixo, sentindo-se calmo e receptivo a novas ideias. Afirme que você está aberto às lições do universo, aceitando o que precisa ser transformado.",
+    "past_present_future": {
+      "past": "Um período de sacrifício ou espera trouxe crescimento interior.",
+      "present": "Você pode estar em um momento de pausa, necessário para obter clareza.",
+      "future": "Novas percepções surgirão quando você aceitar e se render ao fluxo natural da vida."
+    }
+},
+  {
     "name": "A Morte",
     "title": "A Transformação",
     "image": "assets/cards/death.jpg",
