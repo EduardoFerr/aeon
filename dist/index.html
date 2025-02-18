@@ -55,8 +55,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- CSS principal -->
-
+    <!-- CSS principal -->
     <style>
       .scroll-to-top {
         position: fixed;
@@ -79,7 +78,7 @@
     <title>Aeon Fool - Explore o Tarot de Thoth</title>
     <script type="module" crossorigin src="/assets/main-FabfIUAx.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/main-BVb4aQGV.css">
-  <link rel="manifest" href="manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+  <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
 
   <body>
     <button id="scrollToTop" class="scroll-to-top" title="Voltar ao topo">
@@ -91,7 +90,7 @@
       <nav aria-label="Menu principal">
         <ul>
           <li id="nav-home">
-            <a href="#" data-page="home" aria-label="Ir para a página inicial"
+            <a href="#" rel="nofollow" data-page="home" aria-label="Ir para a página inicial"
               >🏠 Início</a
             >
           </li>
@@ -99,6 +98,7 @@
             <a
               href="?all-cards"
               data-page="all-cards"
+              rel="nofollow"
               aria-label="Explorar todas as cartas"
               >🃏 Cartas</a
             >
@@ -106,6 +106,7 @@
           <li id="nav-three-card-game">
             <a
               href="?three-card-game"
+              rel="nofollow"
               data-page="three-card-game"
               aria-label="Acessar o jogo de leitura de três cartas"
               >🔮 Leitura</a
@@ -114,13 +115,14 @@
           <li id="nav-history">
             <a
               href="?history"
+              rel="nofollow"
               data-page="history"
               aria-label="Consultar o histórico de leituras"
               >📜 Histórico</a
             >
           </li>
           <li id="nav-guide">
-            <a href="livro.html" aria-label="Acessar o guia esotérico"
+            <a href="livro.html" rel="nofollow" aria-label="Acessar o guia esotérico"
               >📖 Guia</a
             >
           </li>
@@ -148,8 +150,7 @@
       </nav>
     </footer>
 
-    <!-- Script principal -->
-
+    <!-- Script principal -->
 
     <!-- Schema.org para SEO -->
     <script type="application/ld+json">
