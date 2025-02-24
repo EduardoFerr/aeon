@@ -16,5 +16,6 @@ Allow: /index.html
 User-agent: Mediapartners-Google
 Disallow:
 
+
 # Sitemap para facilitar a indexação das páginas
 Sitemap: https://aeonfool.com/sitemap.xml

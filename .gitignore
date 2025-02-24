@@ -36,6 +36,9 @@ coverage/
 .git/
 .gitignore
 
+# Robots
+*robots.txt
+
 # Outros
 *.swp
 *.tmp

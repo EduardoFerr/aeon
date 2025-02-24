@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
-import { partytownVite } from "@builder.io/partytown/utils";
 import path from "node:path";
 import fs from "node:fs/promises";
 

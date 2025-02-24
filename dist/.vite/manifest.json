@@ -3,6 +3,10 @@
     "file": "assets/main-BVb4aQGV.css",
     "src": "_main-BVb4aQGV.css"
   },
+  "favicon.ico": {
+    "file": "assets/favicon-PaELr8mm.ico",
+    "src": "favicon.ico"
+  },
   "index.html": {
     "file": "assets/main-FabfIUAx.js",
     "name": "main",
@@ -15,6 +19,9 @@
     ],
     "css": [
       "assets/main-BVb4aQGV.css"
+    ],
+    "assets": [
+      "assets/favicon-PaELr8mm.ico"
     ]
   },
   "livro.html": {
