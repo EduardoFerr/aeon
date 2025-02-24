@@ -1,7 +1,7 @@
 {
   "name": "thoth",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tarot de Thoth - Aleister Crowley: um guia rápido e prático para consulta",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,11 +9,11 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "author": "",
+  "author": "Eduardo",
   "license": "ISC",
   "dependencies": {
     "@builder.io/partytown": "^0.10.3",
-    "vite": "^6.0.11"
+    "vite": "^6.1.0"
   },
   "devDependencies": {
     "vite-plugin-pwa": "^0.21.1",
