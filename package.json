@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@builder.io/partytown": "^0.10.3",
+    "esbuild": "^0.24.2",
     "vite": "^6.1.0"
   },
   "devDependencies": {
