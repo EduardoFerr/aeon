@@ -1,0 +1,1247 @@
+[
+  {
+    "id": "arvore-da-vida",
+    "termo": "Árvore da Vida",
+    "aliases": [
+      "Árvore da Vida"
+    ],
+    "auto": true,
+    "curto": "O mapa da Cabala: dez esferas ligadas por vinte e dois caminhos. É o esqueleto sobre o qual o Tarot de Thoth organiza as suas cartas.",
+    "mais": "As dez esferas correspondem às cartas numeradas, de 1 (Kether) a 10 (Malkuth); os vinte e dois caminhos, aos arcanos maiores. Lê-se de cima, o divino ainda indivisível, até embaixo, o mundo concreto.",
+    "ver_tambem": [
+      "esfera",
+      "caminho",
+      "coluna-central"
+    ]
+  },
+  {
+    "id": "esfera",
+    "termo": "esfera (sephirah)",
+    "aliases": [
+      "esfera",
+      "sephirah",
+      "sephiroth"
+    ],
+    "auto": false,
+    "curto": "Cada um dos dez pontos da Árvore da Vida (sephirah, no plural sephiroth). Cada esfera é uma qualidade do mundo: sabedoria, rigor, beleza, matéria.",
+    "mais": "As cartas numeradas moram nas esferas: o Ás em Kether, o Dois em Chokmah, e assim até o Dez em Malkuth. A esfera dá a nota da carta; o naipe, o instrumento.",
+    "ver_tambem": [
+      "arvore-da-vida",
+      "kether",
+      "malkuth"
+    ]
+  },
+  {
+    "id": "caminho",
+    "termo": "caminho",
+    "aliases": [
+      "caminho"
+    ],
+    "auto": false,
+    "curto": "Cada uma das vinte e duas linhas que ligam duas esferas da Árvore da Vida. Cada caminho tem uma letra hebraica e um arcano maior.",
+    "mais": "Os caminhos são numerados de 11 a 32. Percorrer um caminho é viver a lição da carta que o habita: o 11 é o do Louco, o 32, o do Universo.",
+    "ver_tambem": [
+      "arvore-da-vida",
+      "esfera",
+      "pathworking"
+    ]
+  },
+  {
+    "id": "coluna-central",
+    "termo": "coluna central",
+    "aliases": [
+      "coluna central"
+    ],
+    "auto": true,
+    "curto": "A coluna do meio da Árvore da Vida, a do equilíbrio: Kether, Tiphareth, Yesod e Malkuth, unidas pelos caminhos 13, 25 e 32.",
+    "mais": "As colunas laterais são a da Misericórdia e a do Rigor. A central reconcilia as duas, e é por ela que a consciência sobe e desce a Árvore.",
+    "ver_tambem": [
+      "arvore-da-vida",
+      "caminho"
+    ]
+  },
+  {
+    "id": "abismo",
+    "termo": "Abismo",
+    "aliases": [
+      "Abismo"
+    ],
+    "auto": true,
+    "curto": "O vazio que separa as três esferas superiores das demais. Atravessá-lo é passar do eu individual ao que o ultrapassa.",
+    "mais": "Vários caminhos o cruzam, e o 13, o da Sacerdotisa, vai de Tiphareth direto a Kether. A Cabala o descreve como o limite entre o que se pensa e o que simplesmente é.",
+    "ver_tambem": [
+      "arvore-da-vida",
+      "gimel"
+    ]
+  },
+  {
+    "id": "ain",
+    "termo": "Ain",
+    "aliases": [
+      "Ain"
+    ],
+    "auto": true,
+    "curto": "O nada anterior a tudo, o zero da Cabala. Vem antes de Kether, e é a casa do Louco.",
+    "mais": "Em hebraico, a palavra quer dizer 'nada'. A Cabala o descreve em três véus: Ain, Ain Soph (o sem-limite) e Ain Soph Aur (a luz sem limite), dos quais nasce Kether.",
+    "ver_tambem": [
+      "kether",
+      "aleph"
+    ]
+  },
+  {
+    "id": "tetragrama",
+    "termo": "Tetragrama",
+    "aliases": [
+      "Tetragrama"
+    ],
+    "auto": true,
+    "curto": "O nome divino de quatro letras hebraicas: Yod, Heh, Vav, Heh. Cada letra corresponde a um elemento, a um naipe e a uma patente da Corte.",
+    "mais": "Yod é o Fogo, os Bastões e o Cavaleiro; o primeiro Heh, a Água, as Taças e a Rainha; Vav, o Ar, as Espadas e o Príncipe; o segundo Heh, a Terra, os Discos e a Princesa.",
+    "ver_tambem": [
+      "corte",
+      "elementos",
+      "yod",
+      "heh",
+      "vav"
+    ]
+  },
+  {
+    "id": "kether",
+    "termo": "Kether",
+    "aliases": [
+      "Kether"
+    ],
+    "auto": true,
+    "curto": "A esfera do topo da Árvore da Vida, a Coroa: a origem, o ponto onde tudo é ainda um só. Nela moram os quatro Ases.",
+    "mais": "É a esfera 1. Dela partem os três primeiros caminhos, o 11, o 12 e o 13. É a raiz do que virá, antes de qualquer forma.",
+    "ver_tambem": [
+      "arvore-da-vida",
+      "esfera",
+      "ain"
+    ]
+  },
+  {
+    "id": "chokmah",
+    "termo": "Chokmah",
+    "aliases": [
+      "Chokmah"
+    ],
+    "auto": true,
+    "curto": "A segunda esfera, a Sabedoria: o primeiro impulso, a força que sai da origem e busca direção. Rege os Dois e os Cavaleiros.",
+    "mais": "É o pai da Árvore: força sem forma, rapidez, ímpeto. Em cada naipe, o Dois é seu, e o Cavaleiro também.",
+    "ver_tambem": [
+      "binah",
+      "cavaleiro"
+    ]
+  },
+  {
+    "id": "binah",
+    "termo": "Binah",
+    "aliases": [
+      "Binah"
+    ],
+    "auto": true,
+    "curto": "A terceira esfera, o Entendimento: a forma que recebe a força. É a Grande Mãe da Árvore e rege os Três e as Rainhas.",
+    "mais": "Onde a energia ganha contorno, limite e tempo. Saturno é seu planeta. As Rainhas, Água de cada naipe, vêm daqui.",
+    "ver_tambem": [
+      "chokmah",
+      "rainha"
+    ]
+  },
+  {
+    "id": "chesed",
+    "termo": "Chesed",
+    "aliases": [
+      "Chesed"
+    ],
+    "auto": true,
+    "curto": "A quarta esfera, a Misericórdia: expansão, generosidade, ordem estável. Rege os Quatros. Seu planeta é Júpiter.",
+    "mais": "É a esfera da abundância organizada: o que cresce sem se desmanchar.",
+    "ver_tambem": [
+      "geburah"
+    ]
+  },
+  {
+    "id": "geburah",
+    "termo": "Geburah",
+    "aliases": [
+      "Geburah"
+    ],
+    "auto": true,
+    "curto": "A quinta esfera, o Rigor: a força que corta, delimita e põe à prova. Rege os Cincos. Seu planeta é Marte.",
+    "mais": "É o par de Chesed: onde a generosidade encontra o limite. Dela vêm o corte e a disciplina.",
+    "ver_tambem": [
+      "chesed"
+    ]
+  },
+  {
+    "id": "tiphareth",
+    "termo": "Tiphareth",
+    "aliases": [
+      "Tiphareth"
+    ],
+    "auto": true,
+    "curto": "A sexta esfera, a Beleza: o centro solar da Árvore, onde todas as forças se equilibram. Rege os Seis e os Príncipes.",
+    "mais": "O Sol é o seu astro. É o ponto de encontro de quase todos os caminhos e o coração da coluna central.",
+    "ver_tambem": [
+      "coluna-central",
+      "principe"
+    ]
+  },
+  {
+    "id": "netzach",
+    "termo": "Netzach",
+    "aliases": [
+      "Netzach"
+    ],
+    "auto": true,
+    "curto": "A sétima esfera, a Vitória: desejo, instinto, natureza e arte. Rege os Setes. Seu planeta é Vênus.",
+    "mais": "Vitória, aqui, é a persistência do desejo, não o triunfo da carta que leva esse nome.",
+    "ver_tambem": [
+      "hod"
+    ]
+  },
+  {
+    "id": "hod",
+    "termo": "Hod",
+    "aliases": [
+      "Hod"
+    ],
+    "auto": true,
+    "curto": "A oitava esfera, o Esplendor: intelecto, palavra e comunicação. Rege os Oitos. Seu planeta é Mercúrio.",
+    "mais": "É o par de Netzach: onde o desejo encontra a forma da linguagem e do pensamento.",
+    "ver_tambem": [
+      "netzach"
+    ]
+  },
+  {
+    "id": "yesod",
+    "termo": "Yesod",
+    "aliases": [
+      "Yesod"
+    ],
+    "auto": true,
+    "curto": "A nona esfera, o Fundamento: imagens, ritmos e corpo, o espelho que reflete as esferas de cima. Rege os Noves. Seu astro é a Lua.",
+    "mais": "Tudo o que vem de cima passa por Yesod antes de se tornar matéria.",
+    "ver_tambem": [
+      "malkuth"
+    ]
+  },
+  {
+    "id": "malkuth",
+    "termo": "Malkuth",
+    "aliases": [
+      "Malkuth"
+    ],
+    "auto": true,
+    "curto": "A décima esfera, o Reino: o mundo concreto e a matéria. Rege os Dez e as Princesas.",
+    "mais": "A Terra é o seu elemento. Nela termina a Árvore e recomeça o ciclo; o caminho 32, o do Universo, é o que sobe dela.",
+    "ver_tambem": [
+      "yesod",
+      "princesa"
+    ]
+  },
+  {
+    "id": "aleph",
+    "termo": "Aleph",
+    "aliases": [
+      "Aleph"
+    ],
+    "auto": true,
+    "curto": "Primeira letra do alfabeto hebraico; significa boi. É a letra do Louco, no caminho 11, ligada ao Ar.",
+    "mais": "Silenciosa na fala, é o sopro anterior à palavra. Liga Kether a Chokmah, o primeiro passo da origem rumo à multiplicidade.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "beth",
+    "termo": "Beth",
+    "aliases": [
+      "Beth"
+    ],
+    "auto": true,
+    "curto": "Segunda letra; significa casa. É a letra do Mago, no caminho 12, sob Mercúrio.",
+    "mais": "A casa é o primeiro recipiente em que a unidade se expressa. O caminho liga Kether a Binah.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "gimel",
+    "termo": "Gimel",
+    "aliases": [
+      "Gimel"
+    ],
+    "auto": true,
+    "curto": "Terceira letra; significa camelo. É a letra da Sacerdotisa, no caminho 13, sob a Lua.",
+    "mais": "O camelo atravessa o deserto; o caminho atravessa o Abismo e liga Tiphareth a Kether. É o mais longo da Árvore.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "daleth",
+    "termo": "Daleth",
+    "aliases": [
+      "Daleth"
+    ],
+    "auto": true,
+    "curto": "Quarta letra; significa porta. É a letra da Imperatriz, no caminho 14, sob Vênus.",
+    "mais": "Porta e ventre: passagem do invisível ao visível. O caminho une Chokmah e Binah, o pai e a mãe da Árvore.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "heh",
+    "termo": "Heh",
+    "aliases": [
+      "Heh"
+    ],
+    "auto": true,
+    "curto": "Quinta letra; significa janela. No Thoth é a letra da Estrela, no caminho 15, sob Aquário.",
+    "mais": "Liga Chokmah a Tiphareth. É também a segunda e a quarta letra do Tetragrama. Em outros baralhos, Heh é do Imperador; veja 'Heh e Tzaddi'.",
+    "ver_tambem": [
+      "heh-e-tzaddi",
+      "caminho"
+    ]
+  },
+  {
+    "id": "vav",
+    "termo": "Vav",
+    "aliases": [
+      "Vav"
+    ],
+    "auto": true,
+    "curto": "Sexta letra; significa prego e também 'e'. É a letra do Hierofante, no caminho 16, sob Touro.",
+    "mais": "O que une e fixa. O caminho liga Chokmah a Chesed. Vav é a terceira letra do Tetragrama, ligada ao Ar e aos Príncipes.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "zayin",
+    "termo": "Zayin",
+    "aliases": [
+      "Zayin"
+    ],
+    "auto": true,
+    "curto": "Sétima letra; significa espada. É a letra dos Enamorados, no caminho 17, sob Gêmeos.",
+    "mais": "A espada separa para que algo possa ser escolhido. O caminho liga Binah a Tiphareth.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "cheth",
+    "termo": "Cheth",
+    "aliases": [
+      "Cheth"
+    ],
+    "auto": true,
+    "curto": "Oitava letra; significa cerca ou recinto. É a letra do Carro, no caminho 18, sob Câncer.",
+    "mais": "A cerca define o que está dentro e o que está fora, e guarda o que é precioso. O caminho liga Binah a Geburah.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "teth",
+    "termo": "Teth",
+    "aliases": [
+      "Teth"
+    ],
+    "auto": true,
+    "curto": "Nona letra; significa serpente. É a letra da Luxúria, no caminho 19, sob Leão.",
+    "mais": "A serpente é a energia que sobe. O caminho liga Chesed a Geburah, a generosidade e o rigor.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "yod",
+    "termo": "Yod",
+    "aliases": [
+      "Yod"
+    ],
+    "auto": true,
+    "curto": "Décima letra, a menor de todas; significa mão. É a letra do Eremita, no caminho 20, sob Virgem.",
+    "mais": "Um simples ponto, de onde as outras letras nascem. É a primeira do Tetragrama, ligada ao Fogo e aos Cavaleiros. O caminho liga Chesed a Tiphareth.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "kaph",
+    "termo": "Kaph",
+    "aliases": [
+      "Kaph"
+    ],
+    "auto": true,
+    "curto": "Décima primeira letra; significa palma da mão. É a letra da Roda da Fortuna, no caminho 21, sob Júpiter.",
+    "mais": "A palma aberta recebe, a fechada retém. O caminho liga Chesed a Netzach.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "lamed",
+    "termo": "Lamed",
+    "aliases": [
+      "Lamed"
+    ],
+    "auto": true,
+    "curto": "Décima segunda letra; significa aguilhão, a vara que conduz o boi. É a letra do Ajuste, no caminho 22, sob Libra.",
+    "mais": "Ensina corrigindo, e é a letra mais alta do alfabeto. O caminho liga Geburah a Tiphareth.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "mem",
+    "termo": "Mem",
+    "aliases": [
+      "Mem"
+    ],
+    "auto": true,
+    "curto": "Décima terceira letra; significa água. É a letra do Enforcado, no caminho 23.",
+    "mais": "Uma das três letras-mãe (Aleph, Mem, Shin), ligadas ao Ar, à Água e ao Fogo. O caminho liga Geburah a Hod.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "nun",
+    "termo": "Nun",
+    "aliases": [
+      "Nun"
+    ],
+    "auto": true,
+    "curto": "Décima quarta letra; significa peixe. É a letra da Morte, no caminho 24, sob Escorpião.",
+    "mais": "O peixe vive no escuro e no fundo. O caminho liga Tiphareth a Netzach.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "samekh",
+    "termo": "Samekh",
+    "aliases": [
+      "Samekh"
+    ],
+    "auto": true,
+    "curto": "Décima quinta letra; significa suporte ou escora. É a letra da Arte, no caminho 25, sob Sagitário.",
+    "mais": "Aquilo que mantém algo de pé enquanto se arma. O caminho liga Tiphareth a Yesod, na coluna central.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "ayin",
+    "termo": "Ayin",
+    "aliases": [
+      "Ayin"
+    ],
+    "auto": true,
+    "curto": "Décima sexta letra; significa olho. É a letra do Diabo, no caminho 26, sob Capricórnio.",
+    "mais": "O olho que vê sem disfarce. O caminho liga Tiphareth a Hod.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "peh",
+    "termo": "Peh",
+    "aliases": [
+      "Peh"
+    ],
+    "auto": true,
+    "curto": "Décima sétima letra; significa boca. É a letra da Torre, no caminho 27, sob Marte.",
+    "mais": "A boca fala e devora. O caminho liga Netzach a Hod.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "tzaddi",
+    "termo": "Tzaddi",
+    "aliases": [
+      "Tzaddi"
+    ],
+    "auto": true,
+    "curto": "Décima oitava letra; significa anzol. No Thoth é a letra do Imperador, no caminho 28, sob Áries.",
+    "mais": "O anzol pesca e traz para si. Liga Netzach a Yesod. Em outros baralhos, Tzaddi é da Estrela; veja 'Heh e Tzaddi'.",
+    "ver_tambem": [
+      "heh-e-tzaddi",
+      "caminho"
+    ]
+  },
+  {
+    "id": "qoph",
+    "termo": "Qoph",
+    "aliases": [
+      "Qoph"
+    ],
+    "auto": true,
+    "curto": "Décima nona letra; significa nuca, a parte de trás da cabeça. É a letra da Lua, no caminho 29, sob Peixes.",
+    "mais": "Algumas fontes a traduzem como 'ouvido da agulha'. O caminho liga Netzach a Malkuth.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "resh",
+    "termo": "Resh",
+    "aliases": [
+      "Resh"
+    ],
+    "auto": true,
+    "curto": "Vigésima letra; significa cabeça. É a letra do Sol, no caminho 30.",
+    "mais": "A cabeça é o lugar onde a consciência se acende. O caminho liga Hod a Yesod.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "shin",
+    "termo": "Shin",
+    "aliases": [
+      "Shin"
+    ],
+    "auto": true,
+    "curto": "Vigésima primeira letra; significa dente. É a letra do Éon, no caminho 31, ligada ao Fogo e ao espírito.",
+    "mais": "Tem três traços, como três línguas de fogo, e é uma das letras-mãe. O caminho liga Hod a Malkuth.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "tav",
+    "termo": "Tav",
+    "aliases": [
+      "Tav"
+    ],
+    "auto": true,
+    "curto": "Última letra, a vigésima segunda; significa marca ou cruz. É a letra do Universo, no caminho 32, sob Saturno.",
+    "mais": "A marca final que assina e fecha. O caminho liga Yesod a Malkuth, o último da Árvore.",
+    "ver_tambem": [
+      "caminho",
+      "vibrar"
+    ]
+  },
+  {
+    "id": "decano",
+    "termo": "decano",
+    "aliases": [
+      "decano"
+    ],
+    "auto": true,
+    "curto": "Cada signo do zodíaco se divide em três partes de dez graus, os decanos. Cada decano tem um planeta, e é nele que mora uma carta numerada.",
+    "mais": "As cartas de 2 a 10 de cada naipe ocupam um decano: três por signo, de modo que cada naipe percorre três signos. O planeta do decano dá o tom da carta.",
+    "ver_tambem": [
+      "ordem-caldeia",
+      "elementos"
+    ]
+  },
+  {
+    "id": "ordem-caldeia",
+    "termo": "ordem caldeia",
+    "aliases": [
+      "ordem caldeia"
+    ],
+    "auto": false,
+    "curto": "A ordem tradicional dos planetas, do mais lento ao mais rápido. Nos decanos ela recomeça em Marte, no primeiro de Áries, e se repete pelos signos.",
+    "mais": "A sequência dos decanos é Marte, Sol, Vênus, Mercúrio, Lua, Saturno, Júpiter, e de novo: Marte rege o primeiro decano de Áries, o Sol o segundo, Vênus o terceiro, e assim por diante.",
+    "ver_tambem": [
+      "decano"
+    ]
+  },
+  {
+    "id": "exaltacao",
+    "termo": "exaltação",
+    "aliases": [
+      "exaltado"
+    ],
+    "auto": true,
+    "curto": "Na astrologia, o signo em que um planeta brilha com mais força. O Sol é exaltado em Áries; Saturno, em Libra.",
+    "mais": "A tradição liga cada exaltação a um grau preciso: a do Sol em Áries é o 19º.",
+    "ver_tambem": [
+      "decano"
+    ]
+  },
+  {
+    "id": "elementos",
+    "termo": "os quatro elementos",
+    "aliases": [
+      "Fogo",
+      "Água",
+      "Ar",
+      "Terra"
+    ],
+    "auto": false,
+    "curto": "Fogo (Bastões), Água (Taças), Ar (Espadas) e Terra (Discos): as quatro energias do tarot, uma por naipe.",
+    "mais": "Fogo é vontade e impulso; Água, emoção e intuição; Ar, mente e palavra; Terra, corpo, trabalho e matéria. Os quatro formam o Tetragrama.",
+    "ver_tambem": [
+      "tetragrama",
+      "arcanos-menores"
+    ]
+  },
+  {
+    "id": "arcanos-maiores",
+    "termo": "Arcanos Maiores",
+    "aliases": [
+      "Arcanos Maiores",
+      "arcanos maiores"
+    ],
+    "auto": false,
+    "curto": "As 22 cartas de nome e imagem próprios, do Louco ao Universo. Cada uma ocupa um caminho da Árvore da Vida e leva uma letra hebraica.",
+    "mais": "",
+    "ver_tambem": [
+      "caminho",
+      "arcanos-menores"
+    ]
+  },
+  {
+    "id": "arcanos-menores",
+    "termo": "Arcanos Menores",
+    "aliases": [
+      "Arcanos Menores",
+      "arcanos menores"
+    ],
+    "auto": false,
+    "curto": "As 56 cartas dos quatro naipes: Ás a Dez e a Corte. As numeradas moram nas esferas e, de 2 a 10, em um decano.",
+    "mais": "",
+    "ver_tambem": [
+      "arcanos-maiores",
+      "corte",
+      "decano"
+    ]
+  },
+  {
+    "id": "corte",
+    "termo": "Corte",
+    "aliases": [
+      "Corte"
+    ],
+    "auto": false,
+    "curto": "As quatro figuras de cada naipe: Cavaleiro, Rainha, Príncipe e Princesa. Equivalem a Rei, Rainha, Cavaleiro e Pajem do tarot comum.",
+    "mais": "Cada patente é um elemento dentro do elemento do naipe: o Príncipe de Bastões é Ar de Fogo. As quatro seguem as letras do Tetragrama.",
+    "ver_tambem": [
+      "cavaleiro",
+      "rainha",
+      "principe",
+      "princesa",
+      "elemento-composto"
+    ]
+  },
+  {
+    "id": "cavaleiro",
+    "termo": "Cavaleiro",
+    "aliases": [
+      "Cavaleiro"
+    ],
+    "auto": false,
+    "curto": "A patente mais ativa da Corte: o Fogo do naipe, ligado a Yod e a Chokmah. Chega, avança e passa; corresponde ao Rei do tarot comum.",
+    "mais": "Rege 30 graus do zodíaco, de 20° de um signo a 20° do seguinte.",
+    "ver_tambem": [
+      "corte",
+      "chokmah",
+      "yod"
+    ]
+  },
+  {
+    "id": "rainha",
+    "termo": "Rainha",
+    "aliases": [
+      "Rainha"
+    ],
+    "auto": false,
+    "curto": "A patente receptiva e formadora: a Água do naipe, ligada ao primeiro Heh e a Binah. Sustenta, atrai e dá forma.",
+    "mais": "Rege 30 graus do zodíaco, de 20° de um signo a 20° do seguinte.",
+    "ver_tambem": [
+      "corte",
+      "binah",
+      "heh"
+    ]
+  },
+  {
+    "id": "principe",
+    "termo": "Príncipe",
+    "aliases": [
+      "Príncipe"
+    ],
+    "auto": false,
+    "curto": "A patente do filho: o Ar do naipe, ligado a Vav e a Tiphareth. Pensa, planeja e conduz; corresponde ao Cavaleiro do tarot comum.",
+    "mais": "Rege 30 graus do zodíaco, de 20° de um signo a 20° do seguinte.",
+    "ver_tambem": [
+      "corte",
+      "tiphareth",
+      "vav"
+    ]
+  },
+  {
+    "id": "princesa",
+    "termo": "Princesa",
+    "aliases": [
+      "Princesa"
+    ],
+    "auto": false,
+    "curto": "A patente mais jovem: a Terra do naipe, ligada ao segundo Heh e a Malkuth. Traz o elemento ao chão; corresponde ao Pajem do tarot comum.",
+    "mais": "Não rege um signo: a tradição a liga a quadrantes do céu em torno do polo, e por isso não tem decano nem datas.",
+    "ver_tambem": [
+      "corte",
+      "malkuth",
+      "heh"
+    ]
+  },
+  {
+    "id": "elemento-composto",
+    "termo": "elemento composto",
+    "aliases": [
+      "Fogo de Fogo",
+      "Água de Fogo",
+      "Ar de Fogo",
+      "Terra de Fogo"
+    ],
+    "auto": true,
+    "curto": "A combinação do elemento da patente com o do naipe: Ar de Fogo é a mente (Ar) dentro do impulso (Fogo). Cada figura da Corte tem a sua.",
+    "mais": "Cavaleiro é Fogo; Rainha, Água; Príncipe, Ar; Princesa, Terra. O naipe vem depois do 'de': a Rainha de Taças é Água de Água, e o Cavaleiro de Espadas, Fogo de Ar.",
+    "ver_tambem": [
+      "corte",
+      "elementos"
+    ]
+  },
+  {
+    "id": "luz-e-sombra",
+    "termo": "Luz e Sombra",
+    "aliases": [
+      "Luz",
+      "Sombra"
+    ],
+    "auto": false,
+    "curto": "No site, a Luz é o melhor que a carta oferece; a Sombra é essa mesma força em excesso, em falta ou deformada. Não é a carta invertida.",
+    "mais": "A Sombra do Louco é a leveza que esquece o chão; a Luz, o salto de coragem. Cada carta tem as duas faces, e as duas pertencem à mesma raiz.",
+    "ver_tambem": [
+      "raiz",
+      "dilema",
+      "tendencia"
+    ]
+  },
+  {
+    "id": "raiz",
+    "termo": "Raiz",
+    "aliases": [
+      "Raiz"
+    ],
+    "auto": false,
+    "curto": "O primeiro tempo da leitura: de onde a carta vem, o que a plantou.",
+    "mais": "",
+    "ver_tambem": [
+      "dilema",
+      "tendencia"
+    ]
+  },
+  {
+    "id": "dilema",
+    "termo": "Dilema",
+    "aliases": [
+      "Dilema"
+    ],
+    "auto": false,
+    "curto": "O segundo tempo: o que está em jogo agora e a escolha que a carta põe diante da consulente.",
+    "mais": "",
+    "ver_tambem": [
+      "raiz",
+      "tendencia"
+    ]
+  },
+  {
+    "id": "tendencia",
+    "termo": "Tendência",
+    "aliases": [
+      "Tendência"
+    ],
+    "auto": false,
+    "curto": "O terceiro tempo: para onde a carta aponta e o que ela anuncia ou pede.",
+    "mais": "",
+    "ver_tambem": [
+      "raiz",
+      "dilema"
+    ]
+  },
+  {
+    "id": "consulente",
+    "termo": "consulente",
+    "aliases": [
+      "consulente"
+    ],
+    "auto": false,
+    "curto": "Quem faz a pergunta ao baralho e recebe a leitura.",
+    "mais": "",
+    "ver_tambem": []
+  },
+  {
+    "id": "vibrar",
+    "termo": "vibrar",
+    "aliases": [
+      "Vibre",
+      "vibrar"
+    ],
+    "auto": false,
+    "curto": "Pronunciar o nome de uma letra ou de um planeta numa expiração longa e grave, sentindo-o no peito. É prática comum na magia cerimonial.",
+    "mais": "Diante da imagem da carta, respire fundo e deixe o nome sair devagar, até o fim do ar. Repetir três ou sete vezes é o costume.",
+    "ver_tambem": [
+      "pathworking"
+    ]
+  },
+  {
+    "id": "pathworking",
+    "termo": "pathworking",
+    "aliases": [
+      "pathworking"
+    ],
+    "auto": false,
+    "curto": "Uma viagem interior guiada por um caminho da Árvore da Vida: contempla-se a carta e imagina-se andar dentro dela, como numa porta.",
+    "mais": "Começa-se pela imagem da carta, entra-se nela de olhos fechados e anota-se depois o que se viu. O diário da carta serve para isso.",
+    "ver_tambem": [
+      "caminho",
+      "diario-da-carta"
+    ]
+  },
+  {
+    "id": "diario-da-carta",
+    "termo": "diário da carta",
+    "aliases": [
+      "diário da carta"
+    ],
+    "auto": false,
+    "curto": "Caderno onde se anota a carta tirada: a data, a pergunta, a imagem que mais chamou atenção e o que veio depois.",
+    "mais": "",
+    "ver_tambem": [
+      "pathworking"
+    ]
+  },
+  {
+    "id": "solve-et-coagula",
+    "termo": "solve et coagula",
+    "aliases": [
+      "solve et coagula"
+    ],
+    "auto": true,
+    "curto": "Fórmula alquímica em latim: dissolver e coagular. Desfazer o que está rígido para refazê-lo em forma melhor.",
+    "mais": "É a respiração da Grande Obra: o que se dissolve na água volta a se firmar na terra, mais puro. A carta da Arte a mostra em ação.",
+    "ver_tambem": [
+      "grande-obra"
+    ]
+  },
+  {
+    "id": "grande-obra",
+    "termo": "Grande Obra",
+    "aliases": [
+      "Grande Obra",
+      "A Obra"
+    ],
+    "auto": false,
+    "curto": "A transformação completa, na alquimia: do chumbo ao ouro e, no sentido interior, de quem se refina até encontrar a própria natureza.",
+    "mais": "Passa por fases com nomes de cores: nigredo (preto), albedo (branco), citrinitas (amarelo) e rubedo (vermelho).",
+    "ver_tambem": [
+      "nigredo",
+      "citrinitas",
+      "solve-et-coagula"
+    ]
+  },
+  {
+    "id": "nigredo",
+    "termo": "nigredo",
+    "aliases": [
+      "Nigredo"
+    ],
+    "auto": true,
+    "curto": "A fase negra da alquimia: a matéria escurece e apodrece para se desfazer. É o primeiro passo da Obra.",
+    "mais": "Vem antes do branco (albedo). Costuma ser associada à Morte e à noite que precede a transformação.",
+    "ver_tambem": [
+      "grande-obra",
+      "citrinitas"
+    ]
+  },
+  {
+    "id": "citrinitas",
+    "termo": "citrinitas",
+    "aliases": [
+      "Citrinitas"
+    ],
+    "auto": true,
+    "curto": "A fase amarela da alquimia: o trabalho amadurece em luz dourada, entre o branco e o vermelho.",
+    "mais": "",
+    "ver_tambem": [
+      "grande-obra",
+      "nigredo"
+    ]
+  },
+  {
+    "id": "calcinacao",
+    "termo": "calcinação",
+    "aliases": [
+      "Calcinação"
+    ],
+    "auto": true,
+    "curto": "A primeira operação alquímica: queimar a matéria até virar cinza e restar só o essencial. O Fogo é o seu agente.",
+    "mais": "",
+    "ver_tambem": [
+      "grande-obra"
+    ]
+  },
+  {
+    "id": "volatilizacao",
+    "termo": "volatilização",
+    "aliases": [
+      "Volatilização"
+    ],
+    "auto": true,
+    "curto": "Operação alquímica em que o que era fixo vira vapor, leve e móvel. É o movimento do Ar e de Mercúrio.",
+    "mais": "",
+    "ver_tambem": [
+      "grande-obra"
+    ]
+  },
+  {
+    "id": "thelema",
+    "termo": "Thelema",
+    "aliases": [
+      "Thelema"
+    ],
+    "auto": true,
+    "curto": "Filosofia e religião fundada por Aleister Crowley em 1904. Seu centro é a ideia de que cada pessoa tem uma vontade verdadeira a descobrir e cumprir.",
+    "mais": "A palavra vem do grego e quer dizer 'vontade'. Seu lema é 'faze o que tu queres', entendido como seguir a vontade verdadeira e não o capricho. É a base do baralho de Thoth.",
+    "ver_tambem": [
+      "livro-da-lei",
+      "nuit",
+      "hadit",
+      "horus",
+      "eon"
+    ]
+  },
+  {
+    "id": "livro-da-lei",
+    "termo": "Livro da Lei",
+    "aliases": [
+      "Livro da Lei",
+      "Liber AL"
+    ],
+    "auto": false,
+    "curto": "Texto central de Thelema, que Aleister Crowley disse ter recebido em 1904, no Cairo, de uma voz que se chamou Aiwass.",
+    "mais": "Tem três capítulos, falados por Nuit, Hadit e Hórus. Dele vêm a Lei de Thelema e a troca das letras Heh e Tzaddi no Thoth.",
+    "ver_tambem": [
+      "thelema",
+      "heh-e-tzaddi"
+    ]
+  },
+  {
+    "id": "nuit",
+    "termo": "Nuit",
+    "aliases": [
+      "Nuit"
+    ],
+    "auto": true,
+    "curto": "Deusa do espaço infinito e das estrelas em Thelema; seu corpo arqueado é o céu. Aparece na Estrela e no Éon.",
+    "mais": "O nome vem da deusa egípcia Nut. É o infinito do espaço, a possibilidade de tudo; seu par, Hadit, é o ponto onde tudo se experimenta.",
+    "ver_tambem": [
+      "hadit",
+      "thelema"
+    ]
+  },
+  {
+    "id": "hadit",
+    "termo": "Hadit",
+    "aliases": [
+      "Hadit"
+    ],
+    "auto": true,
+    "curto": "Em Thelema, o ponto central de cada ser: a centelha, o núcleo que se move. Par de Nuit, o espaço infinito.",
+    "mais": "Seu símbolo é o globo alado. Nuit é o 'tudo possível'; Hadit, o 'eu aqui e agora' que o experimenta.",
+    "ver_tambem": [
+      "nuit",
+      "thelema"
+    ]
+  },
+  {
+    "id": "horus",
+    "termo": "Hórus",
+    "aliases": [
+      "Hórus"
+    ],
+    "auto": true,
+    "curto": "Deus egípcio de cabeça de falcão. Em Thelema, é o deus da nova era, que se abre em 1904; aparece como criança e como guerreiro.",
+    "mais": "Hoor-paar-kraat é o Hórus criança, do silêncio; Ra-Hoor-Khuit, o Hórus guerreiro, da ação. A carta do Éon traz a sua era.",
+    "ver_tambem": [
+      "eon-de-horus",
+      "thelema"
+    ]
+  },
+  {
+    "id": "eon",
+    "termo": "éon",
+    "aliases": [
+      "Éon",
+      "éon"
+    ],
+    "auto": false,
+    "curto": "Uma era de longa duração, marcada por um princípio dominante. Em Thelema, a história se divide em éons: o de Ísis, o de Osíris e o de Hórus.",
+    "mais": "Cada éon tem uma fórmula própria: a maternidade e a natureza (Ísis), a morte e o sacrifício (Osíris), a vontade e a criança (Hórus).",
+    "ver_tambem": [
+      "eon-de-horus",
+      "osiris",
+      "horus"
+    ]
+  },
+  {
+    "id": "eon-de-horus",
+    "termo": "éon de Hórus",
+    "aliases": [
+      "éon de Hórus"
+    ],
+    "auto": false,
+    "curto": "A era que, segundo Thelema, começou em 1904 com o Livro da Lei e tem como centro a vontade verdadeira de cada pessoa.",
+    "mais": "Sucede o éon de Osíris, regido pela fórmula do deus que morre. O Éon do tarot (carta XX) é o seu retrato.",
+    "ver_tambem": [
+      "eon",
+      "livro-da-lei"
+    ]
+  },
+  {
+    "id": "babalon",
+    "termo": "Babalon",
+    "aliases": [
+      "Babalon",
+      "Mulher Escarlate"
+    ],
+    "auto": true,
+    "curto": "Figura de Thelema: a Mulher Escarlate, símbolo do êxtase, do desejo e da entrega. Cavalga a Besta e ergue o cálice na Luxúria.",
+    "mais": "O nome vem do imaginário do Apocalipse, relido de forma luminosa. Babalon não é o pecado: é a força feminina que se entrega ao que ama e transforma quem a encontra.",
+    "ver_tambem": [
+      "besta",
+      "thelema"
+    ]
+  },
+  {
+    "id": "besta",
+    "termo": "Besta",
+    "aliases": [
+      "Besta"
+    ],
+    "auto": true,
+    "curto": "No Apocalipse, símbolo do mal. Em Thelema, é a vitalidade animal e o impulso vital, que Babalon cavalga e conduz.",
+    "mais": "Na carta, a Besta tem várias cabeças, sinal de uma força que não cabe numa só forma. Conduzi-la é a arte da Luxúria.",
+    "ver_tambem": [
+      "babalon"
+    ]
+  },
+  {
+    "id": "golden-dawn",
+    "termo": "Golden Dawn",
+    "aliases": [
+      "Golden Dawn"
+    ],
+    "auto": false,
+    "curto": "Ordem iniciática inglesa fundada em 1888. Organizou as correspondências do tarot com a Cabala e a astrologia usadas até hoje, inclusive no Thoth.",
+    "mais": "Aleister Crowley passou pela ordem. O Tarot de Thoth segue a sua estrutura, mas muda alguns pontos, como a troca de Heh e Tzaddi.",
+    "ver_tambem": [
+      "tarot-de-thoth",
+      "heh-e-tzaddi"
+    ]
+  },
+  {
+    "id": "maat",
+    "termo": "Maat",
+    "aliases": [
+      "Maat"
+    ],
+    "auto": true,
+    "curto": "Deusa egípcia da verdade, da ordem e da justiça cósmica. Sua pena servia de contrapeso ao coração dos mortos.",
+    "mais": "Pesar o coração contra a pena de Maat era o juízo dos mortos. Na carta do Ajuste, a figura com espada e balança remete a ela.",
+    "ver_tambem": [
+      "osiris"
+    ]
+  },
+  {
+    "id": "osiris",
+    "termo": "Osíris",
+    "aliases": [
+      "Osíris"
+    ],
+    "auto": true,
+    "curto": "Deus egípcio que morre, é desmembrado e renasce; rei dos mortos e símbolo do ciclo da vida. Aparece no Enforcado.",
+    "mais": "Em Thelema, dá nome ao éon que precedeu o de Hórus, o da fórmula do sacrifício.",
+    "ver_tambem": [
+      "eon",
+      "horus"
+    ]
+  },
+  {
+    "id": "pa",
+    "termo": "Pã",
+    "aliases": [
+      "Pã"
+    ],
+    "auto": true,
+    "curto": "Deus grego dos bosques e dos rebanhos, metade homem, metade bode. Seu nome lembra a palavra grega para 'tudo'.",
+    "mais": "Representa a natureza em sua força bruta, o riso, o pânico e o desejo. Na carta do Diabo, é a figura central.",
+    "ver_tambem": [
+      "dionisio"
+    ]
+  },
+  {
+    "id": "dionisio",
+    "termo": "Dionísio",
+    "aliases": [
+      "Dionísio"
+    ],
+    "auto": true,
+    "curto": "Deus grego do vinho, do êxtase e do renascimento. Representa a vida que transborda.",
+    "mais": "",
+    "ver_tambem": [
+      "pa"
+    ]
+  },
+  {
+    "id": "parsifal",
+    "termo": "Parsifal",
+    "aliases": [
+      "Parsifal"
+    ],
+    "auto": true,
+    "curto": "Cavaleiro das lendas do Graal, o 'tolo puro' que chega ao sagrado por ingenuidade e compaixão.",
+    "mais": "O Louco é muitas vezes comparado a ele: quem dá o primeiro passo sem saber o que o espera.",
+    "ver_tambem": [
+      "graal"
+    ]
+  },
+  {
+    "id": "thoth-hermes",
+    "termo": "Thoth e Hermes",
+    "aliases": [
+      "deus Thoth",
+      "Hermes"
+    ],
+    "auto": true,
+    "curto": "Thoth é o deus egípcio da escrita e da sabedoria; Hermes, o mensageiro grego. Os dois se fundem na figura do Mago.",
+    "mais": "Hermes Trismegisto, 'três vezes grande', reúne os dois e é o patrono da alquimia e da magia. É dele o nome do baralho.",
+    "ver_tambem": [
+      "tarot-de-thoth"
+    ]
+  },
+  {
+    "id": "ankh",
+    "termo": "ankh",
+    "aliases": [
+      "ankh"
+    ],
+    "auto": true,
+    "curto": "Cruz egípcia com alça, símbolo da vida. Na carta do Enforcado, o corpo pende dela.",
+    "mais": "",
+    "ver_tambem": [
+      "osiris"
+    ]
+  },
+  {
+    "id": "pentagrama",
+    "termo": "pentagrama",
+    "aliases": [
+      "pentagrama"
+    ],
+    "auto": true,
+    "curto": "Estrela de cinco pontas, símbolo dos quatro elementos coroados pelo espírito. Aparece no peito do Hierofante.",
+    "mais": "",
+    "ver_tambem": [
+      "elementos"
+    ]
+  },
+  {
+    "id": "graal",
+    "termo": "Graal",
+    "aliases": [
+      "Graal"
+    ],
+    "auto": true,
+    "curto": "O cálice sagrado das lendas arturianas, que guarda o que há de mais precioso. No Carro, o vaso que o condutor leva lembra o Graal.",
+    "mais": "O Graal é a taça da experiência plena, a que dá vida e plenitude a quem a alcança.",
+    "ver_tambem": [
+      "parsifal"
+    ]
+  },
+  {
+    "id": "gunas",
+    "termo": "gunas",
+    "aliases": [
+      "gunas"
+    ],
+    "auto": true,
+    "curto": "As três qualidades da natureza na filosofia indiana: sattva (equilíbrio e luz), rajas (movimento e paixão) e tamas (peso e inércia).",
+    "mais": "Na Roda da Fortuna, a roda gira pelos três ritmos: toda coisa passa de um a outro.",
+    "ver_tambem": []
+  },
+  {
+    "id": "tarot-de-thoth",
+    "termo": "Tarot de Thoth",
+    "aliases": [
+      "Tarot de Thoth",
+      "Thoth"
+    ],
+    "auto": false,
+    "curto": "Baralho de 78 cartas criado por Aleister Crowley e pintado por Lady Frieda Harris. Concluído em 1943, só foi publicado em 1969.",
+    "mais": "Segue a Cabala e a astrologia, com nomes e imagens próprios: Ajuste no lugar de Justiça, Luxúria no de Força, Arte no de Temperança, Éon no de Julgamento e Universo no de Mundo. A Corte é Cavaleiro, Rainha, Príncipe e Princesa.",
+    "ver_tambem": [
+      "golden-dawn",
+      "tarot-de-marselha",
+      "corte"
+    ]
+  },
+  {
+    "id": "heh-e-tzaddi",
+    "termo": "Heh e Tzaddi",
+    "aliases": [
+      "Heh e Tzaddi"
+    ],
+    "auto": false,
+    "curto": "No Thoth, o Imperador é Tzaddi e a Estrela é Heh; em outros baralhos é o contrário. A troca vem de uma passagem do Livro da Lei.",
+    "mais": "Na Golden Dawn, Heh pertencia ao Imperador e Tzaddi à Estrela. Crowley os inverteu por causa de uma frase do Livro da Lei: com isso, o Imperador passa ao caminho 28 e a Estrela ao 15.",
+    "ver_tambem": [
+      "heh",
+      "tzaddi",
+      "livro-da-lei"
+    ]
+  },
+  {
+    "id": "tarot-de-marselha",
+    "termo": "Tarot de Marselha",
+    "aliases": [
+      "Tarot de Marselha"
+    ],
+    "auto": true,
+    "curto": "Antigo baralho francês, base de muitos outros. Nele, a Justiça é a carta VIII e a Força, a XI, como no Thoth, que muda os nomes.",
+    "mais": "",
+    "ver_tambem": [
+      "tarot-de-thoth"
+    ]
+  }
+]
