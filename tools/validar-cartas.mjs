@@ -70,6 +70,41 @@ for (const c of cartas) {
       if (c.court_rank !== "Princesa" && !c.zodiac_range) erro(c, "Corte sem faixa zodiacal");
     }
   }
+
+  // Cartas ja reescritas na voz de tarot: nada de atribuicao constante a Crowley
+  // e nada de tom de apoio ou terapia (o app e de tarot, nao de acolhimento).
+  if (c.texto_thoth) {
+    const textos = [
+      c.description, c.description_symbolic, c.message_esoteric, c.eighth_greater,
+      c.eighth_lesser, c.internal_alchemy, c.magical_practice,
+      ...(c.meditation_reflection ?? []),
+      ...Object.values(c.past_present_future ?? {}),
+    ].filter(Boolean);
+    const vetados = /Crowley|Harris|apoio profissional|apoio especializado|profissional de sa[uú]de|n[aã]o substitui|tratamento|terapia|\b180\b|sinal para observar/i;
+    for (const t of textos) {
+      const achado = t.match(vetados);
+      if (achado) erro(c, `termo vetado no texto ("${achado[0]}")`);
+    }
+  }
+}
+
+// Glossario clicavel (opcional): integridade dos verbetes
+const arquivoGlossario = path.join(raiz, "public/data/glossario.json");
+if (existsSync(arquivoGlossario)) {
+  const glossario = JSON.parse(readFileSync(arquivoGlossario, "utf8"));
+  const ids = new Set();
+  for (const v of glossario) {
+    if (!v.id || !v.termo || !v.curto) erros.push(`glossario: verbete incompleto (${v.id ?? "?"})`);
+    if (ids.has(v.id)) erros.push(`glossario: id repetido (${v.id})`);
+    ids.add(v.id);
+    if (v.curto?.length > 170) erros.push(`glossario: curto longo demais em ${v.id}`);
+    if (v.mais?.length > 450) erros.push(`glossario: mais longo demais em ${v.id}`);
+    if (v.auto && !(v.aliases?.length)) erros.push(`glossario: ${v.id} e automatico mas nao tem aliases`);
+  }
+  for (const v of glossario)
+    for (const r of v.ver_tambem ?? [])
+      if (!ids.has(r)) erros.push(`glossario: ${v.id} aponta para ver_tambem inexistente (${r})`);
+  console.log(`validar-cartas: glossario com ${glossario.length} verbetes`);
 }
 
 if (erros.length) {

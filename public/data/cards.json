@@ -4,28 +4,28 @@
     "title": "O Inocente",
     "number": 0,
     "isMajorArcana": true,
-    "eighth_greater": "Espontaneidade pura, salto de confiança antes de qualquer plano.",
-    "eighth_lesser": "Leveza sem lastro, que confunde ausência de medo com ausência de cuidado.",
+    "eighth_greater": "O salto inaugural: um começo que não pede garantias.",
+    "eighth_lesser": "A leveza que esquece o chão: o passo dado de olhos fechados.",
     "order": "00",
     "element": "Ar",
     "sign": null,
     "planet": "Urano",
-    "description": "O Louco é o zero do Tarot, o número que ainda não é nada e, por isso, contém tudo. Em Thoth, ele abre o caminho 11, entre Kether e Chokmah, o primeiro passo da Unidade rumo à multiplicidade. Aleph, o boi, e o elemento Ar lhe dão o sopro anterior a qualquer palavra. Crowley o aproxima de Parsifal, o tolo puro, e de Dionísio e Pã. A carta não elogia a imprudência: lembra a coragem de começar sem garantias, com a atenção desperta.",
+    "description": "O Louco é o zero do baralho, o número que ainda não é nada e por isso guarda tudo. Seu caminho é o 11, entre Kether e Chokmah; sua letra, Aleph, o boi; seu elemento, o Ar. Há nele algo do tolo puro de Parsifal e do riso de Dionísio e de Pã. Numa leitura, anuncia um começo fora de qualquer plano: uma porta que se abre antes de se saber o que há do outro lado. A carta aponta para o risco e para o encanto de ir primeiro.",
     "hebrew_letter": "Aleph (א)",
     "astrology": "Urano",
-    "description_symbolic": "Zero é o Ain, o nada anterior ao número, e o Louco é a primeira vibração desse nada tomando forma. Aleph significa boi, força que puxa o arado, mas no elemento Ar ela vira impulso sem peso. O caminho 11 é o primeiro depois de Kether, o mais alto da Árvore, e liga a Coroa à Sabedoria. Em Thoth, a figura caminha entre animais e símbolos de vida.",
-    "message_esoteric": "Todo começo pede um passo que não se justifica de antemão. A carta pergunta o que você adia por querer certeza e que leveza ainda lhe resta, sem confundi-la com descuido: olhar onde se pisa também faz parte do salto.",
+    "description_symbolic": "Zero é o Ain, o nada anterior ao número. Aleph, o boi, vira sopro no Ar, e o caminho 11 é o primeiro depois de Kether. Na imagem, um corpo verde de braços abertos, com um capacete de chifres, ergue-se entre cachos escuros de frutas, uma ave azul e um tigre alaranjado, enquanto um círculo dourado brilha em seu ventre. É a juventude do mundo, ainda sem nome, e já faminta.",
+    "message_esoteric": "Quando o Louco aparece, a pergunta já traz o salto dentro. A carta pede que se escolha o primeiro passo antes de reunir todas as certezas e adverte que a leveza só dura enquanto os olhos continuam abertos para o chão. Algo novo quer começar, e não vai esperar o plano ficar perfeito.",
     "meditation_reflection": [
-      "Em que ponto minha leveza virou desculpa para não olhar as consequências?",
-      "O que o zero, o vazio que antecede o número, me convida a esvaziar antes de começar?",
-      "Que primeiro passo, pequeno e imperfeito, posso dar sem esperar que tudo esteja pronto?"
+      "Que passo eu daria agora se o Louco fosse o único conselheiro, e onde o chão me avisa para olhar?",
+      "O que o tigre, a ave azul e as frutas escuras dizem sobre o território onde o Louco pisa?",
+      "Qual pergunta eu faria ao baralho se pudesse fazê-la uma única vez, de braços abertos?"
     ],
-    "internal_alchemy": "Ar que antecede o fogo e a água: o estado volátil em que tudo ainda é possível. A obra começa quando esse sopro aceita tomar forma, e por isso a carta pede confiança sem abrir mão da atenção.",
-    "magical_practice": "Comece hoje uma ação pequena que você adia por falta de garantia, em dez minutos e sem plano completo. Antes, respire fundo três vezes em um lugar aberto. À noite, anote o que descobriu só por ter começado.",
+    "internal_alchemy": "Ar que antecede o fogo e a água: o estado volátil em que tudo ainda é possível. A Obra começa quando esse sopro aceita tomar forma, e o Louco é o sopro.",
+    "magical_practice": "Contemple a imagem do Louco por dez minutos. Depois, em pé, de braços abertos como os dele, vibre o nome da letra Aleph numa expiração longa e anote no diário da carta a primeira ideia que vier.",
     "past_present_future": {
-      "past": "Talvez já tenha havido um começo sem plano e sem garantia, que hoje você reconhece como coragem.",
-      "present": "Um primeiro passo espera. Entre dar o passo com confiança e dispensar todo cuidado, vale notar de que lado você está pendendo.",
-      "future": "Tendência: quem começa aprende o caminho andando. Sinal para observar: a vontade de saltar vem junto com atenção a onde o pé vai pisar."
+      "past": "A raiz aqui está num impulso de recomeço, antigo ou recente, que nunca pediu licença.",
+      "present": "Um limiar se abre diante da consulente: de um lado, o chamado do salto; do outro, o desejo de testar o chão antes. A carta ouve os dois.",
+      "future": "A carta anuncia uma fase de portas que se abrem para quem se move primeiro. Ela pede coragem de iniciar e olhos atentos ao primeiro degrau."
     },
     "numeral": "0",
     "path": {
@@ -40,28 +40,28 @@
     "title": "O Manifestador",
     "number": 1,
     "isMajorArcana": true,
-    "eighth_greater": "Vontade que se faz palavra, habilidade de transformar intenção em ato.",
-    "eighth_lesser": "Astúcia sem propósito: a palavra usada para encantar ou enganar, e não para criar.",
+    "eighth_greater": "Vontade que se faz palavra: a habilidade de dar forma ao que se deseja.",
+    "eighth_lesser": "A astúcia a serviço do brilho: a palavra que encanta sem criar.",
     "order": "01",
     "element": "Ar",
     "sign": null,
     "planet": "Mercúrio",
-    "description": "Beth, a casa, e Mercúrio, o mensageiro, marcam o Mago: a Vontade dando forma ao que existe. O caminho 12, de Kether a Binah, é o seu em Thoth. Crowley o chama de Magus e o associa à palavra criadora, ao deus Thoth e a Hermes. Seus instrumentos são os quatro elementos reunidos, bastão, taça, espada e disco, manejados como uma só linguagem. Mercúrio também traz a astúcia, e a carta não esconde que a palavra serve tanto à criação quanto ao engano.",
+    "description": "Mercúrio, o mensageiro, dá ao Mago a língua dourada: a Vontade que aprendeu a falar. Seu caminho é o 12, de Kether a Binah, e sua letra, Beth, a casa. Há nele o deus Thoth e Hermes, o verbo criador, mas também o trapaceiro, pois Mercúrio engana quase tanto quanto revela. Numa leitura, a carta indica talento, comunicação afiada, uma ideia pronta para virar ato, e avisa que o mesmo dom pode seduzir ou iludir.",
     "hebrew_letter": "Beth (ב)",
     "astrology": "Mercúrio",
-    "description_symbolic": "Beth é a casa, o primeiro recipiente em que a Unidade se expressa. Mercúrio, planeta da comunicação e da mediação, faz do Mago um tradutor entre o mais alto e o mais baixo. O caminho 12 sai de Kether em direção a Binah e leva o impulso inicial para a forma. Os quatro naipes aparecem juntos: ele não escolhe um elemento, fala todos.",
-    "message_esoteric": "Querer não basta; é preciso nomear, medir e agir com precisão. Cada palavra, dita ou calada, é ferramenta. A que serviço você põe sua inteligência, e o discurso que sustenta é mesmo aquilo que deseja criar?",
+    "description_symbolic": "Beth é a casa onde a Unidade primeiro se expressa. Na imagem, uma figura dourada e esverdeada, de braços abertos, ergue-se sobre um facho de luz, sob um disco alado, rodeada de objetos que lembram os instrumentos dos quatro naipes; no canto inferior, uma figura acocorada espreita. O caminho 12 sai de Kether rumo a Binah e leva a faísca da origem até a forma. Mercúrio liga o que está distante.",
+    "message_esoteric": "Há um instante em que palavra e intenção se encontram, e o Mago o anuncia: o que for dito, escrito ou desenhado agora tem poder de moldar. A carta aconselha precisão no que se nomeia e previne que o encanto fácil, usado sem propósito, volta contra quem o usa. Uma obra espera para ser dita em voz alta.",
     "meditation_reflection": [
-      "Onde uso minha facilidade de convencer para evitar dizer o que realmente quero?",
-      "O que Mercúrio, o mensageiro, me pede para traduzir entre o que penso e o que faço?",
-      "Que frase clara posso dizer ou escrever para alinhar o que digo com o que quero?"
+      "Onde a minha palavra encanta mais do que constrói, e o que o Mago faria com esse dom?",
+      "O que o disco alado no alto do Mago diz sobre a origem da palavra que ele pronuncia?",
+      "Qual frase, dita em voz alta diante do baralho, daria forma ao que eu quero?"
     ],
-    "internal_alchemy": "Quatro elementos reunidos sob uma só intenção. Mercúrio, o volátil, é fixado pela Vontade em ato concreto: o pensamento deixa de flutuar e se torna instrumento.",
-    "magical_practice": "Escolha um propósito e escreva-o em uma frase de dez palavras. Sobre uma mesa, disponha quatro objetos que representem fogo, água, ar e terra, e leia a frase em voz alta tocando cada um. Anote que ação concreta a frase exige hoje.",
+    "internal_alchemy": "Quatro elementos reunidos sob uma só intenção. Mercúrio, o volátil, é fixado pela Vontade em ato: o pensamento deixa de flutuar e se torna instrumento.",
+    "magical_practice": "Acenda uma vela amarela, cor de Mercúrio, e disponha à frente quatro objetos para fogo, água, ar e terra. Toque cada um enquanto vibra o nome da letra Beth e escreva no diário da carta uma frase de dez palavras sobre o que quer criar.",
     "past_present_future": {
-      "past": "Pode ter havido uma ideia ou habilidade afiada na prática, muito antes de você chamá-la de talento.",
-      "present": "As ferramentas estão à mão. Resta decidir o que se quer criar com elas, em vez de apenas demonstrar o que se sabe.",
-      "future": "Tendência: vontade clara dá corpo ao que era palavra solta. Sinal para observar: o que você diz e o que faz começam a coincidir."
+      "past": "A raiz desta carta está num talento afiado pelo uso, uma habilidade de dizer ou fazer que veio antes de ser chamada de dom.",
+      "present": "As ferramentas estão sobre a mesa. Falta escolher a obra que merece a palavra, entre demonstrar o que se sabe e criar o que se quer.",
+      "future": "Vem aí uma fase em que o dito vira feito. Ela pede intenção limpa: quem fala com clareza obtém forma, e quem fala por vaidade obtém eco."
     },
     "numeral": "I",
     "path": {
@@ -76,28 +76,28 @@
     "title": "A Guardiã do Mistério",
     "number": 2,
     "isMajorArcana": true,
-    "eighth_greater": "Intuição que escuta antes de falar, acesso ao que ainda não tem nome.",
-    "eighth_lesser": "O silêncio que vira esconderijo: o mistério usado para não se comprometer.",
+    "eighth_greater": "Intuição profunda: o saber que chega em silêncio antes de ter nome.",
+    "eighth_lesser": "O segredo que vira muro: o silêncio usado para não escolher.",
     "order": "02",
     "element": "Água",
     "sign": null,
     "planet": "Lua",
-    "description": "Água e Lua fazem da Sacerdotisa a luz que só existe porque reflete outra. Em Thoth, ela percorre o caminho 13, que liga Kether a Tiphareth e atravessa o Abismo, ao longo da coluna central da Árvore. Gimel, o camelo, nomeia o animal que cruza o deserto, e a carta pede a mesma travessia: levar a consciência pelo vazio até o centro. Intuição, ritmo e silêncio são os seus instrumentos.",
+    "description": "A Sacerdotisa é a Lua que reflete uma luz que não é sua. Seu caminho, o 13, liga Kether a Tiphareth e atravessa o Abismo pela coluna central da Árvore; sua letra é Gimel, o camelo, e seu planeta, a Lua. Numa leitura, ela indica um segredo, uma intuição que já sabe, um conhecimento que ainda não quer ser dito. Avisa que há coisas veladas no caso e pede que se espere a hora de levantar o véu.",
     "hebrew_letter": "Gimel (ג)",
     "astrology": "Lua",
-    "description_symbolic": "Gimel é o camelo, que atravessa o deserto sem beber, e na Árvore a letra marca a ponte entre o centro e a coroa. A Lua não tem luz própria: ilumina o que recebe. A Água lhe empresta fluidez e memória. Em Thoth, a figura é lunar e virginal, ligada à tradição de Ártemis, e o caminho 13 é o que leva a consciência até a Coroa.",
-    "message_esoteric": "Nem toda resposta vem de perguntar mais alto: calar o bastante também é método. A intuição, longe de pedir provas, pede escuta e tempo, e o que já se sabe costuma aparecer quando se dá espaço para isso.",
+    "description_symbolic": "Gimel é o camelo que cruza o deserto, e o caminho 13 é a ponte mais longa entre o centro e a Coroa. Na imagem, uma figura de luz, de braços erguidos e envolta num véu em forma de rede, paira sobre um camelo, cristais, cachos de uva e flores, diante de um céu azul profundo. A Lua dá o brilho emprestado; a Água, a memória.",
+    "message_esoteric": "A resposta já está dentro da pergunta, só que velada: é o que a Sacerdotisa indica. Ela recomenda silêncio e atenção aos sonhos, às coincidências e ao que a intuição insinua, e alerta que forçar o véu estraga o segredo. Quem consulta com ela ouve melhor do que fala.",
     "meditation_reflection": [
-      "Em que situação chamo de mistério o que, na verdade, é medo de decidir?",
-      "Que travessia longa e silenciosa, como a do camelo, estou evitando?",
-      "Que decisão posso adiar por vinte e quatro horas para ouvir melhor o que já sinto?"
+      "Que segredo a Sacerdotisa guarda sobre o meu caso, e o que acontece quando insisto em arrancá-lo?",
+      "O que o camelo aos pés da Sacerdotisa diz sobre a travessia do caminho 13?",
+      "Qual pergunta cabe fazer ao silêncio desta carta antes de tirar a seguinte?"
     ],
-    "internal_alchemy": "Dissolver sem destruir: a Água receptiva acolhe o que é denso e o devolve mais sutil. A experiência bruta se converte, em silêncio, em compreensão.",
-    "magical_practice": "Ao anoitecer, sente-se diante de um copo de água e de uma vela. Faça uma pergunta e não tente respondê-la. Fique dez minutos em silêncio e escreva só o que surgir, sem corrigir. Releia no dia seguinte.",
+    "internal_alchemy": "Dissolução silenciosa: a Água receptiva recebe o que é denso e o devolve mais sutil. A Sacerdotisa não explica a Obra, deixa-a amadurecer no escuro.",
+    "magical_practice": "Numa noite de Lua, diante de uma vela prateada e de um copo de água, contemple a imagem da carta. Vibre Gimel e faça ao baralho uma única pergunta, sem respondê-la. Anote sonhos e coincidências por sete dias no diário da carta.",
     "past_present_future": {
-      "past": "Se houve um período de silêncio, talvez você tenha percebido algo antes de conseguir explicá-lo.",
-      "present": "Uma parte sua talvez já saiba. Dar tempo a esse saber ou apressá-lo para justificá-lo são caminhos diferentes, e a carta pede atenção à diferença.",
-      "future": "Tendência: a escuta paciente clareia o que a pressa embaralhava. Sinal para observar: respostas que chegam sem esforço, em momentos de quietude."
+      "past": "Aqui, a raiz está em algo percebido antes de ser compreendido: um pressentimento que ficou guardado, esperando palavras.",
+      "present": "Entre o véu e a pergunta, a carta quer saber se a consulente levantará o pano agora ou deixará o segredo amadurecer mais uma lua.",
+      "future": "O baralho anuncia uma fase de sonhos nítidos e de respostas que chegam por dentro. Ela pede paciência: o que é dito na hora certa ilumina, e o que é arrancado cedo se apaga."
     },
     "numeral": "II",
     "path": {
@@ -112,28 +112,28 @@
     "title": "A Mãe Divina",
     "number": 3,
     "isMajorArcana": true,
-    "eighth_greater": "Fertilidade criadora, prazer e cuidado que fazem a vida crescer.",
-    "eighth_lesser": "Abundância que sufoca: o cuidado que prende ou o prazer que vira acúmulo.",
+    "eighth_greater": "Fertilidade e prazer: a força que cria, nutre e faz florescer.",
+    "eighth_lesser": "A abundância que sufoca: o amor que prende, o prazer que vira acúmulo.",
     "order": "03",
     "element": "Terra",
     "sign": null,
     "planet": "Vênus",
-    "description": "Daleth, a porta, é a abertura por onde a vida entra no mundo, e a Imperatriz é essa passagem feita carne. Em Thoth, seu caminho é o 14, que liga Chokmah, a força, a Binah, a forma, e une impulso e receptividade em um só ato de gerar. Vênus empresta o desejo e a beleza, e a Terra dá corpo à fertilidade. Criar, nutrir e desfrutar com os sentidos abertos é o território desta carta.",
+    "description": "A Imperatriz é a porta por onde a vida entra no mundo. Daleth, a porta, é a sua letra, e seu caminho, o 14, liga Chokmah, a força, a Binah, a forma, sob o planeta Vênus. Numa leitura, ela indica fertilidade em todos os sentidos: um projeto que cresce, um amor que floresce, prazer, beleza, abundância. Avisa também que o que nasce pede cuidado, e que a generosidade excessiva pode virar posse.",
     "hebrew_letter": "Daleth (ד)",
     "astrology": "Vênus",
-    "description_symbolic": "Daleth é a porta, e a porta é o ventre, a passagem entre o invisível e o visível. O caminho 14 conecta o Pai e a Mãe da Árvore, de modo que a Imperatriz não é só mãe: é o encontro que a torna possível. Vênus traz a atração que junta o que estava separado, e Binah, a Grande Mãe, recebe a força de Chokmah e a transforma em forma.",
-    "message_esoteric": "Criar exige prazer, tempo e abrigo. A carta aponta para o que está sendo gestado agora e distingue nutrir de cobrar resultado. Receber sem transformar o presente em dívida também faz parte da obra.",
+    "description_symbolic": "Daleth é a porta, e a porta é o ventre, passagem do invisível ao visível. Na imagem, uma mulher coroada, de rosto sereno, segura um lótus azul diante de um corpo verde de curvas; a seus pés, um cisne branco e um escudo com uma ave branca. O caminho 14 une Pai e Mãe da Árvore, e Vênus traz o magnetismo que junta o que estava separado.",
+    "message_esoteric": "Uma fase de fertilidade e de gosto pela vida se abre: o que foi semeado dá flor, e os sentidos pedem festa. A carta aconselha gostar do que se cria e nutrir o que cresce, e lembra que o amor que sufoca murcha o que quer proteger.",
     "meditation_reflection": [
-      "Onde meu cuidado pelos outros virou forma de controle ou de acúmulo?",
-      "O que a porta de Daleth, entre a força e a forma, quer deixar passar na minha vida?",
-      "Que prazer simples, sem produtividade, posso me dar hoje?"
+      "Onde o meu cuidado virou posse, e o que a Imperatriz faria com essa mesma força?",
+      "O que o cisne branco aos pés da Imperatriz e o lótus nas suas mãos dizem sobre o amor que ela governa?",
+      "Se a Imperatriz respondesse a uma pergunta de amor, de criação ou de abundância, qual eu lhe faria?"
     ],
-    "internal_alchemy": "Aqui a matéria se condensa por amor: o desejo, ao encontrar a Terra, vira corpo, obra e vínculo. É o ouro que cresce, em vez do ouro que se arranca.",
-    "magical_practice": "Dedique uma hora a algo que nutre os sentidos sem utilidade declarada: cozinhar, cuidar de uma planta, ouvir uma música inteira. Depois escreva o que você está gestando e que cuidado concreto isso pede.",
+    "internal_alchemy": "Coagulação amorosa: o desejo, ao encontrar a Terra, se condensa em corpo, obra e vínculo. É o ouro que cresce em vez do ouro que se arranca.",
+    "magical_practice": "Acenda uma vela verde, cor de Vênus, e coloque diante dela uma flor e algo doce. Contemple o lótus da carta e vibre o nome da letra Daleth, imaginando uma porta que se abre. Anote no diário o que está em gestação.",
     "past_present_future": {
-      "past": "Pode ter sido semeado algo com carinho, talvez antes de você saber o que viria a ser.",
-      "present": "O que cresce precisa de cuidado e de limite. Nutrir e possuir não são a mesma coisa, e a carta pede que se note a diferença.",
-      "future": "Tendência: o que é tratado com atenção ganha corpo. Sinal para observar: prazer em cuidar, e não só obrigação."
+      "past": "Lá atrás, a raiz está num desejo semeado com prazer, antigo ou recente, que já pede forma.",
+      "present": "Tudo floresce ao redor, e a carta quer saber o que se vai nutrir e o que se vai reter: o amor que dá espaço ou o que segura.",
+      "future": "Aproxima-se uma fase de colheita sensual e criativa. Ela pede generosidade com medida: o que é regado com gosto cresce, e o que é apertado murcha."
     },
     "numeral": "III",
     "path": {
@@ -148,28 +148,28 @@
     "title": "O Regente",
     "number": 4,
     "isMajorArcana": true,
-    "eighth_greater": "Autoridade que estrutura, vontade que protege e dá direção.",
-    "eighth_lesser": "Autoridade que endurece: controle excessivo, comando sem escuta.",
+    "eighth_greater": "Autoridade que organiza: vontade firme que funda, decide e protege.",
+    "eighth_lesser": "A ordem que endurece: o comando que não escuta.",
     "order": "04",
     "element": "Fogo",
     "sign": "Áries",
     "planet": null,
-    "description": "O Imperador é a vontade que se organiza em poder. Em Thoth, sua letra é Tzaddi, o anzol, por uma troca que Crowley fez com Heh, atribuída tradicionalmente a ele, e seu caminho é o 28, de Netzach a Yesod, que leva o desejo à imagem que o sustenta. Áries e o Fogo dão iniciativa e coragem. Quem funda, decide e assume o risco de ser o primeiro a avançar reconhece esta carta.",
+    "description": "O Imperador é a vontade que se organiza em poder. Sua letra é Tzaddi, o anzol; seu caminho, o 28, de Netzach a Yesod; seu signo, Áries, sob o Fogo. Numa leitura, indica autoridade, estrutura, uma decisão que precisa de um chefe, e quase sempre uma figura firme: um pai, um superior, um fundador. Anuncia o tempo de fundar, de decidir e de assumir o risco de ser o primeiro a avançar. Avisa quando a firmeza vira rigidez.",
     "hebrew_letter": "Tzaddi (צ)",
     "astrology": "Áries",
-    "description_symbolic": "Tzaddi é o anzol, imagem de quem pesca e traz para si. A troca de letras com a Estrela se apoia numa passagem do Livro da Lei (Liber AL), texto que Crowley disse ter recebido em 1904, e é a diferença cabalística mais conhecida entre o Thoth e a Golden Dawn. Áries é o signo do início, e a tradição astrológica tem o Sol como exaltado nele.",
-    "message_esoteric": "Liderar é responder pelo que se decide. Há estruturas que a vida pede para manter de pé e regras que só controlam, e distinguir umas das outras exige coragem, sobretudo quando ninguém mais quer ser o primeiro a agir.",
+    "description_symbolic": "Tzaddi é o anzol, imagem de quem pesca e traz para si. Na imagem, em tons de vermelho e laranja, um rei coroado, de pernas cruzadas, segura um cetro e um globo; a seus pés repousam um cordeiro dourado e um escudo com uma ave. O caminho 28 liga Netzach, o desejo, a Yesod, a imagem, e Áries, signo do começo, tem o Sol como exaltado.",
+    "message_esoteric": "Alguém precisa assumir o comando, e a carta aponta para você ou para uma figura de peso no caso. Ela recomenda estrutura, prazo e palavra firme, e avisa que a ordem que não escuta governa sozinha. O que se funda agora exige uma mão que não treme.",
     "meditation_reflection": [
-      "Onde minha firmeza deixou de proteger e passou a impedir o crescimento de alguém, inclusive o meu?",
-      "O que o anzol de Tzaddi pesca em mim: o que atraio e puxo para dentro da minha vontade?",
-      "Que decisão adiada posso assumir, dizendo-a em voz alta a quem ela afeta?"
+      "Onde a minha firmeza deixou de proteger e passou a mandar?",
+      "O que o cetro e o globo nas mãos do Imperador dizem sobre o que um chefe segura e o que deixa cair?",
+      "Que decreto eu assinaria diante do baralho, em uma só frase?"
     ],
-    "internal_alchemy": "O fogo que dá forma reúne a energia dispersa em direção e a faz sustentar uma obra. O risco da operação é queimar o que deveria apenas cozinhar.",
-    "magical_practice": "Escreva três regras que sustentam o seu dia e observe, à noite, qual protegeu algo e qual apenas conteve você. Mantenha uma, revogue outra, e diga a decisão em voz alta, como quem assina um decreto.",
+    "internal_alchemy": "Fogo que dá forma: a energia dispersa é reunida em direção e passa a sustentar uma obra. O risco da operação é queimar o que deveria apenas cozinhar.",
+    "magical_practice": "Acenda uma vela vermelha, cor de Áries, e contemple o Imperador de pernas cruzadas. Vibre Tzaddi como quem lança um anzol e escreva no diário três regras que sustentam o seu dia. Mantenha uma, revogue outra e diga a decisão em voz alta.",
     "past_present_future": {
-      "past": "Alguém, talvez você, pode ter estabelecido uma ordem que ainda sustenta parte da rotina.",
-      "present": "Decidir tem custo. Comandar por convicção ou por medo de perder o controle leva a lugares diferentes, e a carta pede clareza sobre qual dos dois está em jogo.",
-      "future": "Tendência: a clareza de direção reúne esforços dispersos. Sinal para observar: as pessoas ao redor sabem o que esperar de você."
+      "past": "A raiz aqui está numa ordem estabelecida, por você ou por quem veio antes, que ainda sustenta o terreno.",
+      "present": "A carta exige um veredito: comandar por convicção ou por receio de perder o controle. Cada via funda uma casa diferente.",
+      "future": "A carta anuncia uma fase de direção clara e de obra que se ergue. Ela pede palavra firme e ouvido atento: o poder que escuta dura mais que o que ordena."
     },
     "numeral": "IV",
     "path": {
@@ -184,28 +184,28 @@
     "title": "O Mestre Espiritual",
     "number": 5,
     "isMajorArcana": true,
-    "eighth_greater": "Ensino que transmite o essencial, tradição vivida como método.",
-    "eighth_lesser": "Dogma que substitui a experiência: o rito repetido sem que se saiba o que ele ensina.",
+    "eighth_greater": "Iniciação e ensino: tradição transmitida como método vivo.",
+    "eighth_lesser": "O dogma que substitui a experiência: o rito repetido sem alma.",
     "order": "05",
     "element": "Terra",
     "sign": "Touro",
     "planet": null,
-    "description": "Quem revela o sagrado por meio de um método encontra no Hierofante um espelho. Seu lugar na Árvore de Thoth é o caminho 16, entre Chokmah e Chesed, ponte entre a sabedoria primordial e a ordem que se ensina. Vav, o prego, é também a letra que significa e: une, prende, conecta. Touro e a Terra dão paciência, corpo e estabilidade. Iniciação, mestre e discípulo, uma tradição que só vale enquanto é experiência viva: é o que está em jogo.",
+    "description": "O Hierofante é quem revela o sagrado por meio de um método. Seu caminho é o 16, entre Chokmah e Chesed, e sua letra, Vav, o prego, que é também o \"e\" que une, sob Touro e a Terra. Numa leitura, indica mestre, ensino, instituição, rito, um compromisso que une pessoas ou ideias. Avisa quando a tradição já não passa de forma e pede que se pergunte quem ensina e quem aprende nesse caso.",
     "hebrew_letter": "Vav (ו)",
     "astrology": "Touro",
-    "description_symbolic": "Vav é um prego e uma conjunção, aquilo que fixa duas coisas uma à outra. O caminho 16 liga o pai da Árvore, Chokmah, à esfera da misericórdia, Chesed, de modo que o ensino aqui se dá com firmeza e com generosidade. Touro é signo fixo, fértil e paciente, o da terra que dá fruto na estação certa, e a Terra é o elemento da forma que se preserva.",
-    "message_esoteric": "Ninguém aprende sozinho o que uma linhagem inteira já descobriu. Vale lembrar a quem se deve o ofício, a quem ele está sendo ensinado, e se o que se segue por hábito ainda é experiência ou virou só forma.",
+    "description_symbolic": "Vav é um prego e uma conjunção, aquilo que prende uma coisa a outra. Na imagem, um sacerdote barbudo, em tons de laranja e vermelho, traz um pentagrama no peito e uma chave nas mãos; quatro cabeças o cercam: um touro, um leão, uma águia e uma face humana. O caminho 16 liga a sabedoria de Chokmah à misericórdia de Chesed, e Touro dá paciência à lição.",
+    "message_esoteric": "Um mestre, um método ou um compromisso pede constância. A carta aponta aprendizado de longo fôlego, iniciação, e sugere honrar a linhagem sem abrir mão do olhar próprio. Previne que a regra seguida por hábito, sem entender o porquê, esvazia o rito.",
     "meditation_reflection": [
-      "Que regra que sigo foi herdada sem que eu tenha entendido por que existe?",
-      "O que o prego de Vav, que liga duas coisas, está unindo ou prendendo em mim?",
-      "A quem posso ensinar, ou de quem posso pedir um ensinamento, com uma pergunta concreta?"
+      "Que regra eu sigo sem saber por que existe, e o que o Hierofante diria dela?",
+      "O que as quatro cabeças em volta do Hierofante, touro, leão, águia e face humana, guardam do que ele ensina?",
+      "A quem eu perguntaria, como mestre, a questão que levo ao baralho?"
     ],
     "internal_alchemy": "Fixação: o conhecimento volátil é preso a uma forma que pode ser transmitida. Quando a forma deixa de ser percorrida pela experiência, a fixação vira petrificação.",
-    "magical_practice": "Ensine a alguém, em voz alta e em dez minutos, algo que você sabe fazer bem. Depois pergunte-se que parte do ensino repete porque entendeu e que parte repete porque aprendeu assim. Anote as duas listas.",
+    "magical_practice": "Contemple a chave nas mãos do Hierofante por dez minutos. Trace um pentagrama no ar, vibrando Vav, e escreva no diário o nome de um mestre ou de uma tradição que molda o seu caminho, com o que dela você guarda e o que questiona.",
     "past_present_future": {
-      "past": "Um mestre, um método ou um costume talvez tenha ensinado algo que ainda orienta suas escolhas.",
-      "present": "Há uma tradição, sua ou alheia, pedindo teste. Honrar o que foi ensinado e verificar se ainda funciona não precisam ser escolhas opostas.",
-      "future": "Tendência: o que é compreendido, e não só repetido, torna-se seu. Sinal para observar: você explica o porquê de um costume, e não apenas o como."
+      "past": "A raiz desta carta está num mestre, num método ou num costume que deixou marca e ainda fala.",
+      "present": "Uma tradição está sobre a mesa. A carta quer saber se ela será honrada por convicção ou repetida por hábito.",
+      "future": "Vem aí uma fase de aprendizado e de pertencimento. Ela pede que o ensinamento seja vivido, e não só repetido: o que se compreende se torna seu."
     },
     "numeral": "V",
     "path": {
@@ -220,28 +220,28 @@
     "title": "A União dos Opostos",
     "number": 6,
     "isMajorArcana": true,
-    "eighth_greater": "União consciente de opostos, escolha que nasce do discernimento.",
-    "eighth_lesser": "Fusão que apaga a diferença: escolher para não perder o outro, ou adiar para não perder nada.",
+    "eighth_greater": "A união que nasce do discernimento: escolha que reúne sem apagar.",
+    "eighth_lesser": "A fusão que dissolve a diferença: escolher para não perder, ou adiar para não perder nada.",
     "order": "06",
     "element": "Ar",
     "sign": "Gêmeos",
     "planet": null,
-    "description": "A espada de Zayin corta para distinguir, e é por aí que Os Amantes começam. O caminho 17, de Binah a Tiphareth, traz Gêmeos e o Ar em Thoth: dualidade, diálogo entre dois, a mente que compara. A imagem central é a do casamento alquímico, em que opostos se encontram sem se anular. Mais do que perguntar quem amar, a carta pergunta o que em nós precisa ser reunido.",
+    "description": "Os Enamorados falam de uma união que exige discernimento. A letra é Zayin, a espada, que corta para distinguir; o caminho, o 17, de Binah a Tiphareth; o signo, Gêmeos, sob o Ar. Numa leitura, indicam amor, atração, uma escolha entre dois caminhos, um pacto, um casamento no sentido mais amplo. Avisam que a escolha verdadeira corta antes de unir e pedem que se saiba o que se está escolhendo.",
     "hebrew_letter": "Zayin (ז)",
     "astrology": "Gêmeos",
-    "description_symbolic": "Zayin significa espada, e o paradoxo da carta é este: só se une de verdade o que antes foi reconhecido como diferente. O caminho 17 liga o entendimento de Binah ao centro solar de Tiphareth, a mente à realização. Gêmeos, signo dos irmãos, lembra que o outro também é espelho. A alquimia fala de um rei e de uma rainha que se unem sem deixar de ser dois.",
-    "message_esoteric": "Escolher é separar o essencial do acessório, e amar é aceitar que o outro permanece outro. Antes de buscar acordo lá fora, vale perguntar que partes suas estão em conflito e que pacto é possível entre elas.",
+    "description_symbolic": "Zayin é a espada: só se une de verdade o que antes foi reconhecido como diferente. O caminho 17 liga o entendimento de Binah ao centro solar de Tiphareth. Na imagem, um rei e uma rainha de mantos ricos se dão as mãos, com um cálice entre eles; uma criança clara e outra escura erguem os braços; um leão vermelho e uma águia branca ladeiam o casal, e no alto Cupido aponta o arco. É o casamento alquímico.",
+    "message_esoteric": "Duas vozes, dois caminhos, dois desejos: a carta aponta uma encruzilhada de coração. Ela sugere escolher com a cabeça tão acordada quanto o afeto e faz o aviso de que a união sem discernimento apenas mistura. O que se aproxima pode ser amor, pacto ou uma decisão que muda a casa.",
     "meditation_reflection": [
-      "Que escolha estou adiando por querer manter as duas opções intactas?",
-      "O que a espada de Zayin precisa separar em mim para que uma união seja verdadeira?",
-      "Que conversa honesta, com alguém ou comigo, posso começar dizendo o que me atrai e o que me incomoda?"
+      "Que escolha eu adio para manter as duas portas abertas, e o que a espada de Zayin cortaria?",
+      "O que as duas crianças, a clara e a escura, mostram sobre o fruto da união entre opostos?",
+      "Com as duas mãos sobre o baralho, que pergunta de amor ou de decisão eu faria a esta carta?"
     ],
     "internal_alchemy": "Casamento alquímico: dois princípios, depois de separados, se reencontram em síntese. A espada de Zayin faz a separação necessária; sem ela, a união é só mistura.",
-    "magical_practice": "Em duas colunas, escreva duas vozes que disputam sua atenção, como desejo e dever. Dê a cada uma uma frase de defesa e depois uma frase em que as duas concordem. Leia a frase final em voz alta e observe o que o corpo sinaliza.",
+    "magical_practice": "Diante de duas velas, uma vermelha e uma branca, contemple o casal da carta. Vibre Zayin como quem corta, depois una as chamas aproximando as velas. No diário, escreva os dois polos do seu caso e a única frase em que os dois concordam.",
     "past_present_future": {
-      "past": "Uma união, ou uma separação, talvez tenha mostrado que duas partes suas nem sempre falam a mesma língua.",
-      "present": "Duas forças se atraem e se opõem. Escolher sem se anular, nem exigir que o outro se anule, é a tarefa que a carta põe diante de você.",
-      "future": "Tendência: o que é reconhecido como diferente pode se unir. Sinal para observar: a decisão traz alívio, e não só vitória sobre o outro lado."
+      "past": "Aqui, a raiz está num encontro ou numa separação que revelou duas partes suas, ou do caso, falando línguas diferentes.",
+      "present": "Dois polos se atraem e se opõem. A carta pede que se escolha sem apagar nenhum, o que é arte rara.",
+      "future": "O baralho anuncia uma fase de pactos, de amor que se define e de escolhas que fecham um ciclo. Ela pede espada limpa e coração aberto, nessa ordem."
     },
     "numeral": "VI",
     "path": {
@@ -256,28 +256,28 @@
     "title": "O Portador do Graal",
     "number": 7,
     "isMajorArcana": true,
-    "eighth_greater": "Disciplina que protege o que é sagrado e avança com direção.",
-    "eighth_lesser": "A proteção que vira muralha: o zelo com o que se carrega que acaba impedindo o avanço.",
+    "eighth_greater": "Disciplina e conquista guardada: avançar com o que é precioso nas mãos.",
+    "eighth_lesser": "A muralha que isola: a proteção que impede o caminho.",
     "order": "07",
     "element": "Água",
     "sign": "Câncer",
     "planet": null,
-    "description": "Cheth, a cerca, guarda aquilo que é precioso, e a Carruagem é a consciência que se protege para poder viajar. Na Árvore de Thoth, segue o caminho 18, de Binah a Geburah. Câncer, signo da casa e da concha, e a Água dão a esse cuidado a forma de um veículo que carrega algo a ser levado até o fim. Disciplina interior, escolha do que carregar e do que deixar de fora: esse é o assunto da carta.",
+    "description": "O Carro é a consciência que se protege para poder viajar. Sua letra é Cheth, a cerca; seu caminho, o 18, de Binah a Geburah; seu signo, Câncer, sob a Água. Numa leitura, indica partida, vitória conquistada com método, um movimento que leva algo precioso a um destino. Avisa quando a proteção vira muro e pede que se saiba o que se carrega e para onde, antes de soltar as rédeas.",
     "hebrew_letter": "Cheth (ח)",
     "astrology": "Câncer",
-    "description_symbolic": "Cheth é a cerca, e a cerca define dentro e fora. Câncer, regido pela Lua, é o caranguejo que leva a casa nas costas. O caminho 18 sai do entendimento de Binah e vai à severidade de Geburah, portanto a proteção aqui é disciplina, não fuga. Em Thoth, o condutor segura um cálice, o Graal, e o carro é puxado por esfinges.",
-    "message_esoteric": "Avançar exige saber o que se carrega: nem tudo o que pesa merece proteção, nem tudo o que protege é leve. O caminho só é conduzido de fato quando nasce da vontade, e não da reação ao que cerca.",
+    "description_symbolic": "Cheth é a cerca, o que define dentro e fora, e Câncer é o caranguejo que leva a casa nas costas, o signo da Lua. Na imagem, um condutor de armadura dourada segura um recipiente redondo, em azul e vermelho, diante do peito, sob um dossel azul que traz o emblema do caranguejo; quatro esfinges, duas escuras e duas claras, estão à frente do carro. A tradição vê no vaso o Graal.",
+    "message_esoteric": "Um deslocamento com sentido se anuncia: uma viagem, uma vitória, uma causa levada adiante com disciplina. A carta orienta foco no que se carrega e firmeza na rota, e adverte que a armadura excessiva impede o carro de andar. O que se leva consigo importa mais que a velocidade.",
     "meditation_reflection": [
-      "Que parte do que carrego eu defendo com tanto zelo que já não me deixa andar?",
-      "Que recinto, como a cerca de Cheth, preciso construir para proteger algo ainda frágil em mim?",
-      "O que posso deixar fora do meu dia para avançar mais leve?"
+      "O que eu defendo com tanto zelo que o meu carro já não consegue andar?",
+      "O que as quatro esfinges, duas escuras e duas claras, dizem sobre as forças que movem o Carro?",
+      "Para onde levaria esta carta a pergunta que trago ao baralho?"
     ],
-    "internal_alchemy": "O que é delicado precisa de um vaso fechado para ser transportado e transformado. A cerca de Cheth não aprisiona: concentra o que ainda não está pronto para o mundo.",
-    "magical_practice": "Escreva em uma folha o que você carrega hoje, de compromissos a mágoas. Circule o essencial e risque o que apenas pesa. Em seguida caminhe quinze minutos levando só o que circulou, e observe a diferença no passo.",
+    "internal_alchemy": "Vaso fechado: o que é delicado precisa de um recipiente para ser transportado e transformado. A cerca de Cheth não aprisiona, concentra o que ainda não está pronto para o mundo.",
+    "magical_practice": "Acenda uma vela prateada, cor da Lua, regente de Câncer, e contemple o Carro por dez minutos. Vibre Cheth e, no diário, desenhe o seu carro: o que ele leva no vaso, quem o puxa e para onde vai.",
     "past_present_future": {
-      "past": "Pode ter havido um tempo em que você se fechou para proteger algo que ainda não podia ser exposto.",
-      "present": "Há algo precioso a levar adiante. Proteger sem se isolar do caminho é o equilíbrio que a carta aponta.",
-      "future": "Tendência: o que é carregado com disciplina chega inteiro ao destino. Sinal para observar: você avança sem precisar vencer cada obstáculo."
+      "past": "Lá atrás, a raiz está num tempo de fechar-se para proteger algo ainda frágil: uma causa, um amor, um projeto.",
+      "present": "Há uma carga preciosa e um caminho. A carta quer saber como protegê-la sem se isolar do mundo por onde se passa.",
+      "future": "Aproxima-se uma fase de avanço com rumo: vitória de quem sabe o que carrega. Ela pede disciplina e vaso firme."
     },
     "numeral": "VII",
     "path": {
@@ -292,28 +292,28 @@
     "title": "A Verdade na Medida",
     "number": 8,
     "isMajorArcana": true,
-    "eighth_greater": "Equilíbrio que corrige: ação e consequência na medida exata.",
-    "eighth_lesser": "Medida que paralisa: a busca de exatidão que adia a decisão, ou o juízo que pesa tudo menos a si mesmo.",
+    "eighth_greater": "Equilíbrio exato: cada ato encontra o seu peso na balança.",
+    "eighth_lesser": "A medida que paralisa: a busca de exatidão que adia, ou o juízo que pesa tudo menos a si.",
     "order": "08",
     "element": "Ar",
     "sign": "Libra",
     "planet": null,
-    "description": "No Ajuste, a consequência é encontrada com exatidão. Em Thoth, a carta se chama Ajuste, e não Justiça: mais do que julgar, corrige a medida entre duas coisas. Ocupa o caminho 22, de Geburah a Tiphareth, onde o rigor encontra a harmonia. Lamed, o aguilhão do boi, e Libra, regido por Vênus, dão à carta uma mistura de disciplina e beleza. A pergunta que ela faz: o que fazemos está em equilíbrio com o que dizemos e com o que recebemos?",
+    "description": "No Ajuste, a consequência encontra a sua medida. Em Thoth, a carta tem esse nome em lugar de Justiça: mais do que julgar, ela corrige. Seu caminho é o 22, de Geburah a Tiphareth; sua letra, Lamed, o aguilhão do boi; seu signo, Libra, sob o Ar. Numa leitura, indica um acerto de contas, um contrato, uma decisão justa, um peso que volta ao prato certo. Anuncia a hora da verdade e pede que se pese tudo, inclusive o que se prefere não ver.",
     "hebrew_letter": "Lamed (ל)",
     "astrology": "Libra",
-    "description_symbolic": "Lamed é o aguilhão que conduz o boi, imagem de ensino pela correção. O caminho 22 liga a severidade de Geburah ao centro de equilíbrio, Tiphareth, de modo que o ajuste só se completa quando o rigor é temperado pela harmonia. Libra é o signo da balança, e a tradição astrológica tem Saturno como exaltado nele. Em Thoth, a figura se associa a Maat, com espada e balança como emblemas.",
-    "message_esoteric": "Toda ação deixa um peso do outro lado da balança. O que precisa ser compensado, reparado ou dito? E a medida que você aplica aos outros é a mesma que usa para si? A carta pede exatidão, não severidade.",
+    "description_symbolic": "Lamed é o aguilhão que conduz o boi, imagem de ensino pela correção. O caminho 22 liga o rigor de Geburah ao centro de Tiphareth. Na imagem, uma figura velada, de espada erguida diante do corpo, é ladeada por grandes balanças de pratos, entre esferas azuis e verdes e feixes de luz. Libra é o signo da balança, e a tradição astrológica tem Saturno como exaltado ali. A figura se associa a Maat, deusa da verdade.",
+    "message_esoteric": "O que foi semeado volta na medida exata: uma consequência, uma resposta justa, um contrato que se fecha. A carta cobra honestidade nas contas, de dinheiro, de palavra e de afeto, e lembra que a balança não se deixa subornar. O que estava torto pede ajuste, e a hora é esta.",
     "meditation_reflection": [
-      "Onde uso a busca de justiça para adiar uma decisão ou para punir alguém?",
-      "O que o aguilhão de Lamed me corrige quando escuto a voz que diz o que não quero ouvir?",
-      "Que dívida, de dinheiro, de palavra ou de atenção, posso começar a acertar hoje?"
+      "Que contas eu evito pesar, e o que a espada do Ajuste diria sobre elas?",
+      "O que as duas balanças, uma de cada lado da figura, dizem sobre a justiça que Thoth chama de Ajuste?",
+      "Que veredito eu pediria a esta carta, se aceitasse ouvi-lo por inteiro?"
     ],
-    "internal_alchemy": "Pesar de novo o que foi misturado, grão a grão, até achar a proporção. A espada separa o falso do verdadeiro, e a balança confere se nada foi omitido.",
-    "magical_practice": "Pegue uma decisão recente e escreva, em duas colunas, o que ela deu e o que ela custou, a você e aos outros. Se o custo pesar mais, defina um gesto de reparação pequeno e exato e cumpra-o em sete dias.",
+    "internal_alchemy": "Pesagem: o que foi misturado é pesado de novo, grão a grão, até achar a proporção. A espada separa o falso do verdadeiro, e a balança confere se nada foi omitido.",
+    "magical_practice": "Acenda uma vela verde, cor de Vênus, regente de Libra, e contemple as balanças da carta. Vibre Lamed e escreva no diário, em duas colunas, o que uma decisão recente deu e o que custou. Feche a página com a mão sobre a espada desenhada da carta.",
     "past_present_future": {
-      "past": "Uma consequência talvez tenha chegado no tempo dela, mostrando que escolhas antigas tinham peso.",
-      "present": "Algo desequilibrado pede ajuste, e enfrentar o preço com exatidão, sem exagerá-lo nem minimizá-lo, é o trabalho do momento.",
-      "future": "Tendência: o que é acertado com franqueza alivia o que estava tenso. Sinal para observar: a conversa difícil termina com menos ruído do que o esperado."
+      "past": "A raiz aqui está numa escolha antiga cujo peso começa a voltar, no tempo certo, ao prato certo.",
+      "present": "Há um desequilíbrio pedindo correção. A carta quer saber se o preço será encarado com exatidão, sem exagero e sem fuga.",
+      "future": "A carta anuncia uma fase de contas acertadas e de verdade dita. Ela pede franqueza: o que é ajustado a tempo alivia o que estava tenso."
     },
     "numeral": "VIII",
     "path": {
@@ -328,28 +328,28 @@
     "title": "O Sábio",
     "number": 9,
     "isMajorArcana": true,
-    "eighth_greater": "Recolhimento que gera lucidez, a luz que se acende por dentro.",
-    "eighth_lesser": "Solidão que vira fuga: o retiro prolongado além do que a busca exige.",
+    "eighth_greater": "O recolhimento que gera luz: busca solitária, conhecimento que amadurece em silêncio.",
+    "eighth_lesser": "O retiro que vira fuga: a solidão que já não busca nada.",
     "order": "09",
     "element": "Terra",
     "sign": "Virgem",
     "planet": null,
-    "description": "Yod, a menor letra do alfabeto hebraico, é o ponto de onde todas as outras partem, e o Eremita é quem se afasta para ver o que o ruído esconde. Seu caminho na Árvore, o 20, vai de Chesed a Tiphareth. Virgem e a Terra dão ao recolhimento método, cuidado e atenção ao que é pequeno. Uma luz carregada por dentro, uma semente guardada, uma busca sem plateia: eis a matéria da carta.",
+    "description": "O Eremita é quem se afasta para ver o que o ruído esconde. Sua letra é Yod, a menor do alfabeto hebraico, o ponto de onde todas as outras partem; seu caminho, o 20, entre Chesed e Tiphareth; seu signo, Virgem, sob a Terra. Numa leitura, indica pausa, estudo, solidão fértil, um conselho que vem de dentro ou de alguém mais velho. Avisa que a resposta pede silêncio e que a luz será carregada, e não distribuída.",
     "hebrew_letter": "Yod (י)",
     "astrology": "Virgem",
-    "description_symbolic": "Yod significa mão e, na forma, é apenas um ponto: o início de toda escrita, a semente do nome divino. Virgem, signo da colheita e do detalhe, lembra que a sabedoria desta carta é feita de atenção paciente. O caminho 20 liga a misericórdia de Chesed ao centro solar de Tiphareth, e o isolamento aqui serve à luz, não ao escondimento. A lâmpada é o atributo clássico do Eremita.",
-    "message_esoteric": "Há perguntas que só se respondem em silêncio. Vale distinguir o retiro que prepara do retiro que evita, e voltar do recolhimento com algo que possa ser partilhado. O que se encontra no escuro vale pelo que se faz com isso depois.",
+    "description_symbolic": "Yod, a mão, é apenas um ponto: o início de toda escrita, a semente do nome divino. Virgem, signo da colheita e do detalhe, empresta ao recolhimento uma atenção paciente. Na imagem, feixes de luz amarela cruzam-se em estrela em torno de uma lâmpada com um olho; num canto, um cão de três cabeças vigia, e folhagens escuras envolvem a cena. O caminho 20 une a misericórdia ao centro solar.",
+    "message_esoteric": "Chega um tempo de retirada, de estudo e de busca própria: a resposta não está no barulho, está no pouco que se escuta a sós. A carta recomenda afastar-se o necessário e voltar com algo a oferecer. Quem a recebe é, aos poucos, o próprio farol.",
     "meditation_reflection": [
-      "O que o meu afastamento está me poupando de encarar?",
-      "Que semente, como o ponto de Yod, estou guardando e ainda não está pronta para ser mostrada?",
-      "Que meia hora de silêncio posso reservar, sem telas e sem tarefa?"
+      "De que o meu recolhimento me protege, e onde a lâmpada do Eremita pediria para ser levada para fora?",
+      "O que o cão de três cabeças que vigia a cena diz sobre o limiar que o Eremita guarda?",
+      "Por quantas noites eu deixaria acesa a lâmpada do Eremita antes de pedir resposta à minha pergunta?"
     ],
     "internal_alchemy": "Semente: a energia se recolhe ao menor ponto possível para depois germinar. No escuro da terra nada parece acontecer, e é aí que a forma se prepara.",
-    "magical_practice": "Reserve uma noite sem telas e acenda uma única luz. Escreva uma pergunta que você evita e passe vinte minutos em silêncio com ela. Antes de dormir, anote a menor ação que a resposta sugere e faça-a no dia seguinte.",
+    "magical_practice": "Numa noite sem telas, acenda uma única luz e contemple a lâmpada do Eremita. Vibre Yod, a letra-ponto, e escreva no diário uma pergunta que você evita. Passe vinte minutos em silêncio com ela e anote o que a lâmpada mostrou.",
     "past_present_future": {
-      "past": "Se houve um período de retirada, escolhido ou imposto, pode ter deixado perguntas que ainda ecoam.",
-      "present": "Há uma busca que só você pode fazer. Recolher-se para entender e isolar-se para não se expor parecem iguais por fora e pedem respostas diferentes.",
-      "future": "Tendência: a clareza ganha em silêncio pede voz. Sinal para observar: vontade de compartilhar uma descoberta, e não só de guardá-la."
+      "past": "A raiz desta carta está numa retirada, escolhida ou imposta, que deixou perguntas ainda acesas.",
+      "present": "Há uma busca que só se faz a sós. A carta mede a diferença entre recolher-se para entender e esconder-se para não ser vista.",
+      "future": "Vem aí uma fase de luz própria: uma descoberta amadurece em silêncio. Ela pede que, quando a lâmpada brilhar, alguém seja chamado a ver."
     },
     "numeral": "IX",
     "path": {
@@ -364,28 +364,28 @@
     "title": "O Eterno Giro",
     "number": 10,
     "isMajorArcana": true,
-    "eighth_greater": "Ciclo em movimento: expansão, oportunidade e capacidade de girar com ele.",
-    "eighth_lesser": "Apego ao ponto alto do giro, ou confiança cega de que ele sempre voltará.",
+    "eighth_greater": "Ciclo em movimento: a boa sorte que gira, a oportunidade que passa.",
+    "eighth_lesser": "O apego ao ponto alto: a roda tratada como destino fixo.",
     "order": 10,
     "element": "Fogo",
     "sign": null,
     "planet": "Júpiter",
-    "description": "A vida vista como movimento, e não como ponto fixo: é o que a Fortuna mostra. No caminho 21, de Chesed a Netzach, ela recebe a letra Kaph, a palma da mão, que segura e solta. Júpiter, planeta da expansão, dá à carta a ideia de crescimento e de oportunidade. Uma leitura possível da imagem é aprender a ocupar o eixo, e não o aro, onde o movimento é menor.",
+    "description": "A Roda da Fortuna mostra a vida como movimento, e não como ponto fixo. Sua letra é Kaph, a palma da mão que segura e solta; seu caminho, o 21, de Chesed a Netzach; seu planeta, Júpiter, o da expansão. Numa leitura, indica virada, sorte, oportunidade que passa, um ciclo que muda de fase. Anuncia que algo gira fora do controle da consulente e pede que ela saiba onde pôr a mão enquanto a roda não para.",
     "hebrew_letter": "Kaph (כ)",
     "astrology": "Júpiter",
-    "description_symbolic": "Kaph é a palma da mão, aberta ou fechada, gesto de receber e de reter. O caminho 21 liga a misericórdia de Chesed à vitória de Netzach por meio de Júpiter, o planeta de maior alcance. A leitura de Thoth costuma ligar a roda aos três ritmos da natureza, as gunas indianas. Ao redor da roda, a pintura traz figuras míticas que giram junto com ela.",
-    "message_esoteric": "Nenhuma fase é definitiva, nem a boa nem a difícil. Há coisas em movimento sem a sua ajuda, e há o que a roda entrega e só você pode usar. Esperar a próxima volta, de braços cruzados, é a opção que menos serve.",
+    "description_symbolic": "Kaph é a palma, aberta ou fechada, gesto de receber e reter. O caminho 21 liga a misericórdia de Chesed à vitória de Netzach por meio de Júpiter, o planeta de maior alcance. Na imagem, uma roda verde de muitos raios gira diante de um fundo azul turbilhonante cortado por raios dourados; uma esfinge repousa no alto, e figuras míticas se agarram à borda. A leitura de Thoth liga a roda aos três ritmos da natureza, as gunas indianas.",
+    "message_esoteric": "Uma virada vem: o que estava embaixo sobe, o que estava no alto desce, e a hora de aproveitar a corrente é esta. A carta exige atenção ao momento e desapego do ponto em que se está, e garante apenas que nada aqui é fixo, nem o bom, nem o difícil. A sorte favorece quem se mexe com a roda.",
     "meditation_reflection": [
-      "Que vantagem atual estou segurando como se ela não pudesse mudar?",
-      "O que a palma de Kaph, aberta, me convida a receber e, fechada, a reter?",
-      "Que ação pequena posso fazer de acordo com a fase em que realmente estou, e não com a que gostaria de estar?"
+      "Que vantagem eu seguro como se a roda não fosse girar, e o que a esfinge no alto diria?",
+      "O que a palma de Kaph, aberta e fechada, conta sobre o que a roda entrega e o que ela leva?",
+      "Em que ponto do giro eu colocaria a pergunta que trago: no alto, na descida ou no eixo?"
     ],
-    "internal_alchemy": "Circulação. O que foi fixado precisa voltar a ser fluido para amadurecer, e o que gira não se perde, apenas muda de posição. É por girar que o conjunto se mantém inteiro.",
-    "magical_practice": "Desenhe uma roda de quatro quadrantes e marque em que ponto do giro você está em três áreas da vida. Escolha uma e escreva o que a fase pede: colher, soltar, semear ou esperar. Escolha uma ação coerente com ela.",
+    "internal_alchemy": "Circulação: o que foi fixado precisa voltar a ser fluido para amadurecer, e o que gira não se perde, apenas muda de posição. É por girar que o conjunto se mantém inteiro.",
+    "magical_practice": "Desenhe uma roda de dez raios no diário e marque nela onde você está em três áreas da vida. Acenda uma vela azul, cor de Júpiter, e contemple a roda da carta. Vibre Kaph de palma aberta e depois de palma fechada, sentindo a diferença.",
     "past_present_future": {
-      "past": "Pode ter havido uma virada, boa ou difícil, que mudou sua posição no que parecia estável.",
-      "present": "Algo se move fora do seu controle. Separar o que a roda decide do que ainda depende da sua mão é a pergunta do momento.",
-      "future": "Tendência: o giro continua. Sinal para observar: você reconhece em que ponto da volta está, em vez de tratar a fase atual como definitiva."
+      "past": "Aqui, a raiz está numa virada, boa ou difícil, que mudou a posição no que parecia estável.",
+      "present": "Algo se move fora do alcance da consulente. A carta separa o que a roda decide do que ainda é feito pela mão.",
+      "future": "O baralho anuncia uma fase de movimento e de oportunidade, e pede o gesto certo no momento certo: quem acompanha o giro ganha com ele."
     },
     "numeral": "X",
     "path": {
@@ -400,28 +400,28 @@
     "title": "A Alegria Selvagem",
     "number": 11,
     "isMajorArcana": true,
-    "eighth_greater": "Vitalidade apaixonada, desejo vivido com consciência e alegria.",
-    "eighth_lesser": "Desejo que domina o condutor: o excesso que consome, ou a repressão que o transforma em culpa.",
+    "eighth_greater": "Vitalidade e êxtase: o desejo cavalgado com paixão.",
+    "eighth_lesser": "O desejo que domina quem o cavalga: o excesso, ou a chama sufocada.",
     "order": 11,
     "element": "Fogo",
     "sign": "Leão",
     "planet": null,
-    "description": "Teth, a serpente, e o Leão, signo do coração, dão à Luxúria a força vital em plena alegria. Em Thoth, ela ocupa o número XI, o lugar da Força do Tarot de Marselha, no caminho 19, entre Chesed e Geburah, a misericórdia e o rigor. O Fogo lhe dá ímpeto e calor. A imagem traz Babalon, a Mulher Escarlate de Thelema, símbolo do êxtase e da entrega, montada na Besta, a força animal que ela conduz, e erguendo um cálice.",
+    "description": "A Luxúria é a força vital em plena alegria, e ocupa o número XI, o lugar que o Tarot de Marselha dá à Força. Sua letra é Teth, a serpente; seu caminho, o 19, entre Chesed e Geburah; seu signo, Leão, sob o Fogo. Numa leitura, indica paixão, vigor, coragem sensual, um desejo que quer ser vivido. Anuncia a hora de entregar-se a algo com o corpo inteiro e avisa que a chama que se nega vira fumaça.",
     "hebrew_letter": "Teth (ט)",
     "astrology": "Leão",
-    "description_symbolic": "Teth é a serpente, símbolo de energia que sobe, e o Leão é o signo do coração. O caminho 19 junta a expansão generosa de Chesed à intensidade de Geburah e produz um entusiasmo que não se confunde com descontrole. Babalon, figura central de Thelema, cavalga a Besta com o cálice da experiência plena; para Crowley, a Besta não é o mal, e sim a vitalidade bruta que se aprende a conduzir.",
-    "message_esoteric": "A vida pede para ser vivida de olhos abertos. A carta pergunta se escolhemos conduzir a própria força ou se deixamos que ela nos conduza, e o que muda quando o desejo é ouvido, em vez de calado.",
+    "description_symbolic": "Teth é a serpente, energia que sobe, e o Leão é o signo do coração. O caminho 19 junta a generosidade de Chesed à intensidade de Geburah. Na imagem, uma mulher nua, de cabelos longos, monta uma besta dourada de várias cabeças e ergue um cálice luminoso, diante de um fundo estrelado. É Babalon, a Mulher Escarlate, símbolo do êxtase e da entrega, e a Besta é a vitalidade bruta que ela conduz.",
+    "message_esoteric": "Paixão em movimento: um desejo, um amor, um projeto que pede entrega total e riso. A carta aconselha montar a força em vez de domá-la e previne que o que se nega com rigor volta como excesso. Quem a recebe é convidada a ser a própria taça erguida.",
     "meditation_reflection": [
-      "Que parte do meu desejo eu trato como vergonha, e o que ela faria se eu a deixasse falar?",
-      "Onde o leão que há em mim pede para ser cavalgado, e não domado?",
-      "Que ato de entusiasmo, sem justificativa e sem plateia, posso me permitir hoje?"
+      "Que desejo eu mantenho sob rédea curta, e o que a Besta da carta faria se fosse cavalgada?",
+      "O que o cálice erguido por Babalon diz sobre o preço e a recompensa do êxtase?",
+      "Com os olhos abertos, o que eu perguntaria à Luxúria sobre o meu desejo?"
     ],
     "internal_alchemy": "Sublimação pelo fogo: o desejo cru, ao ser conduzido, se transforma em coragem, criação e prazer lúcido. O Leão não é domado, é cavalgado, e a serpente de Teth sobe.",
-    "magical_practice": "Faça por inteiro uma atividade que você ama, sem justificar a utilidade e sem pedir licença: dançar, cantar, correr. Ao terminar, anote em que ponto sentiu alegria e em que ponto sentiu culpa.",
+    "magical_practice": "Acenda uma vela dourada ou vermelha e contemple Babalon erguendo o cálice. Vibre Teth num sopro prolongado e dance, cante ou caminhe por vinte minutos. Anote no diário o desejo que mais vibrou.",
     "past_present_future": {
-      "past": "Talvez a vitalidade que você procura já tenha aparecido quando desejo e vontade andaram juntos, antes de a culpa aparecer.",
-      "present": "O desejo está na mesa. Quem o conduz, você ou a pressa de agradar e o medo de exagerar, é o ponto em aberto.",
-      "future": "Tendência: o que é cavalgado com consciência vira coragem e prazer. Sinal para observar: alegria depois de agir, e não só alívio de tensão."
+      "past": "Lá atrás, a raiz está numa vitalidade que já teve pé no chão: um tempo em que desejo e vontade andaram juntos.",
+      "present": "O desejo está na mesa. A carta quer saber quem o conduz: a consulente, a pressa de agradar ou o medo de exagerar.",
+      "future": "Aproxima-se uma fase de calor, de entrega e de ousadia. Ela pede coração aberto e mão firme na rédea: o que é cavalgado com consciência vira coragem e prazer."
     },
     "numeral": "XI",
     "path": {
@@ -436,28 +436,28 @@
     "title": "A Inversão Voluntária",
     "number": 12,
     "isMajorArcana": true,
-    "eighth_greater": "Entrega deliberada que muda o ponto de vista, pausa que revela.",
-    "eighth_lesser": "Sacrifício sem sentido: a espera que vira resignação, ou a entrega a algo que não a merece.",
+    "eighth_greater": "O olhar invertido: a pausa que revela o que a pressa escondia.",
+    "eighth_lesser": "A suspensão sem fim: a espera que vira resignação.",
     "order": 12,
     "element": "Água",
     "sign": null,
     "planet": null,
-    "description": "O Homem Enforcado é a inversão voluntária do olhar. Sua letra é Mem, as águas, e seu caminho é o 23, de Geburah a Hod, sob o elemento Água. A imagem é a de uma figura suspensa de cabeça para baixo, associada ao deus que morre e renasce, a fórmula de Osíris, que Crowley liga à era anterior à que dizia viver, o éon de Osíris. Suspender o esforço de controle para enxergar o que a pressa esconde é a proposta da carta.",
+    "description": "O Homem Enforcado é a inversão voluntária do olhar. Seu caminho é o 23, de Geburah a Hod; sua letra, Mem, as águas; seu elemento, a Água. A figura suspensa de cabeça para baixo lembra o deus que morre e renasce, o Osíris dos antigos egípcios. Numa leitura, indica pausa forçada ou escolhida, sacrifício, uma mudança de ponto de vista que muda o caso. Avisa que o impasse não cede à força e pede que se espere vendo.",
     "hebrew_letter": "Mem (מ)",
     "astrology": "Água",
-    "description_symbolic": "Mem é a letra das águas, uma das três letras-mãe do alfabeto hebraico, e a água não resiste: assume a forma do que a contém. O caminho 23 liga o rigor de Geburah à mente de Hod, e a pausa serve para reorganizar o que a pressa deixou confuso. A figura invertida lembra o deus que morre para renascer, tema de Osíris.",
-    "message_esoteric": "Há decisões que só amadurecem quando se para de forçá-las. O que você tenta controlar sem sucesso? E que perspectiva ganharia se aceitasse, por um tempo, não saber o que fazer? A pausa não é omissão quando é escolhida.",
+    "description_symbolic": "Mem é a letra das águas, uma das três letras-mãe do alfabeto hebraico, e a água assume a forma do que a contém. O caminho 23 liga o rigor de Geburah à mente de Hod. Na imagem, um corpo invertido pende de um ankh azul diante de uma grade azul, com os braços abertos em triângulo; embaixo, serpentes se enroscam num tanque. É a fórmula de Osíris: o que morre para renascer.",
+    "message_esoteric": "Há um impasse que não cede à força: uma espera, um sacrifício, um tempo de suspensão. A carta sugere virar a situação de cabeça para baixo e lembra que a solução não está em agir mais, e sim em ver diferente. O que parece paralisia é, aqui, o começo de uma visão nova.",
     "meditation_reflection": [
-      "Em que ponto minha espera deixou de ser escolha e virou cansaço?",
-      "O que a água de Mem me ensina sobre ceder à forma do que me contém?",
-      "Que ação habitual posso suspender por um dia para ver o que aparece no lugar dela?"
+      "Em que ponto a minha espera deixou de ser escolha e passou a ser peso?",
+      "O que o ankh azul de que o Enforcado pende, e as serpentes embaixo, dizem sobre o que o sustenta e o que o aguarda?",
+      "Se eu aceitasse vê-la de cabeça para baixo, qual pergunta eu faria ao Enforcado?"
     ],
     "internal_alchemy": "Dissolução: a forma antiga é deixada na água até se desfazer. Nada é destruído, apenas desfeito para ser refeito com outra estrutura.",
-    "magical_practice": "Diante de uma situação em que você insiste em agir, faça uma pausa deliberada, sem tomar nenhuma decisão que possa esperar. Uma vez por dia, deite-se de costas com as pernas apoiadas na parede por quinze minutos e anote o que muda na percepção.",
+    "magical_practice": "Contemple a imagem da carta e depois deite-se com as pernas apoiadas na parede por quinze minutos, vibrando Mem como um zumbido grave. Anote no diário o que o mundo mostrou de cabeça para baixo.",
     "past_present_future": {
-      "past": "Talvez uma pausa, uma espera ou uma perda tenha obrigado você a ver as coisas de outro ângulo.",
-      "present": "Um impasse não cede à força. Entregar o controle de propósito e abdicar de si por cansaço são gestos distintos, e só você sabe qual é o seu.",
-      "future": "Tendência: um novo ponto de vista reorganiza as escolhas. Sinal para observar: o problema deixa de parecer o mesmo, mesmo sem ter sido resolvido."
+      "past": "A raiz aqui está numa pausa, numa espera ou numa perda que obrigou a ver o caso por outro ângulo.",
+      "present": "Um impasse não cede à força. A carta separa a entrega feita de propósito da entrega por cansaço e pergunta de qual das duas se trata.",
+      "future": "A carta anuncia uma fase de visão virada: o que parecia parado se reorganiza por dentro. Ela pede que se espere vendo, e não dormindo."
     },
     "numeral": "XII",
     "path": {
@@ -472,28 +472,28 @@
     "title": "A Transformação",
     "number": 13,
     "isMajorArcana": true,
-    "eighth_greater": "Fim que libera: o que se decompõe alimenta o que vem.",
-    "eighth_lesser": "Apego ao que já terminou, ou destruição apressada do que ainda pede cuidado.",
+    "eighth_greater": "O fim que renova: o que se desfaz alimenta o que vem.",
+    "eighth_lesser": "O apego ao que já morreu, ou a ruptura apressada do que ainda vive.",
     "order": 13,
     "element": "Água",
     "sign": "Escorpião",
     "planet": null,
-    "description": "Raramente a Morte fala de morte literal: fala da transformação inevitável de tudo que tem forma. Nun, o peixe, é a sua letra, no caminho 24, de Tiphareth a Netzach, e seu signo é Escorpião, signo de Água e das profundezas, regido por Marte na tradição. A tradição liga Escorpião a três figuras: o escorpião, a serpente e a águia. A carta trata da dissolução do que perdeu o sentido, condição para que algo novo se forme.",
+    "description": "A Morte raramente fala de morte literal: fala da transformação inevitável de tudo que tem forma. Sua letra é Nun, o peixe; seu caminho, o 24, de Tiphareth a Netzach; seu signo, Escorpião, signo de Água e das profundezas, regido por Marte na tradição. Numa leitura, indica fim de ciclo, ruptura, renascimento, uma mudança que não volta atrás. Anuncia que algo precisa morrer para que outra coisa respire.",
     "hebrew_letter": "Nun (נ)",
     "astrology": "Escorpião",
-    "description_symbolic": "Nun significa peixe, o ser que vive no que é profundo e escuro. Escorpião, signo fixo de Água, é intensidade e regeneração. O caminho 24 conduz de Tiphareth, o centro, a Netzach, o desejo, e por isso a morte aqui não é apagamento, e sim passagem de forma. A tradição astrológica lê Escorpião em três níveis, do escorpião que fere à águia que se eleva, e a carta acompanha essa escala.",
-    "message_esoteric": "Nem todo fim é escolha, e alguns doem o tempo que precisam doer. Quando for possível, a carta pergunta o que já terminou e ainda é carregado, e que parte sua pode ser composta de outro modo. O vazio que fica merece cuidado antes de qualquer pressa.",
+    "description_symbolic": "Nun significa peixe, o ser que vive no fundo e no escuro. Escorpião, signo fixo de Água, é intensidade e regeneração, e a tradição o lê em três níveis, do escorpião que fere à águia que se eleva. Na imagem, um esqueleto negro de tiara alta dança com a foice entre figuras azuis, um peixe, uma serpente e um escorpião. O caminho 24 leva do centro, Tiphareth, ao desejo, Netzach.",
+    "message_esoteric": "Um fim se aproxima, e com ele a transformação: uma fase, um vínculo ou uma máscara que se encerra. A carta pede que se solte o que já morreu e se deixe a dança acontecer, e alerta que quem segura o cadáver adia o nascimento. O que vem depois tem outra forma, e exige coragem para ser olhado.",
     "meditation_reflection": [
-      "O que já acabou na minha vida e eu ainda carrego, sem ter encontrado onde pousar?",
-      "O que o peixe de Nun, que vive no fundo, tem a me mostrar do que não suporto olhar?",
-      "Que objeto, hábito ou compromisso posso encerrar ou entregar, sem cerimônia, quando for a hora?"
+      "O que já acabou e eu ainda visto, e o que o esqueleto dançante faria com essa roupa?",
+      "O que o peixe, a serpente e o escorpião azuis em torno da Morte contam sobre as faces de Escorpião?",
+      "O que eu perguntaria à Morte, sem tentar adoçá-la, sobre um fim ou um renascimento?"
     ],
-    "internal_alchemy": "Nigredo, a fase em que a matéria escurece e se desfaz para que a nova forma seja possível. É o preto que antecede o branco, e pede paciência, e companhia se o escuro pesar demais.",
-    "magical_practice": "Escreva em um papel algo que já terminou, uma fase, um vínculo ou uma crença, e diga o que ele deu e o que deixou. Guarde o papel ou, se fizer sentido, rasgue-o ou queime-o com segurança. Se a perda for recente e pesada, compartilhe com alguém de confiança.",
+    "internal_alchemy": "Nigredo, a fase em que a matéria escurece e se desfaz para que a nova forma seja possível. É o preto que antecede o branco, e exige coragem para ficar no escuro sem abreviá-lo.",
+    "magical_practice": "Acenda uma vela preta ou azul-escura e contemple o esqueleto dançante. Vibre Nun e escreva num papel algo que já terminou, agradecendo o que deixou. Queime o papel com segurança e anote no diário o que sobrou das cinzas.",
     "past_present_future": {
-      "past": "Algo pode ter chegado ao fim, de modo claro ou aos poucos, e deixado um vazio que ainda se organiza.",
-      "present": "Algo se desfaz. Prolongar o que acabou e acompanhar a dissolução têm custos diferentes, e a carta convida a olhar para eles com calma.",
-      "future": "Tendência: o espaço aberto pode acolher forma nova, no tempo dele. Sinal para observar: interesses pequenos que não existiam antes."
+      "past": "A raiz desta carta está num fim, claro ou lento, que deixou um vazio ainda a ser povoado.",
+      "present": "Algo se desfaz diante da consulente. A carta quer saber se se prolonga o que acabou ou se se acompanha a dissolução até o fim.",
+      "future": "Vem aí uma fase de renascimento: o espaço aberto recebe forma nova, no tempo dele. Ela pede que se deixe morrer o que já cumpriu o seu papel."
     },
     "numeral": "XIII",
     "path": {
@@ -508,28 +508,28 @@
     "title": "A Alquimia",
     "number": 14,
     "isMajorArcana": true,
-    "eighth_greater": "Fusão paciente de opostos em algo novo, método alquímico.",
-    "eighth_lesser": "Mistura sem critério: o ajuste constante que evita a escolha, ou a pressa de ver o resultado.",
+    "eighth_greater": "A obra de unir opostos sem anulá-los: transmutação paciente.",
+    "eighth_lesser": "A mistura sem critério: o adiamento da escolha, ou a pressa de ver o ouro.",
     "order": 14,
     "element": "Fogo",
     "sign": "Sagitário",
     "planet": null,
-    "description": "Unir sem anular é a obra da Arte. Em Thoth, ela substitui a Temperança e ocupa o caminho 25, de Tiphareth a Yesod, na coluna central da Árvore. Samekh, o suporte, e Sagitário, signo do arqueiro, dão à carta direção e sustentação. A imagem é a de uma figura andrógina que mistura o Leão e a Águia em um caldeirão, fórmula do solve et coagula: dissolver e recompor. Não é moderação, é alquimia.",
+    "description": "A Arte é a obra de unir sem anular. Em Thoth, ela ocupa o lugar da Temperança e leva outro nome e outra natureza: a da alquimia. Seu caminho é o 25, de Tiphareth a Yesod, na coluna central da Árvore; sua letra, Samekh, o suporte; seu signo, Sagitário, sob o Fogo. Numa leitura, indica combinação, cura, transmutação, uma síntese que exige tempo e dose certa. Anuncia que dois opostos em conflito podem gerar algo novo, se forem postos no mesmo vaso.",
     "hebrew_letter": "Samekh (ס)",
     "astrology": "Sagitário",
-    "description_symbolic": "Samekh significa suporte, a escora que mantém algo de pé. Sagitário é o arco e a flecha, a aspiração apontada para cima. O caminho 25 liga o centro, Tiphareth, ao fundamento, Yesod, e ali a consciência se aproxima do que a sustenta. Na pintura de Harris, o Leão e a Águia, instinto e visão, são misturados no caldeirão da obra.",
-    "message_esoteric": "Unir opostos não é diluí-los. A carta convida a descobrir quais forças suas brigam entre si e o que nasceria se dividissem o mesmo vaso. A mistura só trabalha quando ninguém apressa o resultado.",
+    "description_symbolic": "Samekh é a escora que mantém algo de pé, e Sagitário, o arqueiro, aponta a flecha para cima. O caminho 25 liga o centro ao fundamento. Na imagem, uma figura de duas faces, com crescentes sobre a cabeça e vestido verde, despeja líquidos num caldeirão dourado em chamas, onde um leão e uma águia bebem; uma inscrição em arco rodeia a figura. É o solve et coagula: dissolver e recompor.",
+    "message_esoteric": "Dois lados, duas pessoas ou duas ideias, juntos, produzem algo que nenhum faria sozinho: é o que a carta anuncia. Ela recomenda dose, tempo e atenção ao fogo, e lembra que quem apressa a mistura perde a obra. É tempo de cozinhar devagar.",
     "meditation_reflection": [
-      "Onde estou misturando coisas só para não ter que escolher entre elas?",
-      "O que o leão e a águia, o instinto e a visão, produzem em mim quando trabalham no mesmo vaso?",
-      "Que ação posso fazer em que meus dois lados atuem juntos, sem que um abafe o outro?"
+      "Que mistura eu adio por não saber qual dos dois lados escolher, e o que o caldeirão da Arte pediria?",
+      "O que o leão e a águia diante do caldeirão dizem sobre as duas naturezas que a Arte reúne?",
+      "Que pergunta de transmutação eu poria no caldeirão desta carta?"
     ],
-    "internal_alchemy": "O solve et coagula inteiro: dissolver o que está rígido, misturar o que está separado e coagular o resultado em forma nova. O caldeirão aceita os opostos e exige tempo.",
-    "magical_practice": "Anote dois traços seus que parecem contraditórios, como ousadia e cautela. Descreva uma situação em que cada um ajudou e outra em que atrapalhou. Depois planeje uma ação em que os dois trabalhem juntos e execute-a esta semana.",
+    "internal_alchemy": "Solve et coagula inteiro: dissolver o que está rígido, misturar o que está separado e coagular o resultado em forma nova. O caldeirão aceita os opostos e exige tempo.",
+    "magical_practice": "Acenda uma vela vermelha ou alaranjada e contemple o caldeirão da Arte. Vibre Samekh. No diário, anote duas forças suas que parecem contraditórias, como ousadia e cautela, e desenhe o vaso em que as duas se misturam.",
     "past_present_future": {
-      "past": "Dois lados seus talvez tenham se enfrentado por tempo suficiente para você perceber que um não vencia o outro.",
-      "present": "Opostos pedem mistura. Acelerar a fusão ou dar à obra o tempo que ela exige: a carta aponta para a segunda via.",
-      "future": "Tendência: a combinação paciente gera algo que nenhum dos lados produziria sozinho. Sinal para observar: surgem soluções que antes pareciam excludentes."
+      "past": "Aqui, a raiz está num conflito entre dois lados que já durou o bastante para mostrar que nenhum vence sozinho.",
+      "present": "Opostos pedem mistura. A carta quer saber se a fusão será apressada ou se terá o tempo que a obra exige.",
+      "future": "O baralho anuncia uma fase de síntese: surge uma solução que antes parecia impossível. Ela pede paciência de alquimista e fogo constante."
     },
     "numeral": "XIV",
     "path": {
@@ -544,28 +544,28 @@
     "title": "O Pã Cósmico",
     "number": 15,
     "isMajorArcana": true,
-    "eighth_greater": "Energia vital sem disfarce, criatividade que afirma o corpo e o desejo.",
-    "eighth_lesser": "Força que domina quem a usa: o apego que se confunde com liberdade, ou o desejo que passa a mandar.",
+    "eighth_greater": "A força vital sem disfarce: desejo, criatividade e riso afirmados.",
+    "eighth_lesser": "A energia que domina quem a usa: o apego que se confunde com liberdade.",
     "order": 15,
     "element": "Terra",
     "sign": "Capricórnio",
     "planet": null,
-    "description": "Em Thoth, o Diabo é menos o tentador do que o deus bode, Pã, força generativa da natureza. A carta segue o caminho 26, de Tiphareth a Hod, com a letra Ayin, o olho, e o signo de Capricórnio, o bode da montanha. Costuma ser lida como afirmação da vida material, da criatividade e do riso, e não como figura do mal. O perigo que ela mostra é o de confundir energia com posse e passar a ser dominado pelo que se desejava.",
+    "description": "O Diabo de Thoth é menos o tentador do que o deus bode, Pã, força generativa da natureza. Seu caminho é o 26, de Tiphareth a Hod; sua letra, Ayin, o olho; seu signo, Capricórnio, o bode da montanha. Numa leitura, indica desejo intenso, atração magnética, potência criadora, e avisa de um laço que prende por prazer. Anuncia que algo quer ser vivido sem máscara, e que o preço é saber a quem se serve.",
     "hebrew_letter": "Ayin (ע)",
     "astrology": "Capricórnio",
-    "description_symbolic": "Ayin é o olho: olhar para o desejo sem julgá-lo e sem endeusá-lo. Capricórnio é a cabra que escala, signo de Terra e de estrutura. O caminho 26 liga o centro, Tiphareth, à mente de Hod, de modo que a vitalidade da carta pede discernimento. Pã, o deus bode, é o Todo, e a Terra é o elemento onde essa força se faz corpo.",
-    "message_esoteric": "O que se esconde costuma ganhar peso. O que você deseja e nega? O que o domina com o seu consentimento? E como transformar o que prende em algo que sirva à vida? A carta não julga: pede que se olhe.",
+    "description_symbolic": "Ayin é o olho, e o olhar aqui desmonta a ideia de que o desejo é pecado ou salvação. Capricórnio é a cabra que escala, signo de Terra. Na imagem, um bode de chifres espiralados e um halo se ergue sobre um bastão, com duas esferas douradas embaixo, cheias de figuras entrelaçadas. O caminho 26 liga o centro à mente de Hod. Pã, o deus bode, é o Todo.",
+    "message_esoteric": "Uma atração forte e um apetite de vida: algo ou alguém fascina, e a energia está na mesa. A carta manda olhar de frente o que se deseja e escolher de olho aberto, e avisa que quem se rende sem ver acaba servindo ao que acreditava servir-se. A potência é real, e a carta não a esconde.",
     "meditation_reflection": [
-      "O que me prende e eu ainda chamo de escolha, e o que me ajudaria a olhar isso com menos vergonha?",
-      "O que o olho de Ayin vê em mim quando eu paro de desviar o olhar?",
-      "Que desejo meu posso nomear, em voz alta ou por escrito, sem justificá-lo?"
+      "A que laço eu chamo de escolha, e o que o bode da carta diria do poder que o sustenta?",
+      "O que as duas esferas douradas aos pés de Pã mostram sobre o que se agita sob o seu domínio?",
+      "Diante do olho de Ayin, qual pergunta de desejo eu faria?"
     ],
-    "internal_alchemy": "Reconhecer a matéria bruta: o impulso é visto sem verniz, com seu poder de criar e de prender. Só quem o conhece pode transformá-lo, e olhar com curiosidade é o primeiro passo.",
-    "magical_practice": "Acenda uma vela escura diante da carta e contemple-a até a imagem deixar de ser só imagem. Escreva o que o Diabo deseja e o que você deseja dele. Trace mentalmente o caminho 26, de Tiphareth a Hod, sob a letra Ayin, o olho, e apague a vela ao final.",
+    "internal_alchemy": "Reconhecer a matéria bruta: o impulso é visto sem verniz, com seu poder de criar e de prender. Só quem o conhece pode transformá-lo.",
+    "magical_practice": "Acenda uma vela vermelha e contemple o Pã da carta. Vibre Ayin e escreva no diário um desejo seu que costuma ficar escondido, com o que ele dá e o que cobra. Deixe a vela queimar enquanto você o diz em voz alta diante do espelho.",
     "past_present_future": {
-      "past": "Um desejo, um hábito ou um apego pode ter ganhado força justamente por ficar escondido.",
-      "present": "Uma energia forte pede reconhecimento. Usá-la com lucidez e ser usado por ela são situações bem diferentes, e vale notar em qual você está.",
-      "future": "Tendência: o que é visto e nomeado perde força para agir às escondidas. Sinal para observar: você consegue falar de um desejo sem vergonha nem exagero."
+      "past": "Lá atrás, a raiz está num desejo que ganhou força por ter ficado na sombra: um apetite que o tempo só aguçou.",
+      "present": "Uma energia forte pede reconhecimento. A carta quer saber se ela será usada com lucidez ou se usará a consulente.",
+      "future": "Aproxima-se uma fase de magnetismo e de vontade viva. Ela pede olho aberto: o desejo que se reconhece pode ser guiado, e o que se nega governa de longe."
     },
     "numeral": "XV",
     "path": {
@@ -580,28 +580,28 @@
     "title": "A Ruptura",
     "number": 16,
     "isMajorArcana": true,
-    "eighth_greater": "Derrubada do que era falso, energia que rompe o que estava petrificado.",
-    "eighth_lesser": "Destruição por destruição: o ataque que derruba também o que ainda era vivo.",
+    "eighth_greater": "A queda súbita das estruturas: o raio que abre passagem.",
+    "eighth_lesser": "A destruição pela destruição: o golpe que derruba também o vivo.",
     "order": 16,
     "element": "Fogo",
     "sign": null,
     "planet": "Marte",
-    "description": "Uma ruptura que não pede licença: é isso que a Torre apresenta. Peh, a boca, é a sua letra, no caminho 27, de Netzach a Hod, entre o desejo e a mente. Marte, planeta da guerra, e o Fogo explicam o caráter súbito da carta. A destruição atinge sobretudo ideias, estruturas e fórmulas que se fecharam em si mesmas. Não é castigo, e nem tudo o que cai merecia cair: a carta pede que se olhe com calma o que ficou de pé.",
+    "description": "A Torre é uma ruptura que não pede licença. Sua letra é Peh, a boca; seu caminho, o 27, de Netzach a Hod, entre o desejo e a mente; seu planeta, Marte, o da guerra, sob o Fogo. Numa leitura, indica abalo súbito, revelação, queda de uma estrutura, uma notícia que muda o terreno. Avisa que o fogo atinge sobretudo o que se fechou em si mesmo e pede que se olhe com clareza o que ficou de pé.",
     "hebrew_letter": "Peh (פ)",
     "astrology": "Marte",
-    "description_symbolic": "Peh é a boca, órgão da fala e também do devorar. Marte é o ferro e a ação decisiva. O caminho 27 liga o impulso de Netzach à forma mental de Hod, o ponto em que uma ideia pode endurecer demais. Netzach é a esfera do desejo e Hod a do intelecto: entre as duas, o que se sente e o que se pensa podem se separar, e a Torre é um abalo nessa passagem.",
-    "message_esoteric": "Nem toda queda é escolha, e nenhuma ruptura precisa ser entendida de imediato. A carta pergunta, com delicadeza, o que ainda está de pé depois do impacto e o que merece ser reconstruído com mais apoio do que antes.",
+    "description_symbolic": "Peh é a boca, a que fala e a que devora. Marte é o ferro e a ação decisiva. Na imagem, em vermelho, laranja e amarelo, uma torre se despedaça sob um olho radiante; à direita, uma serpente se enrosca num disco, e peças da construção caem. O caminho 27 liga o impulso de Netzach à forma mental de Hod, ponto em que uma ideia endurece demais.",
+    "message_esoteric": "Algo cai de uma vez, e com a queda vem uma visão que antes não havia. A carta pede que se olhe o que ficou de pé e se escolha o que merece ser reconstruído, e faz o aviso de que quem se agarra aos escombros perde o terreno livre. O raio é rápido, e a vista depois dele é ampla.",
     "meditation_reflection": [
-      "Que parte da minha vida defendo com tanta força que já não deixo nada de novo entrar?",
-      "O que a boca de Peh, que fala e devora, precisa dizer ou largar em mim?",
-      "Que verdade desconfortável posso admitir a mim ou a alguém de confiança, no ritmo que eu aguento?"
+      "Que parte do meu mundo eu defendo tanto que já não deixa passar luz, e o que o raio da Torre faria com ela?",
+      "O que o grande olho sobre a Torre e a serpente à direita revelam sobre quem comanda a queda?",
+      "Se o raio falasse pela boca de Peh, que verdade eu perguntaria a ele?"
     ],
-    "internal_alchemy": "Fogo violento sobre o que se cristalizou: o rígido se parte e o que é vivo precisa se reorganizar. Age rápido e costuma doer, e o tempo de reconstrução é próprio de cada pessoa.",
-    "magical_practice": "Faça uma lista do que ainda está de pé na sua vida depois de uma mudança difícil: pessoas, rotinas, valores. Marque o que merece apoio agora e escolha uma ação pequena para cuidar disso. Se o impacto for recente e grande, peça ajuda a alguém de confiança.",
+    "internal_alchemy": "Fogo violento sobre o que se cristalizou: o rígido se parte e o que é vivo precisa se reorganizar. Age rápido, e o tempo de reconstrução é próprio de cada obra.",
+    "magical_practice": "Acenda uma vela vermelha, cor de Marte, e contemple a Torre sob o olho. Vibre Peh num sopro seco, como uma palavra que corta. Anote no diário o que ainda está de pé na sua vida e uma coisa que você reconstruiria de outro jeito.",
     "past_present_future": {
-      "past": "Alguma estrutura, crença ou acordo pode ter cedido num momento em que já pesava demais.",
-      "present": "Algo foi exposto de repente. Reconstruir igual por medo ou aceitar o terreno que ficou é uma escolha que não precisa ser feita agora.",
-      "future": "Tendência: depois de um impacto, é comum precisar separar o que ainda sustenta do que não sustenta mais. Sinal para observar: o que você quer reconstruir, e com quem."
+      "past": "A raiz aqui está numa estrutura, crença ou acordo que já estava pesada demais quando cedeu.",
+      "present": "Algo foi exposto de repente. A carta quer saber se a consulente reconstrói igual por receio ou aceita o terreno novo que ficou.",
+      "future": "A carta anuncia uma fase de clareza depois do impacto. Ela pede que se escolha, entre os escombros, o que valerá a pena erguer outra vez."
     },
     "numeral": "XVI",
     "path": {
@@ -616,28 +616,28 @@
     "title": "A Janela Aberta",
     "number": 17,
     "isMajorArcana": true,
-    "eighth_greater": "Abertura ao infinito, confiança que nasce de pertencer a algo maior.",
-    "eighth_lesser": "Contemplação sem ação: a fé no horizonte que dispensa o chão, ou o ideal que não se encarna.",
+    "eighth_greater": "Abertura ao infinito: a confiança de pertencer a algo maior.",
+    "eighth_lesser": "Contemplação sem gesto: o ideal que dispensa o chão.",
     "order": 17,
     "element": "Ar",
     "sign": "Aquário",
     "planet": null,
-    "description": "Heh, a janela, dá à Estrela a imagem de uma abertura do céu sobre quem passou pela travessia. O caminho 15, de Chokmah a Tiphareth, lhe vem por uma troca que Crowley fez com Tzaddi. Aquário e o Ar dão ao conjunto amplitude, visão e distanciamento. A figura central é Nuit, a deusa do espaço estrelado, que derrama o que contém. Pertencimento ao infinito e generosidade que não se esgota são o centro desta carta.",
+    "description": "Heh, a janela, dá à Estrela a imagem de uma abertura do céu depois da travessia. O caminho é o 15, de Chokmah a Tiphareth, sob Aquário e o Ar. A figura central é Nuit, a deusa do espaço estrelado, que derrama o que contém. Numa leitura, a carta indica inspiração, generosidade, uma abertura de horizonte, um alívio que vem de longe e uma fonte que se renova. Anuncia que o que foi guardado pode, enfim, circular.",
     "hebrew_letter": "Heh (ה)",
     "astrology": "Aquário",
-    "description_symbolic": "Heh é a janela, o vazio por onde entram luz e ar. O caminho 15 liga a sabedoria de Chokmah ao centro solar de Tiphareth, e a Estrela é o trecho em que a visão ampla chega ao coração. Aquário é o signo do portador de água, e o Ar, o elemento do pensamento e do espaço. Em Thoth, Nuit derrama de duas taças sobre a terra.",
-    "message_esoteric": "Existe um espaço maior do que as nossas aflições. O que, na sua vida, ainda está aberto à luz? E como fazer circular o que se recebe, em vez de retê-lo? A abertura se mantém quando algo passa por ela.",
+    "description_symbolic": "Heh é a janela, o vazio por onde entram luz e ar. O caminho 15 liga a sabedoria de Chokmah ao centro solar de Tiphareth, e a Estrela é o trecho em que a visão ampla chega ao coração. Na imagem, uma mulher azul, nua, derrama de dois vasos diante de um grande globo rosado, sob uma estrela em espiral. Aquário é o signo do portador de água, e o Ar, o elemento do espaço.",
+    "message_esoteric": "Um horizonte se alarga, uma inspiração desce, algo generoso vem de longe. A carta pede que se deixe circular o que se recebe e adverte que a água guardada estagna. Quem a recebe é, por um momento, janela e vaso ao mesmo tempo.",
     "meditation_reflection": [
-      "Em que momento uso o ideal ou a esperança para não fazer o que está ao meu alcance?",
-      "O que a janela de Heh deixa entrar em mim quando paro de fechar as cortinas?",
-      "Que gesto de generosidade posso fazer, simples e sem plateia?"
+      "Onde o meu ideal serve de desculpa para não pisar no chão, e o que Nuit faria com essa distância?",
+      "O que os dois vasos de Nuit, um em cada mão, dizem sobre dar e receber?",
+      "Se as estrelas respondessem, a quem eu levaria a resposta?"
     ],
     "internal_alchemy": "Difusão: o que foi purificado deixa de ser guardado e passa a irrigar o entorno. Como a água que passa de uma taça a outra, só se mantém limpa se continua em movimento.",
-    "magical_practice": "À noite, saia ao ar livre e olhe o céu por dez minutos sem pensar em nada útil. Depois escreva uma coisa que recebeu de alguém e uma que pode dar a outra pessoa, e envie uma mensagem concreta a uma delas.",
+    "magical_practice": "À noite, ao ar livre, contemple o céu por dez minutos e depois a imagem de Nuit. Vibre Heh em duas expirações, como quem abre uma janela, e derrame água de uma taça em outra, nomeando uma coisa que recebeu e uma que deu.",
     "past_present_future": {
-      "past": "Depois de um momento difícil, talvez tenha havido um intervalo de ar e de calma em que você voltou a respirar.",
-      "present": "Há espaço aberto diante de você, e a escolha é usá-lo para dar algo ao mundo ou só para descansar dele.",
-      "future": "Tendência: o que circula se renova. Sinal para observar: o que você dá não parece diminuir em você."
+      "past": "A raiz desta carta está num intervalo de ar depois de um tempo difícil: um momento em que o céu pareceu mais largo.",
+      "present": "Há espaço aberto. A carta quer saber se ele será usado para dar algo ao mundo ou só para descansar do mundo.",
+      "future": "Vem aí uma fase de inspiração e de fartura que circula. Ela pede mão aberta: o que se derrama volta pela mesma janela."
     },
     "numeral": "XVII",
     "path": {
@@ -652,28 +652,28 @@
     "title": "A Noite Interior",
     "number": 18,
     "isMajorArcana": true,
-    "eighth_greater": "Sensibilidade ao invisível: sonhos, intuição e imaginação como bússola.",
-    "eighth_lesser": "Fantasia sem referência: o medo que cria monstros, ou a ilusão escolhida para não ver.",
+    "eighth_greater": "Sensibilidade ao invisível: sonho, intuição e imaginação como bússola.",
+    "eighth_lesser": "A névoa sem referência: o medo que cria monstros, a ilusão escolhida.",
     "order": 18,
     "element": "Água",
     "sign": "Peixes",
     "planet": null,
-    "description": "Peixes e a Água dão à Lua fluidez, sensibilidade e confusão de limites: é a travessia da noite interior. Qoph, a nuca, a parte da cabeça que não vemos e que comanda reflexos, é a sua letra, no caminho 29, de Netzach a Malkuth, o último antes do mundo concreto. A carta mostra o que o inconsciente produz quando a luz é indireta: sonhos, medos e imagens que pedem leitura sem pressa.",
+    "description": "A Lua é a travessia da noite interior. Sua letra é Qoph, a nuca, a parte da cabeça que não vemos; seu caminho, o 29, de Netzach a Malkuth, o último antes do mundo concreto; seu signo, Peixes, sob a Água. Numa leitura, indica ilusão, sonho, intuição, engano ou segredo, um terreno em que nada é exatamente o que parece. Avisa que há coisas veladas no caso e pede que se ande com cuidado, sem pressa de acender a luz.",
     "hebrew_letter": "Qoph (ק)",
     "astrology": "Peixes",
-    "description_symbolic": "Qoph é a parte de trás da cabeça, sede do que atua sem ser visto. Peixes, último signo, reúne em si todos os anteriores e dissolve fronteiras. O caminho 29 liga o desejo de Netzach ao reino de Malkuth, e ali a imaginação precisa encontrar o chão. Em Thoth, figuras egípcias ligadas à passagem entre mundos povoam a cena.",
-    "message_esoteric": "É possível andar na penumbra sem fingir que se enxerga tudo. Imagens e medos guiam decisões em silêncio, e a carta pede que sejam levados à luz do dia e conferidos com a realidade, de preferência com alguém de confiança.",
+    "description_symbolic": "Qoph é a parte de trás da cabeça, sede do que atua sem ser visto. Peixes, último signo, reúne todos os anteriores e dissolve fronteiras. Na imagem, dois guardiões de cabeça de chacal, em mantos escuros e sob torres, ladeiam um caminho que sobe a uma lua crescente; embaixo, um escaravelho e um disco dourado emergem de águas coloridas. O caminho 29 liga o desejo de Netzach ao reino de Malkuth.",
+    "message_esoteric": "O terreno é de sombras: nem tudo é o que parece, e a intuição trabalha mais do que a razão. A carta recomenda registrar sonhos e sensações e previne que a imaginação sem referência cria monstros, e que os monstros guardam portas. Quem anda na penumbra com atenção encontra o caminho.",
     "meditation_reflection": [
-      "Que medo posso olhar com mais calma, com alguém de confiança, para ver o que nele é fato e o que é sombra?",
-      "O que a nuca de Qoph guarda em mim, aquilo que age sem que eu veja?",
-      "Que sonho ou sensação posso anotar, sem interpretar, só para ver o que aparece?"
+      "Que medo eu trato como fato, e o que os guardiões de cabeça de chacal fariam com ele no limiar?",
+      "O que o escaravelho e o disco dourado, embaixo da carta, dizem sobre a luz que atravessa a noite?",
+      "Qual sonho eu levaria a esta carta, e que pergunta faria a ele?"
     ],
-    "internal_alchemy": "Dissolução noturna, em que consciente e inconsciente se misturam e o fixo vira névoa. Não se força a clareza nessa etapa, mas é possível registrar o que a noite mostra.",
-    "magical_practice": "Mantenha um caderno ao lado da cama por sete noites e anote sonhos, imagens e sensações ao acordar, sem interpretar. Ao fim, releia tudo de uma vez e circule o que se repete. Escolha uma imagem recorrente e pergunte à luz do dia o que ela quer dizer.",
+    "internal_alchemy": "Dissolução noturna: consciente e inconsciente se misturam e o fixo vira névoa. Não se força a clareza nessa etapa, mas se registra o que a noite mostra.",
+    "magical_practice": "Mantenha um caderno ao lado da cama por sete noites e anote sonhos e imagens ao acordar. Na primeira noite, acenda uma vela prateada e contemple os chacais da carta, vibrando Qoph. Ao fim, releia tudo e circule o que se repete.",
     "past_present_future": {
-      "past": "Se houve um período de dúvida, de sonhos intensos ou de confusão, pode ter deixado imagens que ainda pedem leitura.",
-      "present": "A visão está turva e a imaginação trabalha. Confiar nas imagens e confrontá-las com os fatos são movimentos que se completam.",
-      "future": "Tendência: o que é anotado e conversado costuma perder o poder de assustar. Sinal para observar: um medo antigo ganha contorno e deixa de parecer sombra solta."
+      "past": "Aqui, a raiz está num tempo de dúvida, de sonhos intensos ou de confusão que deixou imagens ainda por ler.",
+      "present": "A visão está turva e a imaginação trabalha. A carta pede que se pesem as imagens contra os fatos, sem calar nenhuma das duas vozes.",
+      "future": "O baralho anuncia uma fase de revelações lentas: o que é anotado ganha contorno, e um medo antigo deixa de ser sombra solta. Ela pede que se espere o dia sem fechar os olhos."
     },
     "numeral": "XVIII",
     "path": {
@@ -688,28 +688,28 @@
     "title": "A Clareza",
     "number": 19,
     "isMajorArcana": true,
-    "eighth_greater": "Luz que se mostra por inteiro: vitalidade, alegria e verdade sem esforço.",
-    "eighth_lesser": "Luz que cega: o brilho que não admite sombra, ou o otimismo que ignora o custo.",
+    "eighth_greater": "A luz plena: vitalidade, alegria e verdade que não pedem esforço.",
+    "eighth_lesser": "A luz que cega: o brilho que não admite sombra, o otimismo que ignora o custo.",
     "order": 19,
     "element": "Fogo",
     "sign": null,
     "planet": "Sol",
-    "description": "Resh, a cabeça, é o ponto em que a consciência se acende, e o Sol é a luz que não precisa de desculpas. Seu caminho é o 30, de Hod a Yesod. O Fogo, elemento do Sol, dá calor, generosidade e vitalidade. A imagem traz crianças dançando sob os raios, uma festa de inocência e abundância. Ser visto, brilhar sem teatro e aquecer o que está em volta são os temas que a carta oferece.",
+    "description": "O Sol é a luz que não precisa de desculpas. Sua letra é Resh, a cabeça, o ponto em que a consciência se acende; seu caminho, o 30, de Hod a Yesod; seu astro, o próprio Sol, sob o Fogo. Numa leitura, indica sucesso, calor, alegria, vitalidade, uma verdade que aparece sem esforço. Anuncia uma fase de visibilidade, em que o que estava escondido ganha cor, e aponta para quem merece ser vista.",
     "hebrew_letter": "Resh (ר)",
     "astrology": "Sol",
-    "description_symbolic": "Resh é a cabeça, sede da visão e do pensamento, e o Sol é a estrela que dá vida ao sistema inteiro. O caminho 30 liga a mente de Hod ao fundamento de Yesod, levando a clareza intelectual para onde ela vira vida. Hod é a esfera do intelecto e Yesod a das imagens e dos ritmos do corpo: entre as duas, pensar e viver se encontram no mesmo gesto.",
-    "message_esoteric": "Nem todo mundo se sente seguro para ser visto, e tudo bem. A carta pergunta onde você já pode brilhar um pouco mais sem custo, e o calor verdadeiro se oferece sem pedir aplauso. Clareza também pode ser discreta.",
+    "description_symbolic": "Resh é a cabeça, sede da visão e do pensamento, e o Sol é a estrela que dá vida ao sistema inteiro. Na imagem, um sol de muitos raios domina o céu, e duas crianças dançam sob ele em um monte verde, cercadas pelas figuras do zodíaco nas bordas. O caminho 30 liga a mente de Hod ao fundamento de Yesod, levando a clareza intelectual para onde ela vira vida.",
+    "message_esoteric": "É tempo de calor e de êxito: o que estava no escuro aparece, e a alegria é legítima. A carta manda mostrar o que se tem e dividir o que se ganha, e alerta que a luz forte também ofusca e que convém não prometer o que o dia seguinte ainda não deu. A vida, aqui, chegou na hora de se mostrar.",
     "meditation_reflection": [
-      "Onde meu entusiasmo ofusca os outros ou me impede de ver o que ainda está mal?",
-      "O que a cabeça de Resh, sede da visão, vê com nitidez quando nada a obscurece?",
-      "A quem posso dizer, com palavras simples, o que admiro nessa pessoa?"
+      "Onde o meu brilho ofusca a verdade, e o que o Sol faria com essa luz demais?",
+      "O que as duas crianças que dançam sob o Sol dizem sobre a alegria que Thoth coloca nesta carta?",
+      "Para ser respondida à luz plena, qual pergunta eu faria ao Sol?"
     ],
-    "internal_alchemy": "Coroação: o ouro alquímico, depois de longo trabalho, aparece como luz e não como metal. A transformação se torna visível a todos, inclusive ao próprio alquimista.",
-    "magical_practice": "Pela manhã, fique de frente para a luz do dia por cinco minutos, de olhos fechados e sem olhar o sol. Diga em voz alta uma coisa de que você se orgulha e depois agradeça a alguém por algo específico que a pessoa fez.",
+    "internal_alchemy": "Coroação: o ouro alquímico, depois de longo trabalho, aparece como luz, e não como metal. A transformação se torna visível a todos, inclusive ao próprio alquimista.",
+    "magical_practice": "Pela manhã, de frente para a luz do dia, de olhos fechados e sem olhar o sol, vibre Resh e contemple mentalmente as duas crianças dançando. Acenda uma vela dourada ao pôr do sol e diga em voz alta uma coisa que brilhou no seu dia.",
     "past_present_future": {
-      "past": "Pode ter havido um momento em que você se sentiu inteiro, sem defesas, e isso ficou como referência.",
-      "present": "Há luz disponível. Mostrar-se por inteiro sem cegar os outros e sem esconder o que ainda é sombra é um equilíbrio delicado.",
-      "future": "Tendência: o que é vivido com franqueza costuma criar proximidade. Sinal para observar: você se sente à vontade perto das pessoas, sem esforço para convencê-las."
+      "past": "Lá atrás, a raiz está num momento de plenitude passada, uma lembrança de luz que ainda serve de referência.",
+      "present": "Há luz disponível. A carta quer saber se a consulente brilha por inteiro sem ofuscar os outros nem esconder o que ainda é sombra.",
+      "future": "Aproxima-se uma fase de visibilidade e de calor. Ela pede que se mostre o que se é: o que é vivido à luz plena atrai quem combina com ele."
     },
     "numeral": "XIX",
     "path": {
@@ -724,28 +724,28 @@
     "title": "O Novo Éon",
     "number": 20,
     "isMajorArcana": true,
-    "eighth_greater": "Despertar que inaugura outra era, vontade própria como lei de movimento.",
-    "eighth_lesser": "Ruptura total: negar o passado inteiro em nome do novo, ou esperar uma era pronta sem agir.",
+    "eighth_greater": "Uma era que nasce: o despertar de uma vontade própria.",
+    "eighth_lesser": "A ruptura total: negar o passado inteiro em nome do novo, ou esperar uma era pronta sem agir.",
     "order": 20,
     "element": "Fogo",
     "sign": null,
     "planet": "Plutão",
-    "description": "Uma virada de era, em escala pessoal e histórica: é o que o Éon marca. O caminho 31, de Hod a Malkuth, leva a letra Shin, o dente, a chama que devora. Substitui o Julgamento: em vez do juízo final, traz o éon de Hórus, a era que Crowley dizia ter começado em 1904, quando afirmou ter recebido no Cairo o Livro da Lei. Para ele, uma era de vontade verdadeira de cada pessoa. A carta convida a perguntar qual é a sua.",
+    "description": "O Éon marca uma virada de era, pessoal e histórica. Em Thoth, ocupa o lugar do Julgamento, mas em vez do juízo final traz o nascimento de uma nova ordem. Sua letra é Shin, o dente, a chama que devora; seu caminho, o 31, de Hod a Malkuth; seus elementos, o Fogo e o espírito. Numa leitura, indica despertar, anúncio, um novo ciclo que nasce e uma vontade própria que pede nome.",
     "hebrew_letter": "Shin (ש)",
     "astrology": "Plutão",
-    "description_symbolic": "Shin é o dente e a chama, a letra do fogo e do espírito, de três traços como três línguas de fogo. O caminho 31 liga Hod a Malkuth e leva a mente ao mundo. Nuit, o espaço infinito, Hadit, o ponto que se move, e Hórus, o deus que dá nome à nova era, são as figuras do Livro da Lei, texto central de Thelema, a religião fundada por Crowley.",
-    "message_esoteric": "Algumas viradas não pedem autorização ao passado. O que em você já mudou de era sem que você admitisse? E que vontade verdadeira está pronta para ser assumida, e não adiada à espera de permissão?",
+    "description_symbolic": "Shin é o dente e a chama, a letra do fogo e do espírito, de três traços como três línguas de fogo. O caminho 31 liga Hod a Malkuth e leva a mente ao mundo. Na imagem, uma figura azul se arqueia como um céu sobre uma figura sentada, envolta num halo luminoso: Nuit, Hadit e Hórus compõem a cena, as três figuras de Thelema que dão nome à nova era.",
+    "message_esoteric": "Algumas viradas não pedem autorização ao passado: uma fase se fecha e outra se anuncia em voz alta. A carta pede que se nomeie o que já mudou e se assuma a vontade que nasce, e lembra que esperar permissão é perder a hora. A hora do despertar é esta.",
     "meditation_reflection": [
-      "Que ruptura estou tratando como libertação sem saber ainda o que quero construir?",
-      "O que o fogo de Shin, que devora e ilumina, está consumindo em mim para que algo comece?",
-      "Que decisão posso assumir com a frase 'isto é o que eu quero', sem pedir aprovação?"
+      "Que ruptura eu trato como libertação sem saber o que quero construir depois, e o que o Éon diria dela?",
+      "O que a figura azul que se arqueia sobre o halo luminoso diz sobre quem abre e quem recebe uma era?",
+      "Que nome eu daria à resposta do Éon, e qual pergunta de renascimento eu lhe faria?"
     ],
     "internal_alchemy": "Multiplicação pelo fogo: uma pequena chama espiritual é lançada ao conjunto e transforma todo o vaso. Não é o fim de uma obra, é a passagem para outra, em outro nível.",
-    "magical_practice": "Escreva uma carta para você, datada de daqui a um ano, contando o que mudou de era em sua vida e o que você assumiu. Destaque uma frase que seja ação e faça-a esta semana. Guarde a carta em um lugar visível.",
+    "magical_practice": "Acenda uma vela vermelha e contemple a figura azul que se arqueia sobre o halo. Vibre Shin como um sopro de fogo e escreva uma carta para você, datada de um ano à frente, contando o que mudou de era na sua vida. Guarde-a num lugar visível.",
     "past_present_future": {
-      "past": "Algo pode ter se encerrado em você, uma identidade ou um modo de viver, deixando espaço para outra pergunta.",
-      "present": "Uma nova fase pede nome. Assumir a própria vontade ou esperar que alguém a autorize: a carta sugere olhar para essa encruzilhada.",
-      "future": "Tendência: o que é assumido com clareza organiza o que vem depois. Sinal para observar: você deixa de se justificar por uma escolha que antes defendia com culpa."
+      "past": "A raiz aqui está num encerramento, de uma identidade ou de um modo de viver, que deixou espaço para outra pergunta.",
+      "present": "Uma fase nova pede nome. A carta quer saber se a consulente assumirá a própria vontade ou esperará que alguém a autorize.",
+      "future": "A carta anuncia uma fase de despertar e de declaração: o que é assumido com clareza organiza o que vem. Ela pede que se diga em voz alta o nome do que nasceu."
     },
     "numeral": "XX",
     "path": {
@@ -760,28 +760,28 @@
     "title": "A Totalidade",
     "number": 21,
     "isMajorArcana": true,
-    "eighth_greater": "Conclusão que integra tudo, plenitude dentro de limites assumidos.",
-    "eighth_lesser": "Fechamento prematuro: o ciclo declarado completo antes de integrar, ou o perfeccionismo que impede de encerrar.",
+    "eighth_greater": "O ciclo que se completa: plenitude dentro de limites assumidos.",
+    "eighth_lesser": "O fechamento prematuro: o ciclo declarado completo antes de ser vivido, ou a obra que nunca se encerra.",
     "order": 21,
     "element": "Terra",
     "sign": null,
     "planet": "Saturno",
-    "description": "Tav, a última letra, a marca que assina e fecha: o Universo é o ciclo que se completa e o recomeço que ele contém. O caminho 32, de Yesod a Malkuth, é o último da Árvore, e leva o planeta Saturno. Saturno traz limite, tempo e forma, e a Terra dá concretude ao conjunto. Para ser real, a obra precisa aceitar suas bordas e se encarnar em um mundo, e concluir também é aceitar o que não cabe mais.",
+    "description": "O Universo é o ciclo que se completa e o recomeço que ele contém. Sua letra é Tav, a marca final; seu caminho, o 32, de Yesod a Malkuth, o último da Árvore; seu planeta, Saturno, sob a Terra. Numa leitura, indica conclusão, realização, mundo ao alcance, viagem longa, uma obra que ganha corpo. Anuncia o fecho de uma etapa e abre a porta de outra, maior.",
     "hebrew_letter": "Tav (ת)",
     "astrology": "Saturno",
-    "description_symbolic": "Tav é a última letra, a marca que assina e fecha. Saturno, o guardião das bordas, entrega ao fim do caminho o que o tempo amadureceu. O caminho 32 liga o fundamento, Yesod, ao reino, Malkuth, a imagem ao corpo, e por ele se sai da Árvore para o mundo. Malkuth é a esfera da matéria, onde a obra se torna visível. Em Thoth, a figura dança em um círculo envolvido por uma serpente.",
-    "message_esoteric": "Concluir é ato de maturidade: aceitar limites, reunir o que se aprendeu e dar nome ao que se completou. O que já está pronto e pede um encerramento com cerimônia, para que o próximo ciclo não herde pendências?",
+    "description_symbolic": "Tav é a última letra, a marca que assina e fecha. Saturno, guardião das bordas, entrega ao fim do caminho o que o tempo amadureceu. Na imagem, uma mulher nua dança dentro de um anel estrelado enlaçado por uma serpente, diante de um globo azul e verde, com figuras douradas nos quatro cantos. O caminho 32 liga o fundamento ao reino, a imagem ao corpo; Malkuth é a esfera da matéria.",
+    "message_esoteric": "Um ciclo fecha com chave de ouro: uma obra pronta, uma viagem que chega, um mundo que se abre inteiro. A carta pede que se encerre com cerimônia o que está completo e avisa que o perfeccionismo adia o dia da dança. A mulher do Universo dança dentro da borda: é ali que a obra se ergue.",
     "meditation_reflection": [
-      "Que ciclo declaro encerrado sem ter integrado o que ele me ensinou?",
-      "O que a cruz de Tav marca em mim como limite que dá forma, e não como prisão?",
-      "Que pendência pequena posso fechar, para que o próximo ciclo comece sem peso?"
+      "Que ciclo eu declaro encerrado sem tê-lo vivido até o fim, e o que o anel do Universo diria?",
+      "O que a serpente que enlaça o anel e as figuras douradas nos cantos dizem sobre a totalidade desta carta?",
+      "Que ritual de fecho eu usaria, e que pergunta de conclusão faria ao Universo?"
     ],
-    "internal_alchemy": "Coagulação final da Grande Obra: o que foi purificado ganha corpo estável no mundo. Saturno, o chumbo, volta como ouro quando o tempo faz seu trabalho, e o ciclo se abre de novo.",
-    "magical_practice": "Pense em um projeto ou fase que você considera encerrado. Escreva o que foi aprendido, o que ficou sem terminar e o que você leva. Faça um pequeno rito de encerramento, como organizar a mesa ou arquivar documentos, e declare o fim em voz alta.",
+    "internal_alchemy": "Coagulação final da Grande Obra: o que foi purificado ganha corpo estável no mundo. Saturno, o chumbo, volta como ouro quando o tempo faz o seu trabalho, e o ciclo se abre de novo.",
+    "magical_practice": "Acenda uma vela preta e outra dourada, o chumbo e o ouro, e contemple a dançarina no anel da serpente. Vibre Tav. No diário, escreva uma obra que você considera pronta e o gesto de encerramento que ela pede: arquivar, assinar, celebrar.",
     "past_present_future": {
-      "past": "Uma fase longa pode ter se concluído aos poucos, mesmo sem cerimônia.",
-      "present": "Um ciclo pede fecho. Encerrar com integração, sem adiar por perfeccionismo nem pular etapas, é o ponto delicado.",
-      "future": "Tendência: o que é fechado com consciência libera energia para outro começo. Sinal para observar: surge curiosidade por algo que antes não tinha espaço."
+      "past": "A raiz desta carta está numa fase longa que se concluiu aos poucos, mesmo sem cerimônia.",
+      "present": "Um ciclo pede fecho. A carta mede a diferença entre encerrar com inteireza e adiar por perfeccionismo, e pede escolha.",
+      "future": "Vem aí uma fase de realização e de mundo aberto. Ela pede cerimônia no fecho: o que se encerra com nome libera a próxima dança."
     },
     "numeral": "XXI",
     "path": {
@@ -793,35 +793,35 @@
   },
   {
     "name": "Ás de Bastões",
-    "title": "Raiz do Fogo",
+    "title": "Raiz dos Poderes do Fogo",
     "number": 1,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Início de projetos criativos, energia bruta, potencial.",
-    "eighth_lesser": "Falta de direção, bloqueios criativos, hesitação.",
+    "eighth_greater": "Faísca criadora: o poder do Fogo em estado puro, antes de qualquer forma.",
+    "eighth_lesser": "O fogo sem forma: a centelha que se apaga antes de virar obra.",
     "order": 22,
     "element": "Fogo",
     "sign": null,
     "planet": null,
-    "description": "O Ás de Bastões simboliza o início de uma jornada criativa cheia de possibilidades. No Tarot de Thoth, ele não é apenas uma ideia inicial, mas a explosão de energia bruta que desperta o desejo de agir. Essa carta está conectada à força vital primordial, ao entusiasmo e à visão de novos projetos. O elemento Fogo reflete o poder transformador dessa faísca inicial, que pode acender grandes realizações, desde que nutrida com dedicação e ação. O Ás de Bastões nos lembra que cada grande conquista começa com um pequeno momento de inspiração.",
-    "description_symbolic": "O Ás de Bastões é frequentemente representado como uma mão segurando um bastão flamejante, simbolizando a manifestação de ideias do plano espiritual para o material. No Tarot de Thoth, essa imagem transmite a ideia de que o potencial criativo está à disposição, mas cabe a nós direcioná-lo. A chama do bastão simboliza não apenas energia, mas a responsabilidade de nutrir essa faísca até se transformar em uma chama duradoura.",
-    "message_esoteric": "Este é o momento de explorar suas ideias e transformá-las em ação concreta. O Ás de Bastões é o chamado para deixar de lado o medo ou a hesitação e confiar no seu poder criativo. Ele nos ensina que, para alcançar o sucesso, precisamos agir com paixão e acreditar no potencial de nossas ideias.",
+    "description": "O Ás de Bastões é a raiz do Fogo: a vontade ainda sem forma, no ponto mais alto da Árvore da Vida, Kether. Na carta, chamas douradas curvam-se em feixe sobre um fundo vermelho cortado por raios verdes. Numa leitura, indica um começo ardente: uma ideia, uma paixão, um impulso criador que acaba de acender. Anuncia energia nova e pede que se escolha onde ela vai arder.",
+    "description_symbolic": "Todo Ás está em Kether, onde a força de um elemento existe ainda indivisa. Aqui é o Fogo, ligado à letra Yod, a primeira do Tetragrama, que representa o impulso criador. Por isso o Ás não tem signo, planeta nem decano: é a raiz de onde os outros nove Bastões brotam. As chamas curvas e os raios verdes sugerem energia em várias direções.",
+    "message_esoteric": "Uma faísca acabou de acender, num projeto, num amor, numa ideia que não deixa dormir. A carta pede um primeiro gesto concreto antes que o fogo se disperse e adverte que o que se acende e não se alimenta vira fumaça. Algo quer começar, e traz calor próprio.",
     "meditation_reflection": [
-      "Estou agindo sobre as ideias que surgem ou deixando-as se dissipar?",
-      "Como posso nutrir minha inspiração para que ela se transforme em realizações concretas?",
-      "Quais passos iniciais posso dar hoje para acender meu potencial criativo?"
+      "Que centelha minha apagou antes de virar obra, e o que o Ás pediria para mantê-la viva?",
+      "O que os raios verdes que cortam o vermelho dizem sobre o terreno onde o fogo nasce?",
+      "Se o Ás pudesse acender a resposta, qual pergunta eu lhe faria?"
     ],
-    "internal_alchemy": "O Ás de Bastões simboliza a alquimia da criação, onde o potencial bruto encontra a ação focada. Ele nos desafia a transformar desejos e inspirações em resultados tangíveis, lembrando-nos que o fogo inicial precisa ser alimentado para não se apagar.",
-    "magical_practice": "Para se conectar ao Ás de Bastões, visualize um fogo crescente dentro de você, irradiando calor e energia. Concentre-se em uma ideia ou projeto específico e afirme sua determinação em levá-lo adiante. Escreva seus objetivos e os passos que precisa seguir para concretizá-los.",
+    "internal_alchemy": "Calcinação: o fogo é o primeiro agente da obra, o que reduz o que é denso e deixa o essencial exposto. Aqui ele ainda é só centelha, mas toda transformação posterior depende de ela ter existido.",
+    "magical_practice": "Acenda uma vela vermelha e contemple as chamas douradas do Ás por dez minutos. Vibre Yod, a letra do Fogo, numa expiração longa e escreva no diário uma única palavra para o que acendeu. Deixe a vela queimar até o fim.",
     "past_present_future": {
-      "past": "Você experimentou um momento de inspiração que plantou as sementes do crescimento.",
-      "present": "Uma oportunidade criativa está à sua frente, aguardando sua ação.",
-      "future": "O potencial de grandes realizações, desde que você cultive a energia inicial e aja com determinação."
+      "past": "Aqui, a raiz está numa vontade súbita de começar algo, que ficou à espera de uma hora para arder.",
+      "present": "Uma energia nova pede direção. A carta mede o intervalo entre deixar a faísca arder como veio e já querer moldá-la.",
+      "future": "O baralho anuncia uma fase de ignição: um começo que se firma ao receber o primeiro passo. Ela pede lenha, direção e coragem de acender."
     },
     "numeral": "Ás",
     "sephirah": "Kether",
     "decan": null,
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Dois de Bastões",
@@ -829,26 +829,26 @@
     "number": 2,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Planejamento estratégico, visão de futuro, decisões.",
-    "eighth_lesser": "Indecisão, medo do desconhecido, inação.",
+    "eighth_greater": "Vontade firme: o poder de iniciar, dirigir e comandar.",
+    "eighth_lesser": "O domínio que vira imposição: a vontade que não tolera ser contrariada.",
     "order": 23,
     "element": "Fogo",
     "sign": "Áries",
     "planet": "Marte",
-    "description": "O Dois de Bastões representa o momento crucial entre a inspiração inicial e a ação consciente. No Tarot de Thoth, essa carta fala sobre o poder de tomar decisões estratégicas e estabelecer uma base sólida para o crescimento. O elemento Fogo continua a desempenhar um papel vital, pois essa energia deve ser direcionada com sabedoria para evitar o desperdício. A carta nos lembra que a visão é essencial, mas precisa ser acompanhada por um planejamento prático. O Dois de Bastões simboliza a confiança em seu potencial de moldar o futuro e expandir horizontes.",
-    "description_symbolic": "Frequentemente ilustrado como uma figura olhando para o horizonte enquanto segura dois bastões, o Dois de Bastões representa a visão estratégica e a preparação para a ação. No Tarot de Thoth, os bastões cruzados simbolizam um equilíbrio dinâmico entre poder e planejamento. Este é o ponto de decisão, onde a visão encontra a necessidade de organização antes de prosseguir. O horizonte ao fundo sugere que grandes oportunidades aguardam aqueles que têm coragem de planejar e agir.",
-    "message_esoteric": "O Dois de Bastões nos ensina que o poder do planejamento é tão importante quanto a ação. Ele nos convida a equilibrar o entusiasmo inicial com uma estratégia sólida, garantindo que o caminho à frente seja construído sobre bases firmes. Sua mensagem é clara: tenha visão, mas não negligencie a preparação.",
+    "description": "Domínio é o nome do Dois de Bastões: Marte, o planeta da ação, no primeiro decano de Áries, com Chokmah, a esfera do primeiro impulso. É o fogo no auge da pureza, sem rodeios e sem paciência para eles. Numa leitura, a carta indica comando, iniciativa, uma vontade que se afirma e toma a frente. Aponta uma fase de decisão rápida e pede que se saiba a quem o comando serve.",
+    "description_symbolic": "Na imagem, dois bastões de pontas ornamentadas, que lembram cetros, se cruzam em X sobre um fundo manchado de azul e vermelho, com chamas onduladas ao redor; os símbolos de Marte e de Áries aparecem no alto e embaixo. O cruzamento sugere duas forças que se encontram no mesmo ponto. Chokmah, a primeira força que sai da Coroa, e Marte em Áries reforçam o caráter ativo e sem mediação do Fogo.",
+    "message_esoteric": "É hora de tomar a frente: uma decisão, uma direção, um comando que cabe a você. A carta pede coragem direta e palavra firme e previne que a autoridade que só se impõe pelo volume acaba sozinha. Conduzir não é o mesmo que impor, e o fogo de Marte conhece a diferença.",
     "meditation_reflection": [
-      "Estou dedicando tempo suficiente ao planejamento ou estou agindo impulsivamente?",
-      "Como posso alinhar minha visão de futuro com ações práticas e estratégicas?",
-      "Estou hesitando diante de decisões importantes ou confiante em minha capacidade de agir?"
+      "Onde a minha firmeza deixou de ouvir e passou a só mandar, e o que o X dos bastões diria dela?",
+      "O que o encontro dos dois bastões em X diz sobre duas forças que disputam o mesmo ponto?",
+      "Que ordem eu daria ao fogo de Marte, e que pergunta traria ao baralho?"
     ],
-    "internal_alchemy": "O Dois de Bastões simboliza a alquimia da visão e do domínio. Ele nos desafia a transformar ideias abstratas em planos estruturados, reconhecendo que a verdadeira expansão exige um equilíbrio entre inspiração e execução.",
-    "magical_practice": "Conecte-se ao Dois de Bastões visualizando-se segurando o mundo nas mãos, simbolizando seu poder de moldar o futuro. Imagine um caminho claro se abrindo à sua frente enquanto você toma decisões estratégicas com confiança. Escreva seus objetivos e os passos para alcançá-los.",
+    "internal_alchemy": "O fogo de Marte funciona como a primeira forja do metal: dá forma ao que era informe. A operação é afirmar uma direção e testá-la contra a resistência real, aceitando que a vontade se refina quando encontra um limite.",
+    "magical_practice": "Acenda uma vela vermelha, cor de Marte, e contemple os dois bastões cruzados em X. Vibre o nome de Marte uma vez para cada ponta do cruzamento. No diário, escreva em uma frase o que você quer comandar e diga-a em voz alta, como uma ordem dada ao fogo.",
     "past_present_future": {
-      "past": "Você tomou decisões importantes que estabeleceram as bases para o crescimento atual.",
-      "present": "Este é um momento de planejamento estratégico, onde suas escolhas terão impacto no futuro.",
-      "future": "O potencial de expansão e sucesso, desde que você mantenha a visão clara e as ações alinhadas."
+      "past": "Lá atrás, a raiz está num momento de tomar a frente de algo e descobrir o tamanho da própria vontade.",
+      "present": "A vontade quer direção. A carta separa o liderar do impor e quer saber de que lado está a consulente.",
+      "future": "Aproxima-se uma fase de decisão e de ordem que se faz: o que é assumido com clareza reorganiza o que estava disperso. Ela pede palavra firme e olho no alvo."
     },
     "numeral": "2",
     "sephirah": "Chokmah",
@@ -859,7 +859,7 @@
       "degrees": "0 a 10 graus de Áries",
       "dates": "21/03 a 30/03"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Três de Bastões",
@@ -867,26 +867,26 @@
     "number": 3,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Expansão, progresso, exploração de novas oportunidades.",
-    "eighth_lesser": "Falta de visão, frustração, atraso em planos.",
+    "eighth_greater": "Força estabelecida: poder sustentado por caráter e generosidade.",
+    "eighth_lesser": "O orgulho do mérito: a virtude que se exibe ou exige reconhecimento.",
     "order": 24,
     "element": "Fogo",
     "sign": "Áries",
     "planet": "Sol",
-    "description": "O Três de Bastões simboliza o momento em que a visão clara e as ações iniciais começam a dar frutos. No Tarot de Thoth, essa carta representa a virtude em sua forma prática, refletindo não apenas moralidade, mas a força de agir com integridade em busca de expansão. O elemento Fogo continua a impulsionar o progresso, incentivando a exploração de novas oportunidades. Este é o estágio em que os esforços passados começam a abrir portas para horizontes mais amplos, oferecendo a promessa de crescimento contínuo.",
-    "description_symbolic": "O Três de Bastões é muitas vezes representado como uma figura olhando para um vasto horizonte, simbolizando a expansão e o progresso. No Tarot de Thoth, essa visão se traduz em ação, onde cada passo dado é sustentado por uma base sólida de intenção e virtude. A conexão entre o presente e o futuro é fundamental, pois indica que os resultados dependem da capacidade de manter a visão focada e a coragem de explorar territórios desconhecidos.",
-    "message_esoteric": "O Três de Bastões nos ensina que o progresso requer não apenas visão, mas também ação ousada e determinação. Ele nos lembra de manter o foco nos objetivos maiores e de ter coragem para explorar o novo. Esta carta simboliza o momento em que a expansão ocorre como resultado natural de esforços bem direcionados.",
+    "description": "A Virtude é o poder que já não precisa se provar. No Três de Bastões, o Sol ocupa o segundo decano de Áries (de 10 a 20 graus do signo), onde a tradição astrológica o considera exaltado: é o ponto em que sua luz tem mais força. A esfera é Binah, a do Entendimento. Numa leitura, a carta indica autoridade conquistada, liderança calma, um mérito reconhecido sem esforço de aparecer.",
+    "description_symbolic": "Os três bastões dourados da imagem se cruzam no centro e cada um termina em uma flor de lótus, diante de um fundo laranja; no alto há um círculo vermelho, o símbolo do Sol, e embaixo o de Áries. Erguidos, firmes e abertos como pétalas, sugerem poder que floresce em vez de se impor. Três é o número de Binah, onde a força inicial de Chokmah encontra forma e entendimento.",
+    "message_esoteric": "O poder aqui já está firme: a autoridade de quem fez por merecer e agora sustenta sem alarde. A carta recomenda constância e generosidade com quem depende de você e alerta que o mérito que se exibe perde brilho. É a virtude do Sol exaltado, que aquece sem precisar anunciar.",
     "meditation_reflection": [
-      "Estou aproveitando plenamente as oportunidades de crescimento ao meu redor?",
-      "Como posso expandir minha visão sem perder o foco?",
-      "Estou preparado para lidar com os desafios do progresso contínuo?"
+      "Onde o meu desejo de reconhecimento pesa mais do que a obra, e o que o Sol exaltado faria com isso?",
+      "O que o lótus aberto no topo de cada bastão me mostra sobre força que floresce sem se impor?",
+      "A que mérito antigo eu dirigiria uma pergunta à Virtude?"
     ],
-    "internal_alchemy": "O Três de Bastões simboliza a alquimia da expansão consciente. Ele nos desafia a transformar visão em ação e coragem em resultados, mantendo a integridade em cada passo.",
-    "magical_practice": "Conecte-se ao Três de Bastões visualizando um horizonte amplo e aberto, cheio de oportunidades. Afirme sua capacidade de explorar o desconhecido com confiança e de expandir seus limites.",
+    "internal_alchemy": "Constância: o fogo já contido passa a aquecer sem consumir, como a brasa depois da chama alta. A virtude, aqui, é força que aprendeu a ser regular.",
+    "magical_practice": "Acenda uma vela dourada, cor do Sol, e contemple os três bastões de lótus. Vibre o nome do Sol três vezes, uma por bastão. No diário, escreva uma ação que sustentou algo sem que ninguém visse e o valor que a guiou.",
     "past_present_future": {
-      "past": "Um momento inicial de progresso abriu caminhos para o crescimento.",
-      "present": "Você está em um período de expansão e exploração de novas possibilidades.",
-      "future": "O sucesso e o avanço contínuo estão à sua frente, desde que você mantenha a visão clara e a ação consistente."
+      "past": "A raiz aqui está num período em que algo foi sustentado com constância, sem plateia e sem pressa.",
+      "present": "Uma força firme já está de pé. A carta quer saber como ela será usada: para proteger, para ensinar ou para se afirmar.",
+      "future": "A carta anuncia uma fase de autoridade serena e de confiança que se ganha. Ela pede constância: o poder que dura é o que não precisa anunciar-se."
     },
     "numeral": "3",
     "sephirah": "Binah",
@@ -897,34 +897,34 @@
       "degrees": "10 a 20 graus de Áries",
       "dates": "31/03 a 09/04"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Quatro de Bastões",
-    "title": "Complemento",
+    "title": "Completude",
     "number": 4,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Celebração, harmonia, conclusão positiva.",
-    "eighth_lesser": "Instabilidade, conflitos domésticos, falta de apoio.",
+    "eighth_greater": "A obra concluída: o fogo que encontrou forma e harmonia.",
+    "eighth_lesser": "A obra que não se deixa terminar: o retoque sem fim, ou o fecho apressado de quem só quer se livrar dela.",
     "order": 25,
     "element": "Fogo",
     "sign": "Áries",
     "planet": "Vênus",
-    "description": "O Quatro de Bastões representa a estabilidade que surge após os esforços iniciais. No Tarot de Thoth, essa carta é vista como um ponto de equilíbrio onde o fogo da criação é estabilizado, resultando em celebração e harmonia. É um momento para reconhecer e valorizar o progresso alcançado. Embora ainda haja trabalho pela frente, esta carta destaca a importância de fazer pausas para apreciar as vitórias, grandes ou pequenas. Ela também simboliza a criação de um ambiente seguro onde o crescimento pode continuar.",
-    "description_symbolic": "No Quatro de Bastões, os bastões formam uma estrutura sólida, representando a base estável para a celebração e a continuidade do crescimento. No Tarot de Thoth, essa estabilidade é acompanhada pela ideia de união e harmonia, onde esforços individuais se convertem em conquistas coletivas. A imagem de uma celebração indica que o trabalho árduo foi reconhecido e recompensado.",
-    "message_esoteric": "O Quatro de Bastões nos ensina a importância de celebrar nossas realizações e de criar espaços de harmonia e estabilidade. Ele nos lembra que o sucesso não é apenas o destino final, mas também os momentos de alegria ao longo do caminho. Esta carta nos convida a valorizar o presente, reconhecer nossas conquistas e criar uma base segura para o crescimento futuro.",
+    "description": "A Completude é o momento em que o esforço inicial se completa. O Quatro de Bastões reúne Vênus, o planeta da harmonia e do prazer, no último decano de Áries (de 20 a 30 graus), com Chesed, a esfera da ordem estável. Numa leitura, indica uma obra concluída, um projeto que ganha acabamento, uma etapa que se fecha com beleza. Anuncia um tempo de colheita e de descanso merecido.",
+    "description_symbolic": "Bastões que se cruzam no centro formam uma roda, com um aro dourado em círculo sobre fundo verde; no alto, o símbolo de Vênus, e embaixo o de Áries. A roda sugere ciclo fechado e movimento ordenado, e o centro cheio de raios lembra o fogo ainda vivo dentro da estrutura. Chesed, a esfera do quatro, traz a estabilidade, e Vênus suaviza o ímpeto de Áries com beleza.",
+    "message_esoteric": "Algo ficou pronto: um projeto que se completa, uma etapa que fecha bem, um prazer que se pode desfrutar. A carta pede acabamento sem pressa e um brinde ao que foi feito, e lembra que o retoque infinito é uma forma de não deixar a obra nascer. Concluir uma etapa costuma abrir espaço para a próxima.",
     "meditation_reflection": [
-      "Estou tirando tempo suficiente para reconhecer minhas conquistas?",
-      "Como posso criar mais harmonia e estabilidade em minha vida?",
-      "Quais partes do meu caminho atual estão prontas para uma conclusão positiva?"
+      "O que eu continuo retocando para não dizer que está pronto, e o que a roda da carta diria?",
+      "O que significa, para mim, um círculo fechado com fogo vivo no centro?",
+      "De que obra seria a pergunta de conclusão que eu faria à Completude?"
     ],
-    "internal_alchemy": "O Quatro de Bastões simboliza a alquimia da celebração e do equilíbrio. Ele nos desafia a encontrar satisfação nas realizações presentes e a usá-las como base para um progresso sustentável.",
-    "magical_practice": "Conecte-se ao Quatro de Bastões visualizando um espaço seguro e acolhedor onde você pode celebrar suas vitórias. Imagine-se cercado por apoio e harmonia, afirmando sua gratidão por suas conquistas e pela estabilidade alcançada.",
+    "internal_alchemy": "Assentamento: a energia da etapa anterior encontra seu recipiente e se firma em forma duradoura. É a operação de dar acabamento, em que o calor deixa de ser promessa e se torna obra que se pode habitar.",
+    "magical_practice": "Acenda uma vela verde, cor de Vênus, e contemple a roda dourada do Quatro. Vibre o nome de Vênus quatro vezes, uma para cada bastão que a atravessa. No diário, escreva o que se completou e celebre com algo belo: flores, uma refeição, uma música.",
     "past_present_future": {
-      "past": "Você concluiu com sucesso um ciclo ou projeto importante, trazendo estabilidade.",
-      "present": "Este é um momento de celebração e apreciação das suas conquistas.",
-      "future": "A promessa de harmonia e sucesso contínuo, desde que você mantenha o equilíbrio e reconheça seus esforços."
+      "past": "A raiz desta carta está num esforço longo que, em algum ponto, deu certo e passou sem festa.",
+      "present": "Existe uma obra quase inteira. A carta mede o ponto em que basta e o prazer de desfrutar do que já tem forma.",
+      "future": "Vem aí uma fase de colheita e de beleza acabada. Ela pede que se assine a obra e se descanse sob a roda completa."
     },
     "numeral": "4",
     "sephirah": "Chesed",
@@ -935,34 +935,34 @@
       "degrees": "20 a 30 graus de Áries",
       "dates": "10/04 a 19/04"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Cinco de Bastões",
-    "title": "Luta",
+    "title": "Conflito",
     "number": 5,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Competição saudável, superação de desafios.",
-    "eighth_lesser": "Conflitos desnecessários, caos, desentendimentos.",
+    "eighth_greater": "O atrito que revela forças: o conflito encarado mostra o que vale defender.",
+    "eighth_lesser": "A briga por brigar: a energia gasta em disputas sem alvo, ou o conflito evitado até explodir.",
     "order": 26,
     "element": "Fogo",
     "sign": "Leão",
     "planet": "Saturno",
-    "description": "O Cinco de Bastões simboliza o caos criativo e os conflitos necessários para o crescimento. No Tarot de Thoth, essa carta representa os desafios que surgem quando diferentes energias entram em choque. O elemento Fogo intensifica esse conflito, mas também traz a promessa de progresso e superação. Esse é o estágio em que as lutas, tanto internas quanto externas, nos forçam a sair de nossa zona de conforto e a evoluir.",
-    "description_symbolic": "O Cinco de Bastões é frequentemente representado como figuras em competição ou confronto. No Tarot de Thoth, ele simboliza a interação dinâmica de forças opostas, criando tensão, mas também movimento. Os bastões cruzados indicam que o progresso pode ser alcançado ao enfrentar e integrar essas forças.",
-    "message_esoteric": "O Cinco de Bastões nos ensina que os conflitos não devem ser temidos, mas abraçados como ferramentas de aprendizado e autodescoberta. Ele nos lembra que é na adversidade que encontramos força e clareza. Os desafios enfrentados com coragem abrem caminho para o crescimento.",
+    "description": "O Conflito aparece quando várias vontades querem o mesmo espaço. No Cinco de Bastões, Saturno, o planeta do limite, ocupa o primeiro decano de Leão (de 0 a 10 graus), signo da presença e do brilho, na esfera de Geburah, a do rigor. Numa leitura, indica disputa, rivalidade, atrito de vontades, uma competição que desgasta. Avisa de um embate em curso e pergunta pelo que realmente está em jogo.",
+    "description_symbolic": "Sobre fundo amarelo, um bastão central, verde e grosso, é atravessado por quatro outros em diagonal, com chamas no cruzamento; no alto do bastão central há uma figura alada, e nele aparecem os símbolos de Saturno e de Leão. São forças que se cruzam sem se somar. Cinco é o número de Geburah, onde a expansão é testada e podada, e Saturno freia o impulso do Leão.",
+    "message_esoteric": "Vontades se cruzam num embate: uma rivalidade, um desacordo que consome tempo. A carta pede que se nomeie o que está de fato em disputa e que se escolha a batalha que vale, e avisa que o conflito sem alvo só gasta fogo. Quando as vozes se alinham, a energia volta a ser útil.",
     "meditation_reflection": [
-      "Estou vendo os desafios como obstáculos ou como oportunidades de aprendizado?",
-      "Como posso enfrentar os conflitos com mais resiliência e sabedoria?",
-      "Quais lições posso extrair das lutas que enfrento atualmente?"
+      "Em que disputa o que defendo já não é o que importa, e o que o bastão central diria dela?",
+      "O que o bastão central, de topo alado, diz sobre o que os outros quatro disputam?",
+      "O que eu perguntaria ao Conflito para descobrir o que está de fato em jogo?"
     ],
-    "internal_alchemy": "O Cinco de Bastões simboliza a alquimia da transformação através da adversidade. Ele nos desafia a converter o caos em progresso, usando os conflitos como catalisadores para a evolução pessoal.",
-    "magical_practice": "Para se conectar ao Cinco de Bastões, visualize-se enfrentando um desafio e superando-o com confiança. Imagine-se crescendo e se fortalecendo a cada obstáculo superado. Afirme sua resiliência e determinação.",
+    "internal_alchemy": "Fricção: dois materiais se atritam e liberam calor e resíduos. Quando o atrito é consciente, separa o essencial do ruído. Quando não é, só desgasta, e a primeira tarefa é nomear o que está sendo disputado.",
+    "magical_practice": "Acenda uma vela vermelha e contemple o bastão central cruzado por quatro outros. Vibre o nome de Saturno, que limita o fogo de Leão, e escreva no diário o que você quer, o que a outra parte parece querer e o que as duas têm em comum.",
     "past_present_future": {
-      "past": "Você enfrentou desafios significativos que moldaram sua força e caráter.",
-      "present": "Um conflito atual exige coragem e resiliência para ser superado.",
-      "future": "O progresso e a vitória virão, desde que você enfrente os desafios com determinação."
+      "past": "Aqui, a raiz está num tempo de atritos constantes, com muita energia gasta em discussões ou em projetos que não se acomodavam.",
+      "present": "Forças diferentes puxam em direções opostas, dentro ou fora de você. A carta quer saber qual é a disputa real.",
+      "future": "O baralho anuncia uma fase de embate que termina em foco ou em desgaste, conforme se escolha o alvo. Ela pede nome para a disputa: nomeada, deixa de ser ruído."
     },
     "numeral": "5",
     "sephirah": "Geburah",
@@ -973,7 +973,7 @@
       "degrees": "0 a 10 graus de Leão",
       "dates": "23/07 a 01/08"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Seis de Bastões",
@@ -981,26 +981,26 @@
     "number": 6,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Reconhecimento, sucesso público, triunfo.",
-    "eighth_lesser": "Arrogância, excesso de confiança, dúvidas internas.",
+    "eighth_greater": "O êxito que chega: as forças alinhadas, a vitória generosa.",
+    "eighth_lesser": "O triunfalismo: a vitória que vira vaidade, ou que ninguém ousa chamar de sua.",
     "order": 27,
     "element": "Fogo",
     "sign": "Leão",
     "planet": "Júpiter",
-    "description": "O Seis de Bastões representa o triunfo merecido e o reconhecimento público após esforço e perseverança. No Tarot de Thoth, ele não simboliza apenas o sucesso material, mas a vitória interna que vem da superação dos desafios. O elemento Fogo mantém sua energia dinâmica, mas aqui está sob controle, irradiando confiança e celebração. Esta carta é um lembrete de que a verdadeira vitória envolve não apenas conquistas pessoais, mas também a capacidade de inspirar e liderar outros.",
-    "description_symbolic": "O Seis de Bastões é frequentemente ilustrado como uma figura vitoriosa sendo celebrada por outros. No Tarot de Thoth, essa imagem reflete a harmonia entre o esforço individual e o apoio coletivo. Os bastões erguidos simbolizam a energia acumulada e direcionada para a conquista. O reconhecimento público é importante, mas esta carta também sugere a necessidade de humildade diante do sucesso.",
-    "message_esoteric": "O Seis de Bastões nos ensina que o sucesso não é apenas uma conquista pessoal, mas uma oportunidade de inspirar os outros. Ele nos convida a celebrar as vitórias com gratidão e a usá-las como combustível para continuar crescendo. A humildade é essencial para manter o equilíbrio após a vitória.",
+    "description": "Depois do esforço, a ordem: a Vitória é o êxito que chega quando as forças se alinham. Júpiter, o planeta da expansão e da generosidade, reina no segundo decano de Leão (de 10 a 20 graus), e a esfera é Tiphareth, o centro solar da Árvore. Numa leitura, indica triunfo, reconhecimento, uma meta alcançada, alegria compartilhada. Anuncia que o esforço dá fruto.",
+    "description_symbolic": "Seis bastões dourados se cruzam em três pares, três inclinados para cada lado, formando uma trama, com chamas pequenas entre eles, sobre fundo violeta; no alto, duas figuras aladas, com o símbolo de Júpiter entre elas, e embaixo o de Leão. O cruzamento regular sugere esforços que, juntos, sustentam uma estrutura. Seis é o número de Tiphareth, ponto de harmonia entre todas as esferas.",
+    "message_esoteric": "O esforço dá fruto: o reconhecimento chega, e há motivo para celebrar. A carta recomenda gratidão tanto quanto festa e faz o aviso de que o triunfo guardado só para si perde o brilho. O brilho que se divide costuma durar mais.",
     "meditation_reflection": [
-      "Estou aproveitando o momento de sucesso para crescer ainda mais?",
-      "Como posso inspirar os outros com minhas conquistas?",
-      "Estou equilibrando o reconhecimento público com a humildade interna?"
+      "Quando a minha vitória vira prova de que sou melhor do que alguém, e o que Júpiter diria disso?",
+      "O que significa que os seis bastões se cruzem em trama, sob duas figuras aladas, na vitória que a carta celebra?",
+      "Com quem eu partilharia a resposta da Vitória, e que pergunta de êxito eu lhe faria?"
     ],
-    "internal_alchemy": "O Seis de Bastões simboliza a alquimia da vitória e da gratidão. Ele nos desafia a transformar o sucesso em uma fonte de inspiração contínua, tanto para nós mesmos quanto para aqueles ao nosso redor.",
-    "magical_practice": "Para se conectar ao Seis de Bastões, visualize-se sendo celebrado por suas conquistas. Imagine essa energia positiva irradiando de você e inspirando outros. Afirme sua capacidade de liderar com humildade e sabedoria.",
+    "internal_alchemy": "Citrinitas, a fase em que o trabalho amadurece em luz dourada: o que foi cozido e provado agora brilha. A operação é deixar a luz circular, e não guardá-la como troféu.",
+    "magical_practice": "Acenda uma vela azul, cor de Júpiter, e contemple os seis bastões em trama. Vibre o nome de Júpiter seis vezes, uma por bastão. No diário, escreva três vitórias e o nome de quem ajudou em cada uma, e ofereça um agradecimento a uma dessas pessoas.",
     "past_present_future": {
-      "past": "Uma vitória passada trouxe reconhecimento e abriu portas para novas oportunidades.",
-      "present": "Você está colhendo os frutos de seus esforços e sendo reconhecido por isso.",
-      "future": "O triunfo e o sucesso continuarão, desde que você mantenha o equilíbrio e a humildade."
+      "past": "Lá atrás, a raiz está num esforço longo que já deu resultado, sem a festa que merecia.",
+      "present": "Um êxito está à vista ou nas mãos. A carta quer saber como partilhá-lo e como recebê-lo sem se perder nele.",
+      "future": "Aproxima-se uma fase de triunfo e de reconhecimento. Ela pede mão aberta: a vitória repartida faz bem a quem a conquistou."
     },
     "numeral": "6",
     "sephirah": "Tiphareth",
@@ -1011,34 +1011,34 @@
       "degrees": "10 a 20 graus de Leão",
       "dates": "02/08 a 11/08"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Sete de Bastões",
-    "title": "Coragem",
+    "title": "Valor",
     "number": 7,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Defesa de território, perseverança, resiliência.",
-    "eighth_lesser": "Pressão, exaustão, sentimento de sobrecarga.",
+    "eighth_greater": "A coragem de sustentar a própria posição, mesmo em minoria.",
+    "eighth_lesser": "A teimosia heroica: insistir sem aliados por obstinação, ou lutar até a exaustão.",
     "order": 28,
     "element": "Fogo",
     "sign": "Leão",
     "planet": "Marte",
-    "description": "O Sete de Bastões simboliza a luta para proteger o que foi conquistado. No Tarot de Thoth, essa carta destaca a necessidade de coragem em tempos de adversidade, onde defender seus valores e território requer determinação. O elemento Fogo aqui se manifesta como força e resistência, impulsionando o indivíduo a enfrentar qualquer oposição com confiança. Este é o momento de se manter firme, mesmo quando as circunstâncias parecem desfavoráveis.",
-    "description_symbolic": "O Sete de Bastões é representado por figuras em defesa, simbolizando a batalha para manter o que foi alcançado. No Tarot de Thoth, os bastões cruzados indicam resistência e força, mas também sugerem a importância de saber quando lutar e quando preservar energia. Essa carta reflete um equilíbrio dinâmico entre esforço e proteção.",
-    "message_esoteric": "O Sete de Bastões nos ensina que a verdadeira coragem não é a ausência de medo, mas a determinação de enfrentar desafios apesar dele. Ele nos lembra que proteger nossas conquistas é um ato de autovalorização e crescimento.",
+    "description": "O Valor é a coragem de manter uma posição quando tudo conspira contra ela. Marte, planeta da ação, ocupa o último decano de Leão (de 20 a 30 graus) e dá ao brio do signo a força da luta. A esfera é Netzach, a da Firmeza e do desejo, que a tradição também traduz como Vitória. Numa leitura, a carta indica desafio, resistência, uma causa defendida contra a corrente. Avisa que há quem se oponha e pede que se escolha com orgulho o que merece ser defendido.",
+    "description_symbolic": "Um bastão central, grosso e nodoso, de cor laranja avermelhada, fica à frente de seis bastões dourados que se cruzam atrás dele, três de cada lado, sobre fundo azul-escuro; no canto aparece o símbolo de Marte e embaixo o de Leão. Um só diante de vários, e firme. Sete é o número de Netzach, onde o desejo e o instinto se firmam e persistem, e Marte aguça a coragem.",
+    "message_esoteric": "A posição está sob ataque, e você é capaz de sustentá-la: um desafio, uma disputa em que se está em desvantagem. A carta pede coragem com pontaria e adverte que lutar contra todos, sem aliados, esgota. Chamar quem está perto para ficar ao seu lado é parte da estratégia.",
     "meditation_reflection": [
-      "Estou defendendo o que realmente importa para mim?",
-      "Como posso usar minha força interior sem me esgotar?",
-      "Estou equilibrando perseverança com sabedoria e autocuidado?"
+      "O que eu defendo sem aliados por orgulho, e o que o bastão nodoso diria dessa batalha?",
+      "O que significa um só bastão, grosso e nodoso, diante de seis bastões que se cruzam?",
+      "A quem eu pediria que ficasse ao meu lado, e que pergunta de coragem eu faria ao Valor?"
     ],
-    "internal_alchemy": "O Sete de Bastões simboliza a alquimia da coragem sustentada. Ele nos desafia a transformar a adversidade em força e a defender nossas conquistas com inteligência e determinação.",
-    "magical_practice": "Conecte-se ao Sete de Bastões visualizando-se em uma posição firme e protegida. Imagine-se resistindo a qualquer adversidade com confiança e resiliência. Afirme sua força para proteger o que é valioso.",
+    "internal_alchemy": "Têmpera: o metal aquecido e resfriado endurece, e a pressão externa afasta o que era frágil. Mas têmpera demais o torna quebradiço, e a coragem que não descansa também se rompe.",
+    "magical_practice": "Acenda uma vela vermelha e contemple o bastão nodoso diante dos seis outros. Vibre o nome de Marte e fique em pé, firme, por um minuto, como o bastão central. No diário, escreva a posição que você defende e quem poderia ficar ao seu lado nessa causa.",
     "past_present_future": {
-      "past": "Você enfrentou desafios em que a perseverança foi essencial para manter suas conquistas.",
-      "present": "Este é um momento de defender suas realizações com coragem e determinação.",
-      "future": "A promessa de vitória e estabilidade, desde que você mantenha sua força e proteção sobre o que construiu."
+      "past": "A raiz aqui está numa situação em que uma posição foi defendida mesmo sem ninguém por perto.",
+      "present": "Algo importante é contestado. A carta separa a convicção que sustenta do cansaço que já pede para largar.",
+      "future": "A carta anuncia uma fase de prova e de firmeza. Ela pede aliados: o valor que se sustenta com companhia dura mais que o que resiste no isolamento."
     },
     "numeral": "7",
     "sephirah": "Netzach",
@@ -1049,7 +1049,7 @@
       "degrees": "20 a 30 graus de Leão",
       "dates": "12/08 a 21/08"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Oito de Bastões",
@@ -1057,26 +1057,26 @@
     "number": 8,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Movimento rápido, progresso, finalização de tarefas.",
-    "eighth_lesser": "Desorganização, pressa, falta de foco.",
+    "eighth_greater": "O movimento veloz: ideias e mensagens que chegam de repente.",
+    "eighth_lesser": "A dispersão em movimento: muitas direções ao mesmo tempo, e fôlego para nenhuma.",
     "order": 29,
     "element": "Fogo",
     "sign": "Sagitário",
     "planet": "Mercúrio",
-    "description": "O Oito de Bastões simboliza movimento rápido, progresso e mudanças súbitas. No Tarot de Thoth, essa carta representa a energia direcionada e focada, quando todos os esforços convergem em um objetivo comum, resultando em um avanço acelerado. O elemento Fogo aqui reflete a ação direta e a capacidade de realizar tarefas rapidamente, desde que haja foco e clareza de propósito. É um lembrete de que, quando as energias estão alinhadas, o progresso pode ser fluido e sem resistência.",
-    "description_symbolic": "O Oito de Bastões é frequentemente representado por bastões voando pelo ar, simbolizando velocidade e direção. No Tarot de Thoth, essa imagem sugere não apenas o avanço rápido, mas a importância de manter o controle enquanto tudo se move rapidamente. Essa carta também está associada a mensagens e oportunidades inesperadas.",
-    "message_esoteric": "O Oito de Bastões nos ensina que o progresso é uma combinação de oportunidade e preparação. Ele nos lembra que devemos estar prontos para agir rapidamente quando as circunstâncias são favoráveis e que o foco é a chave para aproveitar ao máximo o impulso.",
+    "description": "Quando tudo se move depressa demais para pensar, é a Rapidez que fala. No Oito de Bastões, Mercúrio, o mensageiro, ocupa o primeiro decano de Sagitário (de 0 a 10 graus) e leva a palavra e a ideia na direção do horizonte. A esfera é Hod, a do Esplendor, ligada ao intelecto e à comunicação. Numa leitura, a carta indica notícias, viagens, decisões rápidas, tudo o que corre e chega depressa. Anuncia uma fase de movimento.",
+    "description_symbolic": "Oito setas vermelhas em zigue-zague, como raios, partem do centro de uma figura geométrica translúcida, amarela, verde e azul, sob um arco-íris; no alto, os símbolos de Mercúrio e de Sagitário. Energia em muitas direções, mas com um mesmo centro. Hod, a esfera do oito, organiza o pensamento e o comunica, Mercúrio liga o que está distante, e Sagitário aponta o rumo.",
+    "message_esoteric": "Um tempo veloz se anuncia: mensagens que chegam, planos que andam, viagens que se armam de repente. A carta pede que se escolha o rumo e se responda depressa ao que importa, e previne que a pressa sem alvo dispersa o fogo. Conectar-se depressa é um dom, e o alvo o torna eficaz.",
     "meditation_reflection": [
-      "Estou aproveitando o momento de progresso rápido para avançar em direção aos meus objetivos?",
-      "Como posso evitar a desorganização e manter o foco durante períodos de alta atividade?",
-      "Estou preparado para lidar com mudanças repentinas de maneira eficaz?"
+      "Em que ponto a minha pressa virou dispersão, e o que as oito setas fariam se partissem do mesmo centro?",
+      "Se as oito setas partissem de mim, para que alvo eu apontaria a primeira?",
+      "Que resposta eu aceitaria sem demora, e que pergunta rápida eu faria à Rapidez?"
     ],
-    "internal_alchemy": "O Oito de Bastões simboliza a alquimia do impulso direcionado. Ele nos desafia a transformar energia bruta em progresso eficaz, usando o foco como ferramenta de realização.",
-    "magical_practice": "Conecte-se ao Oito de Bastões visualizando flechas disparando em direção aos seus objetivos. Imagine cada flecha representando uma tarefa concluída com precisão. Afirme seu foco e determinação.",
+    "internal_alchemy": "Volatilização: o que estava fixo se torna vapor, leve e móvel, capaz de atravessar distâncias. A operação é dar rumo ao movimento, de modo que a velocidade não dissolva o que se queria carregar.",
+    "magical_practice": "Acenda uma vela amarela, cor de Mercúrio, e contemple as oito setas da carta. Vibre o nome de Mercúrio depressa, oito vezes, e depois uma vez devagar. No diário, liste o que corre ao mesmo tempo e marque o que realmente pede resposta ligeira.",
     "past_present_future": {
-      "past": "Um período de progresso rápido trouxe mudanças significativas.",
-      "present": "Você está em um momento de avanço acelerado em direção a seus objetivos.",
-      "future": "A promessa de realização rápida, desde que você mantenha o foco e a clareza no caminho."
+      "past": "A raiz desta carta está num tempo em que tudo andou rápido, com respostas, viagens ou decisões se sucedendo.",
+      "present": "A energia circula depressa. A carta quer saber qual será o alvo, para que o movimento não vire dispersão.",
+      "future": "Vem aí uma fase de notícias e de deslocamentos. Ela pede direção: o que parte com alvo chega, e o que parte sem ele se perde no arco-íris."
     },
     "numeral": "8",
     "sephirah": "Hod",
@@ -1087,7 +1087,7 @@
       "degrees": "0 a 10 graus de Sagitário",
       "dates": "22/11 a 01/12"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Nove de Bastões",
@@ -1095,26 +1095,26 @@
     "number": 9,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Resiliência, proteção, superação de desafios.",
-    "eighth_lesser": "Desconfiança, cansaço extremo, resistência desnecessária.",
+    "eighth_greater": "A força de base: energia reservada, resistência no ritmo certo.",
+    "eighth_lesser": "A resistência além do limite: a força usada só para aguentar.",
     "order": 30,
     "element": "Fogo",
     "sign": "Sagitário",
     "planet": "Lua",
-    "description": "O Nove de Bastões representa a força final necessária antes de alcançar a vitória. No Tarot de Thoth, ele simboliza a resiliência em meio ao cansaço e a capacidade de continuar mesmo quando todos os sinais indicam exaustão. O elemento Fogo aqui reflete o impulso vital de proteção, onde o indivíduo guarda suas conquistas com determinação. Esta carta lembra que o sucesso muitas vezes está próximo, mas exige resistência até o fim.",
-    "description_symbolic": "No Nove de Bastões, os bastões formam uma barreira protetora, representando a defesa final antes da conclusão. No Tarot de Thoth, ele sugere não apenas a proteção das conquistas, mas também o aprendizado da importância do descanso e da renovação para evitar o colapso. A figura em defesa simboliza tanto força quanto vigilância.",
-    "message_esoteric": "O Nove de Bastões nos ensina que, mesmo nos momentos de cansaço, há força suficiente para continuar. Ele nos lembra da importância de proteger nossas conquistas, mas também de saber quando é necessário recuperar energias.",
+    "description": "Existe uma força que não é explosão, mas reserva. A Força do Nove de Bastões reúne a Lua, planeta dos ritmos e das marés, no segundo decano de Sagitário (de 10 a 20 graus), sobre Yesod, a esfera do Fundamento, ligada às imagens e ao corpo. Numa leitura, a carta indica resistência, energia guardada, um fôlego que vem de longe, a hora de se preparar antes do último esforço. Anuncia que a reserva existe.",
+    "description_symbolic": "Um bastão central vermelho-alaranjado, encimado pelo Sol, e vários outros em forma de flecha, com penas azuis no alto e luas crescentes na base, abrem-se em leque sobre um fundo azul-escuro; na base há um globo com o símbolo de Sagitário. A força aqui se sustenta em ciclos, não em esforço contínuo. A Lua traz o ritmo, Sagitário o alcance, e Yesod, a nona esfera, é o fundamento que sustenta o que está acima.",
+    "message_esoteric": "Há reserva: força guardada para o momento exato e a coragem de aguentar mais um pouco. A carta pede que se ouça o ritmo do corpo e se faça pausa antes da próxima investida, e alerta que quem só resiste esquece de repor. A Lua mostra: o brilho vem em fases.",
     "meditation_reflection": [
-      "Estou protegendo minhas conquistas de maneira eficaz ou estou me sobrecarregando?",
-      "Como posso equilibrar resistência com momentos de recuperação?",
-      "Estou permitindo que a desconfiança me impeça de avançar?"
+      "Em que situação eu confundo resistir com viver, e o que a Lua nas pontas das flechas diria disso?",
+      "As fases da Lua alternam brilho e escuro: o que isso ensina sobre esforço e pausa nesta carta?",
+      "Quando eu deixaria a Força repousar antes de ouvir a resposta à minha pergunta?"
     ],
-    "internal_alchemy": "O Nove de Bastões simboliza a alquimia da resistência sustentada. Ele nos desafia a manter nossa força e proteger nossas conquistas, enquanto aprendemos a importância do equilíbrio.",
-    "magical_practice": "Conecte-se ao Nove de Bastões visualizando-se protegido por um escudo de luz, mantendo suas conquistas seguras. Afirme sua resiliência e sua capacidade de superar qualquer desafio.",
+    "internal_alchemy": "Conservar o calor para usá-lo no momento certo: é a operação desta carta. Como a Lua, a energia aparece em fases, e a obra depende de respeitar as de repouso tanto quanto as de brilho.",
+    "magical_practice": "Acenda uma vela prateada, cor da Lua, e contemple o feixe de bastões do Nove diante do Sol. Vibre o nome da Lua e respire em três tempos: inspirar, segurar, soltar. No diário, anote durante três noites quando a sua energia sobe e quando desce.",
     "past_present_future": {
-      "past": "Um período de dificuldades exigiu força e resiliência para proteger o que foi conquistado.",
-      "present": "Você está em um momento de proteção e resistência contra desafios persistentes.",
-      "future": "A vitória está próxima, desde que você mantenha o equilíbrio entre força e renovação."
+      "past": "Aqui, a raiz está numa época de sustentar muita coisa por muito tempo, guardando forças para o que viesse.",
+      "present": "A resistência está de pé. A carta quer saber o que a reserva ainda guarda e quando será hora de repor.",
+      "future": "O baralho anuncia uma fase de fôlego longo: a energia dura porque obedece aos próprios ciclos. Ela pede pausa no ritmo certo antes do último arranco."
     },
     "numeral": "9",
     "sephirah": "Yesod",
@@ -1125,7 +1125,7 @@
       "degrees": "10 a 20 graus de Sagitário",
       "dates": "02/12 a 11/12"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Dez de Bastões",
@@ -1133,26 +1133,26 @@
     "number": 10,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Responsabilidade, cumprimento de objetivos.",
-    "eighth_lesser": "Sobrecarga, estresse, cansaço extremo.",
+    "eighth_greater": "O peso reconhecido: ver o que sobrecarrega e escolher o que continuar levando.",
+    "eighth_lesser": "A sobrecarga que vira rotina: o peso que passa a parecer destino, ou a opressão exercida sobre outros.",
     "order": 31,
     "element": "Fogo",
     "sign": "Sagitário",
     "planet": "Saturno",
-    "description": "O Dez de Bastões simboliza o peso das responsabilidades que vem com o sucesso. No Tarot de Thoth, ele reflete a opressão gerada pelo excesso de tarefas ou obrigações, quando a energia do Fogo, antes vibrante e criativa, se torna uma chama que consome em vez de nutrir. Esta carta é um lembrete de que mesmo as conquistas mais significativas podem se tornar um fardo se não forem equilibradas com descanso e delegação. É o chamado para revisar suas prioridades e buscar ajuda quando necessário.",
-    "description_symbolic": "O Dez de Bastões é representado por figuras sobrecarregadas, carregando mais do que podem sustentar. No Tarot de Thoth, ele indica que o excesso de responsabilidade pode resultar em estagnação e desgaste emocional, mas também oferece a oportunidade de crescimento ao aprender a soltar o que não é necessário.",
-    "message_esoteric": "O Dez de Bastões nos ensina que o sucesso não é medido apenas pelas conquistas, mas pela capacidade de equilibrar responsabilidades e manter a paz interior. Ele nos lembra que há força em delegar e que o caminho para o crescimento sustentável requer saber quando dizer *não*.",
+    "description": "A Opressão é o fogo que se tornou fardo. No Dez de Bastões, Saturno, o planeta do peso e do limite, ocupa o último decano de Sagitário (de 20 a 30 graus) e pesa sobre uma energia feita para se expandir, e Malkuth, a décima esfera, a do Reino e da matéria, mostra o resultado concreto: excesso de obrigações e de pressão. Numa leitura, a carta indica sobrecarga, tarefas demais, uma carga que cansa, às vezes imposta por outros. Avisa que é hora de separar o que é seu do que é peso alheio.",
+    "description_symbolic": "Sobre um fundo laranja com uma chama no centro, dois bastões verticais, grossos e escuros, ficam à frente de uma trama de bastões azuis cruzados; no alto aparece o símbolo de Saturno, embaixo o de Sagitário. Muitas forças empilhadas, sem espaço entre elas. Dez é o número de Malkuth, onde a energia da série chega à matéria e se acumula; Saturno concentra e limita um Sagitário que quer alcance.",
+    "message_esoteric": "Carga demais: tarefas acumuladas, responsabilidades que não são todas suas, um peso que já passou do ponto. A carta pede que se separe o que é seu do que foi posto em você, e que se divida a carga com quem está perto ou se diga um não. Nem toda carga precisa ser levada até o fim.",
     "meditation_reflection": [
-      "Estou assumindo responsabilidades que poderiam ser compartilhadas?",
-      "Como posso reduzir minha carga sem comprometer meus objetivos?",
-      "Estou me permitindo descansar para evitar o esgotamento?"
+      "Que peso eu carrego há tanto tempo que já nem lembro de ter escolhido, e o que Saturno diria dele?",
+      "O que os dois bastões escuros à frente da trama azul dizem sobre o que se carrega por dever e o que se carrega por hábito?",
+      "A quem eu entregaria um dos bastões da Opressão, e que pergunta eu faria a ela?"
     ],
-    "internal_alchemy": "O Dez de Bastões simboliza a alquimia do esforço controlado. Ele nos desafia a transformar opressão em equilíbrio, reconhecendo o momento certo de agir e o momento de descansar.",
-    "magical_practice": "Conecte-se ao Dez de Bastões visualizando-se soltando um fardo pesado e sentindo alívio imediato. Afirme sua capacidade de delegar e priorizar suas responsabilidades.",
+    "internal_alchemy": "Brasa abafada: o fogo, sem saída, se acumula em matéria pesada sob as cinzas. A obra pede que se abra espaço: aliviar, dividir, recusar o que é excesso, para que a energia volte a circular.",
+    "magical_practice": "Acenda uma vela preta, cor de Saturno, e contemple os dez bastões, dois grossos à frente. Vibre o nome de Saturno e, no diário, faça duas listas: o que é seu e o que é peso alheio. Escolha um item da segunda, decida a quem entregá-lo ou dizer não, e ensaie a frase em voz alta.",
     "past_present_future": {
-      "past": "Um período de grandes responsabilidades testou seu equilíbrio e força.",
-      "present": "Você está sobrecarregado e precisa reavaliar suas prioridades.",
-      "future": "A promessa de alcançar seus objetivos, desde que você gerencie suas responsabilidades de forma eficiente."
+      "past": "Lá atrás, a raiz está em responsabilidades que foram se somando aos poucos, até virarem um peso difícil de nomear.",
+      "present": "Há mais carga do que espaço. A carta pede que se separe o que é seu do que foi posto em você, e isso se faz melhor com quem está por perto.",
+      "future": "Aproxima-se o fim de uma fase pesada, quando se nomeia o fardo e se reparte o que dá para repartir. Ela pede um não dito a tempo."
     },
     "numeral": "10",
     "sephirah": "Malkuth",
@@ -1163,34 +1163,34 @@
       "degrees": "20 a 30 graus de Sagitário",
       "dates": "12/12 a 21/12"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Princesa de Bastões",
-    "title": "Exploração",
+    "title": "A Dançarina do Fogo",
     "number": 11,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Descoberta, entusiasmo, potencial criativo.",
-    "eighth_lesser": "Imaturidade, falta de direção, impulsividade.",
+    "eighth_greater": "O fogo jovem: entusiasmo que se encarna, ousadia que dança.",
+    "eighth_lesser": "O fogo de palco: o entusiasmo que brilha sem raiz, ou se apaga na primeira dificuldade.",
     "order": 32,
     "element": "Fogo",
     "sign": null,
     "planet": null,
-    "description": "O Pajem de Bastões simboliza o espírito jovem da aventura e da descoberta. No Tarot de Thoth, ele representa o potencial não manifestado e o entusiasmo inato para explorar novos caminhos criativos. Esta carta fala sobre a curiosidade que nos motiva a experimentar e crescer. No entanto, esse entusiasmo deve ser equilibrado com sabedoria para evitar a dispersão ou a falta de direção. O elemento Fogo reflete a energia pura e vibrante do início de uma jornada.",
-    "description_symbolic": "O Pajem de Bastões é frequentemente representado por um jovem segurando um bastão, simbolizando novas possibilidades e ideias. No Tarot de Thoth, ele é a faísca inicial de entusiasmo que nos impulsiona a explorar o mundo ao nosso redor. Essa imagem sugere não apenas novas oportunidades, mas também a importância de permanecer focado e disciplinado.",
-    "message_esoteric": "O Pajem de Bastões nos ensina que o entusiasmo é a chave para iniciar grandes jornadas. Ele nos lembra que, ao abraçar novas possibilidades, devemos manter a curiosidade viva e o coração aberto para aprender. No entanto, a sabedoria reside em equilibrar esse entusiasmo com planejamento e foco.",
+    "description": "A Princesa é a patente mais jovem da Corte, a que traz o elemento do naipe até o chão, e aqui o chão é fogo. Terra de Fogo, em Malkuth, a esfera da matéria, é a vitalidade que quer se mexer: ousada, curiosa, direta. Numa leitura, indica uma jovem de espírito aceso, um impulso criativo que pede corpo, uma notícia vibrante. Ela não rege um signo: a tradição liga as Princesas a quadrantes do céu em torno do polo, e por isso não há decano nem datas para ela.",
+    "description_symbolic": "Na imagem, uma figura dançante, com um adorno de cabeça laranja, segura um bastão com um sol no alto; ao lado há um altar com chama e, curvado embaixo, um tigre, sobre um fundo vermelho de ondas douradas. Dança, altar e tigre sugerem energia corporal, ritual e vitalidade selvagem. Malkuth é a décima esfera, a do mundo concreto, e a Princesa é onde a energia do Fogo toca o chão.",
+    "message_esoteric": "Chega uma energia jovem e ousada: uma mensagem ardente, um começo que pede movimento, alguém ou algo que chega dançando. A carta pede que se teste o impulso na prática e lembra que o entusiasmo sem raiz dura o tempo de um espetáculo. O fogo jovem aprende ao se mover.",
     "meditation_reflection": [
-      "Estou aberto a explorar novas oportunidades com entusiasmo e foco?",
-      "Como posso cultivar curiosidade e aprendizado sem me desviar de meus objetivos?",
-      "Estou equilibrando a exploração com o compromisso e a disciplina?"
+      "Quando o meu entusiasmo é só espetáculo, e o que o tigre aos pés da Dançarina faria com ele?",
+      "O que o altar com chama ao lado da Dançarina e o tigre curvado dizem sobre o rito que o fogo jovem pede?",
+      "Em que passo de dança eu poria a minha pergunta à Dançarina?"
     ],
-    "internal_alchemy": "O Pajem de Bastões simboliza a alquimia da descoberta. Ele nos desafia a transformar curiosidade em criação, mantendo o entusiasmo inicial enquanto construímos um caminho sólido.",
-    "magical_practice": "Conecte-se ao Pajem de Bastões visualizando-se explorando um campo vasto e desconhecido, onde cada descoberta traz uma nova possibilidade. Afirme sua disposição para aprender e se aventurar.",
+    "internal_alchemy": "Fogo ainda cru que ganha corpo ao tocar a matéria: a vitalidade deixa de ser só desejo e entra na prática, mesmo desajeitada. A operação é manter a chama acesa por tempo suficiente para que dê calor a algo.",
+    "magical_practice": "Acenda uma vela vermelha ou laranja e contemple a Dançarina com o bastão de sol. Vibre o nome de Malkuth e dance por vinte minutos, com música, em torno da vela. No diário, anote o movimento que mais lhe deu alegria e a ideia que veio dele.",
     "past_present_future": {
-      "past": "Um novo começo trouxe entusiasmo e a promessa de crescimento.",
-      "present": "Você está em um período de descoberta e exploração de novas ideias.",
-      "future": "O potencial para grandes realizações, desde que você mantenha o foco em seu aprendizado."
+      "past": "A raiz aqui está num impulso jovem, ousado, de experimentar algo novo, sem medo de errar.",
+      "present": "Existe vitalidade pedindo ação. A carta mede o teste contra a espera e pergunta quanto cada via custa em fôlego.",
+      "future": "A carta anuncia uma fase de começos vivos e de energia que se mexe. Ela pede que se dê corpo ao impulso: o fogo que dança em prática ganha constância."
     },
     "numeral": "Princesa",
     "court_rank": "Princesa",
@@ -1198,34 +1198,34 @@
     "court_divine_name_letter": "Heh final",
     "sephirah": "Malkuth",
     "zodiac_range": null,
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Príncipe de Bastões",
-    "title": "Aventura",
+    "title": "O Condutor do Carro de Fogo",
     "number": 12,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Energia, determinação, paixão.",
-    "eighth_lesser": "Impaciência, imprudência, instabilidade.",
+    "eighth_greater": "A ambição generosa: vontade que conduz com visão e coragem.",
+    "eighth_lesser": "A vaidade no comando: a ambição que quer ser admirada mais do que ouvida, ou que passa por cima do grupo.",
     "order": 33,
     "element": "Fogo",
     "sign": null,
     "planet": null,
-    "description": "O Cavaleiro de Bastões simboliza a energia em movimento, a determinação e a paixão por alcançar objetivos. No Tarot de Thoth, ele representa a ação impulsionada pela ambição e pelo desejo de conquista. Ele é o espírito da aventura, guiado por intuição e entusiasmo. No entanto, essa energia intensa pode se tornar imprudente se não for equilibrada com planejamento. O elemento Fogo aqui é dinâmico e transformador, movendo-se rapidamente em direção ao sucesso.",
-    "description_symbolic": "O Cavaleiro de Bastões é frequentemente representado montado em um cavalo em movimento, simbolizando avanço rápido e ação impulsiva. No Tarot de Thoth, ele reflete a coragem de buscar novas aventuras, mas também a necessidade de saber quando desacelerar para evitar o erro.",
-    "message_esoteric": "O Cavaleiro de Bastões nos ensina que a energia e a paixão são poderosas quando direcionadas de forma eficaz. Ele nos lembra de agir com coragem e determinação, mas sem perder de vista a importância do planejamento e da reflexão.",
+    "description": "Um condutor de coroa de raios, um leão à frente e um carro em chamas: assim se apresenta o Príncipe de Bastões, o Ar do Fogo. O Príncipe é o filho que leva adiante a força do pai, em Tiphareth, e seu território no zodíaco vai de 20° de Câncer a 20° de Leão. Numa leitura, indica alguém de visão e ambição, um líder carismático, um plano que ganha velocidade. Pede generosidade ao conduzir e avisa da vaidade que acompanha o brilho.",
+    "description_symbolic": "Os Príncipes correspondem a Vav, a terceira letra do Tetragrama, e a Tiphareth, o centro solar da Árvore. Ar de Fogo é a mente que atiça a chama: pensamento, plano e palavra a serviço da vontade. Na imagem, o condutor, de braços abertos, segura as rédeas e uma haste e segue sobre o carro de chamas puxado pelo leão, diante de raios amarelos e vermelhos.",
+    "message_esoteric": "Ambição com visão: alguém, quem sabe você, conduz um empreendimento com carisma e energia. A carta pede que o brilho sirva a uma causa e que se meça a velocidade pelo grupo, e avisa que o líder que não escuta guia o carro sozinho. Um plano grande está em movimento.",
     "meditation_reflection": [
-      "Estou agindo com entusiasmo ou com impulsividade?",
-      "Como posso canalizar minha energia de forma a alcançar meus objetivos sem dispersá-la?",
-      "Estou equilibrando paixão e planejamento em minhas ações?"
+      "Em que ponto a minha ambição deixou de ouvir quem está ao meu lado, e o que o leão que puxa o carro diria?",
+      "Tiphareth é a esfera do equilíbrio: o que ela pede de um fogo que quer conduzir?",
+      "A quem eu daria uma volta no carro, e que pergunta de ambição faria ao Príncipe?"
     ],
-    "internal_alchemy": "O Cavaleiro de Bastões simboliza a alquimia da paixão canalizada. Ele nos desafia a transformar energia crua em ação estratégica e eficaz.",
-    "magical_practice": "Conecte-se ao Cavaleiro de Bastões visualizando-se cavalgando com confiança em direção aos seus objetivos. Sinta a energia do fogo impulsionando cada passo. Afirme sua determinação e foco.",
+    "internal_alchemy": "O ar sopra o fogo e o faz crescer: a ideia clara alimenta a vontade, e a vontade dá calor à ideia. A operação é manter essa troca equilibrada, de modo que o vento não apague a chama nem a espalhe demais.",
+    "magical_practice": "Acenda uma vela dourada e contemple o leão que puxa o carro. Vibre o nome de Tiphareth, a esfera do equilíbrio, e escreva no diário uma meta ambiciosa, quem se beneficia dela além de você e a quem pediria uma opinião franca sobre ela.",
     "past_present_future": {
-      "past": "Uma fase de ambição e energia intensa impulsionou seu progresso.",
-      "present": "Você está em um momento de agir com coragem e paixão.",
-      "future": "O sucesso é possível, desde que você mantenha o equilíbrio entre determinação e planejamento."
+      "past": "A raiz desta carta está num tempo em que algo foi liderado com entusiasmo, e o grupo acompanhou.",
+      "present": "Visão e energia estão à mão. A carta pergunta se a condução será generosa ou vaidosa, diferença sutil que decide o destino do carro.",
+      "future": "Vem aí uma fase de projetos que ganham velocidade e de liderança em ascensão. Ela pede ouvido: o líder que escuta mantém o carro inteiro."
     },
     "numeral": "Príncipe",
     "court_rank": "Príncipe",
@@ -1233,34 +1233,34 @@
     "court_divine_name_letter": "Vav",
     "sephirah": "Tiphareth",
     "zodiac_range": "20° Câncer a 20° Leão",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Rainha de Bastões",
-    "title": "Paixão",
+    "title": "A Chama Constante",
     "number": 13,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Confiança, carisma, inspiração criativa.",
-    "eighth_lesser": "Arrogância, ciúmes, manipulação.",
+    "eighth_greater": "O magnetismo caloroso: a chama que atrai, inspira e se mantém firme.",
+    "eighth_lesser": "O calor que prende: o cuidado que vira controle, ou a necessidade de ser indispensável.",
     "order": 34,
     "element": "Fogo",
     "sign": null,
     "planet": null,
-    "description": "A Rainha de Bastões representa a paixão vibrante e o poder da liderança natural. No Tarot de Thoth, ela simboliza uma figura poderosa, confiante e inspiradora, que lidera com energia criativa e determinação. Sua presença ilumina os caminhos dos outros, mas também serve como um lembrete de que o carisma pode se tornar egoísmo se não for equilibrado com empatia. O elemento Fogo aqui se manifesta como uma energia calorosa e acolhedora, mas firme.",
-    "description_symbolic": "A Rainha de Bastões é muitas vezes representada com um bastão em chamas, simbolizando a paixão e o poder criativo. No Tarot de Thoth, sua imagem reflete uma mestra do equilíbrio entre inspiração e responsabilidade. Sua energia carismática atrai seguidores e seu coração apaixonado impulsiona a ação, mas ela também sabe quando é necessário moderar seu fogo.",
-    "message_esoteric": "A Rainha de Bastões nos ensina que o verdadeiro poder não está apenas na liderança, mas na capacidade de inspirar outros a encontrar sua própria luz. Ela nos convida a liderar com confiança, autenticidade e empatia, lembrando que a paixão verdadeira deve ser compartilhada, não imposta.",
+    "description": "Em Binah, o fogo aprende a receber forma, e a Rainha de Bastões é essa chama que sustenta as outras: a Água do Fogo. Seu território vai de 20° de Peixes a 20° de Áries, do sonho ao começo. Numa leitura, indica uma mulher magnética, leal e criativa, uma presença que inspira sem esforço. Seu risco é o calor que prende: o cuidado que vira controle, ou a necessidade de ser indispensável.",
+    "description_symbolic": "As Rainhas correspondem ao primeiro Heh do Tetragrama e a Binah, a Grande Mãe da Árvore. Água de Fogo é a contradição fértil: calor que não evapora, porque tem profundidade. Na imagem, uma figura coroada, de cabelos longos alaranjados e manto vermelho que se confunde com chamas, segura um bastão com uma pinha no topo; ao lado, um felino de pelagem manchada, que parece um leopardo.",
+    "message_esoteric": "Magnetismo e lealdade: alguém que atrai pelo calor, ou um tempo em que o seu próprio fogo está constante. A carta pede que se alimente o fogo sem se consumir nele e faz o aviso de que quem precisa ser indispensável termina refém da própria chama. O calor com limite é o que dura.",
     "meditation_reflection": [
-      "Estou usando minha paixão para inspirar ou para dominar os outros?",
-      "Como posso liderar com confiança sem me desconectar das necessidades dos outros?",
-      "Estou equilibrando meu desejo de ação com empatia e compreensão?"
+      "Em que relação o meu calor virou necessidade de ser indispensável, e o que o felino ao lado da Rainha diria?",
+      "Se a Água de Fogo é calor com profundidade, como se mantém uma chama estável?",
+      "A que círculo de pessoas eu dirigiria a pergunta que faria à Rainha?"
     ],
-    "internal_alchemy": "A Rainha de Bastões simboliza a alquimia da paixão e do carisma. Ela nos desafia a transformar energia criativa em ação significativa, mantendo a integridade e a compaixão.",
-    "magical_practice": "Conecte-se à Rainha de Bastões visualizando uma chama dourada brilhando dentro de você, irradiando confiança e carisma. Afirme sua capacidade de liderar com paixão e empatia.",
+    "internal_alchemy": "Cocção lenta: o fogo sob um vaso de água aquece sem ferver, e o que está dentro amadurece em ponto constante. Calor e contenção trabalham juntos, e é isso que torna a chama constante.",
+    "magical_practice": "Acenda uma vela alaranjada e contemple a Rainha com a pinha no bastão e o felino ao lado. Vibre o nome de Binah, a Grande Mãe, e fique um minuto diante da chama. No diário, escreva o que você dá ao seu círculo e o que quer receber em troca.",
     "past_present_future": {
-      "past": "Um período de confiança e inspiração trouxe sucesso e crescimento.",
-      "present": "Você está em um momento de liderar com energia criativa e carisma.",
-      "future": "O sucesso e a influência são possíveis, desde que você mantenha sua autenticidade e equilíbrio emocional."
+      "past": "Aqui, a raiz está num tempo de sustentar um grupo com calor e firmeza, seu ou de alguém próximo.",
+      "present": "Uma chama estável está acesa. A carta quer saber se a consulente aquece os outros sem deixar de se aquecer.",
+      "future": "O baralho anuncia uma fase de magnetismo e de vínculos que se firmam. Ela pede limite e calor juntos: a chama constante é a que não consome o pavio."
     },
     "numeral": "Rainha",
     "court_rank": "Rainha",
@@ -1268,34 +1268,34 @@
     "court_divine_name_letter": "Heh",
     "sephirah": "Binah",
     "zodiac_range": "20° Peixes a 20° Áries",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Cavaleiro de Bastões",
-    "title": "Liderança",
+    "title": "A Investida de Fogo",
     "number": 14,
     "isMajorArcana": false,
     "suit": "Bastões",
-    "eighth_greater": "Visão inspiradora, autoridade positiva.",
-    "eighth_lesser": "Autoritarismo, impulsividade, orgulho.",
+    "eighth_greater": "O impulso puro: coragem de agir já e entusiasmo que contagia.",
+    "eighth_lesser": "A investida sem constância: a chama que arde tudo, cansa quem acompanha e abandona o que começou.",
     "order": 35,
     "element": "Fogo",
     "sign": null,
     "planet": null,
-    "description": "O Rei de Bastões representa o líder visionário, aquele que guia com paixão e sabedoria. No Tarot de Thoth, ele simboliza uma figura dinâmica e inspiradora, que não apenas alcança seus próprios objetivos, mas também capacita os outros a fazer o mesmo. O elemento Fogo aqui é refinado, mostrando não apenas o poder bruto da ação, mas o discernimento necessário para liderar com responsabilidade. Ele é um mestre em equilibrar entusiasmo com planejamento, garantindo que suas decisões sejam construtivas.",
-    "description_symbolic": "O Rei de Bastões é frequentemente representado com um bastão erguido, simbolizando seu poder criativo e liderança. No Tarot de Thoth, ele é a força que motiva o grupo, mas também sabe quando ouvir e ajustar seu curso. Sua presença irradia força e inspiração, mas ele também alerta contra o excesso de confiança e a impulsividade.",
-    "message_esoteric": "O Rei de Bastões nos ensina que a verdadeira liderança não está apenas no poder de comando, mas na capacidade de inspirar e guiar com sabedoria. Ele nos lembra que o líder mais eficaz é aquele que empodera os outros e age com integridade. Sua lição é sobre equilibrar paixão e responsabilidade, garantindo que suas decisões beneficiem não apenas a si mesmo, mas também àqueles ao seu redor.",
+    "description": "Fogo do Fogo é a chama no seu estado mais veloz, e o Cavaleiro de Bastões é essa investida. Ligado a Chokmah, com território de 20° de Escorpião a 20° de Sagitário, ele está sempre em movimento: chega, avança, passa. Numa leitura, indica alguém de ação e carisma, uma partida repentina, um arranque que não espera. Traz coragem, carisma e urgência, e o risco de deixar rastro de coisas começadas.",
+    "description_symbolic": "Os Cavaleiros correspondem ao Yod, a primeira letra do Tetragrama, e a Chokmah, a força inicial. Fogo de Fogo é a intensidade sem diluição, o ímpeto que se basta. Na imagem, um cavaleiro de armadura verde e dourada monta um cavalo preto empinado, com chamas na crina, diante de volutas de fogo vermelhas e alaranjadas.",
+    "message_esoteric": "Um arranque: alguém, ou algo em você, chega de repente, avança e contagia. A carta pede coragem para agir e atenção ao que fica para trás, e adverte que chegar primeiro não é o mesmo que chegar bem. Há uma partida em curso, e o cavalo já está empinado.",
     "meditation_reflection": [
-      "Estou usando meu poder de liderança de forma positiva e construtiva?",
-      "Como posso equilibrar meu entusiasmo com a necessidade de planejamento?",
-      "Estou inspirando os outros ou apenas impondo minhas ideias?"
+      "O que eu já abandonei por me empolgar com a próxima novidade, e o que o cavaleiro de armadura diria?",
+      "Que parte do impulso do Fogo de Fogo, a força inicial de Chokmah, merece mais atenção ao começar?",
+      "A que partida eu ligaria a minha pergunta ao Cavaleiro?"
     ],
-    "internal_alchemy": "O Rei de Bastões simboliza a alquimia da liderança visionária. Ele nos desafia a transformar paixão em estratégia, usando nossa energia criativa para construir algo duradouro.",
-    "magical_practice": "Conecte-se ao Rei de Bastões visualizando-se como um líder confiante, irradiando luz e energia criativa. Afirme sua habilidade de liderar com visão e responsabilidade.",
+    "internal_alchemy": "Fogo aberto, ainda sem recipiente: potência pura que ilumina e queima. A operação é encontrar um forno onde esse calor possa trabalhar, em vez de se consumir no próprio ímpeto.",
+    "magical_practice": "Acenda uma vela vermelha e contemple o cavalo preto empinado diante das chamas. Vibre Chokmah, a força inicial, num único grito curto. No diário, escreva o objetivo em uma frase e marque um ponto de parada, para checar a rota antes de seguir.",
     "past_present_future": {
-      "past": "Uma posição de liderança ou responsabilidade trouxe crescimento e aprendizado.",
-      "present": "Você está em um momento de liderar com confiança, paixão e visão.",
-      "future": "O sucesso e o reconhecimento estão ao seu alcance, desde que você mantenha o equilíbrio entre poder e responsabilidade."
+      "past": "Lá atrás, a raiz está num período de entusiasmo veloz, com muitas ideias e pouca pausa.",
+      "present": "A energia pede movimento. A carta separa o arrancar do escolher a rota e pergunta quem acompanha e quem ficou.",
+      "future": "Aproxima-se uma fase de partida e de arranque. Ela pede direção: o impulso com rota chega longe, e o que parte sem ela deixa rastro de brasas."
     },
     "numeral": "Cavaleiro",
     "court_rank": "Cavaleiro",
@@ -1303,7 +1303,7 @@
     "court_divine_name_letter": "Yod",
     "sephirah": "Chokmah",
     "zodiac_range": "20° Escorpião a 20° Sagitário",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Ás de Taças",
