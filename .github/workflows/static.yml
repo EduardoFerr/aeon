@@ -38,6 +38,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Validar dados das cartas
+        run: npm run validar
       - name: Build
         run: npm run build
       - name: Setup Pages

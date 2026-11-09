@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "validar": "node tools/validar-cartas.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },
