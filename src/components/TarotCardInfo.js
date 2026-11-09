@@ -1,3 +1,6 @@
+import { carregarGlossario, linkarTermos } from '../utils/glossario.js';
+import { abrirGlossario } from './GlossarioModal.js';
+
 export class TarotCardInfo extends HTMLElement {
     connectedCallback() {
         // Define o conteúdo inicial vazio
@@ -18,10 +21,10 @@ export class TarotCardInfo extends HTMLElement {
                     </div>
                     <div class="card-border">
                         <p >
-                            <strong>Oitava Maior: </strong><span id="card-maior"></span>
+                            <strong id="rotulo-maior">Oitava Maior: </strong><span id="card-maior"></span>
                         </p>
                         <p >
-                            <strong>Oitava Menor: </strong><span id="card-menor"></span>
+                            <strong id="rotulo-menor">Oitava Menor: </strong><span id="card-menor"></span>
                         </p>
                     </div>
                     <div class="card-border non-wrap">
@@ -62,6 +65,22 @@ export class TarotCardInfo extends HTMLElement {
         this.querySelector('.tarot-card-info').addEventListener('click', (event) => {
             if (event.target === event.currentTarget) this.hideInfo();
         });
+
+        // Termos do glossário: clique em qualquer .termo abre o popup com a explicação
+        this.querySelector('.info-content').addEventListener('click', (event) => {
+            const termo = event.target.closest('.termo');
+            if (termo) abrirGlossario(termo.dataset.termo, termo);
+        });
+        // Carrega o glossário já na abertura da página, para o primeiro clique achar tudo pronto
+        carregarGlossario();
+    }
+
+    /**
+     * Coloca um texto num elemento, transformando a primeira ocorrência de cada
+     * termo do glossário em botão. O texto é escapado (nunca vira HTML solto).
+     */
+    definirTexto(seletor, texto, usados) {
+        this.querySelector(seletor).innerHTML = linkarTermos(texto, usados);
     }
 
     /**
@@ -91,10 +110,13 @@ export class TarotCardInfo extends HTMLElement {
         this.querySelector('#card-title').textContent = cardData.title || not_found;
 
 
+        // Cada termo do glossário só vira botão na primeira vez que aparece nesta carta
+        const usados = new Set();
+
         this.querySelector('#card-name').textContent = cardData.name || not_found;
-        this.querySelector('#card-description').textContent = cardData.description || not_found;
-        this.querySelector('#card-symbolic-description').textContent = cardData.description_symbolic || not_found;
-        this.querySelector('#card-message-esoteric').textContent = cardData.message_esoteric || not_found;
+        this.definirTexto('#card-description', cardData.description || not_found, usados);
+        this.definirTexto('#card-symbolic-description', cardData.description_symbolic || not_found, usados);
+        this.definirTexto('#card-message-esoteric', cardData.message_esoteric || not_found, usados);
 
         // Na Corte o "número" 11 a 14 não existe em Thoth (a carta é a patente), então a linha some
         this.preencherLinha('#card-numero', cardData.court_rank ? '' : (cardData.numeral || `${cardData.number}`));
@@ -103,10 +125,13 @@ export class TarotCardInfo extends HTMLElement {
         this.preencherLinha('#card-element', cardData.element || not_found);
         this.preencherLinha('#card-astrology', cardData.astrology);
 
-        this.querySelector('#card-maior').textContent = cardData.eighth_greater || not_found;
-        this.querySelector('#card-menor').textContent = cardData.eighth_lesser || not_found;
-        this.querySelector('#card-internal-alchemy').textContent = cardData.internal_alchemy || not_found;
-        this.querySelector('#card-magical-practice').textContent = cardData.magical_practice || not_found;
+        // As cartas já reescritas usam Luz e Sombra; as demais ainda têm Oitava Maior e Menor
+        this.querySelector('#rotulo-maior').textContent = cardData.texto_thoth ? 'Luz: ' : 'Oitava Maior: ';
+        this.querySelector('#rotulo-menor').textContent = cardData.texto_thoth ? 'Sombra: ' : 'Oitava Menor: ';
+        this.definirTexto('#card-maior', cardData.eighth_greater || not_found, usados);
+        this.definirTexto('#card-menor', cardData.eighth_lesser || not_found, usados);
+        this.definirTexto('#card-internal-alchemy', cardData.internal_alchemy || not_found, usados);
+        this.definirTexto('#card-magical-practice', cardData.magical_practice || not_found, usados);
 
         // Meditação e reflexão
         const meditationContainer = this.querySelector('#card-meditation-reflection');
@@ -115,7 +140,7 @@ export class TarotCardInfo extends HTMLElement {
             const list = document.createElement('ul');
             cardData.meditation_reflection.forEach(item => {
                 const listItem = document.createElement('li');
-                listItem.textContent = item;
+                listItem.innerHTML = linkarTermos(item, usados);
                 list.appendChild(listItem);
             });
             meditationContainer.appendChild(list);
@@ -129,11 +154,11 @@ export class TarotCardInfo extends HTMLElement {
             ? ['Raiz', 'Dilema', 'Tendência']
             : ['Passado', 'Presente', 'Futuro'];
         const pastPresentFutureContainer = this.querySelector('#card-past-present-future');
-        pastPresentFutureContainer.innerHTML = `
-            <p><strong>${rotulos[0]}:</strong> <br> ${cardData.past_present_future?.past || 'Não disponível.'}</p>
-            <p><strong>${rotulos[1]}:</strong> <br> ${cardData.past_present_future?.present || 'Não disponível.'}</p>
-            <p><strong>${rotulos[2]}:</strong> <br> ${cardData.past_present_future?.future || 'Não disponível.'}</p>
-        `;
+        const tempos = ['past', 'present', 'future'];
+        pastPresentFutureContainer.innerHTML = tempos
+            .map((chave, i) => `
+            <p><strong>${rotulos[i]}:</strong> <br> ${linkarTermos(cardData.past_present_future?.[chave] || 'Não disponível.', usados)}</p>`)
+            .join('');
 
         this.removeAttribute('hidden'); // Exibe o modal
         document.addEventListener('keydown', this.onKeydown);

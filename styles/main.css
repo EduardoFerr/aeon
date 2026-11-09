@@ -619,3 +619,178 @@ tarot-card:focus-visible {
   outline: 3px solid #f2c744;
   outline-offset: 3px;
 }
+
+/* Glossario clicavel: termos tecnicos viram botoes que abrem uma explicacao */
+.termo {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline dotted #f2c744;
+  text-underline-offset: 3px;
+}
+
+.termo:hover {
+  color: #f2c744;
+}
+
+.termo:focus-visible {
+  outline: 3px solid #f2c744;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+glossario-modal[hidden] {
+  display: none;
+}
+
+.glossario-fundo {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.glossario-painel {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 460px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 24px 22px 20px;
+  text-align: left;
+  color: #fff;
+  background: #2a1040;
+  border: 1px solid #f2c744;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.glossario-painel:focus {
+  outline: none;
+}
+
+.glossario-rotulo {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f2c744;
+}
+
+.glossario-painel h4 {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+}
+
+.glossario-curto {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.glossario-mais {
+  margin: 0 0 14px;
+  line-height: 1.55;
+  color: #ddd;
+}
+
+.glossario-ver-tambem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.glossario-relacionado {
+  background: transparent;
+  color: #f2c744;
+  border: 1px solid #f2c744;
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.glossario-fechar {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.glossario-fechar:focus-visible,
+.glossario-relacionado:focus-visible {
+  outline: 3px solid #f2c744;
+  outline-offset: 2px;
+}
+
+/* Ajustes de especificidade: os botoes globais e .info-content button vencem as classes simples */
+.info-content button.termo {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+  transform: none;
+  transition: color 0.2s ease;
+  text-decoration: underline dotted #f2c744;
+  text-underline-offset: 3px;
+}
+
+.info-content button.termo:hover {
+  background: none;
+  color: #f2c744;
+  transform: none;
+}
+
+.glossario-painel .glossario-relacionado {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 12px;
+  font-size: inherit;
+  background: transparent;
+  color: #f2c744;
+  border: 1px solid #f2c744;
+  border-radius: 999px;
+}
+
+.glossario-painel .glossario-relacionado:hover {
+  background: #f2c744;
+  color: #2a1040;
+}
+
+.glossario-painel .glossario-fechar {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+}
+
+.glossario-painel .glossario-fechar:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
