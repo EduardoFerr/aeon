@@ -1821,35 +1821,35 @@
   },
   {
     "name": "Ás de Espadas",
-    "title": "Raiz do Ar",
+    "title": "Raiz dos Poderes do Ar",
     "number": 1,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Clareza mental, verdade, novas ideias.",
-    "eighth_lesser": "Confusão, decisões precipitadas, falta de direção.",
+    "eighth_greater": "A espada da verdade: clareza que corta a névoa e abre caminho.",
+    "eighth_lesser": "A espada sem mão: o pensamento que corta tudo e não constrói nada.",
     "order": 50,
     "element": "Ar",
     "sign": null,
     "planet": null,
-    "description": "Representa clareza mental e novas ideias. Simboliza a verdade e a força intelectual para enfrentar desafios.",
-    "description_symbolic": "O Ás de Espadas é a faísca da clareza mental e da verdade. Ele simboliza o início de ideias poderosas e a capacidade de cortar ilusões.",
-    "message_esoteric": "Esta carta ensina que a verdade é a base do progresso. O Ás de Espadas nos convida a abraçar novas ideias e a agir com clareza.",
+    "description": "O Ás de Espadas é a raiz do Ar: a mente em estado puro, antes de virar opinião. Em Kether, no ponto mais alto da Árvore da Vida, a espada verde ergue-se coroada por um anel de raios dourados, diante de um globo luminoso e sobre nuvens azuis. Aparece quando uma verdade se impõe, quando uma ideia nova rompe o nevoeiro, quando uma decisão ganha fio. Traz a vitória do discernimento e exige mão firme, pois o aço corta para os dois lados.",
+    "description_symbolic": "Todo Ás mora em Kether, e o do Ar é a mente antes de se dividir em pensamentos. A espada verde, de guarda em crescente, sustenta a coroa de raios como quem ergue um sol; atrás dela, um globo de ouro e verde, de faces facetadas, brilha sobre nuvens azuis. O Ar é Vav, a terceira letra do Tetragrama, e o Ás não tem signo, planeta nem decano: é a raiz de onde os outros nove Espadas se afiam.",
+    "message_esoteric": "Antes de qualquer decisão vem a verdade, e ela não pede licença. Um fato se mostra, uma ideia clareia, e o que era vago ganha gume. Pegue a espada pelo cabo e decida para onde ela aponta, porque o aço não escolhe o lado.",
     "meditation_reflection": [
-      "Estou permitindo que a verdade guie minhas ações?",
-      "Como posso trazer mais clareza para minhas ideias?",
-      "Estou agindo com propósito e discernimento?"
+      "Onde o meu pensamento corta tudo e não ergue nada?",
+      "Por que a espada do Ás sustenta uma coroa de raios, e não uma ponta nua?",
+      "O que a espada coroada responde quando lhe pergunto pelo que ainda não ousei afirmar?"
     ],
-    "internal_alchemy": "O Ás de Espadas simboliza a alquimia da clareza mental. Ele nos desafia a abraçar a verdade e a agir com propósito em nossas decisões.",
-    "magical_practice": "Conecte-se ao Ás de Espadas visualizando uma lâmina brilhante cortando as nuvens da confusão. Afirme sua clareza mental e determinação.",
+    "internal_alchemy": "Sublimação: o que era pesado e disperso sobe de uma vez ao estado de ar e luz. O Ás é a mente que se desprende do corpo da dúvida e se faz espada.",
+    "magical_practice": "Sobre o altar, ponha uma faca de cabo verde, ou um abridor de cartas, com a ponta para o alto, entre a carta e um copo de água. Em pé, inspire em quatro tempos e diga em voz alta a frase mais verdadeira que tiver sobre o assunto. Sopre uma vez sobre a faca e deixe-a ali até o anoitecer.",
     "past_present_future": {
-      "past": "Um momento de clareza e verdade trouxe novas ideias.",
-      "present": "Um período de agir com clareza e propósito.",
-      "future": "Novas ideias e verdades serão reveladas, desde que você mantenha o foco."
+      "past": "Um lampejo de lucidez mudou a forma de ver o caso e nunca mais se desfez: dali nasce esta espada.",
+      "present": "Há uma verdade à mão e um gume em cada lado, e a espada precisa de um alvo.",
+      "future": "A mente se afia e abre caminho, e quem decide com a espada firme sai do nevoeiro com a palavra certa."
     },
     "numeral": "Ás",
     "sephirah": "Kether",
     "decan": null,
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Dois de Espadas",
@@ -1857,26 +1857,26 @@
     "number": 2,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Equilíbrio, escolha ponderada, tranquilidade.",
-    "eighth_lesser": "Indecisão, repressão de emoções, negação.",
+    "eighth_greater": "O equilíbrio entre duas espadas: a paz que nasce de forças que se cruzam sem se ferir.",
+    "eighth_lesser": "A paz de ponta de faca: a calma que só sustenta o medo de mexer.",
     "order": 51,
     "element": "Ar",
     "sign": "Libra",
     "planet": "Lua",
-    "description": "Simboliza equilíbrio e tomada de decisões. Reflete a necessidade de ponderar antes de agir.",
-    "description_symbolic": "O Dois de Espadas representa o momento de buscar equilíbrio e clareza antes de tomar uma decisão. Ele simboliza a necessidade de introspecção para alcançar tranquilidade mental.",
-    "message_esoteric": "Esta carta ensina que o equilíbrio é alcançado através da ponderação. O Dois de Espadas nos convida a pausar e refletir antes de agir.",
+    "description": "Duas espadas se cruzam e, entre elas, floresce uma flor: assim se desenha a Paz. A Lua passa pelo primeiro decano de Libra, a balança, e Chokmah dá ao equilíbrio o seu primeiro impulso. Fala de trégua entre partes, do fim de uma discussão, de um acordo que se firma, de uma calma que respeita as diferenças. Mas a paz de Espadas é sempre equilíbrio, e o equilíbrio exige mão firme para não se desfazer.",
+    "description_symbolic": "Na imagem, duas espadas se cruzam em X sobre um fundo verde-claro e, no centro, entre estilhaços brancos e angulares, abre-se uma flor azul pálida; duas pequenas adagas, uma no alto e outra embaixo, completam o eixo. Dois é o número de Chokmah, o primeiro encontro entre duas forças. A Lua, que reflete e regula as marés, dá à calma o seu ritmo, e Libra, a balança, a sua medida.",
+    "message_esoteric": "Ninguém largou a arma, mas a discussão amainou. Esse intervalo já é um acordo em esboço: cada lado reconhece o tamanho do outro, e sustentar essa calma é trabalho de equilibrista, pois tirar uma espada do lugar muda o desenho inteiro.",
     "meditation_reflection": [
-      "Estou ponderando todas as opções antes de tomar uma decisão?",
-      "Como posso trazer mais equilíbrio para minha vida?",
-      "Estou enfrentando as verdades ou as evitando?"
+      "Qual espada eu seguro com tanta firmeza que nem a paz me faz largá-la?",
+      "Que flor é essa que cresce onde as duas espadas se cruzam?",
+      "Se eu perguntar à flor entre as espadas se a Paz é acordo ou silêncio, o que ela responde?"
     ],
-    "internal_alchemy": "O Dois de Espadas simboliza a alquimia da reflexão e da escolha ponderada. Ele nos desafia a alcançar paz interior antes de agir.",
-    "magical_practice": "Conecte-se ao Dois de Espadas visualizando duas espadas equilibradas em harmonia. Afirme sua capacidade de tomar decisões equilibradas e ponderadas.",
+    "internal_alchemy": "Conjunção: dois princípios contrários, sem se anular, formam uma só figura estável, como duas espadas que se cruzam e seguram uma flor. A união aqui não é fusão, é travessia.",
+    "magical_practice": "Cruze duas facas, ou duas canetas, sobre uma folha branca e ponha uma flor azul no centro do cruzamento. Acenda uma vela prateada, cor da Lua, e vibre Lua três vezes, devagar, olhando o desenho. Na ponta de cada espada, escreva o nome de um lado do conflito e deixe a folha assim por uma noite.",
     "past_present_future": {
-      "past": "Um momento de reflexão trouxe clareza e equilíbrio.",
-      "present": "Um período para ponderar decisões e buscar tranquilidade.",
-      "future": "Mais equilíbrio e clareza estão por vir, desde que você paute suas escolhas na introspecção."
+      "past": "Antes da calma houve uma briga que enfim cansou os dois lados.",
+      "present": "A calma chegou, mas ninguém largou a arma. Quem dará o primeiro passo para baixá-la?",
+      "future": "Segue um intervalo de equilíbrio, e o acordo se sustenta enquanto as duas espadas continuam em seus lugares."
     },
     "numeral": "2",
     "sephirah": "Chokmah",
@@ -1887,34 +1887,34 @@
       "degrees": "0 a 10 graus de Libra",
       "dates": "23/09 a 02/10"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Três de Espadas",
-    "title": "Aflição",
+    "title": "Tristeza",
     "number": 3,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Aprendizado através da dor, liberação emocional.",
-    "eighth_lesser": "Coração partido, traição, tristeza profunda.",
+    "eighth_greater": "O luto que se diz: a dor que reconhece o que foi amado.",
+    "eighth_lesser": "A dor que fez casa: a tristeza que já não passa e vira o clima de tudo.",
     "order": 52,
     "element": "Ar",
     "sign": "Libra",
     "planet": "Saturno",
-    "description": "Representa dor emocional e aprendizado. Simboliza o crescimento através das adversidades.",
-    "description_symbolic": "O Três de Espadas é a dor do aprendizado. Ele simboliza o processo de cura que surge ao enfrentar a verdade emocional, mesmo que difícil.",
-    "message_esoteric": "Esta carta ensina que o sofrimento pode ser um mestre poderoso. O Três de Espadas nos convida a liberar a dor e crescer a partir dela.",
+    "description": "A Tristeza é a espada que atravessa a flor. Saturno, o planeta do peso, rege o segundo decano de Libra, signo do equilíbrio, e Binah, a Grande Mãe, dá forma e tempo à perda. Aqui estão o luto, a saudade que dói, a mágoa de uma separação, a notícia que entristece, o vazio que fica no lugar do que se tinha. Vem uma fase de céu cinzento, e a carta não finge que já passou.",
+    "description_symbolic": "Uma espada vertical, com a ponta enfiada no centro de uma flor de pétalas verde-amareladas, abre no alto dois braços curvos de pontas enroladas, sobre um fundo escuro e ondulado cheio de estilhaços azuis em forma de triângulo. Binah é a terceira esfera, a do tempo e da forma, onde Saturno mede o que dura. A flor ferida sugere o coração; o fundo agitado, a mente que gira em volta da dor.",
+    "message_esoteric": "O que se foi não volta, e nada que se diga a seguir o traz de volta. O luto tem o seu passo, e quem o atravessa de cabeça erguida não precisa apressá-lo. O céu fecha antes de abrir, e a flor atravessada ainda é uma flor.",
     "meditation_reflection": [
-      "Estou enfrentando minha dor ou tentando evitá-la?",
-      "Como posso transformar sofrimento em crescimento?",
-      "Estou permitindo que o tempo e a verdade curem meu coração?"
+      "Em que ponto a dor deixou de ser visita e passou a decidir tudo?",
+      "Os dois braços curvos, no alto da espada, abrigam a flor ou a prendem?",
+      "Que resposta guarda a espada no ponto exato em que toca a flor?"
     ],
-    "internal_alchemy": "O Três de Espadas simboliza a alquimia da cura emocional. Ele nos desafia a encontrar força nas adversidades e a liberar o sofrimento.",
-    "magical_practice": "Conecte-se ao Três de Espadas visualizando-se removendo as espadas de um coração e curando as feridas com luz dourada. Afirme sua capacidade de cura emocional.",
+    "internal_alchemy": "Na Putrefação, o que foi amado se decompõe devagar, e é do húmus dessa decomposição que a matéria tira outra vida. A tristeza é o escuro necessário dessa fase.",
+    "magical_practice": "Acenda uma vela preta, ou azul-escura, cor de Saturno, e ponha ao lado da carta uma pedra pequena e um pano escuro. Diga Saturno três vezes, em tom grave e baixo, e cubra a pedra com o pano. Deixe a vela queimar em silêncio até o fim e guarde o embrulho por uma lua.",
     "past_present_future": {
-      "past": "Uma experiência dolorosa trouxe aprendizado e crescimento.",
-      "present": "Um momento para enfrentar e curar suas emoções.",
-      "future": "Mais clareza e paz emocional estão por vir, desde que você abrace o processo de cura."
+      "past": "Há uma perda que ainda não terminou de ser contada, e é daí que tudo parte.",
+      "present": "Entre o pranto e o silêncio, qual das duas formas de dor é a sua agora?",
+      "future": "Vem um tempo de céu baixo e de pouca fala, e a flor atravessada ainda guarda a cor."
     },
     "numeral": "3",
     "sephirah": "Binah",
@@ -1925,7 +1925,7 @@
       "degrees": "10 a 20 graus de Libra",
       "dates": "03/10 a 12/10"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Quatro de Espadas",
@@ -1933,26 +1933,26 @@
     "number": 4,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Recuperação, descanso, planejamento estratégico.",
-    "eighth_lesser": "Estagnação, procrastinação, esgotamento mental.",
+    "eighth_greater": "O armistício que repõe as forças: a pausa justa no meio da guerra.",
+    "eighth_lesser": "A trégua tomada por paz: o descanso que adormece o que ainda pedia decisão.",
     "order": 53,
     "element": "Ar",
     "sign": "Libra",
     "planet": "Júpiter",
-    "description": "Reflete descanso e recuperação. Simboliza planejamento e pausa estratégica.",
-    "description_symbolic": "O Quatro de Espadas é a pausa necessária para recuperar forças. Ele simboliza descanso, reflexão e o planejamento estratégico para o próximo passo.",
-    "message_esoteric": "Esta carta ensina que a pausa é essencial para o progresso. O Quatro de Espadas nos convida a refletir e recuperar antes de avançar.",
+    "description": "A Trégua é o recuo entre dois combates. No último decano de Libra, Júpiter, o planeta da generosidade, concede ao combatente um intervalo, e Chesed, a esfera da misericórdia, lhe dá onde repousar. Convalescença, retiro, descanso depois da batalha, um acordo provisório: o campo desta carta é o do fôlego recuperado. Seu dom é o tempo para reunir as forças, e o aviso é que a guerra não acabou, só mudou de ritmo.",
+    "description_symbolic": "Quatro espadas, de cabos nos cantos, apontam as pontas para uma rosácea azul e branca no centro, sobre uma grande cruz verde em X; estrelas de cinco pontas, douradas, cercam o conjunto num fundo azul riscado de amarelo. Chesed, a esfera da misericórdia, dá ao desenho a ordem do quatro, e Júpiter a generosidade do repouso.",
+    "message_esoteric": "Baixar as armas por um tempo também faz parte da luta justa, e ninguém combate bem sem esse intervalo. Use o intervalo para afiar o que se gastou e rever o mapa, e não o confunda com o fim, porque quem dorme demais acorda com o inimigo à porta.",
     "meditation_reflection": [
-      "Estou permitindo-me descansar antes de tomar decisões importantes?",
-      "Como posso recuperar forças e clareza mental?",
-      "Estou planejando estrategicamente ou agindo impulsivamente?"
+      "Quanto do que chamo de paz é só cansaço que adormeceu a decisão?",
+      "Que flor de pétalas azuis e brancas é essa para onde as quatro pontas convergem, e por que ela repousa no centro?",
+      "Que pergunta cai bem no meio da rosácea, onde as quatro pontas se encontram?"
     ],
-    "internal_alchemy": "O Quatro de Espadas simboliza a alquimia do repouso. Ele nos desafia a encontrar clareza e renovação através da pausa.",
-    "magical_practice": "Conecte-se ao Quatro de Espadas visualizando-se em um espaço tranquilo, recuperando sua energia. Afirme sua capacidade de descanso e renovação.",
+    "internal_alchemy": "A Congelação firma o líquido que fervia e o preserva do desgaste. É a operação da pausa que guarda a força, até que o calor volte.",
+    "magical_practice": "Apoie a carta em pé diante de você e sente-se com as mãos vazias por dez minutos. Conte quatro respirações em cada canto de um quadrado imaginário, como nos quatro cantos da carta, sem fazer mais nada. Ao fim, levante-se devagar, tocando o chão com a palma de uma das mãos.",
     "past_present_future": {
-      "past": "Um momento de pausa trouxe clareza e renovação.",
-      "present": "Um período para descansar e planejar estrategicamente.",
-      "future": "Mais clareza e sucesso estão por vir, desde que você priorize a recuperação."
+      "past": "A luta durou mais do que as forças, e é dela que esta pausa nasce.",
+      "present": "Chegou o intervalo, e cabe decidir se ele é descanso ou apenas adiamento.",
+      "future": "Um armistício se aproxima, e com ele a hora de afiar o que se gastou, porque a paz verdadeira só começa depois do repouso."
     },
     "numeral": "4",
     "sephirah": "Chesed",
@@ -1963,7 +1963,7 @@
       "degrees": "20 a 30 graus de Libra",
       "dates": "13/10 a 22/10"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Cinco de Espadas",
@@ -1971,26 +1971,26 @@
     "number": 5,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Aprendizado com erros, redefinição de prioridades.",
-    "eighth_lesser": "Conflitos desnecessários, ressentimento, egoísmo.",
+    "eighth_greater": "A derrota admitida: o campo aparece por inteiro, e o que caiu deixa de pesar.",
+    "eighth_lesser": "A derrota que se repete: a ferida reaberta a cada lembrança, ou a perda negada até apodrecer.",
     "order": 54,
     "element": "Ar",
     "sign": "Aquário",
     "planet": "Vênus",
-    "description": "Simboliza conflito e redefinição de prioridades. Representa a necessidade de aprender com erros.",
-    "description_symbolic": "O Cinco de Espadas reflete os desafios e conflitos que testam nossas prioridades. Ele simboliza o aprendizado que surge ao enfrentar falhas e redefinir caminhos.",
-    "message_esoteric": "Esta carta ensina que os erros são lições valiosas. O Cinco de Espadas nos convida a aprender com os conflitos e a ajustar nosso curso.",
+    "description": "Ninguém quer a carta da Derrota, e ela vem assim mesmo. Aqui a doçura de Vênus, no primeiro decano de Aquário, esbarra em Geburah, a esfera do rigor, e o que não aguenta o aço se parte. Quem a recebe enfrenta uma perda, uma humilhação, um plano que falhou, uma aliança desfeita. Marca a queda de uma pretensão e deixa claro quem ficou de pé quando o jogo acabou.",
+    "description_symbolic": "Cinco espadas curvas, ligadas por linhas de pequenas gotas vermelhas que desenham uma estrela de cinco pontas com a ponta para baixo, estendem-se sobre um fundo rosado e azul no alto e amarelo-esverdeado embaixo. Geburah, a quinta esfera, põe tudo à prova, e a estrela virada para baixo inverte a ordem que sustentava o plano. A harmonia de Vênus, no signo do ideal, é aqui quebrada pelo atrito de forças que não se somam.",
+    "message_esoteric": "Um plano falhou, um adversário venceu, uma ilusão de força caiu. O resultado mostra o tamanho real do campo, e quem o aceita refaz o mapa mais cedo; quem insiste em disputá-lo só prolonga a perda.",
     "meditation_reflection": [
-      "Estou aprendendo com meus erros ou repetindo-os?",
-      "Como posso redefinir minhas prioridades de forma construtiva?",
-      "Estou evitando conflitos desnecessários ou alimentando ressentimentos?"
+      "Que derrota eu revivo tantas vezes que ela já parece o presente?",
+      "De que modo a estrela de gotas vermelhas liga as cinco espadas, e não uma só?",
+      "Que lição traz a estrela de cinco pontas, virada para baixo?"
     ],
-    "internal_alchemy": "O Cinco de Espadas simboliza a alquimia do aprendizado através dos desafios. Ele nos desafia a crescer a partir de nossas falhas e a encontrar sabedoria nos conflitos.",
-    "magical_practice": "Conecte-se ao Cinco de Espadas visualizando-se soltando uma espada que representa o fardo de conflitos passados. Afirme sua capacidade de aprender e avançar.",
+    "internal_alchemy": "O fogo da derrota é a Calcinação: queima a ilusão de força até restar o essencial. Sobrevive à cinza o que é mais pobre e mais verdadeiro.",
+    "magical_practice": "Queime, num prato e em segurança, uma folha seca ou um palito de fósforo diante da carta, em silêncio, e misture as cinzas a um punhado de sal. Espalhe o sal junto a uma porta ou janela, lave o prato e deixe-o secar ao ar.",
     "past_present_future": {
-      "past": "Conflitos e erros passados trouxeram aprendizado e crescimento.",
-      "present": "Um momento de redefinir prioridades e aprender com desafios.",
-      "future": "Mais clareza e paz estão por vir, desde que você tire lições dos conflitos."
+      "past": "Tudo vem de uma vitória que parecia certa e escapou.",
+      "present": "A perda aconteceu, e resta decidir o destino dos cacos: lembrá-los todo dia ou recolhê-los de vez.",
+      "future": "A fase é de poeira baixando, e o mapa se refaz com os dados que sobraram."
     },
     "numeral": "5",
     "sephirah": "Geburah",
@@ -2001,7 +2001,7 @@
       "degrees": "0 a 10 graus de Aquário",
       "dates": "20/01 a 29/01"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Seis de Espadas",
@@ -2009,26 +2009,26 @@
     "number": 6,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Transição, solução de problemas, cura.",
-    "eighth_lesser": "Fuga, estagnação, dificuldade em seguir em frente.",
+    "eighth_greater": "A razão em ordem: método, conhecimento e clareza que organizam o caos.",
+    "eighth_lesser": "A razão sem sol: o método que só mede e esfria o que explica.",
     "order": 55,
     "element": "Ar",
     "sign": "Aquário",
     "planet": "Mercúrio",
-    "description": "Representa transição e cura. Simboliza deixar para trás o que não serve mais e buscar soluções.",
-    "description_symbolic": "O Seis de Espadas é o símbolo de uma jornada rumo à cura e ao progresso. Ele representa a necessidade de avançar, deixando o passado para trás.",
-    "message_esoteric": "Esta carta ensina que a transição pode ser dolorosa, mas é necessária para a cura. O Seis de Espadas nos convida a confiar no processo de mudança.",
+    "description": "O pensamento, quando se alinha, vira Ciência. Mercúrio, o planeta da inteligência, governa o segundo decano de Aquário, signo do futuro e da mente aberta, e Tiphareth coloca a razão no centro do sol. Vem como estudo, método, diagnóstico preciso, a tese que se sustenta diante de quem a contesta. Exige rigor e abre a porta de um saber que enfim faz sentido.",
+    "description_symbolic": "Seis espadas irradiam de uma cruz dourada no centro, como raios de uma roda, sobre uma trama geométrica de linhas finas, azul-pálida e amarela; no alto, o símbolo de Mercúrio. Tiphareth, a sexta esfera, é o centro solar em que as forças se equilibram. A simetria do desenho é a da lógica: cada espada tem o seu lugar, e nenhuma cruza a outra.",
+    "message_esoteric": "A névoa se organiza em explicação, e o que parecia confuso ganha uma tese que se sustenta. Conclui bem quem confere antes: a prova vem primeiro, a frase depois. Com paciência, o raciocínio chega a uma frase simples e inabalável.",
     "meditation_reflection": [
-      "Estou permitindo que a mudança me guie para um futuro melhor?",
-      "Como posso encontrar cura ao deixar o passado para trás?",
-      "Estou aceitando a transição ou resistindo ao progresso?"
+      "Onde a minha lógica explica tão bem que já não sente o que está explicando?",
+      "Que peso sustenta a cruz dourada, no centro das seis espadas?",
+      "Qual pergunta Mercúrio, no alto da carta, quer ver provada antes das outras?"
     ],
-    "internal_alchemy": "O Seis de Espadas simboliza a alquimia da transição e da cura. Ele nos desafia a navegar pelo desconhecido com coragem e esperança.",
-    "magical_practice": "Conecte-se ao Seis de Espadas visualizando-se cruzando um rio calmo em direção a uma terra promissora. Afirme sua prontidão para mudanças e cura.",
+    "internal_alchemy": "Destilação: a mente ferve o múltiplo e recolhe o essencial gota a gota. Sobe e condensa o conhecimento; o resíduo fica no fundo do alambique.",
+    "magical_practice": "Acenda uma vela amarela, cor de Mercúrio, e vibre Mercúrio sete vezes. Escolha uma dúvida, escreva-a no centro de uma folha e trace seis linhas a partir dela, uma para cada fonte que consultaria. Risque as que não resistem à prova e anote a conclusão numa frase.",
     "past_present_future": {
-      "past": "Uma transição difícil trouxe aprendizado e crescimento.",
-      "present": "Um momento de deixar o passado para trás e buscar progresso.",
-      "future": "Mais cura e realização estão por vir, desde que você continue avançando."
+      "past": "Por trás da carta está um estudo longo que enfim ganhou sentido.",
+      "present": "Falta o último elo do raciocínio, e é ele que separa a conclusão da simples suspeita.",
+      "future": "Anuncia-se uma lucidez de método, e o que parecia confuso ganha ordem até a conclusão chegar com as provas na mão."
     },
     "numeral": "6",
     "sephirah": "Tiphareth",
@@ -2039,7 +2039,7 @@
       "degrees": "10 a 20 graus de Aquário",
       "dates": "30/01 a 08/02"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Sete de Espadas",
@@ -2047,26 +2047,26 @@
     "number": 7,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Estratégia, inteligência, pensamento criativo.",
-    "eighth_lesser": "Engano, traição, auto-sabotagem.",
+    "eighth_greater": "O esforço que se dissolve: a carta que mostra o que já não vale a luta.",
+    "eighth_lesser": "O esforço espalhado: planos demais, nenhuma ponta, a espada dividida contra si.",
     "order": 56,
     "element": "Ar",
     "sign": "Aquário",
     "planet": "Lua",
-    "description": "Reflete estratégia e inteligência. Simboliza a busca por soluções criativas em situações desafiadoras.",
-    "description_symbolic": "O Sete de Espadas é a carta da inteligência estratégica. Ele simboliza a necessidade de ser criativo e pensar fora da caixa em situações difíceis.",
-    "message_esoteric": "Esta carta ensina que a estratégia e a inteligência são ferramentas poderosas. O Sete de Espadas nos convida a usar nossa criatividade para superar desafios.",
+    "description": "Muitas lâminas, nenhuma mira: a Futilidade. A Lua, que oscila, rege o último decano de Aquário, e Netzach, a esfera do desejo, empurra a energia para onde ela não dá fruto. Aparece quando os planos são vãos, o esforço se dissipa e a conversa não conclui. Anuncia que o trabalho em curso não tem onde se firmar, por mais espadas que se levantem, e pede que se escolha uma.",
+    "description_symbolic": "Sete lâminas finas abrem-se em leque a partir de um único punho; seis delas terminam em ornamentos diferentes, e a do meio é lisa. O fundo azul é feito de planos angulares, com uma lua crescente no alto. Netzach é a sétima esfera, a do desejo, e aqui o desejo se divide em tantas direções que nenhuma ponta chega. A Lua dá ao conjunto a sua oscilação.",
+    "message_esoteric": "Os planos se multiplicam e não pousam, e a energia se gasta no ar. O trabalho rende pouco agora, e recolher as espadas, escolher uma e deixá-la crescer devolve a mira. Nem todo esforço merece continuar, e saber qual largar também é força.",
     "meditation_reflection": [
-      "Estou usando minha inteligência de forma ética e eficaz?",
-      "Como posso abordar desafios com pensamento criativo?",
-      "Estou evitando auto-sabotagem em minha busca por soluções?"
+      "Quantos planos eu seguro ao mesmo tempo para não precisar escolher um?",
+      "De onde partem as sete espadas, e por que apontam em direções diferentes?",
+      "Que pergunta a Futilidade faria a quem segura sete espadas ao mesmo tempo?"
     ],
-    "internal_alchemy": "O Sete de Espadas simboliza a alquimia da criatividade e da estratégia. Ele nos desafia a encontrar soluções inteligentes e éticas para problemas complexos.",
-    "magical_practice": "Conecte-se ao Sete de Espadas visualizando-se resolvendo um labirinto com clareza e criatividade. Afirme sua capacidade de superar desafios com inteligência.",
+    "internal_alchemy": "Dissolução: o esforço se desfaz na água, e a matéria perde a forma que não tinha como sustentar. É a operação que apaga o que não tinha raiz, para que se possa recomeçar.",
+    "magical_practice": "Reúna sete objetos pequenos, de formas diferentes, e disponha-os em leque sobre o altar. Tire-os um a um, dizendo em voz alta o plano que cada um representa, e guarde na gaveta os seis que não terão a sua vez agora. Deixe o sétimo diante da carta até o dia seguinte.",
     "past_present_future": {
-      "past": "Uma situação desafiadora exigiu criatividade e estratégia.",
-      "present": "Um momento para usar inteligência e pensamento estratégico.",
-      "future": "Soluções inovadoras e progresso estão por vir, desde que você evite auto-sabotagem."
+      "past": "A raiz está em muitas ideias que nasceram juntas e nenhuma chegou ao fim.",
+      "present": "Cada plano reclama uma parte da energia, e a soma não dá nenhum.",
+      "future": "Aproxima-se um enxugamento, em que o que não tinha raiz se desfaz e a força que sobra procura um único alvo."
     },
     "numeral": "7",
     "sephirah": "Netzach",
@@ -2077,7 +2077,7 @@
       "degrees": "20 a 30 graus de Aquário",
       "dates": "09/02 a 18/02"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Oito de Espadas",
@@ -2085,26 +2085,26 @@
     "number": 8,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Superação de medos, libertação mental.",
-    "eighth_lesser": "Limitações autoimpostas, paralisia, medo.",
+    "eighth_greater": "A mente que pesa tudo: o cuidado de examinar os obstáculos antes de avançar.",
+    "eighth_lesser": "A mente atravessada: o pensamento que se interpõe a si mesmo e trava a ação.",
     "order": 57,
     "element": "Ar",
     "sign": "Gêmeos",
     "planet": "Júpiter",
-    "description": "Representa limitações autoimpostas. Simboliza a necessidade de superar medos e se libertar.",
-    "description_symbolic": "O Oito de Espadas é o símbolo da prisão mental que criamos para nós mesmos. Ele reflete os medos e limitações que nos paralisam, mas que podem ser superados com clareza e coragem.",
-    "message_esoteric": "Esta carta ensina que as maiores prisões são aquelas que criamos em nossas mentes. O Oito de Espadas nos convida a romper com os medos autoimpostos.",
+    "description": "A Interferência cruza o que devia correr reto: duas espadas longas, e seis lâminas curtas atravessadas. Júpiter, o planeta da expansão, abre o primeiro decano de Gêmeos, signo da mente dupla, e Hod, a esfera do intelecto, multiplica os argumentos. Chega com obstáculos, dúvida demais, ruído entre intenção e gesto, uma conversa interrompida. Avisa que o caminho está atravessado e pede uma leitura mais calma do que atrapalha.",
+    "description_symbolic": "Duas espadas longas, de punhos trabalhados, descem na vertical, atravessadas por seis lâminas curtas e curvas, todas de formas diferentes, sobre um fundo vermelho-púrpura riscado de vermelho. Hod, a oitava esfera, é a mente que classifica e questiona; Gêmeos, o signo do duplo, empresta o par de espadas principais. O entrecruzado sugere um ruído constante, uma ordem sempre interrompida.",
+    "message_esoteric": "Quantas vozes cabem numa só decisão? Há ruído entre o que se quer e o que se faz, com dúvidas, opiniões alheias e uma conversa que ninguém deixa terminar. A mente trabalha demais e age de menos, e o obstáculo muitas vezes é o próprio pensamento.",
     "meditation_reflection": [
-      "Estou permitindo que meus medos me paralisem?",
-      "Como posso libertar minha mente de limitações autoimpostas?",
-      "Estou buscando clareza para superar desafios internos?"
+      "Que pensamento meu se atravessa na frente de todos os outros e os trava?",
+      "Que dizem as seis espadas curtas, tão diferentes entre si, sobre as vozes que interferem?",
+      "Das duas espadas longas, qual é a minha voz? E de quem são as seis que a cruzam?"
     ],
-    "internal_alchemy": "O Oito de Espadas simboliza a alquimia da libertação mental. Ele nos desafia a superar os medos internos e a tomar controle de nossos pensamentos.",
-    "magical_practice": "Conecte-se ao Oito de Espadas visualizando-se rompendo correntes invisíveis que representam limitações mentais. Afirme sua capacidade de se libertar.",
+    "internal_alchemy": "Sem a Separação, a obra emperra no meio do caminho: o que estava misturado precisa ser apartado, pedra por pedra, para que cada elemento ocupe o seu lugar.",
+    "magical_practice": "Com uma vela azul, cor de Júpiter, acesa ao lado da carta, anote cada pensamento que interfere no assunto numa tira de papel. Separe as tiras em três montes: o que é fato, o que é opinião alheia e o que é medo. Guarde os dois últimos numa gaveta fechada e deixe o primeiro sobre a carta.",
     "past_present_future": {
-      "past": "Um período de limitações mentais trouxe crescimento e reflexão.",
-      "present": "Um momento para enfrentar e superar medos autoimpostos.",
-      "future": "Mais liberdade mental está por vir, desde que você enfrente suas limitações internas."
+      "past": "Uma dúvida cresceu cada vez que foi alimentada, e dela vêm todas as vozes de agora.",
+      "present": "Há mais vozes do que ouvidos, e só uma delas é a sua.",
+      "future": "Depois da triagem, o que atrapalha se afasta quando é nomeado, e a ação volta a andar."
     },
     "numeral": "8",
     "sephirah": "Hod",
@@ -2115,7 +2115,7 @@
       "degrees": "0 a 10 graus de Gêmeos",
       "dates": "21/05 a 30/05"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Nove de Espadas",
@@ -2123,26 +2123,26 @@
     "number": 9,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Reconhecimento de padrões negativos, cura mental.",
-    "eighth_lesser": "Ansiedade, culpa, tormento mental.",
+    "eighth_greater": "A lucidez sem anestesia: a dor que a mente inflige, chamada pelo nome.",
+    "eighth_lesser": "A palavra que fere por ferir: a espada apontada sem alvo, para fora ou para dentro.",
     "order": 58,
     "element": "Ar",
     "sign": "Gêmeos",
     "planet": "Marte",
-    "description": "Simboliza ansiedade e tormento mental. Representa a necessidade de enfrentar medos internos.",
-    "description_symbolic": "O Nove de Espadas é a personificação da ansiedade e do tormento mental. Ele reflete preocupações que nos consomem e a importância de enfrentá-las para encontrar cura.",
-    "message_esoteric": "Esta carta ensina que o reconhecimento do sofrimento é o primeiro passo para a cura. O Nove de Espadas nos convida a enfrentar nossos medos internos.",
+    "description": "A Crueldade é o pensamento convertido em arma. Em Gêmeos, signo da palavra, Marte, o planeta da guerra, ocupa o segundo decano, e Yesod faz a mente pesar sobre o corpo e as imagens. Aqui moram as palavras que ferem, as ideias fixas que punem, o juízo duro demais, a agressão que nasce da mente. Avisa que o golpe está armado e que a dor pode vir de quem fala e de quem escuta.",
+    "description_symbolic": "Nove espadas pendem de ponta para baixo, de cabos ornados, com lâminas vermelhas de onde escorrem gotas, sobre um fundo amarelado, chuvisqueado de pontos claros no alto e cruzado por uma rede de linhas escuras embaixo; no alto, o símbolo de Marte. Yesod, a nona esfera, guarda as imagens e os rastros do que passou, e ali a espada gotejante vira lembrança. A rede de linhas é a mente que não solta.",
+    "message_esoteric": "Palavras cortaram: uma frase dita que não volta, um pensamento que se repete e fere, uma dureza nascida da mente. Nomear o golpe é o primeiro gesto, e separar o que foi dito do que é verdadeiro, o segundo. Nada aqui adoça o que dói, mas um golpe nomeado já não corta no escuro.",
     "meditation_reflection": [
-      "Estou permitindo que a ansiedade controle meus pensamentos?",
-      "Como posso encontrar paz ao enfrentar meus medos?",
-      "Estou buscando maneiras saudáveis de lidar com o tormento mental?"
+      "Que frase minha já fere por hábito, e para quem ela aponta?",
+      "Que rastro de cada golpe contam as gotas vermelhas, nas pontas das nove espadas?",
+      "O que a Crueldade quer saber sobre a palavra que não quero repetir?"
     ],
-    "internal_alchemy": "O Nove de Espadas simboliza a alquimia da cura mental. Ele nos desafia a transformar a ansiedade em clareza e a buscar paz interior.",
-    "magical_practice": "Conecte-se ao Nove de Espadas visualizando uma luz suave dissipando a escuridão em sua mente. Afirme sua capacidade de superar ansiedades.",
+    "internal_alchemy": "A Projeção lança a força da mente sobre um alvo, e a transmutação se dá de um só golpe. Na carta, é a projeção dura, a que fere antes de transformar.",
+    "magical_practice": "Acenda uma vela vermelha, cor de Marte, ao lado da carta e conte as nove espadas com a ponta do dedo, pronunciando Marte a cada uma. Diga em voz alta, uma só vez, a frase que mais cortou, e apague a vela com os dedos molhados: a frase fica dita, e o fogo deixa de alimentá-la.",
     "past_present_future": {
-      "past": "Um período de tormento mental trouxe aprendizado e autoconsciência.",
-      "present": "Um momento de enfrentar e processar suas ansiedades.",
-      "future": "Mais clareza e paz estão por vir, desde que você enfrente seus medos internos."
+      "past": "Uma palavra dura ficou ecoando mais do que devia.",
+      "present": "O golpe já foi dado, e a memória oferece repeti-lo a cada noite; desarmá-lo exige uma palavra nova.",
+      "future": "Chega o tempo de desarmar a mente, e o golpe que se nomeia perde a força de ferir sozinho."
     },
     "numeral": "9",
     "sephirah": "Yesod",
@@ -2153,7 +2153,7 @@
       "degrees": "10 a 20 graus de Gêmeos",
       "dates": "31/05 a 09/06"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Dez de Espadas",
@@ -2161,26 +2161,26 @@
     "number": 10,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Fim de um ciclo, aceitação, novos começos.",
-    "eighth_lesser": "Fracasso, traição, colapso.",
+    "eighth_greater": "O fim que limpa o terreno: o que tinha de cair, caiu.",
+    "eighth_lesser": "O desmoronamento que se arrasta: a ruína negada, ou a destruição que segue quando já não resta o que destruir.",
     "order": 59,
     "element": "Ar",
     "sign": "Gêmeos",
     "planet": "Sol",
-    "description": "Reflete o fim de um ciclo. Simboliza aceitação e novos começos após a adversidade.",
-    "description_symbolic": "O Dez de Espadas representa o colapso total, mas também a libertação que vem com o fim de um ciclo. Ele simboliza aceitação e o renascimento que segue a adversidade.",
-    "message_esoteric": "Esta carta ensina que mesmo nos momentos mais difíceis, há uma promessa de renascimento. O Dez de Espadas nos convida a aceitar o fim e buscar novos começos.",
+    "description": "Dez espadas e um clarão: é a Ruína. O Sol, que ilumina tudo o que cresceu e tudo o que caiu, rege o último decano de Gêmeos, e Malkuth, a décima esfera, põe o desfecho no mundo concreto. Vem como colapso e derrocada, o ponto final de uma situação que já vinha rachando. Anuncia o fim sem apelação, e a luz que vem depois é a primeira que aquele terreno vê em muito tempo.",
+    "description_symbolic": "Dez espadas partem de um ponto central em todas as direções, de lâminas escuras e punhos ornamentados, sobre um clarão amarelo e laranja riscado de vermelho. Malkuth, a décima esfera, é onde a série se completa e se faz visível; o Sol de Gêmeos ilumina o resultado sem poupar nada. A luz forte, atrás, dá ao desastre um brilho de aurora.",
+    "message_esoteric": "Resistir ao que já está no chão custa mais do que reconhecê-lo. A estrutura caiu, o plano ruiu, o ciclo chegou ao fim, e no terreno limpo o que vier pode ser construído sem as rachaduras antigas.",
     "meditation_reflection": [
-      "Estou aceitando o fim de ciclos que não me servem mais?",
-      "Como posso transformar adversidades em oportunidades de crescimento?",
-      "Estou permitindo que o renascimento siga a aceitação?"
+      "Que ruína eu finjo escorar, só para não vê-la no chão?",
+      "Que luz é essa que nasce do centro das dez espadas?",
+      "Que pergunta merece ser levada, de pé, diante do clarão?"
     ],
-    "internal_alchemy": "O Dez de Espadas simboliza a alquimia do renascimento. Ele nos desafia a abraçar novos começos após momentos de adversidade.",
-    "magical_practice": "Conecte-se ao Dez de Espadas visualizando o sol nascendo no horizonte após uma longa noite. Afirme sua prontidão para novos começos.",
+    "internal_alchemy": "O ponto mais escuro da obra é a Nigredo, em que tudo se desfaz. É o preto que precede o branco, e só quem o atravessa vê o que a matéria guardava.",
+    "magical_practice": "Escolha um objeto que simbolize o que acabou e leve-o ao ar livre. Enterre-o, ou deposite-o em água corrente, e fique em silêncio até a luz do dia mudar de lugar. Volte sem olhar para trás e acenda a luz da casa antes de qualquer outra coisa.",
     "past_present_future": {
-      "past": "Um período de colapso trouxe crescimento e transformação.",
-      "present": "Um momento de aceitar o fim de um ciclo e buscar renascimento.",
-      "future": "Novos começos estão por vir, desde que você aceite e deixe o passado para trás."
+      "past": "Todos viram a rachadura antiga, e ninguém a consertou.",
+      "present": "O fim já é um fato, e falta decidir se se vai remexer os escombros ou olhar a luz que entrou.",
+      "future": "Sobra um terreno limpo, e a próxima obra começa pelo alicerce."
     },
     "numeral": "10",
     "sephirah": "Malkuth",
@@ -2191,34 +2191,34 @@
       "degrees": "20 a 30 graus de Gêmeos",
       "dates": "10/06 a 19/06"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Princesa de Espadas",
-    "title": "O Investigador",
+    "title": "A Dançarina de Asas de Vidro",
     "number": 11,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Curiosidade, inteligência, pensamento lógico.",
-    "eighth_lesser": "Fofoca, desconfiança, impulsividade.",
+    "eighth_greater": "A mente jovem em ação: sede de saber afiada, coragem de testar a ideia.",
+    "eighth_lesser": "A pressa de afiar: a esperteza que corta antes de entender e supõe saber mais do que o fato.",
     "order": 60,
     "element": "Ar",
     "sign": null,
     "planet": null,
-    "description": "Representa curiosidade e pensamento lógico. Simboliza inteligência e novas aprendizagens.",
-    "description_symbolic": "O Pajem de Espadas é o buscador da verdade e do conhecimento. Ele simboliza curiosidade, inteligência e o desejo de explorar novas ideias.",
-    "message_esoteric": "Esta carta ensina que a curiosidade é o início de toda descoberta. O Pajem de Espadas nos convida a explorar o mundo com inteligência e lógica.",
+    "description": "A Princesa de Espadas é o Ar que chega ao chão: a patente mais jovem da Corte, em Malkuth, trazendo a mente ao mundo concreto. Terra de Ar, é a ideia testada na prática, a agilidade de quem aprende lutando. Aparece como uma presença jovem e esperta, uma pergunta afiada, um ardil, uma sede de saber que não descansa. Nenhum signo a abriga: o seu lugar são os quadrantes do céu em torno do polo.",
+    "description_symbolic": "Uma figura verde, de asas translúcidas em losango, salta em passo de dança junto a um bloco de pedra, sobre um mar de nuvens, com a espada na mão erguida e a ponta para baixo; feixes de luz cruzam o fundo e uma faixa amarela faz arco atrás dela. Terra de Ar é a mente que desce ao chão, e Malkuth, a décima esfera, lhe dá onde firmar o pé. A espada baixa sugere o golpe armado; as asas, leveza.",
+    "message_esoteric": "Uma pergunta não deixa dormir, e uma ideia já pede teste. Convém experimentar antes de decidir e afiar a espada na prática, não só no argumento. O ardil rende pouco quando o fato é teimoso, e o fato quase sempre é.",
     "meditation_reflection": [
-      "Estou permitindo que minha curiosidade me guie para novas aprendizagens?",
-      "Como posso usar minha inteligência para crescer e explorar novas ideias?",
-      "Estou equilibrando curiosidade com paciência e reflexão?"
+      "Onde a minha esperteza vence a conversa e perde o fato?",
+      "Que chão a figura toca, e o que as asas de losango dizem sobre esse toque?",
+      "O que a Princesa pergunta à pedra, ao lado da qual salta?"
     ],
-    "internal_alchemy": "O Pajem de Espadas simboliza a alquimia do aprendizado. Ele nos desafia a buscar a verdade com curiosidade e inteligência.",
-    "magical_practice": "Conecte-se ao Pajem de Espadas visualizando-se explorando um caminho iluminado pelo conhecimento. Afirme sua curiosidade e sede por aprendizado.",
+    "internal_alchemy": "Na Cibação, a ideia recebe alimento aos poucos, e cada teste lhe dá corpo. A matéria da mente só cresce quando a prática a nutre.",
+    "magical_practice": "Caminhe quinze minutos em silêncio, fazendo uma pergunta a cada dez passos e respondendo só com o corpo: parar, seguir, virar. Ao voltar, pouse uma faca de ponta para baixo ao lado de uma pedra do altar e apoie a carta nela.",
     "past_present_future": {
-      "past": "Um período de aprendizagem trouxe crescimento intelectual.",
-      "present": "Um momento para explorar novas ideias e buscar conhecimento.",
-      "future": "Mais aprendizado e crescimento intelectual estão por vir, desde que você mantenha sua curiosidade."
+      "past": "Tudo começou numa sede jovem de saber como as coisas funcionam.",
+      "present": "A ideia está afiada e ainda não foi testada: duelar com palavras ou experimentar com o corpo?",
+      "future": "Abre-se uma temporada de aprendizado a toda velocidade, e a espada só ganha fio quando encontra a pedra."
     },
     "numeral": "Princesa",
     "court_rank": "Princesa",
@@ -2226,34 +2226,34 @@
     "court_divine_name_letter": "Heh final",
     "sephirah": "Malkuth",
     "zodiac_range": null,
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Príncipe de Espadas",
-    "title": "O Guerreiro",
+    "title": "O Carro dos Círculos de Ouro",
     "number": 12,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Determinação, ação rápida, foco.",
-    "eighth_lesser": "Impulsividade, agressividade, falta de planejamento.",
+    "eighth_greater": "A mente em pleno voo: lógica, velocidade e visão que conduzem o plano.",
+    "eighth_lesser": "A mente sem freio: o raciocínio que corre sozinho e deixa a vida para trás.",
     "order": 61,
     "element": "Ar",
     "sign": null,
     "planet": null,
-    "description": "Simboliza ação rápida e determinação. Representa foco e avanço com energia intensa.",
-    "description_symbolic": "O Cavaleiro de Espadas é a força da ação direta e decisiva. Ele simboliza determinação e coragem para enfrentar desafios, mas alerta contra a impulsividade.",
-    "message_esoteric": "Esta carta ensina que foco e ação são essenciais, mas devem ser equilibrados com reflexão. O Cavaleiro de Espadas nos convida a avançar com determinação e estratégia.",
+    "description": "Como todo Príncipe, o de Espadas é um condutor de carro, e aqui o carro se reduz à roda escura sob os pés de uma figura verde e tensa. É o Ar de Ar, o filho que leva adiante a força do pai, em Tiphareth, e o seu território no zodíaco vai de 20° de Capricórnio a 20° de Aquário, da estrutura à ideia. Indica alguém de mente veloz e de lógica afiada, um plano que ganha velocidade, uma discussão sem trégua.",
+    "description_symbolic": "Vav, terceira letra do Nome de quatro letras, liga o Príncipe a Tiphareth, centro solar da Árvore. Ar de Ar é a mente pura, sem nenhum outro elemento por perto. Na imagem, uma figura verde, de músculos marcados, ergue-se sobre uma roda escura entre grandes círculos dourados, com uma espada dourada atravessada no alto; linhas finas descem dela até três pequenas figuras verdes, cada uma entre dois círculos de ouro.",
+    "message_esoteric": "A carta aprova a lógica e cobra o freio, porque o carro corre mais do que o terreno. Uma mente veloz está em jogo, num plano que ganha velocidade, numa argumentação sem trégua, em alguém que pensa mais depressa do que sente. O pensamento que conduz precisa saber onde vai pousar, ou termina girando em círculos de ouro.",
     "meditation_reflection": [
-      "Estou avançando com determinação ou agindo impulsivamente?",
-      "Como posso equilibrar ação rápida com planejamento?",
-      "Estou mantendo o foco em meus objetivos?"
+      "Em que ponto o meu raciocínio já corre mais do que a minha vida?",
+      "Quem puxa quem, entre os círculos dourados e as três pequenas figuras presas às linhas?",
+      "Que resposta a roda escura dá, quando lhe pergunto aonde o carro vai?"
     ],
-    "internal_alchemy": "O Cavaleiro de Espadas simboliza a alquimia da ação e do foco. Ele nos desafia a agir com coragem e inteligência.",
-    "magical_practice": "Conecte-se ao Cavaleiro de Espadas visualizando-se empunhando uma espada brilhante e avançando com determinação. Afirme sua coragem e foco.",
+    "internal_alchemy": "Exaltação: a mente é elevada ao seu grau mais alto, onde o raciocínio brilha sem matéria. O perigo da operação é perder a terra de vista.",
+    "magical_practice": "Corra no lugar, ou suba uma escada depressa, enquanto diz em voz alta o argumento que lhe parece irrefutável, até faltar o fôlego. Pare, vibre Vav três vezes, devagar, com a carta à vista, e repita o argumento no ritmo da respiração, notando onde a lógica pisou em algo vivo.",
     "past_present_future": {
-      "past": "Um momento de ação decisiva trouxe mudanças significativas.",
-      "present": "Um período de avançar com determinação e foco.",
-      "future": "Sucesso está por vir, desde que você equilibre ação com planejamento."
+      "past": "A raiz é uma mente treinada para vencer discussões.",
+      "present": "O argumento está pronto e a pressa também, e compreender devagar custa um pouco do triunfo.",
+      "future": "A inteligência acelera e o plano ganha fôlego, e quem se lembra do chão ao conduzir chega inteiro."
     },
     "numeral": "Príncipe",
     "court_rank": "Príncipe",
@@ -2261,34 +2261,34 @@
     "court_divine_name_letter": "Vav",
     "sephirah": "Tiphareth",
     "zodiac_range": "20° Capricórnio a 20° Aquário",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Rainha de Espadas",
-    "title": "A Analista",
+    "title": "A Senhora da Nuvem",
     "number": 13,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Clareza, verdade, independência.",
-    "eighth_lesser": "Frieza, insensibilidade, isolamento emocional.",
+    "eighth_greater": "A percepção afiada: ver o que há, sem véu, e dizer o que se vê.",
+    "eighth_lesser": "A vista que já não se espanta: a percepção tão afiada que desconfia até do que é simples.",
     "order": 62,
     "element": "Ar",
     "sign": null,
     "planet": null,
-    "description": "Representa clareza e independência. Simboliza verdade e a habilidade de discernir com precisão.",
-    "description_symbolic": "A Rainha de Espadas é a personificação da lógica e da clareza mental. Ela simboliza verdade, discernimento e independência, mas também alerta contra a frieza emocional.",
-    "message_esoteric": "Esta carta ensina que a clareza mental é essencial para tomar decisões justas. A Rainha de Espadas nos convida a buscar a verdade com compaixão e discernimento.",
+    "description": "A Rainha de Espadas é a emoção que passou pelo filtro da mente e voltou limpa: Água de Ar. Binah, a esfera da forma, dá contorno ao seu pensamento, e o seu zodíaco corre de 20° de Virgem a 20° de Libra, do detalhe à balança. Quem a carta retrata percebe com agudeza, julga com isenção, fala com precisão e não se deixa enganar. Pede que o olhar aceite ser tocado pelo que vê.",
+    "description_symbolic": "O primeiro Heh do Tetragrama faz da Rainha a Grande Mãe de Binah, e Água de Ar é a emoção filtrada pela mente: o sentimento que aprendeu a ver. Na imagem, uma figura de vestido azul-acinzentado, de torso nu, senta-se sobre uma grande nuvem branca, com uma estrela de pontas verdes e amarelas atrás da cabeça; numa mão, uma espada de ponta para baixo; na outra, uma face verde e barbada que pende, entre máscara e cabeça.",
+    "message_esoteric": "Uma percepção exata se firma, e com ela uma conversa franca e um olhar que enxerga o que ninguém quis ver. A nuvem dá altura, e a altura dá vista, mas a vista só vale quando o olhar volta para a terra e se deixa tocar.",
     "meditation_reflection": [
-      "Estou tomando decisões baseadas em clareza e verdade?",
-      "Como posso equilibrar lógica e empatia em minhas ações?",
-      "Estou cultivando independência sem me isolar emocionalmente?"
+      "Onde o meu olhar desconfia tanto que já não deixa nada entrar?",
+      "Que vista a nuvem dá à rainha, e o que ela só enxerga de tão alto?",
+      "Que pergunta a face verde, pendente da mão da Rainha, faria a quem a olhasse de frente?"
     ],
-    "internal_alchemy": "A Rainha de Espadas simboliza a alquimia da clareza e da verdade. Ela nos desafia a agir com independência e discernimento.",
-    "magical_practice": "Conecte-se à Rainha de Espadas visualizando-se segurando uma espada que brilha com a luz da verdade. Afirme sua clareza e independência.",
+    "internal_alchemy": "A Fermentação trabalha a emoção em contato com a mente: ela perde o açúcar e ganha corpo, como um vinho que amadurece até a clareza. É a operação do tempo, e pede uma tampa que respire.",
+    "magical_practice": "Abra uma janela ampla, ou suba a um lugar alto, e olhe o horizonte por dez minutos, sem falar. Depois, com um copo de água diante da carta, dê três goles lentos: um para o que viu, um para o que sentiu e um para o que ainda não sabe.",
     "past_present_future": {
-      "past": "Um momento de clareza mental trouxe sabedoria e crescimento.",
-      "present": "Um período para buscar verdade e tomar decisões justas.",
-      "future": "Mais clareza e sucesso estão por vir, desde que você aja com discernimento."
+      "past": "Cedo se aprendeu a não aceitar versões, e daí vem este olhar.",
+      "present": "Há uma verdade à vista, e a pergunta é quanto dela se diz e a quem.",
+      "future": "O olhar se firma e a franqueza ganha lugar, e o que se vê com clareza chega a quem escuta sem ruído."
     },
     "numeral": "Rainha",
     "court_rank": "Rainha",
@@ -2296,34 +2296,34 @@
     "court_divine_name_letter": "Heh",
     "sephirah": "Binah",
     "zodiac_range": "20° Virgem a 20° Libra",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Cavaleiro de Espadas",
-    "title": "O Estrategista",
+    "title": "O Mergulho Alado",
     "number": 14,
     "isMajorArcana": false,
     "suit": "Espadas",
-    "eighth_greater": "Liderança intelectual, lógica, discernimento.",
-    "eighth_lesser": "Rigidez, autoritarismo, manipulação.",
+    "eighth_greater": "O ataque da ideia: coragem intelectual, velocidade, golpe certeiro.",
+    "eighth_lesser": "O ímpeto sem plano: a ideia que se lança sem ver onde pousa, o ataque que erra o alvo.",
     "order": 63,
     "element": "Ar",
     "sign": null,
     "planet": null,
-    "description": "Simboliza liderança intelectual e lógica. Representa julgamento justo e autoridade mental.",
-    "description_symbolic": "O Rei de Espadas é o símbolo de liderança intelectual e estratégia. Ele representa lógica, julgamento justo e a autoridade que vem do conhecimento.",
-    "message_esoteric": "Esta carta ensina que a verdadeira liderança vem da sabedoria e do discernimento. O Rei de Espadas nos convida a liderar com justiça e clareza.",
+    "description": "O Cavaleiro de Espadas é Fogo de Ar: a mente em chamas, a ideia que ataca em mergulho. Chokmah, a esfera do primeiro impulso, lhe dá a pressa de quem abre a Corte, e o zodíaco o acompanha de 20° de Touro a 20° de Gêmeos, da posse à palavra. Anuncia uma investida rápida, uma discussão acesa, um plano ousado, alguém de língua e de gesto prontos. Chega quando o tempo de pensar passou e o de agir começou.",
+    "description_symbolic": "O Yod, primeira letra do Tetragrama, abre a Corte, e Chokmah dá ao Cavaleiro a força inicial; Fogo de Ar é a velocidade do pensamento aceso. Na imagem, um cavaleiro de armadura verde, montado num cavalo dourado, mergulha em diagonal, de cabeça para baixo, com asas translúcidas amarelas cruzadas e uma espada fina na mão; três pequenas aves douradas voam abaixo, sobre um céu azul riscado.",
+    "message_esoteric": "Uma investida se anuncia: uma ideia que ataca, um debate que esquenta, uma decisão que não vai esperar o prazo. A carta valoriza a coragem de ir primeiro e cobra pontaria, porque quem mergulha sem ver o alvo atinge o vazio. O cavalo é veloz, e a pergunta é o que o cavaleiro está caçando.",
     "meditation_reflection": [
-      "Estou liderando com sabedoria e justiça?",
-      "Como posso usar minha inteligência para o bem maior?",
-      "Estou equilibrando lógica com compaixão em minhas decisões?"
+      "Com tanta pressa, o que eu ataco sem ver onde a espada vai cair?",
+      "Que alvo as asas cruzadas desenham no céu azul, e para onde voam as três aves?",
+      "Para onde aponta a espada fina do Cavaleiro quando ele chega ao fim do mergulho?"
     ],
-    "internal_alchemy": "O Rei de Espadas simboliza a alquimia da liderança intelectual. Ele nos desafia a liderar com justiça, lógica e sabedoria.",
-    "magical_practice": "Conecte-se ao Rei de Espadas visualizando-se sentado em um trono, cercado por uma aura de clareza e autoridade. Afirme sua liderança e discernimento.",
+    "internal_alchemy": "Calcinação: o fogo da ideia queima a fumaça do argumento até sobrar o ponto. É a operação do ímpeto, que só vale se, depois da chama, restar algum fato.",
+    "magical_practice": "Aponte um lápis, de verdade, e fique de pé diante da carta. Dê três passos rápidos para a frente, vibrando Yod a cada passo, e pare de repente, respirando fundo. Fique um minuto imóvel, olhando o que apareceu diante de você.",
     "past_present_future": {
-      "past": "Um período de liderança intelectual trouxe conquistas e aprendizado.",
-      "present": "Um momento de tomar decisões justas e liderar com sabedoria.",
-      "future": "Mais sucesso e liderança estão por vir, desde que você mantenha seu discernimento."
+      "past": "Esta ideia sempre queimou mais depressa do que o corpo conseguia segurar.",
+      "present": "O ataque está armado, e a carta pergunta onde ele vai pousar.",
+      "future": "Na investida veloz, quem mira antes de mergulhar acerta, e quem só mergulha apenas atravessa."
     },
     "numeral": "Cavaleiro",
     "court_rank": "Cavaleiro",
@@ -2331,7 +2331,7 @@
     "court_divine_name_letter": "Yod",
     "sephirah": "Chokmah",
     "zodiac_range": "20° Touro a 20° Gêmeos",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Ás de Discos",
