@@ -711,7 +711,8 @@
     "ver_tambem": [
       "corte",
       "malkuth",
-      "heh"
+      "heh",
+      "quadrantes-do-ceu"
     ]
   },
   {
@@ -721,11 +722,23 @@
       "Fogo de Fogo",
       "Água de Fogo",
       "Ar de Fogo",
-      "Terra de Fogo"
+      "Terra de Fogo",
+      "Fogo de Água",
+      "Água de Água",
+      "Ar de Água",
+      "Terra de Água",
+      "Fogo de Ar",
+      "Água de Ar",
+      "Ar de Ar",
+      "Terra de Ar",
+      "Fogo de Terra",
+      "Água de Terra",
+      "Ar de Terra",
+      "Terra de Terra"
     ],
     "auto": true,
     "curto": "A combinação do elemento da patente com o do naipe: Ar de Fogo é a mente (Ar) dentro do impulso (Fogo). Cada figura da Corte tem a sua.",
-    "mais": "Cavaleiro é Fogo; Rainha, Água; Príncipe, Ar; Princesa, Terra. O naipe vem depois do 'de': a Rainha de Taças é Água de Água, e o Cavaleiro de Espadas, Fogo de Ar.",
+    "mais": "Cavaleiro é Fogo; Rainha, Água; Príncipe, Ar; Princesa, Terra. O naipe vem depois do 'de': o Príncipe de Bastões é Ar de Fogo; a Rainha de Taças, Água de Água; o Cavaleiro de Espadas, Fogo de Ar; a Princesa de Discos, Terra de Terra.",
     "ver_tambem": [
       "corte",
       "elementos"
@@ -867,7 +880,8 @@
     "ver_tambem": [
       "nigredo",
       "citrinitas",
-      "solve-et-coagula"
+      "solve-et-coagula",
+      "operacoes-alquimicas"
     ]
   },
   {
@@ -908,7 +922,8 @@
     "curto": "A primeira operação alquímica: queimar a matéria até virar cinza e restar só o essencial. O Fogo é o seu agente.",
     "mais": "",
     "ver_tambem": [
-      "grande-obra"
+      "grande-obra",
+      "operacoes-alquimicas"
     ]
   },
   {
@@ -1242,6 +1257,50 @@
     "mais": "",
     "ver_tambem": [
       "tarot-de-thoth"
+    ]
+  },
+  {
+    "id": "operacoes-alquimicas",
+    "termo": "operações alquímicas",
+    "aliases": [
+      "Dissolução em repouso",
+      "Dissolução em ebulição",
+      "Dissolução",
+      "Conjunção",
+      "Multiplicação",
+      "Fermentação",
+      "Separação",
+      "Exaltação",
+      "Putrefação",
+      "Congelação",
+      "Sublimação",
+      "Projeção",
+      "Cibação",
+      "Destilação"
+    ],
+    "auto": true,
+    "curto": "Os passos da Grande Obra alquímica: cada operação transforma a matéria de um jeito. Dissolver desfaz, separar aparta, unir junta, sublimar eleva.",
+    "mais": "A tradição lista doze: calcinação, dissolução, separação, conjunção, putrefação, congelação, cibação, sublimação, fermentação, exaltação, multiplicação e projeção. A destilação, que também aparece aqui, é uma variante corrente na prática. Cada carta recebe a operação que mais combina com ela.",
+    "ver_tambem": [
+      "grande-obra",
+      "calcinacao",
+      "solve-et-coagula",
+      "nigredo"
+    ]
+  },
+  {
+    "id": "quadrantes-do-ceu",
+    "termo": "quadrantes do céu",
+    "aliases": [
+      "quadrantes do céu"
+    ],
+    "auto": true,
+    "curto": "As regiões do céu em torno do polo, às quais a Golden Dawn liga as Princesas em lugar dos signos do zodíaco.",
+    "mais": "Por isso a Princesa não tem decano nem datas: ela marca um território do céu, e não uma estação do ano. As fontes não concordam sobre como mapear esses quadrantes.",
+    "ver_tambem": [
+      "princesa",
+      "corte",
+      "golden-dawn"
     ]
   }
 ]
