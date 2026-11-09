@@ -123,12 +123,16 @@ export class TarotCardInfo extends HTMLElement {
             meditationContainer.textContent += ' Não disponível.';
         }
 
-        // Passado, presente e futuro
+        // Leitura em três tempos. As cartas já reescritas (texto_thoth) usam o formato
+        // raiz, dilema e tendência; as demais ainda têm passado, presente e futuro.
+        const rotulos = cardData.texto_thoth
+            ? ['Raiz', 'Dilema', 'Tendência']
+            : ['Passado', 'Presente', 'Futuro'];
         const pastPresentFutureContainer = this.querySelector('#card-past-present-future');
         pastPresentFutureContainer.innerHTML = `
-            <p><strong>Passado:</strong> <br> ${cardData.past_present_future?.past || 'Não disponível.'}</p>
-            <p><strong>Presente:</strong> <br> ${cardData.past_present_future?.present || 'Não disponível.'}</p>
-            <p><strong>Futuro:</strong> <br> ${cardData.past_present_future?.future || 'Não disponível.'}</p>
+            <p><strong>${rotulos[0]}:</strong> <br> ${cardData.past_present_future?.past || 'Não disponível.'}</p>
+            <p><strong>${rotulos[1]}:</strong> <br> ${cardData.past_present_future?.present || 'Não disponível.'}</p>
+            <p><strong>${rotulos[2]}:</strong> <br> ${cardData.past_present_future?.future || 'Não disponível.'}</p>
         `;
 
         this.removeAttribute('hidden'); // Exibe o modal

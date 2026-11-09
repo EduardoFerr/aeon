@@ -4,28 +4,28 @@
     "title": "O Inocente",
     "number": 0,
     "isMajorArcana": true,
-    "eighth_greater": "Confiança no universo, coragem para recomeçar.",
-    "eighth_lesser": "Imprudência, irresponsabilidade, negligência.",
+    "eighth_greater": "Espontaneidade pura, salto de confiança antes de qualquer plano.",
+    "eighth_lesser": "Leveza sem lastro, que confunde ausência de medo com ausência de cuidado.",
     "order": "00",
     "element": "Ar",
     "sign": null,
     "planet": "Urano",
-    "description": "O Louco é a manifestação do potencial absoluto, uma explosão de energia criativa antes da ordem ou da forma. Representa o início de tudo, onde a liberdade encontra o caos, e a criação é apenas uma possibilidade latente. O elemento Ar confere-lhe leveza e movimento, enquanto Urano traz a força transformadora e inesperada da mudança. Ele não é guiado por lógica, mas pela intuição pura e pelo desejo de explorar o desconhecido. Sua jornada é um salto de fé, onde cada passo abre caminho para novas realidades. O Louco nos lembra que toda criação começa com a coragem de sair do chão, abraçar o risco e confiar no fluxo da vida.",
+    "description": "O Louco é o zero do Tarot, o número que ainda não é nada e, por isso, contém tudo. Em Thoth, ele abre o caminho 11, entre Kether e Chokmah, o primeiro passo da Unidade rumo à multiplicidade. Aleph, o boi, e o elemento Ar lhe dão o sopro anterior a qualquer palavra. Crowley o aproxima de Parsifal, o tolo puro, e de Dionísio e Pã. A carta não elogia a imprudência: lembra a coragem de começar sem garantias, com a atenção desperta.",
     "hebrew_letter": "Aleph (א)",
     "astrology": "Urano",
-    "description_symbolic": "Eis o Louco, a carta número zero, que não tem início nem fim, pois ele é o eterno círculo da criação. Ele é o espírito primordial, a explosão do Big Bang cósmico, a energia inominável que se lança no abismo da existência. Com um sorriso no rosto e um pé já no precipício, ele simboliza a confiança absoluta na jornada. Não há medo, apenas a certeza de que, seja qual for o caminho, ele é o caminho certo.",
-    "message_esoteric": "O Louco não é insensato, mas aquele que está além da lógica mortal. Ele é o caos criativo do deus Pã, a força bruta de Dionísio, a energia de Shiva antes da dança. Ele nos ensina a confiar na jornada, a abandonar as amarras do ego e a mergulhar no desconhecido. Ele é o iniciado que deu o primeiro passo sem olhar para trás.",
+    "description_symbolic": "Zero é o Ain, o nada anterior ao número, e o Louco é a primeira vibração desse nada tomando forma. Aleph significa boi, força que puxa o arado, mas no elemento Ar ela vira impulso sem peso. O caminho 11 é o primeiro depois de Kether, o mais alto da Árvore, e liga a Coroa à Sabedoria. Em Thoth, a figura caminha entre animais e símbolos de vida.",
+    "message_esoteric": "Todo começo pede um passo que não se justifica de antemão. A carta pergunta o que você adia por querer certeza e que leveza ainda lhe resta, sem confundi-la com descuido: olhar onde se pisa também faz parte do salto.",
     "meditation_reflection": [
-      "O que eu estou evitando por medo do desconhecido?",
-      "Estou disposto a confiar no processo, mesmo sem saber o resultado?",
-      "Como posso permitir que o caos criativo se manifeste em minha vida?"
+      "Em que ponto minha leveza virou desculpa para não olhar as consequências?",
+      "O que o zero, o vazio que antecede o número, me convida a esvaziar antes de começar?",
+      "Que primeiro passo, pequeno e imperfeito, posso dar sem esperar que tudo esteja pronto?"
     ],
-    "internal_alchemy": "O Louco é o ar que respiras, o vento que não se pode capturar. Ele é a respiração inicial de um projeto, de uma ideia, de uma vida. Ele nos lembra que, antes de sermos algo, somos nada — e que é nesse nada que reside todo o potencial.",
-    "magical_practice": "Conecte-se com o Louco permitindo-se sonhar sem limitações. Visualize-se pulando de um precipício, sabendo que o universo o apoiará. Ouça o som do silêncio, pois é ali que o Louco sussurra.",
+    "internal_alchemy": "Ar que antecede o fogo e a água: o estado volátil em que tudo ainda é possível. A obra começa quando esse sopro aceita tomar forma, e por isso a carta pede confiança sem abrir mão da atenção.",
+    "magical_practice": "Comece hoje uma ação pequena que você adia por falta de garantia, em dez minutos e sem plano completo. Antes, respire fundo três vezes em um lugar aberto. À noite, anote o que descobriu só por ter começado.",
     "past_present_future": {
-      "past": "Uma fase de inocência e espontaneidade, marcada pela liberdade de seguir novos caminhos sem medo.",
-      "present": "Um momento de confiança e coragem, onde o salto no desconhecido é necessário para avançar.",
-      "future": "O potencial de algo grandioso, mas que exigirá fé absoluta para que se realize."
+      "past": "Talvez já tenha havido um começo sem plano e sem garantia, que hoje você reconhece como coragem.",
+      "present": "Um primeiro passo espera. Entre dar o passo com confiança e dispensar todo cuidado, vale notar de que lado você está pendendo.",
+      "future": "Tendência: quem começa aprende o caminho andando. Sinal para observar: a vontade de saltar vem junto com atenção a onde o pé vai pisar."
     },
     "numeral": "0",
     "path": {
@@ -33,35 +33,35 @@
       "from": "Kether",
       "to": "Chokmah"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "O Mago",
     "title": "O Manifestador",
     "number": 1,
     "isMajorArcana": true,
-    "eighth_greater": "Domínio e controle das forças internas e externas.",
-    "eighth_lesser": "Manipulação, abuso de poder, ilusão.",
+    "eighth_greater": "Vontade que se faz palavra, habilidade de transformar intenção em ato.",
+    "eighth_lesser": "Astúcia sem propósito: a palavra usada para encantar ou enganar, e não para criar.",
     "order": "01",
     "element": "Ar",
     "sign": null,
     "planet": "Mercúrio",
-    "description": "O Mago é a personificação do poder criativo e da manifestação consciente. Ele canaliza a energia divina para o mundo material, conectando os reinos espiritual e terreno. Regido por Mercúrio, ele reflete inteligência, comunicação e habilidade para transformar intenção em realidade. Suas ferramentas – o bastão, a espada, a taça e o disco – simbolizam o domínio sobre os quatro elementos e a capacidade de moldá-los com sua vontade. O Mago nos lembra que o universo é moldável e que o poder de criar reside na mente e na concentração. Porém, ele alerta para o uso responsável desse poder, evitando a ilusão e a manipulação para fins egoístas.",
+    "description": "Beth, a casa, e Mercúrio, o mensageiro, marcam o Mago: a Vontade dando forma ao que existe. O caminho 12, de Kether a Binah, é o seu em Thoth. Crowley o chama de Magus e o associa à palavra criadora, ao deus Thoth e a Hermes. Seus instrumentos são os quatro elementos reunidos, bastão, taça, espada e disco, manejados como uma só linguagem. Mercúrio também traz a astúcia, e a carta não esconde que a palavra serve tanto à criação quanto ao engano.",
     "hebrew_letter": "Beth (ב)",
     "astrology": "Mercúrio",
-    "description_symbolic": "O Mago é o mestre da vontade, o alquimista supremo que transforma intenção em manifestação. Ele é o intermediário entre o divino e o mundano, manipulando os elementos do universo para criar algo novo. Na carta, ele é representado rodeado pelos instrumentos sagrados: o bastão, a taça, a espada e o disco — símbolos dos quatro elementos. O Mago não apenas comanda essas forças, mas as integra como uma extensão de sua própria essência. Ele representa o verbo criador, o poder do logos que molda a realidade.",
-    "message_esoteric": "O Mago nos ensina que tudo começa com a vontade. Ele é a manifestação da consciência em ação, a prova de que o universo responde àqueles que sabem como exercer seu poder pessoal. Ele nos lembra que somos criadores, e que o domínio da mente e da palavra é a chave para moldar a realidade. É o símbolo da ação deliberada e da autoconfiança.",
+    "description_symbolic": "Beth é a casa, o primeiro recipiente em que a Unidade se expressa. Mercúrio, planeta da comunicação e da mediação, faz do Mago um tradutor entre o mais alto e o mais baixo. O caminho 12 sai de Kether em direção a Binah e leva o impulso inicial para a forma. Os quatro naipes aparecem juntos: ele não escolhe um elemento, fala todos.",
+    "message_esoteric": "Querer não basta; é preciso nomear, medir e agir com precisão. Cada palavra, dita ou calada, é ferramenta. A que serviço você põe sua inteligência, e o discurso que sustenta é mesmo aquilo que deseja criar?",
     "meditation_reflection": [
-      "Como posso usar meus talentos para criar algo significativo?",
-      "Estou agindo com intenção clara ou apenas reagindo às circunstâncias?",
-      "Quais ferramentas tenho à minha disposição que podem transformar minha vida?"
+      "Onde uso minha facilidade de convencer para evitar dizer o que realmente quero?",
+      "O que Mercúrio, o mensageiro, me pede para traduzir entre o que penso e o que faço?",
+      "Que frase clara posso dizer ou escrever para alinhar o que digo com o que quero?"
     ],
-    "internal_alchemy": "O Mago representa a alquimia interna, onde ideias se tornam realidade. Ele nos desafia a dominar nossos pensamentos, palavras e ações para nos tornarmos mestres de nosso próprio destino. Ele simboliza a habilidade de equilibrar força e sutileza, ação e contemplação.",
-    "magical_practice": "Para conectar-se ao Mago, visualize-se segurando os quatro instrumentos: bastão, taça, espada e disco. Concentre-se em sua intenção e declare em voz alta o que deseja criar. Use afirmações poderosas e claras para reforçar sua conexão com o poder criador.",
+    "internal_alchemy": "Quatro elementos reunidos sob uma só intenção. Mercúrio, o volátil, é fixado pela Vontade em ato concreto: o pensamento deixa de flutuar e se torna instrumento.",
+    "magical_practice": "Escolha um propósito e escreva-o em uma frase de dez palavras. Sobre uma mesa, disponha quatro objetos que representem fogo, água, ar e terra, e leia a frase em voz alta tocando cada um. Anote que ação concreta a frase exige hoje.",
     "past_present_future": {
-      "past": "Uma fase de aprendizado e descoberta de habilidades pessoais, onde o potencial começou a se revelar.",
-      "present": "Um momento de ação e manifestação, onde a confiança e o domínio pessoal são cruciais.",
-      "future": "A promessa de um novo empreendimento ou criação, desde que haja foco e intenção clara."
+      "past": "Pode ter havido uma ideia ou habilidade afiada na prática, muito antes de você chamá-la de talento.",
+      "present": "As ferramentas estão à mão. Resta decidir o que se quer criar com elas, em vez de apenas demonstrar o que se sabe.",
+      "future": "Tendência: vontade clara dá corpo ao que era palavra solta. Sinal para observar: o que você diz e o que faz começam a coincidir."
     },
     "numeral": "I",
     "path": {
@@ -69,35 +69,35 @@
       "from": "Kether",
       "to": "Binah"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "A Sacerdotisa",
     "title": "A Guardiã do Mistério",
     "number": 2,
     "isMajorArcana": true,
-    "eighth_greater": "Sabedoria intuitiva, conexão espiritual profunda.",
-    "eighth_lesser": "Segredos ocultos, repressão, mistério não revelado.",
+    "eighth_greater": "Intuição que escuta antes de falar, acesso ao que ainda não tem nome.",
+    "eighth_lesser": "O silêncio que vira esconderijo: o mistério usado para não se comprometer.",
     "order": "02",
     "element": "Água",
     "sign": null,
     "planet": "Lua",
-    "description": "A Sacerdotisa, representada pelo número dois, simboliza a fonte do conhecimento oculto e da sabedoria intuitiva. Como complemento do Mago, ela opera nas profundezas psíquicas e espirituais. Seu elemento, a Água, reflete o fluxo emocional, o mistério e a receptividade. Envolta em um véu de segredo, ela domina o equilíbrio entre o mundo consciente e inconsciente, revelando verdades somente àqueles preparados para recebê-las. No Tarot de Thoth, ela é a representação da Deusa lunar, cuja presença suave e sutil comanda o silêncio interior e os mistérios cósmicos.",
+    "description": "Água e Lua fazem da Sacerdotisa a luz que só existe porque reflete outra. Em Thoth, ela percorre o caminho 13, que liga Kether a Tiphareth e atravessa o Abismo, ao longo da coluna central da Árvore. Gimel, o camelo, nomeia o animal que cruza o deserto, e a carta pede a mesma travessia: levar a consciência pelo vazio até o centro. Intuição, ritmo e silêncio são os seus instrumentos.",
     "hebrew_letter": "Gimel (ג)",
     "astrology": "Lua",
-    "description_symbolic": "A Sacerdotisa é o elo místico que conecta os mundos físico e metafísico. Sentada em silêncio, ela guarda o pergaminho sagrado, um símbolo da sabedoria eterna e inatingível. O véu que a cerca sugere que nem todos os mistérios são feitos para serem revelados imediatamente. Sua conexão com a Lua indica ciclos naturais, introspecção e o fluxo da energia psíquica. No Tarot de Thoth, ela transcende a simples percepção, guiando o iniciado a explorar os segredos ocultos da alma.",
-    "message_esoteric": "A lição essencial da Sacerdotisa é confiar na voz interior e permitir que o mistério revele seu próprio tempo. Ela nos convida a entrar no templo interno, onde o silêncio e a contemplação são necessários para alcançar a verdadeira sabedoria. Sua mensagem é clara: a compreensão espiritual não pode ser forçada; ela floresce através da intuição e paciência.",
+    "description_symbolic": "Gimel é o camelo, que atravessa o deserto sem beber, e na Árvore a letra marca a ponte entre o centro e a coroa. A Lua não tem luz própria: ilumina o que recebe. A Água lhe empresta fluidez e memória. Em Thoth, a figura é lunar e virginal, ligada à tradição de Ártemis, e o caminho 13 é o que leva a consciência até a Coroa.",
+    "message_esoteric": "Nem toda resposta vem de perguntar mais alto: calar o bastante também é método. A intuição, longe de pedir provas, pede escuta e tempo, e o que já se sabe costuma aparecer quando se dá espaço para isso.",
     "meditation_reflection": [
-      "Estou ouvindo minha intuição ou deixando minha mente racional dominar?",
-      "Que aspectos de meu ser ainda estão ocultos e aguardam ser revelados?",
-      "Como posso abraçar o silêncio como ferramenta para o autoconhecimento?"
+      "Em que situação chamo de mistério o que, na verdade, é medo de decidir?",
+      "Que travessia longa e silenciosa, como a do camelo, estou evitando?",
+      "Que decisão posso adiar por vinte e quatro horas para ouvir melhor o que já sinto?"
     ],
-    "internal_alchemy": "A Sacerdotisa é a alquimia do conhecimento sutil. Ela transmuta experiências internas em sabedoria espiritual ao cultivar a paciência e a introspecção. No Tarot de Thoth, ela ensina que o poder verdadeiro nasce da integração do inconsciente e da aceitação dos mistérios da vida.",
-    "magical_practice": "Para alinhar-se à energia da Sacerdotisa, medite sob a luz da Lua, visualizando um portal velado. Atravessá-lo é um ato de confiança na sua intuição. Durante a prática, mantenha um diário para registrar os insights que emergirem do inconsciente.",
+    "internal_alchemy": "Dissolver sem destruir: a Água receptiva acolhe o que é denso e o devolve mais sutil. A experiência bruta se converte, em silêncio, em compreensão.",
+    "magical_practice": "Ao anoitecer, sente-se diante de um copo de água e de uma vela. Faça uma pergunta e não tente respondê-la. Fique dez minutos em silêncio e escreva só o que surgir, sem corrigir. Releia no dia seguinte.",
     "past_present_future": {
-      "past": "Você passou por experiências onde o aprendizado veio da introspecção ou de fontes ocultas.",
-      "present": "O momento atual exige paciência e atenção ao que está além das aparências. As respostas chegarão quando o tempo for adequado.",
-      "future": "Segredos serão revelados e um entendimento profundo será alcançado, desde que você se mantenha aberto ao desconhecido e confie na jornada."
+      "past": "Se houve um período de silêncio, talvez você tenha percebido algo antes de conseguir explicá-lo.",
+      "present": "Uma parte sua talvez já saiba. Dar tempo a esse saber ou apressá-lo para justificá-lo são caminhos diferentes, e a carta pede atenção à diferença.",
+      "future": "Tendência: a escuta paciente clareia o que a pressa embaralhava. Sinal para observar: respostas que chegam sem esforço, em momentos de quietude."
     },
     "numeral": "II",
     "path": {
@@ -105,35 +105,35 @@
       "from": "Kether",
       "to": "Tiphareth"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "A Imperatriz",
     "title": "A Mãe Divina",
     "number": 3,
     "isMajorArcana": true,
-    "eighth_greater": "Criatividade, fertilidade, conexão com a natureza.",
-    "eighth_lesser": "Excesso de indulgência, possessividade, falta de controle.",
+    "eighth_greater": "Fertilidade criadora, prazer e cuidado que fazem a vida crescer.",
+    "eighth_lesser": "Abundância que sufoca: o cuidado que prende ou o prazer que vira acúmulo.",
     "order": "03",
     "element": "Terra",
     "sign": null,
     "planet": "Vênus",
-    "description": "A Imperatriz, regida por Vênus e pelo número três, é a manifestação do amor em forma material. No Tarot de Thoth, ela não é apenas a mãe divina, mas a matriz alquímica onde o espírito e a matéria se fundem. Representando a força criativa que nutre a vida, ela simboliza a abundância natural, a fertilidade, a harmonia e o prazer dos sentidos. Sua energia é receptiva, porém poderosa, criando e sustentando tudo o que cresce no universo físico e espiritual.",
+    "description": "Daleth, a porta, é a abertura por onde a vida entra no mundo, e a Imperatriz é essa passagem feita carne. Em Thoth, seu caminho é o 14, que liga Chokmah, a força, a Binah, a forma, e une impulso e receptividade em um só ato de gerar. Vênus empresta o desejo e a beleza, e a Terra dá corpo à fertilidade. Criar, nutrir e desfrutar com os sentidos abertos é o território desta carta.",
     "hebrew_letter": "Daleth (ד)",
     "astrology": "Vênus",
-    "description_symbolic": "A Imperatriz, sentada em um trono rodeado por vegetação exuberante, é um arquétipo de criação contínua. No Tarot de Thoth, ela carrega o cetro, símbolo de autoridade divina sobre o ciclo de vida, e o escudo com a pomba, representando a paz e a proteção da força criadora. Sua conexão com Vênus reflete não apenas o amor romântico, mas o amor cósmico, onde a beleza e a criação caminham lado a lado. Tudo em sua presença floresce e prospera.",
-    "message_esoteric": "A Imperatriz nos ensina que toda criação começa com a semente do amor e da intenção. Ela nos lembra de nutrir nossos sonhos, nossas relações e nossa conexão com a Terra. Sua mensagem é um convite para reconhecer o poder de criação que todos temos dentro de nós, seja no plano físico, emocional ou espiritual.",
+    "description_symbolic": "Daleth é a porta, e a porta é o ventre, a passagem entre o invisível e o visível. O caminho 14 conecta o Pai e a Mãe da Árvore, de modo que a Imperatriz não é só mãe: é o encontro que a torna possível. Vênus traz a atração que junta o que estava separado, e Binah, a Grande Mãe, recebe a força de Chokmah e a transforma em forma.",
+    "message_esoteric": "Criar exige prazer, tempo e abrigo. A carta aponta para o que está sendo gestado agora e distingue nutrir de cobrar resultado. Receber sem transformar o presente em dívida também faz parte da obra.",
     "meditation_reflection": [
-      "O que em minha vida precisa ser nutrido e cuidado para florescer plenamente?",
-      "Estou usando minha criatividade de forma intencional e harmoniosa?",
-      "De que forma posso alinhar-me aos ciclos naturais para obter mais equilíbrio e prosperidade?"
+      "Onde meu cuidado pelos outros virou forma de controle ou de acúmulo?",
+      "O que a porta de Daleth, entre a força e a forma, quer deixar passar na minha vida?",
+      "Que prazer simples, sem produtividade, posso me dar hoje?"
     ],
-    "internal_alchemy": "A Imperatriz personifica a alquimia da transformação amorosa. Ela nos convida a trabalhar com paciência e dedicação, nutrindo o que queremos ver manifestado. No Tarot de Thoth, ela nos ensina que, assim como a natureza, a criação exige um processo cíclico de plantar, cuidar e colher.",
-    "magical_practice": "Para ativar a energia da Imperatriz, envolva-se em atividades criativas ou passe um tempo em meio à natureza. Durante uma meditação, visualize-se em um jardim fértil, onde suas intenções crescem e florescem. Plante simbolicamente uma semente e observe como ela se desenvolve ao longo do tempo.",
+    "internal_alchemy": "Aqui a matéria se condensa por amor: o desejo, ao encontrar a Terra, vira corpo, obra e vínculo. É o ouro que cresce, em vez do ouro que se arranca.",
+    "magical_practice": "Dedique uma hora a algo que nutre os sentidos sem utilidade declarada: cozinhar, cuidar de uma planta, ouvir uma música inteira. Depois escreva o que você está gestando e que cuidado concreto isso pede.",
     "past_present_future": {
-      "past": "Você experimentou um período de crescimento, no qual a criatividade e a nutrição desempenharam papéis fundamentais.",
-      "present": "Agora é o momento de cuidar de suas ideias, relações e intenções com amor, garantindo que elas floresçam.",
-      "future": "A colheita de prosperidade e harmonia será garantida, desde que você mantenha a paciência e o cuidado com aquilo que está cultivando."
+      "past": "Pode ter sido semeado algo com carinho, talvez antes de você saber o que viria a ser.",
+      "present": "O que cresce precisa de cuidado e de limite. Nutrir e possuir não são a mesma coisa, e a carta pede que se note a diferença.",
+      "future": "Tendência: o que é tratado com atenção ganha corpo. Sinal para observar: prazer em cuidar, e não só obrigação."
     },
     "numeral": "III",
     "path": {
@@ -141,35 +141,35 @@
       "from": "Chokmah",
       "to": "Binah"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "O Imperador",
     "title": "O Regente",
     "number": 4,
     "isMajorArcana": true,
-    "eighth_greater": "Autoridade, estabilidade, estrutura sólida.",
-    "eighth_lesser": "Rigidez, tirania, controle excessivo.",
+    "eighth_greater": "Autoridade que estrutura, vontade que protege e dá direção.",
+    "eighth_lesser": "Autoridade que endurece: controle excessivo, comando sem escuta.",
     "order": "04",
     "element": "Fogo",
     "sign": "Áries",
     "planet": null,
-    "description": "O Imperador, representado pelo número quatro e pelo signo de Áries, é o arquétipo da ordem, disciplina e liderança firme. No Tarot de Thoth, ele não é apenas o governante mundano, mas a força espiritual que organiza o caos em uma criação estruturada. Sua energia de Fogo simboliza a paixão e a iniciativa necessárias para construir uma base sólida, onde o impulso criativo do universo encontra a estabilidade das formas. Ele é o guardião das leis que sustentam a existência.",
+    "description": "O Imperador é a vontade que se organiza em poder. Em Thoth, sua letra é Tzaddi, o anzol, por uma troca que Crowley fez com Heh, atribuída tradicionalmente a ele, e seu caminho é o 28, de Netzach a Yesod, que leva o desejo à imagem que o sustenta. Áries e o Fogo dão iniciativa e coragem. Quem funda, decide e assume o risco de ser o primeiro a avançar reconhece esta carta.",
     "hebrew_letter": "Tzaddi (צ)",
     "astrology": "Áries",
-    "description_symbolic": "O Imperador é o construtor do reino, sentado em um trono de pedra, simbolizando a solidez e permanência das suas conquistas. No Tarot de Thoth, seu cetro e globo representam o poder supremo sobre o plano material e a capacidade de dar forma ao mundo ao seu redor. Áries, seu signo, indica liderança natural, ação decisiva e a coragem necessária para assumir responsabilidades. Ele governa não com tirania, mas com sabedoria fundamentada na compreensão dos limites necessários ao crescimento.",
-    "message_esoteric": "O Imperador nos ensina que verdadeira autoridade não é imposta, mas conquistada através da disciplina e do autodomínio. Ele nos mostra que, para manifestar nossos objetivos no mundo físico, é preciso estabelecer ordem e respeitar os princípios estruturais da criação. Sua lição essencial é encontrar equilíbrio entre poder e responsabilidade.",
+    "description_symbolic": "Tzaddi é o anzol, imagem de quem pesca e traz para si. A troca de letras com a Estrela se apoia numa passagem do Livro da Lei (Liber AL), texto que Crowley disse ter recebido em 1904, e é a diferença cabalística mais conhecida entre o Thoth e a Golden Dawn. Áries é o signo do início, e a tradição astrológica tem o Sol como exaltado nele.",
+    "message_esoteric": "Liderar é responder pelo que se decide. Há estruturas que a vida pede para manter de pé e regras que só controlam, e distinguir umas das outras exige coragem, sobretudo quando ninguém mais quer ser o primeiro a agir.",
     "meditation_reflection": [
-      "Estou exercendo meu poder de forma justa e responsável?",
-      "Que áreas da minha vida precisam de mais estrutura e disciplina?",
-      "Estou liderando com sabedoria ou tentando controlar tudo ao meu redor?"
+      "Onde minha firmeza deixou de proteger e passou a impedir o crescimento de alguém, inclusive o meu?",
+      "O que o anzol de Tzaddi pesca em mim: o que atraio e puxo para dentro da minha vontade?",
+      "Que decisão adiada posso assumir, dizendo-a em voz alta a quem ela afeta?"
     ],
-    "internal_alchemy": "O Imperador representa a alquimia da autoridade interior. Ele transforma a impulsividade em ação deliberada e o caos em estrutura ordenada. No Tarot de Thoth, ele nos lembra que o verdadeiro domínio começa pelo autoconhecimento e pela disciplina interna.",
-    "magical_practice": "Para conectar-se à energia do Imperador, visualize um trono de pedra sólida em um local elevado. Sente-se nele e sinta a força de sua base firme. Durante a meditação, afirme sua capacidade de liderar e criar ordem em sua vida. Após a prática, escreva quais áreas precisam de mais estrutura e como você pode estabelecê-la.",
+    "internal_alchemy": "O fogo que dá forma reúne a energia dispersa em direção e a faz sustentar uma obra. O risco da operação é queimar o que deveria apenas cozinhar.",
+    "magical_practice": "Escreva três regras que sustentam o seu dia e observe, à noite, qual protegeu algo e qual apenas conteve você. Mantenha uma, revogue outra, e diga a decisão em voz alta, como quem assina um decreto.",
     "past_present_future": {
-      "past": "Você construiu uma base sólida através de disciplina e regras bem definidas.",
-      "present": "Este é um momento de assumir o controle e governar sua vida com autoridade interna.",
-      "future": "A estabilidade e o sucesso estarão ao seu alcance, desde que você mantenha o equilíbrio entre ordem e flexibilidade."
+      "past": "Alguém, talvez você, pode ter estabelecido uma ordem que ainda sustenta parte da rotina.",
+      "present": "Decidir tem custo. Comandar por convicção ou por medo de perder o controle leva a lugares diferentes, e a carta pede clareza sobre qual dos dois está em jogo.",
+      "future": "Tendência: a clareza de direção reúne esforços dispersos. Sinal para observar: as pessoas ao redor sabem o que esperar de você."
     },
     "numeral": "IV",
     "path": {
@@ -177,35 +177,35 @@
       "from": "Netzach",
       "to": "Yesod"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "O Hierofante",
     "title": "O Mestre Espiritual",
     "number": 5,
     "isMajorArcana": true,
-    "eighth_greater": "Sabedoria, grande estudioso das ciências e religiões.",
-    "eighth_lesser": "Intolerância, fanatismo, dogmatismo.",
+    "eighth_greater": "Ensino que transmite o essencial, tradição vivida como método.",
+    "eighth_lesser": "Dogma que substitui a experiência: o rito repetido sem que se saiba o que ele ensina.",
     "order": "05",
     "element": "Terra",
     "sign": "Touro",
     "planet": null,
-    "description": "O Hierofante, regido pelo número cinco e pelo signo de Touro, representa a sabedoria eterna transmitida por meio de tradições, rituais e sistemas espirituais. No Tarot de Thoth, ele não é apenas o guardião da fé, mas o canal de energia cósmica que conecta o conhecimento terreno às verdades universais. Sua presença é um convite para alinhar-se com a sabedoria ancestral e abrir-se ao aprendizado espiritual. Sua energia de Terra reflete a estabilidade necessária para explorar os mistérios do divino com humildade e disciplina.",
+    "description": "Quem revela o sagrado por meio de um método encontra no Hierofante um espelho. Seu lugar na Árvore de Thoth é o caminho 16, entre Chokmah e Chesed, ponte entre a sabedoria primordial e a ordem que se ensina. Vav, o prego, é também a letra que significa e: une, prende, conecta. Touro e a Terra dão paciência, corpo e estabilidade. Iniciação, mestre e discípulo, uma tradição que só vale enquanto é experiência viva: é o que está em jogo.",
     "hebrew_letter": "Vav (ו)",
     "astrology": "Touro",
-    "description_symbolic": "O Hierofante é o ponto de união entre o humano e o divino. Sentado em seu trono, ele carrega os símbolos de autoridade espiritual e o conhecimento das tradições antigas. No Tarot de Thoth, ele é representado como o elo entre o microcosmo e o macrocosmo, indicando que o caminho para a iluminação passa pelo aprendizado disciplinado e pelo respeito às leis espirituais. O signo de Touro destaca sua conexão com a manifestação prática do conhecimento sagrado.",
-    "message_esoteric": "O Hierofante nos lembra que a sabedoria verdadeira vem do equilíbrio entre o aprendizado interno e o ensino externo. Ele nos ensina a valorizar o que herdamos das tradições espirituais, mas também a questionar com discernimento. Sua mensagem é clara: o aprendizado espiritual é tanto um processo de absorção quanto de compartilhamento.",
+    "description_symbolic": "Vav é um prego e uma conjunção, aquilo que fixa duas coisas uma à outra. O caminho 16 liga o pai da Árvore, Chokmah, à esfera da misericórdia, Chesed, de modo que o ensino aqui se dá com firmeza e com generosidade. Touro é signo fixo, fértil e paciente, o da terra que dá fruto na estação certa, e a Terra é o elemento da forma que se preserva.",
+    "message_esoteric": "Ninguém aprende sozinho o que uma linhagem inteira já descobriu. Vale lembrar a quem se deve o ofício, a quem ele está sendo ensinado, e se o que se segue por hábito ainda é experiência ou virou só forma.",
     "meditation_reflection": [
-      "Estou buscando sabedoria de forma aberta e com humildade?",
-      "Que conhecimentos antigos podem ser integrados à minha jornada atual?",
-      "De que forma posso compartilhar o que aprendi com os outros, sem impor minhas crenças?"
+      "Que regra que sigo foi herdada sem que eu tenha entendido por que existe?",
+      "O que o prego de Vav, que liga duas coisas, está unindo ou prendendo em mim?",
+      "A quem posso ensinar, ou de quem posso pedir um ensinamento, com uma pergunta concreta?"
     ],
-    "internal_alchemy": "O Hierofante representa a alquimia do conhecimento compartilhado. Ele transforma a sabedoria bruta em uma joia lapidada, pronta para iluminar tanto o estudante quanto o mestre. No Tarot de Thoth, ele enfatiza a importância do processo contínuo de aprender e ensinar, como uma corrente viva que flui entre gerações.",
-    "magical_practice": "Para conectar-se ao Hierofante, participe de um ritual tradicional, leia um texto sagrado ou medite sobre a transmissão de conhecimento ao longo do tempo. Visualize-se como um canal de sabedoria, recebendo ensinamentos ancestrais e compartilhando-os com clareza e compaixão.",
+    "internal_alchemy": "Fixação: o conhecimento volátil é preso a uma forma que pode ser transmitida. Quando a forma deixa de ser percorrida pela experiência, a fixação vira petrificação.",
+    "magical_practice": "Ensine a alguém, em voz alta e em dez minutos, algo que você sabe fazer bem. Depois pergunte-se que parte do ensino repete porque entendeu e que parte repete porque aprendeu assim. Anote as duas listas.",
     "past_present_future": {
-      "past": "Um período de aprendizado profundo, onde tradições espirituais ou filosóficas moldaram seu caminho.",
-      "present": "Agora é o momento de buscar orientação em fontes confiáveis e manter-se aberto ao aprendizado e ao ensino.",
-      "future": "A promessa de crescimento espiritual contínuo, desde que você valorize tanto a sabedoria herdada quanto as lições da experiência."
+      "past": "Um mestre, um método ou um costume talvez tenha ensinado algo que ainda orienta suas escolhas.",
+      "present": "Há uma tradição, sua ou alheia, pedindo teste. Honrar o que foi ensinado e verificar se ainda funciona não precisam ser escolhas opostas.",
+      "future": "Tendência: o que é compreendido, e não só repetido, torna-se seu. Sinal para observar: você explica o porquê de um costume, e não apenas o como."
     },
     "numeral": "V",
     "path": {
@@ -213,35 +213,35 @@
       "from": "Chokmah",
       "to": "Chesed"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
-    "name": "Os Enamorados",
-    "title": "A Escolha",
+    "name": "Os Amantes",
+    "title": "A União dos Opostos",
     "number": 6,
     "isMajorArcana": true,
-    "eighth_greater": "Harmonia, amor verdadeiro, escolhas conscientes.",
-    "eighth_lesser": "Dúvidas, indecisão, relações conflituosas.",
+    "eighth_greater": "União consciente de opostos, escolha que nasce do discernimento.",
+    "eighth_lesser": "Fusão que apaga a diferença: escolher para não perder o outro, ou adiar para não perder nada.",
     "order": "06",
     "element": "Ar",
     "sign": "Gêmeos",
     "planet": null,
-    "description": "Os Enamorados, regidos pelo número seis e pelo signo de Gêmeos, simbolizam a união e o equilíbrio das polaridades. No Tarot de Thoth, eles não se limitam ao amor romântico, mas abrangem escolhas fundamentais que determinam o curso da alma. Representando o casamento alquímico entre o consciente e o inconsciente, essa carta é um convite para integrar opostos e agir em harmonia com o coração e a mente. O elemento Ar reflete o movimento dinâmico do pensamento e a necessidade de clareza nas decisões.",
+    "description": "A espada de Zayin corta para distinguir, e é por aí que Os Amantes começam. O caminho 17, de Binah a Tiphareth, traz Gêmeos e o Ar em Thoth: dualidade, diálogo entre dois, a mente que compara. A imagem central é a do casamento alquímico, em que opostos se encontram sem se anular. Mais do que perguntar quem amar, a carta pergunta o que em nós precisa ser reunido.",
     "hebrew_letter": "Zayin (ז)",
     "astrology": "Gêmeos",
-    "description_symbolic": "Os Enamorados representam o equilíbrio perfeito entre forças opostas, como luz e sombra, masculino e feminino, espiritual e material. No Tarot de Thoth, eles simbolizam a escolha consciente que transcende o desejo superficial e conduz à realização espiritual. O signo de Gêmeos ressalta a dualidade e a comunicação, enquanto a presença do anjo sugere uma união abençoada e guiada pelo divino. Essa carta marca o ponto em que o amor e a razão convergem para moldar o destino.",
-    "message_esoteric": "Os Enamorados nos ensinam que todas as escolhas significativas exigem consciência e integração. Não se trata apenas de decisões externas, mas de um processo interno de harmonização entre o desejo e a sabedoria. A verdadeira união ocorre quando aceitamos e integramos nossas dualidades, encontrando equilíbrio e propósito.",
+    "description_symbolic": "Zayin significa espada, e o paradoxo da carta é este: só se une de verdade o que antes foi reconhecido como diferente. O caminho 17 liga o entendimento de Binah ao centro solar de Tiphareth, a mente à realização. Gêmeos, signo dos irmãos, lembra que o outro também é espelho. A alquimia fala de um rei e de uma rainha que se unem sem deixar de ser dois.",
+    "message_esoteric": "Escolher é separar o essencial do acessório, e amar é aceitar que o outro permanece outro. Antes de buscar acordo lá fora, vale perguntar que partes suas estão em conflito e que pacto é possível entre elas.",
     "meditation_reflection": [
-      "Minhas escolhas estão alinhadas ao meu propósito mais elevado?",
-      "Quais aspectos conflitantes dentro de mim precisam ser reconciliados?",
-      "Estou agindo com clareza e intenção consciente ao tomar decisões importantes?"
+      "Que escolha estou adiando por querer manter as duas opções intactas?",
+      "O que a espada de Zayin precisa separar em mim para que uma união seja verdadeira?",
+      "Que conversa honesta, com alguém ou comigo, posso começar dizendo o que me atrai e o que me incomoda?"
     ],
-    "internal_alchemy": "Os Enamorados representam a alquimia da integração. Eles simbolizam a fusão dos opostos, onde cada decisão é uma oportunidade para crescer e transformar. No Tarot de Thoth, eles nos lembram que o caminho espiritual exige escolhas conscientes e o equilíbrio das forças internas.",
-    "magical_practice": "Para conectar-se aos Enamorados, visualize-se em um campo dourado, onde duas forças opostas se aproximam e se unem. Medite sobre as decisões que você enfrenta e invoque a clareza para escolher com amor e sabedoria. Escreva suas intenções e revisite-as quando precisar de orientação.",
+    "internal_alchemy": "Casamento alquímico: dois princípios, depois de separados, se reencontram em síntese. A espada de Zayin faz a separação necessária; sem ela, a união é só mistura.",
+    "magical_practice": "Em duas colunas, escreva duas vozes que disputam sua atenção, como desejo e dever. Dê a cada uma uma frase de defesa e depois uma frase em que as duas concordem. Leia a frase final em voz alta e observe o que o corpo sinaliza.",
     "past_present_future": {
-      "past": "Uma escolha ou conexão significativa moldou sua jornada até aqui.",
-      "present": "Você está em um ponto crucial onde a integração de opostos ou a tomada de uma decisão pode mudar seu destino.",
-      "future": "A promessa de harmonia e realização, desde que suas escolhas sejam feitas com equilíbrio e intenção clara."
+      "past": "Uma união, ou uma separação, talvez tenha mostrado que duas partes suas nem sempre falam a mesma língua.",
+      "present": "Duas forças se atraem e se opõem. Escolher sem se anular, nem exigir que o outro se anule, é a tarefa que a carta põe diante de você.",
+      "future": "Tendência: o que é reconhecido como diferente pode se unir. Sinal para observar: a decisão traz alívio, e não só vitória sobre o outro lado."
     },
     "numeral": "VI",
     "path": {
@@ -249,35 +249,35 @@
       "from": "Binah",
       "to": "Tiphareth"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
-    "name": "O Carro",
-    "title": "O Conquistador",
+    "name": "A Carruagem",
+    "title": "O Portador do Graal",
     "number": 7,
     "isMajorArcana": true,
-    "eighth_greater": "Determinação, controle, triunfo sobre desafios.",
-    "eighth_lesser": "Arrogância, impulsividade, perda de direção.",
+    "eighth_greater": "Disciplina que protege o que é sagrado e avança com direção.",
+    "eighth_lesser": "A proteção que vira muralha: o zelo com o que se carrega que acaba impedindo o avanço.",
     "order": "07",
     "element": "Água",
     "sign": "Câncer",
     "planet": null,
-    "description": "O Carro, regido pelo número sete e pelo signo de Câncer, simboliza a jornada do triunfo e da autossuperação. No Tarot de Thoth, ele não representa apenas o controle físico, mas a conquista espiritual através do domínio das forças internas. É o veículo que leva a alma a novos patamares, movido pela disciplina emocional e pela força de vontade. Embora associado ao elemento Água, sua energia flui com determinação firme, semelhante a um rio que corta as pedras em seu caminho. Ele é a vitória sobre as adversidades, alcançada por meio do equilíbrio entre emoção e razão.",
+    "description": "Cheth, a cerca, guarda aquilo que é precioso, e a Carruagem é a consciência que se protege para poder viajar. Na Árvore de Thoth, segue o caminho 18, de Binah a Geburah. Câncer, signo da casa e da concha, e a Água dão a esse cuidado a forma de um veículo que carrega algo a ser levado até o fim. Disciplina interior, escolha do que carregar e do que deixar de fora: esse é o assunto da carta.",
     "hebrew_letter": "Cheth (ח)",
     "astrology": "Câncer",
-    "description_symbolic": "O Carro é representado por um guerreiro em armadura, conduzindo sua carruagem através de desafios e forças opostas. No Tarot de Thoth, ele é uma figura protegida e focada, cercada por símbolos de poder espiritual. As esfinges, ou os animais que puxam o carro, indicam a dualidade que precisa ser dominada: luz e sombra, ação e contenção. O signo de Câncer, com sua ligação emocional profunda, sugere que a verdadeira vitória vem do alinhamento entre sentimentos e propósito.",
-    "message_esoteric": "O Carro nos ensina que o verdadeiro triunfo não é apenas vencer obstáculos externos, mas conquistar o próprio ser. Ele nos lembra que o sucesso requer disciplina e harmonia interna. Não se trata de velocidade, mas de avançar com intenção clara, superando resistências internas e externas.",
+    "description_symbolic": "Cheth é a cerca, e a cerca define dentro e fora. Câncer, regido pela Lua, é o caranguejo que leva a casa nas costas. O caminho 18 sai do entendimento de Binah e vai à severidade de Geburah, portanto a proteção aqui é disciplina, não fuga. Em Thoth, o condutor segura um cálice, o Graal, e o carro é puxado por esfinges.",
+    "message_esoteric": "Avançar exige saber o que se carrega: nem tudo o que pesa merece proteção, nem tudo o que protege é leve. O caminho só é conduzido de fato quando nasce da vontade, e não da reação ao que cerca.",
     "meditation_reflection": [
-      "Estou dirigindo minha vida com foco e disciplina ou estou deixando forças externas me desviar?",
-      "Como posso alinhar minhas emoções para que trabalhem a meu favor, e não contra mim?",
-      "Quais passos práticos posso dar agora para avançar em direção ao meu propósito?"
+      "Que parte do que carrego eu defendo com tanto zelo que já não me deixa andar?",
+      "Que recinto, como a cerca de Cheth, preciso construir para proteger algo ainda frágil em mim?",
+      "O que posso deixar fora do meu dia para avançar mais leve?"
     ],
-    "internal_alchemy": "O Carro simboliza a alquimia da direção consciente. Ele transforma conflitos internos em força motriz, desafiando-nos a integrar nossas emoções, pensamentos e ações em uma direção unificada. No Tarot de Thoth, ele enfatiza que o domínio das forças internas é a chave para o avanço externo.",
-    "magical_practice": "Para conectar-se ao Carro, visualize uma carruagem movendo-se suavemente por um caminho iluminado. Sinta-se no controle total das rédeas, enquanto você conduz suas intenções em direção ao objetivo desejado. Afirme a certeza de que, com foco e determinação, você pode superar qualquer obstáculo.",
+    "internal_alchemy": "O que é delicado precisa de um vaso fechado para ser transportado e transformado. A cerca de Cheth não aprisiona: concentra o que ainda não está pronto para o mundo.",
+    "magical_practice": "Escreva em uma folha o que você carrega hoje, de compromissos a mágoas. Circule o essencial e risque o que apenas pesa. Em seguida caminhe quinze minutos levando só o que circulou, e observe a diferença no passo.",
     "past_present_future": {
-      "past": "Você já enfrentou desafios significativos e os superou com determinação e foco.",
-      "present": "Agora é o momento de direcionar sua energia de forma disciplinada, sem se desviar por distrações externas.",
-      "future": "A vitória está ao seu alcance, desde que você continue mantendo o controle sobre sua jornada e não permita que dúvidas ou impulsos comprometam o progresso."
+      "past": "Pode ter havido um tempo em que você se fechou para proteger algo que ainda não podia ser exposto.",
+      "present": "Há algo precioso a levar adiante. Proteger sem se isolar do caminho é o equilíbrio que a carta aponta.",
+      "future": "Tendência: o que é carregado com disciplina chega inteiro ao destino. Sinal para observar: você avança sem precisar vencer cada obstáculo."
     },
     "numeral": "VII",
     "path": {
@@ -285,35 +285,35 @@
       "from": "Binah",
       "to": "Geburah"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "O Ajuste",
-    "title": "A Balança",
+    "title": "A Verdade na Medida",
     "number": 8,
     "isMajorArcana": true,
-    "eighth_greater": "Equilíbrio, verdade, justiça imparcial.",
-    "eighth_lesser": "Desonestidade, parcialidade, desequilíbrio.",
+    "eighth_greater": "Equilíbrio que corrige: ação e consequência na medida exata.",
+    "eighth_lesser": "Medida que paralisa: a busca de exatidão que adia a decisão, ou o juízo que pesa tudo menos a si mesmo.",
     "order": "08",
     "element": "Ar",
     "sign": "Libra",
     "planet": null,
-    "description": "A Justiça, regida pelo número oito e pelo signo de Libra, simboliza o equilíbrio perfeito entre causa e efeito. No Tarot de Thoth, ela não apenas representa a aplicação das leis humanas, mas também as leis cósmicas que governam o universo. É o ponto onde todas as ações encontram suas consequências, revelando a necessidade de integridade, honestidade e responsabilidade. Seu elemento Ar reflete a clareza mental e o julgamento imparcial necessários para buscar a verdade e a harmonia.",
+    "description": "No Ajuste, a consequência é encontrada com exatidão. Em Thoth, a carta se chama Ajuste, e não Justiça: mais do que julgar, corrige a medida entre duas coisas. Ocupa o caminho 22, de Geburah a Tiphareth, onde o rigor encontra a harmonia. Lamed, o aguilhão do boi, e Libra, regido por Vênus, dão à carta uma mistura de disciplina e beleza. A pergunta que ela faz: o que fazemos está em equilíbrio com o que dizemos e com o que recebemos?",
     "hebrew_letter": "Lamed (ל)",
     "astrology": "Libra",
-    "description_symbolic": "A Justiça, com sua balança e espada, representa a dualidade equilibrada entre razão e emoção. No Tarot de Thoth, ela é vista como o agente do karma, ajustando o desequilíbrio e restaurando a ordem. Libra reforça seu papel como mediadora, buscando sempre a harmonia em meio aos opostos. A balança mede as intenções e ações, enquanto a espada corta a ilusão, revelando a verdade nua e crua.",
-    "message_esoteric": "A Justiça nos ensina que o equilíbrio do universo é inevitável, e cada escolha tem suas consequências. Ela nos desafia a examinar nossas ações com honestidade e a viver de acordo com a verdade interior. Somente ao reconhecer e aceitar nossas responsabilidades, podemos alcançar a verdadeira harmonia.",
+    "description_symbolic": "Lamed é o aguilhão que conduz o boi, imagem de ensino pela correção. O caminho 22 liga a severidade de Geburah ao centro de equilíbrio, Tiphareth, de modo que o ajuste só se completa quando o rigor é temperado pela harmonia. Libra é o signo da balança, e a tradição astrológica tem Saturno como exaltado nele. Em Thoth, a figura se associa a Maat, com espada e balança como emblemas.",
+    "message_esoteric": "Toda ação deixa um peso do outro lado da balança. O que precisa ser compensado, reparado ou dito? E a medida que você aplica aos outros é a mesma que usa para si? A carta pede exatidão, não severidade.",
     "meditation_reflection": [
-      "Estou vivendo de forma alinhada com minha verdade?",
-      "Minhas ações estão contribuindo para o equilíbrio interno e externo?",
-      "Estou disposto a aceitar e aprender com as consequências das minhas escolhas?"
+      "Onde uso a busca de justiça para adiar uma decisão ou para punir alguém?",
+      "O que o aguilhão de Lamed me corrige quando escuto a voz que diz o que não quero ouvir?",
+      "Que dívida, de dinheiro, de palavra ou de atenção, posso começar a acertar hoje?"
     ],
-    "internal_alchemy": "A Justiça simboliza a alquimia da integração, onde pensamentos, emoções e ações são harmonizados para criar equilíbrio. No Tarot de Thoth, ela nos lembra que a verdadeira justiça começa dentro de nós mesmos.",
-    "magical_practice": "Para conectar-se à Justiça, visualize uma balança equilibrada no centro do seu ser. Medite sobre uma decisão ou ação recente e busque insights sobre como alcançar harmonia. Afirme seu compromisso com a verdade e a honestidade.",
+    "internal_alchemy": "Pesar de novo o que foi misturado, grão a grão, até achar a proporção. A espada separa o falso do verdadeiro, e a balança confere se nada foi omitido.",
+    "magical_practice": "Pegue uma decisão recente e escreva, em duas colunas, o que ela deu e o que ela custou, a você e aos outros. Se o custo pesar mais, defina um gesto de reparação pequeno e exato e cumpra-o em sete dias.",
     "past_present_future": {
-      "past": "Uma situação de equilíbrio ou justiça moldou seu caminho recente.",
-      "present": "Agora é o momento de avaliar suas ações e garantir que elas estejam alinhadas com seus valores.",
-      "future": "O equilíbrio e o resultado justo se manifestarão, desde que você aja com integridade e responsabilidade."
+      "past": "Uma consequência talvez tenha chegado no tempo dela, mostrando que escolhas antigas tinham peso.",
+      "present": "Algo desequilibrado pede ajuste, e enfrentar o preço com exatidão, sem exagerá-lo nem minimizá-lo, é o trabalho do momento.",
+      "future": "Tendência: o que é acertado com franqueza alivia o que estava tenso. Sinal para observar: a conversa difícil termina com menos ruído do que o esperado."
     },
     "numeral": "VIII",
     "path": {
@@ -321,35 +321,35 @@
       "from": "Geburah",
       "to": "Tiphareth"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "O Eremita",
     "title": "O Sábio",
     "number": 9,
     "isMajorArcana": true,
-    "eighth_greater": "Busca interna, sabedoria, introspecção.",
-    "eighth_lesser": "Isolamento, solidão excessiva, fuga.",
+    "eighth_greater": "Recolhimento que gera lucidez, a luz que se acende por dentro.",
+    "eighth_lesser": "Solidão que vira fuga: o retiro prolongado além do que a busca exige.",
     "order": "09",
     "element": "Terra",
     "sign": "Virgem",
     "planet": null,
-    "description": "O Eremita, associado ao número nove e ao signo de Virgem, simboliza a busca solitária pela iluminação interior. No Tarot de Thoth, ele não é apenas o isolado que busca respostas, mas o sábio que ilumina o caminho para os outros com sua própria jornada de autoconhecimento. Representa a retirada temporária do mundo exterior para ouvir a voz da alma. Seu elemento Terra indica a necessidade de ancorar a sabedoria espiritual na realidade prática, transformando o conhecimento interno em ação consciente.",
+    "description": "Yod, a menor letra do alfabeto hebraico, é o ponto de onde todas as outras partem, e o Eremita é quem se afasta para ver o que o ruído esconde. Seu caminho na Árvore, o 20, vai de Chesed a Tiphareth. Virgem e a Terra dão ao recolhimento método, cuidado e atenção ao que é pequeno. Uma luz carregada por dentro, uma semente guardada, uma busca sem plateia: eis a matéria da carta.",
     "hebrew_letter": "Yod (י)",
     "astrology": "Virgem",
-    "description_symbolic": "O Eremita é representado como um guia espiritual que carrega uma lanterna brilhante, símbolo da luz divina e da verdade interior. No Tarot de Thoth, ele caminha sozinho, simbolizando que a sabedoria autêntica não pode ser encontrada em fontes externas, mas no profundo silêncio interior. O signo de Virgem reforça a disciplina e a análise cuidadosa necessárias para a jornada espiritual. Sua lanterna ilumina não só o caminho à frente, mas também as profundezas da alma.",
-    "message_esoteric": "O Eremita nos ensina que o silêncio e a introspecção são essenciais para alcançar a sabedoria verdadeira. Ele nos lembra que o isolamento não deve ser uma fuga, mas um meio de reconectar-se com o eu interior. Sua mensagem é clara: só podemos encontrar o propósito verdadeiro ao nos afastarmos do ruído externo.",
+    "description_symbolic": "Yod significa mão e, na forma, é apenas um ponto: o início de toda escrita, a semente do nome divino. Virgem, signo da colheita e do detalhe, lembra que a sabedoria desta carta é feita de atenção paciente. O caminho 20 liga a misericórdia de Chesed ao centro solar de Tiphareth, e o isolamento aqui serve à luz, não ao escondimento. A lâmpada é o atributo clássico do Eremita.",
+    "message_esoteric": "Há perguntas que só se respondem em silêncio. Vale distinguir o retiro que prepara do retiro que evita, e voltar do recolhimento com algo que possa ser partilhado. O que se encontra no escuro vale pelo que se faz com isso depois.",
     "meditation_reflection": [
-      "Estou ouvindo a sabedoria dentro de mim ou buscando respostas externas?",
-      "Que lições posso aprender ao olhar para minha jornada interna?",
-      "Estou usando a solidão como meio de autoconhecimento ou como uma forma de evitar o mundo?"
+      "O que o meu afastamento está me poupando de encarar?",
+      "Que semente, como o ponto de Yod, estou guardando e ainda não está pronta para ser mostrada?",
+      "Que meia hora de silêncio posso reservar, sem telas e sem tarefa?"
     ],
-    "internal_alchemy": "O Eremita representa a alquimia da iluminação. Ele transforma o isolamento em um estado fértil de autodescoberta, onde a luz interna brilha para iluminar a sombra. No Tarot de Thoth, ele enfatiza que a jornada espiritual é tanto pessoal quanto universal.",
-    "magical_practice": "Para conectar-se ao Eremita, encontre um local silencioso para meditação. Visualize-se em uma caverna escura, onde uma única lanterna ilumina o caminho. Permita-se explorar os recantos mais profundos de sua mente e escreva suas descobertas após a prática.",
+    "internal_alchemy": "Semente: a energia se recolhe ao menor ponto possível para depois germinar. No escuro da terra nada parece acontecer, e é aí que a forma se prepara.",
+    "magical_practice": "Reserve uma noite sem telas e acenda uma única luz. Escreva uma pergunta que você evita e passe vinte minutos em silêncio com ela. Antes de dormir, anote a menor ação que a resposta sugere e faça-a no dia seguinte.",
     "past_present_future": {
-      "past": "Você passou por um período de introspecção que trouxe sabedoria e clareza.",
-      "present": "Agora é o momento de se retirar temporariamente e refletir sobre suas escolhas.",
-      "future": "A iluminação e a clareza virão como resultado de sua busca interior e disciplina espiritual."
+      "past": "Se houve um período de retirada, escolhido ou imposto, pode ter deixado perguntas que ainda ecoam.",
+      "present": "Há uma busca que só você pode fazer. Recolher-se para entender e isolar-se para não se expor parecem iguais por fora e pedem respostas diferentes.",
+      "future": "Tendência: a clareza ganha em silêncio pede voz. Sinal para observar: vontade de compartilhar uma descoberta, e não só de guardá-la."
     },
     "numeral": "IX",
     "path": {
@@ -357,35 +357,35 @@
       "from": "Chesed",
       "to": "Tiphareth"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
-    "name": "A Roda da Fortuna",
-    "title": "O Destino",
+    "name": "A Fortuna",
+    "title": "O Eterno Giro",
     "number": 10,
     "isMajorArcana": true,
-    "eighth_greater": "Ciclos positivos, sorte, mudanças inevitáveis.",
-    "eighth_lesser": "Repetição de erros, instabilidade, resistência à mudança.",
+    "eighth_greater": "Ciclo em movimento: expansão, oportunidade e capacidade de girar com ele.",
+    "eighth_lesser": "Apego ao ponto alto do giro, ou confiança cega de que ele sempre voltará.",
     "order": 10,
     "element": "Fogo",
     "sign": null,
     "planet": "Júpiter",
-    "description": "A Roda da Fortuna, regida pelo número dez e pelo planeta Júpiter, simboliza os ciclos eternos de mudança e evolução. No Tarot de Thoth, ela não é apenas uma roda de sorte, mas um símbolo da dinâmica universal onde todas as coisas estão em constante movimento. Júpiter, associado à expansão e à oportunidade, nos lembra que, mesmo nos momentos de incerteza, há potencial de crescimento. O elemento Fogo reflete a energia de transformação contínua e a ação necessária para navegar pelas mudanças.",
+    "description": "A vida vista como movimento, e não como ponto fixo: é o que a Fortuna mostra. No caminho 21, de Chesed a Netzach, ela recebe a letra Kaph, a palma da mão, que segura e solta. Júpiter, planeta da expansão, dá à carta a ideia de crescimento e de oportunidade. Uma leitura possível da imagem é aprender a ocupar o eixo, e não o aro, onde o movimento é menor.",
     "hebrew_letter": "Kaph (כ)",
     "astrology": "Júpiter",
-    "description_symbolic": "A Roda da Fortuna representa o fluxo perpétuo do destino, com figuras simbólicas subindo e descendo suas bordas, indicando os altos e baixos da vida. No Tarot de Thoth, o centro da roda é o ponto de equilíbrio, enquanto a periferia é onde ocorre o movimento turbulento. A roda nos lembra que, ao nos conectarmos com o centro de nosso ser, podemos encontrar estabilidade em meio às mudanças externas.",
-    "message_esoteric": "A Roda da Fortuna nos ensina a importância de aceitar o fluxo da vida. Ela nos lembra que cada mudança traz novas oportunidades, mesmo quando parece caótica. Sua mensagem central é confiar no ritmo do universo e aproveitar os momentos de transição como catalisadores de crescimento.",
+    "description_symbolic": "Kaph é a palma da mão, aberta ou fechada, gesto de receber e de reter. O caminho 21 liga a misericórdia de Chesed à vitória de Netzach por meio de Júpiter, o planeta de maior alcance. A leitura de Thoth costuma ligar a roda aos três ritmos da natureza, as gunas indianas. Ao redor da roda, a pintura traz figuras míticas que giram junto com ela.",
+    "message_esoteric": "Nenhuma fase é definitiva, nem a boa nem a difícil. Há coisas em movimento sem a sua ajuda, e há o que a roda entrega e só você pode usar. Esperar a próxima volta, de braços cruzados, é a opção que menos serve.",
     "meditation_reflection": [
-      "Estou aceitando as mudanças como parte natural da vida?",
-      "Quais padrões de repetição preciso reconhecer e transformar?",
-      "Estou preparado para aproveitar as oportunidades que surgem inesperadamente?"
+      "Que vantagem atual estou segurando como se ela não pudesse mudar?",
+      "O que a palma de Kaph, aberta, me convida a receber e, fechada, a reter?",
+      "Que ação pequena posso fazer de acordo com a fase em que realmente estou, e não com a que gostaria de estar?"
     ],
-    "internal_alchemy": "A Roda da Fortuna simboliza a alquimia da adaptação. Ela transforma eventos inesperados em oportunidades de evolução e nos convida a trabalhar com o fluxo da vida, e não contra ele.",
-    "magical_practice": "Para conectar-se à Roda da Fortuna, visualize uma roda dourada girando lentamente, representando os ciclos de sua vida. Medite sobre as mudanças pelas quais você está passando e encontre o ponto de equilíbrio no centro da roda. Afirme sua capacidade de se adaptar e crescer.",
+    "internal_alchemy": "Circulação. O que foi fixado precisa voltar a ser fluido para amadurecer, e o que gira não se perde, apenas muda de posição. É por girar que o conjunto se mantém inteiro.",
+    "magical_practice": "Desenhe uma roda de quatro quadrantes e marque em que ponto do giro você está em três áreas da vida. Escolha uma e escreva o que a fase pede: colher, soltar, semear ou esperar. Escolha uma ação coerente com ela.",
     "past_present_future": {
-      "past": "Um ciclo de mudanças inesperadas trouxe crescimento e transformação.",
-      "present": "Você está em um ponto de transição, onde o movimento e a expansão são inevitáveis.",
-      "future": "A promessa de oportunidades e crescimento, desde que você esteja aberto a mudanças e ao fluxo do destino."
+      "past": "Pode ter havido uma virada, boa ou difícil, que mudou sua posição no que parecia estável.",
+      "present": "Algo se move fora do seu controle. Separar o que a roda decide do que ainda depende da sua mão é a pergunta do momento.",
+      "future": "Tendência: o giro continua. Sinal para observar: você reconhece em que ponto da volta está, em vez de tratar a fase atual como definitiva."
     },
     "numeral": "X",
     "path": {
@@ -393,35 +393,35 @@
       "from": "Chesed",
       "to": "Netzach"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "A Luxúria",
-    "title": "O Coração Valente",
+    "title": "A Alegria Selvagem",
     "number": 11,
     "isMajorArcana": true,
-    "eighth_greater": "Coragem, domínio sobre as emoções, força interior.",
-    "eighth_lesser": "Fraqueza, medo, falta de controle emocional.",
+    "eighth_greater": "Vitalidade apaixonada, desejo vivido com consciência e alegria.",
+    "eighth_lesser": "Desejo que domina o condutor: o excesso que consome, ou a repressão que o transforma em culpa.",
     "order": 11,
     "element": "Fogo",
     "sign": "Leão",
     "planet": null,
-    "description": "A Força, associada ao número onze e ao signo de Leão, representa o poder da coragem tranquila e do domínio sobre os instintos. No Tarot de Thoth, ela não é apenas a força física, mas a integração entre o poder bruto e a compaixão consciente. Leão simboliza o coração corajoso, enquanto o elemento Fogo representa a energia vital e a paixão necessárias para enfrentar desafios. Esta carta nos ensina que a verdadeira força vem do controle interno e da capacidade de enfrentar dificuldades com equilíbrio emocional.",
+    "description": "Teth, a serpente, e o Leão, signo do coração, dão à Luxúria a força vital em plena alegria. Em Thoth, ela ocupa o número XI, o lugar da Força do Tarot de Marselha, no caminho 19, entre Chesed e Geburah, a misericórdia e o rigor. O Fogo lhe dá ímpeto e calor. A imagem traz Babalon, a Mulher Escarlate de Thelema, símbolo do êxtase e da entrega, montada na Besta, a força animal que ela conduz, e erguendo um cálice.",
     "hebrew_letter": "Teth (ט)",
     "astrology": "Leão",
-    "description_symbolic": "A Força é representada por uma figura gentil domando um leão feroz, simbolizando a harmonia entre o poder e a paciência. No Tarot de Thoth, o leão não é subjugado à força, mas guiado com confiança e amor. Esta imagem destaca a natureza equilibrada da carta: o leão representa os instintos, enquanto a figura humana simboliza o espírito consciente que governa com sabedoria.",
-    "message_esoteric": "A Força nos lembra que dominar nossas emoções e impulsos é o verdadeiro caminho para a vitória. Ela nos convida a agir com paciência e compaixão, mesmo diante de desafios intensos. A mensagem central desta carta é que a verdadeira força não está em reagir, mas em agir com consciência e intenção.",
+    "description_symbolic": "Teth é a serpente, símbolo de energia que sobe, e o Leão é o signo do coração. O caminho 19 junta a expansão generosa de Chesed à intensidade de Geburah e produz um entusiasmo que não se confunde com descontrole. Babalon, figura central de Thelema, cavalga a Besta com o cálice da experiência plena; para Crowley, a Besta não é o mal, e sim a vitalidade bruta que se aprende a conduzir.",
+    "message_esoteric": "A vida pede para ser vivida de olhos abertos. A carta pergunta se escolhemos conduzir a própria força ou se deixamos que ela nos conduza, e o que muda quando o desejo é ouvido, em vez de calado.",
     "meditation_reflection": [
-      "Estou enfrentando meus desafios com calma ou reagindo impulsivamente?",
-      "Como posso integrar meus desejos instintivos com minha sabedoria interior?",
-      "Que força interior posso acessar agora para superar obstáculos?"
+      "Que parte do meu desejo eu trato como vergonha, e o que ela faria se eu a deixasse falar?",
+      "Onde o leão que há em mim pede para ser cavalgado, e não domado?",
+      "Que ato de entusiasmo, sem justificativa e sem plateia, posso me permitir hoje?"
     ],
-    "internal_alchemy": "A Força representa a alquimia da integração emocional. Ela transforma impulsos brutos em poder refinado, mostrando que a paciência e a consciência são os maiores aliados em momentos de desafio.",
-    "magical_practice": "Para conectar-se à Força, visualize-se domando um leão com um toque suave e confiante. Afirme que você possui o poder necessário para superar desafios com coragem e paciência.",
+    "internal_alchemy": "Sublimação pelo fogo: o desejo cru, ao ser conduzido, se transforma em coragem, criação e prazer lúcido. O Leão não é domado, é cavalgado, e a serpente de Teth sobe.",
+    "magical_practice": "Faça por inteiro uma atividade que você ama, sem justificar a utilidade e sem pedir licença: dançar, cantar, correr. Ao terminar, anote em que ponto sentiu alegria e em que ponto sentiu culpa.",
     "past_present_future": {
-      "past": "Um momento em que a força interior e a paciência o ajudaram a superar dificuldades.",
-      "present": "Você está enfrentando um desafio atual que exige equilíbrio e domínio emocional.",
-      "future": "O sucesso e a vitória virão, desde que você mantenha a calma e a confiança em sua força interior."
+      "past": "Talvez a vitalidade que você procura já tenha aparecido quando desejo e vontade andaram juntos, antes de a culpa aparecer.",
+      "present": "O desejo está na mesa. Quem o conduz, você ou a pressa de agradar e o medo de exagerar, é o ponto em aberto.",
+      "future": "Tendência: o que é cavalgado com consciência vira coragem e prazer. Sinal para observar: alegria depois de agir, e não só alívio de tensão."
     },
     "numeral": "XI",
     "path": {
@@ -429,35 +429,35 @@
       "from": "Chesed",
       "to": "Geburah"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
-    "name": "O Enforcado",
-    "title": "A Rendição Iluminada",
+    "name": "O Homem Enforcado",
+    "title": "A Inversão Voluntária",
     "number": 12,
     "isMajorArcana": true,
-    "eighth_greater": "Sacrifício, nova perspectiva, entrega ao fluxo da vida.",
-    "eighth_lesser": "Resistência, estagnação, medo de se soltar.",
+    "eighth_greater": "Entrega deliberada que muda o ponto de vista, pausa que revela.",
+    "eighth_lesser": "Sacrifício sem sentido: a espera que vira resignação, ou a entrega a algo que não a merece.",
     "order": 12,
     "element": "Água",
     "sign": null,
     "planet": null,
-    "description": "O Enforcado, representando o número doze e associado a Netuno, simboliza um momento de pausa e introspecção. No Tarot de Thoth, ele não está preso contra sua vontade, mas se entrega voluntariamente à posição invertida para obter um novo entendimento. O elemento Água reflete a fluidez e o caráter intuitivo desta carta, indicando que grandes revelações surgem quando nos permitimos soltar e confiar no processo.",
+    "description": "O Homem Enforcado é a inversão voluntária do olhar. Sua letra é Mem, as águas, e seu caminho é o 23, de Geburah a Hod, sob o elemento Água. A imagem é a de uma figura suspensa de cabeça para baixo, associada ao deus que morre e renasce, a fórmula de Osíris, que Crowley liga à era anterior à que dizia viver, o éon de Osíris. Suspender o esforço de controle para enxergar o que a pressa esconde é a proposta da carta.",
     "hebrew_letter": "Mem (מ)",
     "astrology": "Água",
-    "description_symbolic": "O Enforcado é retratado de cabeça para baixo, geralmente com uma expressão serena, sugerindo aceitação e iluminação. No Tarot de Thoth, ele representa a inversão da perspectiva comum, um convite para enxergar além das ilusões materiais. Sua posição sugere que a verdadeira sabedoria vem ao abrir mão do controle e permitir que a vida siga seu curso.",
-    "message_esoteric": "O Enforcado nos ensina que o verdadeiro crescimento ocorre quando nos rendemos às experiências, sem resistência. Às vezes, precisamos abandonar velhos padrões e ver o mundo de um ângulo diferente para alcançar a iluminação.",
+    "description_symbolic": "Mem é a letra das águas, uma das três letras-mãe do alfabeto hebraico, e a água não resiste: assume a forma do que a contém. O caminho 23 liga o rigor de Geburah à mente de Hod, e a pausa serve para reorganizar o que a pressa deixou confuso. A figura invertida lembra o deus que morre para renascer, tema de Osíris.",
+    "message_esoteric": "Há decisões que só amadurecem quando se para de forçá-las. O que você tenta controlar sem sucesso? E que perspectiva ganharia se aceitasse, por um tempo, não saber o que fazer? A pausa não é omissão quando é escolhida.",
     "meditation_reflection": [
-      "Quais padrões antigos preciso soltar para evoluir?",
-      "Estou me permitindo ver as situações sob uma nova perspectiva?",
-      "Como posso transformar desafios em oportunidades de aprendizado?"
+      "Em que ponto minha espera deixou de ser escolha e virou cansaço?",
+      "O que a água de Mem me ensina sobre ceder à forma do que me contém?",
+      "Que ação habitual posso suspender por um dia para ver o que aparece no lugar dela?"
     ],
-    "internal_alchemy": "O Enforcado representa a alquimia do desapego. Ao liberar a necessidade de controle, transformamos a incerteza em sabedoria e desenvolvemos uma conexão mais profunda com o fluxo universal.",
-    "magical_practice": "Para conectar-se a O Enforcado, visualize-se pendurado de cabeça para baixo, sentindo-se calmo e receptivo a novas ideias. Afirme que você está aberto às lições do universo, aceitando o que precisa ser transformado.",
+    "internal_alchemy": "Dissolução: a forma antiga é deixada na água até se desfazer. Nada é destruído, apenas desfeito para ser refeito com outra estrutura.",
+    "magical_practice": "Diante de uma situação em que você insiste em agir, faça uma pausa deliberada, sem tomar nenhuma decisão que possa esperar. Uma vez por dia, deite-se de costas com as pernas apoiadas na parede por quinze minutos e anote o que muda na percepção.",
     "past_present_future": {
-      "past": "Um período de sacrifício ou espera trouxe crescimento interior.",
-      "present": "Você pode estar em um momento de pausa, necessário para obter clareza.",
-      "future": "Novas percepções surgirão quando você aceitar e se render ao fluxo natural da vida."
+      "past": "Talvez uma pausa, uma espera ou uma perda tenha obrigado você a ver as coisas de outro ângulo.",
+      "present": "Um impasse não cede à força. Entregar o controle de propósito e abdicar de si por cansaço são gestos distintos, e só você sabe qual é o seu.",
+      "future": "Tendência: um novo ponto de vista reorganiza as escolhas. Sinal para observar: o problema deixa de parecer o mesmo, mesmo sem ter sido resolvido."
     },
     "numeral": "XII",
     "path": {
@@ -465,35 +465,35 @@
       "from": "Geburah",
       "to": "Hod"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "A Morte",
     "title": "A Transformação",
     "number": 13,
     "isMajorArcana": true,
-    "eighth_greater": "Transformação, renascimento, novos ciclos.",
-    "eighth_lesser": "Resistência à mudança, medo do desconhecido.",
+    "eighth_greater": "Fim que libera: o que se decompõe alimenta o que vem.",
+    "eighth_lesser": "Apego ao que já terminou, ou destruição apressada do que ainda pede cuidado.",
     "order": 13,
     "element": "Água",
     "sign": "Escorpião",
     "planet": null,
-    "description": "A Morte, regida pelo número treze e pelo signo de Escorpião, representa o ciclo natural de fim e renascimento. No Tarot de Thoth, ela não é vista como um término absoluto, mas como um portal para a transformação. Assim como Escorpião mergulha nas profundezas emocionais para emergir renovado, a Morte simboliza a necessidade de liberar o que é antigo para dar espaço ao novo. O elemento Água reflete a natureza emocional do processo de desapego e renovação.",
+    "description": "Raramente a Morte fala de morte literal: fala da transformação inevitável de tudo que tem forma. Nun, o peixe, é a sua letra, no caminho 24, de Tiphareth a Netzach, e seu signo é Escorpião, signo de Água e das profundezas, regido por Marte na tradição. A tradição liga Escorpião a três figuras: o escorpião, a serpente e a águia. A carta trata da dissolução do que perdeu o sentido, condição para que algo novo se forme.",
     "hebrew_letter": "Nun (נ)",
     "astrology": "Escorpião",
-    "description_symbolic": "A Morte é representada por um ceifador, mas no Tarot de Thoth, ela carrega símbolos de regeneração e potencial. O esqueleto é o símbolo da essência que permanece após o desapego do supérfluo. Peixes nadando ao redor representam o fluxo contínuo da vida, enquanto a foice corta os laços com o passado. A carta enfatiza que a destruição do antigo é necessária para o crescimento e a renovação.",
-    "message_esoteric": "A Morte nos ensina que o desapego é um ato sagrado de libertação. Ao permitir que o velho morra, criamos espaço para novas possibilidades e um renascimento espiritual. Esta carta nos convida a abraçar a mudança como um processo natural da vida.",
+    "description_symbolic": "Nun significa peixe, o ser que vive no que é profundo e escuro. Escorpião, signo fixo de Água, é intensidade e regeneração. O caminho 24 conduz de Tiphareth, o centro, a Netzach, o desejo, e por isso a morte aqui não é apagamento, e sim passagem de forma. A tradição astrológica lê Escorpião em três níveis, do escorpião que fere à águia que se eleva, e a carta acompanha essa escala.",
+    "message_esoteric": "Nem todo fim é escolha, e alguns doem o tempo que precisam doer. Quando for possível, a carta pergunta o que já terminou e ainda é carregado, e que parte sua pode ser composta de outro modo. O vazio que fica merece cuidado antes de qualquer pressa.",
     "meditation_reflection": [
-      "Estou aceitando ou resistindo às mudanças inevitáveis da vida?",
-      "O que preciso deixar ir para crescer plenamente?",
-      "Como posso transformar perdas em oportunidades de renascimento?"
+      "O que já acabou na minha vida e eu ainda carrego, sem ter encontrado onde pousar?",
+      "O que o peixe de Nun, que vive no fundo, tem a me mostrar do que não suporto olhar?",
+      "Que objeto, hábito ou compromisso posso encerrar ou entregar, sem cerimônia, quando for a hora?"
     ],
-    "internal_alchemy": "A Morte simboliza a alquimia do desapego e da transformação. Ela nos ensina a transmutar dor e perda em crescimento e força interior, conectando-nos ao fluxo contínuo da renovação.",
-    "magical_practice": "Para conectar-se à Morte, visualize uma parte de sua vida ou um hábito que precisa ser liberado. Imagine-o se desintegrando suavemente e, em seu lugar, uma nova energia emergindo. Afirme sua disposição de acolher a transformação.",
+    "internal_alchemy": "Nigredo, a fase em que a matéria escurece e se desfaz para que a nova forma seja possível. É o preto que antecede o branco, e pede paciência, e companhia se o escuro pesar demais.",
+    "magical_practice": "Escreva em um papel algo que já terminou, uma fase, um vínculo ou uma crença, e diga o que ele deu e o que deixou. Guarde o papel ou, se fizer sentido, rasgue-o ou queime-o com segurança. Se a perda for recente e pesada, compartilhe com alguém de confiança.",
     "past_present_future": {
-      "past": "Uma fase de conclusão ou transformação significativa moldou seu caminho.",
-      "present": "Você está em meio a uma transição importante que requer desapego do antigo.",
-      "future": "O renascimento e o crescimento estão à sua frente, desde que você aceite a mudança e confie no processo."
+      "past": "Algo pode ter chegado ao fim, de modo claro ou aos poucos, e deixado um vazio que ainda se organiza.",
+      "present": "Algo se desfaz. Prolongar o que acabou e acompanhar a dissolução têm custos diferentes, e a carta convida a olhar para eles com calma.",
+      "future": "Tendência: o espaço aberto pode acolher forma nova, no tempo dele. Sinal para observar: interesses pequenos que não existiam antes."
     },
     "numeral": "XIII",
     "path": {
@@ -501,35 +501,35 @@
       "from": "Tiphareth",
       "to": "Netzach"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "A Arte",
-    "title": "A Harmonia",
+    "title": "A Alquimia",
     "number": 14,
     "isMajorArcana": true,
-    "eighth_greater": "Equilíbrio, harmonia, paciência.",
-    "eighth_lesser": "Excesso, falta de moderação, descontrole.",
+    "eighth_greater": "Fusão paciente de opostos em algo novo, método alquímico.",
+    "eighth_lesser": "Mistura sem critério: o ajuste constante que evita a escolha, ou a pressa de ver o resultado.",
     "order": 14,
     "element": "Fogo",
     "sign": "Sagitário",
     "planet": null,
-    "description": "A Temperança, associada ao número catorze e ao signo de Sagitário, simboliza a arte de equilibrar forças opostas para alcançar harmonia. No Tarot de Thoth, ela representa a fusão alquímica onde o espírito e a matéria se unem para criar algo elevado. Sagitário, com sua busca por significado e expansão, reflete o processo dinâmico de integração. O elemento Fogo simboliza a energia criativa necessária para combinar diferentes aspectos de forma harmoniosa.",
+    "description": "Unir sem anular é a obra da Arte. Em Thoth, ela substitui a Temperança e ocupa o caminho 25, de Tiphareth a Yesod, na coluna central da Árvore. Samekh, o suporte, e Sagitário, signo do arqueiro, dão à carta direção e sustentação. A imagem é a de uma figura andrógina que mistura o Leão e a Águia em um caldeirão, fórmula do solve et coagula: dissolver e recompor. Não é moderação, é alquimia.",
     "hebrew_letter": "Samekh (ס)",
     "astrology": "Sagitário",
-    "description_symbolic": "A Temperança é representada por uma figura angelical misturando líquidos entre dois vasos, simbolizando a fusão de forças opostas. No Tarot de Thoth, essa figura assume um papel alquímico, onde não apenas combina, mas transforma as energias. A água que flui entre os vasos representa o equilíbrio dinâmico entre o consciente e o inconsciente. O sol ao fundo simboliza a iluminação alcançada através da harmonia.",
-    "message_esoteric": "A Temperança nos ensina que o equilíbrio não é estático, mas um processo dinâmico de integração. Ela nos convida a harmonizar diferentes aspectos de nós mesmos e a agir com paciência e intenção. Sua lição é clara: a verdadeira harmonia só é alcançada quando aceitamos e integramos os opostos.",
+    "description_symbolic": "Samekh significa suporte, a escora que mantém algo de pé. Sagitário é o arco e a flecha, a aspiração apontada para cima. O caminho 25 liga o centro, Tiphareth, ao fundamento, Yesod, e ali a consciência se aproxima do que a sustenta. Na pintura de Harris, o Leão e a Águia, instinto e visão, são misturados no caldeirão da obra.",
+    "message_esoteric": "Unir opostos não é diluí-los. A carta convida a descobrir quais forças suas brigam entre si e o que nasceria se dividissem o mesmo vaso. A mistura só trabalha quando ninguém apressa o resultado.",
     "meditation_reflection": [
-      "Estou buscando equilíbrio em todas as áreas da minha vida?",
-      "Que forças opostas em mim precisam ser reconciliadas?",
-      "Estou agindo com paciência e moderação ou me deixando levar por extremos?"
+      "Onde estou misturando coisas só para não ter que escolher entre elas?",
+      "O que o leão e a águia, o instinto e a visão, produzem em mim quando trabalham no mesmo vaso?",
+      "Que ação posso fazer em que meus dois lados atuem juntos, sem que um abafe o outro?"
     ],
-    "internal_alchemy": "A Temperança representa a alquimia da integração. Ela nos ensina que, ao unir opostos, podemos transformar o ordinário em algo extraordinário. Esse processo requer paciência, autoconhecimento e confiança no fluxo da vida.",
-    "magical_practice": "Para conectar-se à Temperança, visualize dois aspectos opostos de sua vida fluindo juntos em harmonia. Imagine a luz dourada envolvendo ambos, integrando-os em uma nova energia equilibrada. Afirme sua capacidade de criar harmonia dentro de si.",
+    "internal_alchemy": "O solve et coagula inteiro: dissolver o que está rígido, misturar o que está separado e coagular o resultado em forma nova. O caldeirão aceita os opostos e exige tempo.",
+    "magical_practice": "Anote dois traços seus que parecem contraditórios, como ousadia e cautela. Descreva uma situação em que cada um ajudou e outra em que atrapalhou. Depois planeje uma ação em que os dois trabalhem juntos e execute-a esta semana.",
     "past_present_future": {
-      "past": "Um período de equilíbrio e integração trouxe clareza e estabilidade.",
-      "present": "Você está no processo de harmonizar aspectos opostos de sua vida ou personalidade.",
-      "future": "A promessa de harmonia e crescimento virá, desde que você mantenha paciência e confiança no processo de integração."
+      "past": "Dois lados seus talvez tenham se enfrentado por tempo suficiente para você perceber que um não vencia o outro.",
+      "present": "Opostos pedem mistura. Acelerar a fusão ou dar à obra o tempo que ela exige: a carta aponta para a segunda via.",
+      "future": "Tendência: a combinação paciente gera algo que nenhum dos lados produziria sozinho. Sinal para observar: surgem soluções que antes pareciam excludentes."
     },
     "numeral": "XIV",
     "path": {
@@ -537,35 +537,35 @@
       "from": "Tiphareth",
       "to": "Yesod"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "O Diabo",
-    "title": "O Tentador",
+    "title": "O Pã Cósmico",
     "number": 15,
     "isMajorArcana": true,
-    "eighth_greater": "Conexão com desejos terrenos, força magnética.",
-    "eighth_lesser": "Dependência, vícios, obsessão.",
+    "eighth_greater": "Energia vital sem disfarce, criatividade que afirma o corpo e o desejo.",
+    "eighth_lesser": "Força que domina quem a usa: o apego que se confunde com liberdade, ou o desejo que passa a mandar.",
     "order": 15,
     "element": "Terra",
     "sign": "Capricórnio",
     "planet": null,
-    "description": "O Diabo, associado ao número quinze e ao signo de Capricórnio, representa os desejos terrenos, as tentações e as armadilhas da materialidade. No Tarot de Thoth, ele é um símbolo do poder bruto, da criatividade e das energias ocultas que podem nos prender ou nos libertar, dependendo de como as utilizamos. Capricórnio traz a disciplina e a ambição, mas também nos alerta sobre o perigo de ficarmos presos a nossos desejos e ilusões. O elemento Terra reflete a natureza física e prática dessas tentações.",
+    "description": "Em Thoth, o Diabo é menos o tentador do que o deus bode, Pã, força generativa da natureza. A carta segue o caminho 26, de Tiphareth a Hod, com a letra Ayin, o olho, e o signo de Capricórnio, o bode da montanha. Costuma ser lida como afirmação da vida material, da criatividade e do riso, e não como figura do mal. O perigo que ela mostra é o de confundir energia com posse e passar a ser dominado pelo que se desejava.",
     "hebrew_letter": "Ayin (ע)",
     "astrology": "Capricórnio",
-    "description_symbolic": "O Diabo é uma figura que combina força e mistério. No Tarot de Thoth, ele simboliza a força vital crua e a capacidade de transformação através da aceitação das sombras. As correntes que prendem as figuras humanas não são invioláveis; elas representam a ilusão da prisão. Ao reconhecermos essas ilusões, podemos quebrar as correntes e liberar nosso poder criativo.",
-    "message_esoteric": "O Diabo nos ensina que as sombras não devem ser temidas, mas compreendidas. Ele nos desafia a olhar para nossos desejos e compulsões sem julgamento, usando essa consciência para nos libertar de ciclos destrutivos. Sua mensagem central é que o verdadeiro poder surge da aceitação de quem somos, incluindo nossas sombras.",
+    "description_symbolic": "Ayin é o olho: olhar para o desejo sem julgá-lo e sem endeusá-lo. Capricórnio é a cabra que escala, signo de Terra e de estrutura. O caminho 26 liga o centro, Tiphareth, à mente de Hod, de modo que a vitalidade da carta pede discernimento. Pã, o deus bode, é o Todo, e a Terra é o elemento onde essa força se faz corpo.",
+    "message_esoteric": "O que se esconde costuma ganhar peso. O que você deseja e nega? O que o domina com o seu consentimento? E como transformar o que prende em algo que sirva à vida? A carta não julga: pede que se olhe.",
     "meditation_reflection": [
-      "Que desejos ou medos estão me prendendo?",
-      "Estou consciente dos padrões de comportamento que me limitam?",
-      "Como posso transformar minhas sombras em uma força criativa?"
+      "O que me prende e eu ainda chamo de escolha, e o que me ajudaria a olhar isso com menos vergonha?",
+      "O que o olho de Ayin vê em mim quando eu paro de desviar o olhar?",
+      "Que desejo meu posso nomear, em voz alta ou por escrito, sem justificá-lo?"
     ],
-    "internal_alchemy": "O Diabo simboliza a alquimia da aceitação e da transformação. Ao integrar nossos desejos e sombras, transmutamos o que nos aprisiona em uma força libertadora.",
-    "magical_practice": "Conecte-se ao Diabo refletindo sobre um desejo ou vício que você deseja transformar. Visualize-se quebrando as correntes que o prendem e liberando a energia criativa oculta. Afirme sua liberdade e poder de escolha.",
+    "internal_alchemy": "Reconhecer a matéria bruta: o impulso é visto sem verniz, com seu poder de criar e de prender. Só quem o conhece pode transformá-lo, e olhar com curiosidade é o primeiro passo.",
+    "magical_practice": "Liste três hábitos ou desejos que você esconde ou nega. Para cada um, escreva o que ele dá e o que cobra. Escolha um e, por uma semana, nomeie-o em voz alta, com curiosidade e sem se punir. Se for um vício ou uma compulsão, procure apoio profissional: esta prática não substitui tratamento.",
     "past_present_future": {
-      "past": "Você enfrentou desejos ou padrões limitantes que ensinaram lições importantes.",
-      "present": "Um confronto com suas sombras está acontecendo, exigindo consciência e transformação.",
-      "future": "A promessa de liberdade e poder, desde que você enfrente suas limitações internas com coragem."
+      "past": "Um desejo, um hábito ou um apego pode ter ganhado força justamente por ficar escondido.",
+      "present": "Uma energia forte pede reconhecimento. Usá-la com lucidez e ser usado por ela são situações bem diferentes, e vale notar em qual você está.",
+      "future": "Tendência: o que é visto e nomeado perde força para agir às escondidas. Sinal para observar: você consegue falar de um desejo sem vergonha nem exagero."
     },
     "numeral": "XV",
     "path": {
@@ -573,35 +573,35 @@
       "from": "Tiphareth",
       "to": "Hod"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "A Torre",
-    "title": "A Revelação",
+    "title": "A Ruptura",
     "number": 16,
     "isMajorArcana": true,
-    "eighth_greater": "Destruição de ilusões, liberação.",
-    "eighth_lesser": "Caos, crise, mudanças dolorosas.",
+    "eighth_greater": "Derrubada do que era falso, energia que rompe o que estava petrificado.",
+    "eighth_lesser": "Destruição por destruição: o ataque que derruba também o que ainda era vivo.",
     "order": 16,
     "element": "Fogo",
     "sign": null,
     "planet": "Marte",
-    "description": "A Torre, regida pelo número dezesseis e pelo planeta Marte, simboliza a destruição repentina e necessária de estruturas antigas. No Tarot de Thoth, ela não representa ruína permanente, mas sim uma liberação violenta das ilusões que nos mantêm presos. Marte, com sua energia combativa, nos empurra a enfrentar o colapso como parte do crescimento. O elemento Fogo reflete a purificação que surge da destruição, permitindo que algo novo e mais verdadeiro tome forma.",
+    "description": "Uma ruptura que não pede licença: é isso que a Torre apresenta. Peh, a boca, é a sua letra, no caminho 27, de Netzach a Hod, entre o desejo e a mente. Marte, planeta da guerra, e o Fogo explicam o caráter súbito da carta. A destruição atinge sobretudo ideias, estruturas e fórmulas que se fecharam em si mesmas. Não é castigo, e nem tudo o que cai merecia cair: a carta pede que se olhe com calma o que ficou de pé.",
     "hebrew_letter": "Peh (פ)",
     "astrology": "Marte",
-    "description_symbolic": "A Torre é representada pela queda de uma estrutura atingida por um relâmpago, simbolizando o colapso das falsas seguranças. No Tarot de Thoth, o relâmpago é a verdade divina que rompe as ilusões, enquanto as figuras caindo simbolizam a liberação de velhos padrões. Essa destruição não é punitiva, mas necessária para a evolução espiritual.",
-    "message_esoteric": "A Torre nos ensina que, às vezes, o caos é o maior agente de mudança. Quando nossas estruturas internas ou externas ruem, é uma oportunidade para reconstruir algo mais autêntico. Esta carta nos convida a abraçar o colapso como parte do ciclo de crescimento.",
+    "description_symbolic": "Peh é a boca, órgão da fala e também do devorar. Marte é o ferro e a ação decisiva. O caminho 27 liga o impulso de Netzach à forma mental de Hod, o ponto em que uma ideia pode endurecer demais. Netzach é a esfera do desejo e Hod a do intelecto: entre as duas, o que se sente e o que se pensa podem se separar, e a Torre é um abalo nessa passagem.",
+    "message_esoteric": "Nem toda queda é escolha, e nenhuma ruptura precisa ser entendida de imediato. A carta pergunta, com delicadeza, o que ainda está de pé depois do impacto e o que merece ser reconstruído com mais apoio do que antes.",
     "meditation_reflection": [
-      "Estou me agarrando a estruturas ou crenças que não me servem mais?",
-      "Como posso enfrentar o caos e transformá-lo em crescimento?",
-      "Que verdades estão tentando emergir através das rupturas em minha vida?"
+      "Que parte da minha vida defendo com tanta força que já não deixo nada de novo entrar?",
+      "O que a boca de Peh, que fala e devora, precisa dizer ou largar em mim?",
+      "Que verdade desconfortável posso admitir a mim ou a alguém de confiança, no ritmo que eu aguento?"
     ],
-    "internal_alchemy": "A Torre simboliza a alquimia da destruição e reconstrução. Ela nos lembra que o colapso das ilusões abre espaço para verdades mais profundas e autênticas.",
-    "magical_practice": "Para conectar-se à Torre, visualize uma estrutura antiga em sua vida sendo atingida por um relâmpago. Sinta o espaço aberto e a liberdade que isso cria. Afirme sua disposição de reconstruir com base na verdade.",
+    "internal_alchemy": "Fogo violento sobre o que se cristalizou: o rígido se parte e o que é vivo precisa se reorganizar. Age rápido e costuma doer, e o tempo de reconstrução é próprio de cada pessoa.",
+    "magical_practice": "Faça uma lista do que ainda está de pé na sua vida depois de uma mudança difícil: pessoas, rotinas, valores. Marque o que merece apoio agora e escolha uma ação pequena para cuidar disso. Se o impacto for recente e grande, peça ajuda a alguém de confiança.",
     "past_present_future": {
-      "past": "Você enfrentou um colapso que trouxe mudanças profundas e necessárias.",
-      "present": "Você está em meio a uma transição caótica, mas cheia de potencial de crescimento.",
-      "future": "A reconstrução trará novas oportunidades, desde que você aceite as mudanças e as use como alicerce para algo melhor."
+      "past": "Alguma estrutura, crença ou acordo pode ter cedido num momento em que já pesava demais.",
+      "present": "Algo foi exposto de repente. Reconstruir igual por medo ou aceitar o terreno que ficou é uma escolha que não precisa ser feita agora.",
+      "future": "Tendência: depois de um impacto, é comum precisar separar o que ainda sustenta do que não sustenta mais. Sinal para observar: o que você quer reconstruir, e com quem."
     },
     "numeral": "XVI",
     "path": {
@@ -609,35 +609,35 @@
       "from": "Netzach",
       "to": "Hod"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "A Estrela",
-    "title": "A Esperança",
+    "title": "A Janela Aberta",
     "number": 17,
     "isMajorArcana": true,
-    "eighth_greater": "Esperança, inspiração, renovação.",
-    "eighth_lesser": "Desânimo, pessimismo, falta de fé.",
+    "eighth_greater": "Abertura ao infinito, confiança que nasce de pertencer a algo maior.",
+    "eighth_lesser": "Contemplação sem ação: a fé no horizonte que dispensa o chão, ou o ideal que não se encarna.",
     "order": 17,
     "element": "Ar",
     "sign": "Aquário",
     "planet": null,
-    "description": "A Estrela, associada ao número dezessete e ao signo de Aquário, é o farol da esperança e da inspiração divina. No Tarot de Thoth, ela representa a renovação espiritual, a confiança no fluxo do universo e a conexão com o potencial ilimitado. Aquário traz a visão do futuro e a mente aberta para novas possibilidades, enquanto o elemento Ar reflete a clareza e a leveza necessárias para enxergar além das dificuldades. A Estrela nos guia através das sombras, lembrando-nos de que sempre há uma luz à frente.",
+    "description": "Heh, a janela, dá à Estrela a imagem de uma abertura do céu sobre quem passou pela travessia. O caminho 15, de Chokmah a Tiphareth, lhe vem por uma troca que Crowley fez com Tzaddi. Aquário e o Ar dão ao conjunto amplitude, visão e distanciamento. A figura central é Nuit, a deusa do espaço estrelado, que derrama o que contém. Pertencimento ao infinito e generosidade que não se esgota são o centro desta carta.",
     "hebrew_letter": "Heh (ה)",
     "astrology": "Aquário",
-    "description_symbolic": "A Estrela é representada por uma figura derramando água sobre a terra e no rio, simbolizando a conexão entre o espiritual e o físico, a renovação e o fluxo contínuo da vida. No Tarot de Thoth, ela brilha como uma promessa de luz após a escuridão, indicando que, após os desafios, surge a clareza e o propósito. As estrelas no céu simbolizam a orientação divina e a fé no desconhecido.",
-    "message_esoteric": "A Estrela nos ensina que a esperança é uma força poderosa capaz de nos guiar através das dificuldades. Ela nos convida a confiar no processo da vida, sabendo que cada desafio traz a promessa de renovação e crescimento.",
+    "description_symbolic": "Heh é a janela, o vazio por onde entram luz e ar. O caminho 15 liga a sabedoria de Chokmah ao centro solar de Tiphareth, e a Estrela é o trecho em que a visão ampla chega ao coração. Aquário é o signo do portador de água, e o Ar, o elemento do pensamento e do espaço. Em Thoth, Nuit derrama de duas taças sobre a terra.",
+    "message_esoteric": "Existe um espaço maior do que as nossas aflições. O que, na sua vida, ainda está aberto à luz? E como fazer circular o que se recebe, em vez de retê-lo? A abertura se mantém quando algo passa por ela.",
     "meditation_reflection": [
-      "Estou permitindo que a esperança e a inspiração me iluminem nos momentos difíceis?",
-      "O que precisa ser renovado em minha vida para que eu avance com confiança?",
-      "Como posso me abrir para o fluxo divino e acreditar no meu potencial?"
+      "Em que momento uso o ideal ou a esperança para não fazer o que está ao meu alcance?",
+      "O que a janela de Heh deixa entrar em mim quando paro de fechar as cortinas?",
+      "Que gesto de generosidade posso fazer, simples e sem plateia?"
     ],
-    "internal_alchemy": "A Estrela simboliza a alquimia da renovação e da fé. Ela nos lembra que, mesmo nos momentos mais sombrios, a confiança no processo de transformação nos conduz a novos começos.",
-    "magical_practice": "Para conectar-se à Estrela, visualize uma luz brilhante à sua frente, guiando-o por um caminho tranquilo e esperançoso. Afirme sua confiança no universo e sua capacidade de renascer.",
+    "internal_alchemy": "Difusão: o que foi purificado deixa de ser guardado e passa a irrigar o entorno. Como a água que passa de uma taça a outra, só se mantém limpa se continua em movimento.",
+    "magical_practice": "À noite, saia ao ar livre e olhe o céu por dez minutos sem pensar em nada útil. Depois escreva uma coisa que recebeu de alguém e uma que pode dar a outra pessoa, e envie uma mensagem concreta a uma delas.",
     "past_present_future": {
-      "past": "Um momento de clareza e inspiração que trouxe esperança renovada.",
-      "present": "Um chamado para abraçar a esperança e confiar em seu caminho.",
-      "future": "A promessa de renovação e harmonia, desde que você mantenha a fé e o otimismo."
+      "past": "Depois de um momento difícil, talvez tenha havido um intervalo de ar e de calma em que você voltou a respirar.",
+      "present": "Há espaço aberto diante de você, e a escolha é usá-lo para dar algo ao mundo ou só para descansar dele.",
+      "future": "Tendência: o que circula se renova. Sinal para observar: o que você dá não parece diminuir em você."
     },
     "numeral": "XVII",
     "path": {
@@ -645,35 +645,35 @@
       "from": "Chokmah",
       "to": "Tiphareth"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "A Lua",
-    "title": "O Mistério",
+    "title": "A Noite Interior",
     "number": 18,
     "isMajorArcana": true,
-    "eighth_greater": "Intuição, mistério, sonhos reveladores.",
-    "eighth_lesser": "Engano, confusão, medo.",
+    "eighth_greater": "Sensibilidade ao invisível: sonhos, intuição e imaginação como bússola.",
+    "eighth_lesser": "Fantasia sem referência: o medo que cria monstros, ou a ilusão escolhida para não ver.",
     "order": 18,
     "element": "Água",
     "sign": "Peixes",
     "planet": null,
-    "description": "A Lua, associada ao número dezoito e ao signo de Peixes, representa o mistério, a intuição e as emoções profundas que fluem sob a superfície. No Tarot de Thoth, ela não apenas ilumina o caminho oculto, mas revela as ilusões e os medos que devemos confrontar para alcançar a clareza. Peixes traz a conexão com o inconsciente e o reino dos sonhos, enquanto o elemento Água simboliza as emoções e a fluidez do processo intuitivo.",
+    "description": "Peixes e a Água dão à Lua fluidez, sensibilidade e confusão de limites: é a travessia da noite interior. Qoph, a nuca, a parte da cabeça que não vemos e que comanda reflexos, é a sua letra, no caminho 29, de Netzach a Malkuth, o último antes do mundo concreto. A carta mostra o que o inconsciente produz quando a luz é indireta: sonhos, medos e imagens que pedem leitura sem pressa.",
     "hebrew_letter": "Qoph (ק)",
     "astrology": "Peixes",
-    "description_symbolic": "A Lua ilumina um caminho sinuoso, sugerindo uma jornada incerta onde nem tudo é como parece. No Tarot de Thoth, figuras misteriosas, como cães ou lobos uivando, representam os instintos e os medos primordiais que surgem sob sua luz. As águas ao redor simbolizam o inconsciente profundo, onde verdades ocultas aguardam ser descobertas.",
-    "message_esoteric": "A Lua nos ensina que a verdade não está sempre na superfície. Ela nos convida a navegar pelos reinos do mistério, da intuição e dos sonhos, onde encontramos tanto os desafios quanto as revelações que precisamos. Sua mensagem é confiar em sua bússola interna para atravessar as sombras.",
+    "description_symbolic": "Qoph é a parte de trás da cabeça, sede do que atua sem ser visto. Peixes, último signo, reúne em si todos os anteriores e dissolve fronteiras. O caminho 29 liga o desejo de Netzach ao reino de Malkuth, e ali a imaginação precisa encontrar o chão. Em Thoth, figuras egípcias ligadas à passagem entre mundos povoam a cena.",
+    "message_esoteric": "É possível andar na penumbra sem fingir que se enxerga tudo. Imagens e medos guiam decisões em silêncio, e a carta pede que sejam levados à luz do dia e conferidos com a realidade, de preferência com alguém de confiança.",
     "meditation_reflection": [
-      "Estou ouvindo e confiando na minha intuição ou deixando o medo me dominar?",
-      "Que emoções ou segredos internos estou pronto para revelar e entender?",
-      "Como posso usar os sonhos e o inconsciente para obter clareza em minha vida desperta?"
+      "Que medo posso olhar com mais calma, com alguém de confiança, para ver o que nele é fato e o que é sombra?",
+      "O que a nuca de Qoph guarda em mim, aquilo que age sem que eu veja?",
+      "Que sonho ou sensação posso anotar, sem interpretar, só para ver o que aparece?"
     ],
-    "internal_alchemy": "A Lua simboliza a alquimia da introspecção emocional. Ao explorar as sombras de nossa mente, transformamos o medo e a confusão em sabedoria e clareza.",
-    "magical_practice": "Para conectar-se à Lua, medite sob sua luz e preste atenção aos seus sonhos. Visualize um caminho iluminado pela luz da lua, confiando que cada passo o levará à clareza e ao conhecimento interior.",
+    "internal_alchemy": "Dissolução noturna, em que consciente e inconsciente se misturam e o fixo vira névoa. Não se força a clareza nessa etapa, mas é possível registrar o que a noite mostra.",
+    "magical_practice": "Mantenha um caderno ao lado da cama por sete noites e anote sonhos, imagens e sensações ao acordar, sem interpretar. Ao fim, releia tudo de uma vez e circule o que se repete. Escolha uma imagem recorrente e pergunte à luz do dia o que ela quer dizer.",
     "past_present_future": {
-      "past": "Um período de mistério ou introspecção revelou verdades ocultas.",
-      "present": "Você está em um momento de incerteza que exige confiança na intuição.",
-      "future": "A clareza surgirá, desde que você enfrente suas sombras e explore o desconhecido com coragem."
+      "past": "Se houve um período de dúvida, de sonhos intensos ou de confusão, pode ter deixado imagens que ainda pedem leitura.",
+      "present": "A visão está turva e a imaginação trabalha. Confiar nas imagens e confrontá-las com os fatos são movimentos que se completam.",
+      "future": "Tendência: o que é anotado e conversado costuma perder o poder de assustar. Sinal para observar: um medo antigo ganha contorno e deixa de parecer sombra solta."
     },
     "numeral": "XVIII",
     "path": {
@@ -681,35 +681,35 @@
       "from": "Netzach",
       "to": "Malkuth"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "O Sol",
     "title": "A Clareza",
     "number": 19,
     "isMajorArcana": true,
-    "eighth_greater": "Felicidade, clareza, sucesso.",
-    "eighth_lesser": "Arrogância, egocentrismo, superexposição.",
+    "eighth_greater": "Luz que se mostra por inteiro: vitalidade, alegria e verdade sem esforço.",
+    "eighth_lesser": "Luz que cega: o brilho que não admite sombra, ou o otimismo que ignora o custo.",
     "order": 19,
     "element": "Fogo",
     "sign": null,
     "planet": "Sol",
-    "description": "O Sol, regido pelo número dezenove e pelo próprio Sol, representa a luz da clareza, a alegria e o sucesso. No Tarot de Thoth, ele não é apenas um símbolo de vitórias externas, mas a manifestação da verdade interior revelada e celebrada. O elemento Fogo reflete sua energia vital, que aquece e ilumina todos os aspectos da vida. Ele nos lembra de celebrar nossas conquistas e de reconhecer o poder transformador da positividade e da verdade.",
+    "description": "Resh, a cabeça, é o ponto em que a consciência se acende, e o Sol é a luz que não precisa de desculpas. Seu caminho é o 30, de Hod a Yesod. O Fogo, elemento do Sol, dá calor, generosidade e vitalidade. A imagem traz crianças dançando sob os raios, uma festa de inocência e abundância. Ser visto, brilhar sem teatro e aquecer o que está em volta são os temas que a carta oferece.",
     "hebrew_letter": "Resh (ר)",
     "astrology": "Sol",
-    "description_symbolic": "O Sol é representado por uma figura radiante sob um céu brilhante, simbolizando iluminação espiritual e realização. No Tarot de Thoth, ele também traz a ideia de despertar interior, onde a escuridão da dúvida é eliminada pela luz da consciência. A figura da criança simboliza a pureza e o renascimento da alma, pronta para um novo ciclo de vida.",
-    "message_esoteric": "O Sol nos ensina que a verdadeira felicidade e sucesso vêm quando estamos em sintonia com nossa essência autêntica. Ele nos convida a irradiar nossa luz interior e a compartilhar nossa alegria com o mundo, sem medo de brilhar.",
+    "description_symbolic": "Resh é a cabeça, sede da visão e do pensamento, e o Sol é a estrela que dá vida ao sistema inteiro. O caminho 30 liga a mente de Hod ao fundamento de Yesod, levando a clareza intelectual para onde ela vira vida. Hod é a esfera do intelecto e Yesod a das imagens e dos ritmos do corpo: entre as duas, pensar e viver se encontram no mesmo gesto.",
+    "message_esoteric": "Nem todo mundo se sente seguro para ser visto, e tudo bem. A carta pergunta onde você já pode brilhar um pouco mais sem custo, e o calor verdadeiro se oferece sem pedir aplauso. Clareza também pode ser discreta.",
     "meditation_reflection": [
-      "Estou me permitindo brilhar plenamente e celebrar minhas conquistas?",
-      "Como posso trazer mais clareza e verdade para minha vida?",
-      "Estou equilibrando a confiança com a humildade ou deixando o ego dominar?"
+      "Onde meu entusiasmo ofusca os outros ou me impede de ver o que ainda está mal?",
+      "O que a cabeça de Resh, sede da visão, vê com nitidez quando nada a obscurece?",
+      "A quem posso dizer, com palavras simples, o que admiro nessa pessoa?"
     ],
-    "internal_alchemy": "O Sol simboliza a alquimia da iluminação interior. Ele nos desafia a transmutar dúvidas em autoconfiança e a reconhecer nossa luz como um agente de transformação no mundo.",
-    "magical_practice": "Conecte-se ao Sol visualizando sua luz radiante iluminando seu coração e expandindo-se para todas as áreas da sua vida. Afirme sua força interior e sua capacidade de sucesso.",
+    "internal_alchemy": "Coroação: o ouro alquímico, depois de longo trabalho, aparece como luz e não como metal. A transformação se torna visível a todos, inclusive ao próprio alquimista.",
+    "magical_practice": "Pela manhã, fique de frente para a luz do dia por cinco minutos, de olhos fechados e sem olhar o sol. Diga em voz alta uma coisa de que você se orgulha e depois agradeça a alguém por algo específico que a pessoa fez.",
     "past_present_future": {
-      "past": "Um período de sucesso e clareza trouxe crescimento significativo.",
-      "present": "Um momento de celebração e reconhecimento de suas realizações.",
-      "future": "A promessa de sucesso contínuo e vitalidade, desde que você permaneça fiel a si mesmo."
+      "past": "Pode ter havido um momento em que você se sentiu inteiro, sem defesas, e isso ficou como referência.",
+      "present": "Há luz disponível. Mostrar-se por inteiro sem cegar os outros e sem esconder o que ainda é sombra é um equilíbrio delicado.",
+      "future": "Tendência: o que é vivido com franqueza costuma criar proximidade. Sinal para observar: você se sente à vontade perto das pessoas, sem esforço para convencê-las."
     },
     "numeral": "XIX",
     "path": {
@@ -717,35 +717,35 @@
       "from": "Hod",
       "to": "Yesod"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "O Éon",
-    "title": "A Renovação",
+    "title": "O Novo Éon",
     "number": 20,
     "isMajorArcana": true,
-    "eighth_greater": "Renovação, transformação, libertação.",
-    "eighth_lesser": "Resistência ao chamado, medo do julgamento.",
+    "eighth_greater": "Despertar que inaugura outra era, vontade própria como lei de movimento.",
+    "eighth_lesser": "Ruptura total: negar o passado inteiro em nome do novo, ou esperar uma era pronta sem agir.",
     "order": 20,
     "element": "Fogo",
     "sign": null,
     "planet": "Plutão",
-    "description": "O Julgamento, associado ao número vinte e ao planeta Plutão, representa o renascimento espiritual e a liberação de velhos padrões. No Tarot de Thoth, ele simboliza o despertar da consciência e a transmutação do passado em sabedoria. O elemento Fogo reflete a purificação necessária para a transformação e a libertação. É um chamado para ouvir a voz da alma e abraçar o propósito superior.",
+    "description": "Uma virada de era, em escala pessoal e histórica: é o que o Éon marca. O caminho 31, de Hod a Malkuth, leva a letra Shin, o dente, a chama que devora. Substitui o Julgamento: em vez do juízo final, traz o éon de Hórus, a era que Crowley dizia ter começado em 1904, quando afirmou ter recebido no Cairo o Livro da Lei. Para ele, uma era de vontade verdadeira de cada pessoa. A carta convida a perguntar qual é a sua.",
     "hebrew_letter": "Shin (ש)",
     "astrology": "Plutão",
-    "description_symbolic": "O Julgamento é representado por figuras ascendendo ao som de uma trombeta divina, simbolizando o despertar e a elevação espiritual. No Tarot de Thoth, ele marca o momento em que deixamos para trás as restrições do passado e emergimos em um novo nível de consciência. A trombeta representa o chamado do divino para a renovação.",
-    "message_esoteric": "O Julgamento nos ensina que o passado é um terreno fértil para o crescimento, mas não devemos nos apegar a ele. Ele nos convida a responder ao chamado interno para a transformação e a nos libertarmos das limitações que nos impedem de evoluir.",
+    "description_symbolic": "Shin é o dente e a chama, a letra do fogo e do espírito, de três traços como três línguas de fogo. O caminho 31 liga Hod a Malkuth e leva a mente ao mundo. Nuit, o espaço infinito, Hadit, o ponto que se move, e Hórus, o deus que dá nome à nova era, são as figuras do Livro da Lei, texto central de Thelema, a religião fundada por Crowley.",
+    "message_esoteric": "Algumas viradas não pedem autorização ao passado. O que em você já mudou de era sem que você admitisse? E que vontade verdadeira está pronta para ser assumida, e não adiada à espera de permissão?",
     "meditation_reflection": [
-      "Estou ouvindo o chamado para a transformação e a renovação?",
-      "Que aspectos do meu passado precisam ser liberados para que eu possa crescer?",
-      "Como posso usar minhas experiências passadas como uma fonte de sabedoria?"
+      "Que ruptura estou tratando como libertação sem saber ainda o que quero construir?",
+      "O que o fogo de Shin, que devora e ilumina, está consumindo em mim para que algo comece?",
+      "Que decisão posso assumir com a frase 'isto é o que eu quero', sem pedir aprovação?"
     ],
-    "internal_alchemy": "O Julgamento simboliza a alquimia do despertar e da transformação. Ele nos desafia a deixar para trás o que não serve mais e a renascer para um novo propósito.",
-    "magical_practice": "Conecte-se ao Julgamento visualizando uma trombeta tocando no fundo do seu coração, despertando-o para seu verdadeiro propósito. Afirme sua disposição de se libertar do passado e de abraçar o novo.",
+    "internal_alchemy": "Multiplicação pelo fogo: uma pequena chama espiritual é lançada ao conjunto e transforma todo o vaso. Não é o fim de uma obra, é a passagem para outra, em outro nível.",
+    "magical_practice": "Escreva uma carta para você, datada de daqui a um ano, contando o que mudou de era em sua vida e o que você assumiu. Destaque uma frase que seja ação e faça-a esta semana. Guarde a carta em um lugar visível.",
     "past_present_future": {
-      "past": "Um momento de despertar ou mudança que redefiniu seu caminho.",
-      "present": "Você está sendo chamado a se libertar e a abraçar uma nova fase de sua vida.",
-      "future": "A promessa de renovação e crescimento espiritual, desde que você responda ao chamado."
+      "past": "Algo pode ter se encerrado em você, uma identidade ou um modo de viver, deixando espaço para outra pergunta.",
+      "present": "Uma nova fase pede nome. Assumir a própria vontade ou esperar que alguém a autorize: a carta sugere olhar para essa encruzilhada.",
+      "future": "Tendência: o que é assumido com clareza organiza o que vem depois. Sinal para observar: você deixa de se justificar por uma escolha que antes defendia com culpa."
     },
     "numeral": "XX",
     "path": {
@@ -753,35 +753,35 @@
       "from": "Hod",
       "to": "Malkuth"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "O Universo",
-    "title": "A Realização",
+    "title": "A Totalidade",
     "number": 21,
     "isMajorArcana": true,
-    "eighth_greater": "Conclusão, plenitude, realização.",
-    "eighth_lesser": "Estagnação, sensação de algo inacabado.",
+    "eighth_greater": "Conclusão que integra tudo, plenitude dentro de limites assumidos.",
+    "eighth_lesser": "Fechamento prematuro: o ciclo declarado completo antes de integrar, ou o perfeccionismo que impede de encerrar.",
     "order": 21,
     "element": "Terra",
     "sign": null,
     "planet": "Saturno",
-    "description": "O Mundo, associado ao número vinte e um e ao planeta Saturno, representa a conclusão, a integração e a plenitude. No Tarot de Thoth, ele simboliza o final de um ciclo e a realização de todo o potencial alcançado ao longo da jornada. Saturno traz a lição de que o verdadeiro sucesso é resultado da disciplina e do esforço. O elemento Terra reflete a manifestação concreta dessa plenitude.",
+    "description": "Tav, a última letra, a marca que assina e fecha: o Universo é o ciclo que se completa e o recomeço que ele contém. O caminho 32, de Yesod a Malkuth, é o último da Árvore, e leva o planeta Saturno. Saturno traz limite, tempo e forma, e a Terra dá concretude ao conjunto. Para ser real, a obra precisa aceitar suas bordas e se encarnar em um mundo, e concluir também é aceitar o que não cabe mais.",
     "hebrew_letter": "Tav (ת)",
     "astrology": "Saturno",
-    "description_symbolic": "O Mundo é representado por uma figura dançando dentro de uma coroa de louros, simbolizando vitória e realização. No Tarot de Thoth, essa figura está em perfeito equilíbrio, indicando a integração de todas as lições aprendidas ao longo da jornada. A coroa de louros simboliza o triunfo e a completude.",
-    "message_esoteric": "O Mundo nos ensina que a verdadeira realização vem da integração de todas as experiências e lições. Ele nos convida a celebrar o final de um ciclo e a reconhecer a harmonia alcançada entre o espiritual e o material.",
+    "description_symbolic": "Tav é a última letra, a marca que assina e fecha. Saturno, o guardião das bordas, entrega ao fim do caminho o que o tempo amadureceu. O caminho 32 liga o fundamento, Yesod, ao reino, Malkuth, a imagem ao corpo, e por ele se sai da Árvore para o mundo. Malkuth é a esfera da matéria, onde a obra se torna visível. Em Thoth, a figura dança em um círculo envolvido por uma serpente.",
+    "message_esoteric": "Concluir é ato de maturidade: aceitar limites, reunir o que se aprendeu e dar nome ao que se completou. O que já está pronto e pede um encerramento com cerimônia, para que o próximo ciclo não herde pendências?",
     "meditation_reflection": [
-      "Estou celebrando minhas conquistas ou apenas focando no próximo desafio?",
-      "Como posso integrar as lições aprendidas em minha vida cotidiana?",
-      "Estou buscando equilíbrio entre minhas aspirações materiais e espirituais?"
+      "Que ciclo declaro encerrado sem ter integrado o que ele me ensinou?",
+      "O que a cruz de Tav marca em mim como limite que dá forma, e não como prisão?",
+      "Que pendência pequena posso fechar, para que o próximo ciclo comece sem peso?"
     ],
-    "internal_alchemy": "O Mundo simboliza a alquimia da conclusão e da integração. Ele nos desafia a unir todas as partes de nós mesmos em um estado de plenitude e harmonia.",
-    "magical_practice": "Para conectar-se ao Mundo, visualize-se dentro de um círculo dourado de luz, representando a plenitude e o equilíbrio. Afirme sua realização e completude.",
+    "internal_alchemy": "Coagulação final da Grande Obra: o que foi purificado ganha corpo estável no mundo. Saturno, o chumbo, volta como ouro quando o tempo faz seu trabalho, e o ciclo se abre de novo.",
+    "magical_practice": "Pense em um projeto ou fase que você considera encerrado. Escreva o que foi aprendido, o que ficou sem terminar e o que você leva. Faça um pequeno rito de encerramento, como organizar a mesa ou arquivar documentos, e declare o fim em voz alta.",
     "past_present_future": {
-      "past": "Um ciclo completo de aprendizado ou realização moldou sua jornada.",
-      "present": "Você está em um momento de integração e celebração das conquistas.",
-      "future": "A promessa de plenitude e realização, desde que você permaneça alinhado com seu propósito."
+      "past": "Uma fase longa pode ter se concluído aos poucos, mesmo sem cerimônia.",
+      "present": "Um ciclo pede fecho. Encerrar com integração, sem adiar por perfeccionismo nem pular etapas, é o ponto delicado.",
+      "future": "Tendência: o que é fechado com consciência libera energia para outro começo. Sinal para observar: surge curiosidade por algo que antes não tinha espaço."
     },
     "numeral": "XXI",
     "path": {
@@ -789,7 +789,7 @@
       "from": "Yesod",
       "to": "Malkuth"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Ás de Bastões",
