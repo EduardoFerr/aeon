@@ -1,5 +1,5 @@
 import { saveToHistory } from '../utils/storage.js';
-import { loadCards } from '../utils/cardsUtil.js';
+import { loadCards, shuffle } from '../utils/cardsUtil.js';
 import('./TarotCardInfo.js');
 
 /**
@@ -72,8 +72,8 @@ export class ThreeCardGameScreen extends HTMLElement {
         try {
             const cards = await loadCards();
 
-            // Embaralha e seleciona 3 cartas
-            const shuffled = cards.sort(() => 0.5 - Math.random()).slice(0, 3);
+            // Embaralha (sem viés e sem alterar o cache) e seleciona 3 cartas
+            const shuffled = shuffle(cards).slice(0, 3);
             const container = this.querySelector('#cards');
             // Rótulos das posições
             const labels = ['Passado', 'Presente', 'Futuro'];
@@ -83,7 +83,7 @@ export class ThreeCardGameScreen extends HTMLElement {
                     (card, index) => `
                     <div  class="card-three">
                         <h3>${labels[index]}</h3>
-                        <tarot-card data-card='${JSON.stringify(card)}' show-back></tarot-card>
+                        <tarot-card data-order="${Number(card.order)}" show-back></tarot-card>
                     </div>
                     `
                 )

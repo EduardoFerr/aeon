@@ -20,15 +20,14 @@ export class AllCardsScreen extends HTMLElement {
     async renderCards() {
         try {
             // Obtém as cartas do utilitário (usando o cache)
-            const cards = await loadCards();
-            cards.sort((a, b) => a.order - b.order);
+            const cards = [...(await loadCards())].sort((a, b) => a.order - b.order); // cópia: não reordena o cache
             const container = this.querySelector('#all-cards');
 
-            // Renderiza as cartas no container usando TarotCard
+            // Renderiza as cartas no container usando TarotCard (só o número de ordem vai no HTML)
             container.innerHTML = cards
                 .map(
                     (card) => `
-                        <tarot-card data-card='${JSON.stringify(card)}'></tarot-card>
+                        <tarot-card data-order="${Number(card.order)}"></tarot-card>
                     `
                 )
                 .join('');

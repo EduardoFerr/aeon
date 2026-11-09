@@ -603,3 +603,19 @@ button:hover {
   justify-content: center;
   border-radius: 10px;
 }
+
+/* Foco visivel por teclado nas cartas e no modal (acessibilidade) */
+tarot-card:focus-visible {
+  outline: 3px solid #f2c744;
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.info-content:focus {
+  outline: none;
+}
+
+#close-info:focus-visible {
+  outline: 3px solid #f2c744;
+  outline-offset: 3px;
+}
