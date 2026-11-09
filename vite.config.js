@@ -4,19 +4,11 @@ import path from "node:path";
 import fs from "node:fs/promises";
 
 export default defineConfig({
+  // Obs.: um bloco "build.build" (base, outDir, minify terser, publicDir) existia
+  // aqui aninhado no nivel errado e o Vite o ignorava. Foi removido sem mudar o
+  // resultado: os valores efetivos sempre foram os padroes (base "/", outDir
+  // "dist", minify esbuild, publicDir "public").
   build: {
-    base: "./",
-    build: {
-      outDir: "dist", // Diretório final da build
-      minify: "terser", // Usa o Terser como minificador
-      terserOptions: {
-        format: {
-          comments: false, // Remove todos os comentários
-        },
-      },
-    },
-    publicDir: "public",
-
     manifest: true,
     rollupOptions: {
       input: {
