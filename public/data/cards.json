@@ -1307,35 +1307,35 @@
   },
   {
     "name": "Ás de Taças",
-    "title": "Raiz da Água",
+    "title": "Raiz dos Poderes da Água",
     "number": 1,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Amor puro, novos começos emocionais, conexão espiritual.",
-    "eighth_lesser": "Bloqueios emocionais, repressão de sentimentos, vazio interior.",
+    "eighth_greater": "O cálice que se enche: amor e emoção em sua fonte, antes de qualquer forma.",
+    "eighth_lesser": "A água sem leito: a emoção que transborda sem margem e se perde.",
     "order": 36,
     "element": "Água",
     "sign": null,
     "planet": null,
-    "description": "O Ás de Taças representa a fonte primordial de amor, compaixão e intuição. No Tarot de Thoth, ele é a taça transbordante da vida emocional, um símbolo de novos começos espirituais e emocionais. Esta carta convida à abertura do coração para receber e compartilhar o amor em sua forma mais pura. O elemento Água reflete o fluxo contínuo das emoções, incentivando a conexão profunda com o mundo interior e o despertar espiritual.",
-    "description_symbolic": "Representado por um cálice transbordante, o Ás de Taças simboliza a abundância emocional que está prestes a fluir em sua vida. No Tarot de Thoth, esse fluxo representa não apenas amor romântico, mas também intuição, cura e conexão espiritual. É o momento de deixar o coração se expandir e acolher tudo o que o universo tem a oferecer.",
-    "message_esoteric": "O Ás de Taças nos ensina que o amor, a empatia e a conexão espiritual são as bases da existência humana. Ele nos convida a abrir nosso coração para novas experiências emocionais e espirituais, permitindo que a intuição nos guie.",
+    "description": "O Ás de Taças é a raiz da Água: a emoção e o amor ainda sem forma, no ponto mais alto da Árvore da Vida, Kether. Na carta, uma taça azul-escura de alças repousa sobre um lótus claro, e um jorro de luz cai sobre ela entre leques de azul, vermelho e verde. Quando sai, fala de um amor que nasce, de uma emoção que transborda, de um encontro com o que toca a alma. Anuncia uma fase de sentir fundo e pede que se escolha onde derramar a água.",
+    "description_symbolic": "No ponto mais alto da Árvore, em Kether, a força da Água ainda não se dividiu, e por isso o Ás não tem signo, planeta nem decano: é a nascente de onde os outros nove Taças correm. A taça sobre o lótus sugere o Graal, e os leques de cor, a água que se abre em mil direções ao descer. A Água aqui é o primeiro Heh do Tetragrama.",
+    "message_esoteric": "Algo quer ser sentido por inteiro: um amor que chega, uma saudade que volta, uma intuição que sobe. Não se tape a nascente. A taça precisa de tempo para encher antes de saber o que fazer com ela, e a água sem leito escorre. O que nasce aqui tem profundidade própria.",
     "meditation_reflection": [
-      "Estou aberto a receber e compartilhar amor de forma autêntica?",
-      "Como posso cultivar emoções positivas e promover minha cura interior?",
-      "Estou ouvindo a voz da minha intuição e deixando meu coração se expressar livremente?"
+      "Que emoção minha transborda sem margem, e que margem eu lhe daria sem secar a fonte?",
+      "Sobre que chão a taça repousa, e o que isso conta sobre a fonte?",
+      "Qual pergunta de amor eu deixaria cair na taça do Ás, para ouvi-la ecoar no fundo?"
     ],
-    "internal_alchemy": "O Ás de Taças simboliza a alquimia da renovação emocional. Ele nos desafia a transformar dor e bloqueios internos em amor e abertura para novas experiências.",
-    "magical_practice": "Conecte-se ao Ás de Taças visualizando um cálice transbordando de luz dourada ou prateada. Sinta essa luz fluindo por seu corpo, purificando suas emoções e despertando o amor interior.",
+    "internal_alchemy": "Dissolução: a Água é o dissolvente primeiro, o que desfaz as durezas e torna possível toda mistura. O Ás é a gota inicial, ainda sem receita, mas com o mar inteiro dentro.",
+    "magical_practice": "Encha uma taça de água limpa e deixe-a diante de uma vela azul, cor da Água, até o fim da tarde. Contemple o Ás, vibre Heh devagar sobre a água e beba um gole, nomeando em voz baixa o que começa a nascer. Anote no diário da carta.",
     "past_present_future": {
-      "past": "Um novo começo emocional ou espiritual trouxe inspiração e renovação.",
-      "present": "Este é um momento de abertura emocional e novas conexões.",
-      "future": "Oportunidades emocionais e espirituais se apresentarão, desde que você esteja disposto a se abrir ao amor."
+      "past": "A raiz aqui está numa emoção funda, antiga ou recente, que sempre voltou à superfície.",
+      "present": "Uma nascente se abre. Deixar a água correr por onde quiser, ou já traçar-lhe o canal?",
+      "future": "Vem aí uma fase de sentir fundo, em que um amor, uma saudade ou uma intuição pede passagem; é na taça aberta que a fonte se forma."
     },
     "numeral": "Ás",
     "sephirah": "Kether",
     "decan": null,
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Dois de Taças",
@@ -1343,26 +1343,26 @@
     "number": 2,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Parceria, harmonia, união emocional.",
-    "eighth_lesser": "Desequilíbrio, conflitos emocionais, separação.",
+    "eighth_greater": "A união que flui: duas águas que se encontram e se reconhecem.",
+    "eighth_lesser": "A fusão que apaga o contorno: o amor que se dissolve no outro e perde a própria forma.",
     "order": 37,
     "element": "Água",
     "sign": "Câncer",
     "planet": "Vênus",
-    "description": "O Dois de Taças representa o encontro de almas, a harmonia emocional e as parcerias profundas. No Tarot de Thoth, ele simboliza não apenas o amor romântico, mas todas as formas de união onde há equilíbrio e reciprocidade. Esta carta sugere que, ao encontrar alguém ou algo que ressoe com nosso coração, podemos criar laços profundos que alimentam nossa alma e proporcionam crescimento mútuo. O elemento Água reflete a fluidez e a nutrição emocional dessa conexão.",
-    "description_symbolic": "Comumente representado por duas taças entrelaçadas ou figuras trocando gestos de afeição, o Dois de Taças simboliza o equilíbrio perfeito entre duas energias complementares. No Tarot de Thoth, essa carta destaca a beleza das conexões quando há entrega, confiança e respeito mútuo. Também nos lembra que relações saudáveis começam com harmonia interior.",
-    "message_esoteric": "O Dois de Taças nos ensina que as conexões verdadeiras nascem do equilíbrio entre dar e receber. Ele nos convida a nutrir nossas parcerias e a valorizar as relações baseadas em respeito e apoio mútuo.",
+    "description": "Dois que se reconhecem: é isso que o Dois de Taças guarda. Vênus, o planeta do afeto, rege o primeiro decano de Câncer, o signo da casa e da concha, e Chokmah dá ao encontro o seu impulso inicial. Atração mútua, ternura, uma união que começa, uma reconciliação, um pacto de coração: eis o campo da carta. Algo em você encontra o seu par, e o encontro tem corrente.",
+    "description_symbolic": "Na imagem, duas criaturas alaranjadas, enroscadas num caule de lótus, repousam sob a flor aberta, enquanto uma água clara cai de arcos sobre duas taças; no céu azul aparecem os símbolos de Vênus e de Câncer. Dois é o número de Chokmah, o primeiro encontro entre uma força e outra. Os dois jatos, iguais e simétricos, sugerem uma troca em que ninguém dá mais do que recebe.",
+    "message_esoteric": "Duas águas procuram o mesmo caminho, e a carta fala de amor que flui nos dois sentidos, de um encontro em que ninguém precisa se encolher. A ternura, quando vem inteira, pode ser aceita. O amor que se dissolve no outro deixa de ser dois. Aqui há união, pacto ou reconciliação de pé.",
     "meditation_reflection": [
-      "Estou cultivando conexões emocionais baseadas no equilíbrio e na reciprocidade?",
-      "Como posso nutrir e fortalecer minhas relações importantes?",
-      "Estou em harmonia emocional comigo mesmo, permitindo conexões genuínas com os outros?"
+      "Onde o meu amor se dissolve no outro até perder o contorno?",
+      "O que as duas criaturas enroscadas sob o lótus mostram sobre a união que a carta celebra?",
+      "Com a mão sobre o coração, o que eu perguntaria às duas taças?"
     ],
-    "internal_alchemy": "O Dois de Taças simboliza a alquimia da união. Ele nos desafia a integrar nossos aspectos internos opostos e a encontrar harmonia em nossos relacionamentos externos.",
-    "magical_practice": "Conecte-se ao Dois de Taças visualizando duas taças derramando água cristalina uma na outra, simbolizando a troca equilibrada de energia. Afirme sua intenção de criar e manter relacionamentos harmoniosos.",
+    "internal_alchemy": "Conjunção: o princípio ativo e o receptivo se unem sem se anular, como duas águas de cores diferentes que, ao se encontrarem, correm lado a lado e deixam à mostra as duas cores no mesmo canal.",
+    "magical_practice": "Aproxime aos poucos uma vela verde, cor de Vênus, de uma vela azul, cor da Água, enquanto contempla a carta. Vibre o nome de Vênus duas vezes e escreva no diário duas qualidades suas e duas de quem ou do que você ama.",
     "past_present_future": {
-      "past": "Uma parceria emocional significativa trouxe harmonia e aprendizado.",
-      "present": "Você está em um momento de fortalecer suas conexões e criar harmonia.",
-      "future": "Novas parcerias ou reconciliações estão a caminho, desde que você cultive o equilíbrio."
+      "past": "Tudo começou num encontro que fez eco: uma afinidade que se reconheceu à primeira vista.",
+      "present": "Duas correntes se tocam; o que lhes dará um canal comum sem apagar nenhuma das duas?",
+      "future": "Duas águas se encontram sem perder a cor, e é esse o rumo: ternura, pacto, dois jatos correndo juntos."
     },
     "numeral": "2",
     "sephirah": "Chokmah",
@@ -1373,7 +1373,7 @@
       "degrees": "0 a 10 graus de Câncer",
       "dates": "21/06 a 30/06"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Três de Taças",
@@ -1381,26 +1381,26 @@
     "number": 3,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Celebração, amizade, alegria compartilhada.",
-    "eighth_lesser": "Excessos, superficialidade, exclusão social.",
+    "eighth_greater": "A fartura partilhada: festa, amizade e fertilidade que transbordam.",
+    "eighth_lesser": "A fartura que se dispersa: a festa sem centro, a generosidade que se esgota.",
     "order": 38,
     "element": "Água",
     "sign": "Câncer",
     "planet": "Mercúrio",
-    "description": "O Três de Taças simboliza a celebração da vida, das amizades e dos laços emocionais profundos. No Tarot de Thoth, ele destaca a abundância emocional que surge quando nos conectamos com os outros de forma genuína. Esta carta reflete momentos de alegria compartilhada, celebração de conquistas e o reconhecimento do apoio mútuo. O elemento Água reforça a importância do fluxo de emoções positivas e do prazer em grupo.",
-    "description_symbolic": "Representado por três taças transbordando, o Três de Taças simboliza a abundância emocional e a alegria coletiva. No Tarot de Thoth, essa carta é um lembrete de que, quando nutrimos nossas conexões, criamos um ambiente onde todos podem prosperar emocionalmente.",
-    "message_esoteric": "O Três de Taças nos ensina que o compartilhamento de alegria e gratidão multiplica as bênçãos. Ele nos lembra da importância de celebrar nossas conquistas, não apenas individualmente, mas como parte de uma comunidade de apoio.",
+    "description": "Quando a água cresce ao ser dividida, chama-se Abundância. Mercúrio, o planeta da palavra e da troca, rege o segundo decano de Câncer; Binah dá forma ao que Chokmah acendeu. Fartura, celebração, amizade, fertilidade: a carta aponta para um encontro que multiplica. Anuncia mesa cheia e conversa solta, e lembra que a fartura é, antes de tudo, uma forma de ligação.",
+    "description_symbolic": "Três taças altas, cheias de pequenas esferas vermelhas que lembram sementes de romã, estão unidas por hastes douradas que se curvam em flores amarelas, com um lótus aos pés e os símbolos de Mercúrio e de Câncer no alto. Binah, terceira esfera, é onde o impulso vira forma, e aqui vira fruto. A romã, símbolo antigo de fertilidade, reforça a ideia de colheita.",
+    "message_esoteric": "Há mesa posta e gente à volta: a abundância desta carta é de festa, de troca e de fruto colhido em conjunto. Abrir a casa, a palavra e o coração é o conselho, e a generosidade só não se dispersa quando guarda um centro. O que se partilha agora volta em forma de ligação.",
     "meditation_reflection": [
-      "Estou celebrando minhas conquistas e apreciando as pessoas ao meu redor?",
-      "Como posso criar mais momentos de alegria coletiva em minha vida?",
-      "Estou equilibrando celebração com responsabilidade e gratidão?"
+      "Qual das três taças deveria estar cheia antes de eu servir a mesa?",
+      "Que fruto guardam as esferas vermelhas, e para quem a mesa foi posta?",
+      "A quem eu enviaria um convite para a mesa antes de tirar a próxima carta?"
     ],
-    "internal_alchemy": "O Três de Taças simboliza a alquimia da alegria compartilhada. Ele nos desafia a integrar o prazer e a gratidão em nosso dia a dia, encontrando equilíbrio emocional em meio às celebrações.",
-    "magical_practice": "Conecte-se ao Três de Taças visualizando uma festa harmoniosa onde você está cercado por amigos e apoio. Afirme sua gratidão pelas bênçãos emocionais e pelas conexões significativas.",
+    "internal_alchemy": "Multiplicação: o que foi dissolvido e unido passa a render, como a semente que se parte em muitas. Mercúrio faz circular, e a Água faz crescer.",
+    "magical_practice": "Ponha diante da carta uma fruta partida, de preferência uma romã, e acenda uma vela amarela, cor de Mercúrio. Contemple as três taças, vibre Mercúrio três vezes e escreva no diário o nome de três pessoas com quem você partilharia a mesa.",
     "past_present_future": {
-      "past": "Momentos de celebração e apoio emocional trouxeram alegria e união.",
-      "present": "Você está em um período de celebração e conexão com aqueles ao seu redor.",
-      "future": "Mais momentos de alegria e celebrações estão por vir, desde que você continue nutrindo suas conexões."
+      "past": "Por baixo desta carta há uma fartura partilhada: uma mesa ou uma amizade que já deu fruto.",
+      "present": "Há mais do que o necessário na mesa, e a pergunta é quem se senta a ela.",
+      "future": "A mesa se enche e a roda aumenta; a fartura só cresce quando gira de mão em mão."
     },
     "numeral": "3",
     "sephirah": "Binah",
@@ -1411,7 +1411,7 @@
       "degrees": "10 a 20 graus de Câncer",
       "dates": "01/07 a 10/07"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Quatro de Taças",
@@ -1419,26 +1419,26 @@
     "number": 4,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Introspecção, reavaliação, busca interior.",
-    "eighth_lesser": "Apatia, descontentamento, tédio emocional.",
+    "eighth_greater": "O conforto como arte: prazer sensual, beleza e ócio que sustentam a alma.",
+    "eighth_lesser": "O conforto que adormece: o luxo que enjoa, o prazer que já não deseja nada.",
     "order": 39,
     "element": "Água",
     "sign": "Câncer",
     "planet": "Lua",
-    "description": "O Quatro de Taças simboliza um momento de introspecção e reavaliação emocional, onde o indivíduo é levado a confrontar sentimentos de insatisfação e apatia. No Tarot de Thoth, esta carta revela a saturação emocional que pode surgir quando há excesso de indulgência ou quando oportunidades são ignoradas. Ela nos lembra da importância de despertar do estado de letargia e redescobrir o significado nas pequenas alegrias da vida.",
-    "description_symbolic": "Representado por quatro cálices que parecem estar cheios, mas não trazem satisfação, o Quatro de Taças simboliza o desafio de encontrar significado quando o entusiasmo desaparece. No Tarot de Thoth, essa representação sugere que mesmo quando há abundância externa, o vazio interno pode persistir se não buscarmos a verdadeira clareza emocional.",
-    "message_esoteric": "O Quatro de Taças nos ensina que a apatia é um convite à introspecção. Ele nos convida a reavaliar nossas emoções, reconhecer o que não está funcionando e redirecionar nossa energia para o que realmente importa.",
+    "description": "Água em repouso, rodeada de beleza: o Luxo. A Lua, o astro dos ritmos e das marés, rege o terceiro decano de Câncer, e Chesed dá ao prazer um lar estável. Na mesa de leitura, ele aparece como conforto, sensualidade, ócio merecido, presentes, uma fase de fartura tranquila. Mas o prazer fácil, repetido sem fome, ameaça virar tédio dourado, e a carta pede que o apetite continue acordado.",
+    "description_symbolic": "Duas taças douradas ficam embaixo e, sobre cada uma, uma cúpula de vidro guarda uma fonte alaranjada em miniatura; nós escuros ligam tudo à base, e no alto um lótus rosado se abre sob uma lua crescente. Chesed, a quarta esfera, é a da forma que se sustenta, e a Lua, regente de Câncer, empresta à carta o brilho prateado e o ritmo das marés.",
+    "message_esoteric": "O prazer pede tempo e beleza: a carta anuncia uma fase de conforto, de bom gosto ao alcance e de ócio merecido. Ela convida a desfrutar o que já está servido, mas quem só se deita no veludo esquece o apetite. Um presente, um refúgio ou um luxo pequeno pode chegar.",
     "meditation_reflection": [
-      "Estou ignorando oportunidades emocionais por estar preso à apatia?",
-      "Como posso transformar o descontentamento em clareza e propósito?",
-      "Estou reavaliando minhas emoções de forma consciente e produtiva?"
+      "Que conforto meu já não desperta apetite, e o que haveria sob as cúpulas de vidro se eu as levantasse?",
+      "Por que a lua crescente vigia o lótus rosado nesta carta de prazer?",
+      "De pés descalços, como eu saberia se desejo ou apenas me acostumei?"
     ],
-    "internal_alchemy": "O Quatro de Taças simboliza a alquimia da reavaliação emocional. Ele nos desafia a transformar a estagnação em um despertar para novas possibilidades.",
-    "magical_practice": "Conecte-se ao Quatro de Taças visualizando um cálice vazio sendo preenchido por uma luz dourada, representando novas oportunidades emocionais. Afirme sua abertura para sair da estagnação.",
+    "internal_alchemy": "Fermentação: a matéria, deixada em repouso sob a Lua, amadurece sozinha e ganha corpo e perfume. O cuidado é não deixar passar do ponto, pois o que fermenta demais azeda.",
+    "magical_practice": "Deixe uma taça de água ao ar livre numa noite de Lua e beba-a de manhã diante da carta. Contemple as duas taças douradas, vibre o nome da Lua quatro vezes e registre no diário da carta o que, no luxo que você escolheu, ainda pedia mais.",
     "past_present_future": {
-      "past": "Um período de introspecção trouxe clareza emocional importante.",
-      "present": "Você está em um momento de reavaliação de suas prioridades emocionais.",
-      "future": "Satisfação emocional virá, desde que você esteja disposto a se reconectar com o que é significativo."
+      "past": "Lá atrás há um tempo de bonança em que tudo foi servido, e o gosto foi se acostumando.",
+      "present": "Tudo está servido, e o conforto embala; falta saber se o que embala também alimenta.",
+      "future": "Bonança à vista, e o luxo dura enquanto for escolha, não costume."
     },
     "numeral": "4",
     "sephirah": "Chesed",
@@ -1449,7 +1449,7 @@
       "degrees": "20 a 30 graus de Câncer",
       "dates": "11/07 a 20/07"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Cinco de Taças",
@@ -1457,26 +1457,26 @@
     "number": 5,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Aceitação, aprendizado com perdas, superação.",
-    "eighth_lesser": "Desespero, arrependimento, foco no passado.",
+    "eighth_greater": "A ilusão que cai: o desengano que mostra o que a emoção escondia.",
+    "eighth_lesser": "A amargura que fica: o desgosto que azeda o que ainda era bom.",
     "order": 40,
     "element": "Água",
     "sign": "Escorpião",
     "planet": "Marte",
-    "description": "O Cinco de Taças simboliza a dor emocional associada à perda e ao arrependimento, mas também carrega o potencial de cura e aprendizado. No Tarot de Thoth, ele nos lembra que, mesmo quando algo é perdido, sempre há uma oportunidade de transformação. Esta carta é um convite para aceitar o que passou e encontrar força naquilo que ainda resta.",
-    "description_symbolic": "Representado por cálices derramados, mas com alguns ainda em pé, o Cinco de Taças simboliza a dualidade entre perda e esperança. No Tarot de Thoth, a mensagem central é que o foco exagerado no passado pode obscurecer as oportunidades presentes e futuras.",
-    "message_esoteric": "O Cinco de Taças nos ensina que aceitar a perda é fundamental para o crescimento emocional. Ele nos desafia a olhar além do arrependimento e encontrar o que ainda pode ser reconstruído.",
+    "description": "Entre a promessa e o copo vazio mora a Decepção. Marte, o planeta do corte, rege o primeiro decano de Escorpião, signo de Água e das profundezas, e Geburah, a esfera do rigor, passa a sua lâmina sobre a expectativa que cresceu mais do que o terreno. O que cai aqui é o véu: desengano, promessa descumprida, amor que esfria, esperança que desmorona. Convém olhar o que ficou sob ele.",
+    "description_symbolic": "Cinco taças de vidro azulado, ligadas por hastes que desenham uma estrela de cinco pontas, deixam cair pétalas brancas sobre um fundo laranja-avermelhado; no alto, duas folhas escuras de lírio d'água se curvam sobre o símbolo de Marte. Cinco é o número de Geburah, o rigor que põe à prova. O desenho de cinco pontas ordena a queda como se ela já estivesse escrita.",
+    "message_esoteric": "Uma promessa não se cumpriu, e a carta não adoça: o desengano é real e mostra um fundo que a esperança cobria. Deixe cair a ilusão por inteiro, porque a amargura é o único gole que se pode recusar. Do que ficar de pé, a água segue.",
     "meditation_reflection": [
-      "Estou permitindo que o arrependimento me impeça de seguir em frente?",
-      "Como posso transformar minhas perdas em aprendizado significativo?",
-      "Estou pronto para aceitar e curar minhas feridas emocionais?"
+      "Quantas pétalas ainda seguro na mão depois de a expectativa ter caído?",
+      "O que as duas folhas escuras, no alto, ainda cobrem?",
+      "Se eu pudesse perguntar uma única coisa ao desengano, qual seria?"
     ],
-    "internal_alchemy": "O Cinco de Taças simboliza a alquimia do desapego emocional. Ele nos convida a transformar dor em sabedoria e a redirecionar nossa energia para novas possibilidades.",
-    "magical_practice": "Conecte-se ao Cinco de Taças visualizando um rio fluindo, levando consigo o peso do passado. Afirme sua capacidade de liberar arrependimentos e encontrar renovação.",
+    "internal_alchemy": "Separação: o fogo seco de Marte aparta o que era uma mistura enganosa, e o que resta é menor, mas verdadeiro. É a operação do desengano, que corta a água sem derramá-la.",
+    "magical_practice": "Ao lado de uma vela vermelha, cor de Marte, ponha cinco pétalas brancas. Contemple as cinco taças, vibre Marte cinco vezes e deixe uma pétala cair a cada vez, nomeando uma ilusão. Jogue as pétalas em água corrente e anote no diário o que restou.",
     "past_present_future": {
-      "past": "Uma perda emocional ensinou lições importantes.",
-      "present": "Você está em um momento de cura e aceitação emocional.",
-      "future": "A superação está próxima, desde que você libere o passado e esteja aberto à renovação."
+      "past": "A origem é uma promessa que não se cumpriu, uma expectativa que cresceu mais do que o terreno.",
+      "present": "Uma ilusão cai diante da consulente, e segurar os cacos não a devolve; largá-los dói só um instante.",
+      "future": "A ilusão se desfaz e, depois dela, a água fica mais clara: só sobrevive ao desengano o que existia de fato."
     },
     "numeral": "5",
     "sephirah": "Geburah",
@@ -1487,7 +1487,7 @@
       "degrees": "0 a 10 graus de Escorpião",
       "dates": "23/10 a 01/11"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Seis de Taças",
@@ -1495,26 +1495,26 @@
     "number": 6,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Memórias felizes, nostalgia, bondade.",
-    "eighth_lesser": "Vício no passado, dificuldade em seguir em frente.",
+    "eighth_greater": "O prazer que se basta: harmonia entre o desejo e a alegria.",
+    "eighth_lesser": "O prazer que não se basta: a alegria escondida por medo de acabar, ou cobrada em dobro de quem está perto.",
     "order": 41,
     "element": "Água",
     "sign": "Escorpião",
     "planet": "Sol",
-    "description": "O Seis de Taças representa a alegria das memórias passadas e a simplicidade emocional. No Tarot de Thoth, ele não apenas traz nostalgia, mas também sugere o equilíbrio entre o apreço pelo passado e a necessidade de seguir em frente. Esta carta nos lembra da bondade inerente à alma e do poder de encontrar prazer nas pequenas coisas.",
-    "description_symbolic": "Frequentemente representado por crianças brincando ou flores desabrochando, o Seis de Taças simboliza a pureza das emoções e o conforto que as boas lembranças trazem. No Tarot de Thoth, ele nos alerta para o risco de ficar preso ao passado, ao mesmo tempo que nos encoraja a integrar essas memórias como parte de nosso crescimento.",
-    "message_esoteric": "O Seis de Taças nos ensina que o passado pode ser uma fonte de inspiração, mas não um lugar para morar permanentemente. Ele nos convida a valorizar as boas memórias enquanto avançamos com gratidão.",
+    "description": "Quando o sol bate na água, nasce o Prazer. Em Escorpião, signo de intensidade, o Sol rege o segundo decano e traz calor ao que era profundo; Tiphareth equilibra tudo numa só nota. Alegria simples, reconciliação, harmonia entre pessoas, sensualidade serena, desejo satisfeito sem sombra: a carta sai quando há gosto no ar. Anuncia um tempo de bem-querer e de apreço pelo que se tem.",
+    "description_symbolic": "Seis taças douradas, em forma de lanterna, abrem-se em leque sobre hastes curvas, cada uma coroada por flores alaranjadas, diante de uma paisagem verde sob um céu azul pálido. Tiphareth, a sexta esfera, é o ponto de equilíbrio entre todas as outras. O Sol em Escorpião aquece o que a Água guardava no fundo, e o leque sugere uma alegria que se irradia de um centro.",
+    "message_esoteric": "O gosto de viver está ao alcance e não pede mais do que o presente oferece: um reencontro, uma boa conversa, um prazer que sabe parar na medida. Desfrute sem inventar um segundo prato, porque o prazer escondido, ou cobrado em dobro, perde a graça. A harmonia está feita para ser vivida.",
     "meditation_reflection": [
-      "Estou equilibrando nostalgia com a necessidade de viver no presente?",
-      "Como posso encontrar alegria nas coisas simples ao meu redor?",
-      "Estou permitindo que as lições do passado me ajudem a construir um futuro melhor?"
+      "Que prazer eu guardo escondido por medo de que acabe?",
+      "Como o calor do Sol muda a água nas seis taças?",
+      "Qual pergunta eu deixaria o Sol aquecer antes de levá-la ao Prazer?"
     ],
-    "internal_alchemy": "O Seis de Taças simboliza a alquimia da alegria simples e da gratidão. Ele nos desafia a transformar memórias felizes em força emocional para o presente.",
-    "magical_practice": "Conecte-se ao Seis de Taças visualizando um campo florido onde você revive momentos de felicidade. Afirme sua gratidão pelo passado e sua disposição para seguir em frente.",
+    "internal_alchemy": "Exaltação: o que foi purificado sobe a um grau mais alto de si mesmo, aquecido sem ferver. O Sol em Escorpião aquece a Água até ela dar perfume.",
+    "magical_practice": "Sob a luz de uma vela dourada, cor do Sol, contemple as seis taças diante de uma fruta aberta ao sol. Vibre o nome do Sol seis vezes, uma por taça, e coma a fruta devagar. Anote no diário o gosto que ficou.",
     "past_present_future": {
-      "past": "Memórias felizes ou uma conexão emocional com o passado o inspiraram.",
-      "present": "Você está em um momento de encontrar prazer nas pequenas coisas e praticar bondade.",
-      "future": "Mais momentos de alegria virão, desde que você encontre equilíbrio entre nostalgia e progresso."
+      "past": "A raiz aqui está num tempo de bem-querer, um encontro ou uma reconciliação que deixou gosto de sol.",
+      "present": "O prazer está à mão e não tem pressa; o gesto que importa é recebê-lo na medida que ele tem.",
+      "future": "O prazer segue o seu curso quando ninguém o apressa: vivido inteiro, ele se irradia."
     },
     "numeral": "6",
     "sephirah": "Tiphareth",
@@ -1525,7 +1525,7 @@
       "degrees": "10 a 20 graus de Escorpião",
       "dates": "02/11 a 11/11"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Sete de Taças",
@@ -1533,26 +1533,26 @@
     "number": 7,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Sonhos, criatividade, imaginação.",
-    "eighth_lesser": "Confusão, escolhas difíceis, ilusões.",
+    "eighth_greater": "A sedução que mostra a sua verdade: o desejo que revela o que já não tem sabor.",
+    "eighth_lesser": "A doçura que apodrece: o prazer repetido sem fome, a ilusão que se alimenta de si mesma.",
     "order": 42,
     "element": "Água",
     "sign": "Escorpião",
     "planet": "Vênus",
-    "description": "Representa escolhas e ilusões. Simboliza sonhos e a necessidade de discernimento emocional.",
-    "description_symbolic": "O Sete de Taças é a carta dos sonhos e da imaginação, mas também das ilusões. Representa a necessidade de discernir o que é real do que é fantasia.",
-    "message_esoteric": "Esta carta ensina que nem todas as opções são o que parecem. O Sete de Taças nos convida a escolher com sabedoria e a evitar ilusões.",
+    "description": "Doçura que azeda: a Devassidão. Vênus, o planeta do prazer, rege o último decano de Escorpião, o signo das profundezas, e Netzach, a esfera do instinto, empurra a atração até o excesso. Sedução enganosa, desejo que passou do ponto, ilusão agradável que já cheira a fim: assim ela se mostra quando sai. Avisa que algo doce está apodrecendo e pede olhos abertos.",
+    "description_symbolic": "Sete taças em tons de verde pendem de hastes como lâmpadas, e delas escorre um líquido verde sobre um pântano coberto de ondulações e de pontas verdes; flores pálidas coroam as taças, e o símbolo de Vênus está no alto. Netzach, a sétima esfera, é o desejo e a natureza, e aqui a água, que nas outras taças corre limpa, estagna e fermenta.",
+    "message_esoteric": "Uma doçura a mais na mesa pede cuidado: sedução, excesso, uma ilusão agradável que já não alimenta. Reconheça o gosto verdadeiro do que se bebe, pois o prazer repetido sem fome vira pântano. Quando a ilusão cai, o desejo pode voltar à fonte.",
     "meditation_reflection": [
-      "Estou discernindo entre fantasia e realidade em minhas escolhas?",
-      "Como posso usar minha criatividade para tomar decisões mais conscientes?",
-      "Estou permitindo que ilusões me distraiam de meus objetivos?"
+      "Que cheiro tem o pântano da carta quando o comparo com o doce que já azedou em mim?",
+      "O que as flores pálidas sobre as taças verdes escondem?",
+      "Para ouvir a resposta sem adoçá-la, o que eu perguntaria à Devassidão?"
     ],
-    "internal_alchemy": "O Sete de Taças simboliza a alquimia da escolha e do discernimento. Ele nos desafia a transformar a confusão em clareza, focando no que realmente importa.",
-    "magical_practice": "Conecte-se ao Sete de Taças visualizando-se escolhendo um cálice que irradia luz clara e verdadeira. Afirme sua capacidade de discernir e decidir com sabedoria.",
+    "internal_alchemy": "Putrefação: a matéria doce fermenta além do ponto e vira lodo, e é do lodo que a Grande Obra tira o seu novo germe. A carta marca a hora de reconhecer o cheiro, antes de descobrir o que ainda brota.",
+    "magical_practice": "Contemple o pântano das sete taças diante de uma vela verde, cor de Vênus. Vibre Vênus sete vezes, devagar, e escreva num papel o doce que já azedou. Dissolva o papel num copo de água, descarte a água e anote no diário o gosto que sobrou.",
     "past_present_future": {
-      "past": "Um período de escolhas e sonhos que moldaram seu caminho.",
-      "present": "Um momento de discernimento entre ilusões e realidades.",
-      "future": "Mais clareza e direção, desde que você escolha com sabedoria."
+      "past": "Tudo vem de uma doçura que veio demais, um desejo alimentado além da fome.",
+      "present": "Algo agrada e já cheira a fim; reconhecer o cheiro é o primeiro gesto da carta.",
+      "future": "O copo azedou, e o rumo é largá-lo antes que o pântano suba; depois, o gosto verdadeiro volta."
     },
     "numeral": "7",
     "sephirah": "Netzach",
@@ -1563,7 +1563,7 @@
       "degrees": "20 a 30 graus de Escorpião",
       "dates": "12/11 a 21/11"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Oito de Taças",
@@ -1571,26 +1571,26 @@
     "number": 8,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Busca de propósito, desapego, crescimento espiritual.",
-    "eighth_lesser": "Fuga, abandono, falta de propósito.",
+    "eighth_greater": "A pausa das águas: o repouso que a alma pede quando o desejo se esgota.",
+    "eighth_lesser": "A água parada: o desinteresse que vira hábito e deixa tudo criar limo.",
     "order": 43,
     "element": "Água",
     "sign": "Peixes",
     "planet": "Saturno",
-    "description": "Reflete desapego e busca de propósito. Simboliza deixar o passado para trás em busca de algo maior.",
-    "description_symbolic": "O Oito de Taças é a busca por algo mais significativo. Representa a coragem de deixar para trás o que não serve mais e explorar novos caminhos emocionais.",
-    "message_esoteric": "Esta carta ensina que o crescimento espiritual exige desapego. O Oito de Taças nos convida a buscar nosso propósito com coragem e determinação.",
+    "description": "Sem vento, o lago não se move: é a Indolência. Saturno, o planeta do peso, rege o primeiro decano de Peixes, signo da água que dissolve fronteiras, e Hod observa sem mover um dedo. Aponta apatia, projeto abandonado, amor que perdeu o brilho, uma fase de preguiça. A água parada engrossa, e a carta pede que se escolha entre descansar de verdade ou apenas ficar.",
+    "description_symbolic": "Oito taças douradas se dispõem em três fileiras (três, duas, três) sobre águas escuras e paradas, ligadas por hastes; sob tufos pálidos, fios de água descem das duas do meio para as de baixo, e o símbolo de Peixes aparece embaixo. Hod, a oitava esfera, é a mente que observa, e Saturno pesa sobre o movimento. As faixas escuras do fundo pesam sobre a calma como um céu que não chove.",
+    "message_esoteric": "O interesse recuou, e a carta o nomeia sem dureza: nada move o coração, as taças estão cheias e ninguém bebe. Vale descobrir se é descanso ou fuga, porque a água parada cria limo. Uma semente de desejo ainda existe sob a calma.",
     "meditation_reflection": [
-      "Estou pronto para deixar o passado para trás e buscar algo maior?",
-      "Como posso encontrar propósito em minhas ações?",
-      "Estou resistindo ao desapego necessário para o meu crescimento?"
+      "Quanto limo já cobre as águas paradas do meu interesse apagado?",
+      "De onde vem o fio de água que ainda desce entre as taças, se o lago parou?",
+      "Que pedra eu jogaria nas águas paradas para ver o círculo recomeçar?"
     ],
-    "internal_alchemy": "O Oito de Taças simboliza a alquimia do desapego. Ele nos desafia a abandonar o que não serve mais e a avançar com coragem.",
-    "magical_practice": "Conecte-se ao Oito de Taças visualizando-se caminhando em direção a uma montanha iluminada. Afirme sua prontidão para deixar o passado para trás.",
+    "internal_alchemy": "Congelação: o líquido se detém e endurece, e a água que não corre vira gelo. É a operação da pausa, que só se desfaz quando algo volta a aquecê-la.",
+    "magical_practice": "Diante de uma vela preta ou azul-escura, cor de Saturno, contemple as oito taças sobre a água parada. Vibre Saturno oito vezes, devagar, e atire uma pedra pequena num copo de água, observando as ondas. Anote no diário o que se moveu.",
     "past_present_future": {
-      "past": "Um período de desapego trouxe crescimento e clareza.",
-      "present": "Um momento para deixar para trás o que não serve mais.",
-      "future": "O crescimento espiritual e emocional está próximo, desde que você siga em frente."
+      "past": "O fundo desta carta é um desinteresse que chegou devagar, até virar paisagem.",
+      "present": "As taças estão cheias e a sede sumiu: descanso merecido ou fuga disfarçada? A resposta é da consulente.",
+      "future": "Na calmaria basta um gesto: uma pedra na água faz o círculo recomeçar."
     },
     "numeral": "8",
     "sephirah": "Hod",
@@ -1601,7 +1601,7 @@
       "degrees": "0 a 10 graus de Peixes",
       "dates": "19/02 a 28/02"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Nove de Taças",
@@ -1609,26 +1609,26 @@
     "number": 9,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Satisfação emocional, realização, gratidão.",
-    "eighth_lesser": "Excesso de indulgência, egoísmo, superficialidade.",
+    "eighth_greater": "O desejo realizado: a alegria plena e merecida.",
+    "eighth_lesser": "O contentamento que se acomoda: a felicidade que teme se mexer.",
     "order": 44,
     "element": "Água",
     "sign": "Peixes",
     "planet": "Júpiter",
-    "description": "Representa satisfação e realização emocional. Simboliza gratidão e harmonia interior.",
-    "description_symbolic": "O Nove de Taças é a plenitude emocional e a gratidão pelas conquistas. Representa a satisfação que vem do alinhamento emocional com seus desejos.",
-    "message_esoteric": "Esta carta ensina que a verdadeira felicidade vem de dentro. O Nove de Taças nos convida a celebrar nossas conquistas e a cultivar gratidão.",
+    "description": "O desejo que chegou ao destino tem nome: Felicidade. Júpiter, o planeta da expansão e da generosidade, rege o segundo decano de Peixes, e Yesod ancora a alegria no corpo e na rotina. Quando sai, a carta traz realização, vitória no amor, desejo satisfeito, uma temporada de alegria plena e de coração leve. Anuncia que o que se pediu ao baralho foi, em grande parte, concedido.",
+    "description_symbolic": "Nove taças cor de malva, em três fileiras de três, estão coroadas por flores amarelas e atravessadas por feixes de luz amarela que cruzam um fundo azul; hastes avermelhadas sobem entre elas, e o símbolo de Peixes aparece embaixo. Yesod é a nona esfera, a que reflete e entrega tudo o que vem de cima. A ordem em grade sugere uma alegria já assentada.",
+    "message_esoteric": "O desejo foi atendido, e a carta confirma: a alegria chega inteira, com gosto de realização. Agradecer e desfrutar é o que cabe, já que a felicidade que teme se mexer vira vitrine. Um sonho se firma, e um amor se confirma.",
     "meditation_reflection": [
-      "Estou reconhecendo e valorizando minhas conquistas?",
-      "Como posso cultivar mais gratidão em minha vida?",
-      "Estou equilibrando satisfação emocional com humildade?"
+      "Que alegria minha eu seguro com tanto medo de perder que já não a vivo?",
+      "Por que as nove taças estão cheias e coroadas de flor, e não transbordando?",
+      "O que eu perguntaria à Felicidade para reconhecê-la quando passa?"
     ],
-    "internal_alchemy": "O Nove de Taças simboliza a alquimia da satisfação e gratidão. Ele nos desafia a valorizar nossas conquistas e a cultivar harmonia interior.",
-    "magical_practice": "Conecte-se ao Nove de Taças visualizando-se cercado por cálices brilhantes, simbolizando satisfação e alegria. Afirme sua gratidão e plenitude emocional.",
+    "internal_alchemy": "Sublimação: o que foi dissolvido e purificado sobe de uma vez, em luz, sem deixar resíduo. É o ponto em que a Água, ao realizar-se, vira quase ar.",
+    "magical_practice": "Com nove frutas ou nove pedrinhas diante da carta, acenda uma vela azul, cor de Júpiter. Contemple as nove taças, vibre Júpiter nove vezes e diga em voz alta um desejo que se realizou. Anote no diário o nome de quem ou do que o tornou possível.",
     "past_present_future": {
-      "past": "Um momento de realização e gratidão trouxe felicidade emocional.",
-      "present": "Um período de celebrar suas conquistas e cultivar gratidão.",
-      "future": "Mais satisfação e realização emocional estão por vir."
+      "past": "Tudo remonta a um desejo antigo que nunca deixou de ser regado.",
+      "present": "A alegria chegou, e a pergunta é onde pô-la: no peito, à vista, ou num cofre?",
+      "future": "A realização chega e fica mais bonita quando dita em voz alta; gratidão é o que mantém a taça cheia."
     },
     "numeral": "9",
     "sephirah": "Yesod",
@@ -1639,7 +1639,7 @@
       "degrees": "10 a 20 graus de Peixes",
       "dates": "01/03 a 10/03"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Dez de Taças",
@@ -1647,26 +1647,26 @@
     "number": 10,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Harmonia familiar, alegria duradoura, plenitude emocional.",
-    "eighth_lesser": "Conflitos familiares, expectativas frustradas, desconexão.",
+    "eighth_greater": "O ciclo completo: da taça do alto à última, tudo o que se desejou chegou ao chão.",
+    "eighth_lesser": "O fartar-se que enjoa: a abundância que já não alimenta.",
     "order": 45,
     "element": "Água",
     "sign": "Peixes",
     "planet": "Marte",
-    "description": "Simboliza felicidade duradoura e harmonia familiar. Representa alegria e plenitude emocional.",
-    "description_symbolic": "O Dez de Taças é a carta da plenitude emocional e da harmonia. Representa alegria duradoura em conexões profundas e relacionamentos significativos.",
-    "message_esoteric": "Esta carta ensina que a felicidade duradoura vem do amor e da conexão emocional. O Dez de Taças nos convida a cultivar harmonia e alegria em nossos relacionamentos.",
+    "description": "Do alto à última taça, a luz desce sem parar: é a Saciedade. Marte, o planeta da ação, rege o último decano de Peixes e traz à Água um calor de arrancada; Malkuth, a décima esfera, põe o desejo realizado no mundo. Em jogo, um ciclo completo, uma fartura que passou do ponto, um amor ou uma conquista que já deu o que tinha para dar. Avisa que a plenitude pede movimento antes de virar peso.",
+    "description_symbolic": "Dez taças douradas, de alças, dispostas na forma da Árvore da Vida, derramam feixes de luz clara, da taça do alto até a última, sobre um fundo laranja-avermelhado. Malkuth, ao fim dessa Árvore, é onde tudo se acumula e se faz visível. Marte em Peixes dá ao dourado um calor inquieto: a carta sugere uma plenitude que, de tão completa, já pede o próximo gesto.",
+    "message_esoteric": "Tudo o que se desejou está servido, e a carta o declara sem rodeio: a mesa está farta, o ciclo está completo. Deixar sobrar um pouco de fome para o que vem é prudente, pois o excesso sempre prepara a mudança. Aqui a Água se aproxima do transbordamento.",
     "meditation_reflection": [
-      "Estou cultivando harmonia em minhas conexões emocionais?",
-      "Como posso valorizar mais as pessoas que amo?",
-      "Estou permitindo que a alegria emocional floresça em minha vida?"
+      "De que eu já me fartei sem admitir?",
+      "Para onde vai a luz que desce de taça em taça, e onde ela pousa?",
+      "Que fome nova eu deixaria sobrar, e como a descreveria à Saciedade?"
     ],
-    "internal_alchemy": "O Dez de Taças simboliza a alquimia da harmonia emocional. Ele nos desafia a criar e manter relacionamentos cheios de amor e alegria.",
-    "magical_practice": "Conecte-se ao Dez de Taças visualizando um arco-íris brilhante sobre sua vida emocional, simbolizando plenitude e harmonia. Afirme sua felicidade emocional e conexão familiar.",
+    "internal_alchemy": "Projeção: ao fim da obra, o que foi feito é lançado ao mundo para agir sobre ele. A Água, completa, não guarda mais nada para si, e o que sobra vira semente de outra fome.",
+    "magical_practice": "Acenda uma vela vermelha, cor de Marte, e deixe um prato vazio ao lado da carta até o fim da vela. Contemple as dez taças, vibre Marte dez vezes, devagar, e anote no diário o que a vela consumiu e o que a falta do prato fez aparecer.",
     "past_present_future": {
-      "past": "Um período de harmonia familiar e felicidade emocional.",
-      "present": "Um momento de alegria e plenitude emocional.",
-      "future": "Mais harmonia e alegria estão por vir, desde que você cultive essas conexões."
+      "past": "A raiz está num desejo que foi sendo atendido até passar do ponto.",
+      "present": "A mesa está cheia e o apetite pede troca de cardápio; a carta espera a hora de fechar o prato.",
+      "future": "Este ciclo farto se fecha, e outra fome começa a nascer; a água que enche demais é a que pede troca."
     },
     "numeral": "10",
     "sephirah": "Malkuth",
@@ -1677,34 +1677,34 @@
       "degrees": "20 a 30 graus de Peixes",
       "dates": "11/03 a 20/03"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Princesa de Taças",
-    "title": "O Sonhador",
+    "title": "A Ninfa das Águas",
     "number": 11,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Novas oportunidades emocionais, criatividade, empatia.",
-    "eighth_lesser": "Imaturidade emocional, fuga da realidade, insegurança.",
+    "eighth_greater": "A imaginação encarnada: sonho, encanto e sensibilidade que tocam o chão.",
+    "eighth_lesser": "O encanto sem raiz: o sonho que flutua e nunca pousa, ou a sedução que se exibe e se esvazia.",
     "order": 46,
     "element": "Água",
     "sign": null,
     "planet": null,
-    "description": "Representa novas oportunidades emocionais e criatividade. Simboliza empatia e abertura para novas conexões.",
-    "description_symbolic": "O Pajem de Taças é a energia jovial do sonhador. Ele simboliza novas oportunidades emocionais e o despertar da criatividade.",
-    "message_esoteric": "Esta carta ensina que abrir o coração para novas experiências traz crescimento emocional. O Pajem de Taças nos convida a explorar nossa criatividade e empatia.",
+    "description": "A Princesa de Taças é a Água que desce até o chão: a patente mais jovem da Corte, em Malkuth, trazendo o sonho para o mundo concreto. Terra de Água, é o lodo fértil à beira do lago, onde a imaginação pega raiz. Sai como mensagem de amor, sonho que pede forma, convite artístico ou romântico, uma presença jovem e imaginativa. Não rege um signo, e sim os quadrantes do céu em torno do polo.",
+    "description_symbolic": "Uma figura alada, de verde, voa diante de um manto translúcido salpicado de pequenos cubos e segura uma taça verde e um lótus; à esquerda, uma criatura marinha de cauda espiralada espreita, sobre um fundo azul. Terra de Água é o ponto em que a emoção ganha corpo: o lótus, que nasce no lodo, abre-se acima dele. Malkuth, a décima esfera, dá à imaginação um lugar para pousar.",
+    "message_esoteric": "Chega um convite de águas rasas e fundas ao mesmo tempo: uma mensagem de amor, uma ideia que encanta, uma criatura do sonho pedindo corpo. A carta aconselha dar forma ao que se imagina: o encanto sem raiz se evapora, e o que desce até o chão vira poema, gesto ou casa.",
     "meditation_reflection": [
-      "Estou aberto a novas oportunidades emocionais?",
-      "Como posso usar minha criatividade para me conectar com os outros?",
-      "Estou equilibrando minhas emoções com maturidade?"
+      "Que sonho meu flutua sem pousar, e em que chão o lótus da Ninfa poderia nascer?",
+      "O que a taça verde e o manto de cubos revelam sobre o que a Ninfa traz?",
+      "Com que flor eu selaria a pergunta que levo à Ninfa?"
     ],
-    "internal_alchemy": "O Pajem de Taças simboliza a alquimia da curiosidade emocional. Ele nos desafia a explorar novas formas de conexão e empatia.",
-    "magical_practice": "Conecte-se ao Pajem de Taças visualizando-se segurando um cálice brilhante, simbolizando novos começos emocionais. Afirme sua abertura para criatividade e empatia.",
+    "internal_alchemy": "Cibação: o germe recebe alimento, gota a gota, para crescer. O vapor do sonho encontra o frio do chão e vira água que sustenta algo vivo.",
+    "magical_practice": "Deixe uma flor num copo de água ao lado da carta e acenda uma vela azul ou verde, cor da Água. Contemple a Ninfa com a taça e o lótus, vibre o nome de Malkuth e escreva no diário um sonho em três linhas e uma ação concreta que o aproxime do chão.",
     "past_present_future": {
-      "past": "Um início emocional ou criativo trouxe inspiração.",
-      "present": "Um momento de explorar novas conexões emocionais e criatividade.",
-      "future": "Novas oportunidades emocionais e criativas estão por vir."
+      "past": "Tudo começa numa imaginação jovem, um sonho ou um encanto que sempre pediu corpo.",
+      "present": "Uma mensagem de água chega. O que a consulente fará dela: deixá-la no sonho ou dar-lhe chão?",
+      "future": "O sonho toma corpo com um gesto concreto, e a flor plantada floresce."
     },
     "numeral": "Princesa",
     "court_rank": "Princesa",
@@ -1712,34 +1712,34 @@
     "court_divine_name_letter": "Heh final",
     "sephirah": "Malkuth",
     "zodiac_range": null,
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Príncipe de Taças",
-    "title": "O Mensageiro",
+    "title": "O Carro da Águia",
     "number": 12,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Romantismo, busca por ideais, charme.",
-    "eighth_lesser": "Falta de comprometimento, ilusões, manipulação emocional.",
+    "eighth_greater": "A sedução profunda: magnetismo, mistério e emoção que comunicam sem pressa.",
+    "eighth_lesser": "A sedução que envenena: o segredo que corrói, o encanto que atrai sem nunca se entregar.",
     "order": 47,
     "element": "Água",
     "sign": null,
     "planet": null,
-    "description": "Simboliza romantismo e idealismo. Reflete charme e busca por ideais elevados.",
-    "description_symbolic": "O Cavaleiro de Taças é o portador de mensagens emocionais e ideais. Ele simboliza a busca por beleza, amor e conexões profundas.",
-    "message_esoteric": "Esta carta ensina que o romantismo e a busca por ideais podem enriquecer a alma, mas é importante equilibrar sonhos com realidade.",
+    "description": "Um príncipe de elmo, sentado num carro sobre uma águia de asas abertas, com uma taça na mão: assim se apresenta o Príncipe de Taças, o Ar de Água. É o filho que conduz a emoção com a mente, em Tiphareth, e seu território no zodíaco vai de 20° de Libra a 20° de Escorpião, do charme à profundidade. Diz alguém de magnetismo discreto e de intensidade escondida, uma paixão que se revela aos poucos, uma mensagem que atravessa as águas.",
+    "description_symbolic": "Os Príncipes correspondem a Vav, a terceira letra do Tetragrama, e a Tiphareth, o centro solar da Árvore. Ar de Água é a mente que sonda o fundo. Na imagem, um príncipe de capacete encimado por uma ave, em tons de verde, senta-se num assento redondo sobre uma águia de asas abertas, vista de frente; segura uma taça com uma pequena serpente enrolada no alto, entre volutas de nuvem.",
+    "message_esoteric": "Algo se aproxima com passo macio e olhar fundo: uma paixão, uma mensagem, uma pessoa de poucas palavras e muito magnetismo. Convém ouvir antes de se entregar, pois o encanto pode prender quem o toma por promessa. O mistério pode ser vocação ou armadilha, e só o tempo diz.",
     "meditation_reflection": [
-      "Estou buscando meus ideais com autenticidade?",
-      "Como posso equilibrar romantismo e realidade em minha vida?",
-      "Estou mantendo meu coração aberto para novas possibilidades?"
+      "Em que ponto o meu encanto virou segredo demais?",
+      "Que mundo o Príncipe enxerga lá de cima, sentado no carro sobre a águia?",
+      "A quem eu confiaria a mensagem que o Príncipe carrega?"
     ],
-    "internal_alchemy": "O Cavaleiro de Taças simboliza a alquimia do romantismo e da inspiração emocional. Ele nos desafia a buscar beleza e significado em nossas ações.",
-    "magical_practice": "Conecte-se ao Cavaleiro de Taças visualizando-se cavalgando em direção aos seus ideais com um cálice de luz. Afirme sua busca por amor e propósito.",
+    "internal_alchemy": "Destilação: o calor leve do pensamento ergue a Água em vapor, e o vapor, ao subir, leva o perfume da profundidade. O risco da operação é que, no ar, o sentimento perca peso e vire fumaça de sedução.",
+    "magical_practice": "Sopre de leve sobre a superfície de uma taça de água até ela ondular, diante da carta, e vibre Vav como um sopro grave. Escreva no diário uma mensagem de amor que você não enviaria; leia-a em voz alta junto a uma vela branca e queime-a.",
     "past_present_future": {
-      "past": "Um momento de romantismo ou busca por ideais trouxe aprendizado.",
-      "present": "Um período de seguir seus ideais com charme e inspiração.",
-      "future": "Novas aventuras emocionais e conexões inspiradoras estão por vir."
+      "past": "Tudo nasce numa atração que primeiro se calou, uma paixão que nasceu em silêncio.",
+      "present": "O magnetismo está aceso, e o que atrai ainda não se revelou. Quanto se mostra, quanto se guarda?",
+      "future": "O mistério se aprofunda; quem fala pouco aqui pesa muito, e o ouvido atento ganha."
     },
     "numeral": "Príncipe",
     "court_rank": "Príncipe",
@@ -1747,34 +1747,34 @@
     "court_divine_name_letter": "Vav",
     "sephirah": "Tiphareth",
     "zodiac_range": "20° Libra a 20° Escorpião",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Rainha de Taças",
-    "title": "A Empática",
+    "title": "A Senhora das Águas Quietas",
     "number": 13,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Intuição, cuidado, conexão emocional profunda.",
-    "eighth_lesser": "Sensibilidade excessiva, dependência emocional, instabilidade.",
+    "eighth_greater": "A receptividade profunda: intuição que reflete tudo e guarda o que vê.",
+    "eighth_lesser": "O espelho que só devolve: a água tão receptiva que toma a cor de tudo o que a toca.",
     "order": 48,
     "element": "Água",
     "sign": null,
     "planet": null,
-    "description": "Representa intuição e cuidado emocional. É uma figura compassiva e profundamente conectada ao espiritual.",
-    "description_symbolic": "A Rainha de Taças é a personificação da empatia e da intuição. Ela simboliza cuidado emocional profundo e uma conexão espiritual que guia suas ações.",
-    "message_esoteric": "Esta carta ensina que a empatia e a intuição são presentes poderosos. A Rainha de Taças nos convida a cuidar de nós mesmos e dos outros com compaixão.",
+    "description": "A Rainha de Taças é a Água de Água: a emoção na sua forma mais pura, como um lago que reflete o céu. Em Binah, a esfera da forma, ela dá contorno à sensibilidade, e seu território vai de 20° de Gêmeos a 20° de Câncer, da palavra à casa. Quem aparece sob essa figura tem intuição afiada, imaginação, escuta para o que não é dito, o dom de ver pelo avesso. Avisa quando o reflexo toma o lugar da escolha.",
+    "description_symbolic": "As Rainhas correspondem ao primeiro Heh do Tetragrama e a Binah, a Grande Mãe da Árvore. Água de Água é a duplicação do elemento: o lago olhando o lago. Na imagem, uma figura velada em azul e verde ergue-se diante de um disco de luz de raios amarelos, com uma ave clara e uma taça à sua frente; o lago reflete tudo em círculos concêntricos, e lírios flutuam nas margens.",
+    "message_esoteric": "O que está no fundo vai subir, e convém olhar sem pressa: uma intuição, um sonho, um sentimento que o lago mostra antes de a palavra o nomear. Confie no que se vê no reflexo, e lembre que quem só reflete fica sem rumo próprio. É hora de escutar a água e depois escolher.",
     "meditation_reflection": [
-      "Estou nutrindo minha intuição e empatia?",
-      "Como posso cuidar melhor de minhas emoções e das emoções dos outros?",
-      "Estou equilibrando minha sensibilidade com força emocional?"
+      "Onde eu apenas reflito, sem escolher?",
+      "Quem guarda o lago, a ave clara ou os lírios?",
+      "O que eu faria com o reflexo, depois de ter perguntado ao espelho d'água?"
     ],
-    "internal_alchemy": "A Rainha de Taças simboliza a alquimia da empatia e da intuição. Ela nos desafia a ouvir nossa voz interior e a agir com compaixão.",
-    "magical_practice": "Conecte-se à Rainha de Taças visualizando-se cercado por um oceano calmo, representando sua intuição e cuidado. Afirme sua conexão emocional e espiritual.",
+    "internal_alchemy": "Dissolução em repouso: a superfície guarda a imagem sem a fixar. A operação pede imobilidade bastante para ver o fundo e movimento bastante para não se afogar nele.",
+    "magical_practice": "Encha uma bacia escura de água e leve-a ao ar livre numa noite de Lua, sem vela. Contemple a Rainha e depois o reflexo da Lua na água. Vibre Heh em voz baixa e anote no diário o que a superfície mostrou, uma imagem apenas.",
     "past_present_future": {
-      "past": "Um período de conexão emocional profunda e intuição trouxe crescimento.",
-      "present": "Um momento de nutrir sua empatia e agir com compaixão.",
-      "future": "Mais conexões emocionais profundas e intuição estão por vir."
+      "past": "A raiz é um dom de perceber o que não se diz, uma sensibilidade que sempre soube antes.",
+      "present": "O lago está quieto e mostra tudo. Diante da imagem, o que a consulente escolhe fazer?",
+      "future": "A intuição se afina e mostra o fundo; a imagem vem do espelho, mas o rumo vem da vontade."
     },
     "numeral": "Rainha",
     "court_rank": "Rainha",
@@ -1782,34 +1782,34 @@
     "court_divine_name_letter": "Heh",
     "sephirah": "Binah",
     "zodiac_range": "20° Gêmeos a 20° Câncer",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Cavaleiro de Taças",
-    "title": "O Diplomata",
+    "title": "A Taça Erguida",
     "number": 14,
     "isMajorArcana": false,
     "suit": "Taças",
-    "eighth_greater": "Estabilidade emocional, sabedoria, compaixão.",
-    "eighth_lesser": "Repressão emocional, manipulação, distanciamento.",
+    "eighth_greater": "A paixão que chega: impulso romântico, oferta e inspiração em movimento.",
+    "eighth_lesser": "A promessa que passa: o fervor que chega, encanta e vai embora sem deixar a taça.",
     "order": 49,
     "element": "Água",
     "sign": null,
     "planet": null,
-    "description": "Simboliza estabilidade emocional e sabedoria. Representa compaixão equilibrada com racionalidade.",
-    "description_symbolic": "O Rei de Taças é a figura da estabilidade emocional e da sabedoria. Ele simboliza compaixão equilibrada com força interior e discernimento.",
-    "message_esoteric": "Esta carta ensina que a verdadeira força vem do equilíbrio emocional. O Rei de Taças nos convida a liderar com compaixão e sabedoria.",
+    "description": "Fogo de Água é o amor em movimento, e o Cavaleiro de Taças é o convite que chega em disparada. Em Chokmah, a esfera do primeiro impulso, ele carrega a taça como oferta, e seu território vai de 20° de Aquário a 20° de Peixes, do ideal ao oceano. Propostas, romances que se aproximam, inspirações que arrebatam: assim ele chega, de taça erguida. Avisa que o que chega rápido pode partir do mesmo jeito.",
+    "description_symbolic": "Os Cavaleiros correspondem ao Yod, a primeira letra do Tetragrama, e a Chokmah, a força inicial. Fogo de Água é a contradição que ferve: calor dentro do líquido. Na imagem, um cavaleiro de armadura verde, montado num cavalo branco de grandes asas, ergue uma taça vermelha encimada por um caranguejo; ao pé da carta, uma pequena ave azul de cauda aberta.",
+    "message_esoteric": "Uma oferta chega pelo ar: um convite, um romance, uma ideia que arrebata e quer ser aceita com a mão erguida. Receba a taça de olhos abertos: a paixão que passa depressa pergunta se há onde ficar. O cavaleiro oferece; a decisão é de quem recebe.",
     "meditation_reflection": [
-      "Estou equilibrando emoção e razão em minhas decisões?",
-      "Como posso liderar com compaixão e sabedoria?",
-      "Estou mantendo estabilidade emocional em tempos de desafio?"
+      "Que promessa minha ferve e passa sem deixar a taça?",
+      "Que casa o caranguejo da taça promete à paixão que chega?",
+      "O que eu ofereceria ao Cavaleiro em troca da resposta, de mão erguida como a dele?"
     ],
-    "internal_alchemy": "O Rei de Taças simboliza a alquimia da sabedoria emocional. Ele nos desafia a equilibrar compaixão e força, agindo com clareza e propósito.",
-    "magical_practice": "Conecte-se ao Rei de Taças visualizando-se sentado em um trono cercado por águas calmas. Afirme sua estabilidade emocional e compaixão.",
+    "internal_alchemy": "Dissolução em ebulição: o calor atinge a Água e a faz subir em bolhas e vapor, sem ainda separar o que ferve. É o primeiro encanto, que ilumina tudo e ainda não destila nada.",
+    "magical_practice": "Ao lado de uma taça de água, acenda uma vela vermelha e contemple o Cavaleiro erguendo a taça sobre o cavalo alado. Vibre Yod, a letra do Fogo, num sopro curto; depois beba a água em três goles, aceitando em silêncio uma oferta. Anote no diário o que veio à mente.",
     "past_present_future": {
-      "past": "Um período de sabedoria emocional e liderança trouxe equilíbrio.",
-      "present": "Um momento de liderar com compaixão e clareza emocional.",
-      "future": "Mais estabilidade e sabedoria emocional estão por vir."
+      "past": "A origem é um fervor que chegou de repente, uma proposta que arrebatou.",
+      "present": "A oferta se aproxima em disparada, e a pergunta é a da casa: haverá onde pousar?",
+      "future": "Convites chegam alados e só ficam onde encontram casa; convém escolher a taça antes que o cavalo parta."
     },
     "numeral": "Cavaleiro",
     "court_rank": "Cavaleiro",
@@ -1817,7 +1817,7 @@
     "court_divine_name_letter": "Yod",
     "sephirah": "Chokmah",
     "zodiac_range": "20° Aquário a 20° Peixes",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Ás de Espadas",
