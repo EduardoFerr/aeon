@@ -22,9 +22,61 @@ export function consumirEstado() {
  */
 export function focarCabecalho(sel) {
     const a = document.activeElement;
-    if (a && a !== document.body && document.contains(a)) return;
+    if (a && a !== document.body && document.getElementById('app').contains(a)) return;
     const h = document.querySelector(sel) || document.querySelector('#page-title');
     if (!h) return;
+    if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1');
+    h.focus({ preventScroll: true });
+}
+
+/* Rolagem por tela (so em memoria: sem URL, hash nem localStorage). */
+const posicoes = {};
+let telaAtual = null;
+let primeira = true;
+let montada = false; // so guarda a rolagem de uma tela que chegou a montar
+const abaDe = (page) => (['perfil', 'novo-mapa', 'mapa'].includes(page) ? 'perfil' : page);
+const reduz = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+const irPara = (y) => window.scrollTo({ top: y, left: 0, behavior: 'auto' }); // nunca animado: nao e um gesto do usuario
+
+/**
+ * Posiciona a tela recem-montada. y = 0 abre no topo; y > 0 restaura e reaplica por um instante,
+ * porque cartas/imagens/fontes podem mudar a altura depois da montagem. Qualquer gesto do usuario
+ * (roda, toque, teclado) cancela a reaplicacao.
+ */
+let cancelarAjuste = null;
+function posicionar(y) {
+    if (cancelarAjuste) cancelarAjuste();
+    irPara(y);
+    if (!y) return;
+    const alvo = () => Math.min(y, Math.max(0, document.documentElement.scrollHeight - innerHeight));
+    let vivo = true;
+    const fim = () => {
+        vivo = false;
+        cancelarAjuste = null;
+        ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach((t) => removeEventListener(t, fim, true));
+        ro.disconnect();
+    };
+    const reaplicar = () => { if (vivo && Math.abs(scrollY - alvo()) > 1) irPara(alvo()); };
+    const ro = new ResizeObserver(reaplicar);
+    ro.observe(document.getElementById('app'));
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach((t) => addEventListener(t, fim, { capture: true, passive: true }));
+    cancelarAjuste = fim;
+    requestAnimationFrame(reaplicar);
+    setTimeout(fim, 900);
+}
+
+/** Depois de montar: rolagem + foco no titulo da tela (sem rolar). */
+function concluir(page, y) {
+    posicionar(y);
+    telaAtual = page;
+    montada = true;
+    if (primeira) { primeira = false; return; } // na carga nao rouba o foco
+    if (TELAS_PERFIL[page]) return; // essas telas focam o proprio titulo quando terminam de montar
+    const a = document.activeElement;
+    const dentro = a && document.getElementById('app').contains(a);
+    if (dentro) return;
+    const h = document.querySelector('#page-title');
+    if (!h || h.closest('[hidden]')) return;
     if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1');
     h.focus({ preventScroll: true });
 }
@@ -36,8 +88,17 @@ const TELAS_PERFIL = {
 };
 let corrida = 0;
 
-export function navigateTo(page, estado = null) {
+/**
+ * opts.aba: veio da barra de navegacao, entao restaura a rolagem guardada da aba (senao, topo).
+ * Voltar para a tela raiz da mesma aba (ex.: mapa -> perfil) tambem restaura. O resto abre no topo.
+ */
+export function navigateTo(page, estado = null, opts = {}) {
     const appContainer = document.getElementById('app');
+    const de = telaAtual;
+    if (de && montada) posicoes[de] = window.scrollY;
+    montada = false;
+    const voltando = !!de && de !== page && abaDe(de) === abaDe(page) && page === abaDe(page);
+    const y = (opts.aba || voltando) ? posicoes[page] || 0 : 0;
     appContainer.innerHTML = '';
     marcarNavAtual(page);
     const minha = ++corrida;
@@ -50,7 +111,7 @@ export function navigateTo(page, estado = null) {
         carregar().then(() => {
             if (minha !== corrida) return;
             appContainer.innerHTML = `<${tag}></${tag}>`;
-            window.scrollTo(0, 0);
+            concluir(page, y);
         });
         return;
     }
@@ -64,6 +125,7 @@ export function navigateTo(page, estado = null) {
     } else {
         appContainer.innerHTML = '<home-screen></home-screen>';
     }
+    concluir(page, y);
 }
 export function setupNavigation() {
     const links = document.querySelectorAll('nav a'); // Seleciona todos os links no menu
@@ -79,7 +141,7 @@ export function setupNavigation() {
             // Intercepta a navegação apenas para links internos (data-page)
             event.preventDefault(); // Evita o comportamento padrão do link
             const page = link.getAttribute('data-page'); // Obtém o valor do atributo data-page
-            navigateTo(page); // Chama a função de navegação com a página correspondente
+            navigateTo(page, null, { aba: true }); // Chama a função de navegação com a página correspondente
         });
     });
 }
