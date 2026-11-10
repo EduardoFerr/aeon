@@ -2,7 +2,7 @@ import { navigateTo, consumirEstado } from '../utils/navigation.js';
 import { ic } from '../utils/glifos.js';
 import { loadCards } from '../utils/cardsUtil.js';
 import { obter, principal, adicionar, atualizar, persiste } from '../utils/perfil.js';
-import { carregarTextos, carregarMotor, texto, esc, nomeMes, calcular, marcadoresHora } from '../utils/mapaComum.js';
+import { carregarTextos, carregarMotor, texto, esc, nomeMes, calcular, marcadoresHora, atribuicaoGeoNames } from '../utils/mapaComum.js';
 
 /* Textos que ainda nao tem id em textos.json (a interface criada para o formulario). */
 const T = {
@@ -151,7 +151,7 @@ export class NovoMapaScreen extends HTMLElement {
             <div class="rodape-form"><button class="btn btn-primary" type="submit">${esc(this.t('ui.btn.calcular', {}, 'Montar o mapa astral'))}</button>
               <p class="nota-priv">${ic('cadeado')}<span>${T.privado}</span></p>
               <p class="sr" role="status" aria-live="polite" data-status>${esc(s.status)}</p>
-              <p class="nota-geonames">${esc(this.t('ui.geonames'))}</p>
+              <p class="nota-geonames">${atribuicaoGeoNames(this.textos)}</p>
               <button class="link-btn" type="button" data-acao="voltar">${ic('voltar')}${T.voltar}</button></div>
           </form></div>`;
         this.ligar();

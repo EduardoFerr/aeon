@@ -114,3 +114,22 @@ export async function marcadoresHora(mapa, tz) {
         rotulos: ops.map((o) => `${pare} (${utcRotulo(o.deslocamento)})`),
     };
 }
+
+/** Casa (1 a 12) que contem a longitude, dadas as cuspides do mapa (calc.casas.cuspides). */
+export function casaDa(lon, cuspides) {
+    if (!cuspides) return null;
+    for (let i = 0; i < 12; i++) {
+        const a = cuspides[i].lon;
+        const b = cuspides[(i + 1) % 12].lon;
+        if (((lon - a + 360) % 360) < ((b - a + 360) % 360)) return i + 1;
+    }
+    return 1;
+}
+
+/** Atribuicao do GeoNames (ui.geonames) com os dois enderecos viram ancoras. HTML seguro (texto escapado). */
+export function atribuicaoGeoNames(textos) {
+    const t = esc(texto(textos, 'ui.geonames', {}, 'Dados de lugares do GeoNames (geonames.org), licença CC BY 4.0: creativecommons.org/licenses/by/4.0'));
+    return t
+        .replace('geonames.org', '<a href="https://www.geonames.org/" target="_blank" rel="noopener noreferrer">geonames.org</a>')
+        .replace('creativecommons.org/licenses/by/4.0', '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">creativecommons.org/licenses/by/4.0</a>');
+}
