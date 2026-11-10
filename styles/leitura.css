@@ -8,9 +8,16 @@
 .leitura-passos li.feito .leitura-passo-n { border-color: var(--accent); color: var(--accent); }
 .leitura-passos li[aria-current="step"] { color: var(--text); }
 .leitura-passos li[aria-current="step"] .leitura-passo-n { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-@media (max-width: 639px) { .leitura-passos li:not([aria-current="step"]) .leitura-passo-t { display: none; } }
+@media (max-width: 639px) {
+  .leitura-passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .leitura-passos li { flex-direction: column; gap: 6px; text-align: center; font-size: var(--fs-xs); }
+}
 
-.leitura-palco { min-height: 520px; display: grid; align-content: start; }
+.leitura-palco { display: grid; align-content: start; }
+/* a mesa do embaralhar ja ocupa a altura do leque: quando ele aparece (sem toque da pessoa), nada abaixo se mexe */
+.leitura-palco[data-fase="embaralhar"] { min-height: var(--altura-leque, 734px); }
+@media (min-width: 640px) { .leitura-palco { --altura-leque: 683px; } }
+@media (min-width: 900px) { .leitura-palco { --altura-leque: 517px; } }
 .leitura-bloco { display: grid; gap: var(--sp-4); justify-items: center; text-align: center; animation: rise 400ms var(--ease-ritual) both; }
 .leitura-bloco.panel-card { max-width: 640px; width: 100%; justify-self: center; justify-items: stretch; text-align: left; }
 .leitura-titulo { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.12; letter-spacing: -0.01em; }
@@ -68,10 +75,17 @@
 .leitura-interp .leitura-luz strong { color: var(--text); font-weight: 600; }
 .leitura-interp .btn { justify-self: start; min-height: 44px; padding: 0 18px; font-size: var(--fs-sm); margin: 0; }
 .leitura-interp[data-aberta] { animation: rise 400ms var(--ease-ritual) both; }
-@media (min-width: 760px) {
+@media (min-width: 900px) {
   .leitura-cartas { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-6); align-items: start; }
   .leitura-slot { grid-template-columns: minmax(0, 1fr); grid-template-areas: "pos" "carta" "interp"; justify-items: center; text-align: center; }
   .leitura-slot-carta { width: min(100%, 210px); }
   .leitura-interp { justify-items: center; }
   .leitura-interp .btn { justify-self: center; }
 }
+
+/* altura reservada: a leitura de cada posicao cabe sem empurrar nada quando aparece */
+.leitura-interp { min-height: 22.5rem; }
+.leitura-revela [data-acoes] { min-height: 11.75rem; align-content: flex-start; }
+@media (min-width: 480px) { .leitura-interp { min-height: 16rem; } }
+@media (min-width: 560px) { .leitura-revela [data-acoes] { min-height: 5rem; } }
+@media (min-width: 900px) { .leitura-interp { min-height: 17.5rem; } }
