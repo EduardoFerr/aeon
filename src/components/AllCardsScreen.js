@@ -14,6 +14,21 @@ const GRUPOS = [
     { id: 'discos', rotulo: 'Discos', casa: (c) => c.suit === 'Discos' },
 ];
 
+/** Minúsculas e sem acento: "Estrêla" e "estrela" são a mesma busca. */
+const normalizar = (t) => String(t ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+
+/** Palavras pelas quais cada carta pode ser achada: nome, título, número, naipe, patente e elemento. */
+function palavrasDaCarta(c) {
+    const campos = [c.name, c.title, c.numeral, c.suit, c.court_rank, c.element];
+    if (c.isMajorArcana) campos.push(c.number); // XVII também se acha por 17
+    return normalizar(campos.filter((x) => x !== undefined && x !== null).join(' ')).split(/[^a-z0-9]+/).filter(Boolean);
+}
+
+/** Todas as palavras da busca precisam casar (E lógico). Número casa inteiro; texto casa pelo começo da palavra. */
+function casaBusca(palavras, termos) {
+    return termos.every((t) => palavras.some((p) => (/^\d+$/.test(t) ? p === t : p.startsWith(t))));
+}
+
 const reduzMovimento = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function lerFiltroSalvo() {
@@ -34,7 +49,13 @@ export class AllCardsScreen extends HTMLElement {
         this.grupo = lerFiltroSalvo();
         this.innerHTML = `
             <section class="all-cards-screen">
-                <div class="grade-ferramentas">
+                <div class="grade-ferramentas" role="search" aria-label="Buscar e filtrar cartas">
+                    <div class="grade-busca">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+                        <label class="sr" for="grade-busca">Buscar carta</label>
+                        <input id="grade-busca" type="search" placeholder="Buscar carta, naipe ou número" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-controls="all-cards">
+                        <button class="grade-limpar" type="button" aria-label="Limpar busca" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+                    </div>
                     <div class="chips" id="grade-chips" role="group" aria-label="Filtrar por grupo"></div>
                     <p class="grade-contagem" id="grade-contagem" role="status" aria-live="polite"></p>
                 </div>
@@ -66,11 +87,44 @@ export class AllCardsScreen extends HTMLElement {
             // As 78 cartas são montadas uma única vez; filtrar só mostra e esconde
             this.cartas = cards;
             this.elementos = [...container.children];
+            this.palavras = cards.map(palavrasDaCarta);
+            this.termos = [];
+            this.montarBusca();
             this.montarFiltros();
             this.aplicar(false);
         } catch (error) {
             console.error('Erro ao carregar as cartas:', error);
         }
+    }
+
+    montarBusca() {
+        const campo = this.querySelector('#grade-busca');
+        const limpar = this.querySelector('.grade-limpar');
+        let espera;
+        campo.addEventListener('input', () => {
+            limpar.hidden = campo.value === '';
+            clearTimeout(espera);
+            espera = setTimeout(() => this.buscar(campo.value), 120); // debounce curto: tecla rápida não trava
+        });
+        // Enter só confirma: filtra já, sem esperar o debounce
+        campo.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') { e.preventDefault(); clearTimeout(espera); this.buscar(campo.value); }
+        });
+        limpar.addEventListener('click', () => {
+            clearTimeout(espera);
+            campo.value = '';
+            limpar.hidden = true;
+            this.buscar('');
+            campo.focus();
+        });
+        this.campo = campo;
+    }
+
+    buscar(texto) {
+        const termos = normalizar(texto).split(/\s+/).filter(Boolean);
+        if (termos.join(' ') === this.termos.join(' ')) return; // nada mudou de fato
+        this.termos = termos;
+        this.aplicar(true);
     }
 
     montarFiltros() {
@@ -106,7 +160,7 @@ export class AllCardsScreen extends HTMLElement {
         const grupo = GRUPOS.find((g) => g.id === this.grupo);
         let visiveis = 0;
         this.cartas.forEach((carta, i) => {
-            const mostrar = grupo.casa(carta);
+            const mostrar = grupo.casa(carta) && (!this.termos.length || casaBusca(this.palavras[i], this.termos));
             this.elementos[i].hidden = !mostrar;
             if (mostrar) visiveis++;
         });
@@ -114,7 +168,7 @@ export class AllCardsScreen extends HTMLElement {
         this.barra.querySelectorAll('button.chip').forEach((b) => {
             b.setAttribute('aria-pressed', String(b.dataset.grupo === this.grupo));
         });
-        this.querySelector('#grade-contagem').textContent = `${visiveis} ${visiveis === 1 ? 'carta' : 'cartas'}`;
+        this.querySelector('#grade-contagem').textContent = visiveis === 0 ? 'Nenhuma carta' : `${visiveis} ${visiveis === 1 ? 'carta' : 'cartas'}`;
 
         if (animar) this.revelarGrade();
     }

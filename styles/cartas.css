@@ -45,3 +45,14 @@ tarot-card:hover .tarot-card { transform: translateY(-4px); }
   .chips { padding-right: 40px; -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); }
 }
 @media (min-width: 600px) { .chips { flex-wrap: wrap; margin: 0; padding: 4px 0; overflow: visible; } }
+
+/* campo de busca */
+.grade-busca { position: relative; display: flex; align-items: center; margin-bottom: var(--sp-3); }
+.grade-busca > .icon { position: absolute; left: 16px; color: var(--text-soft); pointer-events: none; }
+.grade-busca input { width: 100%; min-height: 48px; padding: 0 52px 0 46px; border-radius: var(--r-pill); border: 1px solid var(--control); background: var(--surface); color: var(--text); font: 400 var(--fs-md)/1.2 var(--font-ui); -webkit-appearance: none; appearance: none; }
+.grade-busca input::placeholder { color: var(--text-soft); opacity: 1; }
+.grade-busca input::-webkit-search-cancel-button, .grade-busca input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
+.grade-busca input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--r-pill); }
+.grade-limpar { position: absolute; right: 2px; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: transparent; color: var(--text-soft); cursor: pointer; }
+.grade-limpar:hover { background: var(--surface-2); color: var(--text); }
+@media (min-width: 640px) { .grade-busca { max-width: 440px; } }
