@@ -210,23 +210,27 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const scrollToTopButton = document.getElementById("scrollToTop");
+        const botao = document.getElementById("scrollToTop");
+        const rodape = document.querySelector("footer");
+        const reduz = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        // Mostra o botão apenas quando o usuário rolar a página para baixo
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 300) {
-            scrollToTopButton.style.display = "flex"; // Mostra o botão
-          } else {
-            scrollToTopButton.style.display = "none"; // Esconde o botão
-          }
-        });
+        // Aparece so com rolagem relevante: passou de 300 px e a pagina tem mais de 1,5 tela de altura.
+        // Quando o rodape entra na janela, o botao sobe para ficar acima dele e nao cobre o texto.
+        function atualizar() {
+          const rolavel = document.documentElement.scrollHeight > innerHeight * 1.5;
+          const mostrar = rolavel && window.scrollY > 300;
+          botao.style.display = mostrar ? "flex" : "none";
+          if (!mostrar) return;
+          const topoRodape = rodape ? rodape.getBoundingClientRect().top : innerHeight;
+          const lift = Math.max(0, innerHeight - topoRodape) + 16;
+          botao.style.setProperty("--lift", topoRodape < innerHeight ? lift + "px" : "0px");
+        }
+        window.addEventListener("scroll", atualizar, { passive: true });
+        window.addEventListener("resize", atualizar);
+        new ResizeObserver(atualizar).observe(document.body);
 
-        // Volta ao topo quando o botão é clicado
-        scrollToTopButton.addEventListener("click", () => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth", // Faz a rolagem suave
-          });
+        botao.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: reduz() ? "auto" : "smooth" });
         });
       });
     </script>

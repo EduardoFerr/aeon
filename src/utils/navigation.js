@@ -65,12 +65,23 @@ function posicionar(y) {
     setTimeout(fim, 900);
 }
 
+/** Fade curto (so opacidade, 180 ms) da tela recem-montada. Sem movimento reduzido; nao mexe em rolagem nem foco. */
+function entrarSuave() {
+    const app = document.getElementById('app');
+    app.classList.remove('tela-in');
+    if (reduz()) return;
+    void app.offsetWidth; // reinicia a animacao se a troca foi rapida
+    app.classList.add('tela-in');
+    app.addEventListener('animationend', () => app.classList.remove('tela-in'), { once: true });
+}
+
 /** Depois de montar: rolagem + foco no titulo da tela (sem rolar). */
 function concluir(page, y) {
     posicionar(y);
     telaAtual = page;
     montada = true;
     if (primeira) { primeira = false; return; } // na carga nao rouba o foco
+    entrarSuave();
     if (TELAS_PERFIL[page]) return; // essas telas focam o proprio titulo quando terminam de montar
     const a = document.activeElement;
     const dentro = a && document.getElementById('app').contains(a);
