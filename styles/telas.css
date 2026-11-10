@@ -19,13 +19,4 @@
 .hermetic-knowledge strong { color: var(--text); font-weight: 600; }
 @media (min-width: 640px) { .panel-card { padding: var(--sp-6); } }
 
-/* jogo das 3 cartas */
-.three-card-game .card-container { display: grid; grid-template-columns: repeat(3, minmax(0, 190px)); justify-content: center; gap: 10px; padding-top: var(--sp-3); }
-@media (min-width: 640px) { .three-card-game .card-container { gap: 28px; } }
-.card-three { display: grid; gap: var(--sp-3); align-content: start; min-width: 0; }
-.card-three > h3 { font-size: var(--fs-xs); letter-spacing: 0.16em; text-transform: uppercase; font-family: var(--font-ui); font-weight: 600; color: var(--accent); text-align: center; }
-.three-card-game .card-element { font-size: clamp(0.85rem, 3.2vw, 1.2rem); }
-.three-card-game .btn { margin-inline: auto; }
-.game-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding-block: var(--sp-4) var(--sp-6); }
-.game-actions .btn { margin: 0; }
 
