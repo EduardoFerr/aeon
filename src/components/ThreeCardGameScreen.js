@@ -1,4 +1,4 @@
-import { criarLeitura, atualizarLeitura, limparPergunta, LIMITE_PERGUNTA } from '../utils/diario.js';
+import { criarLeitura, atualizarLeitura, limparPergunta, pedirFoco, LIMITE_PERGUNTA } from '../utils/diario.js';
 import { navigateTo } from '../utils/navigation.js';
 import { loadCards, shuffle } from '../utils/cardsUtil.js';
 import { escaparHtml } from '../utils/glossario.js';
@@ -8,6 +8,10 @@ const POSICOES = ['passado', 'presente', 'futuro'];
 const ROTULOS = ['Passado', 'Presente', 'Futuro'];
 const FASES = ['pergunta', 'embaralhar', 'escolher', 'revelar'];
 const DURACAO_EMBARALHAR = 1300; // ms
+const ESCALONAMENTO = 500; // ms entre uma carta e outra em "Revelar todas"
+// Cada posicao le um tempo da carta: raiz (passado), dilema (presente) e tendencia (futuro)
+const CAMPOS = ['past', 'present', 'future'];
+const TEMPOS = ['Raiz', 'Dilema', 'Tendência'];
 
 const TEXTO = {
     titulo: 'Leitura de 3 cartas',
@@ -35,6 +39,11 @@ const TEXTO = {
     toqueParaRevelar: 'Toque na carta para revelar',
     revelarTodas: 'Revelar todas',
     novaLeitura: 'Nova leitura',
+    luz: 'Luz.',
+    abrir: 'Abrir a carta',
+    escreverDiario: 'Escrever no diário',
+    revelada: (pos, carta) => `${pos} revelado: ${carta.name}, ${carta.title}.`,
+    todasReveladas: 'As três cartas foram reveladas. Você pode escrever no diário, compartilhar ou fazer uma nova leitura.',
     erro: 'Não foi possível tirar as cartas agora. Recarregue a página.',
     voltar: 'Voltar',
 };
@@ -350,8 +359,65 @@ export class ThreeCardGameScreen extends HTMLElement {
             </div>`;
         this.reveladas = 0;
         this.palco.querySelector('[data-acao="nova"]').addEventListener('click', () => this.novaLeitura());
+        this.palco.querySelector('[data-acao="revelar-todas"]').addEventListener('click', () => this.revelarTodas());
+        const lista = this.palco.querySelector('.leitura-cartas');
+        lista.addEventListener('carta-virada', (e) => this.aoVirar(e));
+        lista.addEventListener('click', (e) => {
+            const abrir = e.target.closest('[data-abrir]');
+            if (!abrir) return;
+            const info = document.querySelector('tarot-card-info');
+            if (info && info.showInfo) info.showInfo(this.cartasEscolhidas[Number(abrir.dataset.abrir)], abrir);
+        });
         this.anunciar(`${TEXTO.reveladasTitulo}. ${TEXTO.toqueParaRevelar}.`);
         this.palco.querySelector('tarot-card')?.focus({ preventScroll: true });
+    }
+
+    /** Uma carta virou: mostra a leitura daquela posicao (raiz, dilema ou tendencia) e a Luz da carta. */
+    aoVirar(e) {
+        const slot = e.target.closest('[data-slot]');
+        if (!slot) return;
+        const k = Number(slot.dataset.slot);
+        const carta = this.cartasEscolhidas[k];
+        const interp = slot.querySelector('[data-interp]');
+        if (!carta || interp.dataset.aberta) return;
+        const texto = (carta.past_present_future && carta.past_present_future[CAMPOS[k]]) || carta.message_esoteric || '';
+        interp.dataset.aberta = 'true';
+        interp.innerHTML = `
+            <p class="leitura-rotulo">${TEMPOS[k]}</p>
+            <p class="leitura-texto">${escaparHtml(texto)}</p>
+            ${carta.eighth_greater ? `<p class="leitura-luz"><strong>${TEXTO.luz}</strong> ${escaparHtml(carta.eighth_greater)}</p>` : ''}
+            <button type="button" class="btn btn-ghost" data-abrir="${k}">${TEXTO.abrir}</button>`;
+        this.reveladas += 1;
+        if (this.reveladas < 3) {
+            this.anunciar(TEXTO.revelada(ROTULOS[k], carta));
+            return;
+        }
+        this.anunciar(`${TEXTO.revelada(ROTULOS[k], carta)} ${TEXTO.todasReveladas}`);
+        this.mostrarFinal();
+    }
+
+    /** Vira as que faltam, uma a uma, com 500 ms entre elas (sem pausa com movimento reduzido). */
+    revelarTodas() {
+        const botao = this.palco.querySelector('[data-acao="revelar-todas"]');
+        if (botao) botao.disabled = true;
+        const reduz = reduzMovimento();
+        const faltam = [...this.palco.querySelectorAll('tarot-card')].filter((c) => c.isFlipped);
+        faltam.forEach((carta, n) => this.espera(() => carta.isFlipped && carta.flipCard(), reduz ? 0 : n * ESCALONAMENTO));
+    }
+
+    /** Depois das tres reveladas: escrever no diario e nova leitura. */
+    mostrarFinal() {
+        const acoes = this.palco.querySelector('[data-acoes]');
+        const tinhaFoco = acoes.contains(document.activeElement);
+        acoes.innerHTML = `
+            <button type="button" class="btn btn-primary" data-acao="diario">${TEXTO.escreverDiario}</button>
+            <button type="button" class="btn btn-ghost" data-acao="nova">${TEXTO.novaLeitura}</button>`;
+        acoes.querySelector('[data-acao="diario"]').addEventListener('click', () => {
+            if (this.entradaId) pedirFoco(this.entradaId);
+            navigateTo('history');
+        });
+        acoes.querySelector('[data-acao="nova"]').addEventListener('click', () => this.novaLeitura());
+        if (tinhaFoco) acoes.querySelector('[data-acao="diario"]').focus();
     }
 
     novaLeitura() {
