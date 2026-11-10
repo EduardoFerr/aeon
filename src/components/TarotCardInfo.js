@@ -1,5 +1,7 @@
 import { carregarGlossario, linkarTermos } from '../utils/glossario.js';
 import { abrirGlossario } from './GlossarioModal.js';
+import { abrir, ativarModal } from './Sobreposicao.js';
+import { ic } from '../utils/glifos.js';
 
 export class TarotCardInfo extends HTMLElement {
     connectedCallback() {
@@ -194,6 +196,9 @@ export class TarotCardInfo extends HTMLElement {
 
         this.removeAttribute('hidden'); // Exibe o modal
         document.addEventListener('keydown', this.onKeydown);
+        // foco preso, fundo inert e rolagem do fundo travada enquanto a carta esta aberta
+        if (this.modal) this.modal.liberar();
+        this.modal = ativarModal(this.querySelector('.tarot-card-info'));
 
         // Começa lendo do topo e leva o foco para dentro do modal
         // (sem rolar até o botão Fechar, que fica no fim do conteúdo)
@@ -209,6 +214,8 @@ export class TarotCardInfo extends HTMLElement {
     hideInfo() {
         this.setAttribute('hidden', true);
         document.removeEventListener('keydown', this.onKeydown);
+        if (this.modal) this.modal.liberar();
+        this.modal = null;
         // Devolve o foco para a carta que abriu o modal
         if (this.origem && this.origem.isConnected) this.origem.focus();
         this.origem = null;
@@ -216,3 +223,28 @@ export class TarotCardInfo extends HTMLElement {
 }
 
 customElements.define('tarot-card-info', TarotCardInfo);
+
+const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+
+/**
+ * Resumo curto da carta: bottom sheet no celular e dialogo no desktop, com a imagem, a frase e o
+ * botao que abre a carta inteira em tela (o <tarot-card-info>). `carta` vem de loadCards().
+ * @param {Object} carta  @param {{frase?:string, rotulo?:string, gatilho?:HTMLElement}} [o]
+ */
+export function abrirResumoCarta(carta, { frase = '', rotulo = '', gatilho } = {}) {
+    const texto = frase || carta.description || '';
+    const c = abrir({
+        tipo: 'sheet',
+        titulo: esc(carta.name || carta.title || 'Carta'),
+        gatilho,
+        corpo: `<div class="sob-carta"><img src="assets/cards/crowley-${esc(carta.order)}.jpg" alt="${esc(carta.name || '')}" width="274" height="410">
+            <div>${rotulo ? `<p class="rot">${esc(rotulo)}</p>` : ''}<p>${esc(texto)}</p></div></div>
+            <button type="button" class="btn btn-ghost" data-foco data-inteira style="margin-top:14px">Abrir a carta inteira ${ic('seta')}</button>`,
+    });
+    c.corpo.querySelector('[data-inteira]').addEventListener('click', () => {
+        c.fechar(false);
+        const info = document.querySelector('tarot-card-info');
+        if (info && info.showInfo) info.showInfo(carta, gatilho);
+    });
+    return c;
+}

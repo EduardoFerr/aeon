@@ -55,6 +55,11 @@ const IC = {
     x: '<path d="M6 6l12 12M18 6L6 18"/>',
     lista: '<path d="M8.5 7H20M8.5 12H20M8.5 17H20"/><circle cx="4.6" cy="7" r=".8"/><circle cx="4.6" cy="12" r=".8"/><circle cx="4.6" cy="17" r=".8"/>',
     roda: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3.5V9M12 15v5.5M3.5 12H9M15 12h5.5"/>',
+    guardar: '<path d="M7 4h10a1 1 0 011 1v15l-6-4-6 4V5a1 1 0 011-1z"/>',
+    maisv: '<circle cx="12" cy="5.5" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="12" cy="18.5" r="1.3"/>',
+    trocar: '<path d="M4 8h14l-3-3M20 16H6l3 3"/>',
+    subir: '<path d="M5 15l7-7 7 7"/>',
+    descer: '<path d="M5 9l7 7 7-7"/>',
     estrela: '<path d="M12 3.5l2.2 6.3 6.3 2.2-6.3 2.2L12 20.5l-2.2-6.3L3.5 12l6.3-2.2z"/>'
   };
 

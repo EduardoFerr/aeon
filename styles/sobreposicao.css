@@ -1,0 +1,90 @@
+/* Sobreposicoes (menu lateral, sheet, dialogo, popover, confirmacao). So tokens dos temas; animacao so com transform e opacity. */
+.sob { position: fixed; inset: 0; z-index: 1200; }
+.sob-fundo { position: absolute; inset: 0; background: var(--overlay); opacity: 0; transition: opacity 280ms var(--ease-ritual); }
+.sob.on .sob-fundo { opacity: 1; }
+.sob-r-popover { pointer-events: none; }
+.sob-r-popover .sob-fundo { display: none; }
+.sob-pn { position: absolute; display: flex; flex-direction: column; background: var(--surface); color: var(--text); border: 1px solid var(--line-strong); box-shadow: var(--sh-3); opacity: 0; pointer-events: auto; max-width: 100vw; }
+.sob-pn:focus { outline: none; }
+.sob-cab { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 8px 6px 20px; min-height: 56px; flex: none; }
+.sob-cab h2 { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.5rem; line-height: 1.15; margin: 0; overflow-wrap: anywhere; }
+.sob-cab h2:focus { outline: none; }
+.sob-bt { display: flex; gap: 4px; flex: none; }
+.sob-ctx { padding: 10px 20px; border-block: 1px solid var(--line); font-size: var(--fs-sm); color: var(--text-soft); }
+.sob-ctx b { display: block; color: var(--text); font-size: var(--fs-md); font-weight: 600; }
+.sob-corpo { padding: 6px 20px 24px; overflow-y: auto; overscroll-behavior: contain; min-height: 0; flex: 1 1 auto; }
+.sob-corpo > * + * { margin-top: 12px; }
+
+/* menu lateral */
+.sob-gaveta { top: 0; right: 0; bottom: 0; width: min(86vw, 340px); border-width: 0 0 0 1px; transform: translateX(100%); transition: transform 300ms var(--ease-ritual), opacity 300ms var(--ease-ritual); }
+.sob.on .sob-gaveta { transform: none; opacity: 1; }
+.sob-gaveta .sob-corpo { padding: 4px 8px 24px; }
+
+/* bottom sheet */
+.sob-sheet { left: 0; right: 0; bottom: 0; border-radius: 24px 24px 0 0; border-bottom: 0; max-height: 62vh; max-height: 62dvh; transform: translateY(100%); transition: transform 300ms var(--ease-ritual), opacity 300ms var(--ease-ritual); padding-bottom: env(safe-area-inset-bottom); }
+[data-theme="aurora"] .sob-sheet { border-radius: 10px 10px 0 0; }
+.sob-sheet[data-h="cheia"] { max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); height: calc(100dvh - 48px); }
+.sob.on .sob-sheet { transform: none; opacity: 1; }
+.sob-sheet.arrastando { transition: none; }
+.sob-alca { flex: none; width: 100%; height: 44px; border: 0; background: none; display: grid; place-items: center; cursor: grab; touch-action: none; color: var(--control); }
+.sob-alca span { width: 40px; height: 4px; border-radius: 4px; background: var(--control); }
+.sob-alca:focus-visible { outline: 2px solid var(--focus); outline-offset: -4px; }
+.sob-sheet .sob-cab { min-height: 48px; }
+
+/* dialogo e confirmacao */
+.sob-dialogo, .sob-confirmacao { left: 50%; top: 50%; border-radius: var(--r-md); transform: translate(-50%, -46%) scale(0.97); transition: transform 260ms var(--ease-ritual), opacity 260ms var(--ease-ritual); }
+.sob-dialogo { width: min(92vw, 460px); max-height: 84vh; max-height: 84dvh; }
+.sob-confirmacao { width: min(92vw, 420px); max-height: 90dvh; }
+.sob.on .sob-dialogo, .sob.on .sob-confirmacao { transform: translate(-50%, -50%); opacity: 1; }
+.sob-confirmacao .sob-corpo { padding-bottom: 20px; }
+
+/* popover */
+.sob-popover { border-radius: var(--r-md); transform: translateY(-6px); transition: transform 240ms var(--ease-ritual), opacity 240ms var(--ease-ritual); }
+.sob.on .sob-popover { transform: none; opacity: 1; }
+.sob-popover .sob-cab h2 { font-size: 1.35rem; }
+
+/* itens do menu e formularios dentro */
+.sob-grupo { font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-mute); font-weight: 700; padding: 14px 14px 4px; margin: 0; }
+.sob-sep { height: 1px; background: var(--line); margin: 6px 8px; }
+.sob-acao { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 52px; padding: 0 14px; border: 0; border-radius: var(--r-sm); background: none; text-align: left; font: 500 var(--fs-md)/1.25 var(--font-ui); cursor: pointer; color: var(--text); }
+.sob-acao:hover { background: var(--surface-2); }
+.sob-acao .icon { color: var(--accent); }
+.sob-acao.perigo, .sob-acao.perigo .icon { color: var(--err); }
+.sob-acao:focus-visible, .sob-pn .btn:focus-visible, .sob-pn .iconbtn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.sob-lista { display: grid; gap: 10px; }
+.sob-pilha { display: grid; gap: 12px; }
+.sob-pn .btn { width: 100%; min-height: 48px; }
+.sob-pn .btn-perigo { border-color: var(--err); color: var(--err); }
+.sob-nota { font-size: var(--fs-sm); color: var(--text-soft); line-height: 1.5; }
+.sob-rodape { font-size: var(--fs-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mute); font-weight: 600; }
+.sob-corpo details { border-top: 1px solid var(--line); padding-top: 4px; }
+.sob-corpo summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--accent); font-weight: 600; font-size: var(--fs-sm); }
+.sob-corpo pre { margin: 6px 0 0; padding: 14px; border-radius: var(--r-sm); background: var(--bg); border: 1px solid var(--line); white-space: pre-wrap; font: 400 var(--fs-sm)/1.6 var(--font-ui); color: var(--text-soft); }
+.sob-opcao { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 64px; padding: 10px 14px; border-radius: var(--r-md); border: 1px solid var(--line); background: var(--bg); text-align: left; cursor: pointer; color: var(--text); font: inherit; }
+.sob-opcao:hover { background: var(--surface-2); }
+.sob-opcao[aria-checked="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.sob-opcao .icon { color: var(--accent); width: 26px; height: 26px; }
+.sob-opcao b { display: block; font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.25rem; line-height: 1.15; }
+.sob-opcao small { color: var(--text-soft); font-size: var(--fs-sm); }
+.sob-opcao .marca { margin-left: auto; font-size: var(--fs-xs); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--accent); }
+.sob-carta { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 16px; align-items: start; }
+.sob-carta img { width: 110px; height: auto; aspect-ratio: 274 / 410; object-fit: cover; border-radius: var(--r-card); box-shadow: var(--sh-2); background: var(--surface-2); }
+.sob-carta .rot { font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 4px; }
+.sob-carta p { margin: 0; color: var(--text-soft); line-height: 1.55; }
+.sob-verbete .curto { font-size: var(--fs-lg); line-height: 1.55; margin: 0; }
+.sob-verbete .mais { color: var(--text-soft); line-height: 1.65; margin: 0; }
+.sob-verbete .ver-tambem { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: var(--fs-sm); color: var(--text-soft); }
+.sob-verbete .rel { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; background: transparent; color: var(--text); border: 1px solid var(--control); border-radius: var(--r-pill); font: 600 var(--fs-sm) var(--font-ui); cursor: pointer; }
+.sob-verbete .rel:hover { background: var(--surface-2); }
+.sob-verbete .rel:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.sob-pn .toggle-linha, .sob-pn .diario-marca { min-height: 44px; }
+
+/* toast de confirmacao (so para 'Mapa guardado', 'Texto copiado') */
+.toast { position: fixed; z-index: 1300; left: 50%; bottom: calc(var(--bnav-h) + 16px + env(safe-area-inset-bottom)); transform: translate(-50%, 12px); opacity: 0; max-width: min(92vw, 420px); padding: 12px 18px; border-radius: var(--r-md); background: var(--surface-2); color: var(--text); border: 1px solid var(--line-strong); box-shadow: var(--sh-3); font-size: var(--fs-sm); font-weight: 500; transition: transform 240ms var(--ease-ritual), opacity 240ms var(--ease-ritual); pointer-events: none; display: flex; gap: 10px; align-items: center; }
+.toast.on { transform: translate(-50%, 0); opacity: 1; }
+.toast .icon { width: 20px; height: 20px; color: var(--ok); flex: none; }
+@media (min-width: 860px) { .toast { bottom: 24px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sob *, .sob-pn, .sob-fundo, .toast { transition: none !important; animation: none !important; }
+}

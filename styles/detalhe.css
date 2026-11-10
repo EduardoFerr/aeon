@@ -60,21 +60,7 @@ body:has(tarot-card-info:not([hidden])) { overflow: hidden; }
 .termo:hover { color: var(--accent); }
 .termo:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
 
-/* popup do glossario */
-glossario-modal[hidden] { display: none; }
-.glossario-fundo { position: fixed; inset: 0; z-index: 1100; background: var(--overlay); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 16px; animation: info-in 0.25s var(--ease-ritual) both; }
-.glossario-painel { box-sizing: border-box; width: 100%; max-width: 480px; max-height: min(82dvh, 640px); overflow-y: auto; padding: 0 24px 24px; text-align: left; color: var(--text); background: var(--surface); border: 1px solid var(--line-strong); border-top: 3px solid var(--accent); border-radius: var(--r-md); box-shadow: var(--sh-3); scrollbar-width: thin; }
-.glossario-painel:focus { outline: none; }
-.glossario-fechar { position: sticky; top: 8px; float: right; z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; margin: 8px -12px 0 8px; padding: 0; font-size: 1.6rem; line-height: 1; color: var(--text); background: var(--surface); border: 1px solid var(--control); border-radius: 50%; cursor: pointer; }
-.glossario-fechar:hover { background: var(--surface-2); }
-.glossario-rotulo { margin: 24px 0 4px; font-size: var(--fs-xs); letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; color: var(--accent); }
-.glossario-painel h4 { margin: 0 0 12px; font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.75rem; line-height: 1.15; }
-.glossario-curto { margin: 0 0 12px; font-size: var(--fs-lg); line-height: 1.55; }
-.glossario-mais { margin: 0 0 16px; line-height: 1.7; color: var(--text-soft); }
-.glossario-ver-tambem { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: var(--fs-sm); color: var(--text-soft); }
-.glossario-relacionado { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; background: transparent; color: var(--text); border: 1px solid var(--control); border-radius: var(--r-pill); cursor: pointer; font: inherit; font-weight: 500; }
-.glossario-relacionado:hover { background: var(--surface-2); }
-.glossario-fechar:focus-visible, .glossario-relacionado:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+/* o verbete do glossario usa a sobreposicao unica (Sobreposicao.js, sobreposicao.css) */
 
 /* celular: o detalhe ocupa a tela toda */
 @media (max-width: 639px) {
