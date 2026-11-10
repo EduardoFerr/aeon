@@ -278,7 +278,7 @@ export class HistoryScreen extends HTMLElement {
     /* ---------- nota: autosave ---------- */
 
     contar(li) {
-        const n = li.querySelector('textarea').value.length;
+        const n = Math.min(li.querySelector('textarea').value.length, LIMITE_NOTA);
         const c = li.querySelector('[data-contador]');
         c.hidden = n < PERTO_DO_LIMITE;
         c.textContent = n >= LIMITE_NOTA ? `${TEXTO.limiteAtingido}: ${n}/${LIMITE_NOTA}` : `${n}/${LIMITE_NOTA}`;
