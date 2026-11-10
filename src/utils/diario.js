@@ -1,0 +1,409 @@
+import { hash, dataLocal } from './cartaDoDia.js';
+
+/**
+ * Diario: anotacoes e leituras, guardadas so no aparelho.
+ *
+ * Chave: "aeon:v2:diario"  ->  { v: 2, entradas: [Entrada], ocultos: [id] }
+ *   Entrada = { id, t (ISO), tipo: "dia" | "leitura", cartas: [{ order, pos? }], nota, m (ISO da ultima edicao da nota), rotulo? }
+ *   ocultos = ids de leituras do historico antigo que a pessoa apagou do diario (so esconde, nao apaga o antigo).
+ *
+ * O historico antigo (chave "tarotHistory", storage.js) e lido SOMENTE LEITURA e convertido por order;
+ * nunca e alterado aqui. A carta do dia (aeon:v2:dia) tambem nao e tocada.
+ *
+ * Tudo em try/catch: modo privado, bloqueado, quota cheia ou JSON corrompido nao quebram nada.
+ * Sem armazenamento o diario funciona em memoria durante a visita (persiste() devolve false).
+ */
+export const CHAVE_DIARIO = 'aeon:v2:diario';
+export const CHAVE_ANTIGA = 'tarotHistory';
+export const LIMITE_NOTA = 2000;
+export const LIMITE_ENTRADAS = 500;
+export const LIMITE_ARQUIVO = 1024 * 1024; // 1 MB
+const LIMITE_LEITURA_IMPORTACAO = 2000; // quantas entradas do arquivo sao ao menos examinadas
+
+const POSICOES = ['passado', 'presente', 'futuro'];
+const RE_ID = /^[A-Za-z0-9_-]{1,64}$/;
+const PERIGOSAS = ['__proto__', 'constructor', 'prototype'];
+
+let memoria = null; // estado desta visita quando o armazenamento falha
+let gravacaoFalhou = false;
+let leituraFalhou = false;
+let focoPendente = null;
+let avisoPendente = '';
+const ouvintes = new Set();
+
+const vazio = () => ({ v: 2, entradas: [], ocultos: [] });
+const tem = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+
+/* ---------- sanitizacao ---------- */
+
+function dataValida(valor) {
+    if (typeof valor !== 'string' || valor.length > 40) return null;
+    const ms = Date.parse(valor);
+    if (!Number.isFinite(ms)) return null;
+    const ano = new Date(ms).getUTCFullYear();
+    return ano >= 2000 && ano <= 2100 ? new Date(ms).toISOString() : null;
+}
+
+function limparTexto(valor, max) {
+    if (typeof valor !== 'string') return '';
+    // tira caracteres de controle (menos quebra de linha e tab) e corta no limite
+    return valor.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').replace(/\r\n?/g, '\n').slice(0, max);
+}
+
+/** Constroi uma entrada nova so com a lista branca de campos, ou devolve null se nao servir. */
+export function sanearEntrada(bruta) {
+    if (!bruta || typeof bruta !== 'object' || Array.isArray(bruta)) return null;
+    if (PERIGOSAS.some((k) => tem(bruta, k))) return null;
+    if (!tem(bruta, 'id') || typeof bruta.id !== 'string' || !RE_ID.test(bruta.id)) return null;
+    const t = tem(bruta, 't') ? dataValida(bruta.t) : null;
+    if (!t) return null;
+    const tipo = tem(bruta, 'tipo') ? bruta.tipo : null;
+    if (tipo !== 'dia' && tipo !== 'leitura') return null;
+    if (!tem(bruta, 'cartas') || !Array.isArray(bruta.cartas)) return null;
+    const maximo = tipo === 'dia' ? 1 : 3;
+    const cartas = [];
+    for (const c of bruta.cartas.slice(0, maximo)) {
+        if (!c || typeof c !== 'object' || PERIGOSAS.some((k) => tem(c, k))) return null;
+        const order = tem(c, 'order') && typeof c.order === 'number' ? c.order : NaN;
+        if (!Number.isInteger(order) || order < 0 || order > 77) return null;
+        const item = { order };
+        if (tem(c, 'pos') && POSICOES.includes(c.pos)) item.pos = c.pos;
+        cartas.push(item);
+    }
+    if (!cartas.length) return null;
+    const entrada = {
+        id: bruta.id,
+        t,
+        tipo,
+        cartas,
+        nota: tem(bruta, 'nota') ? limparTexto(bruta.nota, LIMITE_NOTA) : '',
+        m: (tem(bruta, 'm') && dataValida(bruta.m)) || t,
+    };
+    if (tem(bruta, 'rotulo') && typeof bruta.rotulo === 'string' && bruta.rotulo.trim()) {
+        entrada.rotulo = limparTexto(bruta.rotulo, 40);
+    }
+    return entrada;
+}
+
+function sanearDoc(bruto) {
+    const doc = vazio();
+    if (!bruto || typeof bruto !== 'object' || bruto.v !== 2) return doc;
+    const vistos = new Set();
+    if (Array.isArray(bruto.entradas)) {
+        for (const e of bruto.entradas.slice(0, LIMITE_ENTRADAS)) {
+            const ok = sanearEntrada(e);
+            if (ok && !vistos.has(ok.id)) {
+                vistos.add(ok.id);
+                doc.entradas.push(ok);
+            }
+        }
+    }
+    if (Array.isArray(bruto.ocultos)) {
+        doc.ocultos = bruto.ocultos.filter((id) => typeof id === 'string' && RE_ID.test(id)).slice(0, LIMITE_ENTRADAS);
+    }
+    return doc;
+}
+
+/* ---------- leitura e gravacao ---------- */
+
+function carregar() {
+    let bruto;
+    try {
+        bruto = localStorage.getItem(CHAVE_DIARIO);
+        leituraFalhou = false;
+    } catch (e) {
+        leituraFalhou = true;
+        return memoria || vazio();
+    }
+    if (gravacaoFalhou && memoria) return memoria; // a memoria tem coisa mais nova que o armazenamento
+    if (bruto == null) return memoria && gravacaoFalhou ? memoria : vazio();
+    try {
+        return sanearDoc(JSON.parse(bruto));
+    } catch (e) {
+        return vazio(); // corrompido: recomeca limpo na proxima gravacao
+    }
+}
+
+function gravar(doc) {
+    memoria = doc;
+    let ok = true;
+    try {
+        localStorage.setItem(CHAVE_DIARIO, JSON.stringify(doc)); // escrita atomica: um unico setItem
+        gravacaoFalhou = false;
+    } catch (e) {
+        gravacaoFalhou = true; // quota excedida ou bloqueado
+        ok = false;
+    }
+    avisar();
+    return ok;
+}
+
+function avisar() {
+    ouvintes.forEach((fn) => {
+        try {
+            fn();
+        } catch (e) {
+            /* um ouvinte quebrado nao derruba os outros */
+        }
+    });
+}
+
+/** Chama fn quando o diario muda (nesta aba ou em outra, via evento storage). Devolve a funcao que cancela. */
+export function aoMudar(fn) {
+    ouvintes.add(fn);
+    return () => ouvintes.delete(fn);
+}
+
+if (typeof window !== 'undefined') {
+    window.addEventListener('storage', (e) => {
+        if (e.key === CHAVE_DIARIO || e.key === CHAVE_ANTIGA || e.key === null) avisar();
+    });
+}
+
+/** O navegador deixa guardar dados? (testa de verdade: modo privado antigo falha so no setItem) */
+export function persiste() {
+    if (gravacaoFalhou || leituraFalhou) return false;
+    try {
+        const k = 'aeon:v2:teste';
+        localStorage.setItem(k, '1');
+        localStorage.removeItem(k);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+/* ---------- historico antigo (somente leitura) ---------- */
+
+function lerAntigo() {
+    let lista;
+    try {
+        lista = JSON.parse(localStorage.getItem(CHAVE_ANTIGA));
+    } catch (e) {
+        return [];
+    }
+    if (!Array.isArray(lista)) return [];
+    const usados = new Set();
+    const saida = [];
+    lista.forEach((item, i) => {
+        if (!item || typeof item !== 'object' || !item.cards || typeof item.cards !== 'object') return;
+        const cartas = [];
+        for (const pos of POSICOES) {
+            const c = item.cards[pos];
+            const order = c && Number(c.order);
+            if (Number.isInteger(order) && order >= 0 && order <= 77) cartas.push({ order, pos });
+        }
+        if (!cartas.length) return;
+        const rotulo = typeof item.date === 'string' ? limparTexto(item.date, 40) : '';
+        let id = `antigo-${hash(rotulo + cartas.map((c) => c.order).join('-')).toString(36)}`;
+        if (usados.has(id)) id += `-${i}`;
+        usados.add(id);
+        const t = dataAntiga(rotulo) || new Date(Date.UTC(2000, 0, 1) + i * 1000).toISOString();
+        saida.push({ id, t, tipo: 'leitura', cartas, nota: '', m: t, rotulo, antigo: true, semData: !dataAntiga(rotulo) });
+    });
+    return saida;
+}
+
+/** toLocaleString antigo: "10/11/2026 14:32:05" (pt-BR) ou algo que o Date entenda. */
+function dataAntiga(texto) {
+    const m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})[ ,]+(\d{1,2}):(\d{2})(?::(\d{2}))?/.exec(texto);
+    if (m) {
+        const d = new Date(+m[3], +m[2] - 1, +m[1], +m[4], +m[5], +(m[6] || 0));
+        if (!Number.isNaN(d.getTime()) && d.getMonth() === +m[2] - 1) return d.toISOString();
+    }
+    return null;
+}
+
+/* ---------- API ---------- */
+
+/** Entradas do diario (v2 + historico antigo convertido), da mais nova para a mais antiga. */
+export function listar() {
+    const doc = carregar();
+    const ids = new Set(doc.entradas.map((e) => e.id));
+    const ocultos = new Set(doc.ocultos);
+    const antigas = lerAntigo().filter((e) => !ids.has(e.id) && !ocultos.has(e.id));
+    return [...doc.entradas, ...antigas].sort((a, b) => (a.t < b.t ? 1 : a.t > b.t ? -1 : 0));
+}
+
+export function obter(id) {
+    return listar().find((e) => e.id === id) || null;
+}
+
+function aplicarLimite(doc) {
+    if (doc.entradas.length <= LIMITE_ENTRADAS) return 0;
+    doc.entradas.sort((a, b) => (a.t < b.t ? 1 : -1));
+    const descartadas = doc.entradas.length - LIMITE_ENTRADAS;
+    doc.entradas.length = LIMITE_ENTRADAS;
+    avisoPendente = `O diário guarda até ${LIMITE_ENTRADAS} entradas. ${descartadas === 1 ? 'A mais antiga foi descartada' : `As ${descartadas} mais antigas foram descartadas`}.`;
+    return descartadas;
+}
+
+/** Cria (ou atualiza) a entrada da carta do dia. Id estavel pela data; a nota existente e preservada. */
+export function guardarDia(order, data = dataLocal()) {
+    const doc = carregar();
+    const id = `dia-${data}`;
+    const existente = doc.entradas.find((e) => e.id === id);
+    if (existente) {
+        existente.cartas = [{ order: Number(order) }];
+    } else {
+        const hoje = dataLocal();
+        const t = data === hoje ? new Date().toISOString() : new Date(`${data}T12:00:00`).toISOString();
+        const nova = sanearEntrada({ id, t, tipo: 'dia', cartas: [{ order: Number(order) }], nota: '' });
+        if (!nova) return { id, ok: false };
+        doc.entradas.push(nova);
+    }
+    aplicarLimite(doc);
+    return { id, ok: gravar(doc) };
+}
+
+/** Cria uma entrada de leitura de 3 cartas. cartas: [{order, pos}]. */
+export function criarLeitura(cartas) {
+    const doc = carregar();
+    const agora = new Date();
+    const id = `leitura-${agora.getTime().toString(36)}-${Math.floor(Math.random() * 1296).toString(36)}`;
+    const nova = sanearEntrada({
+        id,
+        t: agora.toISOString(),
+        tipo: 'leitura',
+        cartas: cartas.map((c) => ({ order: Number(c.order), pos: c.pos })),
+        nota: '',
+    });
+    if (!nova) return { id, ok: false };
+    doc.entradas.push(nova);
+    aplicarLimite(doc);
+    return { id, ok: gravar(doc) };
+}
+
+/** Grava a nota. Se a entrada vem do historico antigo, ela e adotada pelo diario v2 (o antigo continua intacto). */
+export function salvarNota(id, texto) {
+    const doc = carregar();
+    let entrada = doc.entradas.find((e) => e.id === id);
+    if (!entrada) {
+        const antiga = lerAntigo().find((e) => e.id === id);
+        if (!antiga) return { ok: false, ausente: true };
+        const { antigo, semData, ...limpa } = antiga;
+        entrada = sanearEntrada(limpa);
+        if (!entrada) return { ok: false };
+        doc.entradas.push(entrada);
+    }
+    entrada.nota = limparTexto(texto, LIMITE_NOTA);
+    entrada.m = new Date().toISOString();
+    aplicarLimite(doc);
+    return { ok: gravar(doc) };
+}
+
+/** Apaga uma entrada. Uma leitura do historico antigo so e escondida do diario (o antigo nao e tocado). */
+export function apagarEntrada(id) {
+    const doc = carregar();
+    doc.entradas = doc.entradas.filter((e) => e.id !== id);
+    if (id.startsWith('antigo-') && !doc.ocultos.includes(id)) doc.ocultos.push(id);
+    return gravar(doc);
+}
+
+/**
+ * Apaga todo o diario: entradas e notas v2, e esconde as leituras antigas do diario.
+ * Nao apaga a carta do dia nem a semana em estrelas. So apaga o historico antigo se `tambemAntigo` for true.
+ */
+export function apagarTudo({ tambemAntigo = false } = {}) {
+    const doc = vazio();
+    if (tambemAntigo) {
+        try {
+            localStorage.removeItem(CHAVE_ANTIGA);
+        } catch (e) {
+            /* sem armazenamento: nada a apagar */
+        }
+    } else {
+        doc.ocultos = lerAntigo().map((e) => e.id).slice(0, LIMITE_ENTRADAS);
+    }
+    return gravar(doc);
+}
+
+/* ---------- backup ---------- */
+
+export function exportar() {
+    const entradas = listar().map(({ antigo, semData, ...resto }) => resto);
+    return { v: 2, exportado: new Date().toISOString(), entradas };
+}
+
+/**
+ * Importa um arquivo de backup. O conteudo e DADO NAO CONFIAVEL: tamanho, JSON, versao, tipos, limites e
+ * lista branca de campos. Mescla por id sem duplicar e sem sobrescrever nota local mais nova.
+ * @returns {{ok: boolean, motivo?: string, importadas: number, ignoradas: number}}
+ */
+export function importar(texto) {
+    const falha = (motivo) => ({ ok: false, motivo, importadas: 0, ignoradas: 0 });
+    if (typeof texto !== 'string' || texto.length > LIMITE_ARQUIVO) return falha('O arquivo passa de 1 MB.');
+    let bruto;
+    try {
+        bruto = JSON.parse(texto);
+    } catch (e) {
+        return falha('Este arquivo não é um backup do diário (JSON inválido).');
+    }
+    if (!bruto || typeof bruto !== 'object' || Array.isArray(bruto) || bruto.v !== 2 || !Array.isArray(bruto.entradas)) {
+        return falha('Este arquivo não é um backup do diário do Aeon Fool.');
+    }
+    const doc = carregar();
+    const locais = new Map(doc.entradas.map((e) => [e.id, e]));
+    // entradas do historico antigo que ainda nao foram adotadas tambem contam como locais (evita duplicar)
+    lerAntigo().forEach((e) => {
+        if (!locais.has(e.id)) locais.set(e.id, { ...e, nota: '', m: '1970-01-01T00:00:00.000Z', virtual: true });
+    });
+    let importadas = 0;
+    let ignoradas = Math.max(0, bruto.entradas.length - LIMITE_LEITURA_IMPORTACAO);
+    const vistosNoArquivo = new Set();
+    for (const item of bruto.entradas.slice(0, LIMITE_LEITURA_IMPORTACAO)) {
+        const nova = sanearEntrada(item);
+        if (!nova || vistosNoArquivo.has(nova.id)) {
+            ignoradas++;
+            continue;
+        }
+        vistosNoArquivo.add(nova.id);
+        const local = locais.get(nova.id);
+        if (!local) {
+            doc.entradas.push(nova);
+            locais.set(nova.id, nova);
+            importadas++;
+        } else if (nova.nota && nova.m > local.m && nova.nota !== local.nota) {
+            // so a nota mais nova vence; a nota local mais nova nunca e sobrescrita
+            if (local.virtual) {
+                const { antigo, semData, virtual, ...base } = local;
+                const adotada = sanearEntrada(base);
+                if (adotada) {
+                    adotada.nota = nova.nota;
+                    adotada.m = nova.m;
+                    doc.entradas.push(adotada);
+                    locais.set(adotada.id, adotada);
+                    importadas++;
+                } else ignoradas++;
+            } else {
+                local.nota = nova.nota;
+                local.m = nova.m;
+                importadas++;
+            }
+        } else {
+            ignoradas++;
+        }
+    }
+    // entradas importadas que estavam escondidas voltam a aparecer
+    doc.ocultos = doc.ocultos.filter((id) => !vistosNoArquivo.has(id));
+    aplicarLimite(doc);
+    const ok = gravar(doc);
+    return { ok, motivo: ok ? '' : 'Não foi possível guardar neste aparelho.', importadas, ignoradas };
+}
+
+/* ---------- recados entre telas ---------- */
+
+/** A tela do diario, ao abrir, leva o foco para a nota desta entrada. */
+export function pedirFoco(id) {
+    focoPendente = id;
+}
+export function consumirFoco() {
+    const id = focoPendente;
+    focoPendente = null;
+    return id;
+}
+export function consumirAviso() {
+    const a = avisoPendente;
+    avisoPendente = '';
+    return a;
+}
