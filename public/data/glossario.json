@@ -1302,5 +1302,19 @@
       "corte",
       "golden-dawn"
     ]
+  },
+  {
+    "id": "pedra-filosofal",
+    "termo": "pedra filosofal",
+    "aliases": [
+      "pedra filosofal"
+    ],
+    "auto": true,
+    "curto": "A substância final da alquimia: a que transmuta o metal comum em ouro e a matéria bruta em perfeição. É o fruto da Grande Obra.",
+    "mais": "Mais que um objeto, a pedra é a imagem do trabalho concluído: o que foi calcinado, dissolvido, separado e unido volta como ouro vivo. Nas cartas de Discos, ela aparece quando a matéria chega ao seu termo e passa a multiplicar o que toca.",
+    "ver_tambem": [
+      "grande-obra",
+      "operacoes-alquimicas"
+    ]
   }
 ]
