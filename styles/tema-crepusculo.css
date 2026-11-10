@@ -32,6 +32,8 @@ html:not([data-theme="aurora"]) body::after {
 }
 /* detalhes do Crepusculo: halo atras da carta, pilulas */
 [data-theme="crepusculo"] .halo::before, :root:not([data-theme]) .halo::before {
-  content: ""; position: absolute; z-index: -1; inset: -22% -30%;
+  content: ""; position: absolute; z-index: -1; inset: -26% -38%;
   background: radial-gradient(closest-side, var(--glow), transparent 72%);
+  animation: respirar 7s ease-in-out infinite;
 }
+@keyframes respirar { 0%, 100% { opacity: 0.6; transform: scale(0.96); } 50% { opacity: 1; transform: scale(1.04); } }
