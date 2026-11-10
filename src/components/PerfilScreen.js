@@ -1,10 +1,11 @@
 import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
 import { gl, ic } from '../utils/glifos.js';
 import { baixarBackup } from '../utils/backup.js';
+import { apagarMapaComDesfazer } from './desfazerMapa.js';
 import { abrir, avisar, ehDesktop } from './Sobreposicao.js';
 import { loadCards } from '../utils/cardsUtil.js';
 import {
-    listar, principal, apelido, definirApelido, apagar, importar, persiste, aoMudar,
+    listar, principal, apelido, definirApelido, importar, persiste, aoMudar,
     LIMITE_APELIDO, LIMITE_ARQUIVO,
 } from '../utils/perfil.js';
 import { carregarTextos, texto, esc, calcular, dataExtenso, dataCurta, grauTexto, SIGNO_ELEMENTO } from '../utils/mapaComum.js';
@@ -59,8 +60,6 @@ const T = {
     erroLer: 'Não foi possível ler o arquivo.',
     erroTamanho: 'O arquivo passa de 1 MB. Escolha um backup do Aeon Fool.',
     erroCarregar: 'Não foi possível carregar o mapa agora. Recarregue a página e tente de novo.',
-    apagado: 'Mapa apagado.',
-    erroApagar: 'Não foi possível apagar o mapa agora.',
     acoes: 'Ações',
     acoesTitulo: 'Ações do perfil',
     abas: 'Seções do perfil',
@@ -71,7 +70,6 @@ const T = {
     importarMapas: 'Importar mapas',
     guardadoOk: 'Mapa guardado neste aparelho.',
     repetidoOk: 'Esse mapa já estava guardado. Nada foi duplicado.',
-    manter: 'Manter o mapa guardado',
 };
 const ABAS = [['mapas', 'Mapas'], ['dados', 'Dados'], ['prefs', 'Preferências']];
 let ABA_LEMBRADA = 'mapas';
@@ -113,7 +111,6 @@ export class PerfilScreen extends HTMLElement {
         if (a === 'dados') avisar(this.t('ui.meusdados.salvo', {}, 'Dados atualizados.'));
         else if (a === 'guardado') avisar(T.guardadoOk);
         else if (a === 'repetido') avisar(T.repetidoOk);
-        if (this.estado.apagado) avisar(T.apagado);
     }
 
     disconnectedCallback() {
@@ -265,7 +262,7 @@ export class PerfilScreen extends HTMLElement {
 
     painelDados(m) {
         return `<section class="painel" aria-labelledby="db-t"><h3 id="db-t">${T.dados}</h3><dl class="dl"><div><dt>${T.mapa}</dt><dd>${esc(m.rotulo)}</dd></div><div><dt>${T.data}</dt><dd>${dataExtenso(m.data)}</dd></div><div><dt>${T.hora}</dt><dd>${m.hora || T.semHora}</dd></div><div><dt>${T.local}</dt><dd>${esc(m.local.nome)}</dd></div></dl>
-            <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="editar">${ic('editar')}${T.editar}</button><button class="btn btn-perigo" type="button" data-exec="apagar" aria-haspopup="dialog">${ic('lixo')}${T.apagarEste}</button></div></section>`;
+            <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="editar">${ic('editar')}${T.editar}</button><button class="btn btn-perigo" type="button" data-exec="apagar">${ic('lixo')}${T.apagarEste}</button></div></section>`;
     }
 
     painelTema() {
@@ -404,7 +401,7 @@ export class PerfilScreen extends HTMLElement {
         else if (id === 'trocar') this.abrirTrocar(gatilho);
         else if (id === 'exportar') this.dizer(baixarBackup() ? T.exportado : T.erroExportar);
         else if (id === 'importar') this.querySelector('[data-arquivo]').click();
-        else if (id === 'apagar') this.confirmarApagar(gatilho);
+        else if (id === 'apagar') this.apagarMapa();
     }
 
     abrirGaveta(botao) {
@@ -447,27 +444,13 @@ export class PerfilScreen extends HTMLElement {
         this.sobre = c;
     }
 
-    confirmarApagar(gatilho) {
-        const m = listar().find((x) => x.id === this.sel);
-        if (!m) return;
-        const c = abrir({
-            tipo: 'confirmacao', titulo: `Apagar o mapa de ${esc(m.rotulo)}?`, gatilho, descricao: true,
-            corpo: `<p>${esc(this.t('ui.apagar.confirma'))}</p><div class="sob-pilha" style="margin-top:18px"><button class="btn btn-ghost" type="button" data-foco data-manter>${esc(this.t('ui.apagar.cancela', {}, T.manter))}</button>
-                <button class="btn btn-perigo" type="button" data-apagar>${ic('lixo')}${esc(this.t('ui.apagar.btn', {}, 'Apagar o mapa'))}</button></div>`,
-        });
-        c.corpo.addEventListener('click', (e) => {
-            if (e.target.closest('[data-manter]')) c.fechar();
-            else if (e.target.closest('[data-apagar]')) {
-                const ok = apagar(this.sel);
-                c.fechar(false);
-                this.sel = null;
-                this.estado = {};
-                this.status = ok ? T.apagado : T.erroApagar;
-                this.desenhar('#perfil-h1');
-                if (ok) avisar(T.apagado);
-            }
-        });
-        this.sobre = c;
+    apagarMapa() {
+        if (!listar().some((x) => x.id === this.sel)) return;
+        const ok = apagarMapaComDesfazer(this.sel);
+        if (!ok) return;
+        this.sel = null;
+        this.estado = {};
+        this.desenhar('#perfil-h1');
     }
 
     resumoImportacao(r) {

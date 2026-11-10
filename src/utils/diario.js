@@ -357,6 +357,29 @@ export function apagarEntrada(id) {
     return gravar(doc);
 }
 
+/** Copia do diario agora (e do historico antigo, que o apagar tudo pode remover), para o Desfazer. */
+export function instantaneo() {
+    let antigo = null;
+    try {
+        antigo = localStorage.getItem(CHAVE_ANTIGA);
+    } catch (e) {
+        /* sem armazenamento */
+    }
+    return { doc: JSON.parse(JSON.stringify(carregar())), antigo };
+}
+
+/** Devolve o diario ao estado da copia (o Desfazer), inclusive o historico antigo se ele foi removido. */
+export function restaurar(copia) {
+    if (copia.antigo != null) {
+        try {
+            if (localStorage.getItem(CHAVE_ANTIGA) == null) localStorage.setItem(CHAVE_ANTIGA, copia.antigo);
+        } catch (e) {
+            /* sem armazenamento: a restauracao do diario segue */
+        }
+    }
+    return gravar(sanearDoc(copia.doc));
+}
+
 /**
  * Apaga todo o diario: entradas e notas v2, e esconde as leituras antigas do diario.
  * Nao apaga a carta do dia nem a semana em estrelas. So apaga o historico antigo se `tambemAntigo` for true.

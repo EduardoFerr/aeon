@@ -269,21 +269,43 @@ export function abrir(o) {
 
 let toastEl = null;
 let toastTimer = 0;
-/** Confirmacao curta ("Mapa guardado", "Texto copiado"). Fica numa regiao role=status, some sozinha. */
-export function avisar(msg, { erro = false } = {}) {
+let agendarAtual = null;
+/**
+ * Confirmacao curta ("Mapa guardado", "Texto copiado"). Fica numa regiao role=status, some sozinha.
+ * Com `desfazer: { rotulo, aoClicar }` vira o aviso de uma exclusao: o botao "Desfazer" fica 8 s
+ * (pausa com o ponteiro ou o foco em cima), e um novo aviso fecha o anterior sem desfazer nada.
+ */
+export function avisar(msg, { erro = false, desfazer = null } = {}) {
     if (!toastEl) {
         toastEl = document.createElement('div');
         toastEl.className = 'toast';
         toastEl.setAttribute('role', 'status');
         toastEl.setAttribute('aria-live', 'polite');
         document.body.append(toastEl);
+        for (const a of ['pointerenter', 'focusin']) toastEl.addEventListener(a, () => clearTimeout(toastTimer));
+        for (const a of ['pointerleave', 'focusout']) toastEl.addEventListener(a, () => agendarAtual && agendarAtual());
     }
-    toastEl.innerHTML = `${ic(erro ? 'erro' : 'ok')}<span></span>`;
+    clearTimeout(toastTimer);
+    toastEl.innerHTML = `${ic(erro ? 'erro' : 'ok')}<span></span>${desfazer ? `<button type="button" class="btn btn-terciario toast-acao">${desfazer.rotulo || 'Desfazer'}</button>` : ''}`;
     toastEl.classList.toggle('erro', erro);
+    toastEl.classList.toggle('com-acao', !!desfazer);
+    const esconder = () => toastEl && toastEl.classList.remove('on');
+    const agendar = () => {
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(esconder, desfazer ? 8000 : 3200);
+    };
+    agendarAtual = agendar;
+    if (desfazer) {
+        const b = toastEl.querySelector('.toast-acao');
+        b.addEventListener('click', () => {
+            clearTimeout(toastTimer);
+            esconder();
+            desfazer.aoClicar();
+        });
+    }
     requestAnimationFrame(() => {
         toastEl.querySelector('span').textContent = msg;
         toastEl.classList.add('on');
     });
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toastEl && toastEl.classList.remove('on'), 3200);
+    agendar();
 }

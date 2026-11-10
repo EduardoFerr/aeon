@@ -5,7 +5,7 @@ import { navigateTo } from '../utils/navigation.js';
 import { ic } from '../utils/glifos.js';
 import { abrir, avisar } from './Sobreposicao.js';
 import {
-    listar, salvarNota, apagarEntrada, apagarTudo, exportar, importar, persiste, aoMudar,
+    listar, salvarNota, apagarEntrada, apagarTudo, instantaneo, restaurar, exportar, importar, persiste, aoMudar,
     consumirFoco, consumirAviso, LIMITE_NOTA, LIMITE_ARQUIVO,
 } from '../utils/diario.js';
 import('./TarotCardInfo.js');
@@ -28,10 +28,10 @@ const TEXTO = {
     falha: 'Não foi possível salvar',
     limiteAtingido: 'Limite atingido',
     apagar: 'Apagar',
-    apagarPergunta: 'Apagar esta entrada e a anotação?',
-    apagarSim: 'Apagar entrada',
+    entradaApagada: 'Entrada apagada',
+    desfazer: 'Desfazer',
+    voltou: 'Entrada de volta no diário',
     manter: 'Manter',
-    voltar: 'Voltar',
     maisUm: 'Mostrar mais',
     vazioTitulo: 'Seu diário está em branco',
     vazioTexto: 'Cada carta que você guardar aparece aqui, com o que ela despertou. Comece pela carta de hoje ou por uma leitura.',
@@ -54,6 +54,7 @@ const TEXTO = {
     erroImportar: 'Não foi possível importar.',
     semNovidade: 'Nada novo: as entradas desse arquivo já estavam no diário.',
     apagado: 'Diário apagado',
+    voltouTudo: 'Diário de volta',
     cartaSem: 'Carta',
 };
 
@@ -66,7 +67,7 @@ const fmtDia = new Intl.DateTimeFormat('pt-BR', { weekday: 'long', day: 'numeric
 const fmtHora = new Intl.DateTimeFormat('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
 const mais = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
-const textoApagarTudo = (n) => `${n === 1 ? '1 registro será apagado' : `${n} registros serão apagados`} deste aparelho, com as anotações. A carta do dia e a semana em estrelas não são apagadas. Não dá para desfazer.`;
+const textoApagarTudo = (n) => `${n === 1 ? '1 registro será apagado' : `${n} registros serão apagados`} deste aparelho, com as anotações. A carta do dia e a semana em estrelas não são apagadas.`;
 
 function dataLegivel(e) {
     if (e.rotulo && e.t.startsWith('2000-01-01')) return e.rotulo; // leitura antiga sem data que o navegador entenda
@@ -102,7 +103,7 @@ export class HistoryScreen extends HTMLElement {
                         <button class="btn btn-ghost" type="button" data-exec="exportar">${ic('baixar')}${TEXTO.exportar}</button>
                         <button class="btn btn-ghost" type="button" data-exec="importar">${ic('copiar')}${TEXTO.importar}</button>
                         <span class="sep" aria-hidden="true"></span>
-                        <button class="btn btn-ghost btn-perigo" type="button" data-exec="apagar-tudo" aria-haspopup="dialog">${ic('lixo')}${TEXTO.apagarTudo}</button>
+                        <button class="btn btn-perigo" type="button" data-exec="apagar-tudo" aria-haspopup="dialog">${ic('lixo')}${TEXTO.apagarTudo}</button>
                     </div>
                     <input type="file" accept="application/json,.json" hidden data-arquivo>
                 </header>
@@ -117,7 +118,6 @@ export class HistoryScreen extends HTMLElement {
                 </div>
                 <ol class="diario-lista" data-lista></ol>
                 <div class="diario-mais" data-mais hidden><button type="button" class="btn btn-ghost" data-acao="mais">${TEXTO.maisUm}</button></div>
-                <div class="screen-actions"><button type="button" class="btn btn-ghost" data-ir="home">${TEXTO.voltar}</button></div>
             </section>
         `;
         document.querySelector('#page-title').textContent = TEXTO.titulo;
@@ -244,7 +244,7 @@ export class HistoryScreen extends HTMLElement {
                         <h2 class="diario-data" id="${idTit}" tabindex="-1">${quando}</h2>
                         <p class="diario-tipo">${leitura ? TEXTO.tipoLeitura : mapa ? TEXTO.tipoMapa : TEXTO.tipoDia}${mapa && e.rotulo ? ` (${escaparHtml(e.rotulo)})` : ''}</p>
                     </div>
-                    <button type="button" class="btn btn-ghost diario-apagar" data-acao="apagar" aria-expanded="false" aria-label="${TEXTO.apagar}: ${quando}">${TEXTO.apagar}</button>
+                    <button type="button" class="btn btn-terciario btn-perigo diario-apagar" data-acao="apagar" aria-label="${TEXTO.apagar}: ${quando}">${TEXTO.apagar}</button>
                 </header>
                 ${e.pergunta ? `<p class="diario-pergunta"><span class="diario-pergunta-rotulo">${TEXTO.pergunta}</span> <q>${escaparHtml(e.pergunta)}</q></p>` : ''}
                 <ul class="diario-cartas${leitura || mapa ? ' tres' : ''}">${minis}</ul>
@@ -254,13 +254,6 @@ export class HistoryScreen extends HTMLElement {
                     <div class="diario-rodape">
                         <p class="diario-estado" id="${idNota}-estado" role="status" aria-live="polite" data-estado></p>
                         <p class="diario-contador" data-contador hidden></p>
-                    </div>
-                </div>
-                <div class="diario-conf" data-conf hidden role="group" aria-label="${TEXTO.apagarPergunta}">
-                    <p>${TEXTO.apagarPergunta}</p>
-                    <div class="btn-row">
-                        <button type="button" class="btn btn-ghost" data-acao="manter">${TEXTO.manter}</button>
-                        <button type="button" class="btn btn-perigo" data-acao="apagar-sim">${TEXTO.apagarSim}</button>
                     </div>
                 </div>
             </article>`;
@@ -284,9 +277,7 @@ export class HistoryScreen extends HTMLElement {
                 if (info && info.showInfo && carta) info.showInfo(carta, b);
             })
         );
-        li.querySelector('[data-acao="apagar"]').addEventListener('click', () => this.pedirApagar(li, true));
-        li.querySelector('[data-acao="manter"]').addEventListener('click', () => this.pedirApagar(li, false));
-        li.querySelector('[data-acao="apagar-sim"]').addEventListener('click', () => this.apagar(e.id, li));
+        li.querySelector('[data-acao="apagar"]').addEventListener('click', () => this.apagar(e.id, li));
 
         return { li, json: JSON.stringify(e), capa: JSON.stringify({ ...e, nota: '', m: '' }) };
     }
@@ -342,16 +333,10 @@ export class HistoryScreen extends HTMLElement {
 
     /* ---------- apagar entrada ---------- */
 
-    pedirApagar(li, abrir) {
-        const conf = li.querySelector('[data-conf]');
-        const botao = li.querySelector('[data-acao="apagar"]');
-        conf.hidden = !abrir;
-        botao.setAttribute('aria-expanded', String(abrir));
-        (abrir ? conf.querySelector('[data-acao="manter"]') : botao).focus();
-    }
-
     apagar(id, li) {
         const proximo = li.nextElementSibling || li.previousElementSibling;
+        this.salvarTudo();
+        const copia = instantaneo();
         this.limparTimer(id);
         this.local = true;
         try {
@@ -362,6 +347,14 @@ export class HistoryScreen extends HTMLElement {
         this.reconciliar();
         const alvo = proximo && proximo.querySelector('.diario-data');
         (alvo || this.gatilhoAcoes()).focus();
+        avisar(TEXTO.entradaApagada, { desfazer: { rotulo: TEXTO.desfazer, aoClicar: () => this.desfazer(copia, TEXTO.voltou) } });
+    }
+
+    /** Desfazer de uma exclusao: devolve o diario ao estado de antes e mostra a lista de novo. */
+    desfazer(copia, msg) {
+        restaurar(copia);
+        if (this.isConnected) this.reconciliar();
+        avisar(msg);
     }
 
     /* ---------- menu Acoes: exportar, importar, apagar tudo ---------- */
@@ -446,12 +439,14 @@ export class HistoryScreen extends HTMLElement {
             corpo: `<p>${textoApagarTudo(n)}</p>
                 <label class="diario-marca"><input type="checkbox" data-antigo><span>${TEXTO.apagarTudoAntigo}</span></label>
                 <div class="sob-pilha" style="margin-top:18px"><button class="btn btn-ghost" type="button" data-foco data-manter>${TEXTO.manter}</button>
-                <button class="btn btn-perigo" type="button" data-apagar>${ic('lixo')}${TEXTO.apagarTudoSim}</button></div>`,
+                <button class="btn btn-perigo cheio" type="button" data-apagar>${ic('lixo')}${TEXTO.apagarTudoSim}</button></div>`,
         });
         c.corpo.addEventListener('click', (e) => {
             if (e.target.closest('[data-manter]')) c.fechar();
             else if (e.target.closest('[data-apagar]')) {
                 const antigo = c.corpo.querySelector('[data-antigo]').checked;
+                this.salvarTudo();
+                const copia = instantaneo();
                 for (const id of [...this.sujas.keys()]) this.limparTimer(id);
                 this.local = true;
                 try {
@@ -463,7 +458,7 @@ export class HistoryScreen extends HTMLElement {
                 c.fechar(false);
                 const g = this.gatilhoAcoes();
                 if (g) g.focus({ preventScroll: true });
-                avisar(TEXTO.apagado);
+                avisar(TEXTO.apagado, { desfazer: { rotulo: TEXTO.desfazer, aoClicar: () => this.desfazer(copia, TEXTO.voltouTudo) } });
             }
         });
         this.sobre = c;
