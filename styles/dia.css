@@ -42,3 +42,10 @@
 .dia-estrela .icon { width: 26px; height: 26px; color: var(--control); }
 .dia-d.acesa .dia-estrela .icon { color: var(--key); fill: var(--key); filter: drop-shadow(0 0 6px var(--glow)); }
 .dia-frase-semana { color: var(--text-soft); text-align: center; font-family: var(--font-display); font-size: 1.15rem; font-style: italic; }
+
+/* previa do cartao (dialog.sheet) */
+.cartao-sheet { width: min(94vw, 460px); }
+.cartao-previa { display: grid; justify-items: center; min-height: 120px; }
+.cartao-previa canvas { width: auto; max-width: 100%; height: auto; max-height: 56vh; aspect-ratio: 9 / 16; border-radius: var(--r-sm); box-shadow: var(--sh-2); }
+.cartao-acoes { justify-content: center; margin-top: var(--sp-4); }
+.cartao-msg { min-height: 1.6em; margin-top: var(--sp-2); text-align: center; color: var(--text-soft); font-size: var(--fs-sm); }

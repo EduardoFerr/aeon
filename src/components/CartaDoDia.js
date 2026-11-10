@@ -9,6 +9,7 @@ const TEXTO = {
     luz: 'A luz de hoje',
     pergunta: 'Para levar o dia',
     abrir: 'Abrir a carta',
+    compartilhar: 'Compartilhar',
     rotuloVerso: 'Sua carta de hoje, de costas. Ative para virar.',
     anuncio: (carta) => `Carta virada: ${carta.name}, ${carta.title}.`,
     semana: 'Sua semana de cartas',
@@ -86,6 +87,7 @@ export class CartaDoDia extends HTMLElement {
                     </div>` : ''}
                     <div class="btn-row dia-acoes">
                         <button type="button" class="btn btn-primary" data-acao="abrir">${TEXTO.abrir}</button>
+                        <button type="button" class="btn btn-ghost" data-acao="compartilhar" aria-haspopup="dialog">${TEXTO.compartilhar}</button>
                     </div>
                 </div>
             </div>
@@ -97,6 +99,10 @@ export class CartaDoDia extends HTMLElement {
         this.querySelector('[data-acao="abrir"]').addEventListener('click', (e) => {
             const info = document.querySelector('tarot-card-info');
             if (info) info.showInfo(this.carta, e.currentTarget);
+        });
+        this.querySelector('[data-acao="compartilhar"]').addEventListener('click', () => {
+            // o cartao so e montado agora, sob demanda: o modulo nem e baixado antes do clique
+            import('../utils/cartao.js').then((m) => m.abrirCartao({ carta: this.carta, pergunta: this.pergunta, data: this.data }));
         });
         this.atualizarEstado();
         this.pintarSemana();
