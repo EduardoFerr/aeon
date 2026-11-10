@@ -580,7 +580,8 @@
     "id": "exaltacao",
     "termo": "exaltação",
     "aliases": [
-      "exaltado"
+      "exaltado",
+      "exaltação"
     ],
     "auto": true,
     "curto": "Na astrologia, o signo em que um planeta brilha com mais força. O Sol é exaltado em Áries; Saturno, em Libra.",
@@ -1315,6 +1316,427 @@
     "ver_tambem": [
       "grande-obra",
       "operacoes-alquimicas"
+    ]
+  },
+  {
+    "id": "casa",
+    "termo": "casa",
+    "aliases": [
+      "casa",
+      "casas"
+    ],
+    "auto": false,
+    "curto": "Cada uma das doze áreas da vida em que o céu do nascimento é dividido. A casa diz onde, na vida, um planeta atua.",
+    "mais": "A casa 1 é o corpo e a chegada; a 2, os bens; a 3, a palavra; a 4, a raiz; a 5, a criação; a 6, o ofício; a 7, o par; a 8, o limiar; a 9, o sentido; a 10, a vocação; a 11, o grupo; a 12, o retiro. As casas dependem da hora de nascimento.",
+    "ver_tambem": [
+      "ascendente",
+      "placidus",
+      "signos-inteiros"
+    ]
+  },
+  {
+    "id": "aspecto",
+    "termo": "aspecto",
+    "aliases": [
+      "aspecto",
+      "aspectos"
+    ],
+    "auto": false,
+    "curto": "A distância angular entre dois astros no céu. Só alguns ângulos contam: 0°, 60°, 90°, 120° e 180°.",
+    "mais": "Cada ângulo tem nome e temperamento: conjunção, sextil, quadratura, trígono e oposição. O aspecto liga dois astros num mesmo assunto; a folga aceita em torno do ângulo exato é o orbe.",
+    "ver_tambem": [
+      "orbe",
+      "conjuncao",
+      "sextil",
+      "quadratura",
+      "trigono",
+      "oposicao"
+    ]
+  },
+  {
+    "id": "orbe",
+    "termo": "orbe",
+    "aliases": [
+      "orbe",
+      "orbes"
+    ],
+    "auto": true,
+    "curto": "A folga, em graus, que se aceita em torno do ângulo exato de um aspecto. Quanto menor o orbe, mais forte o aspecto.",
+    "mais": "Dois astros a 118° um do outro formam um trígono com orbe de 2°. Cada leitor escolhe os seus orbes; o mapa usa uma folga maior para o Sol e a Lua e menor para os demais.",
+    "ver_tambem": [
+      "aspecto"
+    ]
+  },
+  {
+    "id": "retrogradacao",
+    "termo": "retrogradação",
+    "aliases": [
+      "retrógrado",
+      "retrógrada",
+      "retrogradação",
+      "retrogradar"
+    ],
+    "auto": true,
+    "curto": "Quando um planeta parece andar para trás no céu, visto da Terra. É efeito de perspectiva: o planeta não inverte o curso.",
+    "mais": "Do Sol e da Lua nunca se diz isso. De Mercúrio a Plutão, o planeta retrógrado é lido como uma energia que trabalha para dentro, revisando o que já foi feito. Urano, Netuno e Plutão passam cerca de metade do ano assim.",
+    "ver_tambem": [
+      "aspecto"
+    ]
+  },
+  {
+    "id": "nodo",
+    "termo": "nodo lunar",
+    "aliases": [
+      "nodo",
+      "nodos",
+      "nodo médio",
+      "Nodo Norte",
+      "Nodo Sul"
+    ],
+    "auto": true,
+    "curto": "Os dois pontos em que a órbita da Lua cruza a trajetória aparente do Sol. O Norte aponta uma direção; o Sul, o terreno já conhecido.",
+    "mais": "O Nodo Sul fica sempre no ponto oposto ao Norte. O mapa usa o nodo médio, que é a posição calculada pela média e anda de forma regular, sem as oscilações do nodo verdadeiro.",
+    "ver_tambem": [
+      "casa",
+      "aspecto"
+    ]
+  },
+  {
+    "id": "ascendente",
+    "termo": "Ascendente",
+    "aliases": [
+      "Ascendente"
+    ],
+    "auto": true,
+    "curto": "O signo que nascia no horizonte leste no instante do nascimento. Abre a casa 1 e marca o modo de chegar e de ser visto.",
+    "mais": "O Ascendente muda de signo em cerca de duas horas, por isso exige a hora exata. Do lado oposto fica o Descendente, e no ponto mais alto do céu, o Meio do Céu.",
+    "ver_tambem": [
+      "descendente",
+      "meio-do-ceu",
+      "casa"
+    ]
+  },
+  {
+    "id": "meio-do-ceu",
+    "termo": "Meio do Céu",
+    "aliases": [
+      "Meio do Céu",
+      "MC"
+    ],
+    "auto": true,
+    "curto": "O ponto da eclíptica que cruzava o alto do céu no instante do nascimento. Abre a casa 10 e fala do que se constrói à vista.",
+    "mais": "Fica no meridiano do lugar, no ponto mais alto do trajeto do Sol. Oposto a ele está o Fundo do Céu, que abre a casa 4, a raiz.",
+    "ver_tambem": [
+      "ascendente",
+      "casa"
+    ]
+  },
+  {
+    "id": "descendente",
+    "termo": "Descendente",
+    "aliases": [
+      "Descendente"
+    ],
+    "auto": true,
+    "curto": "O ponto oposto ao Ascendente, onde os astros se punham no horizonte oeste. Abre a casa 7, a do par.",
+    "mais": "Está sempre a 180° do Ascendente. Uma oposição ao Ascendente é o mesmo que uma conjunção com o Descendente.",
+    "ver_tambem": [
+      "ascendente",
+      "casa"
+    ]
+  },
+  {
+    "id": "regente",
+    "termo": "regente",
+    "aliases": [
+      "regente",
+      "regentes",
+      "regência",
+      "rege"
+    ],
+    "auto": false,
+    "curto": "O planeta que governa um signo e nele atua em casa. Cada signo tem um regente tradicional; três têm também um moderno.",
+    "mais": "Pela tradição, Áries e Escorpião são de Marte, Touro e Libra de Vênus, Gêmeos e Virgem de Mercúrio, Câncer da Lua, Leão do Sol, Sagitário e Peixes de Júpiter, Capricórnio e Aquário de Saturno. A convenção moderna acrescenta Plutão em Escorpião, Urano em Aquário e Netuno em Peixes.",
+    "ver_tambem": [
+      "domicilio",
+      "exilio",
+      "decano"
+    ]
+  },
+  {
+    "id": "elemento",
+    "termo": "elemento do signo",
+    "aliases": [
+      "elemento"
+    ],
+    "auto": false,
+    "curto": "Os signos se agrupam em quatro elementos: Fogo, Terra, Ar e Água, três signos em cada um.",
+    "mais": "Fogo: Áries, Leão, Sagitário. Terra: Touro, Virgem, Capricórnio. Ar: Gêmeos, Libra, Aquário. Água: Câncer, Escorpião, Peixes. Quando o mapa tem muito de um elemento, ou quase nada, a leitura destaca isso.",
+    "ver_tambem": [
+      "elementos",
+      "modalidade"
+    ]
+  },
+  {
+    "id": "modalidade",
+    "termo": "modalidade",
+    "aliases": [
+      "modalidade",
+      "modalidades"
+    ],
+    "auto": false,
+    "curto": "O modo de agir de cada signo: cardeal começa, fixo sustenta, mutável adapta. Cada modalidade reúne quatro signos.",
+    "mais": "Cardeais: Áries, Câncer, Libra, Capricórnio. Fixos: Touro, Leão, Escorpião, Aquário. Mutáveis: Gêmeos, Virgem, Sagitário, Peixes. Cada elemento tem um signo de cada modalidade.",
+    "ver_tambem": [
+      "cardeal",
+      "fixo",
+      "mutavel",
+      "elemento"
+    ]
+  },
+  {
+    "id": "cardeal",
+    "termo": "cardeal",
+    "aliases": [
+      "cardeal",
+      "cardeais"
+    ],
+    "auto": false,
+    "curto": "Modalidade dos signos que abrem uma estação: Áries, Câncer, Libra e Capricórnio. Iniciam, dão o primeiro passo.",
+    "mais": "Os signos cardeais caem nos solstícios e nos equinócios, os quatro pontos em que o ano muda de quadrante.",
+    "ver_tambem": [
+      "modalidade",
+      "estacoes-no-brasil"
+    ]
+  },
+  {
+    "id": "fixo",
+    "termo": "fixo",
+    "aliases": [
+      "fixo",
+      "fixos"
+    ],
+    "auto": false,
+    "curto": "Modalidade dos signos do meio da estação: Touro, Leão, Escorpião e Aquário. Sustentam, firmam, resistem à mudança.",
+    "mais": "Caem quando a estação está no auge. O excesso aparece como teimosia; a falta, como dificuldade de manter o que se começou.",
+    "ver_tambem": [
+      "modalidade"
+    ]
+  },
+  {
+    "id": "mutavel",
+    "termo": "mutável",
+    "aliases": [
+      "mutável",
+      "mutáveis"
+    ],
+    "auto": false,
+    "curto": "Modalidade dos signos que fecham uma estação: Gêmeos, Virgem, Sagitário e Peixes. Adaptam, ajustam, preparam a virada.",
+    "mais": "Caem no fim de cada estação, quando o próximo clima já se anuncia. O excesso aparece como dispersão; a falta, como rigidez diante do imprevisto.",
+    "ver_tambem": [
+      "modalidade"
+    ]
+  },
+  {
+    "id": "exilio",
+    "termo": "exílio",
+    "aliases": [
+      "exílio",
+      "exilado",
+      "em exílio"
+    ],
+    "auto": false,
+    "curto": "O signo oposto ao do domicílio de um planeta, onde ele atua com mais esforço. Também se diz detrimento.",
+    "mais": "Marte tem o domicílio em Áries e o exílio em Libra; Vênus faz o caminho inverso. É a dignidade fraca: o planeta funciona, mas fora de casa.",
+    "ver_tambem": [
+      "domicilio",
+      "queda",
+      "exaltacao"
+    ]
+  },
+  {
+    "id": "domicilio",
+    "termo": "domicílio",
+    "aliases": [
+      "domicílio",
+      "em domicílio"
+    ],
+    "auto": false,
+    "curto": "O signo que um planeta rege: sua casa de origem, onde atua com naturalidade. Marte em Áries, Vênus em Libra.",
+    "mais": "Domicílio, exaltação, exílio e queda são as quatro dignidades de signo. O domicílio é a mais firme; o exílio, seu oposto.",
+    "ver_tambem": [
+      "regente",
+      "exilio",
+      "exaltacao",
+      "queda"
+    ]
+  },
+  {
+    "id": "queda",
+    "termo": "queda",
+    "aliases": [
+      "queda",
+      "em queda"
+    ],
+    "auto": false,
+    "curto": "O signo oposto ao da exaltação de um planeta, onde ele perde o brilho. O Sol cai em Libra; Saturno, em Áries.",
+    "mais": "Queda não é defeito: é o signo em que o planeta precisa de mais cuidado para se expressar. Fica a 180° da exaltação.",
+    "ver_tambem": [
+      "exaltacao",
+      "exilio",
+      "domicilio"
+    ]
+  },
+  {
+    "id": "alegria-planetaria",
+    "termo": "alegria planetária",
+    "aliases": [
+      "alegria planetária",
+      "alegria"
+    ],
+    "auto": false,
+    "curto": "A casa em que um planeta se sente à vontade, na astrologia tradicional. Mercúrio na 1, Lua na 3, Vênus na 5, Marte na 6.",
+    "mais": "Segue: Sol na 9, Júpiter na 11 e Saturno na 12. É uma dignidade de casa, diferente das de signo (domicílio, exaltação, exílio, queda).",
+    "ver_tambem": [
+      "casa",
+      "domicilio"
+    ]
+  },
+  {
+    "id": "corresponde-a",
+    "termo": "corresponde a",
+    "aliases": [
+      "corresponde a",
+      "correspondência natural"
+    ],
+    "auto": false,
+    "curto": "A ligação entre cada casa e o signo de mesma ordem: casa 1 com Áries, casa 2 com Touro, até a casa 12 com Peixes.",
+    "mais": "É uma convenção moderna, útil para lembrar o tema da casa. Não é uma dignidade: um planeta não ganha força por estar numa casa que corresponde a certo signo.",
+    "ver_tambem": [
+      "casa",
+      "alegria-planetaria"
+    ]
+  },
+  {
+    "id": "placidus",
+    "termo": "Placidus",
+    "aliases": [
+      "Placidus"
+    ],
+    "auto": true,
+    "curto": "O sistema de casas mais usado hoje: divide o tempo que cada ponto leva para subir ao alto do céu. As casas saem de tamanhos desiguais.",
+    "mais": "Em latitudes muito altas, perto dos círculos polares, o Placidus se torna instável e deixa de funcionar. Nesses casos o mapa avisa e sugere outro sistema, como o de Signos Inteiros.",
+    "ver_tambem": [
+      "signos-inteiros",
+      "casa"
+    ]
+  },
+  {
+    "id": "signos-inteiros",
+    "termo": "Signos Inteiros",
+    "aliases": [
+      "Signos Inteiros"
+    ],
+    "auto": true,
+    "curto": "Sistema de casas em que a casa 1 é o signo inteiro do Ascendente, a 2 o signo seguinte, e assim por diante. Todas medem 30°.",
+    "mais": "É o sistema mais antigo e o mais simples, e não falha em nenhuma latitude. Por isso serve de saída quando o Placidus se torna instável.",
+    "ver_tambem": [
+      "placidus",
+      "ascendente",
+      "casa"
+    ]
+  },
+  {
+    "id": "conjuncao",
+    "termo": "conjunção",
+    "aliases": [
+      "conjunção",
+      "conjunções"
+    ],
+    "auto": false,
+    "curto": "Aspecto de 0°: dois astros no mesmo ponto do céu. Os dois assuntos se fundem e passam a agir como um só.",
+    "mais": "É o aspecto mais forte. O resultado depende dos astros envolvidos: com Vênus, funde-se a doçura; com Marte, o impulso.",
+    "ver_tambem": [
+      "aspecto",
+      "orbe"
+    ]
+  },
+  {
+    "id": "sextil",
+    "termo": "sextil",
+    "aliases": [
+      "sextil",
+      "sextis"
+    ],
+    "auto": false,
+    "curto": "Aspecto de 60°: uma porta aberta entre dois astros. A abertura existe, mas o uso depende de quem a abre.",
+    "mais": "É um aspecto suave e discreto. Liga signos de elementos compatíveis, Fogo com Ar ou Terra com Água.",
+    "ver_tambem": [
+      "aspecto",
+      "orbe"
+    ]
+  },
+  {
+    "id": "quadratura",
+    "termo": "quadratura",
+    "aliases": [
+      "quadratura",
+      "quadraturas"
+    ],
+    "auto": false,
+    "curto": "Aspecto de 90°: dois astros em atrito. A tensão incomoda e, por isso mesmo, move.",
+    "mais": "Liga signos da mesma modalidade e de elementos que não se entendem. É o aspecto das tarefas que exigem esforço e que costumam render mais.",
+    "ver_tambem": [
+      "aspecto",
+      "orbe"
+    ]
+  },
+  {
+    "id": "trigono",
+    "termo": "trígono",
+    "aliases": [
+      "trígono",
+      "trígonos"
+    ],
+    "auto": false,
+    "curto": "Aspecto de 120°: dois astros em fluxo. As coisas correm com facilidade, às vezes demais, e o talento passa despercebido.",
+    "mais": "Liga signos do mesmo elemento. É o aspecto do dom natural, que pode acomodar justamente por não exigir esforço.",
+    "ver_tambem": [
+      "aspecto",
+      "orbe"
+    ]
+  },
+  {
+    "id": "oposicao",
+    "termo": "oposição",
+    "aliases": [
+      "oposição",
+      "oposições"
+    ],
+    "auto": false,
+    "curto": "Aspecto de 180°: dois astros frente a frente, cada um de um lado do céu. Exige achar o equilíbrio entre os polos.",
+    "mais": "Liga signos opostos do zodíaco. Costuma aparecer como um vaivém entre duas necessidades, até se achar o ponto de encontro.",
+    "ver_tambem": [
+      "aspecto",
+      "orbe"
+    ]
+  },
+  {
+    "id": "estacoes-no-brasil",
+    "termo": "estações no Brasil",
+    "aliases": [
+      "estações no Brasil",
+      "solstício",
+      "solstícios",
+      "equinócio",
+      "equinócios"
+    ],
+    "auto": true,
+    "curto": "No hemisfério sul as estações são invertidas em relação ao zodíaco: o equinócio de março abre o outono, e o de setembro, a primavera.",
+    "mais": "O solstício de junho, perto do dia 21, abre o inverno aqui; o de dezembro abre o verão. Os signos seguem a mesma ordem, mas Áries, que começa no equinócio de março, chega com o outono, não com a primavera.",
+    "ver_tambem": [
+      "cardeal",
+      "modalidade"
     ]
   }
 ]
