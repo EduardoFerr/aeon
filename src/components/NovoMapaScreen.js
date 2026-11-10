@@ -1,4 +1,4 @@
-import { navigateTo, consumirEstado } from '../utils/navigation.js';
+import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
 import { ic } from '../utils/glifos.js';
 import { loadCards } from '../utils/cardsUtil.js';
 import { obter, principal, atualizar, persiste } from '../utils/perfil.js';
@@ -96,6 +96,7 @@ export class NovoMapaScreen extends HTMLElement {
         if (!this.isConnected) return;
         this.token = 0;
         this.desenhar();
+        focarCabecalho('#page-title');
     }
 
     t(id, vars, padrao) {
@@ -320,7 +321,19 @@ export class NovoMapaScreen extends HTMLElement {
                     this.desenharSugestoes();
                     return;
                 }
-                if (!s.achados.length) return;
+                if (!s.achados.length) {
+                    // lista fechada pelo Esc: seta para baixo reabre a busca, como no padrao ARIA do combobox
+                    if (e.key === 'ArrowDown' && !s.local && s.q.trim().length >= 2) {
+                        e.preventDefault();
+                        this.buscar().then(() => {
+                            if (s.achados.length) {
+                                s.ativo = 0;
+                                this.desenharSugestoes();
+                            }
+                        });
+                    }
+                    return;
+                }
                 if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
                     e.preventDefault();
                     const n = s.achados.length;
