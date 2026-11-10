@@ -4369,6 +4369,78 @@
   "marcadores": []
  },
  {
+  "id": "ui.meusdados.titulo",
+  "limite": 16,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.intro",
+  "limite": 110,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.convite.titulo",
+  "limite": 56,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.convite.texto",
+  "limite": 210,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.editar",
+  "limite": 24,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.preencher",
+  "limite": 28,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.salvar",
+  "limite": 40,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.sem-apelido",
+  "limite": 18,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.sem-hora",
+  "limite": 22,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.apelido.dica",
+  "limite": 100,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.form.privado",
+  "limite": 130,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.meusdados.salvo",
+  "limite": 60,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
   "id": "ui.apagar.confirma",
   "limite": 220,
   "categoria": "ui",
@@ -4388,7 +4460,7 @@
  },
  {
   "id": "ui.dados.exportar",
-  "limite": 200,
+  "limite": 240,
   "categoria": "ui",
   "marcadores": []
  },
