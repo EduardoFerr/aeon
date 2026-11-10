@@ -1,16 +1,46 @@
 /** Marca no menu a pagina atual (so visual e aria-current; a navegacao em si nao muda). */
 function marcarNavAtual(page) {
-    const atual = ['all-cards', 'three-card-game', 'history'].includes(page) ? page : 'home';
+    const PERFIL = ['perfil', 'novo-mapa', 'mapa'];
+    const atual = PERFIL.includes(page) ? 'perfil' : ['all-cards', 'three-card-game', 'history'].includes(page) ? page : 'home';
     document.querySelectorAll('.mainnav a[data-page]').forEach((link) => {
         if (link.dataset.page === atual) link.setAttribute('aria-current', 'page');
         else link.removeAttribute('aria-current');
     });
 }
 
-export function navigateTo(page) {
+/* Estado de uma navegacao para outra (so em memoria; dados de nascimento nunca vao para URL, hash nem query). */
+let estadoNav = null;
+export function consumirEstado() {
+    const e = estadoNav;
+    estadoNav = null;
+    return e;
+}
+
+const TELAS_PERFIL = {
+    perfil: ['perfil-screen', () => import('../components/PerfilScreen.js')],
+    'novo-mapa': ['novo-mapa-screen', () => import('../components/NovoMapaScreen.js')],
+    mapa: ['mapa-screen', () => import('../components/MapaScreen.js')],
+};
+let corrida = 0;
+
+export function navigateTo(page, estado = null) {
     const appContainer = document.getElementById('app');
     appContainer.innerHTML = '';
     marcarNavAtual(page);
+    const minha = ++corrida;
+    const titulo = document.querySelector('.page-title');
+    if (titulo) titulo.hidden = page === 'perfil'; // o perfil tem o proprio h1
+    estadoNav = estado;
+
+    if (TELAS_PERFIL[page]) {
+        const [tag, carregar] = TELAS_PERFIL[page];
+        carregar().then(() => {
+            if (minha !== corrida) return;
+            appContainer.innerHTML = `<${tag}></${tag}>`;
+            window.scrollTo(0, 0);
+        });
+        return;
+    }
 
     if (page === 'all-cards') {
         appContainer.innerHTML = '<all-cards-screen></all-cards-screen>';
