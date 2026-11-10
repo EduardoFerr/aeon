@@ -2,6 +2,8 @@ import { loadCards } from '../utils/cardsUtil.js';
 import { escaparHtml } from '../utils/glossario.js';
 import { dataLocal } from '../utils/cartaDoDia.js';
 import { navigateTo } from '../utils/navigation.js';
+import { ic } from '../utils/glifos.js';
+import { abrir, avisar } from './Sobreposicao.js';
 import {
     listar, salvarNota, apagarEntrada, apagarTudo, exportar, importar, persiste, aoMudar,
     consumirFoco, consumirAviso, LIMITE_NOTA, LIMITE_ARQUIVO,
@@ -29,6 +31,7 @@ const TEXTO = {
     apagarPergunta: 'Apagar esta entrada e a anotação?',
     apagarSim: 'Apagar entrada',
     manter: 'Manter',
+    voltar: 'Voltar',
     maisUm: 'Mostrar mais',
     vazioTitulo: 'Seu diário está em branco',
     vazioTexto: 'Cada carta que você guardar aparece aqui, com o que ela despertou. Comece pela carta de hoje ou por uma leitura.',
@@ -38,13 +41,19 @@ const TEXTO = {
     importar: 'Importar diário',
     apagarTudo: 'Apagar todo o diário',
     apagarTudoPergunta: 'Apagar todo o diário?',
-    apagarTudoTexto: 'Todas as entradas e anotações do diário serão apagadas deste aparelho. A carta do dia e a semana em estrelas não são apagadas. Não dá para desfazer.',
     apagarTudoAntigo: 'Apagar também as leituras do histórico antigo, guardadas antes do diário',
-    apagarTudoSim: 'Sim, apagar todo o diário',
-    cancelar: 'Cancelar',
-    voltar: 'Voltar',
-    exportado: 'Backup baixado. Guarde o arquivo em um lugar seguro.',
-    apagado: 'Diário apagado.',
+    apagarTudoSim: 'Apagar todo o diário',
+    acoes: 'Ações',
+    acoesTitulo: 'Ações do diário',
+    grupoBackup: 'Backup',
+    vazioIndisponivel: ', indisponível porque o diário está vazio',
+    exportado: 'Diário exportado',
+    erroExportar: 'Não foi possível gerar o arquivo do diário.',
+    erroTamanho: 'O arquivo passa de 1 MB. Escolha um backup do diário.',
+    erroLer: 'Não foi possível ler o arquivo.',
+    erroImportar: 'Não foi possível importar.',
+    semNovidade: 'Nada novo: as entradas desse arquivo já estavam no diário.',
+    apagado: 'Diário apagado',
     cartaSem: 'Carta',
 };
 
@@ -57,6 +66,7 @@ const fmtDia = new Intl.DateTimeFormat('pt-BR', { weekday: 'long', day: 'numeric
 const fmtHora = new Intl.DateTimeFormat('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
 const mais = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
+const textoApagarTudo = (n) => `${n === 1 ? '1 registro será apagado' : `${n} registros serão apagados`} deste aparelho, com as anotações. A carta do dia e a semana em estrelas não são apagadas. Não dá para desfazer.`;
 
 function dataLegivel(e) {
     if (e.rotulo && e.t.startsWith('2000-01-01')) return e.rotulo; // leitura antiga sem data que o navegador entenda
@@ -80,27 +90,23 @@ export class HistoryScreen extends HTMLElement {
         this.innerHTML = `
             <section class="diario" aria-label="${TEXTO.titulo}">
                 <header class="diario-topo">
-                    <p class="diario-sub">${TEXTO.sub}</p>
-                    <p class="diario-privado"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>${TEXTO.privado}</span></p>
-                    <p class="diario-contagem" data-contagem></p>
+                    <div class="diario-linha">
+                        <div class="diario-tit">
+                            <p class="diario-sub">${TEXTO.sub}</p>
+                            <p class="diario-privado"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>${TEXTO.privado}</span></p>
+                            <p class="diario-contagem" data-contagem></p>
+                        </div>
+                        <button class="iconbtn mc-so-cel" id="abrir-acoes" type="button" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${TEXTO.acoes}</button>
+                    </div>
+                    <div class="mc-barra mc-so-desk diario-barra" role="toolbar" aria-label="${TEXTO.acoesTitulo}">
+                        <button class="btn btn-ghost" type="button" data-exec="exportar">${ic('baixar')}${TEXTO.exportar}</button>
+                        <button class="btn btn-ghost" type="button" data-exec="importar">${ic('copiar')}${TEXTO.importar}</button>
+                        <span class="sep" aria-hidden="true"></span>
+                        <button class="btn btn-ghost btn-perigo" type="button" data-exec="apagar-tudo" aria-haspopup="dialog">${ic('lixo')}${TEXTO.apagarTudo}</button>
+                    </div>
+                    <input type="file" accept="application/json,.json" hidden data-arquivo>
                 </header>
                 <p class="diario-aviso" role="status" aria-live="polite" data-aviso></p>
-                <div class="diario-ferramentas">
-                    <button type="button" class="btn btn-ghost" data-acao="exportar">${TEXTO.exportar}</button>
-                    <button type="button" class="btn btn-ghost" data-acao="importar">${TEXTO.importar}</button>
-                    <button type="button" class="btn btn-ghost" data-acao="apagar-tudo" aria-expanded="false" aria-controls="diario-confirma">${TEXTO.apagarTudo}</button>
-                    <input type="file" accept="application/json,.json" hidden data-arquivo>
-                </div>
-                <div class="diario-confirma panel-card" id="diario-confirma" role="group" aria-labelledby="diario-confirma-t" hidden>
-                    <h3 id="diario-confirma-t">${TEXTO.apagarTudoPergunta}</h3>
-                    <p>${TEXTO.apagarTudoTexto}</p>
-                    <label class="diario-marca"><input type="checkbox" data-antigo><span>${TEXTO.apagarTudoAntigo}</span></label>
-                    <div class="btn-row">
-                        <button type="button" class="btn btn-ghost" data-acao="cancelar-tudo">${TEXTO.cancelar}</button>
-                        <button type="button" class="btn btn-perigo" data-acao="confirmar-tudo">${TEXTO.apagarTudoSim}</button>
-                    </div>
-                </div>
-                <p class="diario-resumo" role="status" aria-live="polite" data-resumo></p>
                 <div class="diario-vazio panel-card" data-vazio hidden>
                     <h3>${TEXTO.vazioTitulo}</h3>
                     <p>${TEXTO.vazioTexto}</p>
@@ -147,6 +153,7 @@ export class HistoryScreen extends HTMLElement {
 
     disconnectedCallback() {
         this.salvarTudo(); // ao sair da tela nada fica pendente
+        if (this.sobre && this.sobre.aberto) this.sobre.fechar(false);
         if (this.desligar) this.desligar();
         document.removeEventListener('visibilitychange', this.aoSair);
         window.removeEventListener('pagehide', this.aoSair);
@@ -196,6 +203,10 @@ export class HistoryScreen extends HTMLElement {
 
         const total = todas.length;
         this.querySelector('[data-contagem]').textContent = total ? mais(total, 'registro neste aparelho', 'registros neste aparelho') : '';
+        this.total = total;
+        this.querySelectorAll('.diario-barra [data-exec="exportar"], .diario-barra [data-exec="apagar-tudo"]').forEach((b) => {
+            b.disabled = total === 0;
+        });
         this.querySelector('[data-vazio]').hidden = total > 0;
         const resto = total - fatia.length;
         const caixa = this.querySelector('[data-mais]');
@@ -350,93 +361,120 @@ export class HistoryScreen extends HTMLElement {
         }
         this.reconciliar();
         const alvo = proximo && proximo.querySelector('.diario-data');
-        (alvo || this.querySelector('[data-acao="exportar"]')).focus();
+        (alvo || this.gatilhoAcoes()).focus();
     }
 
-    /* ---------- exportar, importar, apagar tudo ---------- */
+    /* ---------- menu Acoes: exportar, importar, apagar tudo ---------- */
 
-    resumo(texto) {
-        this.querySelector('[data-resumo]').textContent = texto;
+    /** O botao Acoes que esta na tela agora (celular) ou o primeiro da barra (computador). */
+    gatilhoAcoes() {
+        const cel = this.querySelector('#abrir-acoes');
+        if (cel && cel.getClientRects().length) return cel;
+        return this.querySelector('.diario-barra .btn:not(:disabled)') || this.querySelector('.diario-barra .btn');
+    }
+
+    menuHtml() {
+        const vazio = !this.total;
+        const item = (id, rot, i, perigo, off) => `<button class="sob-acao${perigo ? ' perigo' : ''}" type="button" data-exec="${id}"${off ? ' disabled' : ''}>${ic(i)}${rot}${off ? `<span class="sr">${TEXTO.vazioIndisponivel}</span>` : ''}</button>`;
+        return `<nav aria-label="${TEXTO.acoesTitulo}"><p class="sob-grupo">${TEXTO.grupoBackup}</p>${item('exportar', TEXTO.exportar, 'baixar', false, vazio)}${item('importar', TEXTO.importar, 'copiar', false, false)}<div class="sob-sep"></div>${item('apagar-tudo', TEXTO.apagarTudo, 'lixo', true, vazio)}</nav>`;
+    }
+
+    abrirGaveta(botao) {
+        botao.setAttribute('aria-expanded', 'true');
+        const c = abrir({ tipo: 'gaveta', titulo: TEXTO.acoesTitulo, gatilho: botao, corpo: this.menuHtml(), aoFechar: () => botao.setAttribute('aria-expanded', 'false') });
+        c.corpo.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-exec]');
+            if (!b || b.disabled) return;
+            c.fechar();
+            this.executar(b.dataset.exec, botao);
+        });
+        this.sobre = c;
+    }
+
+    executar(id, gatilho) {
+        if (id === 'exportar') this.exportarDiario();
+        else if (id === 'importar') this.querySelector('[data-arquivo]').click();
+        else if (id === 'apagar-tudo') this.confirmarApagarTudo(gatilho);
+    }
+
+    exportarDiario() {
+        this.salvarTudo();
+        try {
+            const blob = new Blob([JSON.stringify(exportar(), null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `aeon-diario-${dataLocal()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+            avisar(TEXTO.exportado);
+        } catch (e) {
+            avisar(TEXTO.erroExportar, { erro: true });
+        }
+    }
+
+    async importarArquivo(arquivo) {
+        const f = arquivo.files && arquivo.files[0];
+        arquivo.value = '';
+        if (!f) return;
+        if (f.size > LIMITE_ARQUIVO) return avisar(TEXTO.erroTamanho, { erro: true });
+        let texto;
+        try {
+            texto = await f.text();
+        } catch (e) {
+            return avisar(TEXTO.erroLer, { erro: true });
+        }
+        this.salvarTudo();
+        const r = importar(texto);
+        if (!r.ok && !r.importadas) return avisar(r.motivo || TEXTO.erroImportar, { erro: true });
+        this.reconciliar();
+        const aviso = consumirAviso();
+        if (aviso) this.querySelector('[data-aviso]').textContent = aviso;
+        if (!r.ok) return avisar(`${mais(r.importadas, 'entrada importada', 'entradas importadas')}, mas não foi possível guardar neste aparelho.`, { erro: true });
+        if (!r.importadas) return avisar(TEXTO.semNovidade);
+        const sobra = r.ignoradas ? ` ${mais(r.ignoradas, 'já estava no diário ou não pôde ser lida', 'já estavam no diário ou não puderam ser lidas')}.` : '';
+        avisar(`${mais(r.importadas, 'entrada importada', 'entradas importadas')}.${sobra}`);
+    }
+
+    confirmarApagarTudo(gatilho) {
+        const n = this.total || 0;
+        if (!n) return;
+        const c = abrir({
+            tipo: 'confirmacao', titulo: TEXTO.apagarTudoPergunta, gatilho, descricao: true,
+            corpo: `<p>${textoApagarTudo(n)}</p>
+                <label class="diario-marca"><input type="checkbox" data-antigo><span>${TEXTO.apagarTudoAntigo}</span></label>
+                <div class="sob-pilha" style="margin-top:18px"><button class="btn btn-ghost" type="button" data-foco data-manter>${TEXTO.manter}</button>
+                <button class="btn btn-perigo" type="button" data-apagar>${ic('lixo')}${TEXTO.apagarTudoSim}</button></div>`,
+        });
+        c.corpo.addEventListener('click', (e) => {
+            if (e.target.closest('[data-manter]')) c.fechar();
+            else if (e.target.closest('[data-apagar]')) {
+                const antigo = c.corpo.querySelector('[data-antigo]').checked;
+                for (const id of [...this.sujas.keys()]) this.limparTimer(id);
+                this.local = true;
+                try {
+                    apagarTudo({ tambemAntigo: antigo });
+                } finally {
+                    this.local = false;
+                }
+                this.reconciliar();
+                c.fechar(false);
+                const g = this.gatilhoAcoes();
+                if (g) g.focus({ preventScroll: true });
+                avisar(TEXTO.apagado);
+            }
+        });
+        this.sobre = c;
     }
 
     ligarFerramentas() {
-        const confirma = this.querySelector('#diario-confirma');
-        const abrirTudo = this.querySelector('[data-acao="apagar-tudo"]');
         const arquivo = this.querySelector('[data-arquivo]');
-
-        this.querySelector('[data-acao="exportar"]').addEventListener('click', () => {
-            this.salvarTudo();
-            try {
-                const blob = new Blob([JSON.stringify(exportar(), null, 2)], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `aeon-diario-${dataLocal()}.json`;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                setTimeout(() => URL.revokeObjectURL(url), 1000);
-                this.resumo(TEXTO.exportado);
-            } catch (e) {
-                this.resumo('Não foi possível gerar o backup.');
-            }
-        });
-
-        this.querySelector('[data-acao="importar"]').addEventListener('click', () => arquivo.click());
-        arquivo.addEventListener('change', async () => {
-            const f = arquivo.files && arquivo.files[0];
-            arquivo.value = '';
-            if (!f) return;
-            if (f.size > LIMITE_ARQUIVO) {
-                this.resumo('O arquivo passa de 1 MB. Escolha um backup do diário.');
-                return;
-            }
-            let texto;
-            try {
-                texto = await f.text();
-            } catch (e) {
-                this.resumo('Não foi possível ler o arquivo.');
-                return;
-            }
-            this.salvarTudo();
-            const r = importar(texto);
-            if (!r.ok && !r.importadas) {
-                this.resumo(r.motivo || 'Não foi possível importar.');
-                return;
-            }
-            this.reconciliar();
-            this.resumo(`${mais(r.importadas, 'entrada importada', 'entradas importadas')}, ${mais(r.ignoradas, 'ignorada', 'ignoradas')}.${r.ok ? '' : ' Não foi possível guardar neste aparelho.'}`);
-            const aviso = consumirAviso();
-            if (aviso) this.querySelector('[data-aviso]').textContent = aviso;
-        });
-
-        abrirTudo.addEventListener('click', () => {
-            confirma.hidden = false;
-            abrirTudo.setAttribute('aria-expanded', 'true');
-            confirma.querySelector('[data-acao="cancelar-tudo"]').focus();
-        });
-        const fechar = () => {
-            confirma.hidden = true;
-            confirma.querySelector('[data-antigo]').checked = false;
-            abrirTudo.setAttribute('aria-expanded', 'false');
-            abrirTudo.focus();
-        };
-        confirma.querySelector('[data-acao="cancelar-tudo"]').addEventListener('click', fechar);
-        confirma.addEventListener('keydown', (ev) => {
-            if (ev.key === 'Escape') fechar();
-        });
-        confirma.querySelector('[data-acao="confirmar-tudo"]').addEventListener('click', () => {
-            for (const id of [...this.sujas.keys()]) this.limparTimer(id);
-            this.local = true;
-            try {
-                apagarTudo({ tambemAntigo: confirma.querySelector('[data-antigo]').checked });
-            } finally {
-                this.local = false;
-            }
-            this.reconciliar();
-            fechar();
-            this.resumo(TEXTO.apagado);
-        });
+        arquivo.addEventListener('change', () => this.importarArquivo(arquivo));
+        this.querySelectorAll('[data-exec]').forEach((b) => b.addEventListener('click', () => this.executar(b.dataset.exec, b)));
+        const cel = this.querySelector('#abrir-acoes');
+        cel.addEventListener('click', () => this.abrirGaveta(cel));
 
         this.querySelector('[data-acao="mais"]').addEventListener('click', () => {
             const antes = this.nos.size;

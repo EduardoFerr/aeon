@@ -9,8 +9,12 @@
 .diario-aviso, .diario-resumo { padding: 12px 16px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface); color: var(--text); font-size: var(--fs-sm); line-height: 1.5; }
 .diario-aviso { border-color: var(--warn); }
 
-.diario-ferramentas { display: flex; flex-wrap: wrap; gap: 10px; }
-.diario-ferramentas .btn { min-height: 48px; padding-inline: 20px; font-size: var(--fs-sm); }
+/* cabecalho: titulo e contagem a esquerda, botao Acoes (celular) ou barra (computador) */
+.diario-linha { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-3); }
+.diario-tit { display: grid; gap: var(--sp-2); min-width: 0; }
+.diario-linha .iconbtn { flex: none; }
+.diario-barra { padding-block: 0; }
+.diario-barra .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-perigo { background: transparent; color: var(--err); border-color: var(--err); }
 .btn-perigo:hover { background: color-mix(in srgb, var(--err) 14%, transparent); }
 .diario-confirma { display: grid; gap: var(--sp-3); border-color: var(--err); }

@@ -3,6 +3,8 @@ import { navigateTo } from '../utils/navigation.js';
 import { loadCards, shuffle } from '../utils/cardsUtil.js';
 import { escaparHtml } from '../utils/glossario.js';
 import { dataLocal } from '../utils/cartaDoDia.js';
+import { ic } from '../utils/glifos.js';
+import { abrir, ehDesktop } from './Sobreposicao.js';
 import('./TarotCardInfo.js');
 
 const POSICOES = ['passado', 'presente', 'futuro'];
@@ -44,6 +46,9 @@ const TEXTO = {
     abrir: 'Abrir a carta',
     escreverDiario: 'Escrever no diário',
     compartilhar: 'Compartilhar',
+    compartilharLeitura: 'Compartilhar a leitura',
+    acoes: 'Ações',
+    acoesTitulo: 'Ações da leitura',
     cartaoFalhou: 'Não foi possível montar o cartão agora.',
     revelada: (pos, carta) => `${pos} revelado: ${carta.name}, ${carta.title}.`,
     todasReveladas: 'As três cartas foram reveladas. Você pode escrever no diário, compartilhar ou fazer uma nova leitura.',
@@ -88,6 +93,7 @@ export class ThreeCardGameScreen extends HTMLElement {
     disconnectedCallback() {
         this.timers.forEach((t) => clearTimeout(t));
         this.timers.clear();
+        if (this.sobre && this.sobre.aberto) this.sobre.fechar(false);
     }
 
     espera(fn, ms) {
@@ -412,17 +418,39 @@ export class ThreeCardGameScreen extends HTMLElement {
     mostrarFinal() {
         const acoes = this.palco.querySelector('[data-acoes]');
         const tinhaFoco = acoes.contains(document.activeElement);
+        // uma acao principal visivel; compartilhar e nova leitura ficam no menu Acoes (Nova leitura repete "Leitura" da barra)
         acoes.innerHTML = `
             <button type="button" class="btn btn-primary" data-acao="diario">${TEXTO.escreverDiario}</button>
-            <button type="button" class="btn btn-ghost" data-acao="compartilhar">${TEXTO.compartilhar}</button>
-            <button type="button" class="btn btn-ghost" data-acao="nova">${TEXTO.novaLeitura}</button>`;
-        acoes.querySelector('[data-acao="compartilhar"]').addEventListener('click', () => this.compartilhar());
+            <button type="button" class="iconbtn" data-acao="acoes" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${TEXTO.acoes}</button>`;
         acoes.querySelector('[data-acao="diario"]').addEventListener('click', () => {
             if (this.entradaId) pedirFoco(this.entradaId);
             navigateTo('history');
         });
-        acoes.querySelector('[data-acao="nova"]').addEventListener('click', () => this.novaLeitura());
+        const botao = acoes.querySelector('[data-acao="acoes"]');
+        botao.addEventListener('click', () => this.abrirAcoes(botao));
         if (tinhaFoco) acoes.querySelector('[data-acao="diario"]').focus();
+    }
+
+    abrirAcoes(botao) {
+        botao.setAttribute('aria-expanded', 'true');
+        const item = (id, rot, i) => `<button class="sob-acao" type="button" data-exec="${id}">${ic(i)}${rot}</button>`;
+        const c = abrir({
+            tipo: ehDesktop() ? 'popover' : 'gaveta', titulo: TEXTO.acoesTitulo, gatilho: botao,
+            corpo: `<nav aria-label="${TEXTO.acoesTitulo}">${item('compartilhar', TEXTO.compartilharLeitura, 'compartilhar')}${item('nova', TEXTO.novaLeitura, 'leitura')}</nav>`,
+            aoFechar: () => botao.setAttribute('aria-expanded', 'false'),
+        });
+        c.corpo.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-exec]');
+            if (!b) return;
+            if (b.dataset.exec === 'nova') {
+                c.fechar(false);
+                this.novaLeitura();
+            } else {
+                c.fechar();
+                this.compartilhar();
+            }
+        });
+        this.sobre = c;
     }
 
     /** Cartao da leitura (Canvas), carregado so quando a pessoa pede. */
