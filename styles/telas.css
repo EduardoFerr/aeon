@@ -1,7 +1,9 @@
 /* Telas: inicio, jogo das 3 cartas e historico */
 
 /* inicio */
-.home-screen { display: grid; gap: var(--sp-6); padding-bottom: var(--sp-4); }
+.home-screen { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-6); padding-bottom: var(--sp-4); }
+/* o brilho do halo passa da coluna de proposito; o corte e na borda da tela, nao no cartao */
+#main { overflow-x: clip; }
 .home-screen .hero { display: grid; gap: var(--sp-6); align-items: center; }
 .home-screen .intro { display: grid; gap: var(--sp-4); max-width: 62ch; }
 .home-screen .intro h2 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.12; letter-spacing: -0.01em; }

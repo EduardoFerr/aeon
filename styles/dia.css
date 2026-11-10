@@ -35,7 +35,7 @@
 /* sequencia da semana: estrela acesa nos dias em que a carta foi virada, sem nada que cobre ou pese */
 .dia-semana { display: grid; gap: var(--sp-3); justify-items: center; padding-top: var(--sp-4); border-top: 1px solid var(--line); }
 .dia-dias { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(4px, 2vw, 14px); justify-content: center; }
-.dia-d { display: grid; justify-items: center; gap: 2px; min-width: 40px; padding: 4px 2px; border-radius: var(--r-sm); }
+.dia-d { display: grid; justify-items: center; gap: 2px; flex: 0 1 40px; min-width: 0; padding: 4px 2px; border-radius: var(--r-sm); }
 .dia-letra { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; color: var(--text-mute); }
 .dia-d.hoje .dia-letra { color: var(--accent); }
 .dia-d.hoje { box-shadow: inset 0 0 0 1px var(--line-strong); }
