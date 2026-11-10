@@ -294,7 +294,7 @@ export class MapaScreen extends HTMLElement {
         const mapa = escopo === 'mapa';
         return `<section class="painel compart" aria-labelledby="cp-t"><h3 id="cp-t">${mapa ? T.compMapa : T.compLeitura}</h3>
             <label class="diario-marca"><input type="checkbox" data-incluir${this.incluir ? ' checked' : ''}><span>${esc(this.t('ui.compartilhar.marca', {}, 'Incluir data, hora e lugar de nascimento no texto'))}</span></label>
-            <p style="font-size:var(--fs-sm)">${esc(this.t('ui.compartilhar.texto'))} ${esc(this.t('ui.cartao.nota'))}</p>
+            <p style="font-size:var(--fs-sm)">${esc(this.t('ui.compartilhar.texto'))}</p>
             <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="copiar" data-escopo="${escopo}">${ic('copiar')}${T.copiar}</button><button class="btn btn-ghost" type="button" data-acao="compartilhar" data-escopo="${escopo}">${ic('compartilhar')}${T.compartilhar}</button>${this.cartaoDisponivel(escopo) ? `<button class="btn btn-primary" type="button" data-acao="cartao" data-escopo="${escopo}">${ic('baixar')}${T.cartao}</button>` : ''}</div>
             <p class="mute" style="font-size:var(--fs-xs)" role="status" aria-live="polite" data-cp-status>&nbsp;</p>
             <details><summary>${T.ver}</summary><pre data-pre>${esc(this.textoCompartilhar(escopo))}</pre></details></section>`;

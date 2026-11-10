@@ -309,7 +309,7 @@
  "ui.apagar.cancela": "Manter o mapa guardado",
  "ui.dados.exportar": "Exportar gera um arquivo com os mapas guardados, para manter uma cópia ou levar a outro aparelho. Ele traz datas, horas e lugares de nascimento em texto aberto: guarde-o como um documento.",
  "ui.dados.importar": "Importar lê um arquivo exportado por este app e junta os mapas aos que já estão aqui, sem apagar nenhum dos que existem neste aparelho. Mapas repetidos não são duplicados.",
- "ui.compartilhar.texto": "Compartilhar envia só a leitura em texto, com signos e cartas, sem data, hora nem lugar de nascimento, a menos que a caixa abaixo esteja marcada.",
+ "ui.compartilhar.texto": "O texto e o cartão levam só a leitura, com signos e cartas. Data, hora e lugar de nascimento entram apenas se a caixa acima estiver marcada.",
  "ui.compartilhar.marca": "Incluir data, hora e lugar de nascimento no texto",
  "ui.geonames": "Dados de lugares do GeoNames (geonames.org), adaptados: filtrados por população. Licença CC BY 4.0: creativecommons.org/licenses/by/4.0",
  "ui.aviso.inexistente": "Neste dia e neste lugar o relógio foi adiantado, pelo horário de verão ou por mudança de fuso, e a hora informada não existiu: ele saltou de {hora1} para {hora2}. O mapa traz as duas leituras, a do relógio de antes e a do relógio de depois da virada, e vale conferir no registro de nascimento, porque o Ascendente e as casas mudam rápido com a hora.",
