@@ -435,17 +435,16 @@ details.acc > .corpo { padding: 2px 0 16px; display: grid; gap: 12px; min-width:
 .mc-barra { flex-wrap: wrap; gap: 8px; align-items: center; padding-block: 12px; }
 .mc-barra .sep { width: 1px; height: 28px; background: var(--line); margin: 0 4px 0 auto; }
 .mc-barra .btn { min-height: 44px; padding: 0 16px; font-size: var(--fs-sm); }
-.nao-usado { display: none; }
 
 @media (min-width: 900px) {
   .mc { grid-template-columns: minmax(0, 420px) minmax(0, 1fr); grid-template-areas: "bar bar" "lado barra" "lado tabs" "lado dir"; column-gap: 40px; row-gap: 0; align-items: start; padding-top: var(--sp-5); }
   .mc-cab { display: contents; }
-  .mc-bar { grid-area: bar; padding-bottom: var(--sp-3); margin-left: -8px; }
-  .mc-barra { grid-area: barra; display: flex; padding-top: 0; }
-  .mc-tabs { grid-area: tabs; border-bottom: 1px solid var(--line); margin-bottom: var(--sp-4); }
+  .mc .mc-bar { grid-area: bar; padding-bottom: var(--sp-3); margin-left: -8px; }
+  .mc .mc-barra { grid-area: barra; display: flex; padding-top: 0; }
+  .mc .mc-tabs { grid-area: tabs; border-bottom: 1px solid var(--line); margin-bottom: var(--sp-4); }
   .mc-tab { min-height: 52px; }
-  .mc-lado { grid-area: lado; display: grid; gap: var(--sp-4); position: sticky; top: calc(var(--topbar-h) + 24px); align-self: start; }
-  .mc-dir { grid-area: dir; }
+  .mc .mc-lado { grid-area: lado; display: grid; gap: var(--sp-4); position: sticky; top: calc(var(--topbar-h) + 24px); align-self: start; }
+  .mc .mc-dir { grid-area: dir; }
   .mc-so-cel { display: none !important; }
   .mc-so-desk { display: block; }
   .mc-barra.mc-so-desk { display: flex; }
@@ -460,4 +459,6 @@ details.acc > .corpo { padding: 2px 0 16px; display: grid; gap: 12px; min-width:
 @media (max-width: 380px) { .mc-tab { font-size: 0.875rem; } .casa-c { padding-inline: 8px; gap: 6px; } }
 @media (prefers-reduced-motion: reduce) { .carta-mini img, details.acc > summary::after { transition: none !important; } .carta-mini:hover img { transform: none; } }
 .perfil-c [data-avisos]:empty, .perfil-c .diario-aviso:empty { display: none; }
-.perfil-c .mc-tabs { margin-bottom: 0; }
+.perfil-tabs { border-bottom: 1px solid var(--line); margin-bottom: 0; }
+.perfil-c .mc-barra.mc-so-desk { padding-block: 0; }
+.perfil-c { padding-top: var(--sp-5); }
