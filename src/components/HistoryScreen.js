@@ -5,7 +5,7 @@ import { navigateTo } from '../utils/navigation.js';
 import { ic } from '../utils/glifos.js';
 import { abrir, avisar } from './Sobreposicao.js';
 import {
-    listar, salvarNota, apagarEntrada, apagarTudo, instantaneo, restaurar, exportar, importar, persiste, aoMudar,
+    listar, agruparPorMes, diaDaEntrada, rotuloMes, salvarNota, apagarEntrada, apagarTudo, instantaneo, restaurar, exportar, importar, persiste, aoMudar,
     consumirFoco, consumirAviso, LIMITE_NOTA, LIMITE_ARQUIVO,
 } from '../utils/diario.js';
 import('./TarotCardInfo.js');
@@ -27,17 +27,18 @@ const TEXTO = {
     salvo: 'Salvo neste aparelho',
     falha: 'Não foi possível salvar',
     limiteAtingido: 'Limite atingido',
-    apagar: 'Apagar',
+    apagar: 'Apagar registro',
     entradaApagada: 'Entrada apagada',
     desfazer: 'Desfazer',
     voltou: 'Entrada de volta no diário',
     manter: 'Manter',
     maisUm: 'Mostrar mais',
     vazioTitulo: 'Seu diário está em branco',
-    vazioTexto: 'Cada carta que você guardar aparece aqui, com o que ela despertou. Comece pela carta de hoje ou por uma leitura.',
-    irDia: 'Tirar a carta do dia',
-    irLeitura: 'Fazer uma Leitura',
+    vazioTexto: 'Cada carta que você guardar aparece aqui, com o que ela despertou.',
+    irDia: 'Tirar uma carta',
+    semData: 'Sem data',
     exportar: 'Exportar diário',
+    exportarCurto: 'Exportar',
     importar: 'Importar diário',
     apagarTudo: 'Apagar todo o diário',
     apagarTudoPergunta: 'Apagar todo o diário?',
@@ -64,6 +65,8 @@ const PAGINA = 50;
 const PERTO_DO_LIMITE = 1800;
 
 const fmtDia = new Intl.DateTimeFormat('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+const RE_ID_DIA = /^dia-\d{4}-\d{2}-\d{2}$/;
+const DESKTOP = '(min-width: 900px)';
 const fmtHora = new Intl.DateTimeFormat('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
 const mais = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
@@ -83,6 +86,7 @@ function dataLegivel(e) {
 export class HistoryScreen extends HTMLElement {
     async connectedCallback() {
         this.nos = new Map(); // id -> { li, json, capa }
+        this.meses = new Map(); // chave do mes -> { sec, tit, n, ol }
         this.sujas = new Map(); // id -> timer de salvamento pendente
         this.visiveis = PAGINA;
         this.cartas = new Map();
@@ -91,33 +95,24 @@ export class HistoryScreen extends HTMLElement {
         this.innerHTML = `
             <section class="diario" aria-label="${TEXTO.titulo}">
                 <header class="diario-topo">
-                    <div class="diario-linha">
-                        <div class="diario-tit">
-                            <p class="diario-sub">${TEXTO.sub}</p>
-                            <p class="diario-privado"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>${TEXTO.privado}</span></p>
-                            <p class="diario-contagem" data-contagem></p>
-                        </div>
-                        <button class="iconbtn mc-so-cel" id="abrir-acoes" type="button" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${TEXTO.acoes}</button>
+                    <div class="diario-tit">
+                        <p class="diario-sub">${TEXTO.sub}</p>
+                        <p class="diario-meta"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>${TEXTO.privado}</span><span class="diario-contagem" data-contagem></span></p>
                     </div>
-                    <div class="mc-barra mc-so-desk diario-barra" role="toolbar" aria-label="${TEXTO.acoesTitulo}">
-                        <button class="btn btn-ghost" type="button" data-exec="exportar">${ic('baixar')}${TEXTO.exportar}</button>
-                        <button class="btn btn-ghost" type="button" data-exec="importar">${ic('copiar')}${TEXTO.importar}</button>
-                        <span class="sep" aria-hidden="true"></span>
-                        <button class="btn btn-perigo" type="button" data-exec="apagar-tudo" aria-haspopup="dialog">${ic('lixo')}${TEXTO.apagarTudo}</button>
+                    <div class="diario-ferr">
+                        <button class="btn btn-ghost diario-exportar" type="button" data-exec="exportar">${ic('baixar')}${TEXTO.exportarCurto}</button>
+                        <button class="btn btn-ghost" id="abrir-acoes" type="button" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${TEXTO.acoes}</button>
                     </div>
                     <input type="file" accept="application/json,.json" hidden data-arquivo>
                 </header>
                 <p class="diario-aviso" role="status" aria-live="polite" data-aviso></p>
-                <div class="diario-vazio panel-card" data-vazio hidden>
-                    <h3>${TEXTO.vazioTitulo}</h3>
+                <div class="diario-vazio" data-vazio hidden>
+                    <h2>${TEXTO.vazioTitulo}</h2>
                     <p>${TEXTO.vazioTexto}</p>
-                    <div class="btn-row">
-                        <button type="button" class="btn btn-primary" data-ir="home">${TEXTO.irDia}</button>
-                        <button type="button" class="btn btn-ghost" data-ir="three-card-game">${TEXTO.irLeitura}</button>
-                    </div>
+                    <button type="button" class="btn btn-primary" data-ir="home">${TEXTO.irDia}</button>
                 </div>
-                <ol class="diario-lista" data-lista></ol>
-                <div class="diario-mais" data-mais hidden><button type="button" class="btn btn-ghost" data-acao="mais">${TEXTO.maisUm}</button></div>
+                <div class="diario-lista" data-lista></div>
+                <div class="diario-mais" data-mais hidden><button type="button" class="btn btn-terciario" data-acao="mais">${TEXTO.maisUm}</button></div>
             </section>
         `;
         document.querySelector('#page-title').textContent = TEXTO.titulo;
@@ -174,7 +169,6 @@ export class HistoryScreen extends HTMLElement {
                 this.limparTimer(id);
             }
         }
-        let anterior = null;
         for (const e of fatia) {
             const json = JSON.stringify(e);
             let r = this.nos.get(e.id);
@@ -196,22 +190,45 @@ export class HistoryScreen extends HTMLElement {
             } else if (!r) {
                 r = this.criarItem(e);
                 this.nos.set(e.id, r);
-                ul.insertBefore(r.li, anterior ? anterior.nextSibling : ul.firstChild);
             }
-            anterior = r.li;
         }
 
+        this.montarMeses(ul, todas, fatia);
+
         const total = todas.length;
-        this.querySelector('[data-contagem]').textContent = total ? mais(total, 'registro neste aparelho', 'registros neste aparelho') : '';
+        this.querySelector('[data-contagem]').textContent = total ? mais(total, 'registro', 'registros') : '';
         this.total = total;
-        this.querySelectorAll('.diario-barra [data-exec="exportar"], .diario-barra [data-exec="apagar-tudo"]').forEach((b) => {
-            b.disabled = total === 0;
-        });
+        this.querySelector('.diario-exportar').hidden = total === 0;
         this.querySelector('[data-vazio]').hidden = total > 0;
         const resto = total - fatia.length;
         const caixa = this.querySelector('[data-mais]');
         caixa.hidden = resto <= 0;
         caixa.querySelector('button').textContent = `${TEXTO.maisUm} (${resto})`;
+    }
+
+    /** Distribui os cartoes em secoes por mes, mexendo so no que mudou de lugar (o foco do campo de nota fica onde esta). */
+    montarMeses(raiz, todas, fatia) {
+        const totais = new Map(agruparPorMes(todas).map((g) => [g.chave, g.itens.length]));
+        const grupos = agruparPorMes(fatia);
+        const secs = [];
+        for (const g of grupos) {
+            let m = this.meses.get(g.chave);
+            if (!m) {
+                const sec = document.createElement('section');
+                sec.className = 'diario-mes';
+                sec.innerHTML = '<h2 class="diario-mes-tit"><span class="diario-mes-nome"></span><span class="diario-mes-n"></span></h2><ol class="diario-mes-lista"></ol>';
+                m = { sec, nome: sec.querySelector('.diario-mes-nome'), n: sec.querySelector('.diario-mes-n'), ol: sec.querySelector('ol') };
+                this.meses.set(g.chave, m);
+            }
+            m.nome.textContent = g.chave === 'sem-data' ? TEXTO.semData : rotuloMes(g.ano, g.mes);
+            m.n.textContent = mais(totais.get(g.chave) || g.itens.length, 'registro', 'registros');
+            colocar(m.ol, g.itens.map((e) => this.nos.get(e.id).li));
+            secs.push(m.sec);
+        }
+        for (const [chave, m] of this.meses) {
+            if (!grupos.some((g) => g.chave === chave)) this.meses.delete(chave);
+        }
+        colocar(raiz, secs);
     }
 
     criarItem(e) {
@@ -223,6 +240,10 @@ export class HistoryScreen extends HTMLElement {
         const idNota = `nota-${e.id}`;
         const idTit = `tit-${e.id}`;
         const quando = escaparHtml(dataLegivel(e));
+        const d = diaDaEntrada(e);
+        const hora = !d.semData && !(e.tipo === 'dia' && RE_ID_DIA.test(e.id)) ? fmtHora.format(new Date(e.t)) : '';
+        const tipo = (leitura ? TEXTO.tipoLeitura : mapa ? TEXTO.tipoMapa : TEXTO.tipoDia) + (mapa && e.rotulo ? ` (${escaparHtml(e.rotulo)})` : '');
+        const rotuloNota = leitura ? TEXTO.rotuloNotaLeitura : mapa ? TEXTO.rotuloNotaMapa : TEXTO.rotuloNotaDia;
         const minis = e.cartas
             .map((c) => {
                 const carta = this.cartas.get(c.order);
@@ -240,20 +261,23 @@ export class HistoryScreen extends HTMLElement {
         li.innerHTML = `
             <article class="diario-cartao" aria-labelledby="${idTit}">
                 <header class="diario-cab">
-                    <div>
-                        <h2 class="diario-data" id="${idTit}" tabindex="-1">${quando}</h2>
-                        <p class="diario-tipo">${leitura ? TEXTO.tipoLeitura : mapa ? TEXTO.tipoMapa : TEXTO.tipoDia}${mapa && e.rotulo ? ` (${escaparHtml(e.rotulo)})` : ''}</p>
+                    <div class="diario-dia" aria-hidden="true">${d.semData ? ic('relogio') : `<b>${d.dia}</b><span>${d.semana}</span>`}</div>
+                    <div class="diario-ident">
+                        <h3 class="diario-data" id="${idTit}" tabindex="-1"><span class="sr">${quando}: </span>${tipo}</h3>
+                        ${hora ? `<p class="diario-hora">${hora}</p>` : ''}
                     </div>
-                    <button type="button" class="btn btn-terciario btn-perigo diario-apagar" data-acao="apagar" aria-label="${TEXTO.apagar}: ${quando}">${TEXTO.apagar}</button>
+                    <button type="button" class="diario-lixo" data-acao="apagar" aria-label="${TEXTO.apagar}" aria-describedby="${idTit}">${ic('lixo')}</button>
                 </header>
-                ${e.pergunta ? `<p class="diario-pergunta"><span class="diario-pergunta-rotulo">${TEXTO.pergunta}</span> <q>${escaparHtml(e.pergunta)}</q></p>` : ''}
-                <ul class="diario-cartas${leitura || mapa ? ' tres' : ''}">${minis}</ul>
-                <div class="diario-nota">
-                    <label for="${idNota}">${leitura ? TEXTO.rotuloNotaLeitura : mapa ? TEXTO.rotuloNotaMapa : TEXTO.rotuloNotaDia}</label>
-                    <textarea id="${idNota}" rows="3" maxlength="${LIMITE_NOTA}" placeholder="${TEXTO.dica}" aria-describedby="${idNota}-estado"></textarea>
-                    <div class="diario-rodape">
-                        <p class="diario-estado" id="${idNota}-estado" role="status" aria-live="polite" data-estado></p>
-                        <p class="diario-contador" data-contador hidden></p>
+                ${e.pergunta ? `<p class="diario-pergunta"><span class="sr">${TEXTO.pergunta} </span><q>${escaparHtml(e.pergunta)}</q></p>` : ''}
+                <div class="diario-corpo">
+                    <ul class="diario-cartas${leitura || mapa ? ' tres' : ''}">${minis}</ul>
+                    <div class="diario-nota">
+                        <label class="sr" for="${idNota}">${rotuloNota}</label>
+                        <textarea id="${idNota}" rows="2" maxlength="${LIMITE_NOTA}" placeholder="${rotuloNota}. ${TEXTO.dica}" aria-describedby="${idNota}-estado"></textarea>
+                        <div class="diario-rodape">
+                            <p class="diario-estado" id="${idNota}-estado" role="status" aria-live="polite" data-estado></p>
+                            <p class="diario-contador" data-contador hidden></p>
+                        </div>
                     </div>
                 </div>
             </article>`;
@@ -359,17 +383,15 @@ export class HistoryScreen extends HTMLElement {
 
     /* ---------- menu Acoes: exportar, importar, apagar tudo ---------- */
 
-    /** O botao Acoes que esta na tela agora (celular) ou o primeiro da barra (computador). */
+    /** O botao Acoes: existe em todas as larguras. */
     gatilhoAcoes() {
-        const cel = this.querySelector('#abrir-acoes');
-        if (cel && cel.getClientRects().length) return cel;
-        return this.querySelector('.diario-barra .btn:not(:disabled)') || this.querySelector('.diario-barra .btn');
+        return this.querySelector('#abrir-acoes');
     }
 
     menuHtml() {
         const vazio = !this.total;
         const item = (id, rot, i, perigo, off) => `<button class="sob-acao${perigo ? ' perigo' : ''}" type="button" data-exec="${id}"${off ? ' disabled' : ''}>${ic(i)}${rot}${off ? `<span class="sr">${TEXTO.vazioIndisponivel}</span>` : ''}</button>`;
-        return `<nav aria-label="${TEXTO.acoesTitulo}"><p class="sob-grupo">${TEXTO.grupoBackup}</p>${item('exportar', TEXTO.exportar, 'baixar', false, vazio)}${item('importar', TEXTO.importar, 'copiar', false, false)}<div class="sob-sep"></div>${item('apagar-tudo', TEXTO.apagarTudo, 'lixo', true, vazio)}</nav>`;
+        return `<nav aria-label="${TEXTO.acoesTitulo}"><p class="sob-grupo">${TEXTO.grupoBackup}</p>${matchMedia(DESKTOP).matches ? '' : item('exportar', TEXTO.exportar, 'baixar', false, vazio)}${item('importar', TEXTO.importar, 'copiar', false, false)}<div class="sob-sep"></div>${item('apagar-tudo', TEXTO.apagarTudo, 'lixo', true, vazio)}</nav>`;
     }
 
     abrirGaveta(botao) {
@@ -468,8 +490,8 @@ export class HistoryScreen extends HTMLElement {
         const arquivo = this.querySelector('[data-arquivo]');
         arquivo.addEventListener('change', () => this.importarArquivo(arquivo));
         this.querySelectorAll('[data-exec]').forEach((b) => b.addEventListener('click', () => this.executar(b.dataset.exec, b)));
-        const cel = this.querySelector('#abrir-acoes');
-        cel.addEventListener('click', () => this.abrirGaveta(cel));
+        const acoes = this.querySelector('#abrir-acoes');
+        acoes.addEventListener('click', () => this.abrirGaveta(acoes));
 
         this.querySelector('[data-acao="mais"]').addEventListener('click', () => {
             const antes = this.nos.size;
@@ -479,6 +501,14 @@ export class HistoryScreen extends HTMLElement {
             if (novo) novo.querySelector('.diario-data').focus();
         });
     }
+}
+
+/** Deixa `filhos` como filhos diretos de `pai`, na ordem, movendo so o que esta fora do lugar. */
+function colocar(pai, filhos) {
+    filhos.forEach((f, i) => {
+        if (pai.children[i] !== f) pai.insertBefore(f, pai.children[i] || null);
+    });
+    while (pai.children.length > filhos.length) pai.lastElementChild.remove();
 }
 
 customElements.define('history-screen', HistoryScreen);

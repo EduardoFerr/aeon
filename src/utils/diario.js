@@ -487,3 +487,50 @@ export function consumirAviso() {
     avisoPendente = '';
     return a;
 }
+
+/* ---------- agrupamento por mes (so apresentacao; nao mexe nos dados) ---------- */
+
+const RE_ID_DIA = /^dia-(\d{4})-(\d{2})-(\d{2})$/;
+const fmtMes = new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric' });
+const fmtSemana = new Intl.DateTimeFormat('pt-BR', { weekday: 'short' });
+
+/**
+ * Data de calendario de uma entrada, no fuso do aparelho. A carta do dia usa a data do id
+ * (o dia em que foi tirada); as demais usam `t`. Leitura antiga sem data legivel vem com semData.
+ * -> { semData, ano, mes (1-12), dia, semana (abreviada, sem ponto), chave ('2026-11' ou 'sem-data'), iso ('2026-11-09') }
+ */
+export function diaDaEntrada(e) {
+    if (e.rotulo && String(e.t).startsWith('2000-01-01')) return { semData: true, ano: 0, mes: 0, dia: 0, semana: '', chave: 'sem-data', iso: '' };
+    const m = e.tipo === 'dia' ? RE_ID_DIA.exec(e.id) : null;
+    const d = m ? new Date(+m[1], +m[2] - 1, +m[3], 12) : new Date(e.t);
+    const ano = d.getFullYear();
+    const mes = d.getMonth() + 1;
+    const dia = d.getDate();
+    const mm = String(mes).padStart(2, '0');
+    return {
+        semData: false, ano, mes, dia,
+        semana: fmtSemana.format(d).replace('.', ''),
+        chave: `${ano}-${mm}`,
+        iso: `${ano}-${mm}-${String(dia).padStart(2, '0')}`,
+    };
+}
+
+/** 'novembro de 2026' para a chave de um grupo. */
+export function rotuloMes(ano, mes) {
+    return fmtMes.format(new Date(ano, mes - 1, 15));
+}
+
+/** Agrupa entradas (ja ordenadas) por mes, na ordem em que cada mes aparece. -> [{ chave, ano, mes, itens }] */
+export function agruparPorMes(entradas) {
+    const grupos = new Map();
+    for (const e of entradas) {
+        const d = diaDaEntrada(e);
+        let g = grupos.get(d.chave);
+        if (!g) {
+            g = { chave: d.chave, ano: d.ano, mes: d.mes, itens: [] };
+            grupos.set(d.chave, g);
+        }
+        g.itens.push(e);
+    }
+    return [...grupos.values()];
+}

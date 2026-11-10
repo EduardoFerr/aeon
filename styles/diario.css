@@ -1,20 +1,21 @@
 /* Diario: linha do tempo de cartas do dia e leituras, com area de nota e backup */
 .diario { display: grid; gap: var(--sp-4); max-width: 760px; width: 100%; padding-bottom: var(--sp-4); }
-.diario-topo { display: grid; gap: var(--sp-2); }
-.diario-sub { font-size: var(--fs-lg); color: var(--text-soft); max-width: 52ch; }
-.diario-privado { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-size: var(--fs-sm); }
-.diario-privado .icon { width: 18px; height: 18px; color: var(--accent); flex: none; }
-.diario-contagem { font-size: var(--fs-sm); color: var(--text-mute); }
-.diario-contagem:empty, .diario-aviso:empty, .diario-resumo:empty { display: none; }
+.diario-aviso:empty, .diario-resumo:empty { display: none; }
 .diario-aviso, .diario-resumo { padding: 12px 16px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface); color: var(--text); font-size: var(--fs-sm); line-height: 1.5; }
 .diario-aviso { border-color: var(--warn); }
 
-/* cabecalho: titulo e contagem a esquerda, botao Acoes (celular) ou barra (computador) */
-.diario-linha { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-3); }
-.diario-tit { display: grid; gap: var(--sp-2); min-width: 0; }
-.diario-linha .iconbtn { flex: none; }
-.diario-barra { padding-block: 0; }
-.diario-barra .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+/* cabecalho compacto: subtitulo e uma linha de meta a esquerda, Exportar e Acoes a direita */
+.diario-topo { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "sub ferr" "meta meta"; align-items: start; gap: var(--sp-2) var(--sp-3); }
+.diario-tit { display: contents; }
+.diario-sub { grid-area: sub; font-size: var(--fs-md); line-height: 1.5; color: var(--text-soft); max-width: 46ch; }
+.diario-meta { grid-area: meta; display: block; color: var(--text-soft); font-size: var(--fs-sm); line-height: 1.4; }
+.diario-meta .icon { width: 16px; height: 16px; color: var(--accent); vertical-align: -3px; margin-right: 8px; }
+.diario-contagem:empty { display: none; }
+.diario-contagem { white-space: nowrap; }
+.diario-contagem::before { content: "\00B7"; margin: 0 8px; color: var(--text-mute); }
+.diario-ferr { grid-area: ferr; display: flex; gap: 8px; align-items: center; }
+.diario-ferr [hidden] { display: none !important; }
+@media (max-width: 899px) { .diario-exportar { display: none; } }
 .diario-confirma { display: grid; gap: var(--sp-3); border-color: var(--err); }
 .diario-confirma h3 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; }
 .diario-confirma p { color: var(--text-soft); }
@@ -24,56 +25,75 @@
 .diario-marca input:checked { background: var(--accent); border-color: var(--accent); }
 .diario-marca input:checked::after { opacity: 1; }
 
-.diario-vazio { display: grid; gap: var(--sp-3); text-align: center; justify-items: center; padding-block: var(--sp-6); }
-.diario-vazio h3 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.12; color: var(--accent); }
-.diario-vazio p { color: var(--text-soft); max-width: 44ch; }
-.diario-vazio .btn-row { justify-content: center; }
+/* vazio: um convite e uma acao */
+.diario-vazio { display: grid; gap: var(--sp-2); justify-items: center; text-align: center; padding: var(--sp-5) var(--sp-4); border: 1px dashed var(--line-strong); border-radius: var(--r-md); }
+.diario-vazio[hidden] { display: none; }
+.diario-vazio h2 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; color: var(--accent); }
+.diario-vazio p { color: var(--text-soft); max-width: 40ch; margin-bottom: var(--sp-2); }
 
-/* linha do tempo */
-.diario-lista { list-style: none; margin: 0; padding: 0 0 0 28px; display: grid; gap: var(--sp-4); position: relative; }
-.diario-lista::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--line-strong); }
+/* meses */
+.diario-lista { display: grid; gap: var(--sp-5); }
+.diario-mes { display: grid; gap: var(--sp-3); }
+.diario-mes-tit { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); padding-bottom: 8px; border-bottom: 1px solid var(--line); font-weight: 400; }
+.diario-mes-nome { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; }
+.diario-mes-nome::first-letter { text-transform: uppercase; }
+.diario-mes-n { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mute); white-space: nowrap; }
+.diario-mes-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+
+/* registro */
 .diario-item { position: relative; }
-.diario-item::before { content: ""; position: absolute; left: -26px; top: 24px; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); }
-.diario-cartao { display: grid; gap: var(--sp-4); padding: var(--sp-4); border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--line); }
+.diario-cartao { position: relative; display: grid; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4) var(--sp-4); border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--line); }
 [data-theme="aurora"] .diario-cartao { box-shadow: var(--sh-1); }
-.diario-cab { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--sp-3); }
-.diario-data { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.25rem; line-height: 1.25; }
-.diario-data::first-letter { text-transform: uppercase; }
+.diario-cab { display: grid; grid-template-columns: 52px minmax(0, 1fr) 44px; align-items: center; gap: var(--sp-3); margin: 0 calc(var(--sp-2) * -1) 0 0; }
+.diario-dia { display: grid; justify-items: start; align-content: center; gap: 2px; min-height: 52px; color: var(--accent); }
+.diario-dia b { font-family: var(--font-display); font-weight: var(--w-display); font-size: 2.25rem; line-height: 0.9; font-variant-numeric: lining-nums tabular-nums; letter-spacing: -0.02em; }
+.diario-dia span { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-soft); }
+.diario-dia .icon { width: 26px; height: 26px; color: var(--text-mute); }
+.diario-ident { min-width: 0; }
+.diario-data { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.25rem; line-height: 1.25; text-wrap: balance; }
 .diario-data:focus-visible { outline-offset: 4px; }
-.diario-tipo { margin-top: 2px; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
-.diario-pergunta { font-family: var(--font-display); font-style: italic; font-size: var(--fs-lg); line-height: 1.4; color: var(--text); overflow-wrap: anywhere; }
-.diario-pergunta-rotulo { font-family: var(--font-ui); font-style: normal; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-soft); margin-right: 6px; }
+.diario-hora { margin-top: 2px; font-size: var(--fs-sm); color: var(--text-soft); font-variant-numeric: tabular-nums; }
+.diario-lixo { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: var(--r-btn); background: transparent; color: var(--text-soft); cursor: pointer; }
+.diario-lixo .icon { width: 20px; height: 20px; }
+.diario-lixo:hover { color: var(--err); background: color-mix(in srgb, var(--err) 14%, transparent); }
+.diario-lixo:focus-visible { outline: 2px solid var(--focus); outline-offset: 0; color: var(--err); }
+.diario-pergunta { font-family: var(--font-display); font-style: italic; font-size: var(--fs-lg); line-height: 1.4; color: var(--text); overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .diario-pergunta q { quotes: "\201C" "\201D"; }
-.diario-apagar { flex: none; }
+.diario-corpo { display: grid; gap: var(--sp-3); }
 
-.diario-cartas { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-3); }
-.diario-carta { display: grid; gap: 6px; justify-items: center; align-content: start; }
-.diario-pos { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-soft); }
-.diario-mini { display: grid; gap: 6px; justify-items: center; align-content: start; width: 96px; min-height: 44px; padding: 0; border: 0; background: none; color: var(--text); font: inherit; cursor: pointer; border-radius: var(--r-sm); }
-.diario-mini img { width: 64px; height: 96px; object-fit: cover; border-radius: 6px; box-shadow: var(--sh-1); border: 1px solid var(--line-strong); transition: transform 0.3s var(--ease-ritual); }
-.diario-mini:hover img { transform: translateY(-2px); }
-.diario-nome { font-size: var(--fs-sm); line-height: 1.25; text-align: center; text-wrap: balance; }
+.diario-cartas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-2); }
+.diario-cartas:not(.tres) { grid-template-columns: minmax(0, 1fr); }
+.diario-carta { display: grid; gap: 4px; align-content: start; min-width: 0; }
+.diario-pos { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-soft); }
+.diario-mini { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 8px; width: 100%; min-height: 60px; padding: 0; border: 0; background: none; color: var(--text); font: inherit; text-align: left; cursor: pointer; border-radius: var(--r-sm); }
+.diario-mini img { width: 40px; height: 60px; object-fit: cover; border-radius: 4px; box-shadow: var(--sh-1); border: 1px solid var(--line-strong); }
+.diario-mini:hover .diario-nome { color: var(--accent); }
+.diario-mini:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.diario-nome { font-size: 0.8125rem; line-height: 1.25; overflow-wrap: anywhere; }
 
-.diario-nota { display: grid; gap: 8px; }
-.diario-nota label { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.3; color: var(--text); }
-.diario-nota textarea { width: 100%; min-height: 96px; padding: 12px 14px; border-radius: var(--r-sm); border: 1px solid var(--control); background: var(--bg); color: var(--text); font: 400 var(--fs-md)/1.6 var(--font-ui); resize: vertical; }
+.diario-nota { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.diario-nota textarea { width: 100%; min-height: 72px; padding: 10px 12px; border-radius: var(--r-sm); border: 1px solid var(--control); background: var(--bg); color: var(--text); font: 400 var(--fs-md)/1.6 var(--font-ui); resize: vertical; }
+.diario-nota textarea:focus { min-height: 128px; }
 .diario-nota textarea::placeholder { color: var(--text-soft); opacity: 1; }
 .diario-nota textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--r-sm); }
-.diario-rodape { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3); min-height: 1.4em; }
+.diario-rodape { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3); }
+.diario-rodape:has(.diario-estado:empty):has(.diario-contador[hidden]) { display: none; }
 .diario-estado { font-size: var(--fs-sm); color: var(--text-soft); }
 .diario-estado[data-estado="salvo"] { color: var(--ok); }
 .diario-estado[data-estado="falha"] { color: var(--err); font-weight: 600; }
 .diario-contador { font-size: var(--fs-sm); color: var(--text-soft); margin-left: auto; font-variant-numeric: tabular-nums; }
 .diario-contador.no-limite { color: var(--warn); font-weight: 600; }
 .diario-mais { display: flex; justify-content: center; }
+.diario-mais[hidden] { display: none; }
 
+@media (min-width: 640px) {
+  .diario-corpo { grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: var(--sp-4); }
+  .diario-cartas { grid-template-columns: repeat(3, 148px); }
+  .diario-cartas:not(.tres) { grid-template-columns: 148px; }
+  .diario-cartao { padding: var(--sp-3) var(--sp-4) var(--sp-4); }
+}
 @media (max-width: 480px) {
-  .diario-lista { padding-left: 22px; }
-  .diario-item::before { left: -21px; }
-  .diario-lista::before { left: 2px; }
-  .diario-cartao { padding: var(--sp-3); }
-  .diario-cab { flex-wrap: wrap; }
-  .diario-cartas { gap: 6px; }
-  .diario-mini { width: 86px; }
-  .diario-mini img { width: 58px; height: 87px; }
+  .diario-cartao { padding: var(--sp-2) var(--sp-3) var(--sp-3); }
+  .diario-cab { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: var(--sp-2); margin-right: -8px; }
+  .diario-dia b { font-size: 2rem; }
 }
