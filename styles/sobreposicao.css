@@ -50,6 +50,8 @@
 .sob-acao:hover { background: var(--surface-2); }
 .sob-acao .icon { color: var(--accent); }
 .sob-acao.perigo, .sob-acao.perigo .icon { color: var(--err); }
+.sob-acao:disabled { opacity: 0.5; cursor: not-allowed; }
+.sob-acao:disabled:hover { background: none; }
 .sob-acao:focus-visible, .sob-pn .btn:focus-visible, .sob-pn .iconbtn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .sob-lista { display: grid; gap: 10px; }
 .sob-pilha { display: grid; gap: 12px; }
