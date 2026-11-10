@@ -20,7 +20,7 @@
   --font-display: "Fraunces", "Fraunces Fallback", Georgia, serif;
   --font-ui: "Hanken Grotesk", "Hanken Fallback", system-ui, -apple-system, sans-serif;
   --w-display: 350;
-  --r-sm: 4px; --r-md: 10px; --r-pill: 4px; --r-card: 4px;
+  --r-btn: 4px; --r-sm: 4px; --r-md: 10px; --r-pill: 4px; --r-card: 4px;
 }
 /* textura: grao de papel e feixe de luz com caixilho */
 [data-theme="aurora"] body::before {
@@ -39,7 +39,5 @@
 @media (min-width: 860px) { [data-theme="aurora"] .mainnav a[aria-current="page"] { background: none; color: var(--text); box-shadow: inset 0 -2px 0 var(--accent); border-radius: 0; } }
 @media (max-width: 859px) { [data-theme="aurora"] .mainnav a[aria-current="page"]::before { content: ""; position: absolute; top: 0; width: 28px; height: 3px; background: var(--accent); border-radius: 0 0 3px 3px; } }
 [data-theme="aurora"] .eyebrow { font-weight: 600; }
-[data-theme="aurora"] .btn-primary { box-shadow: 0 1px 0 rgb(0 0 0 / 0.15), 0 12px 22px -12px var(--accent); }
-[data-theme="aurora"] .btn-ghost { font-weight: 600; }
 [data-theme="aurora"] .panel-card { box-shadow: var(--sh-2); }
 [data-theme="aurora"] .card-front img, [data-theme="aurora"] .card-back, [data-theme="aurora"] .hero-art img, [data-theme="aurora"] .info-art img { box-shadow: var(--sh-2); }

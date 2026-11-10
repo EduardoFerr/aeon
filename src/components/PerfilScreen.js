@@ -150,7 +150,7 @@ export class PerfilScreen extends HTMLElement {
     barraHtml(m) {
         const btn = (id, rot, i, cls) => `<button class="btn ${cls}" type="button" data-exec="${id}">${ic(i)}${esc(rot)}</button>`;
         const icone = (id, rot, i, perigo) => `<button class="iconbtn round${perigo ? ' perigo' : ''}" type="button" data-exec="${id}" aria-label="${esc(rot)}" title="${esc(rot)}">${ic(i)}</button>`;
-        return `${btn('novo', T.novoMapa, 'mais', 'btn-primary')}${m ? btn('editar', T.editar, 'editar', 'btn-ghost') : ''}${m ? btn('exportar', T.exportar, 'baixar', 'btn-ghost') : ''}${btn('importar', T.importar, 'copiar', 'btn-ghost')}
+        return `${btn('novo', T.novoMapa, 'mais', 'btn-ghost')}${m ? btn('editar', T.editar, 'editar', 'btn-ghost') : ''}${m ? btn('exportar', T.exportar, 'baixar', 'btn-ghost') : ''}${btn('importar', T.importar, 'copiar', 'btn-ghost')}
             <span class="sep" aria-hidden="true"></span>${m ? `${icone('trocar', T.trocar, 'trocar')}${icone('apagar', T.apagarEste, 'lixo', true)}` : ''}`;
     }
 

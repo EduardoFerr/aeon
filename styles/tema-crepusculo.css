@@ -20,7 +20,7 @@
   --font-display: "Cormorant Garamond", "Cormorant Fallback", Georgia, serif;
   --font-ui: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
   --w-display: 500;
-  --r-sm: 14px; --r-md: 22px; --r-pill: 999px; --r-card: 10px;
+  --r-btn: 8px; --r-sm: 14px; --r-md: 22px; --r-pill: 999px; --r-card: 10px;
 }
 html:not([data-theme="aurora"]) body::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;

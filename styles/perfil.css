@@ -23,7 +23,7 @@ svg.gl { display: inline-block; vertical-align: -0.12em; }
 .perfil-topo h1 { font-family: var(--font-display); font-weight: var(--w-display); font-size: clamp(1.9rem, 6vw, 2.6rem); line-height: 1.05; letter-spacing: -0.01em; }
 .perfil-topo .eyebrow { display: block; margin-bottom: 2px; color: var(--accent); }
 .perfil-topo .btn { margin-left: auto; }
-@media (max-width: 479px) { .perfil-topo .btn span { display: none; } .perfil-topo .btn { width: 44px; padding: 0; } }
+@media (max-width: 479px) { .perfil-topo .btn span { display: none; } .perfil-topo .btn { width: 40px; padding: 0; } }
 
 /* carta de visita: tres cartas reais */
 .visita { position: relative; padding: var(--sp-5) var(--sp-4); border-radius: var(--r-md); border: 1px solid var(--line-strong); background: radial-gradient(90% 60% at 50% 0%, var(--glow), transparent 70%), var(--surface); display: grid; gap: var(--sp-4); overflow: hidden; }

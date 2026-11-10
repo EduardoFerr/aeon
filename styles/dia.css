@@ -47,5 +47,4 @@
 .cartao-acoes { justify-content: center; margin-top: var(--sp-4); }
 .cartao-msg { min-height: 1.6em; margin-top: var(--sp-2); text-align: center; color: var(--text-soft); font-size: var(--fs-sm); }
 
-.dia-lembrar { min-height: 44px; font-size: var(--fs-sm); padding: 0 18px; }
 .dia-msg { min-height: 1.5em; color: var(--text-soft); font-size: var(--fs-sm); text-align: center; }
