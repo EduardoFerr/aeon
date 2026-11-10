@@ -7,7 +7,10 @@ import { exportar as exportarDiario, importar as importarDiario } from './diario
  *   Mapa = { id, rotulo, data "AAAA-MM-DD", hora "HH:MM" | null, local: { nome, lat, lon, tz }, principal, escolha?, criado }
  *   escolha = 0 ou 1: qual das duas leituras vale quando a hora local e ambigua ou inexistente.
  *   casas = 'placidus' | 'signos-inteiros' | 'igual': sistema de casas preferido para este mapa.
- * Um so mapa pode ser o principal ("Meu mapa"). Os dados de nascimento nunca saem do aparelho:
+ * Um so mapa pode ser o principal ("Meu mapa"). "Meus dados" e a visao e a edicao desse mapa mais o apelido.
+ * So se guarda o que muda o calculo: apelido, data, hora e cidade (o fuso vem da cidade). Nome completo, sexo, estado civil,
+ * profissao e "signo que a pessoa acha que e" ficam de fora de proposito: nao alteram o mapa e seriam dado pessoal sem funcao.
+ * Os dados de nascimento nunca saem do aparelho:
  * nada vai para URL, hash, console nem analytics.
  *
  * Tudo em try/catch: modo privado, bloqueado, quota cheia ou JSON corrompido nao quebram nada.
@@ -242,17 +245,60 @@ export function adicionar(entrada) {
     return { ok: gravar(doc), id: m.id };
 }
 
-/** Atualiza os dados de um mapa mantendo id, criado e se e o principal. */
+/** Os dados que definem a hora (e a leitura das casas) mudaram? Mesma data, hora e lugar = mesma definicao. */
+export function mesmaDefinicao(a, b) {
+    if (!a || !b || !a.local || !b.local) return false;
+    return a.data === b.data && (a.hora || null) === (b.hora || null) && a.local.lat === b.local.lat && a.local.lon === b.local.lon && a.local.tz === b.local.tz;
+}
+
+/**
+ * Atualiza os dados de um mapa mantendo id, criado e se e o principal.
+ * Se data, hora e lugar nao mudaram, preserva a escolha da hora ambigua e o sistema de casas ja gravados;
+ * se mudaram, a escolha vem da entrada e o sistema de casas volta ao padrao (a pessoa escolhe de novo).
+ */
 export function atualizar(id, entrada) {
     const doc = carregar();
     const i = doc.mapas.findIndex((m) => m.id === id);
     if (i < 0) return { ok: false, motivo: 'ausente' };
     const atual = doc.mapas[i];
-    const m = sanearMapa({ casas: atual.casas, ...entrada, id, principal: atual.principal, criado: atual.criado });
+    const mesma = mesmaDefinicao(atual, entrada);
+    const escolha = mesma ? atual.escolha : entrada.escolha;
+    const casas = SISTEMAS_CASAS.includes(entrada.casas) ? entrada.casas : mesma ? atual.casas : 'placidus';
+    const m = sanearMapa({ ...entrada, escolha, casas, id, principal: atual.principal, criado: atual.criado });
     if (!m) return { ok: false, motivo: 'invalido' };
     if (doc.mapas.some((x, j) => j !== i && chaveMapa(x) === chaveMapa(m))) return { ok: false, motivo: 'repetido' };
     doc.mapas[i] = m;
     return { ok: gravar(doc), id };
+}
+
+/**
+ * "Meus dados": grava o apelido e cria ou atualiza o mapa PRINCIPAL. entrada: { apelido?, data, hora, local, escolha }.
+ * Sem principal, cria e guarda direto (a pessoa informou os proprios dados). Se esses dados ja estavam guardados
+ * como outro mapa, esse mapa passa a ser o principal, sem duplicar.
+ * @returns {{ok:boolean, id?:string, criado?:boolean, motivo?:string}}
+ */
+export function salvarMeusDados(entrada) {
+    const { apelido: ap, ...dados } = entrada || {};
+    const p = principal();
+    let r;
+    if (p) {
+        r = atualizar(p.id, { ...dados, rotulo: p.rotulo });
+    } else {
+        r = adicionar({ ...dados, rotulo: 'Meu mapa', principal: true });
+        if (r.id && r.repetido) {
+            const doc = carregar();
+            const m = doc.mapas.find((x) => x.id === r.id);
+            if (m) {
+                m.principal = true;
+                m.rotulo = 'Meu mapa';
+                r = { ok: gravar(doc), id: m.id };
+            }
+        }
+        if (r.id) r.criado = true;
+    }
+    if (!r.id) return r;
+    if (typeof ap === 'string') definirApelido(ap);
+    return r;
 }
 
 /** Grava so as preferencias de leitura de um mapa guardado: qual hora vale (escolha) e o sistema de casas. */

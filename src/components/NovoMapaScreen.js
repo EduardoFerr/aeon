@@ -1,8 +1,14 @@
 import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
 import { ic } from '../utils/glifos.js';
 import { loadCards } from '../utils/cardsUtil.js';
-import { obter, principal, atualizar, persiste } from '../utils/perfil.js';
+import { obter, principal, atualizar, salvarMeusDados, mesmaDefinicao, apelido, LIMITE_APELIDO, persiste } from '../utils/perfil.js';
 import { carregarTextos, carregarMotor, texto, esc, nomeMes, calcular, marcadoresHora, atribuicaoGeoNames } from '../utils/mapaComum.js';
+
+/*
+ * Formulario de mapa. No modo "Meus dados" (mapa principal) pede so o que muda o calculo: apelido, data, hora e cidade
+ * (o fuso vem da cidade). Nome completo, sexo, estado civil, profissao e "signo que acha que e" ficam de fora de proposito:
+ * nao alteram o mapa e seriam dado pessoal sem funcao.
+ */
 
 /* Textos que ainda nao tem id em textos.json (a interface criada para o formulario). */
 const T = {
@@ -15,6 +21,7 @@ const T = {
     opcional: '(opcional)',
     exNome: 'Ex.: Mãe, Júlia',
     soVoce: 'Só você vê esse nome.',
+    apelidoRotulo: 'Como quer ser chamado',
     data: 'Data de nascimento',
     dia: 'Dia', mes: 'Mês', ano: 'Ano',
     hora: 'Hora de nascimento',
@@ -64,9 +71,12 @@ export class NovoMapaScreen extends HTMLElement {
         this.editando = est.editar ? obter(est.editar) : null;
         this.temPrincipal = !!principal();
         const m = this.editando;
+        // "Meus dados": editar o mapa principal, ou o primeiro preenchimento vindo do convite do Perfil
+        this.modoEu = !!(m ? m.principal : est.meusDados && !this.temPrincipal);
         this.st = {
-            para: m ? (m.principal ? 'mim' : 'outra') : this.temPrincipal ? 'outra' : 'mim',
+            para: m ? (m.principal ? 'mim' : 'outra') : this.modoEu ? 'mim' : this.temPrincipal ? 'outra' : 'mim',
             rotulo: m ? m.rotulo : '',
+            apelido: this.modoEu ? apelido() : '',
             dia: m ? String(Number(m.data.slice(8))) : '',
             mes: m ? String(Number(m.data.slice(5, 7))) : '',
             ano: m ? m.data.slice(0, 4) : '',
@@ -86,7 +96,7 @@ export class NovoMapaScreen extends HTMLElement {
             ativo: -1,
             status: '',
         };
-        document.querySelector('#page-title').textContent = m ? T.editar : T.novo;
+        document.querySelector('#page-title').textContent = this.modoEu ? 'Meus dados' : m ? T.editar : T.novo;
         this.innerHTML = '<div class="mapa-tela" aria-busy="true"></div>';
         try {
             this.textos = await carregarTextos();
@@ -94,6 +104,7 @@ export class NovoMapaScreen extends HTMLElement {
             this.textos = {};
         }
         if (!this.isConnected) return;
+        if (this.modoEu) document.querySelector('#page-title').textContent = this.t('ui.meusdados.titulo', {}, 'Meus dados');
         this.token = 0;
         this.desenhar();
         focarCabecalho('#page-title');
@@ -121,8 +132,14 @@ export class NovoMapaScreen extends HTMLElement {
         const resumo = erros.length
             ? `<section class="aviso erro resumo-erros" role="alert" tabindex="-1" id="resumo">${ic('erro')}<h3>Confira ${erros.length} ${erros.length === 1 ? 'campo' : 'campos'} antes de calcular</h3><div><ul>${erros.map(([k, v]) => `<li><a href="#" data-foco="${campoDe[k]}">${esc(v)}</a></li>`).join('')}</ul></div></section>`
             : '';
-        const mostrarPara = !this.editando && !this.temPrincipal;
+        const mostrarPara = !this.editando && !this.temPrincipal && !this.modoEu;
         const rotuloObrigatorio = s.para === 'outra';
+        const titulo = this.modoEu ? this.t('ui.meusdados.titulo', {}, 'Meus dados') : this.editando ? T.editar : T.novo;
+        const campoNome = this.modoEu
+            ? `<div class="campo"><label class="rot" for="c-apelido">${T.apelidoRotulo} <span class="opc">${T.opcional}</span></label>
+              <input class="entrada" id="c-apelido" maxlength="${LIMITE_APELIDO}" autocomplete="nickname" aria-describedby="d-apelido" value="${esc(s.apelido)}"><span class="dica" id="d-apelido">${esc(this.t('ui.meusdados.apelido.dica'))}</span></div>`
+            : `<div class="campo"><label class="rot" for="c-rotulo">${T.nome}${rotuloObrigatorio ? '' : ` <span class="opc">${T.opcional}</span>`}</label>
+              <input class="entrada" id="c-rotulo" maxlength="40" autocomplete="off" placeholder="${rotuloObrigatorio ? T.exNome : 'Meu mapa'}" value="${esc(s.rotulo)}"${this.inv('rotulo')}${rotuloObrigatorio ? ' aria-required="true"' : ''}>${this.err('rotulo')}<span class="dica">${T.soVoce}</span></div>`;
         const mesesOpt = Array.from({ length: 12 }, (_, i) => `<option value="${i + 1}"${String(i + 1) === s.mes ? ' selected' : ''}>${nomeMes(i + 1)[0].toUpperCase() + nomeMes(i + 1).slice(1)}</option>`).join('');
         const dis = s.semHora ? ' disabled' : '';
         const localHtml = s.coord
@@ -134,11 +151,10 @@ export class NovoMapaScreen extends HTMLElement {
                <div id="sug-area"></div><p class="sr" role="status" aria-live="polite" id="sug-status"></p>
                ${s.local ? `<div class="local-ok">${ic('ok')}<span>${esc(s.local.nome)}</span></div>` : ''}
                <span class="dica" id="d-local">${esc(this.t('ui.form.local'))}</span><span class="dica">${T.foraDoBrasil}</span><button class="link-btn" type="button" data-acao="coord">${ic('pino')}${T.coordenadas}</button>`;
-        this.innerHTML = `<div class="mapa-tela"><form class="form-mapa" id="form" novalidate aria-label="${this.editando ? T.editar : T.novo}">
+        this.innerHTML = `<div class="mapa-tela"><form class="form-mapa" id="form" novalidate aria-label="${esc(titulo)}">
             ${resumo}<div id="pendente-area">${s.pendente ? this.htmlPendente() : ''}</div>
             ${mostrarPara ? `<fieldset class="campo"><legend>${T.paraQuem}</legend><div class="seg"><label><input type="radio" name="para" value="mim"${s.para === 'mim' ? ' checked' : ''}>${T.paraMim}</label><label><input type="radio" name="para" value="outra"${s.para === 'outra' ? ' checked' : ''}>${T.outra}</label></div></fieldset>` : ''}
-            <div class="campo"><label class="rot" for="c-rotulo">${T.nome}${rotuloObrigatorio ? '' : ` <span class="opc">${T.opcional}</span>`}</label>
-              <input class="entrada" id="c-rotulo" maxlength="40" autocomplete="off" placeholder="${rotuloObrigatorio ? T.exNome : 'Meu mapa'}" value="${esc(s.rotulo)}"${this.inv('rotulo')}${rotuloObrigatorio ? ' aria-required="true"' : ''}>${this.err('rotulo')}<span class="dica">${T.soVoce}</span></div>
+            ${campoNome}
             <fieldset class="campo" id="c-data" aria-describedby="d-data"><legend>${T.data}</legend><div class="trio">
               <div><label class="rot-mini" for="c-dia">${T.dia}</label><input class="entrada" id="c-dia" inputmode="numeric" maxlength="2" autocomplete="off" placeholder="DD" value="${esc(s.dia)}"${this.inv('data')}></div>
               <div><label class="rot-mini" for="c-mes">${T.mes}</label><select class="entrada" id="c-mes"${this.inv('data')}><option value="">${T.mes}</option>${mesesOpt}</select></div>
@@ -149,8 +165,8 @@ export class NovoMapaScreen extends HTMLElement {
               <label class="diario-marca"><input type="checkbox" id="c-semhora" aria-describedby="d-hora"${s.semHora ? ' checked' : ''}><span>${T.naoSei}</span></label>
               <span class="dica" id="d-hora">${esc(s.semHora ? this.t('ui.form.semhora') : this.t('ui.form.hora'))}</span></fieldset>
             <div class="campo" id="c-local"><label class="rot" for="${s.coord ? 'c-lat' : 'c-q'}">${T.local}</label>${localHtml}</div>
-            <div class="rodape-form"><button class="btn btn-primary" type="submit">${esc(this.t('ui.btn.calcular', {}, 'Montar o mapa astral'))}</button>
-              <p class="nota-priv">${ic('cadeado')}<span>${T.privado}</span></p>
+            <div class="rodape-form"><button class="btn btn-primary" type="submit">${esc(this.modoEu && this.editando ? this.t('ui.meusdados.salvar') : this.t('ui.btn.calcular', {}, 'Montar o mapa astral'))}</button>
+              <p class="nota-priv">${ic('cadeado')}<span>${this.modoEu ? esc(this.t('ui.meusdados.form.privado')) : T.privado}</span></p>
               <p class="sr" role="status" aria-live="polite" data-status>${esc(s.status)}</p>
               <p class="nota-geonames">${atribuicaoGeoNames(this.textos)}</p>
               <button class="link-btn" type="button" data-acao="voltar">${ic('voltar')}${T.voltar}</button></div>
@@ -216,7 +232,7 @@ export class NovoMapaScreen extends HTMLElement {
             return e ? e.value : null;
         };
         const s = this.st;
-        const campos = { rotulo: 'c-rotulo', dia: 'c-dia', mes: 'c-mes', ano: 'c-ano', hh: 'c-hh', mm: 'c-mm', lat: 'c-lat', lon: 'c-lon', tz: 'c-tz' };
+        const campos = { rotulo: 'c-rotulo', apelido: 'c-apelido', dia: 'c-dia', mes: 'c-mes', ano: 'c-ano', hh: 'c-hh', mm: 'c-mm', lat: 'c-lat', lon: 'c-lon', tz: 'c-tz' };
         Object.entries(campos).forEach(([k, id]) => {
             const x = v(id);
             if (x !== null) s[k] = x;
@@ -431,13 +447,18 @@ export class NovoMapaScreen extends HTMLElement {
             ? { nome: `${num(s.lat).toFixed(2)}, ${num(s.lon).toFixed(2)}`, lat: num(s.lat), lon: num(s.lon), tz: s.tz.trim() }
             : s.local;
         const entrada = {
-            rotulo: s.rotulo.trim() || (s.para === 'mim' ? 'Meu mapa' : ''),
+            rotulo: this.modoEu && this.editando ? this.editando.rotulo : s.rotulo.trim() || (s.para === 'mim' ? 'Meu mapa' : ''),
             data: `${String(s.ano).trim()}-${pad(s.mes)}-${pad(s.dia)}`,
             hora: s.semHora ? null : `${pad(s.hh)}:${pad(s.mm)}`,
             local,
             escolha: s.escolha,
             principal: s.para === 'mim',
         };
+        // mesma data, hora e lugar: vale a escolha da hora ambigua que ja estava gravada, sem perguntar de novo
+        if (this.editando && mesmaDefinicao(this.editando, entrada)) {
+            s.escolha = this.editando.escolha;
+            s.escolhido = true;
+        }
         const botao = this.querySelector('[type="submit"]');
         if (botao) botao.disabled = true;
         const status = this.querySelector('[data-status]');
@@ -465,6 +486,19 @@ export class NovoMapaScreen extends HTMLElement {
             s.escolha = 1;
             s.erros = {};
             this.desenhar('#pend-t');
+            return;
+        }
+        if (this.modoEu) {
+            // Meus dados: a pessoa informa os proprios dados de proposito, entao guarda direto, sem a etapa "nao guardado"
+            const r = salvarMeusDados({ ...entrada, escolha: s.escolhido ? s.escolha : 0, apelido: s.apelido });
+            if (!r.id) {
+                s.erros = { local: r.motivo === 'repetido' ? T.erroRepetido : r.motivo === 'limite' ? T.erroLimite : T.erroGuardar };
+                this.desenhar();
+                return;
+            }
+            if (!r.ok) persiste();
+            if (this.editando) navigateTo('perfil', { selecionar: r.id, aviso: 'dados' });
+            else navigateTo('mapa', { id: r.id });
             return;
         }
         if (!this.editando) {
