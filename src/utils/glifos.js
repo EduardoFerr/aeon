@@ -60,3 +60,7 @@ const IC = {
 
 export const gl = (k, cls = '') => `<svg class="gl ${cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${G[k] || ''}</svg>`;
 export const ic = (k, cls = '') => `<svg class="icon ${cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${IC[k] || ''}</svg>`;
+
+/** Tracos internos de um glifo (viewBox 24), para montar SVG proprio (roda e cartoes). */
+export const glifoTracos = (k) => G[k] || '';
+export const GLIFOS = Object.keys(G);
