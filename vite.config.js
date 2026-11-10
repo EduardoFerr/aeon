@@ -30,6 +30,21 @@ export default defineConfig({
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
         sourcemap: true,
+        // Dados do mapa astral (textos e lista de cidades) nao entram no precache: ficam fora do
+        // globPatterns (so js, css, html e imagens). Depois da primeira leitura online, o service worker
+        // guarda cada arquivo para o mapa funcionar sem rede.
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) =>
+              /^\/data\/(astro|locais)\/[^/]+\.json$/.test(url.pathname),
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "aeon-astro-dados",
+              expiration: { maxEntries: 60, maxAgeSeconds: 60 * 60 * 24 * 90 },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
+        ],
       },
       includeAssets: ["favicon.ico", "robots.txt", "icons/*.png"],
       manifest: {

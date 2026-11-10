@@ -1,5 +1,7 @@
 import { navigateTo } from '../utils/navigation.js';
 import './CartaDoDia.js';
+import { listar } from '../utils/perfil.js';
+import { rodaVazia } from '../utils/roda.js';
 
 export class HomeScreen extends HTMLElement {
     connectedCallback() {
@@ -26,6 +28,8 @@ export class HomeScreen extends HTMLElement {
 
                 <carta-do-dia></carta-do-dia>
 
+                <div data-calcule></div>
+
                 <div class="hermetic-knowledge panel-card">
                     <h3>Como o Hermetismo, a Cabala e a Astrologia se relacionam no Tarot de Thoth?</h3>
                     <p>
@@ -41,6 +45,19 @@ export class HomeScreen extends HTMLElement {
             </section>
         `;
 
+        // Convite discreto ao mapa astral, so enquanto a pessoa ainda nao tem nenhum mapa guardado
+        if (!listar().length) {
+            this.querySelector('[data-calcule]').innerHTML = `
+                <section class="panel-card calcule" aria-labelledby="calc-t">
+                    ${rodaVazia()}
+                    <div style="display:grid;gap:12px">
+                        <span class="eyebrow">Mapa astral</span>
+                        <h3 id="calc-t">Calcule o seu mapa</h3>
+                        <p>Com data, hora e local de nascimento, o Sol, a Lua e o Ascendente ganham uma carta cada um, escolhida pelo decano.</p>
+                        <div class="btn-row"><button type="button" class="btn btn-primary" data-ir="novo-mapa">Calcular o meu mapa</button></div>
+                    </div>
+                </section>`;
+        }
         document.querySelector('#page-title').textContent = "Aeon Fool";
         this.querySelectorAll('[data-ir]').forEach((botao) => {
             botao.addEventListener('click', () => navigateTo(botao.dataset.ir));
