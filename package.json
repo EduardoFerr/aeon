@@ -7,12 +7,15 @@
   "scripts": {
     "dev": "vite",
     "validar": "node tools/validar-cartas.mjs",
+    "test:astro": "node --test tests/astro/*.test.js",
     "build": "vite build",
     "preview": "vite preview"
   },
   "author": "Eduardo",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "astronomy-engine": "^2.1.19"
+  },
   "devDependencies": {
     "esbuild": "^0.24.2",
     "vite": "^6.1.0",
