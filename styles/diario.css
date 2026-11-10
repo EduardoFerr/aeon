@@ -39,6 +39,9 @@
 .diario-data::first-letter { text-transform: uppercase; }
 .diario-data:focus-visible { outline-offset: 4px; }
 .diario-tipo { margin-top: 2px; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.diario-pergunta { font-family: var(--font-display); font-style: italic; font-size: var(--fs-lg); line-height: 1.4; color: var(--text); overflow-wrap: anywhere; }
+.diario-pergunta-rotulo { font-family: var(--font-ui); font-style: normal; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-soft); margin-right: 6px; }
+.diario-pergunta q { quotes: "\201C" "\201D"; }
 .diario-apagar { min-height: 44px; padding-inline: 18px; font-size: var(--fs-sm); flex: none; }
 
 .diario-cartas { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-3); }

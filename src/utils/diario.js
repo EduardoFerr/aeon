@@ -4,7 +4,7 @@ import { hash, dataLocal } from './cartaDoDia.js';
  * Diario: anotacoes e leituras, guardadas so no aparelho.
  *
  * Chave: "aeon:v2:diario"  ->  { v: 2, entradas: [Entrada], ocultos: [id] }
- *   Entrada = { id, t (ISO), tipo: "dia" | "leitura", cartas: [{ order, pos? }], nota, m (ISO da ultima edicao da nota), rotulo? }
+ *   Entrada = { id, t (ISO), tipo: "dia" | "leitura", cartas: [{ order, pos? }], nota, m (ISO da ultima edicao da nota), rotulo?, pergunta? (so leitura, ate 200 caracteres) }
  *   ocultos = ids de leituras do historico antigo que a pessoa apagou do diario (so esconde, nao apaga o antigo).
  *
  * O historico antigo (chave "tarotHistory", storage.js) e lido SOMENTE LEITURA e convertido por order;
@@ -16,6 +16,7 @@ import { hash, dataLocal } from './cartaDoDia.js';
 export const CHAVE_DIARIO = 'aeon:v2:diario';
 export const CHAVE_ANTIGA = 'tarotHistory';
 export const LIMITE_NOTA = 2000;
+export const LIMITE_PERGUNTA = 200;
 export const LIMITE_ENTRADAS = 500;
 export const LIMITE_ARQUIVO = 1024 * 1024; // 1 MB
 const LIMITE_LEITURA_IMPORTACAO = 2000; // quantas entradas do arquivo sao ao menos examinadas
@@ -50,6 +51,12 @@ function limparTexto(valor, max) {
     return valor.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').replace(/\r\n?/g, '\n').slice(0, max);
 }
 
+/** Pergunta de leitura: uma linha so, sem controles, aparada, no maximo LIMITE_PERGUNTA caracteres. */
+export function limparPergunta(valor) {
+    if (typeof valor !== 'string') return '';
+    return limparTexto(valor, 4 * LIMITE_PERGUNTA).replace(/\s+/g, ' ').trim().slice(0, LIMITE_PERGUNTA).trim();
+}
+
 /** Constroi uma entrada nova so com a lista branca de campos, ou devolve null se nao servir. */
 export function sanearEntrada(bruta) {
     if (!bruta || typeof bruta !== 'object' || Array.isArray(bruta)) return null;
@@ -81,6 +88,10 @@ export function sanearEntrada(bruta) {
     };
     if (tem(bruta, 'rotulo') && typeof bruta.rotulo === 'string' && bruta.rotulo.trim()) {
         entrada.rotulo = limparTexto(bruta.rotulo, 40);
+    }
+    if (tipo === 'leitura' && tem(bruta, 'pergunta')) {
+        const pergunta = limparPergunta(bruta.pergunta);
+        if (pergunta) entrada.pergunta = pergunta;
     }
     return entrada;
 }
@@ -259,8 +270,8 @@ export function guardarDia(order, data = dataLocal()) {
     return { id, ok: gravar(doc) };
 }
 
-/** Cria uma entrada de leitura de 3 cartas. cartas: [{order, pos}]. */
-export function criarLeitura(cartas) {
+/** Cria uma entrada de leitura de 3 cartas. cartas: [{order, pos}]; pergunta e opcional. */
+export function criarLeitura(cartas, pergunta = '') {
     const doc = carregar();
     const agora = new Date();
     const id = `leitura-${agora.getTime().toString(36)}-${Math.floor(Math.random() * 1296).toString(36)}`;
@@ -270,10 +281,30 @@ export function criarLeitura(cartas) {
         tipo: 'leitura',
         cartas: cartas.map((c) => ({ order: Number(c.order), pos: c.pos })),
         nota: '',
+        pergunta,
     });
     if (!nova) return { id, ok: false };
     doc.entradas.push(nova);
     aplicarLimite(doc);
+    return { id, ok: gravar(doc) };
+}
+
+/**
+ * Troca as cartas (e a pergunta) de uma leitura ja gravada, mantendo id, data e nota.
+ * Usada quando a pessoa refaz a escolha: a leitura e uma so, nao duas.
+ * Se a entrada sumiu (apagada no diario nesse meio tempo), cria outra.
+ */
+export function atualizarLeitura(id, cartas, pergunta = '') {
+    const doc = carregar();
+    const atual = doc.entradas.find((e) => e.id === id && e.tipo === 'leitura');
+    if (!atual) return criarLeitura(cartas, pergunta);
+    const nova = sanearEntrada({
+        ...atual,
+        cartas: cartas.map((c) => ({ order: Number(c.order), pos: c.pos })),
+        pergunta,
+    });
+    if (!nova) return { id, ok: false };
+    doc.entradas[doc.entradas.indexOf(atual)] = nova;
     return { id, ok: gravar(doc) };
 }
 

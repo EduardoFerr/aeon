@@ -15,6 +15,7 @@ const TEXTO = {
     semArmazenamento: 'Este navegador não deixa guardar dados. Suas anotações valem só enquanto esta página estiver aberta.',
     tipoDia: 'Carta do dia',
     tipoLeitura: 'Leitura de 3 cartas',
+    pergunta: 'Pergunta:',
     rotuloNotaDia: 'O que essa carta despertou',
     rotuloNotaLeitura: 'O que essa leitura despertou',
     dica: 'Anote o que veio à mente.',
@@ -231,6 +232,7 @@ export class HistoryScreen extends HTMLElement {
                     </div>
                     <button type="button" class="btn btn-ghost diario-apagar" data-acao="apagar" aria-expanded="false" aria-label="${TEXTO.apagar}: ${quando}">${TEXTO.apagar}</button>
                 </header>
+                ${e.pergunta ? `<p class="diario-pergunta"><span class="diario-pergunta-rotulo">${TEXTO.pergunta}</span> <q>${escaparHtml(e.pergunta)}</q></p>` : ''}
                 <ul class="diario-cartas${leitura ? ' tres' : ''}">${minis}</ul>
                 <div class="diario-nota">
                     <label for="${idNota}">${leitura ? TEXTO.rotuloNotaLeitura : TEXTO.rotuloNotaDia}</label>
