@@ -2,6 +2,8 @@ import { loadCards } from '../utils/cardsUtil.js';
 import { dataLocal, obterCartaDoDia, marcarVirada, perguntaDoDia, diasDaSemana, fraseDaSemana } from '../utils/cartaDoDia.js';
 import { baixarLembrete } from '../utils/lembrete.js';
 import { escaparHtml } from '../utils/glossario.js';
+import { guardarDia, obter, aoMudar, pedirFoco } from '../utils/diario.js';
+import { navigateTo } from '../utils/navigation.js';
 
 const TEXTO = {
     titulo: 'Sua carta de hoje',
@@ -11,6 +13,8 @@ const TEXTO = {
     pergunta: 'Para levar o dia',
     abrir: 'Abrir a carta',
     compartilhar: 'Compartilhar',
+    guardar: 'Guardar no diário',
+    verNoDiario: 'Ver no diário',
     rotuloVerso: 'Sua carta de hoje, de costas. Ative para virar.',
     anuncio: (carta) => `Carta virada: ${carta.name}, ${carta.title}.`,
     semana: 'Sua semana de cartas',
@@ -44,6 +48,7 @@ export class CartaDoDia extends HTMLElement {
 
     disconnectedCallback() {
         document.removeEventListener('visibilitychange', this.aoVoltar);
+        if (this.desligarDiario) this.desligarDiario();
     }
 
     async montar() {
@@ -91,6 +96,7 @@ export class CartaDoDia extends HTMLElement {
                     </div>` : ''}
                     <div class="btn-row dia-acoes">
                         <button type="button" class="btn btn-primary" data-acao="abrir">${TEXTO.abrir}</button>
+                        <button type="button" class="btn btn-ghost" data-acao="guardar"></button>
                         <button type="button" class="btn btn-ghost" data-acao="compartilhar" aria-haspopup="dialog">${TEXTO.compartilhar}</button>
                     </div>
                 </div>
@@ -108,8 +114,27 @@ export class CartaDoDia extends HTMLElement {
             // o cartao so e montado agora, sob demanda: o modulo nem e baixado antes do clique
             import('../utils/cartao.js').then((m) => m.abrirCartao({ carta: this.carta, pergunta: this.pergunta, data: this.data }));
         });
+        this.querySelector('[data-acao="guardar"]').addEventListener('click', () => this.guardar());
+        if (this.desligarDiario) this.desligarDiario();
+        this.desligarDiario = aoMudar(() => this.rotularGuardar());
+        this.rotularGuardar();
         this.atualizarEstado();
         this.pintarSemana();
+    }
+
+    /** "Guardar no diario" cria (ou atualiza) a entrada unica do dia e leva a nota; depois vira "Ver no diario". */
+    guardar() {
+        const id = `dia-${this.data}`;
+        if (!obter(id)) guardarDia(this.carta.order, this.data);
+        pedirFoco(id);
+        navigateTo('history');
+    }
+
+    rotularGuardar() {
+        const b = this.querySelector('[data-acao="guardar"]');
+        if (!b) return;
+        const guardada = Boolean(obter(`dia-${this.data}`));
+        b.textContent = guardada ? TEXTO.verNoDiario : TEXTO.guardar;
     }
 
     pintarSemana() {
