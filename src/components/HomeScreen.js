@@ -1,66 +1,68 @@
 import { navigateTo } from '../utils/navigation.js';
 import './CartaDoDia.js';
-import { listar } from '../utils/perfil.js';
-import { rodaVazia } from '../utils/roda.js';
+import { listar, principal } from '../utils/perfil.js';
+
+const icone = (corpo) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${corpo}</svg>`;
+
+const ICONES = {
+    tirar: icone('<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M12 9l1.2 2.4 2.6.3-1.9 1.8.5 2.6L12 14.8 9.6 16.1l.5-2.6-1.9-1.8 2.6-.3z"/>'),
+    tres: icone('<rect x="2.5" y="6" width="5.5" height="12" rx="1"/><rect x="9.2" y="4" width="5.6" height="16" rx="1"/><rect x="16" y="6" width="5.5" height="12" rx="1"/>'),
+    cartas: icone('<rect x="4" y="5" width="10" height="15" rx="1.5"/><path d="M8 3h10a2 2 0 012 2v12"/>'),
+    mapa: icone('<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/>'),
+};
+
+const acao = (ir, icon, nome, linha, extra = '') =>
+    `<li><button type="button" class="acao-card${extra}" data-ir="${ir}">${icon}<b>${nome}</b><span>${linha}</span></button></li>`;
 
 export class HomeScreen extends HTMLElement {
     connectedCallback() {
+        const temMapa = listar().length > 0;
         this.innerHTML = `
             <section class="home-screen">
-              <div class="hero">
-                <div class="intro">
-                    <h2>Bem-vindo ao Tarot de Thoth</h2>
-                    <p>
-                        O <strong>Tarot de Thoth</strong> é uma ferramenta esotérica que une o Hermetismo, a Cabala, a Astrologia e a Alquimia em um sistema de autoconhecimento profundo. Criado por <strong>Aleister Crowley</strong> e ilustrado por <strong>Lady Frieda Harris</strong>, cada carta foi meticulosamente projetada para representar os segredos do universo através de símbolos arquetípicos.
-                    </p>
-                    <p>
-                        O baralho é inspirado no deus egípcio <strong>Thoth</strong>, patrono da sabedoria, escrita e magia, e na figura de <strong>Hermes Trismegisto</strong>, o mestre dos segredos ocultos, cuja filosofia hermética ensina que "o que está acima é como o que está abaixo". Esses princípios são interligados à Cabala e à astrologia, formando uma base sólida para o entendimento espiritual.
-                    </p>
-                    <div class="btn-row">
-                        <button type="button" class="btn btn-primary" data-ir="three-card-game">Tirar Cartas</button>
-                        <button type="button" class="btn btn-ghost" data-ir="all-cards">Cartas</button>
-                    </div>
-                </div>
-                <div class="hero-art" aria-hidden="true">
-                    <div class="halo"><img src="assets/cards/crowley-00.jpg" alt="" width="274" height="410" decoding="async"></div>
-                </div>
-              </div>
+                <header class="home-cab">
+                    <p class="eyebrow">Aeon Fool · Tarot de Thoth</p>
+                    <h1 id="home-titulo" class="home-titulo">Sua carta de hoje</h1>
+                </header>
 
                 <carta-do-dia></carta-do-dia>
 
-                <div data-calcule></div>
+                <nav aria-label="Por onde começar">
+                    <ul class="home-acoes">
+                        ${acao('three-card-game', ICONES.tirar, 'Tirar cartas', 'Faça a sua tiragem', ' destaque')}
+                        ${acao('three-card-game', ICONES.tres, 'Três cartas', 'Passado, presente, rumo')}
+                        ${acao('all-cards', ICONES.cartas, 'Cartas', 'As 78 do baralho')}
+                        ${temMapa
+                            ? acao('mapa', ICONES.mapa, 'Seu mapa', 'Abrir o mapa principal')
+                            : acao('novo-mapa', ICONES.mapa, 'Mapa astral', 'Uma carta para cada ponto')}
+                    </ul>
+                </nav>
 
-                <div class="hermetic-knowledge panel-card">
-                    <h3>Como o Hermetismo, a Cabala e a Astrologia se relacionam no Tarot de Thoth?</h3>
-                    <p>
-                        O <strong>Hermetismo</strong> fornece a base filosófica do tarot através de seus sete princípios universais, como a correspondência (“o que está acima é como o que está abaixo”), o ritmo e a vibração. Esses conceitos guiam a leitura das cartas, mostrando como as energias cósmicas afetam nossa vida.
-                    </p>
-                    <p>
-                        A <strong>Cabala</strong> se manifesta no tarot através da <strong>Árvore da Vida</strong>, uma estrutura de 10 esferas (Sephirot) conectadas por 22 caminhos. Cada um desses caminhos está associado a uma carta dos <strong>Arcanos Maiores</strong>, representando etapas do crescimento espiritual. Assim, quando interpretamos uma carta, estamos lidando com energias específicas da criação divina.
-                    </p>
-                    <p>
-                        Já a <strong>Astrologia</strong> fornece um mapa energético que conecta cada carta a um signo do zodíaco, planeta ou elemento.
-                    </p>
-                </div>
+                <section class="home-sobre" aria-labelledby="sobre-t">
+                    <h2 id="sobre-t">O baralho de Thoth</h2>
+                    <p>Setenta e oito cartas onde Hermetismo, Cabala, astrologia e alquimia se encontram.</p>
+                    <details>
+                        <summary>Saiba mais</summary>
+                        <div class="home-sobre-texto">
+                            <p>O Tarot de Thoth une Hermetismo, Cabala, Astrologia e Alquimia num só caminho de autoconhecimento. Cada carta guarda um símbolo antigo, e é por ele que ela fala com você.</p>
+                            <p>O nome vem de Thoth, o deus egípcio da sabedoria, da escrita e da magia, e de Hermes Trismegisto, que ensinava: o que está acima é como o que está abaixo.</p>
+                            <p>A Árvore da Vida liga as 22 cartas dos Arcanos Maiores aos 22 caminhos da Cabala, e a Astrologia dá a cada uma um signo, um planeta ou um elemento. O baralho foi desenhado por Aleister Crowley e pintado por Lady Frieda Harris.</p>
+                        </div>
+                    </details>
+                </section>
             </section>
         `;
 
-        // Convite discreto ao mapa astral, so enquanto a pessoa ainda nao tem nenhum mapa guardado
-        if (!listar().length) {
-            this.querySelector('[data-calcule]').innerHTML = `
-                <section class="panel-card calcule" aria-labelledby="calc-t">
-                    ${rodaVazia()}
-                    <div style="display:grid;gap:12px">
-                        <span class="eyebrow">Mapa astral</span>
-                        <h3 id="calc-t">Calcule o seu mapa</h3>
-                        <p>Com data, hora e local de nascimento, o Sol, a Lua e o Ascendente ganham uma carta cada um, escolhida pelo decano.</p>
-                        <div class="btn-row"><button type="button" class="btn btn-primary" data-ir="novo-mapa">Calcular o meu mapa</button></div>
-                    </div>
-                </section>`;
-        }
-        document.querySelector('#page-title').textContent = "Aeon Fool";
+        // a Home traz o proprio h1; o titulo global fica fora (navigateTo o reexibe nas outras telas)
+        const global = document.querySelector('.page-title');
+        if (global) global.hidden = true;
         this.querySelectorAll('[data-ir]').forEach((botao) => {
-            botao.addEventListener('click', () => navigateTo(botao.dataset.ir));
+            botao.addEventListener('click', () => {
+                const ir = botao.dataset.ir;
+                if (ir === 'mapa') {
+                    const m = principal() || listar()[0];
+                    navigateTo('mapa', m ? { id: m.id } : null);
+                } else navigateTo(ir);
+            });
         });
     }
 }
