@@ -1,7 +1,7 @@
-import { navigateTo, consumirEstado } from '../utils/navigation.js';
+import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
 import { gl, ic } from '../utils/glifos.js';
 import { loadCards } from '../utils/cardsUtil.js';
-import { obter, principal, adicionar, apelido, persiste } from '../utils/perfil.js';
+import { obter, principal, adicionar, apelido, persiste, definirPreferencias } from '../utils/perfil.js';
 import { criarMapa } from '../utils/diario.js';
 import { carregarTextos, texto, esc, calcular, dataExtenso, grauTexto, casaDa, marcadoresHora, atribuicaoGeoNames, SIGNO_ELEMENTO } from '../utils/mapaComum.js';
 import { montarLeitura, textoDaSecao } from '../utils/leituraMapa.js';
@@ -21,6 +21,15 @@ const T = {
     eyebrow: 'Mapa astral',
     ler: 'Ler o meu mapa',
     guardarPerfil: 'Guardar no perfil',
+    descartar: 'Descartar',
+    novoTitulo: 'Mapa ainda não guardado',
+    novoTexto: 'Confira o resultado. Ele só entra no perfil se você tocar em Guardar no perfil.',
+    casasRot: 'Sistema de casas',
+    casasNomes: { placidus: 'Placidus', 'signos-inteiros': 'Signos Inteiros', igual: 'Casas Iguais' },
+    casasAjuda: 'Placidus é o mais usado. Signos Inteiros faz de cada signo uma casa. Casas Iguais dá 30° a cada casa, a contar do Ascendente.',
+    casasLatAlta: 'Em latitude alta, perto dos círculos polares, Placidus não existe: o mapa usa Signos Inteiros.',
+    casasGravado: 'Preferência guardada neste mapa.',
+    escolhaGravada: 'Leitura guardada neste mapa.',
     guardado: 'Guardado, ver no perfil',
     guardadoTitulo: 'Mapa guardado no perfil',
     guardadoTexto: 'Ele ficou só neste aparelho. Para levar a outro, use Exportar tudo no perfil.',
@@ -79,6 +88,7 @@ export class MapaScreen extends HTMLElement {
         const est = consumirEstado() || {};
         this.m = (est.id && obter(est.id)) || est.entrada || principal();
         this.salvo = !!(this.m && this.m.id);
+        this.novo = !this.salvo;
         this.estadoAviso = est.aviso || null;
         this.view = est.secao ? 'leitura' : 'resultado';
         this.secaoId = est.secao || 'sol';
@@ -97,6 +107,7 @@ export class MapaScreen extends HTMLElement {
         try {
             [this.textos] = await Promise.all([carregarTextos(), loadCards(), carregarGlossario()]);
             this.escolha = this.m.escolha || 0;
+            this.casas = this.m.casas || 'placidus';
             await this.recalcular();
         } catch (e) {
             this.calc = null;
@@ -104,6 +115,7 @@ export class MapaScreen extends HTMLElement {
         }
         if (!this.isConnected) return;
         this.desenhar();
+        focarCabecalho(this.view === 'leitura' ? '#leit-h' : '#page-title');
     }
 
     disconnectedCallback() {
@@ -116,7 +128,7 @@ export class MapaScreen extends HTMLElement {
     }
 
     async recalcular() {
-        this.calc = await calcular({ ...this.m, escolha: this.escolha });
+        this.calc = await calcular({ ...this.m, escolha: this.escolha, casas: this.casas });
         this.marc = this.calc.hora.estado !== 'normal' ? await marcadoresHora(this.calc, this.m.local.tz) : null;
         this.leit = montarLeitura(this.calc, this.textos);
     }
@@ -144,6 +156,7 @@ export class MapaScreen extends HTMLElement {
     avisosTopo() {
         const c = this.calc;
         let h = '';
+        if (this.novo && !this.salvo) h += this.aviso('info', 'info', T.novoTitulo, T.novoTexto);
         if (this.estadoAviso === 'guardado') h += this.aviso('ok', 'ok', T.guardadoTitulo, T.guardadoTexto);
         if (this.estadoAviso === 'repetido') h += this.aviso('info', 'info', T.repetidoTitulo, T.repetidoTexto);
         if (c.semHora) h += this.aviso('atencao', 'relogio', T.semHoraTitulo, this.t('ui.aviso.semhora'));
@@ -200,6 +213,7 @@ export class MapaScreen extends HTMLElement {
             <div class="res-topo"><span class="eyebrow">${T.eyebrow}</span><div class="meta"><span>${esc(m.rotulo)}</span><span>${esc(dataExtenso(m.data))}${m.hora ? `, ${m.hora}` : ', sem hora'}</span><span>${esc(m.local.nome)}</span></div></div>
             <div data-avisos>${this.avisosTopo()}</div>
             ${this.resumoTres()}
+            ${this.seletorCasas()}
             <div class="vista-seg" role="group" aria-label="${T.verComo}"><button class="chip" type="button" data-vista="roda" aria-pressed="${this.vista === 'roda'}">${ic('roda')}${T.roda}</button><button class="chip" type="button" data-vista="lista" aria-pressed="${this.vista === 'lista'}">${ic('lista')}${T.lista}</button></div>
             <div class="res-grid" data-vista="${this.vista}"><div class="bloco-roda">${roda}${this.legenda()}</div><div class="bloco-lista">${tabela}</div></div>
             <div class="res-acoes"><button class="btn btn-primary" type="button" data-acao="ler">${T.ler}</button>${this.botaoPerfil()}<button class="btn btn-ghost" type="button" data-acao="diario">${ic('diario')}${esc(this.t('ui.btn.guardar', {}, 'Guardar este mapa no diário'))}</button></div>
@@ -209,10 +223,19 @@ export class MapaScreen extends HTMLElement {
             <div><button class="link-btn" type="button" data-acao="perfil">${ic('voltar')}${T.voltarPerfil}</button></div></div>`;
     }
 
+    seletorCasas() {
+        const c = this.calc;
+        if (c.semHora) return '';
+        const alta = c.casas && c.casas.sistema !== c.casas.solicitado;
+        return `<div class="campo seletor-casas"><label class="rot-mini" for="sel-casas">${T.casasRot}</label>
+            <select class="entrada" id="sel-casas" data-casas aria-describedby="casas-aj">${Object.entries(T.casasNomes).map(([k, n]) => `<option value="${k}"${k === this.casas ? ' selected' : ''}>${n}</option>`).join('')}</select>
+            <span class="dica" id="casas-aj">${T.casasAjuda}${alta ? ` ${T.casasLatAlta}` : ''}</span></div>`;
+    }
+
     botaoPerfil() {
         return this.salvo
             ? `<button class="btn btn-ghost" type="button" data-acao="perfil">${ic('ok')}${T.guardado}</button>`
-            : `<button class="btn btn-ghost" type="button" data-acao="guardar-perfil">${ic('mais')}${T.guardarPerfil}</button>`;
+            : `<button class="btn btn-primary" type="button" data-acao="guardar-perfil">${ic('mais')}${T.guardarPerfil}</button><button class="btn btn-ghost" type="button" data-acao="descartar">${T.descartar}</button>`;
     }
 
     descricao() {
@@ -380,7 +403,7 @@ export class MapaScreen extends HTMLElement {
     /* ---------- acoes ---------- */
 
     guardarNoPerfil() {
-        const r = adicionar({ rotulo: this.m.rotulo, data: this.m.data, hora: this.m.hora, local: this.m.local, escolha: this.escolha, principal: !!this.m.principal });
+        const r = adicionar({ rotulo: this.m.rotulo, data: this.m.data, hora: this.m.hora, local: this.m.local, escolha: this.escolha, casas: this.casas, principal: !!this.m.principal });
         if (!r.id) {
             this.status = 'Não foi possível guardar o mapa agora.';
             this.desenhar();
@@ -455,6 +478,7 @@ export class MapaScreen extends HTMLElement {
             window.scrollTo(0, 0);
         } else if (a === 'perfil') navigateTo('perfil', this.m.id ? { selecionar: this.m.id } : null);
         else if (a === 'guardar-perfil') this.guardarNoPerfil();
+        else if (a === 'descartar') navigateTo('perfil');
         else if (a === 'diario') this.guardarNoDiario();
         else if (a === 'copiar') this.copiar(b.dataset.escopo);
         else if (a === 'compartilhar') this.compartilharTexto(b.dataset.escopo);
@@ -477,7 +501,20 @@ export class MapaScreen extends HTMLElement {
                 return;
             }
             this.status = `${T.mostrando} ${this.marc.rotulos[this.escolha]}.`;
+            if (this.salvo && this.m.id && definirPreferencias(this.m.id, { escolha: this.escolha })) this.status += ` ${T.escolhaGravada}`;
             this.desenhar('input[name="leitura-hora"]:checked');
+            return;
+        }
+        if (e.target.matches('[data-casas]')) {
+            this.casas = e.target.value;
+            try {
+                await this.recalcular();
+            } catch (err) {
+                return;
+            }
+            this.status = `${T.casasRot}: ${T.casasNomes[this.casas]}.`;
+            if (this.salvo && this.m.id && definirPreferencias(this.m.id, { casas: this.casas })) this.status += ` ${T.casasGravado}`;
+            this.desenhar('#sel-casas');
         }
     }
 
