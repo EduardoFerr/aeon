@@ -1,6 +1,9 @@
-import { saveToHistory } from '../utils/storage.js';
+import { criarLeitura, pedirFoco } from '../utils/diario.js';
+import { navigateTo } from '../utils/navigation.js';
 import { loadCards, shuffle } from '../utils/cardsUtil.js';
 import('./TarotCardInfo.js');
+
+const POSICOES = ['passado', 'presente', 'futuro'];
 
 /**
  * Componente para o jogo das 3 cartas de tarot.
@@ -37,6 +40,7 @@ export class ThreeCardGameScreen extends HTMLElement {
                     </div>
                 </div>
 
+                <p class="sr" role="status" aria-live="polite" data-anuncio></p>
                 <div class="game-actions">
                     <button class="btn btn-primary" id="drawCards">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="9" height="13" rx="1.5"/><rect x="7.5" y="4" width="9" height="13" rx="1.5"/><rect x="11.5" y="6" width="9" height="13" rx="1.5"/></svg>
@@ -48,6 +52,7 @@ export class ThreeCardGameScreen extends HTMLElement {
         `;
         document.querySelector('#page-title').textContent = "Jogo das 3 Cartas"
         document.getElementById('drawCards').addEventListener('click', this.drawThreeCards.bind(this));
+        this.querySelector('#cards').addEventListener('carta-virada', () => this.aoVirar());
     }
 
     /**
@@ -74,15 +79,34 @@ export class ThreeCardGameScreen extends HTMLElement {
                 )
                 .join('');
 
-            // Salva a leitura no histórico
-            saveToHistory({
-                passado: shuffled[0],
-                presente: shuffled[1],
-                futuro: shuffled[2],
-            });
+            // Registra a leitura no diario (v2). O historico antigo deixou de ser gravado: o diario o le e converte,
+            // e gravar nos dois faria cada leitura nova aparecer duas vezes.
+            const registro = criarLeitura(shuffled.map((card, index) => ({ order: Number(card.order), pos: POSICOES[index] })));
+            this.entradaId = registro.id;
+            this.reveladas = 0;
+            this.querySelector('#escrever-diario')?.remove();
         } catch (error) {
             console.error('Erro ao carregar as cartas:', error);
         }
+    }
+
+    /** Conta as cartas viradas; ao revelar as 3, oferece abrir a nota daquela leitura no diario. */
+    aoVirar() {
+        this.reveladas = (this.reveladas || 0) + 1;
+        if (this.reveladas < 3 || !this.entradaId || this.querySelector('#escrever-diario')) return;
+        const id = this.entradaId;
+        const botao = document.createElement('button');
+        botao.type = 'button';
+        botao.id = 'escrever-diario';
+        botao.className = 'btn btn-primary';
+        botao.textContent = 'Escrever no diário';
+        botao.addEventListener('click', () => {
+            pedirFoco(id);
+            navigateTo('history');
+        });
+        this.querySelector('.game-actions').prepend(botao);
+        const aviso = this.querySelector('[data-anuncio]');
+        if (aviso) aviso.textContent = 'As três cartas foram reveladas. Você pode escrever no diário.';
     }
 }
 
