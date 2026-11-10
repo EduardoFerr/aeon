@@ -30,3 +30,18 @@ tarot-card:hover .tarot-card { transform: translateY(-4px); }
 .all-cards-screen .card-container:empty { min-height: 100vh; }
 @media (min-width: 640px) { .all-cards-screen .card-container { grid-template-columns: repeat(3, 1fr); gap: 28px 20px; } }
 @media (min-width: 960px) { .all-cards-screen .card-container { grid-template-columns: repeat(5, 1fr); } }
+
+/* filtros e contagem da grade */
+.grade-ferramentas { padding-top: var(--sp-4); }
+.chips { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; margin-inline: -16px; padding: 4px 16px; scrollbar-width: none; overscroll-behavior-x: contain; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: var(--r-pill); border: 1px solid var(--control); background: transparent; color: var(--text); font: 500 var(--fs-sm)/1 var(--font-ui); white-space: nowrap; scroll-snap-align: start; cursor: pointer; transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.chip small { color: var(--text-soft); font-size: var(--fs-xs); font-weight: 600; font-variant-numeric: tabular-nums; }
+.chip:hover { background: var(--surface-2); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.chip[aria-pressed="true"] small { color: var(--accent-ink); opacity: 0.8; }
+.grade-contagem { min-height: 1.6em; margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--text-soft); }
+@media (max-width: 599px) {
+  .chips { padding-right: 40px; -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); }
+}
+@media (min-width: 600px) { .chips { flex-wrap: wrap; margin: 0; padding: 4px 0; overflow: visible; } }
