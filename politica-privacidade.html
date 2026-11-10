@@ -30,25 +30,60 @@
       gtag("config", "G-YVN8XV3KS1");
     </script>
 
+    <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>
+      /* Tema antes da primeira pintura (sem flash do tema errado). Ordem: escolha salva > prefers-color-scheme
+         (escuro = Crepusculo, claro = Aurora). Funciona sem localStorage. So as fontes do tema ativo sao pedidas. */
+      (function () {
+        var d = document.documentElement;
+        var TH = {
+          crepusculo: { scheme: "dark", color: "#14101c",
+            fonts: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap",
+            faces: ['500 1em "Cormorant Garamond"', 'italic 500 1em "Cormorant Garamond"', '400 1em "Inter"', '600 1em "Inter"'] },
+          aurora: { scheme: "light", color: "#f1f3ec",
+            fonts: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,48,300..600;1,48,300..500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap",
+            faces: ['350 1em "Fraunces"', 'italic 400 1em "Fraunces"', '400 1em "Hanken Grotesk"', '600 1em "Hanken Grotesk"'] }
+        };
+        window.AEON_THEMES = TH;
+        var t = null;
+        try { var s = localStorage.getItem("aeon.tema"); if (TH[s]) t = s; } catch (e) {}
+        if (!t) t = window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "aurora" : "crepusculo";
+        d.setAttribute("data-theme", t);
+        d.style.colorScheme = TH[t].scheme;
+        var m = document.createElement("meta"); m.name = "theme-color"; m.content = TH[t].color; document.head.appendChild(m);
+        var l = document.createElement("link"); l.rel = "stylesheet"; l.href = TH[t].fonts; l.id = "font-" + t; document.head.appendChild(l);
+      })();
+    </script>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+
     <link rel="stylesheet" href="styles/main.css" />
 
     <title>Política de Privacidade - Aeon Fool</title>
   </head>
-  <body>
-    <header>
-      <h1>Política de Privacidade</h1>
-      <nav aria-label="Menu principal">
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="sobre.html">Sobre Nós</a></li>
-          <li><a href="contato.html">Contato</a></li>
-          <li>
-            <a href="politica-privacidade.html">Política de Privacidade</a>
-          </li>
-        </ul>
-      </nav>
+  <body class="pagina">
+    <a class="sr" href="#main">Pular para o conteúdo</a>
+    <header class="topbar">
+      <div class="container topbar-in">
+        <a class="brand" href="index.html" aria-label="Aeon Fool, página inicial"><svg viewBox="-2 -2 134 36" aria-hidden="true" focusable="false"><g fill="none" class="brand-ink" stroke-width="2.2" stroke-linejoin="miter"><path d="M1 30 L13 2 L25 30 M6 19 H20 M37 2 V30 M37 2 H54 M37 16 H51 M37 30 H54 M105 30 V2 L127 30 V2"/></g><g fill="none" class="brand-eye" stroke-width="2.2"><circle cx="79" cy="16" r="14"/><path d="M79 7V25M70 16H88M72.6 9.6L85.4 22.4M85.4 9.6L72.6 22.4" stroke-width="1.4"/><circle cx="79" cy="16" r="2.5"/></g></svg></a>
+        <nav class="sitenav" aria-label="Menu principal">
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="politica-privacidade.html" aria-current="page">Política de Privacidade</a></li>
+          </ul>
+        </nav>
+        <div class="topright">
+          <button class="iconbtn themebtn" type="button" aria-haspopup="dialog">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 100 17c1.3 0 2-.8 2-1.8 0-1.5-1.3-1.7-1.3-3 0-1 .8-1.7 1.8-1.7H17a3.5 3.5 0 003.5-3.5C20.5 6.7 16.7 3.5 12 3.5z"/><circle cx="7.8" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.8" cy="7.8" r="1"/></svg><span class="tl">Tema</span>
+          </button>
+        </div>
+      </div>
     </header>
-    <main class="bg">
+    <main id="main" class="prosa">
+      <h1>Política de Privacidade</h1>
       <section>
         <h2>Nossa Política de Privacidade</h2>
         <p>
@@ -72,12 +107,15 @@
       </section>
     </main>
     <footer>
-      <p>&copy; 2025 Aeon Fool. Todos os direitos reservados.</p>
+      <div class="container foot">
+        <p>&copy; 2025 Aeon Fool. Todos os direitos reservados.</p>
+      </div>
     </footer>
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2759240122102769"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="src/utils/tema.js"></script>
   </body>
 </html>
