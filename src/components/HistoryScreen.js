@@ -20,7 +20,7 @@ export class HistoryScreen extends HTMLElement {
                 <button onclick="navigateTo('home')">Voltar</button>
             </section>
         `;
-        document.querySelector('header>h1').textContent = "Histórico de Leituras";
+        document.querySelector('#page-title').textContent = "Histórico de Leituras";
     }
 }
 

@@ -29,7 +29,7 @@ export class HomeScreen extends HTMLElement {
             </section>
         `;
 
-        document.querySelector('header>h1').textContent = "Aeon Fool";
+        document.querySelector('#page-title').textContent = "Aeon Fool";
     }
 }
 

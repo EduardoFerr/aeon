@@ -1,3 +1,4 @@
+import '@/utils/tema.js';
 import { navigateTo } from '@/utils/navigation.js';
 import '@/components/HomeScreen.js';
 import '@/components/AllCardsScreen.js';

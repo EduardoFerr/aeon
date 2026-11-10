@@ -1,6 +1,16 @@
+/** Marca no menu a pagina atual (so visual e aria-current; a navegacao em si nao muda). */
+function marcarNavAtual(page) {
+    const atual = ['all-cards', 'three-card-game', 'history'].includes(page) ? page : 'home';
+    document.querySelectorAll('.mainnav a[data-page]').forEach((link) => {
+        if (link.dataset.page === atual) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+    });
+}
+
 export function navigateTo(page) {
     const appContainer = document.getElementById('app');
     appContainer.innerHTML = '';
+    marcarNavAtual(page);
 
     if (page === 'all-cards') {
         appContainer.innerHTML = '<all-cards-screen></all-cards-screen>';
