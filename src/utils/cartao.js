@@ -6,8 +6,8 @@
  * escala moderada (upscale em dois passos), graos, vinheta e moldura. Reexportar as cartas
  * em 1200x1800 resolve de vez (ver relatorio da etapa 2).
  */
-const W = 1080;
-const H = 1920;
+export const W = 1080;
+export const H = 1920;
 
 const TEXTO = {
     titulo: 'Seu cartão de hoje',
@@ -25,7 +25,7 @@ const TEXTO = {
     textoCompartilhar: (nome) => `Minha carta de hoje no Aeon Fool: ${nome}. aeonfool.com`,
 };
 
-const PAL = {
+export const PAL = {
     crepusculo: {
         ink: '#f1e9e0', soft: '#b8abb8', mute: '#9c93aa', accent: '#e8b7a0', key: '#d9a24a', tree: '232,183,160', bg: '#14101c',
         fd: '"Cormorant Garamond", Georgia, serif', fu: '"Inter", system-ui, sans-serif', wd: 500,
@@ -38,9 +38,9 @@ const PAL = {
     },
 };
 
-const temaAtual = () => document.documentElement.getAttribute('data-theme') === 'aurora' ? 'aurora' : 'crepusculo';
+export const temaAtual = () => document.documentElement.getAttribute('data-theme') === 'aurora' ? 'aurora' : 'crepusculo';
 
-function carregarImagem(src) {
+export function carregarImagem(src) {
     return new Promise((resolve, reject) => {
         const img = new Image();
         img.onload = () => resolve(img);
@@ -50,14 +50,14 @@ function carregarImagem(src) {
 }
 
 /** Espera as fontes do tema (document.fonts.ready e as faces usadas no desenho), com limite de tempo. */
-async function esperarFontes(P) {
+export async function esperarFontes(P) {
     if (!document.fonts) return;
     const faces = Promise.all(P.faces.map((f) => document.fonts.load(f))).catch(() => {});
     const limite = new Promise((r) => setTimeout(r, 2500));
     await Promise.race([Promise.all([document.fonts.ready, faces]), limite]);
 }
 
-function padraoGrao(ctx) {
+export function padraoGrao(ctx) {
     const c = document.createElement('canvas');
     c.width = c.height = 220;
     const g = c.getContext('2d');
@@ -71,7 +71,7 @@ function padraoGrao(ctx) {
     return ctx.createPattern(c, 'repeat');
 }
 
-function quebrar(ctx, texto, largura) {
+export function quebrar(ctx, texto, largura) {
     const linhas = [];
     let atual = '';
     texto.split(/\s+/).forEach((palavra) => {
@@ -85,10 +85,10 @@ function quebrar(ctx, texto, largura) {
     return linhas;
 }
 
-const espacar = (ctx, px) => { if ('letterSpacing' in ctx) ctx.letterSpacing = `${px}px`; };
-const centro = (ctx, txt, y) => { ctx.textAlign = 'center'; ctx.fillText(txt, W / 2, y); };
+export const espacar = (ctx, px) => { if ('letterSpacing' in ctx) ctx.letterSpacing = `${px}px`; };
+export const centro = (ctx, txt, y) => { ctx.textAlign = 'center'; ctx.fillText(txt, W / 2, y); };
 
-function fundoCrepusculo(ctx) {
+export function fundoCrepusculo(ctx) {
     const g = ctx.createLinearGradient(0, 0, 0, H);
     g.addColorStop(0, '#15101d'); g.addColorStop(0.5, '#1b1426'); g.addColorStop(1, '#120e19');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
@@ -113,7 +113,7 @@ function fundoCrepusculo(ctx) {
     ctx.drawImage(c2, 0, 0);
 }
 
-function fundoAurora(ctx, P, grao) {
+export function fundoAurora(ctx, P, grao) {
     ctx.fillStyle = P.bg; ctx.fillRect(0, 0, W, H);
     const t = document.createElement('canvas'); t.width = W; t.height = H;
     const x = t.getContext('2d');
@@ -129,7 +129,7 @@ function fundoAurora(ctx, P, grao) {
     ctx.save(); ctx.globalCompositeOperation = 'multiply'; ctx.globalAlpha = 0.07; ctx.fillStyle = grao; ctx.fillRect(0, 0, W, H); ctx.restore();
 }
 
-function moldura(ctx, aurora) {
+export function moldura(ctx, aurora) {
     if (!aurora) {
         ctx.strokeStyle = 'rgba(232,183,160,.4)'; ctx.lineWidth = 2; ctx.strokeRect(48, 48, W - 96, H - 96);
         ctx.strokeStyle = 'rgba(232,183,160,.16)'; ctx.lineWidth = 1.5; ctx.strokeRect(66, 66, W - 132, H - 132);
@@ -155,7 +155,7 @@ function moldura(ctx, aurora) {
 }
 
 /** Marca "AEON" do topo do site (mesmos tracos do SVG da casca), desenhada em Path2D. */
-function logo(ctx, P, cx, y, largura) {
+export function logo(ctx, P, cx, y, largura) {
     const s = largura / 134;
     ctx.save(); ctx.translate(cx - largura / 2, y); ctx.scale(s, s); ctx.translate(2, 2);
     ctx.lineWidth = 2.4; ctx.lineJoin = 'miter'; ctx.strokeStyle = P.ink;
@@ -166,7 +166,7 @@ function logo(ctx, P, cx, y, largura) {
     ctx.restore();
 }
 
-function divisor(ctx, P, aurora, y) {
+export function divisor(ctx, P, aurora, y) {
     ctx.save(); ctx.strokeStyle = `rgba(${P.tree},${aurora ? 0.7 : 0.55})`; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(180, y); ctx.lineTo(W / 2 - 54, y); ctx.moveTo(W / 2 + 54, y); ctx.lineTo(W - 180, y); ctx.stroke();
     ctx.translate(W / 2, y); ctx.beginPath();
@@ -175,7 +175,7 @@ function divisor(ctx, P, aurora, y) {
 }
 
 /** Carta com passe-partout, graos, vinheta e filete: esconde a baixa resolucao. */
-function desenharCarta(ctx, aurora, img, x, y, w, h, grao, mat) {
+export function desenharCarta(ctx, aurora, img, x, y, w, h, grao, mat) {
     ctx.save();
     if (aurora) {
         ctx.shadowColor = 'rgba(24,32,58,.35)'; ctx.shadowBlur = 36; ctx.shadowOffsetY = 18;
@@ -287,19 +287,19 @@ export async function gerarCartao({ carta, pergunta, tema }) {
     return cv;
 }
 
-const paraBlob = (cv) => new Promise((resolve) => cv.toBlob(resolve, 'image/jpeg', 0.92));
+export const paraBlob = (cv) => new Promise((resolve) => cv.toBlob(resolve, 'image/jpeg', 0.92));
 
-function nomeArquivo(data) {
-    return `aeon-carta-do-dia-${data}.jpg`;
+function nomeArquivo(data, prefixo = 'aeon-carta-do-dia') {
+    return `${prefixo}-${data}.jpg`;
 }
 
 /** Baixa o JPEG. Devolve false se o navegador nao entregou a imagem. */
-export async function baixarCartao(cv, data) {
+export async function baixarCartao(cv, data, prefixo) {
     const blob = await paraBlob(cv);
     if (!blob) return false;
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = nomeArquivo(data);
+    a.download = nomeArquivo(data, prefixo);
     document.body.appendChild(a);
     a.click();
     setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 800);

@@ -2,6 +2,7 @@ import { criarLeitura, atualizarLeitura, limparPergunta, pedirFoco, LIMITE_PERGU
 import { navigateTo } from '../utils/navigation.js';
 import { loadCards, shuffle } from '../utils/cardsUtil.js';
 import { escaparHtml } from '../utils/glossario.js';
+import { dataLocal } from '../utils/cartaDoDia.js';
 import('./TarotCardInfo.js');
 
 const POSICOES = ['passado', 'presente', 'futuro'];
@@ -42,6 +43,8 @@ const TEXTO = {
     luz: 'Luz.',
     abrir: 'Abrir a carta',
     escreverDiario: 'Escrever no diário',
+    compartilhar: 'Compartilhar',
+    cartaoFalhou: 'Não foi possível montar o cartão agora.',
     revelada: (pos, carta) => `${pos} revelado: ${carta.name}, ${carta.title}.`,
     todasReveladas: 'As três cartas foram reveladas. Você pode escrever no diário, compartilhar ou fazer uma nova leitura.',
     erro: 'Não foi possível tirar as cartas agora. Recarregue a página.',
@@ -411,13 +414,25 @@ export class ThreeCardGameScreen extends HTMLElement {
         const tinhaFoco = acoes.contains(document.activeElement);
         acoes.innerHTML = `
             <button type="button" class="btn btn-primary" data-acao="diario">${TEXTO.escreverDiario}</button>
+            <button type="button" class="btn btn-ghost" data-acao="compartilhar">${TEXTO.compartilhar}</button>
             <button type="button" class="btn btn-ghost" data-acao="nova">${TEXTO.novaLeitura}</button>`;
+        acoes.querySelector('[data-acao="compartilhar"]').addEventListener('click', () => this.compartilhar());
         acoes.querySelector('[data-acao="diario"]').addEventListener('click', () => {
             if (this.entradaId) pedirFoco(this.entradaId);
             navigateTo('history');
         });
         acoes.querySelector('[data-acao="nova"]').addEventListener('click', () => this.novaLeitura());
         if (tinhaFoco) acoes.querySelector('[data-acao="diario"]').focus();
+    }
+
+    /** Cartao da leitura (Canvas), carregado so quando a pessoa pede. */
+    async compartilhar() {
+        try {
+            const { abrirCartaoLeitura } = await import('../utils/cartaoLeitura.js');
+            await abrirCartaoLeitura({ cartas: this.cartasEscolhidas, pergunta: this.pergunta, data: dataLocal() });
+        } catch (e) {
+            this.anunciar(TEXTO.cartaoFalhou);
+        }
     }
 
     novaLeitura() {
