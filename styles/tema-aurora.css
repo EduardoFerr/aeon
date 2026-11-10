@@ -8,7 +8,7 @@
   --key: #b83a24;
   --luz: #6e4a00; --luz-wash: #f5e8c4;
   --sombra: #38397e; --sombra-wash: #e2e4f4;
-  --ok: #1f6b45; --warn: #8a5a00; --err: #a12d2d; --focus: #2a47a6;
+  --ok: #1f6b45; --warn: #8a5a00; --err: #a12d2d; --focus: #2a47a6; --err-ink: #ffffff;
   --glow: rgba(42, 71, 166, 0.28); --glow-cool: rgba(42, 71, 166, 0.08);
   --shadow-color: 24 32 58;
   --sh-1: 0 1px 0 rgb(24 32 58 / 0.06); --sh-2: 0 1px 0 rgb(24 32 58 / 0.06), 0 14px 28px -16px rgb(24 32 58 / 0.32); --sh-3: 0 2px 0 rgb(24 32 58 / 0.05), 0 28px 44px -22px rgb(24 32 58 / 0.45);

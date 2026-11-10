@@ -23,7 +23,7 @@
 .dia-frase { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.35; }
 .dia-pergunta .dia-frase { font-style: italic; }
 .dia-acoes { justify-content: center; margin-top: var(--sp-2); gap: 8px; }
-.dia-acoes .btn { min-height: 44px; padding: 0 16px; font-size: var(--fs-sm); flex: 0 1 auto; }
+.dia-acoes .btn { flex: 0 1 auto; }
 .dia-acoes [data-acao="abrir"] { flex: 1 0 100%; }
 .dia-erro { color: var(--text-soft); text-align: center; }
 

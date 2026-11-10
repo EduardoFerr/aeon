@@ -15,8 +15,6 @@
 .diario-linha .iconbtn { flex: none; }
 .diario-barra { padding-block: 0; }
 .diario-barra .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-perigo { background: transparent; color: var(--err); border-color: var(--err); }
-.btn-perigo:hover { background: color-mix(in srgb, var(--err) 14%, transparent); }
 .diario-confirma { display: grid; gap: var(--sp-3); border-color: var(--err); }
 .diario-confirma h3 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; }
 .diario-confirma p { color: var(--text-soft); }
@@ -46,7 +44,7 @@
 .diario-pergunta { font-family: var(--font-display); font-style: italic; font-size: var(--fs-lg); line-height: 1.4; color: var(--text); overflow-wrap: anywhere; }
 .diario-pergunta-rotulo { font-family: var(--font-ui); font-style: normal; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-soft); margin-right: 6px; }
 .diario-pergunta q { quotes: "\201C" "\201D"; }
-.diario-apagar { min-height: 44px; padding-inline: 18px; font-size: var(--fs-sm); flex: none; }
+.diario-apagar { flex: none; }
 
 .diario-cartas { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-3); }
 .diario-carta { display: grid; gap: 6px; justify-items: center; align-content: start; }
@@ -67,8 +65,6 @@
 .diario-estado[data-estado="falha"] { color: var(--err); font-weight: 600; }
 .diario-contador { font-size: var(--fs-sm); color: var(--text-soft); margin-left: auto; font-variant-numeric: tabular-nums; }
 .diario-contador.no-limite { color: var(--warn); font-weight: 600; }
-.diario-conf { display: grid; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); border-radius: var(--r-sm); border: 1px solid var(--err); }
-.diario-conf p { color: var(--text); }
 .diario-mais { display: flex; justify-content: center; }
 
 @media (max-width: 480px) {

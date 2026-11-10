@@ -74,11 +74,24 @@ h3.display { font-size: var(--fs-h3); line-height: 1.2; }
 @media (max-width: 859px) { .themebtn .tl { display: none; } .themebtn { width: 44px; padding: 0; border-radius: 50%; } }
 
 /* botoes */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 26px; border-radius: var(--r-pill); border: 1px solid transparent; font: 600 var(--fs-md)/1 var(--font-ui); text-decoration: none; cursor: pointer; transition: background 0.3s var(--ease-ritual), transform 0.3s var(--ease-ritual), box-shadow 0.3s; }
+/* sistema de botoes: UM tamanho (48 px de altura, 24 px de respiro lateral, 600 em --fs-md) e quatro papeis.
+   Primaria: preenchida, uma por tela. Secundaria (.btn-ghost): contorno --control (3:1 sobre qualquer superficie).
+   Terciaria (.btn-terciario): so texto no acento. Destrutiva (.btn-perigo): contorno --err; .cheio e a confirmacao final. */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: var(--r-pill); border: 1px solid transparent; background: transparent; color: var(--text); font: 600 var(--fs-md)/1 var(--font-ui); text-decoration: none; cursor: pointer; transition: background 0.3s var(--ease-ritual), color 0.3s var(--ease-ritual), border-color 0.3s var(--ease-ritual), transform 0.3s var(--ease-ritual), box-shadow 0.3s; }
+.btn .icon { width: 18px; height: 18px; flex: none; }
+.btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.btn:disabled, .btn[disabled], .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; transform: none; }
 .btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 8px 28px -8px var(--glow), var(--sh-1); }
-.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
-.btn-ghost { background: transparent; color: var(--text); border-color: var(--control); }
-.btn-ghost:hover { background: var(--surface-2); }
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-ghost, .btn-secundario { background: transparent; color: var(--text); border-color: var(--control); }
+.btn-ghost:hover:not(:disabled), .btn-secundario:hover:not(:disabled) { background: var(--surface-2); }
+.btn-terciario { padding: 0 14px; color: var(--accent); }
+.btn-terciario:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.btn.btn-perigo { color: var(--err); border-color: var(--err); background: transparent; }
+.btn.btn-perigo:hover:not(:disabled) { background: color-mix(in srgb, var(--err) 14%, transparent); }
+.btn.btn-perigo.btn-terciario { border-color: transparent; padding: 0 14px; }
+.btn.btn-perigo.cheio { background: var(--err); color: var(--err-ink); border-color: var(--err); }
+.btn.btn-perigo.cheio:hover:not(:disabled) { background: color-mix(in srgb, var(--err) 88%, #fff); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* colunas de texto e titulo de pagina */

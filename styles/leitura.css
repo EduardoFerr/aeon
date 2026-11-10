@@ -73,7 +73,7 @@
 .leitura-interp .leitura-rotulo { font: 600 var(--fs-xs)/1 var(--font-ui); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
 .leitura-interp .leitura-texto { color: var(--text); }
 .leitura-interp .leitura-luz strong { color: var(--text); font-weight: 600; }
-.leitura-interp .btn { justify-self: start; min-height: 44px; padding: 0 18px; font-size: var(--fs-sm); margin: 0; }
+.leitura-interp .btn { justify-self: start; margin: 0; }
 .leitura-interp[data-aberta] { animation: rise 400ms var(--ease-ritual) both; }
 @media (min-width: 900px) {
   .leitura-cartas { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-6); align-items: start; }
