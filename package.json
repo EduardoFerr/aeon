@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "validar": "node tools/validar-cartas.mjs",
+    "validar": "node tools/validar-cartas.mjs && node tools/validar-astro.mjs",
     "test:astro": "node --test tests/astro/*.test.js",
     "build": "vite build",
     "preview": "vite preview"
