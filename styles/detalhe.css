@@ -83,11 +83,11 @@ glossario-modal[hidden] { display: none; }
 }
 
 /* Arvore da Vida no detalhe da carta */
-.card-arvore { display: grid; justify-items: center; gap: var(--sp-3); padding: var(--sp-4); border-radius: var(--r-md); background: var(--bg); border: 1px solid var(--line); min-height: 372px; align-content: start; }
+.card-arvore { display: grid; justify-items: center; gap: var(--sp-3); padding: var(--sp-4); border-radius: var(--r-md); background: var(--bg); border: 1px solid var(--line); min-height: 400px; align-content: start; }
 .card-arvore[hidden] { display: none; }
 .av-titulo { margin: 0; font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
 .av-figura { margin: 0; display: grid; justify-items: center; gap: var(--sp-3); width: 100%; }
-.arvore-svg { display: block; width: min(100%, 230px); height: auto; aspect-ratio: 240 / 330; max-height: 316px; overflow: visible; }
+.arvore-svg { display: block; width: min(100%, 230px); height: auto; aspect-ratio: 240 / 334; max-height: 316px; overflow: visible; }
 .av-figura figcaption { max-width: 46ch; text-align: center; line-height: 1.6; color: var(--text); font-size: var(--fs-md); }
 .av-glifo { font-size: 1.1em; }
 .av-caminho { stroke: var(--line-strong); stroke-width: 1; fill: none; }

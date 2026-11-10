@@ -2,7 +2,7 @@
 // Só é carregada (import dinâmico) quando o detalhe de uma carta abre.
 // Cores vêm dos tokens do tema ativo (var(--...)), definidos em styles/detalhe.css.
 
-// viewBox 240 x 330. Colunas: esquerda 52, centro 120, direita 188.
+// viewBox 240 x 334. Colunas: esquerda 52, centro 120, direita 188.
 export const ESFERAS = {
     Kether: [120, 30],
     Chokmah: [188, 70],
@@ -13,7 +13,7 @@ export const ESFERAS = {
     Netzach: [188, 232],
     Hod: [52, 232],
     Yesod: [120, 266],
-    Malkuth: [120, 306],
+    Malkuth: [120, 304],
 };
 
 // Os 22 caminhos: número -> [esfera de cima, esfera de baixo]
@@ -42,8 +42,8 @@ export const CAMINHOS = {
     32: ['Yesod', 'Malkuth'],
 };
 
-// Esferas do lado esquerdo e direito escrevem o nome para fora; as do centro, embaixo (Kether, em cima).
-const LADO = { Binah: 'e', Geburah: 'e', Hod: 'e', Chokmah: 'd', Chesed: 'd', Netzach: 'd' };
+// Cada esfera escreve o nome para o lado (e = esquerda, d = direita); Kether em cima, Malkuth embaixo.
+const LADO = { Binah: 'e', Geburah: 'e', Hod: 'e', Tiphareth: 'e', Yesod: 'e', Chokmah: 'd', Chesed: 'd', Netzach: 'd' };
 
 const R = 11;
 
@@ -52,7 +52,7 @@ function rotulo(nome, marcada) {
     let tx = x, ty, anchor = 'middle';
     if (LADO[nome] === 'e') { tx = x - R - 6; ty = y + 4; anchor = 'end'; }
     else if (LADO[nome] === 'd') { tx = x + R + 6; ty = y + 4; anchor = 'start'; }
-    else if (nome === 'Kether') { ty = y - R - 7; }
+    else if (nome === 'Kether') { ty = y - R - 11; }
     else { ty = y + R + 15; }
     return `<text class="av-rotulo${marcada ? ' on' : ''}" x="${tx}" y="${ty}" text-anchor="${anchor}" aria-hidden="true">${nome}</text>`;
 }
@@ -77,7 +77,12 @@ export function arvoreSvg({ caminho, esfera } = {}, titulo = 'Árvore da Vida') 
     if (ligadas) {
         const [x1, y1] = ESFERAS[ligadas[0]];
         const [x2, y2] = ESFERAS[ligadas[1]];
-        numero = `<text class="av-numero" x="${(x1 + x2) / 2}" y="${(y1 + y2) / 2 + 4}" text-anchor="middle" aria-hidden="true">${caminho}</text>`;
+        // o número fica ao lado do traço aceso (nunca em cima), para não cortar a linha
+        const dx = x2 - x1, dy = y2 - y1, len = Math.hypot(dx, dy);
+        let nx = dy / len, ny = -dx / len;
+        // traços de pé ficam com o número à direita (os rótulos do centro estão à esquerda); os demais, acima ou à esquerda
+        if (Math.abs(ny) > Math.abs(nx) ? ny > 0 : nx < 0) { nx = -nx; ny = -ny; }
+        numero = `<text class="av-numero" x="${((x1 + x2) / 2 + nx * 12).toFixed(1)}" y="${((y1 + y2) / 2 + ny * 12 + 4).toFixed(1)}" text-anchor="middle" aria-hidden="true">${caminho}</text>`;
     }
     let bolas = '';
     let rotulos = '';
@@ -86,7 +91,7 @@ export function arvoreSvg({ caminho, esfera } = {}, titulo = 'Árvore da Vida') 
         bolas += `<g class="av-esfera${on ? ' on' : ''}">${on ? `<circle class="av-anel" cx="${x}" cy="${y}" r="${R + 5}"/>` : ''}<circle class="av-bola" cx="${x}" cy="${y}" r="${R}"/></g>`;
         rotulos += rotulo(nome, on);
     }
-    return `<svg class="arvore-svg" viewBox="0 0 240 330" role="img" aria-labelledby="arvore-titulo" focusable="false"><title id="arvore-titulo">${titulo}</title>` +
+    return `<svg class="arvore-svg" viewBox="0 0 240 334" role="img" aria-labelledby="arvore-titulo" focusable="false"><title id="arvore-titulo">${titulo}</title>` +
         `<g aria-hidden="true">${linhas}${lit}${bolas}${numero}${rotulos}</g></svg>`;
 }
 
