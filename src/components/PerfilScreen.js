@@ -4,7 +4,7 @@ import { baixarBackup } from '../utils/backup.js';
 import { abrir, avisar, ehDesktop } from './Sobreposicao.js';
 import { loadCards } from '../utils/cardsUtil.js';
 import {
-    listar, apelido, definirApelido, apagar, importar, persiste, aoMudar,
+    listar, principal, apelido, definirApelido, apagar, importar, persiste, aoMudar,
     LIMITE_APELIDO, LIMITE_ARQUIVO,
 } from '../utils/perfil.js';
 import { carregarTextos, texto, esc, calcular, dataExtenso, dataCurta, grauTexto, SIGNO_ELEMENTO } from '../utils/mapaComum.js';
@@ -32,6 +32,7 @@ const T = {
     dica: 'Para trocar de mapa, toque em Ver. A carta de visita e os dados mudam para o mapa escolhido. O primeiro é o seu.',
     adicionar: 'Adicionar um mapa',
     dados: 'Dados de nascimento',
+    cidade: 'Cidade',
     mapa: 'Mapa', data: 'Data', hora: 'Hora', local: 'Local',
     editar: 'Editar dados',
     apagarEste: 'Apagar este mapa',
@@ -53,7 +54,7 @@ const T = {
     inexistenteTitulo: 'A hora informada não existiu',
     ambiguaTitulo: 'Essa hora aconteceu duas vezes',
     semArmazenamento: 'Este navegador não deixa guardar dados. O perfil vale só enquanto esta página estiver aberta.',
-    exportado: 'Backup baixado. Guarde o arquivo em um lugar seguro, ele traz datas, horas e lugares de nascimento.',
+    exportado: 'Backup baixado. Guarde o arquivo em um lugar seguro, ele traz apelido, data, hora e lugar de nascimento.',
     erroExportar: 'Não foi possível gerar o backup.',
     erroLer: 'Não foi possível ler o arquivo.',
     erroTamanho: 'O arquivo passa de 1 MB. Escolha um backup do Aeon Fool.',
@@ -90,7 +91,7 @@ export class PerfilScreen extends HTMLElement {
         this.estado = consumirEstado() || {};
         this.sel = this.estado.selecionar || null;
         this.editandoApelido = false;
-        this.aba = ABA_LEMBRADA;
+        this.aba = this.estado.aviso === 'dados' ? 'mapas' : ABA_LEMBRADA;
         this.calculos = new Map();
         this.status = '';
         this.innerHTML = '<div class="mapa-tela" aria-busy="true"></div>';
@@ -109,7 +110,8 @@ export class PerfilScreen extends HTMLElement {
         await this.desenhar();
         focarCabecalho('#perfil-h1');
         const a = this.estado.aviso;
-        if (a === 'guardado') avisar(T.guardadoOk);
+        if (a === 'dados') avisar(this.t('ui.meusdados.salvo', {}, 'Dados atualizados.'));
+        else if (a === 'guardado') avisar(T.guardadoOk);
         else if (a === 'repetido') avisar(T.repetidoOk);
         if (this.estado.apagado) avisar(T.apagado);
     }
@@ -155,12 +157,22 @@ export class PerfilScreen extends HTMLElement {
             <span class="sep" aria-hidden="true"></span>${m ? `${icone('trocar', T.trocar, 'trocar')}${icone('apagar', T.apagarEste, 'lixo', true)}` : ''}`;
     }
 
-    painelMapas(m, calc, mapas) {
-        if (!m) {
-            return `<section class="vazio-mapa" aria-labelledby="vz-t">${RODA_VAZIA}<h2 id="vz-t">${T.calculeTitulo}</h2><p>${esc(this.t('ui.vazio', {}, ''))}</p>
-                <div class="btn-row"><button class="btn btn-primary" type="button" data-exec="novo">${esc(this.t('ui.btn.calcular', {}, 'Montar o mapa astral'))}</button><button class="btn btn-ghost" type="button" data-exec="importar">${T.importarBackup}</button></div></section>`;
+    /** Cartao "Meus dados": resumo do mapa principal e do apelido, ou o convite para preencher. */
+    meusDados(semMapas) {
+        const p = principal();
+        if (!p) {
+            return `<section class="painel meus-dados convite" aria-labelledby="md-t">${RODA_VAZIA}<h2 id="md-t">${esc(this.t('ui.meusdados.convite.titulo'))}</h2><p>${esc(this.t('ui.meusdados.convite.texto'))}</p>
+                <div class="btn-row"><button class="btn btn-primary" type="button" data-exec="meus-dados">${esc(this.t('ui.meusdados.preencher'))}</button>${semMapas ? `<button class="btn btn-ghost" type="button" data-exec="importar">${T.importarBackup}</button>` : ''}</div></section>`;
         }
-        return `<div class="perfil-grid"><div id="visita-box">${this.visita(m, calc)}</div>
+        const ap = apelido();
+        return `<section class="painel meus-dados" aria-labelledby="md-t"><div><h2 id="md-t">${esc(this.t('ui.meusdados.titulo'))}</h2><p class="md-intro">${esc(this.t('ui.meusdados.intro'))}</p></div>
+            <dl class="dl"><div><dt>${T.apelido}</dt><dd>${esc(ap || this.t('ui.meusdados.sem-apelido'))}</dd></div><div><dt>${T.data}</dt><dd>${dataExtenso(p.data)}</dd></div><div><dt>${T.hora}</dt><dd>${esc(p.hora || this.t('ui.meusdados.sem-hora'))}</dd></div><div><dt>${T.cidade}</dt><dd>${esc(p.local.nome)}</dd></div></dl>
+            <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="meus-dados">${ic('editar')}${esc(this.t('ui.meusdados.editar'))}</button></div></section>`;
+    }
+
+    painelMapas(m, calc, mapas) {
+        if (!m) return `<div class="md-topo">${this.meusDados(true)}</div>`;
+        return `<div class="md-topo">${this.meusDados(false)}</div><div class="perfil-grid"><div id="visita-box">${this.visita(m, calc)}</div>
             <section class="mapas" aria-labelledby="mp-t"><h2 class="sec-titulo" id="mp-t">${T.guardados} <small>${mapas.length} ${mapas.length === 1 ? 'mapa' : 'mapas'}</small></h2>
             <ul class="mapas-lista">${mapas.map((x) => this.itemMapa(x, m)).join('')}</ul>
             <p class="mapas-dica">${ic('info')}<span>${T.dica}</span></p>
@@ -385,7 +397,10 @@ export class PerfilScreen extends HTMLElement {
 
     executar(id, gatilho) {
         if (id === 'novo') navigateTo('novo-mapa');
-        else if (id === 'editar') navigateTo('novo-mapa', { editar: this.sel });
+        else if (id === 'meus-dados') {
+            const p = principal();
+            navigateTo('novo-mapa', p ? { editar: p.id } : { meusDados: true });
+        } else if (id === 'editar') navigateTo('novo-mapa', { editar: this.sel });
         else if (id === 'trocar') this.abrirTrocar(gatilho);
         else if (id === 'exportar') this.dizer(baixarBackup() ? T.exportado : T.erroExportar);
         else if (id === 'importar') this.querySelector('[data-arquivo]').click();
