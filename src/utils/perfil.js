@@ -6,7 +6,6 @@ import { exportar as exportarDiario, importar as importarDiario } from './diario
  * Chave: "aeon:v2:perfil"  ->  { v: 2, apelido?, mapas: [Mapa] }
  *   Mapa = { id, rotulo, data "AAAA-MM-DD", hora "HH:MM" | null, local: { nome, lat, lon, tz }, principal, escolha?, criado }
  *   escolha = 0 ou 1: qual das duas leituras vale quando a hora local e ambigua ou inexistente.
- *   casas = 'placidus' | 'signos-inteiros' | 'igual': sistema de casas preferido para este mapa.
  * Um so mapa pode ser o principal ("Meu mapa"). Os dados de nascimento nunca saem do aparelho:
  * nada vai para URL, hash, console nem analytics.
  *
@@ -19,7 +18,6 @@ export const LIMITE_APELIDO = 30;
 export const LIMITE_ROTULO = 40;
 export const FORMATO_BACKUP = 1;
 
-export const SISTEMAS_CASAS = ['placidus', 'signos-inteiros', 'igual'];
 const RE_ID = /^[A-Za-z0-9_-]{1,64}$/;
 const RE_TZ = /^[A-Za-z0-9_+\-/]{1,64}$/;
 const PERIGOSAS = ['__proto__', 'constructor', 'prototype'];
@@ -94,7 +92,6 @@ export function sanearMapa(bruto) {
         local: { nome: nome || `${lat.toFixed(2)}, ${lon.toFixed(2)}`, lat, lon, tz },
         principal: bruto.principal === true,
         escolha: bruto.escolha === 1 ? 1 : 0,
-        casas: SISTEMAS_CASAS.includes(bruto.casas) ? bruto.casas : 'placidus',
         criado: typeof bruto.criado === 'string' && Number.isFinite(Date.parse(bruto.criado)) && bruto.criado.length < 40 ? new Date(bruto.criado).toISOString() : new Date(0).toISOString(),
     };
     if (!mapa.rotulo) mapa.rotulo = mapa.principal ? 'Meu mapa' : 'Mapa';
@@ -248,20 +245,19 @@ export function atualizar(id, entrada) {
     const i = doc.mapas.findIndex((m) => m.id === id);
     if (i < 0) return { ok: false, motivo: 'ausente' };
     const atual = doc.mapas[i];
-    const m = sanearMapa({ casas: atual.casas, ...entrada, id, principal: atual.principal, criado: atual.criado });
+    const m = sanearMapa({ ...entrada, id, principal: atual.principal, criado: atual.criado });
     if (!m) return { ok: false, motivo: 'invalido' };
     if (doc.mapas.some((x, j) => j !== i && chaveMapa(x) === chaveMapa(m))) return { ok: false, motivo: 'repetido' };
     doc.mapas[i] = m;
     return { ok: gravar(doc), id };
 }
 
-/** Grava so as preferencias de leitura de um mapa guardado: qual hora vale (escolha) e o sistema de casas. */
-export function definirPreferencias(id, { escolha, casas }) {
+/** Grava qual das duas leituras vale (escolha) num mapa guardado. */
+export function definirPreferencias(id, { escolha }) {
     const doc = carregar();
     const m = doc.mapas.find((x) => x.id === id);
     if (!m) return false;
     if (escolha === 0 || escolha === 1) m.escolha = escolha;
-    if (SISTEMAS_CASAS.includes(casas)) m.casas = casas;
     return gravar(doc);
 }
 

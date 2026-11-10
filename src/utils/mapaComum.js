@@ -69,7 +69,7 @@ export const grauTexto = (p) => `${p.grauInteiro}°${String(p.minuto).padStart(2
 /** Calcula o mapa guardado (ou uma entrada de formulario) com as cartas do tarot ligadas a cada ponto. */
 export async function calcular(entrada) {
     const [motor, cartas] = await Promise.all([carregarMotor(), loadCards()]);
-    return motor.calcularMapa({ data: entrada.data, hora: entrada.hora, local: entrada.local, escolhaHora: entrada.escolha || 0, casas: entrada.casas || 'placidus', cartas });
+    return motor.calcularMapa({ data: entrada.data, hora: entrada.hora, local: entrada.local, escolhaHora: entrada.escolha || 0, cartas });
 }
 
 const doisDig = (n) => String(n).padStart(2, '0');

@@ -1,4 +1,4 @@
-import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
+import { navigateTo, consumirEstado } from '../utils/navigation.js';
 import { gl, ic } from '../utils/glifos.js';
 import { dataLocal } from '../utils/cartaDoDia.js';
 import { loadCards } from '../utils/cardsUtil.js';
@@ -92,7 +92,6 @@ export class PerfilScreen extends HTMLElement {
         this.observador = new MutationObserver(() => this.marcarTema());
         this.observador.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
         await this.desenhar();
-        focarCabecalho('#perfil-h1');
     }
 
     disconnectedCallback() {
@@ -111,7 +110,7 @@ export class PerfilScreen extends HTMLElement {
     }
 
     async calculoDe(m) {
-        const chave = `${m.id}|${m.data}|${m.hora}|${m.local.lat}|${m.local.lon}|${m.local.tz}|${m.escolha}|${m.casas}`;
+        const chave = `${m.id}|${m.data}|${m.hora}|${m.local.lat}|${m.local.lon}|${m.local.tz}|${m.escolha}`;
         if (!this.calculos.has(chave)) this.calculos.set(chave, calcular(m).catch(() => null));
         return this.calculos.get(chave);
     }

@@ -16,19 +16,6 @@ export function consumirEstado() {
     return e;
 }
 
-/**
- * Depois de trocar de tela por um botao (que sai do DOM), o foco cairia no body e o teclado voltaria
- * ao inicio da pagina. Leva o foco ao titulo da nova tela, so se ninguem mais o tem.
- */
-export function focarCabecalho(sel) {
-    const a = document.activeElement;
-    if (a && a !== document.body && document.contains(a)) return;
-    const h = document.querySelector(sel) || document.querySelector('#page-title');
-    if (!h) return;
-    if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1');
-    h.focus({ preventScroll: true });
-}
-
 const TELAS_PERFIL = {
     perfil: ['perfil-screen', () => import('../components/PerfilScreen.js')],
     'novo-mapa': ['novo-mapa-screen', () => import('../components/NovoMapaScreen.js')],
