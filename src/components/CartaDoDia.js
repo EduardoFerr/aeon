@@ -33,8 +33,7 @@ const TEXTO = {
 export class CartaDoDia extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <section class="dia panel-card" aria-labelledby="dia-titulo">
-                <h3 id="dia-titulo" class="dia-titulo">${TEXTO.titulo}</h3>
+            <section class="dia" aria-labelledby="home-titulo">
                 <div class="dia-corpo" aria-busy="true"></div>
             </section>
         `;

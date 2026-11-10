@@ -4,21 +4,37 @@
 .home-screen { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-6); padding-bottom: var(--sp-4); }
 /* o brilho do halo passa da coluna de proposito; o corte e na borda da tela, nao no cartao */
 #main { overflow-x: clip; }
-.home-screen .hero { display: grid; gap: var(--sp-6); align-items: center; }
-.home-screen .intro { display: grid; gap: var(--sp-4); max-width: 62ch; }
-.home-screen .intro h2 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.12; letter-spacing: -0.01em; }
-.home-screen .intro p { color: var(--text-soft); font-size: var(--fs-lg); line-height: 1.7; }
-.home-screen .intro strong { color: var(--text); font-weight: 600; }
-.home-screen .btn-row { margin-top: var(--sp-2); }
-.hero-art { justify-self: center; width: min(62vw, 240px); }
-.hero-art .halo { position: relative; isolation: isolate; }
-.hero-art img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: var(--r-card); box-shadow: var(--sh-3); }
-@media (min-width: 860px) { .home-screen .hero { grid-template-columns: 1.2fr 1fr; gap: var(--sp-8); } .hero-art { width: 270px; } }
+.home-screen { justify-items: center; text-align: center; gap: var(--sp-5); }
+.home-cab { padding-top: var(--sp-4); display: grid; gap: var(--sp-3); justify-items: center; }
+.home-titulo { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h1); line-height: 1.06; letter-spacing: -0.01em; text-wrap: balance; margin: 0; }
+.home-screen .eyebrow { margin: 0; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-mute); }
+
+/* quatro cartoes de acao: 2x2 no celular, 4 em linha no desktop */
+.home-screen nav { width: 100%; }
+.home-acoes { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); max-width: 880px; }
+.home-acoes li { display: grid; }
+.acao-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 16px 10px; text-align: center; font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); cursor: pointer; transition: border-color 0.2s, background-color 0.2s; }
+.acao-card:hover { border-color: var(--accent); }
+.acao-card:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.acao-card .ico { width: 26px; height: 26px; fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.acao-card b { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.35rem; line-height: 1.15; }
+.acao-card span { font-size: var(--fs-sm); line-height: 1.4; color: var(--text-soft); }
+.acao-card.destaque { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.acao-card.destaque span { color: var(--accent-ink); }
+.acao-card.destaque .ico { stroke: var(--accent-ink); }
+.acao-card.destaque:hover { background: var(--accent-hover, var(--accent)); }
+@media (min-width: 860px) { .home-acoes { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* o baralho de Thoth: uma frase e o resto atras de "Saiba mais" (details, sem JS) */
+.home-sobre { display: grid; justify-items: center; gap: var(--sp-3); max-width: 62ch; padding-top: var(--sp-5); border-top: 1px solid var(--line); width: 100%; }
+.home-sobre h2 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.12; margin: 0; }
+.home-sobre p { color: var(--text-soft); font-size: var(--fs-lg); margin: 0; text-wrap: balance; }
+.home-sobre summary { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 12px; color: var(--accent); font-weight: 600; cursor: pointer; list-style: none; text-decoration: underline; text-underline-offset: 4px; }
+.home-sobre summary::-webkit-details-marker { display: none; }
+.home-sobre summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: var(--r-sm); }
+.home-sobre-texto { display: grid; gap: var(--sp-3); margin-top: var(--sp-2); }
+.home-sobre-texto p { font-size: 1rem; line-height: 1.65; }
 .panel-card { padding: var(--sp-5); border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--line); }
-.hermetic-knowledge { display: grid; gap: var(--sp-3); max-width: 70ch; justify-self: center; width: 100%; }
-.hermetic-knowledge h3 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; text-align: left; }
-.hermetic-knowledge p { color: var(--text-soft); line-height: 1.75; }
-.hermetic-knowledge strong { color: var(--text); font-weight: 600; }
 @media (min-width: 640px) { .panel-card { padding: var(--sp-6); } }
 
 

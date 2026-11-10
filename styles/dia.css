@@ -1,36 +1,33 @@
 /* Carta do dia (home): carta de costas que a pessoa vira, sequencia da semana e cartao para compartilhar */
-.dia { display: grid; gap: var(--sp-5); max-width: 880px; width: 100%; justify-self: center; }
+.dia { display: grid; gap: var(--sp-4); max-width: 560px; width: 100%; justify-self: center; }
 .dia-titulo { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; text-align: center; }
-.dia-corpo { display: grid; gap: var(--sp-5); justify-items: center; }
-.dia-carta { width: min(54vw, 210px); }
+.dia-corpo { display: grid; gap: var(--sp-4); justify-items: center; }
+.dia-carta { width: min(52vw, 200px); }
 .dia .card-element { display: none; }
 
-/* os dois estados (de costas e virada) ocupam o mesmo lugar: virar a carta nao desloca nada */
-.dia-texto { display: grid; width: 100%; text-align: center; }
+/* so o estado atual ocupa altura (sem buraco com a carta fechada); o outro fica sobreposto e invisivel. O que esta acima da carta nao se mexe ao virar */
+.dia-texto { display: grid; width: 100%; text-align: center; position: relative; }
 .dia-estado { grid-area: 1 / 1; align-content: start; display: grid; gap: var(--sp-3); transition: opacity 0.4s var(--ease-ritual), visibility 0s linear 0s; }
-.dia-corpo[data-virada="false"] .dia-aberta, .dia-corpo[data-virada="true"] .dia-fechada { opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0s linear 0.2s; }
+.dia-corpo[data-virada="false"] .dia-aberta, .dia-corpo[data-virada="true"] .dia-fechada { opacity: 0; visibility: hidden; position: absolute; inset: 0 0 auto 0; pointer-events: none; transition: opacity 0.2s, visibility 0s linear 0.2s; }
 .dia-fechada { align-content: center; }
 .dia-convite { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.12; color: var(--accent); }
 .dia-apoio { color: var(--text-soft); font-size: var(--fs-lg); }
 
 .dia-nome { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.1; letter-spacing: -0.01em; text-wrap: balance; }
 .dia-subtitulo { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; color: var(--text-soft); margin-top: -4px; }
-.dia-luz, .dia-pergunta { display: grid; gap: 4px; padding: 14px 16px; border-radius: var(--r-md); border: 1px solid var(--line); text-align: left; }
+.dia-luz, .dia-pergunta { display: grid; gap: 2px; padding: 10px 14px; border-radius: var(--r-md); border: 1px solid var(--line); text-align: center; }
 .dia-luz { background: linear-gradient(160deg, var(--luz-wash), transparent 70%), var(--surface); border-color: color-mix(in srgb, var(--luz) 30%, transparent); }
 .dia-pergunta { background: var(--bg); }
 .dia-rotulo { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
 .dia-luz .dia-rotulo { color: var(--luz); }
-.dia-frase { font-family: var(--font-display); font-size: 1.2rem; line-height: 1.4; }
+.dia-frase { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.35; }
 .dia-pergunta .dia-frase { font-style: italic; }
-.dia-acoes { justify-content: center; margin-top: var(--sp-2); }
+.dia-acoes { justify-content: center; margin-top: var(--sp-2); gap: 8px; }
+.dia-acoes .btn { min-height: 44px; padding: 0 16px; font-size: var(--fs-sm); flex: 0 1 auto; }
+.dia-acoes [data-acao="abrir"] { flex: 1 0 100%; }
 .dia-erro { color: var(--text-soft); text-align: center; }
 
-@media (min-width: 760px) {
-  .dia-corpo { grid-template-columns: 210px minmax(0, 1fr); gap: var(--sp-6); align-items: center; justify-items: stretch; }
-  .dia-carta { width: 210px; }
-  .dia-texto { text-align: left; }
-  .dia-acoes { justify-content: flex-start; }
-}
+@media (min-width: 860px) { .dia-carta { width: 260px; } }
 
 /* sequencia da semana: estrela acesa nos dias em que a carta foi virada, sem nada que cobre ou pese */
 .dia-semana { display: grid; gap: var(--sp-3); justify-items: center; padding-top: var(--sp-4); border-top: 1px solid var(--line); }
