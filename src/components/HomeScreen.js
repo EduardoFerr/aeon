@@ -4,6 +4,7 @@ export class HomeScreen extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <section class="home-screen">
+              <div class="hero">
                 <div class="intro">
                     <h2>Bem-vindo ao Tarot de Thoth</h2>
                     <p>
@@ -12,9 +13,17 @@ export class HomeScreen extends HTMLElement {
                     <p>
                         O baralho é inspirado no deus egípcio <strong>Thoth</strong>, patrono da sabedoria, escrita e magia, e na figura de <strong>Hermes Trismegisto</strong>, o mestre dos segredos ocultos, cuja filosofia hermética ensina que "o que está acima é como o que está abaixo". Esses princípios são interligados à Cabala e à astrologia, formando uma base sólida para o entendimento espiritual.
                     </p>
+                    <div class="btn-row">
+                        <button type="button" class="btn btn-primary" data-ir="three-card-game">Tirar Cartas</button>
+                        <button type="button" class="btn btn-ghost" data-ir="all-cards">Cartas</button>
+                    </div>
                 </div>
+                <div class="hero-art" aria-hidden="true">
+                    <div class="halo"><img src="assets/cards/crowley-00.jpg" alt="" width="274" height="410" decoding="async"></div>
+                </div>
+              </div>
 
-                <div class="hermetic-knowledge">
+                <div class="hermetic-knowledge panel-card">
                     <h3>Como o Hermetismo, a Cabala e a Astrologia se relacionam no Tarot de Thoth?</h3>
                     <p>
                         O <strong>Hermetismo</strong> fornece a base filosófica do tarot através de seus sete princípios universais, como a correspondência (“o que está acima é como o que está abaixo”), o ritmo e a vibração. Esses conceitos guiam a leitura das cartas, mostrando como as energias cósmicas afetam nossa vida.
@@ -30,6 +39,9 @@ export class HomeScreen extends HTMLElement {
         `;
 
         document.querySelector('#page-title').textContent = "Aeon Fool";
+        this.querySelectorAll('[data-ir]').forEach((botao) => {
+            botao.addEventListener('click', () => navigateTo(botao.dataset.ir));
+        });
     }
 }
 
