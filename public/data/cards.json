@@ -2335,35 +2335,35 @@
   },
   {
     "name": "Ás de Discos",
-    "title": "Raiz da Terra",
+    "title": "Raiz dos Poderes da Terra",
     "number": 1,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Novos começos materiais, prosperidade, oportunidades.",
-    "eighth_lesser": "Bloqueios financeiros, falta de oportunidade, desperdício.",
+    "eighth_greater": "O grão que aceita corpo: o ouro que nasce do que foi plantado a seu tempo.",
+    "eighth_lesser": "O grão trancado: a matéria que guarda tudo e nunca brota.",
     "order": 64,
     "element": "Terra",
     "sign": null,
     "planet": null,
-    "description": "Representa novos começos materiais e prosperidade. Simboliza oportunidades tangíveis e abundância.",
-    "description_symbolic": "O Ás de Discos é a promessa de prosperidade e novos começos no mundo material. Ele simboliza oportunidades tangíveis e a abundância que vem com esforço.",
-    "message_esoteric": "Esta carta ensina que o início de algo grande exige esforço e dedicação. O Ás de Discos nos convida a aproveitar as oportunidades materiais com sabedoria.",
+    "description": "Um disco de ouro gira entre asas verdes e douradas, e nele mora a raiz da Terra: o Ás de Discos, matéria ainda em germe, antes de qualquer fruto. Em Kether, no cume da Árvore da Vida, o disco guarda o impulso do naipe inteiro. Quando aparece numa leitura, algo concreto começa a existir: um ofício novo, um corpo que se fortalece, uma casa que se abre. Anuncia solidez crescente e pede a paciência de quem planta.",
+    "description_symbolic": "Um disco dourado, cercado por uma volta de letras e por figuras concêntricas em que se reconhece uma estrela de cinco pontas, ocupa o centro; asas verdes e douradas se abrem à sua volta, e quatro cachos globosos, parecidos com pinhas, marcam os cantos, sobre folhagem escura. Todo Ás mora em Kether, e o da Terra é a origem de onde brotarão a muralha do Poder, a roda das Obras, a flor da Prudência e a moeda da Riqueza.",
+    "message_esoteric": "Algo quer nascer e já tem peso: um ofício, uma obra, um corpo que pede força. O grão é pequeno e a terra aguarda, de modo que o primeiro gesto vale mais do que o plano inteiro. Planta-se hoje o que só se mede daqui a muitas luas.",
     "meditation_reflection": [
-      "Estou pronto para abraçar novas oportunidades materiais?",
-      "Como posso cultivar prosperidade em minha vida?",
-      "Estou aproveitando os recursos à minha disposição com sabedoria?"
+      "Que grão meu segue guardado por medo de desperdiçar o que ele promete?",
+      "Qual é o segredo do disco, guardado no centro, entre tantas voltas de letras e de asas?",
+      "Que pergunta eu enterraria junto ao grão do Ás, esperando só a raiz?"
     ],
-    "internal_alchemy": "O Ás de Discos simboliza a alquimia da abundância. Ele nos desafia a transformar potencial em prosperidade.",
-    "magical_practice": "Conecte-se ao Ás de Discos visualizando-se segurando um disco dourado, simbolizando oportunidades e abundância. Afirme sua capacidade de prosperar.",
+    "internal_alchemy": "Conjunção: o Espírito toca a matéria e os dois passam a girar no mesmo disco. O Ás é o instante em que o ouro deixa de ser ideia e vira corpo.",
+    "magical_practice": "Plante uma semente num vaso de terra escura, diante da carta, e cubra-a com as duas mãos. Regue com três colheres de água, dizendo Kether em voz baixa a cada uma, e deixe o vaso ao sol; volte a ele toda manhã por uma lua.",
     "past_present_future": {
-      "past": "Um novo começo trouxe oportunidades materiais significativas.",
-      "present": "Um período de abraçar oportunidades e cultivar prosperidade.",
-      "future": "Mais prosperidade e sucesso estão por vir, desde que você aproveite as oportunidades com sabedoria."
+      "past": "No começo houve um gesto pequeno e concreto, que ninguém notou: dali nasce o disco.",
+      "present": "Há um grão na palma da mão. Plantá-lo agora ou esperar a estação?",
+      "future": "Vem aí uma solidez que se firma aos poucos, e o que for plantado agora dá fruto à vista."
     },
     "numeral": "Ás",
     "sephirah": "Kether",
     "decan": null,
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Dois de Discos",
@@ -2371,26 +2371,26 @@
     "number": 2,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Equilíbrio, adaptabilidade, administração eficiente.",
-    "eighth_lesser": "Desequilíbrio, sobrecarga, desorganização.",
+    "eighth_greater": "A alternância que sustenta: o ritmo entre dois polos que mantém a vida em movimento.",
+    "eighth_lesser": "O vaivém sem pouso: a mudança que gira em oito e não chega a lugar nenhum.",
     "order": 65,
     "element": "Terra",
     "sign": "Capricórnio",
     "planet": "Júpiter",
-    "description": "Simboliza equilíbrio e adaptabilidade. Representa administração eficiente de recursos e prioridades.",
-    "description_symbolic": "O Dois de Discos representa o equilíbrio necessário para lidar com mudanças e desafios materiais. Ele simboliza a adaptabilidade e a habilidade de gerenciar recursos com eficiência.",
-    "message_esoteric": "Esta carta ensina que equilíbrio e adaptabilidade são essenciais para o sucesso. O Dois de Discos nos convida a encontrar harmonia em meio às mudanças.",
+    "description": "Uma serpente coroada desenha um oito, com um disco de duas cores girando em cada alça, e nessa figura a Mudança está inteira. Júpiter, o planeta da expansão, encontra Capricórnio, que constrói aos poucos, e Chokmah dá o primeiro impulso à alternância. Na alternância cabem trabalho e descanso, casa e estrada, fartura e escassez, tudo o que se reveza. Anuncia uma fase de vaivém, e o desfecho só se vê a quem acompanha o ritmo inteiro.",
+    "description_symbolic": "Uma serpente de dorso marcado, com uma coroa amarela na cabeça, forma um oito vertical sobre fundo roxo; dentro de cada alça gira um disco de duas gotas, como um yin-yang, verde e amarelo em cima, amarelo sobre preto embaixo, com o sinal de Júpiter no alto e o de Saturno abaixo. Dois é o número de Chokmah, onde a força se divide em par; Capricórnio, signo de Saturno, segura o que Júpiter alarga.",
+    "message_esoteric": "Quem tenta parar um dos lados do oito perde o equilíbrio dos dois. Dois trabalhos, dois lugares, dois amores: nenhum sai de cena, e quem aprende o compasso do balanço ganha com ele. Ceder aqui para obter ali também é firmeza.",
     "meditation_reflection": [
-      "Estou equilibrando minhas prioridades de forma eficaz?",
-      "Como posso me adaptar melhor às mudanças em minha vida?",
-      "Estou administrando meus recursos com eficiência?"
+      "Em qual das duas alças eu fico sem perceber que existe a outra?",
+      "Por que só a serpente leva coroa, e não os discos?",
+      "Se a Mudança me prometesse uma única volta do oito, onde eu pediria que ela parasse?"
     ],
-    "internal_alchemy": "O Dois de Discos simboliza a alquimia da adaptabilidade. Ele nos desafia a encontrar equilíbrio e harmonia em meio às mudanças.",
-    "magical_practice": "Conecte-se ao Dois de Discos visualizando-se equilibrando dois discos brilhantes em harmonia perfeita. Afirme sua capacidade de gerenciar mudanças e recursos.",
+    "internal_alchemy": "Dissolução: a forma que parecia firme amolece e passa ao outro disco, como a serpente que se faz oito. É a operação que desmancha o que endureceu para que a matéria circule.",
+    "magical_practice": "Trace um oito deitado no chão com sal grosso e caminhe sobre ele, três vezes em cada sentido, com uma pedra na mão. A cada passagem pelo cruzamento, troque a pedra de mão; ao fim, deixe-a no centro do oito e recolha o sal com a palma.",
     "past_present_future": {
-      "past": "Um período de equilíbrio e adaptabilidade trouxe progresso.",
-      "present": "Um momento de gerenciar mudanças e priorizar com eficiência.",
-      "future": "Mais equilíbrio e sucesso estão por vir, desde que você permaneça adaptável."
+      "past": "Ali atrás havia duas ofertas, ou dois caminhos, e nenhum deles aceitou ser descartado.",
+      "present": "Os dois discos giram, e resta saber quem ocupa o centro do oito.",
+      "future": "Aproxima-se uma estação de vaivém; no fim dela, quem acompanhou o ritmo colhe o desfecho."
     },
     "numeral": "2",
     "sephirah": "Chokmah",
@@ -2401,34 +2401,34 @@
       "degrees": "0 a 10 graus de Capricórnio",
       "dates": "22/12 a 31/12"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Três de Discos",
-    "title": "Trabalho",
+    "title": "Obras",
     "number": 3,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Colaboração, aprendizado, execução bem planejada.",
-    "eighth_lesser": "Falta de esforço, desentendimentos, trabalho mal executado.",
+    "eighth_greater": "A obra em três pontas: plano, força e material que se encontram para erguer algo duradouro.",
+    "eighth_lesser": "A obra sem fim: o rigor do ofício que só repete e não entrega.",
     "order": 66,
     "element": "Terra",
     "sign": "Capricórnio",
     "planet": "Marte",
-    "description": "Reflete colaboração e planejamento. Simboliza aprendizado e execução cuidadosa.",
-    "description_symbolic": "O Três de Discos é a representação do esforço conjunto e da habilidade em ação. Ele simboliza o valor da colaboração e da atenção ao detalhe para alcançar o sucesso.",
-    "message_esoteric": "Esta carta ensina que o trabalho bem executado exige cooperação e planejamento. O Três de Discos nos convida a buscar aprendizado constante e parcerias construtivas.",
+    "description": "Três rodas vermelhas seguram as pontas de um triângulo verde-claro: eis a carta das Obras. Binah, a esfera da forma, recebe o fogo de Marte e o fixa em ofício, no segundo decano de Capricórnio. Falam por esta carta os projetos que ganham corpo, a equipe que se organiza, uma construção, uma carreira, uma tarefa levada a sério. O esforço vira estrutura, e a obra pronta fala mais alto do que o plano.",
+    "description_symbolic": "Um triângulo de arestas luminosas, em verde e amarelo translúcidos, ocupa o centro de um fundo verde de formas onduladas, e em cada ponta gira uma roda vermelha de raios; o sinal de Marte está no alto e o de Capricórnio, embaixo. Três é o número de Binah, a esfera que molda a energia em limite e em tempo, e Marte, exaltado em Capricórnio, dá às rodas o seu giro.",
+    "message_esoteric": "Nenhuma obra sobe sem plano, braço e material ao mesmo tempo. Faltando um deles, as rodas giram em falso. O triângulo só fica de pé quando as três pontas se encontram, e uma parte inteira vale mais do que três pela metade.",
     "meditation_reflection": [
-      "Estou colaborando efetivamente com os outros?",
-      "Como posso melhorar a execução de meus projetos?",
-      "Estou valorizando o aprendizado em minha jornada?"
+      "Onde o meu ofício virou rotina de repetição, sem nada que se entregue?",
+      "Como fica o triângulo quando uma das rodas vermelhas falta?",
+      "Qual das três pontas da obra o triângulo me mostra primeiro: o plano, o braço ou o material?"
     ],
-    "internal_alchemy": "O Três de Discos simboliza a alquimia do esforço conjunto. Ele nos desafia a usar nossas habilidades para contribuir com projetos maiores.",
-    "magical_practice": "Conecte-se ao Três de Discos visualizando-se em harmonia com outros enquanto trabalha em um projeto significativo. Afirme sua dedicação ao aprendizado e à colaboração.",
+    "internal_alchemy": "Calcinação: o fogo de Marte reduz a matéria bruta a cinza e deixa só a forma firme. A obra só se mostra depois que o supérfluo se foi.",
+    "magical_practice": "Acenda uma vela vermelha, cor de Marte, e monte sobre a carta um pequeno triângulo com três pedras, uma para cada parte da sua obra. Contemple as rodas vermelhas até a vela se apagar e deixe as pedras no lugar até o dia seguinte.",
     "past_present_future": {
-      "past": "Um esforço colaborativo trouxe aprendizado e progresso.",
-      "present": "Um momento para investir em parcerias e executar com cuidado.",
-      "future": "Mais sucesso está por vir, desde que você continue colaborando e aprendendo."
+      "past": "Lá atrás havia um projeto que só existia na cabeça e pedia mãos.",
+      "present": "As rodas já estão nas pontas, e uma parte da obra precisa fechar antes das outras.",
+      "future": "Sobe a estrutura: o esforço de hoje vira parede, e a parede diz quem a ergueu."
     },
     "numeral": "3",
     "sephirah": "Binah",
@@ -2439,7 +2439,7 @@
       "degrees": "10 a 20 graus de Capricórnio",
       "dates": "01/01 a 10/01"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Quatro de Discos",
@@ -2447,26 +2447,26 @@
     "number": 4,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Estabilidade financeira, segurança, controle.",
-    "eighth_lesser": "Apego, avareza, medo de perder.",
+    "eighth_greater": "A fortaleza bem assentada: o poder que organiza e protege o que construiu.",
+    "eighth_lesser": "A muralha que isola: o domínio tão guardado que ninguém entra e nada circula.",
     "order": 67,
     "element": "Terra",
     "sign": "Capricórnio",
     "planet": "Sol",
-    "description": "Representa estabilidade financeira e controle. Simboliza segurança, mas também apego excessivo.",
-    "description_symbolic": "O Quatro de Discos reflete a necessidade de estabilidade, mas alerta contra o apego excessivo ao material. Ele simboliza a segurança que pode se transformar em possessividade.",
-    "message_esoteric": "Esta carta ensina que o equilíbrio entre segurança e generosidade é essencial. O Quatro de Discos nos convida a cultivar estabilidade sem nos tornarmos prisioneiros do medo de perder.",
+    "description": "O Poder tem quatro torres de ameias, um pátio amarelo e uma só ponte estreita por onde se entra. No último decano de Capricórnio, a montanha do zodíaco, o Sol traz luz à pedra, e Chesed, a esfera da misericórdia ordenada, dá ao domínio a ordem do quatro. Traz posse, autoridade, uma base firme: aquilo que se conquistou e é preciso manter. O mando, aqui, só se sustenta enquanto serve à casa que protege.",
+    "description_symbolic": "Uma fortaleza quadrada de muros escuros mostra, em cada canto, uma torre de topo claro marcada por um triângulo; no meio, um pátio amarelo em forma de cruz e, embaixo, uma ponte estreita sobre uma faixa azul de linhas verdes. O fundo laranja afunila em perspectiva. Quatro é o número de Chesed, e o Sol em Capricórnio põe luz e ordem na montanha.",
+    "message_esoteric": "O que foi conquistado precisa de guardião: uma posição, um território, uma autoridade que se firmou. Quem governa bem mantém a ponte aberta e a muralha em dia; quem fecha tudo governa um deserto. A ordem protege, e só a ponte fechada vira cela.",
     "meditation_reflection": [
-      "Estou mantendo um equilíbrio saudável entre segurança e generosidade?",
-      "Como posso liberar o medo de perder para encontrar mais liberdade?",
-      "Estou construindo estabilidade de forma sustentável?"
+      "O que eu guardo com tanto zelo que já não deixo ninguém entrar?",
+      "Para que serve a ponte estreita numa fortaleza de quatro torres?",
+      "Que senha eu pediria, na ponte, a quem quisesse entrar na fortaleza?"
     ],
-    "internal_alchemy": "O Quatro de Discos simboliza a alquimia da segurança e do desapego. Ele nos desafia a buscar equilíbrio e a evitar o aprisionamento ao material.",
-    "magical_practice": "Conecte-se ao Quatro de Discos visualizando-se segurando um disco dourado com confiança, mas sem possessividade. Afirme sua segurança e liberdade.",
+    "internal_alchemy": "Congelação: o fluido se firma em pedra e ganha muros. É a operação que dá corpo estável ao que antes escorria, e o Poder é esse corpo já de pé, com a ponte ainda por vigiar.",
+    "magical_practice": "Ponha quatro moedas nos cantos de um quadrado traçado com farinha, deixando aberta uma passagem no meio de um dos lados. Diga o nome do Sol em voz grave, olhando a carta, e recolha as moedas uma a uma, no sentido do sol.",
     "past_present_future": {
-      "past": "Um momento de segurança e controle financeiro trouxe estabilidade.",
-      "present": "Um período para equilibrar apego e liberdade material.",
-      "future": "Mais estabilidade está por vir, desde que você evite possessividade."
+      "past": "Houve uma conquista difícil, e a fortaleza nasceu para guardá-la.",
+      "present": "Entre manter a muralha e abrir a ponte, resta saber qual das duas protege mais.",
+      "future": "O baralho anuncia uma base firme, e o que está bem assentado resiste ao inverno."
     },
     "numeral": "4",
     "sephirah": "Chesed",
@@ -2477,7 +2477,7 @@
       "degrees": "20 a 30 graus de Capricórnio",
       "dates": "11/01 a 20/01"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Cinco de Discos",
@@ -2485,26 +2485,26 @@
     "number": 5,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Superação de adversidades, ajuda inesperada.",
-    "eighth_lesser": "Perdas materiais, dificuldades financeiras, isolamento.",
+    "eighth_greater": "A atenção que não dorme: a inquietação que acusa o ponto fraco a tempo de reforçá-lo.",
+    "eighth_lesser": "O pensamento em roda: a volta em torno da falta que adia a obra.",
     "order": 68,
     "element": "Terra",
     "sign": "Touro",
     "planet": "Mercúrio",
-    "description": "Simboliza perdas e desafios materiais. Representa a necessidade de buscar ajuda e superar adversidades.",
-    "description_symbolic": "O Cinco de Discos reflete tempos difíceis, mas também o potencial de superação e esperança. Ele simboliza a importância de buscar ajuda e não enfrentar desafios sozinho.",
-    "message_esoteric": "Esta carta ensina que mesmo nos momentos de maior dificuldade, a ajuda está disponível. O Cinco de Discos nos convida a procurar apoio e a acreditar na superação.",
+    "description": "Quantas vezes a mente refaz a mesma soma? A Preocupação responde com cinco discos escuros que se sobrepõem e cinco discos menores unidos por linhas verdes em estrela. Na Árvore da Vida, Geburah é a esfera do rigor, e é ali que Mercúrio, no primeiro decano de Touro, aprende a contar. Anuncia escassez, trabalho que ameaça atrasar, a sensação de que o chão está curto. O tarô pede que se reveja o que há, de cabeça fria, antes que o medo o conte por conta própria.",
+    "description_symbolic": "Cinco grandes discos escuros se sobrepõem, e sobre eles repousam cinco discos menores, cada um com seu sinal: um triângulo vermelho, um quadrado amarelo, um círculo azul, um crescente claro e um círculo escuro, presos por linhas verdes que se cruzam em estrela de cinco pontas; do alto e das bordas rasgam-se raios amarelos. Cinco é o número de Geburah, que mede e corta, e Mercúrio em Touro faz o pensamento rondar o que se possui.",
+    "message_esoteric": "Quando uma soma não fecha, a mente a refaz em círculos, e a roda de pensar gasta mais do que a falta que a alimenta. Cinco discos, cinco sinais, uma só teia verde: o medo perde força quando cada ponto ganha nome e lugar.",
     "meditation_reflection": [
-      "Estou buscando ajuda em tempos de necessidade?",
-      "Como posso transformar dificuldades em oportunidades de crescimento?",
-      "Estou mantendo a esperança durante os desafios?"
+      "Quanto da minha falta eu inflo ao repeti-la, até ela parecer maior do que é?",
+      "Se uma das linhas verdes cedesse, qual dos cinco sinais perderia o lugar?",
+      "Qual número a Preocupação me daria, se eu lhe perguntasse quanto falta de verdade?"
     ],
-    "internal_alchemy": "O Cinco de Discos simboliza a alquimia da resiliência. Ele nos desafia a encontrar força em meio às dificuldades e a buscar apoio quando necessário.",
-    "magical_practice": "Conecte-se ao Cinco de Discos visualizando-se saindo de uma tempestade para a luz. Afirme sua capacidade de superar adversidades.",
+    "internal_alchemy": "Putrefação: o que apodreceu no pensamento solta o cheiro antes de virar adubo. A inquietação é o escuro necessário que revela onde a matéria estava fraca.",
+    "magical_practice": "Acenda uma vela amarela, cor de Mercúrio, e percorra com o dedo as linhas verdes que ligam os cinco discos menores, dizendo em voz alta o nome de cada sinal. Sopre a vela e deixe a carta virada para baixo até a manhã.",
     "past_present_future": {
-      "past": "Um período de desafios trouxe resiliência e aprendizado.",
-      "present": "Um momento para buscar apoio e enfrentar adversidades.",
-      "future": "A superação está por vir, desde que você mantenha a esperança."
+      "past": "Há uma soma antiga que ninguém terminou de fazer, e é dela que tudo parte.",
+      "present": "O medo faz a soma em seu lugar; cabe tomá-la de volta.",
+      "future": "Dias de atenção miúda: quem confere o que tem, e confere de novo, atravessa a escassez."
     },
     "numeral": "5",
     "sephirah": "Geburah",
@@ -2515,7 +2515,7 @@
       "degrees": "0 a 10 graus de Touro",
       "dates": "20/04 a 29/04"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Seis de Discos",
@@ -2523,26 +2523,26 @@
     "number": 6,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Generosidade, equilíbrio financeiro, gratidão.",
-    "eighth_lesser": "Dependência, expectativas frustradas, desigualdade.",
+    "eighth_greater": "O fruto à vista: o êxito que vem da harmonia entre esforço e tempo.",
+    "eighth_lesser": "O brilho que ofusca: o êxito tão celebrado que já não vê o que o sustenta.",
     "order": 69,
     "element": "Terra",
     "sign": "Touro",
     "planet": "Lua",
-    "description": "Representa generosidade e equilíbrio financeiro. Simboliza gratidão e harmonia na troca de recursos.",
-    "description_symbolic": "O Seis de Discos é a representação da harmonia na troca de recursos. Ele simboliza a importância de dar e receber com equilíbrio e gratidão.",
-    "message_esoteric": "Esta carta ensina que a generosidade é uma via de mão dupla. O Seis de Discos nos convida a cultivar harmonia nas trocas materiais e emocionais.",
+    "description": "Quando a luz de um hexágono banha seis discos azuis, o Sucesso chegou. A Lua, que marca as estações do plantio, rege o segundo decano de Touro, signo do gosto e do corpo, e Tiphareth, a esfera solar, acende o conjunto. Fala de reconhecimento, de êxito merecido, de uma obra que dá frutos e se mostra. O brilho só dura enquanto se reconhece o que o sustenta.",
+    "description_symbolic": "Seis discos azuis, cada um com um pequeno sinal, cercam um hexágono de luz clara e, no centro, um desenho de linhas concêntricas; de trás saem pontas de estrela em verde e branco, e arcos laranja fecham o alto e o fundo, sobre um campo escuro. Seis é o número de Tiphareth, onde as forças se equilibram em torno do Sol, e a Lua em Touro dá ao brilho a sua fertilidade.",
+    "message_esoteric": "O esforço aparece à luz do dia, e alguém enfim vê o que foi feito. O mérito se confirma, e o brilho é de empréstimo quando esquece a raiz. Colher é também lembrar quem plantou ao seu lado.",
     "meditation_reflection": [
-      "Estou equilibrando dar e receber em minha vida?",
-      "Como posso cultivar mais gratidão e generosidade?",
-      "Estou valorizando as oportunidades de ajudar os outros?"
+      "Quando o meu êxito passa a me cegar para quem o sustentou?",
+      "Por trás de tanta luz, o que mora no centro do hexágono?",
+      "Se o Sucesso falasse, qual dos seis discos ele me mandaria agradecer?"
     ],
-    "internal_alchemy": "O Seis de Discos simboliza a alquimia da generosidade. Ele nos desafia a encontrar equilíbrio e gratidão em nossas trocas.",
-    "magical_practice": "Conecte-se ao Seis de Discos visualizando-se equilibrando dois pratos cheios de recursos. Afirme sua generosidade e gratidão.",
+    "internal_alchemy": "Exaltação: a matéria trabalhada sobe ao seu grau mais alto e brilha como o ouro. O Sucesso é o ponto em que a obra se mostra sem perder a base.",
+    "magical_practice": "Ao meio-dia, ponha a carta ao sol, diante de pão ou de frutas. Parta o pão em seis partes, em silêncio, coma uma e reparta as outras com quem ajudou na sua obra.",
     "past_present_future": {
-      "past": "Um ato de generosidade trouxe harmonia e gratidão.",
-      "present": "Um momento para equilibrar dar e receber.",
-      "future": "Mais harmonia e abundância estão por vir, desde que você cultive a generosidade."
+      "past": "Houve meses de trabalho quieto, longe de qualquer aplauso.",
+      "present": "A luz chegou, e é preciso separar nela o reconhecimento da simples festa.",
+      "future": "O reconhecimento chega, e o que está bem enraizado atravessa o aplauso e continua."
     },
     "numeral": "6",
     "sephirah": "Tiphareth",
@@ -2553,7 +2553,7 @@
       "degrees": "10 a 20 graus de Touro",
       "dates": "30/04 a 09/05"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Sete de Discos",
@@ -2561,26 +2561,26 @@
     "number": 7,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Planejamento a longo prazo, paciência, colheita futura.",
-    "eighth_lesser": "Desmotivação, falta de progresso, impaciência.",
+    "eighth_greater": "A safra perdida que ensina: o fracasso que mostra o que o chão não comporta.",
+    "eighth_lesser": "A lavoura velha: a insistência em regar o que a estação já secou.",
     "order": 70,
     "element": "Terra",
     "sign": "Touro",
     "planet": "Saturno",
-    "description": "Reflete paciência e planejamento a longo prazo. Simboliza o esforço em direção a uma colheita futura.",
-    "description_symbolic": "O Sete de Discos simboliza o trabalho paciente e o planejamento cuidadoso. Ele nos lembra que o progresso requer tempo e dedicação contínua.",
-    "message_esoteric": "Esta carta ensina que a paciência é essencial para o sucesso. O Sete de Discos nos convida a confiar no processo e a continuar investindo no que realmente importa.",
+    "description": "A safra falhou, e a carta do Fracasso mostra sete discos prateados sobre folhagem azul, com o sinal de Saturno gravado em quatro deles. O tempo de Saturno cai sobre o último decano de Touro, signo da lavoura, e Netzach, a esfera do desejo, assiste ao que se plantou murchar. Aparecem aqui a aposta que não vingou, a promessa que ficou no caminho, o rendimento aquém do esperado. É hora de contar a perda e decidir quem merece o próximo plantio.",
+    "description_symbolic": "Sete discos prateados, dispostos em fileiras de dois, um, dois e dois, entre folhas azuis e escuras que se cruzam como penas; quatro trazem o sinal de Saturno e três, um selo mais intrincado, e um halo de bronze envolve cada um. Netzach é a sétima esfera, a do desejo, e Saturno em Touro faz o desejo esbarrar no tempo: o que se plantou fora de estação não vinga.",
+    "message_esoteric": "Uma aposta não rendeu, e o esforço não foi pago pelo resultado. O tempo mostra o que a terra não dá, e o desengano é um mestre caro e exato. Antes de plantar de novo, convém separar o que era chão do que era só desejo.",
     "meditation_reflection": [
-      "Estou dedicando tempo e esforço suficientes para alcançar meus objetivos?",
-      "Como posso cultivar paciência em minha jornada?",
-      "Estou avaliando regularmente meu progresso e ajustando meu plano?"
+      "Onde eu rego, por teimosia, o que a estação já secou?",
+      "Que lugar cabe ao disco do meio, sozinho, entre os pares que o cercam?",
+      "O que Saturno responde a quem pergunta, diante dos sete discos, se vale abrir um canteiro novo?"
     ],
-    "internal_alchemy": "O Sete de Discos simboliza a alquimia do crescimento paciente. Ele nos desafia a valorizar o processo tanto quanto o resultado.",
-    "magical_practice": "Conecte-se ao Sete de Discos visualizando uma colheita abundante crescendo lentamente. Afirme sua paciência e dedicação.",
+    "internal_alchemy": "Separação: o trigo é apartado do joio, e o que murchou sai da conta. A operação deixa à vista o que vale o próximo plantio.",
+    "magical_practice": "Espalhe uma camada fina de sal num prato escuro e marque nele, com o dedo, sete pontos. Vibre Saturno em voz baixa e apague os pontos um a um, deixando o do meio por último; depois jogue o sal fora, na terra.",
     "past_present_future": {
-      "past": "Um período de trabalho paciente trouxe crescimento sólido.",
-      "present": "Um momento para avaliar seu progresso e planejar cuidadosamente.",
-      "future": "Uma colheita abundante está por vir, desde que você mantenha sua paciência e esforço."
+      "past": "Um plano nasceu grande demais para o terreno que havia.",
+      "present": "O campo secou: insistir no canteiro velho ou preparar outro?",
+      "future": "Tempo de pousio: quem lê a perda com frieza planta melhor depois."
     },
     "numeral": "7",
     "sephirah": "Netzach",
@@ -2591,7 +2591,7 @@
       "degrees": "20 a 30 graus de Touro",
       "dates": "10/05 a 19/05"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Oito de Discos",
@@ -2599,26 +2599,26 @@
     "number": 8,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Dedicação, aprendizado, habilidade refinada.",
-    "eighth_lesser": "Falta de empenho, trabalho negligente, desatenção.",
+    "eighth_greater": "A cultura paciente: o ofício que cresce flor a flor, sem atropelo e sem pausa.",
+    "eighth_lesser": "O zelo sem safra: a poda tão frequente que a árvore nunca dá fruto.",
     "order": 71,
     "element": "Terra",
     "sign": "Virgem",
     "planet": "Sol",
-    "description": "Representa dedicação e habilidade refinada. Simboliza o aprendizado constante e o esforço diligente.",
-    "description_symbolic": "O Oito de Discos reflete o aperfeiçoamento e a dedicação. Ele simboliza o trabalho paciente necessário para alcançar a excelência.",
-    "message_esoteric": "Esta carta ensina que o aprendizado e a prática são as chaves para o progresso. O Oito de Discos nos convida a investir tempo e esforço para aprimorar nossas habilidades.",
+    "description": "Oito flores magenta se abrem numa árvore de tronco trançado, sob um céu amarelo, e a Prudência não cresce depressa. Do fim de agosto ao começo de setembro, o Sol percorre o primeiro decano de Virgem, signo do detalhe e do ofício, e Hod, a esfera do intelecto, dá método à paciência. Entram aqui o trabalho de aprendiz que se aperfeiçoa, a obra cultivada sem alarde, a lição de quem poda antes de colher. A pressa derruba a árvore antes do fruto, e quem planta sabe disso.",
+    "description_symbolic": "Uma árvore de tronco azul-acinzentado, torcido em duas fitas, sustenta oito flores magenta de centro dourado, quatro de cada lado, entre folhas verde-escuras e curvas; atrás, um fundo amarelo com um pequeno círculo no alto, e colinas na base. Oito é o número de Hod, onde o pensamento aprende a medir, e o Sol em Virgem ilumina o trabalho feito com atenção.",
+    "message_esoteric": "O trabalho quieto está rendendo, e quem insiste no detalhe colhe em dobro; quem corre arranca a flor com o galho. Um ofício que se aprimora, uma obra sem barulho, uma habilidade que amadurece: tudo cresce de dentro. A mesma regra todos os dias vale mais do que um grande esforço de vez em quando.",
     "meditation_reflection": [
-      "Estou investindo o esforço necessário para alcançar a excelência?",
-      "Como posso melhorar minhas habilidades através do aprendizado contínuo?",
-      "Estou sendo paciente com meu progresso?"
+      "Que poda minha é tão frequente que a árvore não chega a dar fruto?",
+      "Como oito flores se sustentam num só tronco torcido em duas fitas?",
+      "Qual das oito flores a Prudência me mandaria regar hoje, e qual deixaria em paz?"
     ],
-    "internal_alchemy": "O Oito de Discos simboliza a alquimia da prática e do aprimoramento. Ele nos desafia a trabalhar com diligência e propósito.",
-    "magical_practice": "Conecte-se ao Oito de Discos visualizando-se lapidando uma obra-prima com paciência e cuidado. Afirme sua dedicação e habilidade.",
+    "internal_alchemy": "Fermentação: o tempo trabalha a massa em silêncio, e ela cresce sem que se veja a hora. Assim age a paciência que não aparece.",
+    "magical_practice": "Durante oito manhãs, na mesma hora, inspire contando até oito diante da carta e faça um único gesto do seu ofício, com atenção inteira. No oitavo dia, ponha sobre a carta um objeto que o seu trabalho produziu e anote em duas linhas o que o gesto ensinou.",
     "past_present_future": {
-      "past": "Um período de aprendizado trouxe progresso e desenvolvimento.",
-      "present": "Um momento para investir em prática e aprimoramento.",
-      "future": "Mais progresso está por vir, desde que você continue se dedicando."
+      "past": "Um dia se decidiu aprender o ofício passo a passo, sem atalho.",
+      "present": "A árvore cresce, e o impasse é quanto tempo se aguenta esperar o fruto.",
+      "future": "O trabalho miúdo floresce, e o que foi feito com constância dá fruto na estação certa."
     },
     "numeral": "8",
     "sephirah": "Hod",
@@ -2629,34 +2629,34 @@
       "degrees": "0 a 10 graus de Virgem",
       "dates": "23/08 a 01/09"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Nove de Discos",
-    "title": "Ganhos",
+    "title": "Ganho",
     "number": 9,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Independência, segurança material, realização pessoal.",
-    "eighth_lesser": "Dependência, isolamento, arrogância.",
+    "eighth_greater": "O ganho que se multiplica: o que o trabalho atrai, partilhado e bem recebido.",
+    "eighth_lesser": "O ganho que só se conta: o proveito tão cobiçado que ofusca o que o gerou.",
     "order": 72,
     "element": "Terra",
     "sign": "Virgem",
     "planet": "Vênus",
-    "description": "Simboliza independência e realização pessoal. Representa segurança material e harmonia com o ambiente.",
-    "description_symbolic": "O Nove de Discos é o símbolo de independência e segurança conquistada através de esforço próprio. Ele reflete satisfação pessoal e harmonia.",
-    "message_esoteric": "Esta carta ensina que a verdadeira independência vem da autossuficiência. O Nove de Discos nos convida a celebrar nossas conquistas materiais e emocionais.",
+    "description": "Seis discos menores rodeiam três círculos que se cruzam, e é nesse cruzamento que mora o Ganho. Vênus avalia, no segundo decano de Virgem, o que o trabalho rendeu, e Yesod, a esfera das imagens e do corpo, devolve ao mundo o que recebeu. Vêm daí a recompensa, o fruto merecido, o conforto que o esforço comprou. O proveito só vale enquanto circula; parado, vira vitrine.",
+    "description_symbolic": "Três círculos coloridos, rosa em cima, verde à esquerda e azul à direita, se cruzam no centro de raios claros que partem como uma estrela, sobre um fundo escuro de zonas verdes; seis discos menores, cada um com uma figura em relevo, pontuam os raios, com o sinal de Vênus no alto e o de Virgem embaixo. Nove é o número de Yesod, que dá corpo ao que vem de cima, e Vênus em Virgem aprecia o que foi bem feito.",
+    "message_esoteric": "Algo volta multiplicado: uma recompensa justa, um favor devolvido, um talento que enfim frutifica. O proveito é bendito e corre melhor quando passa por muitas mãos. O que se divide cresce, e o que se esconde fica pesado.",
     "meditation_reflection": [
-      "Estou valorizando minhas conquistas e minha independência?",
-      "Como posso harmonizar segurança material com equilíbrio emocional?",
-      "Estou cultivando gratidão por tudo o que alcancei?"
+      "Que parte do meu ganho nunca sai da gaveta?",
+      "No ponto em que o rosa, o verde e o azul se cruzam, o que nasce?",
+      "O que Vênus me diria se eu lhe mostrasse o que ganhei, de mão aberta?"
     ],
-    "internal_alchemy": "O Nove de Discos simboliza a alquimia da independência e da harmonia. Ele nos desafia a valorizar o que conquistamos com esforço.",
-    "magical_practice": "Conecte-se ao Nove de Discos visualizando-se em um jardim repleto de prosperidade. Afirme sua autossuficiência e gratidão.",
+    "internal_alchemy": "Multiplicação: o ouro, ao ser alimentado, rende mais ouro, como círculos que se cruzam e geram uma região nova. Aqui a pedra filosofal aumenta sem perder a pureza.",
+    "magical_practice": "Ponha uma moeda sobre cada um dos seis discos menores da carta e as outras três no centro, onde os círculos se cruzam. Acenda uma vela verde, cor de Vênus, deixe-a queimar por nove respirações e, no dia seguinte, dê uma das moedas a quem precise.",
     "past_present_future": {
-      "past": "Um período de esforço trouxe conquistas e segurança.",
-      "present": "Um momento de celebrar sua independência e realizações.",
-      "future": "Mais segurança e satisfação estão por vir, desde que você mantenha seus esforços."
+      "past": "Veio de um trabalho cuidadoso, feito por gosto antes de ser feito por encomenda.",
+      "present": "O ganho chegou, e a gaveta está aberta: a escolha é entre guardá-lo e fazê-lo andar.",
+      "future": "O conforto merecido se assenta, e o que circula volta maior."
     },
     "numeral": "9",
     "sephirah": "Yesod",
@@ -2667,7 +2667,7 @@
       "degrees": "10 a 20 graus de Virgem",
       "dates": "02/09 a 11/09"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Dez de Discos",
@@ -2675,26 +2675,26 @@
     "number": 10,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Estabilidade, legado, prosperidade duradoura.",
-    "eighth_lesser": "Conflitos familiares, instabilidade, ganância.",
+    "eighth_greater": "A riqueza completa: a matéria que chegou ao termo e sustenta a casa inteira.",
+    "eighth_lesser": "A abundância parada: o acúmulo que perdeu destino e sufoca a casa.",
     "order": 73,
     "element": "Terra",
     "sign": "Virgem",
     "planet": "Mercúrio",
-    "description": "Representa legado e estabilidade duradoura. Simboliza prosperidade e realização no nível familiar.",
-    "description_symbolic": "O Dez de Discos reflete a prosperidade acumulada e o legado duradouro. Ele simboliza estabilidade e harmonia que se estendem às gerações futuras.",
-    "message_esoteric": "Esta carta ensina que a verdadeira riqueza está no legado que deixamos. O Dez de Discos nos convida a construir algo duradouro e significativo.",
+    "description": "A Riqueza tem a forma da Árvore da Vida, feita de dez discos amarelos, e é a matéria no seu ponto final. Dez é o número de Malkuth, a esfera que fecha o naipe como casa e herança, e Mercúrio, o planeta do comércio e da inteligência, rege o último decano de Virgem, onde os frutos se medem e se somam. Anuncia fartura estável, uma casa posta, um nome que dura, o fruto de gerações de trabalho. O ciclo está completo, e a abundância pede um destino.",
+    "description_symbolic": "Dez discos amarelos de borda verde, gravados com sinais e letras hebraicas, seguem o desenho da Árvore da Vida sobre moedas roxas e verdes empilhadas ao fundo; Mercúrio brilha no topo e Virgem embaixo. Malkuth é a décima esfera, onde a Árvore termina e recomeça, e Mercúrio em Virgem mede, soma e dá nome ao que se acumulou.",
+    "message_esoteric": "Os celeiros se enchem, e riqueza parada vira peso. Uma herança, uma casa, um nome: tudo pede destino, ou apodrece na abundância. O ouro serve a quem o põe a caminho, e o caminho é o próximo plantio.",
     "meditation_reflection": [
-      "Estou construindo um legado significativo para o futuro?",
-      "Como posso compartilhar minha prosperidade de forma construtiva?",
-      "Estou cultivando harmonia e estabilidade em minha vida familiar?"
+      "Qual das minhas abundâncias parou de ter para onde ir?",
+      "Por que a fortuna toma a forma da Árvore da Vida, e não a de uma pilha?",
+      "Se a Riqueza me entregasse uma só moeda, de qual disco ela a tiraria?"
     ],
-    "internal_alchemy": "O Dez de Discos simboliza a alquimia da estabilidade e do legado. Ele nos desafia a pensar no impacto de nossas ações a longo prazo.",
-    "magical_practice": "Conecte-se ao Dez de Discos visualizando-se cercado por uma árvore frondosa que representa seu legado. Afirme sua estabilidade e prosperidade duradoura.",
+    "internal_alchemy": "Projeção: a pedra filosofal pronta toca o metal comum e o transmuta em ouro. O Dez é o fim da Grande Obra na matéria, onde o ouro passa de segredo a moeda.",
+    "magical_practice": "Desenhe no chão, com giz, os dez círculos da Árvore da Vida e suba por eles, de Malkuth a Kether, dizendo em voz alta o nome de cada esfera. Em cada degrau, pare uma respiração; ao chegar ao alto, volte a descer pelo mesmo caminho até a terra.",
     "past_present_future": {
-      "past": "Um período de construção trouxe estabilidade e prosperidade.",
-      "present": "Um momento de aproveitar os frutos de seu legado.",
-      "future": "Mais prosperidade e impacto duradouro estão por vir, desde que você continue cultivando harmonia."
+      "past": "Anos de trabalho pequeno e constante empilharam o que hoje se vê.",
+      "present": "A casa está cheia, e falta decidir para onde a fartura vai agora.",
+      "future": "Uma abundância estável se assenta, e o próximo ciclo nasce de um broto tirado do alto da pilha."
     },
     "numeral": "10",
     "sephirah": "Malkuth",
@@ -2705,34 +2705,34 @@
       "degrees": "20 a 30 graus de Virgem",
       "dates": "12/09 a 21/09"
     },
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Princesa de Discos",
-    "title": "O Estudante",
+    "title": "A Dama do Disco-Flor",
     "number": 11,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Novos aprendizados, ambição, oportunidades.",
-    "eighth_lesser": "Procrastinação, falta de foco, superficialidade.",
+    "eighth_greater": "O broto que aprende: o corpo e a terra tomados como mestres.",
+    "eighth_lesser": "A medida sem salto: a cautela que só pesa e nunca ousa.",
     "order": 74,
     "element": "Terra",
     "sign": null,
     "planet": null,
-    "description": "Representa ambição e novos aprendizados. Simboliza a busca por oportunidades práticas.",
-    "description_symbolic": "O Pajem de Discos é o símbolo do aprendizado e da ambição. Ele representa novas oportunidades práticas e a busca por conhecimento.",
-    "message_esoteric": "Esta carta ensina que a base do progresso está na curiosidade e no aprendizado. O Pajem de Discos nos convida a explorar novas oportunidades com dedicação.",
+    "description": "Terra de Terra: a matéria em sua forma mais densa é a Princesa de Discos. Ela chega como presença jovem e paciente, alguém que aprende com as mãos, um trabalho novo ainda em esboço, uma proposta concreta, uma colheita pequena e firme. Indica uma fase em que o broto é tímido e já toma corpo. Os quadrantes do céu a medem, e não os signos, e nenhuma estação a reclama para si.",
+    "description_symbolic": "Uma figura de vestido claro e dourado, coroada de chifres curvos, segura um disco de pétalas verdes e laranja numa das mãos e, na outra, um cetro de ponta em losango; está sobre um rochedo claro, diante de troncos altos, sob um céu amarelo. O Heh final fecha o Tetragrama e deita a Princesa em Malkuth, a décima esfera, onde a Terra se repete e o fruto se torna visível.",
+    "message_esoteric": "Uma coisa pequena e real pede atenção: um aprendizado, um trabalho de começo, um corpo ou um terreno que se conhece pela prática. O passo curto e firme é aprovado, e a pressa não rende mais do que a estação. A mão aprende o que o olho só descreve.",
     "meditation_reflection": [
-      "Estou aproveitando novas oportunidades de aprendizado?",
-      "Como posso aplicar meu conhecimento de forma prática?",
-      "Estou cultivando ambição de forma saudável?"
+      "Quanta cautela eu ainda chamo de prudência quando já é medo?",
+      "Que colheita o disco de pétalas anuncia, na mão da Princesa?",
+      "Com que tarefa a Princesa me receberia no primeiro dia, de mãos nuas?"
     ],
-    "internal_alchemy": "O Pajem de Discos simboliza a alquimia do aprendizado e da ambição. Ele nos desafia a buscar conhecimento e aplicá-lo para alcançar nossos objetivos.",
-    "magical_practice": "Conecte-se ao Pajem de Discos visualizando-se abrindo um livro de ouro, cheio de oportunidades. Afirme sua ambição e curiosidade.",
+    "internal_alchemy": "Cibação: a matéria recebe o alimento aos poucos, e cada porção a faz mais densa e viva. Na Princesa, a Terra se deixa nutrir.",
+    "magical_practice": "Com os pés descalços sobre terra ou grama, ou com um punhado de terra úmida nas mãos, contemple a carta por alguns minutos. Vibre Heh em voz baixa e aperte a terra até ela guardar a marca dos dedos; depois devolva-a ao vaso ou ao jardim.",
     "past_present_future": {
-      "past": "Um período de aprendizado trouxe novas oportunidades.",
-      "present": "Um momento para explorar novos caminhos com ambição.",
-      "future": "Mais oportunidades estão por vir, desde que você mantenha seu foco e dedicação."
+      "past": "Lá atrás houve uma curiosidade de mão: alguém quis tocar a matéria para entendê-la.",
+      "present": "O terreno é novo: será medido ou pisado?",
+      "future": "Abre-se um tempo de estudo no corpo, e o que se pratica com constância se enraíza."
     },
     "numeral": "Princesa",
     "court_rank": "Princesa",
@@ -2740,34 +2740,34 @@
     "court_divine_name_letter": "Heh final",
     "sephirah": "Malkuth",
     "zodiac_range": null,
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Príncipe de Discos",
-    "title": "O Trabalhador",
+    "title": "O Carro do Touro",
     "number": 12,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Persistência, disciplina, confiabilidade.",
-    "eighth_lesser": "Rigidez, teimosia, lentidão excessiva.",
+    "eighth_greater": "A obstinação fértil: a mente que conduz o carro até o celeiro.",
+    "eighth_lesser": "O carro atolado: a persistência que não largou o método quando o terreno mudou.",
     "order": 75,
     "element": "Terra",
     "sign": null,
     "planet": null,
-    "description": "Simboliza persistência e confiabilidade. Representa disciplina e determinação sólida.",
-    "description_symbolic": "O Cavaleiro de Discos é o símbolo da disciplina e do esforço contínuo. Ele representa confiabilidade e persistência para alcançar objetivos práticos.",
-    "message_esoteric": "Esta carta ensina que a perseverança é a chave para o sucesso. O Cavaleiro de Discos nos convida a trabalhar com determinação e paciência.",
+    "description": "Uma figura de elmo, num carro de rodas escuras puxado por um touro: eis o Príncipe de Discos, Ar de Terra, o pensamento a serviço da matéria. O céu lhe dá os trinta graus entre 20° de Áries e 20° de Touro. Indica quem trabalha com método e com a obstinação do boi, um projeto longo, uma rotina de ofício, uma firmeza que atravessa meses sem aplauso. Resta ver se o carro ainda vai aonde se deseja.",
+    "description_symbolic": "Vav, o prego que une, prende o Príncipe a Tiphareth, o centro solar da Árvore. Na imagem, uma figura alaranjada, de elmo escuro, está num carro de rodas escuras puxado por um touro marrom que encara quem olha; segura um cetro com uma cruz negra no alto e, no joelho, uma esfera de aros. Esferas verdes enchem o fundo. Ar de Terra é a mente que se ocupa da matéria.",
+    "message_esoteric": "Põe-se a caminho um trabalho de fôlego, feito de um plano que avança em marcha firme, de uma rotina que sustenta, de uma pessoa de constância teimosa. Aprova-se a regularidade, mas convém olhar o caminho de vez em quando, pois o boi puxa o carro, e quem escolhe o rumo é quem segura as rédeas.",
     "meditation_reflection": [
-      "Estou sendo consistente e confiável em meus esforços?",
-      "Como posso cultivar disciplina para alcançar meus objetivos?",
-      "Estou equilibrando persistência com flexibilidade?"
+      "Quando a minha constância deixou de ser caminho e virou sulco?",
+      "Quem segura as rédeas do carro, a figura ou o touro?",
+      "Para onde o Príncipe levaria o carro, se eu lhe entregasse as rédeas por um dia?"
     ],
-    "internal_alchemy": "O Cavaleiro de Discos simboliza a alquimia da disciplina e da determinação. Ele nos desafia a manter o foco mesmo diante de desafios.",
-    "magical_practice": "Conecte-se ao Cavaleiro de Discos visualizando-se plantando sementes que crescerão com seu esforço. Afirme sua persistência e confiabilidade.",
+    "internal_alchemy": "Sublimação: o que era peso de terra sobe, sem passar pelo líquido, ao estado de ar, e a mente arranca do trabalho uma forma que se pode pensar.",
+    "magical_practice": "Sente-se de costas retas, com as mãos nos joelhos como se segurassem rédeas, e vibre Vav em tom grave, sete vezes, sentindo o som puxar o corpo como o touro puxa o carro. Termine em silêncio, de olhos abertos sobre o touro da carta.",
     "past_present_future": {
-      "past": "Um período de esforço persistente trouxe progresso sólido.",
-      "present": "Um momento para trabalhar com disciplina e determinação.",
-      "future": "Mais sucesso e estabilidade estão por vir, desde que você mantenha sua persistência."
+      "past": "Veio de uma rotina que se repetiu até virar ofício.",
+      "present": "O carro anda; falta saber se o destino ainda é o do início.",
+      "future": "Um período de trabalho regular se aproxima, e quem não troca de rumo a cada semana chega ao fim."
     },
     "numeral": "Príncipe",
     "court_rank": "Príncipe",
@@ -2775,34 +2775,34 @@
     "court_divine_name_letter": "Vav",
     "sephirah": "Tiphareth",
     "zodiac_range": "20° Áries a 20° Touro",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Rainha de Discos",
-    "title": "A Nutridora",
+    "title": "A Soberana dos Chifres Retorcidos",
     "number": 13,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Generosidade, praticidade, conforto material.",
-    "eighth_lesser": "Materialismo, possessividade, negligência.",
+    "eighth_greater": "A sensualidade que escala: o prazer de quem sobe a montanha pelo caminho do corpo e chega com a vista inteira.",
+    "eighth_lesser": "O cume sem passo: o conforto tão amado que a escalada termina no primeiro patamar.",
     "order": 76,
     "element": "Terra",
     "sign": null,
     "planet": null,
-    "description": "Representa generosidade e praticidade. Simboliza cuidado e conforto material.",
-    "description_symbolic": "A Rainha de Discos é a personificação do cuidado e da generosidade prática. Ela simboliza conforto, segurança e harmonia com o mundo material.",
-    "message_esoteric": "Esta carta ensina que a verdadeira riqueza está no cuidado com os outros. A Rainha de Discos nos convida a nutrir e apoiar quem nos rodeia.",
+    "description": "A Rainha de Discos é Água de Terra, a umidade que escorre da montanha e dá fundo ao solo, feita de lodo, orvalho e veio escondido. Binah lhe dá contorno, e os trinta graus que governa correm de 20° de Sagitário a 20° de Capricórnio, onde o arqueiro cede ao bode. Indica uma presença senhora do próprio terreno, a sensualidade do corpo e do lugar, o prazer que se escala degrau a degrau. A fartura dela é lenta e, por isso, dura.",
+    "description_symbolic": "O primeiro Heh do Tetragrama é a água que se deixa conter, e Binah, a forma que a contém. Na imagem, uma figura sentada, de vestido de escamas e longos chifres retorcidos, segura contra o corpo uma esfera dourada facetada; à esquerda ergue-se um cetro de ponta cúbica e, na frente, um bode de chifres curvos pousa sobre uma esfera pequena. Ao fundo, folhas largas e um rio sinuoso numa planície clara.",
+    "message_esoteric": "Alguém sobe em silêncio, e uma fartura se firma pelo gosto, pelo corpo, pelo território ganho palmo a palmo. O prazer que dá raiz é aprovado, mas o conforto não pode virar o último patamar, pois o bode só reina enquanto ainda sabe subir.",
     "meditation_reflection": [
-      "Estou cuidando de mim mesmo e dos outros com generosidade?",
-      "Como posso equilibrar praticidade e compaixão em minha vida?",
-      "Estou valorizando o conforto material sem cair no materialismo excessivo?"
+      "Em que patamar eu parei de subir só porque o conforto chegou?",
+      "Que equilíbrio o bode procura sobre a pequena esfera, aos pés da Rainha?",
+      "Com que palavra a Rainha responde a quem lhe pergunta pelo cume?"
     ],
-    "internal_alchemy": "A Rainha de Discos simboliza a alquimia do cuidado e da generosidade. Ela nos desafia a cultivar harmonia e abundância.",
-    "magical_practice": "Conecte-se à Rainha de Discos visualizando-se cercado por um campo fértil e abundante. Afirme sua generosidade e harmonia.",
+    "internal_alchemy": "Dissolução em repouso: a água assenta na terra e a torna barro vivo, de onde brota o que antes não tinha raiz. A Rainha é a umidade que afrouxa o solo sem desmanchá-lo.",
+    "magical_practice": "Ponha sobre a carta uma pedra áspera e uma fruta madura. Contemple o bode sobre a esfera pequena e morda a fruta sentindo cada gomo, até restar o caroço; enterre-o num vaso ou num canto de terra.",
     "past_present_future": {
-      "past": "Um período de cuidado e generosidade trouxe harmonia e segurança.",
-      "present": "Um momento de nutrir e apoiar suas conexões e seu ambiente.",
-      "future": "Mais abundância e harmonia estão por vir, desde que você continue nutrindo o que é importante."
+      "past": "Antes de tudo, uma montanha escalada em silêncio, que ninguém viu subir.",
+      "present": "O conforto chegou, e o veredito é se ele é cume ou só patamar.",
+      "future": "Aproxima-se uma fartura de cume: o prazer firme que a escalada pagou, e a vista de quem não desceu."
     },
     "numeral": "Rainha",
     "court_rank": "Rainha",
@@ -2810,34 +2810,34 @@
     "court_divine_name_letter": "Heh",
     "sephirah": "Binah",
     "zodiac_range": "20° Sagitário a 20° Capricórnio",
-    "texto_thoth": false
+    "texto_thoth": true
   },
   {
     "name": "Cavaleiro de Discos",
-    "title": "O Provedor",
+    "title": "O Ferro entre as Espigas",
     "number": 14,
     "isMajorArcana": false,
     "suit": "Discos",
-    "eighth_greater": "Abundância, liderança, estabilidade.",
-    "eighth_lesser": "Ganância, controle excessivo, inflexibilidade.",
+    "eighth_greater": "O fogo que se faz lavoura: a energia que trabalha em silêncio e entrega.",
+    "eighth_lesser": "A brasa sob a terra: o ímpeto tão contido que o esforço nunca acende.",
     "order": 77,
     "element": "Terra",
     "sign": null,
     "planet": null,
-    "description": "Simboliza abundância e liderança prática. Representa estabilidade financeira e sabedoria material.",
-    "description_symbolic": "O Rei de Discos é a personificação da liderança e da estabilidade financeira. Ele simboliza abundância e a habilidade de administrar recursos com sabedoria.",
-    "message_esoteric": "Esta carta ensina que a verdadeira liderança está no uso responsável da abundância. O Rei de Discos nos convida a construir estabilidade e a compartilhar prosperidade.",
+    "description": "De armadura escura entre as espigas, o Cavaleiro de Discos é Fogo de Terra, o ímpeto que se prende à matéria e vai lavrar. Não corre: vai, e fica até o fim, porque a brasa de Chokmah, a esfera do primeiro impulso, não se apaga na terra. O verão lhe pertence, de 20° de Leão a 20° de Virgem, até o grão amadurecer. Indica tarefa assumida, empenho firme, quem faz o prometido sem alarde, e anuncia o momento em que a energia vira resultado.",
+    "description_symbolic": "Um cavaleiro de armadura escura está de pé, o rosto erguido, com uma clava numa das mãos e a outra, de luva de garras, levantada; ao lado, um cavalo marrom baixa a cabeça entre espigas altas, diante de um grande escudo redondo e de um céu em círculos de amarelo, vermelho e verde. Yod, a menor letra, é o ponto que dá partida ao Tetragrama, e Chokmah põe nele a faísca de que o Cavaleiro vive; o fogo, aqui, desce às espigas.",
+    "message_esoteric": "Começar bem é metade; a outra metade é voltar ao campo no dia seguinte. Um esforço se levanta e pede continuidade, e o passo firme é aprovado, mas o fogo que não se renova vira cinza no meio da lavoura.",
     "meditation_reflection": [
-      "Estou liderando com sabedoria e responsabilidade?",
-      "Como posso usar minha abundância para apoiar os outros?",
-      "Estou cultivando estabilidade em todas as áreas da minha vida?"
+      "Para onde vai o meu empenho quando ele queima e não entrega?",
+      "Por que o cavalo baixa a cabeça entre as espigas enquanto o cavaleiro olha para cima?",
+      "A que hora o Cavaleiro volta ao campo, e eu volto com ele?"
     ],
-    "internal_alchemy": "O Rei de Discos simboliza a alquimia da liderança e da prosperidade. Ele nos desafia a ser provedores sábios e responsáveis.",
-    "magical_practice": "Conecte-se ao Rei de Discos visualizando-se em um trono rodeado por símbolos de abundância. Afirme sua liderança e estabilidade.",
+    "internal_alchemy": "Calcinação: o calor do verão não incendeia o campo, amadurece-o, e a espiga cheia prova que o fogo foi na medida. O Cavaleiro é a brasa que a terra aguenta.",
+    "magical_practice": "Acenda uma vela vermelha ao lado de um feixe de espigas, ou de um punhado de grãos, diante da carta. De pé, vibre Yod num sopro curto e dê três passos lentos e pesados, como quem entra num campo; deixe os grãos sobre a carta até a vela acabar.",
     "past_present_future": {
-      "past": "Um período de liderança prática trouxe estabilidade e abundância.",
-      "present": "Um momento de liderar com sabedoria e cultivar prosperidade.",
-      "future": "Mais sucesso e estabilidade estão por vir, desde que você continue agindo com responsabilidade."
+      "past": "O começo foi um gesto decidido: alguém quis, foi, e o trabalho aceitou.",
+      "present": "O esforço está em curso, e resta saber se há fôlego para voltar amanhã.",
+      "future": "A lavra constante entrega, e o resultado vem em fila, uma espiga de cada vez."
     },
     "numeral": "Cavaleiro",
     "court_rank": "Cavaleiro",
@@ -2845,6 +2845,6 @@
     "court_divine_name_letter": "Yod",
     "sephirah": "Chokmah",
     "zodiac_range": "20° Leão a 20° Virgem",
-    "texto_thoth": false
+    "texto_thoth": true
   }
 ]
