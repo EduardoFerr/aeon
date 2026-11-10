@@ -1,0 +1,45 @@
+/* Tema Aurora: papel claro, azul ultramar, selo vermelhao. Fraunces + Hanken Grotesk. Arco de janela, grao de papel, cantos de 4px. */
+[data-theme="aurora"] {
+  color-scheme: light;
+  --bg: #f1f3ec; --surface: #fbfcf8; --surface-2: #e4e9dc;
+  --line: #bac2ae; --line-strong: #76806a; --control: #76806a; --scrim: rgba(241, 243, 236, 0.92);
+  --text: #18203a; --text-soft: #434c63; --text-mute: #586178;
+  --accent: #2a47a6; --accent-ink: #ffffff; --accent-hover: #223c8e;
+  --key: #b83a24;
+  --luz: #6e4a00; --luz-wash: #f5e8c4;
+  --sombra: #38397e; --sombra-wash: #e2e4f4;
+  --ok: #1f6b45; --warn: #8a5a00; --err: #a12d2d; --focus: #2a47a6;
+  --glow: rgba(42, 71, 166, 0.28); --glow-cool: rgba(42, 71, 166, 0.08);
+  --shadow-color: 24 32 58;
+  --sh-1: 0 1px 0 rgb(24 32 58 / 0.06); --sh-2: 0 1px 0 rgb(24 32 58 / 0.06), 0 14px 28px -16px rgb(24 32 58 / 0.32); --sh-3: 0 2px 0 rgb(24 32 58 / 0.05), 0 28px 44px -22px rgb(24 32 58 / 0.45);
+  --noise-opacity: 0.5;
+  --motif: rgba(42, 71, 166, 0.22); --motif-strong: rgba(42, 71, 166, 0.5);
+  --beam: 255 247 214;
+  --overlay: rgba(24, 32, 58, 0.5);
+  --el-ar: #1f6b45; --el-terra: #8a5a00; --el-agua: #2a47a6; --el-fogo: #b83a24;
+  --font-display: "Fraunces", "Fraunces Fallback", Georgia, serif;
+  --font-ui: "Hanken Grotesk", "Hanken Fallback", system-ui, -apple-system, sans-serif;
+  --w-display: 350;
+  --r-sm: 4px; --r-md: 10px; --r-pill: 4px; --r-card: 4px;
+}
+/* textura: grao de papel e feixe de luz com caixilho */
+[data-theme="aurora"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .13 0 0 0 0 .2 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+[data-theme="aurora"] body::after {
+  content: ""; position: fixed; inset: -5% -10% auto -10%; height: 76vh; z-index: -1; pointer-events: none; opacity: 0.7;
+  background: linear-gradient(115deg, transparent 6%, rgb(var(--beam) / 0.65) 6% 26%, transparent 26% 33%, rgb(var(--beam) / 0.45) 33% 52%, transparent 52%);
+  clip-path: polygon(0 0, 100% 0, 100% 72%, 0 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 82%); mask-image: linear-gradient(180deg, #000, transparent 82%);
+}
+/* detalhes do Aurora: arco de janela atras da carta, nav com sublinhado de tinta, fita crepe, folha de papel */
+[data-theme="aurora"] .halo { border-radius: 999px 999px var(--r-md) var(--r-md); border: 1px solid var(--line-strong); background: linear-gradient(165deg, rgb(var(--beam) / 0.85), transparent 60%), var(--surface-2); padding: 36px 24px 24px; overflow: hidden; box-shadow: var(--sh-3); }
+[data-theme="aurora"] .halo::before { display: none; }
+@media (min-width: 860px) { [data-theme="aurora"] .mainnav a[aria-current="page"] { background: none; color: var(--text); box-shadow: inset 0 -2px 0 var(--accent); border-radius: 0; } }
+@media (max-width: 859px) { [data-theme="aurora"] .mainnav a[aria-current="page"]::before { content: ""; position: absolute; top: 0; width: 28px; height: 3px; background: var(--accent); border-radius: 0 0 3px 3px; } }
+[data-theme="aurora"] .eyebrow { font-weight: 600; }
+[data-theme="aurora"] .btn-primary { box-shadow: 0 1px 0 rgb(0 0 0 / 0.15), 0 12px 22px -12px var(--accent); }
+[data-theme="aurora"] .btn-ghost { font-weight: 600; }
+[data-theme="aurora"] .panel-card { box-shadow: var(--sh-2); }
+[data-theme="aurora"] .card-front img, [data-theme="aurora"] .card-back, [data-theme="aurora"] .hero-art img, [data-theme="aurora"] .info-art img { box-shadow: var(--sh-2); }

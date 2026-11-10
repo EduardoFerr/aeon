@@ -14,8 +14,8 @@ pnpm-debug.log*
 node_modules/
 bower_components/
 
-# Build
-#/dist/
+# Build (o dist e gerado pelo CI no deploy)
+/dist/
 /build/
 
 # Testes

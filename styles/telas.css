@@ -1,0 +1,22 @@
+/* Telas: inicio, jogo das 3 cartas e historico */
+
+/* inicio */
+.home-screen { display: grid; gap: var(--sp-6); padding-bottom: var(--sp-4); }
+.home-screen .hero { display: grid; gap: var(--sp-6); align-items: center; }
+.home-screen .intro { display: grid; gap: var(--sp-4); max-width: 62ch; }
+.home-screen .intro h2 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.12; letter-spacing: -0.01em; }
+.home-screen .intro p { color: var(--text-soft); font-size: var(--fs-lg); line-height: 1.7; }
+.home-screen .intro strong { color: var(--text); font-weight: 600; }
+.home-screen .btn-row { margin-top: var(--sp-2); }
+.hero-art { justify-self: center; width: min(62vw, 240px); }
+.hero-art .halo { position: relative; isolation: isolate; }
+.hero-art img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: var(--r-card); box-shadow: var(--sh-3); }
+@media (min-width: 860px) { .home-screen .hero { grid-template-columns: 1.2fr 1fr; gap: var(--sp-8); } .hero-art { width: 270px; } }
+.panel-card { padding: var(--sp-5); border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--line); }
+.hermetic-knowledge { display: grid; gap: var(--sp-3); max-width: 70ch; justify-self: center; width: 100%; }
+.hermetic-knowledge h3 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; text-align: left; }
+.hermetic-knowledge p { color: var(--text-soft); line-height: 1.75; }
+.hermetic-knowledge strong { color: var(--text); font-weight: 600; }
+@media (min-width: 640px) { .panel-card { padding: var(--sp-6); } }
+
+
