@@ -51,6 +51,7 @@ export class TarotCardInfo extends HTMLElement {
                             <strong>Astrologia: </strong><span></span>
                         </p>
                     </div>
+                    <section id="card-arvore" class="card-arvore" aria-labelledby="card-arvore-titulo"></section>
                     <div class="card-border">
                         <p><strong>Alquimia Interna: </strong><span id="card-internal-alchemy"></span></p>
                         <p><strong>Prática Mágica: </strong><span id="card-magical-practice"></span></p>
@@ -98,6 +99,28 @@ export class TarotCardInfo extends HTMLElement {
         const linha = this.querySelector(seletor);
         linha.hidden = !valor;
         linha.querySelector('span').textContent = valor || '';
+    }
+
+    /**
+     * Bloco "Na Árvore da Vida". O módulo (SVG + legenda) só é baixado ao abrir um detalhe.
+     * A altura fica reservada por CSS (aspect-ratio) para o modal não pular.
+     */
+    async montarArvore(cardData, usados) {
+        const secao = this.querySelector('#card-arvore');
+        const marca = (this.arvoreMarca = (this.arvoreMarca || 0) + 1);
+        secao.innerHTML = '';
+        secao.hidden = false;
+        secao.classList.remove('pronta');
+        try {
+            const [{ blocoArvore }] = await Promise.all([import('../utils/arvore.js'), carregarGlossario()]);
+            if (marca !== this.arvoreMarca) return; // outra carta abriu enquanto carregava
+            const html = blocoArvore(cardData, (t) => linkarTermos(t, usados));
+            if (!html) { secao.hidden = true; return; }
+            secao.innerHTML = html.replace('<h4 class="av-titulo">', '<h4 class="av-titulo" id="card-arvore-titulo">');
+            secao.classList.add('pronta');
+        } catch {
+            secao.hidden = true;
+        }
     }
 
     /**
@@ -166,6 +189,8 @@ export class TarotCardInfo extends HTMLElement {
             .map((chave, i) => `
             <p><strong>${rotulos[i]}:</strong> <br> ${linkarTermos(cardData.past_present_future?.[chave] || 'Não disponível.', usados)}</p>`)
             .join('');
+
+        this.montarArvore(cardData, usados);
 
         this.removeAttribute('hidden'); // Exibe o modal
         document.addEventListener('keydown', this.onKeydown);

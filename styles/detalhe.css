@@ -81,3 +81,27 @@ glossario-modal[hidden] { display: none; }
   .tarot-card-info { padding: 0; }
   .info-content { width: 100%; height: 100dvh; max-height: 100dvh; border-radius: 0; border-left: 0; border-right: 0; }
 }
+
+/* Arvore da Vida no detalhe da carta */
+.card-arvore { display: grid; justify-items: center; gap: var(--sp-3); padding: var(--sp-4); border-radius: var(--r-md); background: var(--bg); border: 1px solid var(--line); min-height: 372px; align-content: start; }
+.card-arvore[hidden] { display: none; }
+.av-titulo { margin: 0; font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.av-figura { margin: 0; display: grid; justify-items: center; gap: var(--sp-3); width: 100%; }
+.arvore-svg { display: block; width: min(100%, 230px); height: auto; aspect-ratio: 240 / 330; max-height: 316px; overflow: visible; }
+.av-figura figcaption { max-width: 46ch; text-align: center; line-height: 1.6; color: var(--text); font-size: var(--fs-md); }
+.av-glifo { font-size: 1.1em; }
+.av-caminho { stroke: var(--line-strong); stroke-width: 1; fill: none; }
+.av-caminho.on { stroke: var(--accent); stroke-width: 3.4; stroke-linecap: round; }
+.av-bola { fill: var(--surface); stroke: var(--text-mute); stroke-width: 1.3; }
+.av-esfera.on .av-bola { fill: var(--accent); stroke: var(--text); stroke-width: 2; }
+.av-anel { fill: none; stroke: var(--accent); stroke-width: 1.6; }
+.av-rotulo, .av-numero { font-family: var(--font-ui); font-size: 11px; fill: var(--text-soft); paint-order: stroke; stroke: var(--bg); stroke-width: 3.5px; stroke-linejoin: round; }
+.av-rotulo.on { fill: var(--text); font-weight: 700; }
+.av-numero { font-weight: 700; font-size: 12px; fill: var(--text); }
+
+/* brilho suave ao abrir o detalhe; nao existe com movimento reduzido */
+@media (prefers-reduced-motion: no-preference) {
+  .card-arvore.pronta .av-caminho.on { animation: av-brilho 2.4s ease-in-out 0.35s 2 both; }
+  .card-arvore.pronta .av-esfera.on .av-anel { animation: av-brilho 2.4s ease-in-out 0.35s 2 both; transform-origin: center; transform-box: fill-box; }
+}
+@keyframes av-brilho { 0%, 100% { filter: drop-shadow(0 0 0 transparent); opacity: 1; } 50% { filter: drop-shadow(0 0 5px var(--accent)); opacity: 0.8; } }
