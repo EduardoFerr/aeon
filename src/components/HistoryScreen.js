@@ -10,14 +10,14 @@ export class HistoryScreen extends HTMLElement {
                         .map((entry) => {
                             const cards = Object.values(entry.cards);
                             return `
-                                <li>${entry.date}: ${cards
+                                <li><span class="entry-date">${entry.date}:</span> <span class="entry-cards">${cards
                                     .map((card) => card.name)
-                                    .join(', ')}</li>
+                                    .join(', ')}</span></li>
                             `;
                         })
                         .join('')}
                 </ul>
-                <button onclick="navigateTo('home')">Voltar</button>
+                <div class="screen-actions"><button class="btn btn-ghost" onclick="navigateTo('home')">Voltar</button></div>
             </section>
         `;
         document.querySelector('#page-title').textContent = "Histórico de Leituras";

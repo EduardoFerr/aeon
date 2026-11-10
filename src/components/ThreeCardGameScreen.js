@@ -37,28 +37,13 @@ export class ThreeCardGameScreen extends HTMLElement {
                     </div>
                 </div>
 
-                <button class="nav-button" id="drawCards">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="40" viewBox="0 0 150 40" class="icon">
-                        <!-- Primeira carta -->
-                        <rect x="5" y="5" width="20" height="30" rx="2" ry="2" fill="#4A2C6F" stroke="#ffffff" stroke-width="1.5" />
-                        <text x="12" y="25" font-size="7" fill="#ffffff" font-family="Arial">A</text>
-
-                        <!-- Segunda carta ligeiramente deslocada -->
-                        <rect x="15" y="10" width="20" height="30" rx="2" ry="2" fill="#6A3595" stroke="#ffffff" stroke-width="1.5" />
-                        <text x="22" y="30" font-size="7" fill="#ffffff" font-family="Arial">K</text>
-
-                        <!-- Terceira carta ligeiramente deslocada -->
-                        <rect x="25" y="15" width="20" height="30" rx="2" ry="2" fill="#8E44AD" stroke="#ffffff" stroke-width="1.5" />
-                        <text x="32" y="35" font-size="7" fill="#ffffff" font-family="Arial">Q</text>
-
-                        <!-- Texto "Tirar Cartas" ao lado das cartas -->
-                        <text x="55" y="25" font-size="12" fill="#ffffff" font-family="Arial" font-weight="bold">
-                        Tirar Cartas
-                        </text>
-                    </svg>
-                </button>
-
-                <button onclick="navigateTo('home')">Voltar</button>
+                <div class="game-actions">
+                    <button class="btn btn-primary" id="drawCards">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="9" height="13" rx="1.5"/><rect x="7.5" y="4" width="9" height="13" rx="1.5"/><rect x="11.5" y="6" width="9" height="13" rx="1.5"/></svg>
+                        <span>Tirar Cartas</span>
+                    </button>
+                    <button class="btn btn-ghost" onclick="navigateTo('home')">Voltar</button>
+                </div>
             </section>
         `;
         document.querySelector('#page-title').textContent = "Jogo das 3 Cartas"
