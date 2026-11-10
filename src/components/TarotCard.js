@@ -62,7 +62,7 @@ export class TarotCard extends HTMLElement {
         this.setAttribute(
             'aria-label',
             this.isFlipped
-                ? 'Carta virada para baixo. Ative para revelar.'
+                ? (this.getAttribute('rotulo-verso') || 'Carta virada para baixo. Ative para revelar.')
                 : `${this.cardData.name}. Ative para ver os detalhes.`
         );
     }
@@ -78,6 +78,8 @@ export class TarotCard extends HTMLElement {
             this.isFlipped = false;
             cardElement.classList.remove('flipped');
             this.atualizarRotulo();
+            // Quem hospeda a carta (carta do dia) fica sabendo que ela foi virada
+            this.dispatchEvent(new CustomEvent('carta-virada', { bubbles: true, detail: { carta: this.cardData } }));
         } else {
             // Acessa o modal global e passa o cardData
             const infoComponent = document.querySelector('tarot-card-info');

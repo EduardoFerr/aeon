@@ -1,4 +1,5 @@
 import { navigateTo } from '../utils/navigation.js';
+import './CartaDoDia.js';
 
 export class HomeScreen extends HTMLElement {
     connectedCallback() {
@@ -22,6 +23,8 @@ export class HomeScreen extends HTMLElement {
                     <div class="halo"><img src="assets/cards/crowley-00.jpg" alt="" width="274" height="410" decoding="async"></div>
                 </div>
               </div>
+
+                <carta-do-dia></carta-do-dia>
 
                 <div class="hermetic-knowledge panel-card">
                     <h3>Como o Hermetismo, a Cabala e a Astrologia se relacionam no Tarot de Thoth?</h3>
