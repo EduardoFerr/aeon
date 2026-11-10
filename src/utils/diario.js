@@ -204,14 +204,17 @@ function lerAntigo() {
     return saida;
 }
 
-/** toLocaleString antigo: "10/11/2026 14:32:05" (pt-BR) ou algo que o Date entenda. */
+/** toLocaleString antigo: pt-BR "10/11/2026 14:32:05" (dia/mes, 24h) ou en-US "11/10/2026, 2:32:05 PM" (mes/dia, AM/PM). */
 function dataAntiga(texto) {
-    const m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})[ ,]+(\d{1,2}):(\d{2})(?::(\d{2}))?/.exec(texto);
-    if (m) {
-        const d = new Date(+m[3], +m[2] - 1, +m[1], +m[4], +m[5], +(m[6] || 0));
-        if (!Number.isNaN(d.getTime()) && d.getMonth() === +m[2] - 1) return d.toISOString();
-    }
-    return null;
+    const m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})[ ,]+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM)?/i.exec(texto);
+    if (!m) return null;
+    const ampm = m[7] ? m[7].toUpperCase() : '';
+    const [dia, mes] = ampm ? [+m[2], +m[1]] : [+m[1], +m[2]];
+    let hora = +m[4];
+    if (ampm === 'PM' && hora < 12) hora += 12;
+    if (ampm === 'AM' && hora === 12) hora = 0;
+    const d = new Date(+m[3], mes - 1, dia, hora, +m[5], +(m[6] || 0));
+    return !Number.isNaN(d.getTime()) && d.getMonth() === mes - 1 ? d.toISOString() : null;
 }
 
 /* ---------- API ---------- */
