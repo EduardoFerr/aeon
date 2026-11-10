@@ -1,0 +1,32 @@
+/* Cartas: a carta que vira (componente <tarot-card>) e a grade das 78 */
+.Ar { --el: var(--el-ar); }
+.Terra { --el: var(--el-terra); }
+.Água { --el: var(--el-agua); }
+.Fogo { --el: var(--el-fogo); }
+
+tarot-card { display: block; position: relative; cursor: pointer; border-radius: var(--r-card); }
+tarot-card:focus-visible { outline: none; }
+tarot-card:focus-visible .tarot-card { outline: 2px solid var(--focus); outline-offset: 5px; }
+
+.tarot-card { perspective: 1100px; position: relative; display: block; width: 100%; aspect-ratio: 2 / 3; border-radius: var(--r-card); transition: transform 0.45s var(--ease-ritual); }
+tarot-card:hover .tarot-card { transform: translateY(-4px); }
+/* espaco reservado para o nome embaixo (evita salto de layout quando a fonte chega) */
+.card-container tarot-card { padding-bottom: 3.6rem; }
+
+.card-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform var(--t-flip) var(--ease-ritual); }
+.tarot-card.flipped .card-inner { transform: rotateY(180deg); }
+.card-front, .card-back { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: var(--r-card); }
+.card-front img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-card); box-shadow: var(--sh-2); background: var(--surface-2); }
+.card-back { transform: rotateY(180deg); background: var(--surface-2) url("/assets/back.jpg") center / cover no-repeat; box-shadow: var(--sh-2); }
+/* espaco reservado (sem carta sorteada): mostra o verso */
+.tarot-card.flipped:not(:has(> .card-inner)) { background: var(--surface-2) url("/assets/back.jpg") center / cover no-repeat; box-shadow: var(--sh-2); }
+
+/* nome da carta sob a imagem; o ponto leva a cor do elemento (Ar, Terra, Agua, Fogo) */
+.card-element { position: absolute; top: calc(100% + 10px); left: 0; right: 0; margin: 0; text-align: center; font-family: var(--font-display); font-weight: var(--w-display); font-size: clamp(0.95rem, 3.4vw, 1.2rem); line-height: 1.15; color: var(--text); text-wrap: balance; }
+.card-element::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; vertical-align: 0.12em; border-radius: 50%; background: var(--el, var(--text-mute)); }
+
+/* grade das cartas */
+.all-cards-screen .card-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 14px; padding-block: var(--sp-4) var(--sp-3); }
+.all-cards-screen .card-container:empty { min-height: 100vh; }
+@media (min-width: 640px) { .all-cards-screen .card-container { grid-template-columns: repeat(3, 1fr); gap: 28px 20px; } }
+@media (min-width: 960px) { .all-cards-screen .card-container { grid-template-columns: repeat(5, 1fr); } }

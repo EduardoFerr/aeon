@@ -8,7 +8,7 @@ export class AllCardsScreen extends HTMLElement {
         this.innerHTML = `
             <section class="all-cards-screen">
                 <div class="card-container" id="all-cards"></div>
-                <button onclick="navigateTo('home')">Voltar</button>
+                <div class="screen-actions"><button class="btn btn-ghost" onclick="navigateTo('home')">Voltar</button></div>
             </section>
         `;
 

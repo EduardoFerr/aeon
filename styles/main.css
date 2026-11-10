@@ -1,5 +1,6 @@
 /* Aeon: ponto de entrada do CSS. Cada tema so troca valores de variaveis; os componentes leem var(--nome). */
 @import "./base.css";
+@import "./cartas.css";
 @import "./telas.css";
 @import "./tema-crepusculo.css";
 @import "./tema-aurora.css";
