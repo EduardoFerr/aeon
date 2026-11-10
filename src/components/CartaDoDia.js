@@ -1,5 +1,5 @@
 import { loadCards } from '../utils/cardsUtil.js';
-import { dataLocal, obterCartaDoDia, marcarVirada, perguntaDoDia } from '../utils/cartaDoDia.js';
+import { dataLocal, obterCartaDoDia, marcarVirada, perguntaDoDia, diasDaSemana, fraseDaSemana } from '../utils/cartaDoDia.js';
 import { escaparHtml } from '../utils/glossario.js';
 
 const TEXTO = {
@@ -11,6 +11,9 @@ const TEXTO = {
     abrir: 'Abrir a carta',
     rotuloVerso: 'Sua carta de hoje, de costas. Ative para virar.',
     anuncio: (carta) => `Carta virada: ${carta.name}, ${carta.title}.`,
+    semana: 'Sua semana de cartas',
+    estrelaAcesa: 'carta virada',
+    estrelaApagada: 'sem carta',
     erro: 'Não foi possível tirar a carta agora. Recarregue a página.',
 };
 
@@ -88,6 +91,7 @@ export class CartaDoDia extends HTMLElement {
             </div>
             <p class="sr" role="status" aria-live="polite" data-anuncio></p>
         `;
+        this.querySelector('.dia').insertAdjacentHTML('beforeend', '<div class="dia-semana" data-semana></div>');
 
         this.querySelector('tarot-card').addEventListener('carta-virada', () => this.aoVirar());
         this.querySelector('[data-acao="abrir"]').addEventListener('click', (e) => {
@@ -95,6 +99,22 @@ export class CartaDoDia extends HTMLElement {
             if (info) info.showInfo(this.carta, e.currentTarget);
         });
         this.atualizarEstado();
+        this.pintarSemana();
+    }
+
+    pintarSemana() {
+        const semana = diasDaSemana(this.data);
+        const estrela = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>';
+        this.querySelector('[data-semana]').innerHTML = `
+            <ul class="dia-dias" aria-label="${TEXTO.semana}">
+                ${semana.map((d) => `
+                    <li class="dia-d${d.virada ? ' acesa' : ''}${d.hoje ? ' hoje' : ''}"${d.hoje ? ' aria-current="date"' : ''}>
+                        <span class="dia-letra" aria-hidden="true">${d.letra}</span>
+                        <span class="dia-estrela">${estrela}</span>
+                        <span class="sr">${d.nome}, ${d.numero}${d.hoje ? ', hoje' : ''}: ${d.virada ? TEXTO.estrelaAcesa : TEXTO.estrelaApagada}</span>
+                    </li>`).join('')}
+            </ul>
+            <p class="dia-frase-semana">${fraseDaSemana(semana, this.data)}</p>`;
     }
 
     aoVirar() {
@@ -102,6 +122,7 @@ export class CartaDoDia extends HTMLElement {
         this.virada = true;
         marcarVirada(this.carta, this.data);
         this.atualizarEstado();
+        this.pintarSemana();
         this.querySelector('[data-anuncio]').textContent = TEXTO.anuncio(this.carta);
         this.dispatchEvent(new CustomEvent('dia-virada', { bubbles: true, detail: { carta: this.carta } }));
     }
