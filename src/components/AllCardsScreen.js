@@ -24,9 +24,9 @@ function palavrasDaCarta(c) {
     return normalizar(campos.filter((x) => x !== undefined && x !== null).join(' ')).split(/[^a-z0-9]+/).filter(Boolean);
 }
 
-/** Todas as palavras da busca precisam casar (E lógico). Número casa inteiro; texto casa pelo começo da palavra. */
+/** Todas as palavras da busca precisam casar (E lógico). Número (arábico ou romano) casa inteiro; texto casa pelo começo da palavra. */
 function casaBusca(palavras, termos) {
-    return termos.every((t) => palavras.some((p) => (/^\d+$/.test(t) ? p === t : p.startsWith(t))));
+    return termos.every((t) => palavras.some((p) => (/^(\d+|[ivx]+)$/.test(t) ? p === t : p.startsWith(t))));
 }
 
 const reduzMovimento = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -60,6 +60,12 @@ export class AllCardsScreen extends HTMLElement {
                     <p class="grade-contagem" id="grade-contagem" role="status" aria-live="polite"></p>
                 </div>
                 <div class="card-container" id="all-cards"></div>
+                <div class="grade-vazio" id="grade-vazio" hidden>
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+                    <p class="grade-vazio-titulo">Nenhuma carta responde a essa busca.</p>
+                    <p class="grade-vazio-dica">Tente um nome, um naipe ou um número romano.</p>
+                    <button class="btn btn-ghost" type="button">Limpar busca</button>
+                </div>
                 <div class="screen-actions"><button class="btn btn-ghost" onclick="navigateTo('home')">Voltar</button></div>
             </section>
         `;
@@ -109,15 +115,21 @@ export class AllCardsScreen extends HTMLElement {
         // Enter só confirma: filtra já, sem esperar o debounce
         campo.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') { e.preventDefault(); clearTimeout(espera); this.buscar(campo.value); }
+            if (e.key === 'Escape' && campo.value) { e.preventDefault(); this.limparBusca(); }
         });
-        limpar.addEventListener('click', () => {
-            clearTimeout(espera);
-            campo.value = '';
-            limpar.hidden = true;
-            this.buscar('');
-            campo.focus();
-        });
+        limpar.addEventListener('click', () => this.limparBusca());
+        this.querySelector('#grade-vazio button').addEventListener('click', () => this.limparBusca());
         this.campo = campo;
+        this.limpar = limpar;
+        this.espera = () => clearTimeout(espera);
+    }
+
+    limparBusca() {
+        this.espera();
+        this.campo.value = '';
+        this.limpar.hidden = true;
+        this.buscar('');
+        this.campo.focus();
     }
 
     buscar(texto) {
@@ -135,12 +147,29 @@ export class AllCardsScreen extends HTMLElement {
         }).join('');
         this.barra = barra;
 
+        // Sugestão de que há mais chips: o fade só aparece do lado em que ainda há o que rolar
+        const bordas = () => {
+            barra.dataset.esq = String(barra.scrollLeft > 4);
+            barra.dataset.dir = String(barra.scrollLeft + barra.clientWidth < barra.scrollWidth - 4);
+        };
+        barra.addEventListener('scroll', bordas, { passive: true });
+        window.addEventListener('resize', bordas);
+        this.bordas = bordas;
+
         barra.addEventListener('click', (e) => {
             const botao = e.target.closest('button.chip');
             if (!botao || botao.dataset.grupo === this.grupo) return;
             this.grupo = botao.dataset.grupo;
             salvarFiltro(this.grupo);
             this.aplicar(true);
+        });
+
+        barra.addEventListener('focusin', (e) => {
+            const chip = e.target.closest('button.chip');
+            if (!chip) return;
+            const folga = 24;
+            if (chip.offsetLeft - folga < barra.scrollLeft) barra.scrollTo({ left: chip.offsetLeft - folga });
+            else if (chip.offsetLeft + chip.offsetWidth + folga > barra.scrollLeft + barra.clientWidth) barra.scrollTo({ left: chip.offsetLeft + chip.offsetWidth + folga - barra.clientWidth });
         });
 
         // Setas movem o foco entre os chips; Enter e espaço escolhem (comportamento do botão)
@@ -170,7 +199,22 @@ export class AllCardsScreen extends HTMLElement {
         });
         this.querySelector('#grade-contagem').textContent = visiveis === 0 ? 'Nenhuma carta' : `${visiveis} ${visiveis === 1 ? 'carta' : 'cartas'}`;
 
+        const vazio = visiveis === 0;
+        this.querySelector('#all-cards').hidden = vazio;
+        this.querySelector('#grade-vazio').hidden = !vazio;
+        this.trazerChipAtivo(animar);
+
         if (animar) this.revelarGrade();
+    }
+
+    /** No celular os chips rolam: o ativo fica sempre à vista. */
+    trazerChipAtivo(suave) {
+        const ativo = this.barra.querySelector('button.chip[aria-pressed="true"]');
+        if (ativo && this.barra.scrollWidth > this.barra.clientWidth) {
+            const alvo = ativo.offsetLeft - (this.barra.clientWidth - ativo.offsetWidth) / 2;
+            this.barra.scrollTo({ left: alvo, behavior: suave && !reduzMovimento() ? 'smooth' : 'auto' });
+        }
+        this.bordas();
     }
 
     /** Volta ao topo da grade e faz uma entrada suave (sem animação se o usuário pediu menos movimento). */
