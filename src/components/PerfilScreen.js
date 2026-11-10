@@ -1,9 +1,10 @@
 import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
 import { gl, ic } from '../utils/glifos.js';
-import { dataLocal } from '../utils/cartaDoDia.js';
+import { baixarBackup } from '../utils/backup.js';
+import { abrir, avisar, ehDesktop } from './Sobreposicao.js';
 import { loadCards } from '../utils/cardsUtil.js';
 import {
-    listar, obter, apelido, definirApelido, apagar, exportar, importar, persiste, aoMudar,
+    listar, apelido, definirApelido, apagar, importar, persiste, aoMudar,
     LIMITE_APELIDO, LIMITE_ARQUIVO,
 } from '../utils/perfil.js';
 import { carregarTextos, texto, esc, calcular, dataExtenso, dataCurta, grauTexto, SIGNO_ELEMENTO } from '../utils/mapaComum.js';
@@ -58,7 +59,21 @@ const T = {
     erroTamanho: 'O arquivo passa de 1 MB. Escolha um backup do Aeon Fool.',
     erroCarregar: 'Não foi possível carregar o mapa agora. Recarregue a página e tente de novo.',
     apagado: 'Mapa apagado.',
+    erroApagar: 'Não foi possível apagar o mapa agora.',
+    acoes: 'Ações',
+    acoesTitulo: 'Ações do perfil',
+    abas: 'Seções do perfil',
+    novoMapa: 'Novo mapa',
+    trocar: 'Trocar mapa',
+    trocarTitulo: 'Trocar de mapa',
+    exportarMapas: 'Exportar mapas',
+    importarMapas: 'Importar mapas',
+    guardadoOk: 'Mapa guardado neste aparelho.',
+    repetidoOk: 'Esse mapa já estava guardado. Nada foi duplicado.',
+    manter: 'Manter o mapa guardado',
 };
+const ABAS = [['mapas', 'Mapas'], ['dados', 'Dados'], ['prefs', 'Preferências']];
+let ABA_LEMBRADA = 'mapas';
 
 const PAPEIS = { sol: 'Sol', lua: 'Lua', asc: 'Ascendente' };
 const RODA_VAZIA = (() => {
@@ -74,8 +89,8 @@ export class PerfilScreen extends HTMLElement {
     async connectedCallback() {
         this.estado = consumirEstado() || {};
         this.sel = this.estado.selecionar || null;
-        this.confirmando = false;
         this.editandoApelido = false;
+        this.aba = ABA_LEMBRADA;
         this.calculos = new Map();
         this.status = '';
         this.innerHTML = '<div class="mapa-tela" aria-busy="true"></div>';
@@ -87,17 +102,22 @@ export class PerfilScreen extends HTMLElement {
         }
         if (!this.isConnected) return;
         this.desligar = aoMudar(() => {
-            if (!this.editandoApelido && !this.confirmando) this.desenhar();
+            if (!this.editandoApelido && !(this.sobre && this.sobre.aberto)) this.desenhar();
         });
         this.observador = new MutationObserver(() => this.marcarTema());
         this.observador.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
         await this.desenhar();
         focarCabecalho('#perfil-h1');
+        const a = this.estado.aviso;
+        if (a === 'guardado') avisar(T.guardadoOk);
+        else if (a === 'repetido') avisar(T.repetidoOk);
+        if (this.estado.apagado) avisar(T.apagado);
     }
 
     disconnectedCallback() {
         if (this.desligar) this.desligar();
         if (this.observador) this.observador.disconnect();
+        if (this.sobre && this.sobre.aberto) this.sobre.fechar(false);
     }
 
     t(id, vars, padrao) {
@@ -116,6 +136,43 @@ export class PerfilScreen extends HTMLElement {
         return this.calculos.get(chave);
     }
 
+    grupos(m) {
+        const g = [['Mapa', [{ id: 'novo', rot: T.novoMapa, ic: 'mais' }]]];
+        if (m) g[0][1].push({ id: 'trocar', rot: T.trocar, ic: 'trocar' }, { id: 'editar', rot: T.editar, ic: 'editar' });
+        g.push(['Dados', [...(m ? [{ id: 'exportar', rot: T.exportarMapas, ic: 'baixar' }] : []), { id: 'importar', rot: T.importarMapas, ic: 'copiar' }]]);
+        if (m) g.push(['', [{ id: 'apagar', rot: T.apagarEste, ic: 'lixo', perigo: true }]]);
+        return g;
+    }
+
+    menuHtml(m) {
+        return `<nav aria-label="${T.acoesTitulo}">${this.grupos(m).map(([titulo, itens]) => `${titulo ? `<p class="sob-grupo">${titulo}</p>` : '<div class="sob-sep"></div>'}${itens.map((a) => `<button class="sob-acao${a.perigo ? ' perigo' : ''}" type="button" data-exec="${a.id}">${ic(a.ic)}${esc(a.rot)}</button>`).join('')}`).join('')}</nav>`;
+    }
+
+    barraHtml(m) {
+        const btn = (id, rot, i, cls) => `<button class="btn ${cls}" type="button" data-exec="${id}">${ic(i)}${esc(rot)}</button>`;
+        const icone = (id, rot, i, perigo) => `<button class="iconbtn round${perigo ? ' perigo' : ''}" type="button" data-exec="${id}" aria-label="${esc(rot)}" title="${esc(rot)}">${ic(i)}</button>`;
+        return `${btn('novo', T.novoMapa, 'mais', 'btn-primary')}${m ? btn('editar', T.editar, 'editar', 'btn-ghost') : ''}${m ? btn('exportar', T.exportar, 'baixar', 'btn-ghost') : ''}${btn('importar', T.importar, 'copiar', 'btn-ghost')}
+            <span class="sep" aria-hidden="true"></span>${m ? `${icone('trocar', T.trocar, 'trocar')}${icone('apagar', T.apagarEste, 'lixo', true)}` : ''}`;
+    }
+
+    painelMapas(m, calc, mapas) {
+        if (!m) {
+            return `<section class="vazio-mapa" aria-labelledby="vz-t">${RODA_VAZIA}<h2 id="vz-t">${T.calculeTitulo}</h2><p>${esc(this.t('ui.vazio', {}, ''))}</p>
+                <div class="btn-row"><button class="btn btn-primary" type="button" data-exec="novo">${esc(this.t('ui.btn.calcular', {}, 'Montar o mapa astral'))}</button><button class="btn btn-ghost" type="button" data-exec="importar">${T.importarBackup}</button></div></section>`;
+        }
+        return `<div class="perfil-grid"><div id="visita-box">${this.visita(m, calc)}</div>
+            <section class="mapas" aria-labelledby="mp-t"><h2 class="sec-titulo" id="mp-t">${T.guardados} <small>${mapas.length} ${mapas.length === 1 ? 'mapa' : 'mapas'}</small></h2>
+            <ul class="mapas-lista">${mapas.map((x) => this.itemMapa(x, m)).join('')}</ul>
+            <p class="mapas-dica">${ic('info')}<span>${T.dica}</span></p>
+            <button class="btn btn-ghost" type="button" data-exec="novo">${ic('mais')}${T.adicionar}</button></section></div>`;
+    }
+
+    painelAba(m, calc, mapas) {
+        if (this.aba === 'mapas') return this.painelMapas(m, calc, mapas);
+        if (this.aba === 'dados') return `<div class="info-grid">${m ? this.painelDados(m) : ''}${this.painelPriv(!m)}</div>`;
+        return `<div class="info-grid">${this.painelTema()}</div>`;
+    }
+
     async desenhar(foco) {
         const mapas = listar();
         const m = this.selecionado(mapas);
@@ -127,26 +184,16 @@ export class PerfilScreen extends HTMLElement {
                 ${ap ? `<span class="avatar" aria-hidden="true">${esc([...ap][0].toUpperCase())}</span>` : `<span class="avatar vazio" aria-hidden="true">${ic('perfil')}</span>`}
                 <div><span class="eyebrow">${T.eyebrow}</span><h1 id="perfil-h1" tabindex="-1">${esc(ap || T.semApelido)}</h1></div>
                 <button class="btn btn-ghost" type="button" data-acao="apelido" aria-expanded="${this.editandoApelido}" aria-controls="apelido-box">${ic('editar')}<span>${T.apelido}</span><span class="sr">${ap ? T.editarApelido : T.escolherApelido}</span></button>
+                <button class="iconbtn mc-so-cel" id="abrir-acoes" type="button" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${T.acoes}</button>
             </div>
-            <div id="apelido-box" ${this.editandoApelido ? '' : 'hidden'}>${this.editandoApelido ? this.formApelido(ap) : ''}</div>`;
-        const avisos = this.avisos(m, calc);
-        let corpo;
-        if (!m) {
-            corpo = `<section class="vazio-mapa" aria-labelledby="vz-t">${RODA_VAZIA}<h2 id="vz-t">${T.calculeTitulo}</h2><p>${esc(this.t('ui.vazio', {}, ''))}</p>
-                <div class="btn-row"><button class="btn btn-primary" type="button" data-acao="novo">${esc(this.t('ui.btn.calcular', {}, 'Montar o mapa astral'))}</button><button class="btn btn-ghost" type="button" data-acao="importar">${T.importarBackup}</button></div></section>
-                <div class="info-grid">${this.painelTema()}${this.painelPriv(true)}</div>`;
-        } else {
-            corpo = `<div class="perfil-grid"><div id="visita-box">${this.visita(m, calc)}</div>
-                <section class="mapas" aria-labelledby="mp-t"><h2 class="sec-titulo" id="mp-t">${T.guardados} <small>${mapas.length} ${mapas.length === 1 ? 'mapa' : 'mapas'}</small></h2>
-                <ul class="mapas-lista">${mapas.map((x) => this.itemMapa(x, m)).join('')}</ul>
-                <p class="mapas-dica">${ic('info')}<span>${T.dica}</span></p>
-                <button class="btn btn-ghost" type="button" data-acao="novo">${ic('mais')}${T.adicionar}</button></section></div>
-                <div class="info-grid info3">${this.painelDados(m)}${this.painelTema()}${this.painelPriv(false)}</div>`;
-        }
-        this.innerHTML = `<div class="mapa-tela">${topo}
-            <div data-avisos>${avisos}</div>
+            <div id="apelido-box" ${this.editandoApelido ? '' : 'hidden'}>${this.editandoApelido ? this.formApelido(ap) : ''}</div>
+            <div class="mc-barra mc-so-desk" role="toolbar" aria-label="${T.acoesTitulo}">${this.barraHtml(m)}</div>`;
+        const abas = ABAS.map(([k, n]) => `<button class="mc-tab" type="button" role="tab" id="pt-${k}" aria-selected="${k === this.aba}" aria-controls="painel-perfil" data-aba="${k}" tabindex="${k === this.aba ? 0 : -1}">${n}</button>`).join('');
+        this.innerHTML = `<div class="mapa-tela perfil-c">${topo}
+            <div data-avisos>${this.avisos(m, calc)}</div>
             <p class="diario-aviso" role="status" aria-live="polite" data-status>${esc(this.status || (persiste() ? '' : T.semArmazenamento))}</p>
-            ${corpo}
+            <div class="mc-tabs perfil-tabs" role="tablist" aria-label="${T.abas}">${abas}</div>
+            <div id="painel-perfil" role="tabpanel" aria-labelledby="pt-${this.aba}" tabindex="0" class="mc-painel">${this.painelAba(m, calc, mapas)}</div>
             <input type="file" accept="application/json,.json" hidden data-arquivo></div>`;
         this.ligar();
         this.marcarTema();
@@ -166,8 +213,6 @@ export class PerfilScreen extends HTMLElement {
         const a = this.estado.aviso;
         if (!a || !m || m.id !== this.sel) return '';
         let h = '';
-        if (a === 'guardado') h += this.aviso('ok', 'ok', T.guardadoTitulo, T.guardadoTexto);
-        if (a === 'repetido') h += this.aviso('info', 'info', T.repetidoTitulo, T.repetidoTexto);
         if (calc && !m.hora) h += this.aviso('atencao', 'relogio', T.semHoraTitulo, this.t('ui.aviso.semhora'));
         if (calc && calc.casas && calc.casas.sistema === 'signos-inteiros' && calc.casas.solicitado !== 'signos-inteiros') {
             h += this.aviso('info', 'info', T.latAltaTitulo, this.t('ui.aviso.latalta'));
@@ -207,12 +252,8 @@ export class PerfilScreen extends HTMLElement {
     }
 
     painelDados(m) {
-        if (this.confirmando) {
-            return `<section class="painel diario-confirma" role="alertdialog" aria-labelledby="ap-t" aria-describedby="ap-d" style="grid-column:1/-1"><h3 id="ap-t" tabindex="-1">Apagar o mapa de ${esc(m.rotulo)}?</h3><p id="ap-d">${esc(this.t('ui.apagar.confirma'))}</p>
-                <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="manter">${esc(this.t('ui.apagar.cancela', {}, 'Cancelar'))}</button><button class="btn btn-perigo" type="button" data-acao="apagar-sim">${esc(this.t('ui.apagar.btn', {}, 'Apagar o mapa'))}</button></div></section>`;
-        }
         return `<section class="painel" aria-labelledby="db-t"><h3 id="db-t">${T.dados}</h3><dl class="dl"><div><dt>${T.mapa}</dt><dd>${esc(m.rotulo)}</dd></div><div><dt>${T.data}</dt><dd>${dataExtenso(m.data)}</dd></div><div><dt>${T.hora}</dt><dd>${m.hora || T.semHora}</dd></div><div><dt>${T.local}</dt><dd>${esc(m.local.nome)}</dd></div></dl>
-            <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="editar">${ic('editar')}${T.editar}</button><button class="btn btn-perigo" type="button" data-acao="apagar" aria-expanded="false">${ic('lixo')}${T.apagarEste}</button></div></section>`;
+            <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="editar">${ic('editar')}${T.editar}</button><button class="btn btn-perigo" type="button" data-exec="apagar" aria-haspopup="dialog">${ic('lixo')}${T.apagarEste}</button></div></section>`;
     }
 
     painelTema() {
@@ -222,7 +263,7 @@ export class PerfilScreen extends HTMLElement {
 
     painelPriv(vazio) {
         return `<section class="painel" aria-labelledby="pv-t"><div class="p-icon">${ic('cadeado')}<h3 id="pv-t">${T.privacidade}</h3></div><p>${esc(this.t('ui.aviso.privacidade'))}</p>
-            <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="exportar" aria-describedby="d-exp"${vazio ? ' disabled' : ''}>${ic('baixar')}${T.exportar}</button><button class="btn btn-ghost" type="button" data-acao="importar" aria-describedby="d-imp">${ic('copiar')}${T.importar}</button></div>
+            <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="exportar" aria-describedby="d-exp"${vazio ? ' disabled' : ''}>${ic('baixar')}${T.exportar}</button><button class="btn btn-ghost" type="button" data-exec="importar" aria-describedby="d-imp">${ic('copiar')}${T.importar}</button></div>
             <p class="nota-geonames" id="d-exp">${esc(this.t('ui.dados.exportar'))}</p><p class="nota-geonames" id="d-imp">${esc(this.t('ui.dados.importar'))}</p></section>`;
     }
 
@@ -275,29 +316,29 @@ export class PerfilScreen extends HTMLElement {
             }),
         );
         const acao = (nome, fn) => this.querySelectorAll(`[data-acao="${nome}"]`).forEach((b) => b.addEventListener('click', fn));
-        acao('novo', () => navigateTo('novo-mapa'));
-        acao('editar', () => navigateTo('novo-mapa', { editar: this.sel }));
         acao('ler', () => navigateTo('mapa', { id: this.sel }));
         acao('roda', () => navigateTo('mapa', { id: this.sel }));
         acao('tema', () => {
             const b = document.querySelector('.topbar .themebtn');
             if (b) b.click();
         });
-        acao('apagar', () => {
-            this.confirmando = true;
-            this.desenhar('#ap-t');
-        });
-        acao('manter', () => {
-            this.confirmando = false;
-            this.desenhar('[data-acao="apagar"]');
-        });
-        acao('apagar-sim', () => {
-            const ok = apagar(this.sel);
-            this.confirmando = false;
-            this.sel = null;
-            this.estado = {};
-            this.status = ok ? T.apagado : T.erroExportar;
-            this.desenhar('#perfil-h1');
+        this.querySelectorAll('[data-exec]').forEach((b) => b.addEventListener('click', () => this.executar(b.dataset.exec, b)));
+        const abrirAcoes = this.querySelector('#abrir-acoes');
+        if (abrirAcoes) abrirAcoes.addEventListener('click', () => this.abrirGaveta(abrirAcoes));
+        this.querySelectorAll('.mc-tab').forEach((t) => {
+            t.addEventListener('click', () => this.trocarAba(t.dataset.aba));
+            t.addEventListener('keydown', (e) => {
+                const abas = [...this.querySelectorAll('.mc-tab')];
+                const i = abas.indexOf(t);
+                let j = -1;
+                if (e.key === 'ArrowRight') j = (i + 1) % abas.length;
+                else if (e.key === 'ArrowLeft') j = (i + abas.length - 1) % abas.length;
+                else if (e.key === 'Home') j = 0;
+                else if (e.key === 'End') j = abas.length - 1;
+                if (j < 0) return;
+                e.preventDefault();
+                this.trocarAba(abas[j].dataset.aba, true);
+            });
         });
         acao('apelido', () => {
             this.editandoApelido = !this.editandoApelido;
@@ -319,31 +360,7 @@ export class PerfilScreen extends HTMLElement {
                 if (e.key === 'Escape') this.querySelector('[data-acao="apelido-cancela"]').click();
             });
         }
-        const conf = this.querySelector('[role="alertdialog"]');
-        if (conf) {
-            conf.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') this.querySelector('[data-acao="manter"]').click();
-            });
-        }
-
-        acao('exportar', () => {
-            try {
-                const blob = new Blob([JSON.stringify(exportar(), null, 2)], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `aeon-backup-${dataLocal()}.json`;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                setTimeout(() => URL.revokeObjectURL(url), 1000);
-                this.dizer(T.exportado);
-            } catch (e) {
-                this.dizer(T.erroExportar);
-            }
-        });
         const arquivo = this.querySelector('[data-arquivo]');
-        acao('importar', () => arquivo.click());
         arquivo.addEventListener('change', async () => {
             const f = arquivo.files && arquivo.files[0];
             arquivo.value = '';
@@ -364,6 +381,78 @@ export class PerfilScreen extends HTMLElement {
             await this.desenhar();
             this.dizer(msg);
         });
+    }
+
+    executar(id, gatilho) {
+        if (id === 'novo') navigateTo('novo-mapa');
+        else if (id === 'editar') navigateTo('novo-mapa', { editar: this.sel });
+        else if (id === 'trocar') this.abrirTrocar(gatilho);
+        else if (id === 'exportar') this.dizer(baixarBackup() ? T.exportado : T.erroExportar);
+        else if (id === 'importar') this.querySelector('[data-arquivo]').click();
+        else if (id === 'apagar') this.confirmarApagar(gatilho);
+    }
+
+    abrirGaveta(botao) {
+        botao.setAttribute('aria-expanded', 'true');
+        const m = listar().find((x) => x.id === this.sel) || null;
+        const c = abrir({ tipo: 'gaveta', titulo: T.acoesTitulo, gatilho: botao, corpo: this.menuHtml(m), aoFechar: () => botao.setAttribute('aria-expanded', 'false') });
+        c.corpo.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-exec]');
+            if (!b) return;
+            c.fechar();
+            this.executar(b.dataset.exec, botao);
+        });
+        this.sobre = c;
+    }
+
+    trocarAba(id, foco) {
+        if (id === this.aba) return;
+        this.aba = id;
+        ABA_LEMBRADA = id;
+        this.desenhar(foco ? `#pt-${id}` : null);
+    }
+
+    abrirTrocar(gatilho) {
+        const lista = listar();
+        const corpo = `<div class="sob-lista">${lista.map((x) => `<button class="sob-opcao" type="button" data-mapa="${esc(x.id)}"${x.id === this.sel ? ' aria-current="true"' : ''}>${ic('roda')}<span><b>${esc(x.rotulo)}</b><small>${esc(dataExtenso(x.data))}${x.hora ? `, ${esc(x.hora)}` : ''} · ${esc(x.local.nome)}</small></span>${x.id === this.sel ? '<span class="marca">em exibição</span>' : ''}</button>`).join('')}
+            <button class="btn btn-ghost" type="button" data-novo>${ic('mais')}${T.novoMapa}</button></div>`;
+        const c = abrir({ tipo: 'sheet', titulo: T.trocarTitulo, gatilho, corpo, foco: '[aria-current="true"]' });
+        c.corpo.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-mapa]');
+            if (b) {
+                c.fechar(false);
+                this.sel = b.dataset.mapa;
+                this.estado = {};
+                this.desenhar(ehDesktop() ? '[data-exec="trocar"]' : '#abrir-acoes');
+            } else if (e.target.closest('[data-novo]')) {
+                c.fechar(false);
+                navigateTo('novo-mapa');
+            }
+        });
+        this.sobre = c;
+    }
+
+    confirmarApagar(gatilho) {
+        const m = listar().find((x) => x.id === this.sel);
+        if (!m) return;
+        const c = abrir({
+            tipo: 'confirmacao', titulo: `Apagar o mapa de ${esc(m.rotulo)}?`, gatilho, descricao: true,
+            corpo: `<p>${esc(this.t('ui.apagar.confirma'))}</p><div class="sob-pilha" style="margin-top:18px"><button class="btn btn-ghost" type="button" data-foco data-manter>${esc(this.t('ui.apagar.cancela', {}, T.manter))}</button>
+                <button class="btn btn-perigo" type="button" data-apagar>${ic('lixo')}${esc(this.t('ui.apagar.btn', {}, 'Apagar o mapa'))}</button></div>`,
+        });
+        c.corpo.addEventListener('click', (e) => {
+            if (e.target.closest('[data-manter]')) c.fechar();
+            else if (e.target.closest('[data-apagar]')) {
+                const ok = apagar(this.sel);
+                c.fechar(false);
+                this.sel = null;
+                this.estado = {};
+                this.status = ok ? T.apagado : T.erroApagar;
+                this.desenhar('#perfil-h1');
+                if (ok) avisar(T.apagado);
+            }
+        });
+        this.sobre = c;
     }
 
     resumoImportacao(r) {
