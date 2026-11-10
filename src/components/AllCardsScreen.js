@@ -17,9 +17,15 @@ const GRUPOS = [
 /** Minúsculas e sem acento: "Estrêla" e "estrela" são a mesma busca. */
 const normalizar = (t) => String(t ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
 
-/** Palavras pelas quais cada carta pode ser achada: nome, título, número, naipe, patente e elemento. */
+/**
+ * Apelidos de busca por patente da corte. No baralho de Thoth o antigo Rei é o Cavaleiro e o antigo Pajem é a
+ * Princesa; quem procura pelo nome do baralho comum acha a carta certa. Os nomes e os dados não mudam.
+ */
+const APELIDOS_DA_CORTE = { Cavaleiro: 'rei', Princesa: 'pajem' };
+
+/** Palavras pelas quais cada carta pode ser achada: nome, título, número, naipe, patente (e apelido) e elemento. */
 function palavrasDaCarta(c) {
-    const campos = [c.name, c.title, c.numeral, c.suit, c.court_rank, c.element];
+    const campos = [c.name, c.title, c.numeral, c.suit, c.court_rank, APELIDOS_DA_CORTE[c.court_rank], c.element];
     if (c.isMajorArcana) campos.push(c.number); // XVII também se acha por 17
     return normalizar(campos.filter((x) => x !== undefined && x !== null).join(' ')).split(/[^a-z0-9]+/).filter(Boolean);
 }
