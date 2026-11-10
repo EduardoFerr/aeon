@@ -85,6 +85,11 @@ export function definirTema(t, persistir = true) {
             let feito = false;
             const rodar = () => { if (feito) return; feito = true; aplicar(t, persistir); };
             const vt = document.startViewTransition(rodar);
+            // ready e updateCallbackDone tambem rejeitam quando a transicao e abortada
+            // (por exemplo se a janela muda de tamanho no meio da troca): sem isto o
+            // navegador registra "Uncaught (in promise) InvalidStateError" no console.
+            vt.ready.catch(() => {});
+            vt.updateCallbackDone.catch(() => {});
             // se a transicao travar, troca mesmo assim
             setTimeout(() => { if (!feito) { try { vt.skipTransition(); } catch (e) { /* ok */ } rodar(); } }, 1500);
             return vt.finished.catch(() => {}).then(() => html.classList.remove('theme-vt'));
