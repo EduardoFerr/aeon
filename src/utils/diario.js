@@ -4,7 +4,7 @@ import { hash, dataLocal } from './cartaDoDia.js';
  * Diario: anotacoes e leituras, guardadas so no aparelho.
  *
  * Chave: "aeon:v2:diario"  ->  { v: 2, entradas: [Entrada], ocultos: [id] }
- *   Entrada = { id, t (ISO), tipo: "dia" | "leitura", cartas: [{ order, pos? }], nota, m (ISO da ultima edicao da nota), rotulo?, pergunta? (so leitura, ate 200 caracteres) }
+ *   Entrada = { id, t (ISO), tipo: "dia" | "leitura" | "mapa", cartas: [{ order, pos? }], nota, m (ISO da ultima edicao da nota), rotulo?, pergunta? (so leitura, ate 200 caracteres) }
  *   ocultos = ids de leituras do historico antigo que a pessoa apagou do diario (so esconde, nao apaga o antigo).
  *
  * O historico antigo (chave "tarotHistory", storage.js) e lido SOMENTE LEITURA e convertido por order;
@@ -22,6 +22,7 @@ export const LIMITE_ARQUIVO = 1024 * 1024; // 1 MB
 const LIMITE_LEITURA_IMPORTACAO = 2000; // quantas entradas do arquivo sao ao menos examinadas
 
 const POSICOES = ['passado', 'presente', 'futuro'];
+const POSICOES_MAPA = ['sol', 'lua', 'asc'];
 const RE_ID = /^[A-Za-z0-9_-]{1,64}$/;
 const PERIGOSAS = ['__proto__', 'constructor', 'prototype'];
 
@@ -65,7 +66,7 @@ export function sanearEntrada(bruta) {
     const t = tem(bruta, 't') ? dataValida(bruta.t) : null;
     if (!t) return null;
     const tipo = tem(bruta, 'tipo') ? bruta.tipo : null;
-    if (tipo !== 'dia' && tipo !== 'leitura') return null;
+    if (tipo !== 'dia' && tipo !== 'leitura' && tipo !== 'mapa') return null;
     if (!tem(bruta, 'cartas') || !Array.isArray(bruta.cartas)) return null;
     const maximo = tipo === 'dia' ? 1 : 3;
     const cartas = [];
@@ -74,7 +75,7 @@ export function sanearEntrada(bruta) {
         const order = tem(c, 'order') && typeof c.order === 'number' ? c.order : NaN;
         if (!Number.isInteger(order) || order < 0 || order > 77) return null;
         const item = { order };
-        if (tem(c, 'pos') && POSICOES.includes(c.pos)) item.pos = c.pos;
+        if (tem(c, 'pos') && (tipo === 'mapa' ? POSICOES_MAPA : POSICOES).includes(c.pos)) item.pos = c.pos;
         cartas.push(item);
     }
     if (!cartas.length) return null;
@@ -282,6 +283,28 @@ export function criarLeitura(cartas, pergunta = '') {
         cartas: cartas.map((c) => ({ order: Number(c.order), pos: c.pos })),
         nota: '',
         pergunta,
+    });
+    if (!nova) return { id, ok: false };
+    doc.entradas.push(nova);
+    aplicarLimite(doc);
+    return { id, ok: gravar(doc) };
+}
+
+/**
+ * Cria uma entrada de mapa astral: as cartas do decano do Sol, da Lua e do Ascendente (pos: sol, lua, asc)
+ * e, como rotulo, so os signos. NAO leva data, hora nem local de nascimento.
+ */
+export function criarMapa(cartas, rotulo = '') {
+    const doc = carregar();
+    const agora = new Date();
+    const id = `mapa-${agora.getTime().toString(36)}-${Math.floor(Math.random() * 1296).toString(36)}`;
+    const nova = sanearEntrada({
+        id,
+        t: agora.toISOString(),
+        tipo: 'mapa',
+        cartas: cartas.map((c) => ({ order: Number(c.order), pos: c.pos })),
+        nota: '',
+        rotulo,
     });
     if (!nova) return { id, ok: false };
     doc.entradas.push(nova);

@@ -15,6 +15,8 @@ const TEXTO = {
     semArmazenamento: 'Este navegador não deixa guardar dados. Suas anotações valem só enquanto esta página estiver aberta.',
     tipoDia: 'Carta do dia',
     tipoLeitura: 'Leitura de 3 cartas',
+    tipoMapa: 'Mapa astral',
+    rotuloNotaMapa: 'O que esse mapa despertou',
     pergunta: 'Pergunta:',
     rotuloNotaDia: 'O que essa carta despertou',
     rotuloNotaLeitura: 'O que essa leitura despertou',
@@ -46,7 +48,7 @@ const TEXTO = {
     cartaSem: 'Carta',
 };
 
-const POS = { passado: 'Passado', presente: 'Presente', futuro: 'Futuro' };
+const POS = { passado: 'Passado', presente: 'Presente', futuro: 'Futuro', sol: 'Sol', lua: 'Lua', asc: 'Ascendente' };
 const ESPERA = 800; // ms de pausa na digitacao antes de salvar
 const PAGINA = 50;
 const PERTO_DO_LIMITE = 1800;
@@ -206,6 +208,7 @@ export class HistoryScreen extends HTMLElement {
         li.className = 'diario-item';
         li.dataset.id = e.id;
         const leitura = e.tipo === 'leitura';
+        const mapa = e.tipo === 'mapa';
         const idNota = `nota-${e.id}`;
         const idTit = `tit-${e.id}`;
         const quando = escaparHtml(dataLegivel(e));
@@ -228,14 +231,14 @@ export class HistoryScreen extends HTMLElement {
                 <header class="diario-cab">
                     <div>
                         <h2 class="diario-data" id="${idTit}" tabindex="-1">${quando}</h2>
-                        <p class="diario-tipo">${leitura ? TEXTO.tipoLeitura : TEXTO.tipoDia}</p>
+                        <p class="diario-tipo">${leitura ? TEXTO.tipoLeitura : mapa ? TEXTO.tipoMapa : TEXTO.tipoDia}${mapa && e.rotulo ? ` (${escaparHtml(e.rotulo)})` : ''}</p>
                     </div>
                     <button type="button" class="btn btn-ghost diario-apagar" data-acao="apagar" aria-expanded="false" aria-label="${TEXTO.apagar}: ${quando}">${TEXTO.apagar}</button>
                 </header>
                 ${e.pergunta ? `<p class="diario-pergunta"><span class="diario-pergunta-rotulo">${TEXTO.pergunta}</span> <q>${escaparHtml(e.pergunta)}</q></p>` : ''}
-                <ul class="diario-cartas${leitura ? ' tres' : ''}">${minis}</ul>
+                <ul class="diario-cartas${leitura || mapa ? ' tres' : ''}">${minis}</ul>
                 <div class="diario-nota">
-                    <label for="${idNota}">${leitura ? TEXTO.rotuloNotaLeitura : TEXTO.rotuloNotaDia}</label>
+                    <label for="${idNota}">${leitura ? TEXTO.rotuloNotaLeitura : mapa ? TEXTO.rotuloNotaMapa : TEXTO.rotuloNotaDia}</label>
                     <textarea id="${idNota}" rows="3" maxlength="${LIMITE_NOTA}" placeholder="${TEXTO.dica}" aria-describedby="${idNota}-estado"></textarea>
                     <div class="diario-rodape">
                         <p class="diario-estado" id="${idNota}-estado" role="status" aria-live="polite" data-estado></p>
