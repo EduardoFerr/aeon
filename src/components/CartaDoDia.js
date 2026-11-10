@@ -1,5 +1,6 @@
 import { loadCards } from '../utils/cardsUtil.js';
 import { dataLocal, obterCartaDoDia, marcarVirada, perguntaDoDia, diasDaSemana, fraseDaSemana } from '../utils/cartaDoDia.js';
+import { baixarLembrete } from '../utils/lembrete.js';
 import { escaparHtml } from '../utils/glossario.js';
 
 const TEXTO = {
@@ -15,6 +16,9 @@ const TEXTO = {
     semana: 'Sua semana de cartas',
     estrelaAcesa: 'carta virada',
     estrelaApagada: 'sem carta',
+    lembrar: 'Lembrar amanhã no calendário',
+    lembreteOk: 'Arquivo de calendário baixado. Abra para guardar o lembrete.',
+    lembreteFalhou: 'Não foi possível baixar o lembrete agora.',
     erro: 'Não foi possível tirar a carta agora. Recarregue a página.',
 };
 
@@ -120,7 +124,12 @@ export class CartaDoDia extends HTMLElement {
                         <span class="sr">${d.nome}, ${d.numero}${d.hoje ? ', hoje' : ''}: ${d.virada ? TEXTO.estrelaAcesa : TEXTO.estrelaApagada}</span>
                     </li>`).join('')}
             </ul>
-            <p class="dia-frase-semana">${fraseDaSemana(semana, this.data)}</p>`;
+            <p class="dia-frase-semana">${fraseDaSemana(semana, this.data)}</p>
+            <button type="button" class="btn btn-ghost dia-lembrar" data-acao="lembrar">${TEXTO.lembrar}</button>
+            <p class="dia-msg" role="status" aria-live="polite" data-lembrete-msg></p>`;
+        this.querySelector('[data-acao="lembrar"]').addEventListener('click', () => {
+            this.querySelector('[data-lembrete-msg]').textContent = baixarLembrete() ? TEXTO.lembreteOk : TEXTO.lembreteFalhou;
+        });
     }
 
     aoVirar() {
