@@ -72,7 +72,6 @@ export class AllCardsScreen extends HTMLElement {
                     <p class="grade-vazio-dica">Tente um nome, um naipe ou um número romano.</p>
                     <button class="btn btn-ghost" type="button">Limpar busca</button>
                 </div>
-                <div class="screen-actions"><button class="btn btn-ghost" onclick="navigateTo('home')">Voltar</button></div>
             </section>
         `;
 

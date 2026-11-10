@@ -53,7 +53,6 @@ const TEXTO = {
     revelada: (pos, carta) => `${pos} revelado: ${carta.name}, ${carta.title}.`,
     todasReveladas: 'As três cartas foram reveladas. Você pode escrever no diário, compartilhar ou fazer uma nova leitura.',
     erro: 'Não foi possível tirar as cartas agora. Recarregue a página.',
-    voltar: 'Voltar',
 };
 
 const reduzMovimento = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -81,11 +80,9 @@ export class ThreeCardGameScreen extends HTMLElement {
                 </ol>
                 <p class="sr" role="status" aria-live="polite" data-anuncio></p>
                 <div class="leitura-palco" data-palco></div>
-                <div class="screen-actions"><button type="button" class="btn btn-ghost" data-ir="home">${TEXTO.voltar}</button></div>
             </section>
         `;
         document.querySelector('#page-title').textContent = TEXTO.titulo;
-        this.querySelector('[data-ir]').addEventListener('click', () => navigateTo('home'));
         this.palco = this.querySelector('[data-palco]');
         this.irPara('pergunta', { foco: false });
     }

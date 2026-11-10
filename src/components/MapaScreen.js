@@ -1,7 +1,7 @@
 import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
 import { gl, ic } from '../utils/glifos.js';
 import { loadCards } from '../utils/cardsUtil.js';
-import { obter, principal, listar, adicionar, apagar, apelido, persiste, definirPreferencias } from '../utils/perfil.js';
+import { obter, principal, listar, adicionar, apelido, persiste, definirPreferencias } from '../utils/perfil.js';
 import { baixarBackup } from '../utils/backup.js';
 import { criarMapa } from '../utils/diario.js';
 import { carregarTextos, texto, esc, calcular, dataExtenso, grauTexto, casaDa, marcadoresHora, atribuicaoGeoNames, SIGNO_ELEMENTO } from '../utils/mapaComum.js';
@@ -11,6 +11,7 @@ import { carregarGlossario, linkarTermos } from '../utils/glossario.js';
 import { abrirGlossario } from './GlossarioModal.js';
 import { abrirResumoCarta } from './TarotCardInfo.js';
 import { abrir, avisar, ehDesktop } from './Sobreposicao.js';
+import { apagarMapaComDesfazer } from './desfazerMapa.js';
 
 /**
  * Mapa astral em abas (Resumo, Leitura, Casas, Aspectos), direcao C do redesenho: a roda fica fixa na
@@ -97,7 +98,7 @@ const LEMBRADO = new Map();
 export class MapaScreen extends HTMLElement {
     async connectedCallback() {
         const est = consumirEstado() || {};
-        this.m = (est.id && obter(est.id)) || est.entrada || principal();
+        this.m = (est.id && obter(est.id)) || principal();
         this.salvo = !!(this.m && this.m.id);
         const lem = (this.salvo && LEMBRADO.get(this.m.id)) || {};
         this.aba = est.secao ? 'leitura' : lem.aba || 'resumo';
@@ -399,7 +400,7 @@ export class MapaScreen extends HTMLElement {
         else if (id === 'editar') navigateTo('novo-mapa', { editar: this.m.id });
         else if (id === 'trocar') this.abrirTrocar(gatilho);
         else if (id === 'exportar') avisar(baixarBackup() ? T.backupOk : T.backupErro, { erro: false });
-        else if (id === 'apagar') this.confirmarApagar(gatilho);
+        else if (id === 'apagar') this.apagarEste();
         else if (id === 'descartar') navigateTo('perfil');
     }
 
@@ -544,22 +545,11 @@ export class MapaScreen extends HTMLElement {
         this.sobre = c;
     }
 
-    confirmarApagar(gatilho) {
-        const c = abrir({
-            tipo: 'confirmacao', titulo: `Apagar o mapa de ${esc(this.m.rotulo)}?`, gatilho, descricao: true,
-            corpo: `<p>${esc(this.t('ui.apagar.confirma'))}</p><div class="sob-pilha" style="margin-top:18px"><button class="btn btn-ghost" type="button" data-foco data-manter>${esc(this.t('ui.apagar.cancela', {}, 'Manter o mapa guardado'))}</button>
-                <button class="btn btn-perigo" type="button" data-apagar>${ic('lixo')}${esc(this.t('ui.apagar.btn', {}, T.apagarBtn))}</button></div>`,
-        });
-        c.corpo.addEventListener('click', (e) => {
-            if (e.target.closest('[data-manter]')) c.fechar();
-            else if (e.target.closest('[data-apagar]')) {
-                apagar(this.m.id);
-                c.fechar(false);
-                LEMBRADO.delete(this.m.id);
-                navigateTo('perfil', { apagado: true });
-            }
-        });
-        this.sobre = c;
+    apagarEste() {
+        const id = this.m.id;
+        if (!apagarMapaComDesfazer(id)) return;
+        LEMBRADO.delete(id);
+        navigateTo('perfil');
     }
 
     /* ---------- guardar ---------- */
@@ -754,7 +744,7 @@ export class MapaScreen extends HTMLElement {
         if (titulo) titulo.classList.add('sr');
         if (!this.calc) {
             if (h1) h1.textContent = T.eyebrow;
-            this.innerHTML = `<div class="mapa-tela"><section class="aviso erro" role="alert">${ic('erro')}<h3 id="mapa-h" tabindex="-1">${T.eyebrow}</h3><div><p>${esc(this.t('ui.erro.geral', {}, 'Não foi possível montar o mapa agora.'))}</p></div></section><div><button class="btn btn-ghost" type="button" data-acao="perfil">${T.voltarPerfil}</button></div></div>`;
+            this.innerHTML = `<div class="mapa-tela"><section class="aviso erro" role="alert">${ic('erro')}<h3 id="mapa-h" tabindex="-1">${T.eyebrow}</h3><div><p>${esc(this.t('ui.erro.geral', {}, 'Não foi possível montar o mapa agora.'))}</p></div></section></div>`;
             if (inicio) focarCabecalho('#mapa-h');
             return;
         }
