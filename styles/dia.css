@@ -1,7 +1,7 @@
 /* Carta do dia (home): carta de costas que a pessoa vira, sequencia da semana e cartao para compartilhar */
-.dia { display: grid; gap: var(--sp-4); max-width: 560px; width: 100%; justify-self: center; }
+.dia { display: grid; gap: var(--sp-5); max-width: 560px; width: 100%; justify-self: center; }
 .dia-titulo { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; text-align: center; }
-.dia-corpo { display: grid; gap: var(--sp-4); justify-items: center; }
+.dia-corpo { display: grid; gap: var(--sp-5); justify-items: center; }
 .dia-carta { width: min(52vw, 200px); }
 .dia .card-element { display: none; }
 
@@ -14,31 +14,34 @@
 .dia-apoio { color: var(--text-soft); font-size: var(--fs-lg); }
 
 .dia-nome { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.1; letter-spacing: -0.01em; text-wrap: balance; }
-.dia-subtitulo { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; color: var(--text-soft); margin-top: -4px; }
-.dia-luz, .dia-pergunta { display: grid; gap: 2px; padding: 10px 14px; border-radius: var(--r-md); border: 1px solid var(--line); text-align: center; }
-.dia-luz { background: linear-gradient(160deg, var(--luz-wash), transparent 70%), var(--surface); border-color: color-mix(in srgb, var(--luz) 30%, transparent); }
-.dia-pergunta { background: var(--bg); }
-.dia-rotulo { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.dia-subtitulo { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.3; color: var(--text-soft); margin-top: calc(var(--sp-2) * -1); }
+/* luz e pergunta: dois blocos de leitura, separados por filete (sem caixas); coluna de ate 62ch e entrelinha de 1,6 */
+.dia-luz, .dia-pergunta { display: grid; gap: var(--sp-1); padding: var(--sp-4) 0 0; border-top: 1px solid var(--line); text-align: center; max-width: 62ch; margin-inline: auto; width: 100%; }
+.dia-luz { border-top-color: color-mix(in srgb, var(--luz) 35%, transparent); }
+.dia-rotulo { font-size: 0.6875rem; font-weight: 500; line-height: 1.2; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
 .dia-luz .dia-rotulo { color: var(--luz); }
-.dia-frase { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.35; }
-.dia-pergunta .dia-frase { font-style: italic; }
-.dia-acoes { justify-content: center; margin-top: var(--sp-2); gap: 8px; }
-.dia-acoes .btn { flex: 0 1 auto; }
-.dia-acoes [data-acao="abrir"] { flex: 1 0 100%; }
+.dia-frase { font-family: var(--font-display); font-size: 1.2rem; line-height: 1.6; color: var(--text); }
+.dia-pergunta .dia-frase { font-style: italic; color: var(--text-soft); }
+.dia-acoes { display: grid; grid-template-columns: repeat(2, minmax(0, auto)); justify-content: center; gap: 12px; margin-top: var(--sp-2); }
+.dia-acoes .btn { white-space: nowrap; }
+.dia-mais { justify-self: center; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: calc(var(--sp-2) * -1); padding: 0 12px; border: 0; background: none; color: var(--text-soft); font: 500 var(--fs-sm)/1 var(--font-ui); cursor: pointer; border-radius: var(--r-btn); }
+.dia-mais .icon { width: 18px; height: 18px; }
+.dia-mais:hover { color: var(--text); background: var(--surface-2); }
 .dia-erro { color: var(--text-soft); text-align: center; }
 
 @media (min-width: 860px) { .dia-carta { width: 260px; } }
 
-/* sequencia da semana: estrela acesa nos dias em que a carta foi virada, sem nada que cobre ou pese */
-.dia-semana { display: grid; gap: var(--sp-3); justify-items: center; padding-top: var(--sp-4); border-top: 1px solid var(--line); }
-.dia-dias { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(4px, 2vw, 14px); justify-content: center; }
-.dia-d { display: grid; justify-items: center; gap: 2px; flex: 0 1 40px; min-width: 0; padding: 4px 2px; border-radius: var(--r-sm); }
-.dia-letra { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; color: var(--text-mute); }
+/* sequencia da semana: sete colunas iguais, estrela acesa nos dias em que a carta foi virada */
+.dia-semana { display: grid; gap: var(--sp-3); justify-items: center; padding-top: var(--sp-5); border-top: 1px solid var(--line); }
+.dia-dias { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; width: min(100%, 336px); }
+.dia-d { display: grid; justify-items: center; gap: 4px; min-width: 0; padding: 8px 0; border-radius: var(--r-sm); }
+.dia-letra { font-size: var(--fs-xs); font-weight: 500; line-height: 1; letter-spacing: 0.08em; color: var(--text-mute); }
 .dia-d.hoje .dia-letra { color: var(--accent); }
 .dia-d.hoje { box-shadow: inset 0 0 0 1px var(--line-strong); }
-.dia-estrela .icon { width: 26px; height: 26px; color: var(--control); }
+.dia-estrela { display: grid; }
+.dia-estrela .icon { width: 24px; height: 24px; color: var(--control); }
 .dia-d.acesa .dia-estrela .icon { color: var(--key); fill: var(--key); filter: drop-shadow(0 0 6px var(--glow)); }
-.dia-frase-semana { color: var(--text-soft); text-align: center; font-family: var(--font-display); font-size: 1.15rem; font-style: italic; }
+.dia-frase-semana { color: var(--text-soft); text-align: center; font-family: var(--font-display); font-size: 1.15rem; line-height: 1.5; font-style: italic; max-width: 40ch; }
 
 /* previa do cartao (dialog.sheet) */
 .cartao-sheet { width: min(94vw, 460px); }
@@ -47,4 +50,5 @@
 .cartao-acoes { justify-content: center; margin-top: var(--sp-4); }
 .cartao-msg { min-height: 1.6em; margin-top: var(--sp-2); text-align: center; color: var(--text-soft); font-size: var(--fs-sm); }
 
-.dia-msg { min-height: 1.5em; color: var(--text-soft); font-size: var(--fs-sm); text-align: center; }
+.dia-msg { color: var(--text-soft); font-size: var(--fs-sm); line-height: 1.5; text-align: center; }
+.dia-msg:empty { display: none; }

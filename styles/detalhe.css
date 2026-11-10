@@ -15,25 +15,27 @@ body:has(tarot-card-info:not([hidden])) { overflow: hidden; }
 .info-head { position: sticky; top: 0; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px 10px 20px; background: var(--surface); border-bottom: 1px solid var(--line); }
 .info-head h3 { margin: 0; min-width: 0; font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.25rem; line-height: 1.2; text-align: left; color: var(--text-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .info-head-actions { display: flex; align-items: center; gap: 8px; flex: none; }
-.info-body { display: grid; gap: var(--sp-4); padding: var(--sp-5) 20px var(--sp-6); }
+.info-body { display: grid; gap: var(--sp-5); width: min(100%, 38rem); margin-inline: auto; padding: var(--sp-5) 20px var(--sp-7); }
 @media (min-width: 640px) { .info-body { padding: var(--sp-6) 36px var(--sp-7); } .info-head { padding-left: 36px; padding-right: 20px; } }
+@media (min-width: 900px) { .info-body { width: min(100%, 42rem); } }
 
 .info-art { justify-self: center; width: min(62vw, 250px); position: relative; isolation: isolate; margin-bottom: var(--sp-3); }
 .info-art img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: var(--r-card); box-shadow: var(--sh-3); background: var(--surface-2); }
 #card-name { text-align: center; font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.1; letter-spacing: -0.01em; text-wrap: balance; }
-#card-description { color: var(--text-soft); font-size: var(--fs-md); line-height: 1.75; max-width: 62ch; margin-inline: auto; }
+#card-description { color: var(--text-soft); font-size: var(--fs-md); line-height: 1.7; max-width: 62ch; margin-inline: auto; }
 
 .info-body p { margin: 0; }
 .card-border, #card-meditation-reflection { display: grid; gap: var(--sp-4); padding: var(--sp-4) var(--sp-4); border-radius: var(--r-md); background: var(--bg); border: 1px solid var(--line); }
 @media (min-width: 640px) { .card-border, #card-meditation-reflection { padding: var(--sp-5); } }
 .card-border br { display: none; }
 .card-border > p { color: var(--text); line-height: 1.7; }
-.card-border strong, #card-meditation-reflection > strong, #card-past-present-future strong { display: block; margin-bottom: 4px; font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+/* rotulos em versalete discreto: peso 500, espacamento aberto, com respiro antes do texto */
+.card-border strong, #card-meditation-reflection > strong, #card-past-present-future strong { display: block; margin-bottom: var(--sp-2); font-family: var(--font-ui); font-size: 0.6875rem; font-weight: 500; line-height: 1.2; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
 
 /* Luz e Sombra (ou Oitava Maior e Menor nas cartas ainda nao reescritas) */
 .card-border:has(#rotulo-maior) { background: none; border: 0; padding: 0; grid-template-columns: 1fr; gap: 12px; }
 @media (min-width: 640px) { .card-border:has(#rotulo-maior) { grid-template-columns: 1fr 1fr; padding: 0; } }
-.card-border:has(#rotulo-maior) > p { padding: 18px 20px; border-radius: var(--r-md); border: 1px solid var(--line); font-family: var(--font-display); font-size: 1.2rem; line-height: 1.35; }
+.card-border:has(#rotulo-maior) > p { padding: 18px 20px; border-radius: var(--r-md); border: 1px solid var(--line); font-family: var(--font-display); font-size: 1.2rem; line-height: 1.6; }
 .card-border:has(#rotulo-maior) > p:nth-child(1) { background: linear-gradient(160deg, var(--luz-wash), transparent 70%), var(--surface); border-color: color-mix(in srgb, var(--luz) 30%, transparent); }
 .card-border:has(#rotulo-maior) > p:nth-child(2) { background: linear-gradient(160deg, var(--sombra-wash), transparent 70%), var(--surface); border-color: color-mix(in srgb, var(--sombra) 32%, transparent); }
 .card-border:has(#rotulo-maior) > p:nth-child(1) strong { color: var(--luz); }
@@ -44,14 +46,14 @@ body:has(tarot-card-info:not([hidden])) { overflow: hidden; }
 /* fatos da carta: numero, arcano, naipe, elemento, astrologia */
 .card-border.non-wrap { display: flex; flex-wrap: wrap; gap: 8px; background: none; border: 0; padding: 0; justify-content: center; }
 .card-border.non-wrap > p { display: inline-flex; align-items: baseline; gap: 6px; padding: 8px 14px; min-height: 36px; border-radius: var(--r-pill); border: 1px solid var(--control); background: var(--bg); font-size: var(--fs-sm); color: var(--text); }
-.card-border.non-wrap strong { display: inline; margin: 0; font-family: var(--font-ui); font-size: var(--fs-xs); letter-spacing: 0.1em; color: var(--text-mute); }
+.card-border.non-wrap strong { display: inline; margin: 0; font-family: var(--font-ui); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.12em; color: var(--text-mute); }
 .card-border.non-wrap #card-element::after { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--el); align-self: center; order: 3; }
 
 #card-meditation-reflection ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-#card-meditation-reflection li { padding: 12px 16px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 var(--r-sm) var(--r-sm) 0; line-height: 1.6; color: var(--text); }
+#card-meditation-reflection li { padding: 12px 16px; border-left: 2px solid var(--accent); background: var(--surface); border-radius: 0 var(--r-sm) var(--r-sm) 0; line-height: 1.65; color: var(--text); }
 #card-past-present-future { display: grid; gap: 12px; }
 @media (min-width: 640px) { #card-past-present-future { grid-template-columns: repeat(3, 1fr); } }
-#card-past-present-future > p { padding: 16px 18px; border-radius: var(--r-md); background: var(--bg); border: 1px solid var(--line); border-top: 3px solid var(--accent); line-height: 1.65; color: var(--text); }
+#card-past-present-future > p { padding: 16px 18px; border-radius: var(--r-md); background: var(--bg); border: 1px solid var(--line); border-top: 2px solid var(--accent); line-height: 1.65; color: var(--text); }
 
 /* termos do glossario */
 .termo { appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; cursor: pointer; text-decoration: underline dotted var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
@@ -69,7 +71,7 @@ body:has(tarot-card-info:not([hidden])) { overflow: hidden; }
 /* Arvore da Vida no detalhe da carta */
 .card-arvore { display: grid; justify-items: center; gap: var(--sp-3); padding: var(--sp-4); border-radius: var(--r-md); background: var(--bg); border: 1px solid var(--line); min-height: 400px; align-content: start; }
 .card-arvore[hidden] { display: none; }
-.av-titulo { margin: 0; font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.av-titulo { margin: 0; font-family: var(--font-ui); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
 .av-figura { margin: 0; display: grid; justify-items: center; gap: var(--sp-3); width: 100%; }
 .arvore-svg { display: block; width: min(100%, 230px); height: auto; aspect-ratio: 240 / 334; max-height: 316px; overflow: visible; }
 .av-figura figcaption { max-width: 46ch; text-align: center; line-height: 1.6; color: var(--text); font-size: var(--fs-md); }

@@ -6,7 +6,7 @@ const icone = (corpo) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true
 
 const ICONES = {
     tirar: icone('<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M12 9l1.2 2.4 2.6.3-1.9 1.8.5 2.6L12 14.8 9.6 16.1l.5-2.6-1.9-1.8 2.6-.3z"/>'),
-    tres: icone('<rect x="2.5" y="6" width="5.5" height="12" rx="1"/><rect x="9.2" y="4" width="5.6" height="16" rx="1"/><rect x="16" y="6" width="5.5" height="12" rx="1"/>'),
+    diario: icone('<path d="M6 3.5h10.5a1.5 1.5 0 011.5 1.5v14a1.5 1.5 0 01-1.5 1.5H6z"/><path d="M6 3.5v17M10 8h5M10 11.5h5"/>'),
     cartas: icone('<rect x="4" y="5" width="10" height="15" rx="1.5"/><path d="M8 3h10a2 2 0 012 2v12"/>'),
     mapa: icone('<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/>'),
 };
@@ -28,12 +28,12 @@ export class HomeScreen extends HTMLElement {
 
                 <nav aria-label="Por onde começar">
                     <ul class="home-acoes">
-                        ${acao('three-card-game', ICONES.tirar, 'Tirar cartas', 'Faça a sua tiragem', ' destaque')}
-                        ${acao('three-card-game', ICONES.tres, 'Três cartas', 'Passado, presente, rumo')}
+                        ${acao('three-card-game', ICONES.tirar, 'Tirar cartas', 'Leitura de três', ' destaque')}
                         ${acao('all-cards', ICONES.cartas, 'Cartas', 'As 78 do baralho')}
                         ${temMapa
-                            ? acao('mapa', ICONES.mapa, 'Seu mapa', 'Abrir o mapa principal')
-                            : acao('novo-mapa', ICONES.mapa, 'Mapa astral', 'Uma carta para cada ponto')}
+                            ? acao('mapa', ICONES.mapa, 'Seu mapa', 'O mapa principal')
+                            : acao('novo-mapa', ICONES.mapa, 'Mapa astral', 'Crie o seu')}
+                        ${acao('history', ICONES.diario, 'Diário', 'Suas leituras')}
                     </ul>
                 </nav>
 

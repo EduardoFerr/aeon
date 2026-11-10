@@ -42,7 +42,7 @@ const TEXTO = {
     toqueParaRevelar: 'Toque na carta para revelar',
     revelarTodas: 'Revelar todas',
     novaLeitura: 'Nova leitura',
-    luz: 'Luz.',
+    luz: 'Luz',
     abrir: 'Abrir a carta',
     escreverDiario: 'Escrever no diário',
     compartilhar: 'Compartilhar',
@@ -391,8 +391,8 @@ export class ThreeCardGameScreen extends HTMLElement {
         interp.innerHTML = `
             <p class="leitura-rotulo">${TEMPOS[k]}</p>
             <p class="leitura-texto">${escaparHtml(texto)}</p>
-            ${carta.eighth_greater ? `<p class="leitura-luz"><strong>${TEXTO.luz}</strong> ${escaparHtml(carta.eighth_greater)}</p>` : ''}
-            <button type="button" class="btn btn-ghost" data-abrir="${k}">${TEXTO.abrir}</button>`;
+            ${carta.eighth_greater ? `<div class="leitura-luz"><p class="leitura-rotulo">${TEXTO.luz}</p><p>${escaparHtml(carta.eighth_greater)}</p></div>` : ''}
+            <button type="button" class="btn btn-terciario" data-abrir="${k}">${TEXTO.abrir}${ic('seta')}</button>`;
         this.reveladas += 1;
         if (this.reveladas < 3) {
             this.anunciar(TEXTO.revelada(ROTULOS[k], carta));
@@ -418,7 +418,7 @@ export class ThreeCardGameScreen extends HTMLElement {
         // uma acao principal visivel; compartilhar e nova leitura ficam no menu Acoes (Nova leitura repete "Leitura" da barra)
         acoes.innerHTML = `
             <button type="button" class="btn btn-primary" data-acao="diario">${TEXTO.escreverDiario}</button>
-            <button type="button" class="iconbtn" data-acao="acoes" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${TEXTO.acoes}</button>`;
+            <button type="button" class="btn btn-terciario" data-acao="acoes" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${TEXTO.acoes}</button>`;
         acoes.querySelector('[data-acao="diario"]').addEventListener('click', () => {
             if (this.entradaId) pedirFoco(this.entradaId);
             navigateTo('history');
