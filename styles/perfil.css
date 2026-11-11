@@ -492,3 +492,13 @@ details.acc > .corpo { padding: 2px 0 16px; display: grid; gap: 12px; min-width:
 .conta-aparelhos li:first-child { border-top: 0; }
 .conta-aparelhos small { color: var(--text-mute); }
 .conta-painel .btn-row { align-items: center; }
+
+/* Verso das cartas (Perfil, aba Dados) */
+.verso-escolha { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.verso-op { display: grid; justify-items: center; gap: 8px; padding: 12px 14px 10px; border-radius: var(--r-md); background: transparent; border: 1.5px solid var(--line-strong); color: var(--text-soft); cursor: pointer; font: inherit; min-height: 44px; }
+.verso-op img { width: 72px; height: 108px; border-radius: 6px; display: block; }
+.verso-op .verso-rot { display: grid; justify-items: center; font-size: var(--fs-sm); font-weight: 600; color: var(--text); }
+.verso-op small { font-weight: 400; color: var(--text-mute); }
+.verso-op:hover { border-color: var(--accent); }
+.verso-op[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.verso-op:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }

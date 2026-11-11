@@ -12,7 +12,7 @@
 .cz-in { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform var(--t-flip) var(--ease-ritual); }
 .cz-carta.virada .cz-in { transform: rotateY(180deg); }
 .cz-lado { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: var(--r-card); overflow: hidden; }
-.cz-verso { background: var(--surface-2) url("/assets/back.jpg") center / cover no-repeat; box-shadow: var(--sh-2); }
+.cz-verso { background: var(--verso) center / cover no-repeat; border-radius: 7.5% / 5%; box-shadow: var(--sh-2); }
 .cz-frente { transform: rotateY(180deg); background: var(--surface-2); box-shadow: var(--sh-2); }
 .cz-frente img { width: 100%; height: 100%; object-fit: cover; display: block; }
 

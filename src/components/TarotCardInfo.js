@@ -2,6 +2,7 @@ import { carregarGlossario, linkarTermos } from '../utils/glossario.js';
 import { abrirGlossario } from './GlossarioModal.js';
 import { abrir, ativarModal } from './Sobreposicao.js';
 import { ic } from '../utils/glifos.js';
+import { versoAtual } from '../utils/verso.js';
 
 export class TarotCardInfo extends HTMLElement {
     connectedCallback() {
@@ -17,7 +18,7 @@ export class TarotCardInfo extends HTMLElement {
                         </div>
                     </div>
                     <div class="info-body">
-                    <div class="info-art halo"><img id="card-image" src="assets/back.jpg" alt="Carta não revelada" width="274" height="410"></div>
+                    <div class="info-art halo"><img id="card-image" src="${versoAtual().url}" alt="Carta não revelada" width="274" height="410"></div>
                     <p id="card-name"></p>
                     <p id="card-description"></p>
                     <div class="card-border">

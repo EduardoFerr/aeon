@@ -38,7 +38,7 @@
 .leitura-mesa { align-content: start; padding-top: var(--sp-3); }
 .leitura-baralho { position: relative; width: 120px; aspect-ratio: 2 / 3; margin: var(--sp-4) auto var(--sp-6); }
 .leitura-folha { position: absolute; inset: 0; will-change: transform; }
-.leitura-verso { display: block; aspect-ratio: 2 / 3; border-radius: var(--r-card); background: var(--surface-2) url("/assets/back.jpg") center / cover no-repeat; box-shadow: var(--sh-2); }
+.leitura-verso { display: block; aspect-ratio: 2 / 3; background: var(--verso) center / cover no-repeat; border-radius: 7.5% / 5%; box-shadow: var(--sh-2); }
 
 /* (c) escolher no leque: grade 3x3 no celular, leque em arco nas telas largas */
 .leitura-escolha { gap: var(--sp-5); }
