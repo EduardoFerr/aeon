@@ -3,6 +3,30 @@ import { VitePWA } from "vite-plugin-pwa";
 import path from "node:path";
 import fs from "node:fs/promises";
 
+/**
+ * No GitHub Pages, URL sem arquivo responde 404 com o 404.html. O servidor de preview (que serve o dist)
+ * faz o mesmo (status 404 + a pagina), para a pagina de erro poder ser conferida antes do deploy.
+ */
+function pagina404() {
+  const servir = (raiz) => (server) => () =>
+    server.middlewares.use(async (req, res, next) => {
+      if (req.method !== "GET" || !(req.headers.accept || "").includes("text/html")) return next();
+      try {
+        let html = await fs.readFile(path.join(raiz(server), "404.html"), "utf-8");
+        if (server.transformIndexHtml) html = await server.transformIndexHtml("/404.html", html);
+        res.statusCode = 404;
+        res.setHeader("Content-Type", "text/html; charset=utf-8");
+        res.end(html);
+      } catch {
+        next();
+      }
+    });
+  return {
+    name: "aeon-pagina-404",
+    configurePreviewServer: servir((s) => path.resolve(s.config.root, s.config.build.outDir)),
+  };
+}
+
 export default defineConfig({
   // Obs.: um bloco "build.build" (base, outDir, minify terser, publicDir) existia
   // aqui aninhado no nivel errado e o Vite o ignorava. Foi removido sem mudar o
@@ -30,6 +54,7 @@ export default defineConfig({
     cssCodeSplit: true,
   },
   plugins: [
+    pagina404(),
     VitePWA({
       registerType: "autoUpdate",
       workbox: {
