@@ -5101,5 +5101,429 @@
   "limite": 20,
   "categoria": "ui",
   "marcadores": []
+ },
+ {
+  "id": "ui.templo.titulo",
+  "limite": 23,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.descricao",
+  "limite": 281,
+  "categoria": "ui",
+  "marcadores": [],
+  "permite": [
+   "você"
+  ]
+ },
+ {
+  "id": "ui.templo.tir.nome",
+  "limite": 21,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.tir.linha",
+  "limite": 73,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.tir.n",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.perg.dica",
+  "limite": 91,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.montar.titulo",
+  "limite": 17,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.montar.n",
+  "limite": 21,
+  "categoria": "ui",
+  "marcadores": [
+   "n"
+  ]
+ },
+ {
+  "id": "ui.templo.montar.feita",
+  "limite": 61,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.no.vazio",
+  "limite": 76,
+  "categoria": "ui",
+  "marcadores": [
+   "pos"
+  ]
+ },
+ {
+  "id": "ui.templo.no.colocada",
+  "limite": 83,
+  "categoria": "ui",
+  "marcadores": [
+   "pos"
+  ]
+ },
+ {
+  "id": "ui.templo.no.travada",
+  "limite": 68,
+  "categoria": "ui",
+  "marcadores": [
+   "pos",
+   "falta"
+  ]
+ },
+ {
+  "id": "ui.templo.no.costas",
+  "limite": 75,
+  "categoria": "ui",
+  "marcadores": [
+   "pos"
+  ]
+ },
+ {
+  "id": "ui.templo.sintese.espera",
+  "limite": 73,
+  "categoria": "ui",
+  "marcadores": [
+   "falta"
+  ]
+ },
+ {
+  "id": "ui.templo.lidas",
+  "limite": 17,
+  "categoria": "ui",
+  "marcadores": [
+   "n"
+  ]
+ },
+ {
+  "id": "ui.templo.final.titulo",
+  "limite": 12,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.viradas.anuncio",
+  "limite": 76,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.guardada",
+  "limite": 30,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.lista",
+  "limite": 30,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.posicao",
+  "limite": 17,
+  "categoria": "ui",
+  "marcadores": [
+   "n"
+  ]
+ },
+ {
+  "id": "ui.templo.carta",
+  "limite": 11,
+  "categoria": "ui",
+  "marcadores": [
+   "n"
+  ]
+ },
+ {
+  "id": "ui.templo.col.voce",
+  "limite": 5,
+  "categoria": "ui",
+  "marcadores": [],
+  "permite": [
+   "você"
+  ]
+ },
+ {
+  "id": "ui.templo.col.outra",
+  "limite": 17,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.plano.mental",
+  "limite": 14,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.plano.afetivo",
+  "limite": 15,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.plano.fisico",
+  "limite": 14,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.plano.mental.curto",
+  "limite": 7,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.plano.afetivo.curto",
+  "limite": 9,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.plano.fisico.curto",
+  "limite": 7,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.pos.mental-voce.sig",
+  "limite": 97,
+  "categoria": "ui",
+  "marcadores": [],
+  "permite": [
+   "você"
+  ]
+ },
+ {
+  "id": "ui.templo.pos.mental-outra.sig",
+  "limite": 109,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.pos.afetivo-voce.sig",
+  "limite": 87,
+  "categoria": "ui",
+  "marcadores": [],
+  "permite": [
+   "você"
+  ]
+ },
+ {
+  "id": "ui.templo.pos.afetivo-outra.sig",
+  "limite": 98,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.pos.fisico-voce.sig",
+  "limite": 92,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.pos.fisico-outra.sig",
+  "limite": 106,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.pos.sintese.sig",
+  "limite": 94,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.rot.mostra",
+  "limite": 23,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.nota.outra",
+  "limite": 73,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.nota.sintese",
+  "limite": 82,
+  "categoria": "ui",
+  "marcadores": [],
+  "permite": [
+   "você"
+  ]
+ },
+ {
+  "id": "ui.templo.comp.titulo",
+  "limite": 23,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.comp.lead",
+  "limite": 152,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.comp.lados",
+  "limite": 34,
+  "categoria": "ui",
+  "marcadores": [
+   "a",
+   "b"
+  ],
+  "permite": [
+   "você"
+  ]
+ },
+ {
+  "id": "ui.templo.rel.sintonia",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.rel.combina",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.rel.distinto",
+  "limite": 11,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.rel.tensao",
+  "limite": 11,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.rel.sintonia.frase",
+  "limite": 81,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.rel.combina.frase",
+  "limite": 113,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.rel.tensao.frase",
+  "limite": 142,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.rel.distinto.frase",
+  "limite": 113,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.peso.voce",
+  "limite": 73,
+  "categoria": "ui",
+  "marcadores": [],
+  "permite": [
+   "você"
+  ]
+ },
+ {
+  "id": "ui.templo.peso.outra",
+  "limite": 86,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.peso.ambos",
+  "limite": 90,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.eq.titulo",
+  "limite": 30,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.eq.frase",
+  "limite": 61,
+  "categoria": "ui",
+  "marcadores": [
+   "mais",
+   "menos"
+  ]
+ },
+ {
+  "id": "ui.templo.eq.igual",
+  "limite": 76,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.eq.leitura.desigual",
+  "limite": 147,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.eq.leitura.igual",
+  "limite": 111,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.aviso",
+  "limite": 178,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.dicas.titulo",
+  "limite": 19,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.dica.periodo",
+  "limite": 120,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.dica.linhas",
+  "limite": 187,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.templo.dica.outra",
+  "limite": 136,
+  "categoria": "ui",
+  "marcadores": []
  }
 ]
