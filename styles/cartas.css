@@ -33,7 +33,7 @@ tarot-card:hover .tarot-card { transform: translateY(-4px); }
 
 /* filtros e contagem da grade */
 .grade-ferramentas { padding-top: var(--sp-2); display: grid; gap: var(--sp-3); }
-.chips { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; margin-inline: -16px; padding: 4px 16px; scrollbar-width: none; overscroll-behavior-x: contain; }
+.chips { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; margin-inline: -16px; padding: 4px 16px; scrollbar-width: none; overscroll-behavior-x: contain; scroll-padding-inline: 16px; }
 .chips::-webkit-scrollbar { display: none; }
 .chip { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; border-radius: var(--r-pill); border: 1px solid var(--control); background: transparent; color: var(--text); font: 500 var(--fs-sm)/1 var(--font-ui); white-space: nowrap; scroll-snap-align: start; cursor: pointer; transition: background 0.3s, color 0.3s, border-color 0.3s; }
 .chip::after { content: ""; position: absolute; inset: -2px 0; }
