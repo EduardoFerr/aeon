@@ -86,8 +86,9 @@ function concluir(page, y) {
     const a = document.activeElement;
     const dentro = a && document.getElementById('app').contains(a);
     if (dentro) return;
-    const h = document.querySelector('#page-title');
-    if (!h || h.closest('[hidden]')) return;
+    let h = document.querySelector('#page-title');
+    if (!h || h.closest('[hidden]')) h = document.querySelector('#app h1'); // a Home tem o proprio h1
+    if (!h) return;
     if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1');
     h.focus({ preventScroll: true });
 }
@@ -99,11 +100,38 @@ const TELAS_PERFIL = {
 };
 let corrida = 0;
 
+/*
+ * Endereco de cada tela raiz (links reais: /?all-cards abre Cartas, e assim por diante). So o NOME da tela entra na
+ * URL, nunca dado de nascimento, nome, mapa ou diario: mapa, novo mapa e edicao mostram o endereco do Perfil e,
+ * aberto direto, caem no Perfil. O estado em history.state guarda so o nome da tela.
+ */
+const CHAVES = { 'all-cards': 'all-cards', 'three-card-game': 'three-card-game', history: 'history', perfil: 'profile' };
+const SEM_URL = ['novo-mapa', 'mapa'];
+const raizDe = (page) => (SEM_URL.includes(page) ? 'perfil' : page);
+const buscaDe = (page) => (CHAVES[raizDe(page)] ? `?${CHAVES[raizDe(page)]}` : '');
+const ALIAS = { 'all-cards': 'all-cards', 'three-card-game': 'three-card-game', history: 'history', profile: 'perfil', perfil: 'perfil', mapa: 'perfil', 'novo-mapa': 'perfil', editar: 'perfil' };
+/** Tela pedida pela URL atual (a primeira chave conhecida da busca); sem chave conhecida, a Home. */
+function paginaDaUrl() {
+    for (const k of new URLSearchParams(location.search).keys()) if (ALIAS[k]) return ALIAS[k];
+    return 'home';
+}
+function registrarHistorico(page, de, inicial) {
+    const url = `${location.pathname}${buscaDe(page)}`;
+    const estadoUrl = { tela: raizDe(page) };
+    try {
+        if (inicial) history.replaceState(estadoUrl, '', page === 'home' ? location.href : url);
+        else if (de && de !== page) history.pushState(estadoUrl, '', url);
+        else history.replaceState(estadoUrl, '', url);
+    } catch (e) { /* ambiente sem History API: a navegacao segue funcionando sem URL */ }
+}
+
 /**
  * opts.aba: veio da barra de navegacao, entao restaura a rolagem guardada da aba (senao, topo).
+ * opts.semHistorico: a URL ja esta certa (Voltar/Avancar do navegador); opts.inicial: primeira tela da pagina.
  * Voltar para a tela raiz da mesma aba (ex.: mapa -> perfil) tambem restaura. O resto abre no topo.
  */
 export function navigateTo(page, estado = null, opts = {}) {
+    if (!opts.semHistorico) registrarHistorico(page, telaAtual, !!opts.inicial);
     const appContainer = document.getElementById('app');
     const de = telaAtual;
     if (de && montada) posicoes[de] = window.scrollY;
@@ -143,6 +171,8 @@ export function setupNavigation() {
     links.forEach(link => {
         link.addEventListener('click', (event) => {
             const href = link.getAttribute('href'); // Obtém o valor do atributo href
+            // Ctrl/Cmd/Shift/Alt ou botao do meio: deixa o navegador abrir o link real em outra aba
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button) return;
 
             // Permite a navegação padrão para links que levam a páginas externas (como .html)
             if (href && href.endsWith('.html')) {
@@ -158,7 +188,15 @@ export function setupNavigation() {
 }
 
 
+/* Voltar e Avancar do navegador: a tela vem do estado da entrada (so o nome) ou, sem ele, da URL. */
+window.addEventListener('popstate', (e) => {
+    const alvo = raizDe((e.state && e.state.tela) || paginaDaUrl());
+    if (alvo === telaAtual) return; // so mudou o fragmento (#main) ou a entrada e a mesma tela
+    navigateTo(alvo, null, { aba: true, semHistorico: true });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+    try { history.scrollRestoration = 'manual'; } catch (e) { /* a rolagem por tela e nossa */ }
     setupNavigation(); // Configura os links do menu
-    navigateTo('home'); // Carrega a página inicial por padrão
+    navigateTo(paginaDaUrl(), null, { inicial: true }); // abre a tela da URL (Home sem chave conhecida)
 });
