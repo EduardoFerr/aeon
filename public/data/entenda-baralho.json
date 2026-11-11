@@ -1,0 +1,226 @@
+{
+  "titulo": "Entenda o baralho",
+  "intro": "Os termos do Tarot de Thoth explicados do zero, para você ler cada carta com mais segurança.",
+  "topicos": [
+    {
+      "id": "baralho",
+      "titulo": "O baralho de Thoth",
+      "resumo": "São 78 cartas: 22 Arcanos Maiores e 56 Menores, divididos em quatro naipes.",
+      "texto": "O Tarot de Thoth tem 78 cartas. Os 22 Arcanos Maiores são as cartas com nome e imagem próprios, do Louco ao Universo. Os 56 Arcanos Menores formam os quatro naipes: Bastões, Taças, Espadas e Discos. Cada naipe tem dez cartas numeradas, do Ás ao Dez, e quatro figuras da Corte, o que dá 40 numeradas e 16 da Corte.\n\nO baralho segue a Cabala (tradição mística de origem judaica) e a astrologia. Por isso as cartas trazem letras hebraicas, signos e planetas. De onde vem o nome Thoth, o Guia do Tarot explica.",
+      "itens": [
+        {
+          "rotulo": "Arcanos Maiores",
+          "texto": "22 cartas, do Louco ao Universo. Cada uma tem uma letra hebraica."
+        },
+        {
+          "rotulo": "Cartas numeradas",
+          "texto": "40 cartas, do Ás ao Dez, dez em cada naipe."
+        },
+        {
+          "rotulo": "Corte",
+          "texto": "16 cartas, quatro por naipe: Cavaleiro, Rainha, Príncipe e Princesa."
+        }
+      ]
+    },
+    {
+      "id": "arvore",
+      "titulo": "A Árvore da Vida",
+      "resumo": "O mapa da Cabala, com dez esferas. As cartas numeradas, do Ás ao Dez, ocupam uma esfera cada.",
+      "texto": "A Árvore da Vida é o mapa da Cabala: dez esferas (em hebraico, sephiroth, cada uma uma qualidade do mundo) ligadas por 22 caminhos. Ela se lê de cima, onde tudo ainda é um só, até embaixo, o mundo concreto.\n\nAs cartas numeradas correspondem às esferas: o Ás fica em Kether, o Dois em Chokmah, e assim até o Dez em Malkuth. A esfera dá o tema da carta, e o naipe mostra em que campo ele aparece.",
+      "itens": [
+        {
+          "rotulo": "1. Kether, a Coroa",
+          "texto": "A origem, onde tudo ainda é um só. Nela ficam os quatro Ases."
+        },
+        {
+          "rotulo": "2. Chokmah, a Sabedoria",
+          "texto": "O primeiro impulso: a força que sai da origem e busca direção."
+        },
+        {
+          "rotulo": "3. Binah, o Entendimento",
+          "texto": "A forma que recebe a força, com contorno, limite e tempo."
+        },
+        {
+          "rotulo": "4. Chesed, a Misericórdia",
+          "texto": "Expansão, generosidade e ordem estável."
+        },
+        {
+          "rotulo": "5. Geburah, o Rigor",
+          "texto": "A força que corta, delimita e põe à prova."
+        },
+        {
+          "rotulo": "6. Tiphareth, a Beleza",
+          "texto": "O centro da Árvore, onde as forças se equilibram."
+        },
+        {
+          "rotulo": "7. Netzach, a Vitória",
+          "texto": "Desejo, instinto, natureza e arte. A vitória aqui é a persistência do desejo."
+        },
+        {
+          "rotulo": "8. Hod, o Esplendor",
+          "texto": "Intelecto, palavra e comunicação."
+        },
+        {
+          "rotulo": "9. Yesod, o Fundamento",
+          "texto": "Imagens, ritmos e corpo: reflete o que vem das esferas de cima."
+        },
+        {
+          "rotulo": "10. Malkuth, o Reino",
+          "texto": "O mundo concreto, a matéria. Aqui termina a Árvore."
+        }
+      ]
+    },
+    {
+      "id": "caminhos",
+      "titulo": "Os 22 caminhos e as letras hebraicas",
+      "resumo": "Cada Arcano Maior ocupa um caminho entre duas esferas e leva o nome de uma letra hebraica.",
+      "texto": "Os 22 caminhos são as linhas que ligam duas esferas da Árvore da Vida, numeradas de 11 a 32. Cada caminho corresponde a um Arcano Maior, do Louco (caminho 11) ao Universo (caminho 32), e leva o nome de uma letra do alfabeto hebraico. Cada carta mostra a sua letra e o seu caminho.\n\nO Thoth troca duas letras em relação a outros baralhos: aqui o Imperador é Tzaddi e a Estrela é Heh. Em outros baralhos, é o contrário.",
+      "itens": [
+        {
+          "rotulo": "O Louco",
+          "texto": "Aleph (boi), caminho 11, entre Kether e Chokmah."
+        },
+        {
+          "rotulo": "O Imperador",
+          "texto": "Tzaddi (anzol), caminho 28, entre Netzach e Yesod."
+        },
+        {
+          "rotulo": "A Estrela",
+          "texto": "Heh (janela), caminho 15, entre Chokmah e Tiphareth."
+        },
+        {
+          "rotulo": "O Universo",
+          "texto": "Tav (marca), caminho 32, entre Yesod e Malkuth."
+        }
+      ]
+    },
+    {
+      "id": "naipes",
+      "titulo": "Os quatro naipes e os elementos",
+      "resumo": "Cada naipe corresponde a um elemento: Fogo, Água, Ar ou Terra.",
+      "texto": "Cada naipe corresponde a um dos quatro elementos, as quatro energias do tarô. O elemento mostra em que campo da vida a carta fala: querer, sentir, pensar ou construir. A esfera dá o tema, e o naipe, o campo. O Cinco de Bastões, por exemplo, junta o Rigor (Geburah) com a vontade. Os quatro elementos juntos formam o Tetragrama, o nome divino de quatro letras, que volta a aparecer na Corte.",
+      "itens": [
+        {
+          "rotulo": "Bastões e Fogo",
+          "texto": "Vontade e impulso: o que você quer e coloca em movimento."
+        },
+        {
+          "rotulo": "Taças e Água",
+          "texto": "Emoção e intuição: o que você sente."
+        },
+        {
+          "rotulo": "Espadas e Ar",
+          "texto": "Mente e palavra: o pensar, o decidir e o dizer."
+        },
+        {
+          "rotulo": "Discos e Terra",
+          "texto": "Corpo, trabalho e matéria: o que é concreto e se constrói."
+        }
+      ]
+    },
+    {
+      "id": "decanos",
+      "titulo": "Decanos, planetas e signos",
+      "resumo": "As cartas de 2 a 10 ocupam um trecho de 10 graus de um signo, com um planeta regente.",
+      "texto": "O zodíaco é o círculo de 12 signos, e cada signo ocupa 30 graus. Cada signo se divide em três decanos, trechos de 10 graus. As cartas de 2 a 10 de cada naipe ocupam um decano, três por signo. Os Ases ficam de fora: estão em Kether, sem signo nem planeta.\n\nCada decano tem um planeta regente, na ordem caldeia, a sequência tradicional dos planetas: Marte, Sol, Vênus, Mercúrio, Lua, Saturno, Júpiter, e de novo. Ela começa em Marte, no primeiro decano de Áries. Já a exaltação é o signo em que um planeta rende mais: o Sol em Áries, Saturno em Libra.",
+      "itens": [
+        {
+          "rotulo": "Dois de Bastões",
+          "texto": "Marte, nos 0 a 10 graus de Áries."
+        },
+        {
+          "rotulo": "Três de Bastões",
+          "texto": "Sol, nos 10 a 20 graus de Áries."
+        },
+        {
+          "rotulo": "Quatro de Bastões",
+          "texto": "Vênus, nos 20 a 30 graus de Áries."
+        }
+      ]
+    },
+    {
+      "id": "corte",
+      "titulo": "A Corte e o Tetragrama",
+      "resumo": "Cavaleiro, Rainha, Príncipe e Princesa seguem as quatro letras do nome divino.",
+      "texto": "O Tetragrama é o nome divino de quatro letras hebraicas: Yod, Heh, Vav, Heh. Cada letra corresponde a uma figura da Corte e a um elemento: o Cavaleiro é Yod (Fogo), a Rainha é o primeiro Heh (Água), o Príncipe é Vav (Ar) e a Princesa é o segundo Heh (Terra).\n\nCada figura é um elemento dentro do elemento do naipe, o elemento composto: o Príncipe de Bastões é Ar de Fogo, a mente dentro do impulso. Cavaleiro, Rainha e Príncipe regem uma faixa de 30 graus do zodíaco, de 20° de um signo a 20° do seguinte. A Princesa não rege nenhum signo.",
+      "itens": [
+        {
+          "rotulo": "Cavaleiro, Yod",
+          "texto": "Cavaleiro de Bastões: Fogo de Fogo, de 20° Escorpião a 20° Sagitário."
+        },
+        {
+          "rotulo": "Rainha, primeiro Heh",
+          "texto": "Rainha de Discos: Água de Terra, de 20° Sagitário a 20° Capricórnio."
+        },
+        {
+          "rotulo": "Príncipe, Vav",
+          "texto": "Príncipe de Taças: Ar de Água, de 20° Libra a 20° Escorpião."
+        },
+        {
+          "rotulo": "Princesa, segundo Heh",
+          "texto": "Princesa de Espadas: Terra de Ar, sem signo."
+        }
+      ]
+    },
+    {
+      "id": "nomes",
+      "titulo": "Nomes de Thoth",
+      "resumo": "Quem aprendeu o tarô em outro baralho encontra aqui o nome equivalente.",
+      "texto": "Se você aprendeu o tarô no Rider-Waite ou no de Marselha, alguns nomes mudam no Thoth, embora as cartas correspondam. Mudam alguns Arcanos Maiores, três figuras da Corte e três naipes. Veja abaixo o nome de Thoth e o equivalente no baralho mais comum. Quando o nome é o mesmo nos dois, isso aparece na lista.",
+      "itens": [
+        {
+          "rotulo": "O Ajuste",
+          "texto": "Em outros baralhos: A Justiça."
+        },
+        {
+          "rotulo": "A Luxúria",
+          "texto": "Em outros baralhos: A Força."
+        },
+        {
+          "rotulo": "A Arte",
+          "texto": "Em outros baralhos: A Temperança."
+        },
+        {
+          "rotulo": "O Éon",
+          "texto": "Em outros baralhos: O Julgamento."
+        },
+        {
+          "rotulo": "O Universo",
+          "texto": "Em outros baralhos: O Mundo."
+        },
+        {
+          "rotulo": "Cavaleiro",
+          "texto": "Em outros baralhos: Rei."
+        },
+        {
+          "rotulo": "Rainha",
+          "texto": "Em outros baralhos: Rainha, o mesmo nome."
+        },
+        {
+          "rotulo": "Príncipe",
+          "texto": "Em outros baralhos: Cavaleiro."
+        },
+        {
+          "rotulo": "Princesa",
+          "texto": "Em outros baralhos: Pajem."
+        },
+        {
+          "rotulo": "Bastões",
+          "texto": "Em outros baralhos: Paus."
+        },
+        {
+          "rotulo": "Taças",
+          "texto": "Em outros baralhos: Copas."
+        },
+        {
+          "rotulo": "Espadas",
+          "texto": "Em outros baralhos: Espadas, o mesmo nome."
+        },
+        {
+          "rotulo": "Discos",
+          "texto": "Em outros baralhos: Ouros ou Pentáculos."
+        }
+      ]
+    }
+  ]
+}

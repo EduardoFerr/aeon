@@ -2,6 +2,9 @@ import('./TarotCard.js');
 import('./TarotCardInfo.js');
 
 import { loadCards } from '../utils/cardsUtil.js';
+import { abrir } from './Sobreposicao.js';
+import { ic } from '../utils/glifos.js';
+import { escaparHtml } from '../utils/glossario.js';
 
 const CHAVE_FILTRO = 'aeon.cartas.filtro';
 
@@ -56,12 +59,15 @@ export class AllCardsScreen extends HTMLElement {
         this.innerHTML = `
             <section class="all-cards-screen">
                 <div class="grade-ferramentas" role="search" aria-label="Buscar e filtrar cartas">
+                  <div class="grade-topo">
                     <div class="grade-busca">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
                         <label class="sr" for="grade-busca">Buscar carta</label>
                         <input id="grade-busca" type="search" placeholder="Buscar carta, naipe ou número" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-controls="all-cards">
                         <button class="grade-limpar" type="button" aria-label="Limpar busca" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
                     </div>
+                    <button class="btn btn-ghost grade-entenda" id="abrir-entenda" type="button" aria-haspopup="dialog" aria-expanded="false">${ic('guia')}Entenda o baralho</button>
+                  </div>
                     <div class="chips" id="grade-chips" role="group" aria-label="Filtrar por grupo"></div>
                     <p class="grade-contagem" id="grade-contagem" role="status" aria-live="polite"></p>
                 </div>
@@ -76,8 +82,34 @@ export class AllCardsScreen extends HTMLElement {
         `;
 
         document.querySelector('#page-title').textContent = "Tarot de Thoth"
+        this.querySelector('#abrir-entenda').addEventListener('click', (e) => this.abrirEntenda(e.currentTarget));
         // Carregar e renderizar as cartas
         await this.renderCards()
+    }
+
+    /** Menu lateral "Entenda o baralho": o que complementa o tarô (Árvore da Vida, letras, naipes, decanos, Corte, nomes de Thoth). */
+    async abrirEntenda(botao) {
+        botao.setAttribute('aria-expanded', 'true');
+        let dados = null;
+        try {
+            const r = await fetch('/data/entenda-baralho.json');
+            dados = r.ok ? await r.json() : null;
+        } catch (e) {
+            dados = null;
+        }
+        const topicos = dados && Array.isArray(dados.topicos) ? dados.topicos : [];
+        const item = (i) => `<div class="ent-item"><dt>${escaparHtml(i.rotulo)}</dt><dd>${escaparHtml(i.texto)}</dd></div>`;
+        const corpo = topicos.length
+            ? `${dados.intro ? `<p class="ent-intro">${escaparHtml(dados.intro)}</p>` : ''}<div class="ent-lista">${topicos
+                  .map(
+                      (t) => `<details class="ent-top" id="ent-${escaparHtml(t.id)}"><summary><span class="ent-tit">${escaparHtml(t.titulo)}</span><span class="ent-res">${escaparHtml(t.resumo)}</span></summary><div class="ent-corpo">${String(t.texto)
+                          .split(/\n+/)
+                          .map((p) => `<p>${escaparHtml(p)}</p>`)
+                          .join('')}${Array.isArray(t.itens) && t.itens.length ? `<dl class="ent-itens">${t.itens.map(item).join('')}</dl>` : ''}</div></details>`
+                  )
+                  .join('')}</div>`
+            : '<p class="ent-intro">Não foi possível carregar este conteúdo agora. Tente de novo em instantes.</p>';
+        abrir({ tipo: 'gaveta', classe: 'entenda', titulo: escaparHtml((dados && dados.titulo) || 'Entenda o baralho'), gatilho: botao, corpo, aoFechar: () => botao.setAttribute('aria-expanded', 'false') });
     }
 
     async renderCards() {
