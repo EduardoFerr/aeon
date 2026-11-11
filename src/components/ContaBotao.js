@@ -1,7 +1,7 @@
 import { ic } from '../utils/glifos.js';
 import { SYNC_ATIVA } from '../utils/contaEstado.js';
 import { aoMudarConta, estadoConta } from '../utils/conta.js';
-import { abrirConta } from './ContaSheet.js';
+import { abrirConta, retomarPendente } from './ContaSheet.js';
 
 /** Texto de leitor de tela e dica do botao, conforme o estado da conta. Sem dizer o que ou onde se guarda. */
 export function rotuloDaConta(e) {
@@ -37,4 +37,11 @@ export function montarBotaoConta() {
     aoMudarConta(atualizar);
     b.addEventListener('click', () => abrirConta(b));
     alvo.insertBefore(b, alvo.firstChild);
+    // pediu o codigo e foi ler o e-mail: ao voltar (ou se a pagina recarregou), o painel reabre na tela do codigo
+    setTimeout(retomarPendente, 800);
+    let saiuEm = 0;
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') saiuEm = Date.now();
+        else if (saiuEm && Date.now() - saiuEm > 5000) retomarPendente();
+    });
 }
