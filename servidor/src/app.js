@@ -10,7 +10,7 @@ import { baseDoEmail, chaveIp } from './ip.js';
 import { criarLimitador } from './limites.js';
 import { criarAuth, normalizarEmail } from './auth.js';
 import { criarSync } from './sync.js';
-import { mensagemCodigo, mensagemContaApagada } from './email.js';
+import { mensagemCodigo, mensagemContaEncerrada } from './email.js';
 
 const METODOS_QUE_MUDAM = new Set(['POST', 'PUT', 'PATCH', 'DELETE']);
 const HORA = 60 * 60 * 1000;
@@ -181,9 +181,9 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     rotas.adicionar('DELETE', '/v1/conta', { limiteCorpo: LIMITE_CORPO_AUTH }, async ({ sessao, corpo }) => {
         if (corpo.confirmo !== 'apagar') throw new ErroHttp(400, 'confirmacao_necessaria');
         const emailDoUsuario = sessao.usuario.email;
-        sync.apagarConta(sessao.usuario.id);
+        sync.encerrarConta(sessao.usuario.id);
         auth.varrer();
-        if (emailDoUsuario) enviarEmail(emailDoUsuario, mensagemContaApagada());
+        if (emailDoUsuario) enviarEmail(emailDoUsuario, mensagemContaEncerrada());
         // se o aparelho ainda tem outras contas, a sessao (e o cookie) continua
         const resta = auth.sessaoAberta(sessao.sessaoId) ? auth.contas(sessao.sessaoId) : [];
         return { corpo: { ok: true, contas: resta }, cabecalhos: resta.length ? {} : { 'Set-Cookie': cookieSessao('', 0) } };

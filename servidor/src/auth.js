@@ -135,7 +135,7 @@ export function criarAuth({ db, config, relogio, fundir }) {
     /** Sessões sem nenhuma conta saem; conta anônima sem nenhuma sessão ligada está órfã (ninguém chega nela) e sai com os itens. */
     function aposDesligar() {
         db.prepare('DELETE FROM sessoes WHERE id NOT IN (SELECT sessao_id FROM sessao_contas)').run();
-        db.prepare('DELETE FROM usuarios WHERE email IS NULL AND id NOT IN (SELECT usuario_id FROM sessao_contas)').run();
+        db.prepare('DELETE FROM usuarios WHERE email IS NULL AND desativada_em IS NULL AND id NOT IN (SELECT usuario_id FROM sessao_contas)').run();
     }
 
     return {
@@ -377,7 +377,7 @@ export function criarAuth({ db, config, relogio, fundir }) {
             db.prepare('DELETE FROM sessoes WHERE ultimo_uso < ?').run(iso(agora - SESSAO_MS));
             // conta anonima que nunca guardou nada e nao e usada ha 7 dias: sai (nao ha dado a perder)
             db.prepare(
-                `DELETE FROM usuarios WHERE email IS NULL AND ultimo_acesso < ?
+                `DELETE FROM usuarios WHERE email IS NULL AND desativada_em IS NULL AND ultimo_acesso < ?
                  AND NOT EXISTS (SELECT 1 FROM itens WHERE itens.usuario_id = usuarios.id)`,
             ).run(iso(agora - EXPURGO_ANONIMA_VAZIA_MS));
             aposDesligar();

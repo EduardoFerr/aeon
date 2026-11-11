@@ -202,7 +202,7 @@ test('exportar devolve tudo em JSON legível e baixa como arquivo', async (t) =>
     assert.equal(r.json.itens.length, 2);
 });
 
-test('apagar a conta: confirmação obrigatória, apaga tudo, encerra as sessões e avisa por e-mail', async (t) => {
+test('encerrar a conta: confirmação obrigatória, sai de todos os aparelhos, libera o e-mail e avisa', async (t) => {
     const { s, a, b } = await dois(t);
     await enviar(s, a, [item('perfil', 'perfil', { nome: 'Ana' }, T(1)), item('mapa', 'm1', { nascimento: { local: 'X' } }, T(2))]);
     assert.equal((await s.chamar('DELETE', '/v1/conta', { cookie: a, corpo: {} })).status, 400);
@@ -213,10 +213,17 @@ test('apagar a conta: confirmação obrigatória, apaga tudo, encerra as sessõe
     assert.match(r.setCookie, /Max-Age=0/);
     await s.app.ocioso();
     assert.equal(s.enviados.length, antes + 1);
-    assert.match(s.enviados[s.enviados.length - 1].assunto, /apagados/);
-    for (const tabela of ['usuarios', 'sessoes', 'itens', 'codigos']) {
+    assert.match(s.enviados[s.enviados.length - 1].assunto, /encerrada/);
+    for (const tabela of ['sessoes', 'sessao_contas', 'codigos']) {
         assert.equal(s.app.db.prepare(`SELECT COUNT(*) AS n FROM ${tabela}`).get().n, 0, tabela);
     }
+    // a conta sai de circulacao: sem e-mail e sem chave (livres), marcada como encerrada, e nada a alcança mais
+    const u = s.app.db.prepare('SELECT email, chave_hash, desativada_em FROM usuarios').get();
+    assert.equal(u.email, null);
+    assert.equal(u.chave_hash, null);
+    assert.ok(u.desativada_em);
+    s.app.auth.limpar(); // a limpeza nunca a trata como conta anonima abandonada
+    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM usuarios').get().n, 1);
     assert.equal((await s.chamar('GET', '/v1/eu', { cookie: a })).status, 401);
     assert.equal((await s.chamar('GET', '/v1/eu', { cookie: b })).status, 401);
     // pode criar a conta de novo, do zero

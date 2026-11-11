@@ -43,7 +43,7 @@ Sobem o servidor numa porta livre, com banco em memória, e-mail falso e relógi
 | `GET /sync?desde=N` | Itens com `seq` maior que N, inclusive apagados. |
 | `POST /sync` `{ desde, itens }` | Envia mudanças. Devolve o que falta ao aparelho e o novo cursor. |
 | `GET /exportar` | Tudo do usuário em JSON, como arquivo. |
-| `DELETE /conta` `{ confirmo: "apagar" }` | Apaga tudo e encerra a conta. Avisa por e-mail. |
+| `DELETE /conta` `{ confirmo: "apagar" }` | Encerra a conta (sai de todos os aparelhos; o e-mail e a chave ficam livres). Avisa por e-mail. |
 | `GET /saude` | Para monitoramento. |
 
 Pedidos que mudam dados só valem com `Origin` permitido (`ORIGENS_PERMITIDAS`).

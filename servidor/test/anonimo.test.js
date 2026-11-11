@@ -39,7 +39,7 @@ test('migrações: v1 vira a versão atual sem perder usuários, itens nem sess�
     v1.prepare("INSERT INTO sessoes (id, token_hash, usuario_id, aparelho, criada_em, ultimo_uso) VALUES ('s', 'h', 1, 'a', 'x', 'x')").run();
     v1.close();
     const v3 = abrirBanco(caminho);
-    assert.equal(v3.prepare('PRAGMA user_version').get().user_version, 4);
+    assert.equal(v3.prepare('PRAGMA user_version').get().user_version, 5);
     assert.equal(v3.prepare('SELECT COUNT(*) AS n FROM itens').get().n, 1);
     assert.equal(v3.prepare('SELECT COUNT(*) AS n FROM sessoes').get().n, 1);
     assert.deepEqual({ ...v3.prepare('SELECT sessao_id, usuario_id FROM sessao_contas').get() }, { sessao_id: 's', usuario_id: 1 });
@@ -348,4 +348,21 @@ test('outra conta anônima na sessão: 3 por dia por aparelho e o mesmo freio po
     }
     s.avancar(31 * 60 * 1000);
     assert.equal((await criar()).status, 429); // a quarta no dia
+});
+
+test('conta encerrada: a chave e o e-mail ficam livres e nenhuma limpeza a alcança', async (t) => {
+    const s = await subir();
+    t.after(() => s.fechar());
+    const a = await anonimo(s);
+    await enviar(s, a.cookie, [item('diario', 'd1', entrada('x'), T(1))]);
+    await s.chamar('DELETE', '/v1/conta', { cookie: a.cookie, corpo: { confirmo: 'apagar' } });
+    const resp = await s.chamar('POST', '/v1/auth/chave', { corpo: { chave: a.chave, aparelho: 'X' } });
+    assert.equal(resp.status, 400); // a chave nao abre mais nada
+    s.avancar(30 * 24 * 60 * 60 * 1000);
+    s.app.auth.limpar();
+    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM usuarios WHERE desativada_em IS NOT NULL').get().n, 1);
+    // o mesmo aparelho pode gerar outra conta do zero
+    const b = await anonimo(s);
+    assert.notEqual(b.id, a.id);
+    assert.equal((await ler(s, b.cookie)).json.itens.length, 0);
 });
