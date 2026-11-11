@@ -76,8 +76,20 @@ export default defineConfig({
         // guarda cada arquivo para o mapa funcionar sem rede.
         runtimeCaching: [
           {
+            // Os textos mudam a cada versao: rede primeiro (com o cache como reserva offline), para quem ja
+            // visitou o site nunca ver uma tela nova com textos antigos faltando.
+            urlPattern: ({ url }) => url.pathname === "/data/astro/textos.json",
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "aeon-astro-textos",
+              networkTimeoutSeconds: 4,
+              expiration: { maxEntries: 2, maxAgeSeconds: 60 * 60 * 24 * 90 },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
+          {
             urlPattern: ({ url }) =>
-              /^\/data\/(astro|locais)\/[^/]+\.json$/.test(url.pathname),
+              /^\/data\/(astro|locais)\/[^/]+\.json$/.test(url.pathname) && url.pathname !== "/data/astro/textos.json",
             handler: "StaleWhileRevalidate",
             options: {
               cacheName: "aeon-astro-dados",
