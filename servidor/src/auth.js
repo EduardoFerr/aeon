@@ -26,7 +26,7 @@ function aparelhoLimpo(valor) {
     return t || 'Aparelho';
 }
 
-export function criarAuth({ db, config, relogio }) {
+export function criarAuth({ db, config, relogio, fundir }) {
     const hmac = (texto) => createHmac('sha256', config.segredo).update(texto).digest('hex');
     // O código nunca é guardado: sai da semente (aleatória, no banco) e do SEGREDO (fora do banco).
     const codigoDe = (email, semente) =>
@@ -65,7 +65,7 @@ export function criarAuth({ db, config, relogio }) {
         },
 
         /** Confere o código. Todo erro é o mesmo "codigo_invalido": não diz se o e-mail existe nem o que falhou. */
-        confirmar(email, codigo, aparelho) {
+        confirmar(email, codigo, aparelho, tokenAtual) {
             const falha = () => new ErroHttp(400, 'codigo_invalido');
             if (typeof codigo !== 'string' || !RE_CODIGO.test(codigo)) throw falha();
             const agora = relogio();
@@ -89,6 +89,27 @@ export function criarAuth({ db, config, relogio }) {
                 }
                 db.prepare('DELETE FROM codigos WHERE email = ?').run(email);
                 const agoraIso = iso(agora);
+                // Quem ja tem conta anonima neste aparelho: o login so associa o e-mail a ela, ou, se o e-mail ja tem
+                // conta (de outro aparelho), funde os dados e passa a usar a conta do e-mail. A sessao continua a mesma.
+                const anonima = typeof tokenAtual === 'string' && tokenAtual.length >= 20
+                    ? db.prepare('SELECT s.id AS sessao_id, u.id AS uid FROM sessoes s JOIN usuarios u ON u.id = s.usuario_id WHERE s.token_hash = ? AND u.email IS NULL').get(sha256(tokenAtual))
+                    : null;
+                if (anonima) {
+                    const existente = db.prepare('SELECT id, criado_em FROM usuarios WHERE email = ?').get(email);
+                    if (!existente) {
+                        db.prepare('UPDATE usuarios SET email = ?, ultimo_acesso = ? WHERE id = ?').run(email, agoraIso, anonima.uid);
+                        const u = db.prepare('SELECT criado_em FROM usuarios WHERE id = ?').get(anonima.uid);
+                        return { token: null, usuario: { email, criado_em: u.criado_em }, vinculou: true, fundiu: false };
+                    }
+                    fundir(anonima.uid, existente.id);
+                    db.prepare('UPDATE sessoes SET usuario_id = ? WHERE usuario_id = ?').run(existente.id, anonima.uid);
+                    db.prepare('UPDATE usuarios SET ultimo_acesso = ? WHERE id = ?').run(agoraIso, existente.id);
+                    db.prepare('DELETE FROM usuarios WHERE id = ?').run(anonima.uid);
+                    db.prepare(
+                        'DELETE FROM sessoes WHERE usuario_id = ? AND id NOT IN (SELECT id FROM sessoes WHERE usuario_id = ? ORDER BY ultimo_uso DESC, criada_em DESC LIMIT ?)',
+                    ).run(existente.id, existente.id, MAX_SESSOES_POR_USUARIO);
+                    return { token: null, usuario: { email, criado_em: existente.criado_em }, vinculou: false, fundiu: true };
+                }
                 db.prepare(
                     `INSERT INTO usuarios (email, criado_em, ultimo_acesso) VALUES (?, ?, ?)
                      ON CONFLICT(email) DO UPDATE SET ultimo_acesso = excluded.ultimo_acesso`,
@@ -103,10 +124,23 @@ export function criarAuth({ db, config, relogio }) {
                 db.prepare(
                     'DELETE FROM sessoes WHERE usuario_id = ? AND id NOT IN (SELECT id FROM sessoes WHERE usuario_id = ? ORDER BY ultimo_uso DESC, criada_em DESC LIMIT ?)',
                 ).run(usuario.id, usuario.id, MAX_SESSOES_POR_USUARIO);
-                return { token, usuario: { email: usuario.email, criado_em: usuario.criado_em } };
+                return { token, usuario: { email: usuario.email, criado_em: usuario.criado_em }, vinculou: false, fundiu: false };
             });
             if (!r) throw falha();
             return r;
+        },
+
+        /** Conta anonima para um aparelho: sem e-mail, com uma sessao. -> { token, usuario } */
+        criarAnonimo(aparelho) {
+            const agoraIso = iso(relogio());
+            return transacao(db, () => {
+                const uid = Number(db.prepare('INSERT INTO usuarios (email, criado_em, ultimo_acesso) VALUES (NULL, ?, ?)').run(agoraIso, agoraIso).lastInsertRowid);
+                const token = randomBytes(32).toString('base64url');
+                db.prepare(
+                    'INSERT INTO sessoes (id, token_hash, usuario_id, aparelho, criada_em, ultimo_uso) VALUES (?, ?, ?, ?, ?, ?)',
+                ).run(randomBytes(8).toString('hex'), sha256(token), uid, aparelhoLimpo(aparelho), agoraIso, agoraIso);
+                return { token, usuario: { email: null, anonimo: true, criado_em: agoraIso } };
+            });
         },
 
         /** Sessão do cookie, ou null. Renova o prazo (no máximo 1 vez por hora). -> { usuario, sessaoId, renovou } */
@@ -159,6 +193,8 @@ export function criarAuth({ db, config, relogio }) {
             // marcas de exclusão (sem conteúdo) com mais de 1 ano: um aparelho parado por tanto tempo já perdeu a sessão
             db.prepare('DELETE FROM itens WHERE apagado = 1 AND atualizado_em < ?').run(iso(agora - EXPURGO_MARCAS_MS));
             db.prepare('DELETE FROM sessoes WHERE ultimo_uso < ?').run(iso(agora - SESSAO_MS));
+            // conta anonima sem nenhuma sessao: ninguem mais consegue chegar nela (o dado esta orfao). Sai com os itens.
+            db.prepare('DELETE FROM usuarios WHERE email IS NULL AND id NOT IN (SELECT usuario_id FROM sessoes)').run();
         },
     };
 }

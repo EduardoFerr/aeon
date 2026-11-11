@@ -53,9 +53,24 @@ const MIGRACOES = [
         );
         CREATE INDEX itens_seq ON itens(usuario_id, seq);
     `),
+    // 2: contas anonimas. O e-mail passa a poder ser nulo (a conta nasce sem e-mail; o login so o associa depois).
+    // O SQLite nao troca NOT NULL no lugar: recria a tabela (com as chaves estrangeiras desligadas, como ele manda).
+    (db) =>
+        db.exec(`
+        CREATE TABLE usuarios_novo (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT UNIQUE,
+            criado_em TEXT NOT NULL,
+            ultimo_acesso TEXT NOT NULL,
+            seq INTEGER NOT NULL DEFAULT 0
+        );
+        INSERT INTO usuarios_novo (id, email, criado_em, ultimo_acesso, seq) SELECT id, email, criado_em, ultimo_acesso, seq FROM usuarios;
+        DROP TABLE usuarios;
+        ALTER TABLE usuarios_novo RENAME TO usuarios;
+    `),
 ];
 
-export function abrirBanco(caminho) {
+export function abrirBanco(caminho, { ateVersao = MIGRACOES.length } = {}) {
     if (caminho !== ':memory:') mkdirSync(dirname(caminho), { recursive: true });
     const db = new DatabaseSync(caminho);
     db.exec('PRAGMA journal_mode = WAL');
@@ -63,15 +78,21 @@ export function abrirBanco(caminho) {
     db.exec('PRAGMA busy_timeout = 5000');
     db.exec('PRAGMA synchronous = NORMAL');
     const versao = db.prepare('PRAGMA user_version').get().user_version;
-    for (let v = versao; v < MIGRACOES.length; v++) {
+    for (let v = versao; v < ateVersao; v++) {
+        // PRAGMA foreign_keys nao muda dentro de transacao: desliga antes, confere depois e religa.
+        db.exec('PRAGMA foreign_keys = OFF');
         db.exec('BEGIN');
         try {
             MIGRACOES[v](db);
             db.exec(`PRAGMA user_version = ${v + 1}`);
+            const quebradas = db.prepare('PRAGMA foreign_key_check').all();
+            if (quebradas.length) throw new Error(`migracao ${v + 1} deixou chaves estrangeiras quebradas`);
             db.exec('COMMIT');
         } catch (e) {
             db.exec('ROLLBACK');
             throw e;
+        } finally {
+            db.exec('PRAGMA foreign_keys = ON');
         }
     }
     return db;

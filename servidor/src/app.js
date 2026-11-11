@@ -22,8 +22,8 @@ const HORA = 60 * 60 * 1000;
  * Os logs têm só rota, status, duração e id do usuário. Nunca e-mail, código, IP nem conteúdo dos dados.
  */
 export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, relogio = Date.now, log = () => {} }) {
-    const auth = criarAuth({ db, config, relogio });
     const sync = criarSync({ db, relogio });
+    const auth = criarAuth({ db, config, relogio, fundir: sync.fundir });
     const limites = criarLimitador(relogio);
     const origens = new Set(config.origens);
     const nomeCookie = config.cookieSeguro ? '__Host-aeon' : 'aeon';
@@ -70,14 +70,23 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         return { status: 202, corpo: { ok: true } };
     });
 
+    // Conta anonima: todo aparelho ganha uma ao abrir o app. Sem e-mail; o login depois so associa o e-mail a ela.
+    rotas.adicionar('POST', '/v1/auth/anonimo', { livre: true, limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, corpo }) => {
+        limiteOuErro(`anonimo-ip:${chaveIp(ipDe(req))}`, 30, HORA);
+        limiteOuErro('anonimo-global', 600, HORA);
+        const r = auth.criarAnonimo(corpo.aparelho);
+        return { status: 201, corpo: { usuario: r.usuario }, cabecalhos: { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } };
+    });
+
     rotas.adicionar('POST', '/v1/auth/confirmar', { livre: true, limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, corpo }) => {
         const e = normalizarEmail(corpo.email);
         if (!e) throw new ErroHttp(400, 'codigo_invalido');
         limiteOuErro(`confirmar-ip:${chaveIp(ipDe(req))}`, 10, 15 * 60 * 1000);
-        const r = auth.confirmar(e, corpo.codigo, corpo.aparelho);
+        const r = auth.confirmar(e, corpo.codigo, corpo.aparelho, lerCookies(req)[nomeCookie]);
         return {
-            corpo: { usuario: r.usuario },
-            cabecalhos: { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) },
+            corpo: { usuario: r.usuario, vinculou: r.vinculou, fundiu: r.fundiu },
+            // com conta anonima no aparelho a sessao continua a mesma; so uma sessao nova leva cookie novo
+            cabecalhos: r.token ? { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } : {},
         };
     });
 
@@ -92,7 +101,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     });
 
     rotas.adicionar('GET', '/v1/eu', {}, async ({ sessao }) => ({
-        corpo: { email: sessao.usuario.email, criado_em: sessao.usuario.criado_em },
+        corpo: { email: sessao.usuario.email, anonimo: sessao.usuario.email === null, criado_em: sessao.usuario.criado_em },
     }));
 
     rotas.adicionar('GET', '/v1/aparelhos', {}, async ({ sessao }) => ({
@@ -134,7 +143,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         if (corpo.confirmo !== 'apagar') throw new ErroHttp(400, 'confirmacao_necessaria');
         const emailDoUsuario = sessao.usuario.email;
         sync.apagarConta(sessao.usuario.id);
-        enviarEmail(emailDoUsuario, mensagemContaApagada());
+        if (emailDoUsuario) enviarEmail(emailDoUsuario, mensagemContaApagada());
         return { corpo: { ok: true }, cabecalhos: { 'Set-Cookie': cookieSessao('', 0) } };
     });
 

@@ -59,6 +59,17 @@ const paraSaida = (r) => ({
 export function criarSync({ db, relogio }) {
     const seqDe = (uid) => db.prepare('SELECT seq FROM usuarios WHERE id = ?').get(uid).seq;
 
+    /** Limites por usuario (diario, linhas e espaco). Lanca 413. Chamada dentro de uma transacao. */
+    function verificarLimites(uid) {
+        const diario = db.prepare("SELECT COUNT(*) AS n FROM itens WHERE usuario_id = ? AND tipo = 'diario' AND apagado = 0").get(uid).n;
+        if (diario > LIMITE_DIARIO) throw new ErroHttp(413, 'limite_do_diario', { limite: LIMITE_DIARIO });
+        // conta tambem marcas de exclusao e itens vazios: cada linha pesa o id e um custo fixo
+        const linhas = db.prepare('SELECT COUNT(*) AS n FROM itens WHERE usuario_id = ?').get(uid).n;
+        if (linhas > LIMITE_LINHAS_USUARIO) throw new ErroHttp(413, 'limite_de_itens', { limite: LIMITE_LINHAS_USUARIO });
+        const bytes = db.prepare('SELECT COALESCE(SUM(LENGTH(CAST(dados AS BLOB)) + LENGTH(id) + 64), 0) AS b FROM itens WHERE usuario_id = ?').get(uid).b;
+        if (bytes > LIMITE_USUARIO_BYTES) throw new ErroHttp(413, 'limite_de_espaco', { limite_bytes: LIMITE_USUARIO_BYTES });
+    }
+
     function pagina(uid, desde, excluir) {
         const linhas = db
             .prepare('SELECT * FROM itens WHERE usuario_id = ? AND seq > ? ORDER BY seq LIMIT ?')
@@ -112,13 +123,7 @@ export function criarSync({ db, relogio }) {
                     gravar.run(uid, it.tipo, it.id, it.dados, it.atualizado_em, seq, it.apagado ? 1 : 0);
                 }
                 if (seq >= inicio) {
-                    const diario = db.prepare("SELECT COUNT(*) AS n FROM itens WHERE usuario_id = ? AND tipo = 'diario' AND apagado = 0").get(uid).n;
-                    if (diario > LIMITE_DIARIO) throw new ErroHttp(413, 'limite_do_diario', { limite: LIMITE_DIARIO });
-                    // conta também marcas de exclusão e itens vazios: cada linha pesa o id e um custo fixo
-                    const linhas = db.prepare('SELECT COUNT(*) AS n FROM itens WHERE usuario_id = ?').get(uid).n;
-                    if (linhas > LIMITE_LINHAS_USUARIO) throw new ErroHttp(413, 'limite_de_itens', { limite: LIMITE_LINHAS_USUARIO });
-                    const bytes = db.prepare('SELECT COALESCE(SUM(LENGTH(CAST(dados AS BLOB)) + LENGTH(id) + 64), 0) AS b FROM itens WHERE usuario_id = ?').get(uid).b;
-                    if (bytes > LIMITE_USUARIO_BYTES) throw new ErroHttp(413, 'limite_de_espaco', { limite_bytes: LIMITE_USUARIO_BYTES });
+                    verificarLimites(uid);
                     db.prepare('UPDATE usuarios SET seq = ? WHERE id = ?').run(seq, uid);
                 }
                 return { inicio, fim: seq, ignorados };
@@ -143,6 +148,35 @@ export function criarSync({ db, relogio }) {
                 aplicados: r.fim >= r.inicio ? r.fim - r.inicio + 1 : 0,
                 itens: saida,
             };
+        },
+
+        /**
+         * Funde os itens de uma conta (a anonima de um aparelho) em outra (a do e-mail): vale a edicao mais recente por
+         * item, marcas de exclusao incluidas, como na sincronizacao. Chamada DENTRO de uma transacao; lanca 413 se o
+         * resultado passar dos limites (a transacao toda e desfeita). Nao apaga a conta de origem.
+         */
+        fundir(origemId, destinoId) {
+            const linhas = db.prepare('SELECT * FROM itens WHERE usuario_id = ?').all(origemId);
+            let seq = seqDe(destinoId);
+            const buscar = db.prepare('SELECT atualizado_em FROM itens WHERE usuario_id = ? AND tipo = ? AND id = ?');
+            const gravar = db.prepare(
+                `INSERT INTO itens (usuario_id, tipo, id, dados, atualizado_em, seq, apagado) VALUES (?, ?, ?, ?, ?, ?, ?)
+                 ON CONFLICT(usuario_id, tipo, id) DO UPDATE SET dados = excluded.dados,
+                 atualizado_em = excluded.atualizado_em, seq = excluded.seq, apagado = excluded.apagado`,
+            );
+            let mudou = false;
+            for (const l of linhas) {
+                const atual = buscar.get(destinoId, l.tipo, l.id);
+                if (atual && l.atualizado_em <= atual.atualizado_em) continue;
+                seq += 1;
+                gravar.run(destinoId, l.tipo, l.id, l.dados, l.atualizado_em, seq, l.apagado);
+                mudou = true;
+            }
+            if (mudou) {
+                verificarLimites(destinoId);
+                db.prepare('UPDATE usuarios SET seq = ? WHERE id = ?').run(seq, destinoId);
+            }
+            return linhas.length;
         },
 
         /** Tudo o que o usuário tem, para o download (itens apagados não entram). */
