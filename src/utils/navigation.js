@@ -11,6 +11,18 @@ function marcarNavAtual(page) {
     });
 }
 
+/*
+ * Guarda de saida: uma tela com alteracoes nao salvas (as notas do Diario) pode segurar a navegacao e perguntar.
+ * A funcao recebe "retomar" (navega de verdade) e devolve true se assumiu a decisao.
+ */
+let guardaSaida = null;
+export function registrarGuardaSaida(fn) {
+    guardaSaida = fn;
+    return () => {
+        if (guardaSaida === fn) guardaSaida = null;
+    };
+}
+
 /* Estado de uma navegacao para outra (so em memoria; dados de nascimento nunca vao para URL, hash nem query). */
 let estadoNav = null;
 export function consumirEstado() {
@@ -140,6 +152,7 @@ function registrarHistorico(page, de, inicial) {
  * Voltar para a tela raiz da mesma aba (ex.: mapa -> perfil) tambem restaura. O resto abre no topo.
  */
 export function navigateTo(page, estado = null, opts = {}) {
+    if (guardaSaida && !opts.semGuarda && !opts.inicial && guardaSaida(() => navigateTo(page, estado, { ...opts, semGuarda: true }))) return;
     if (!opts.semHistorico) registrarHistorico(page, telaAtual, !!opts.inicial);
     const appContainer = document.getElementById('app');
     const de = telaAtual;
