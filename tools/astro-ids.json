@@ -1,3451 +1,3451 @@
 [
  {
   "id": "ps.sol.ari",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.tau",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.gem",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.can",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.leo",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.vir",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.lib",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.esc",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.sag",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.cap",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.aqu",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sol.pei",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.ari",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.tau",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.gem",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.can",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.leo",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.vir",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.lib",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.esc",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.sag",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.cap",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.aqu",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.lua.pei",
-  "limite": 750,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.ari",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.tau",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.gem",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.can",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.leo",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.vir",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.lib",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.esc",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.sag",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.cap",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.aqu",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mer.pei",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.ari",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.tau",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.gem",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.can",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.leo",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.vir",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.lib",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.esc",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.sag",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.cap",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.aqu",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ven.pei",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.ari",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.tau",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.gem",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.can",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.leo",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.vir",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.lib",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.esc",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.sag",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.cap",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.aqu",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.mar.pei",
-  "limite": 520,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.ari",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.tau",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.gem",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.can",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.leo",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.vir",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.lib",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.esc",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.sag",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.cap",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.aqu",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.jup.pei",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.ari",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.tau",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.gem",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.can",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.leo",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.vir",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.lib",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.esc",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.sag",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.cap",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.aqu",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.sat.pei",
-  "limite": 450,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.ari",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.tau",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.gem",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.can",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.leo",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.vir",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.lib",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.esc",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.sag",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.cap",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.aqu",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.ura.pei",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.ari",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.tau",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.gem",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.can",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.leo",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.vir",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.lib",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.esc",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.sag",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.cap",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.aqu",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.net.pei",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.ari",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.tau",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.gem",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.can",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.leo",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.vir",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.lib",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.esc",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.sag",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.cap",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.aqu",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "ps.plu.pei",
-  "limite": 360,
+  "limite": 650,
   "categoria": "ps",
   "marcadores": []
  },
  {
   "id": "pc.sol.1",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.2",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.3",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.4",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.5",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.6",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.7",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.8",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.9",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.10",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.11",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sol.12",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.1",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.2",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.3",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.4",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.5",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.6",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.7",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.8",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.9",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.10",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.11",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.lua.12",
-  "limite": 450,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.1",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.2",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.3",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.4",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.5",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.6",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.7",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.8",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.9",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.10",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.11",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mer.12",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.1",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.2",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.3",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.4",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.5",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.6",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.7",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.8",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.9",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.10",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.11",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ven.12",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.1",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.2",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.3",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.4",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.5",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.6",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.7",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.8",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.9",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.10",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.11",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.mar.12",
-  "limite": 380,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.1",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.2",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.3",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.4",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.5",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.6",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.7",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.8",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.9",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.10",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.11",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.jup.12",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.1",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.2",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.3",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.4",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.5",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.6",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.7",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.8",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.9",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.10",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.11",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.sat.12",
-  "limite": 360,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.1",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.2",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.3",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.4",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.5",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.6",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.7",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.8",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.9",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.10",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.11",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.ura.12",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.1",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.2",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.3",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.4",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.5",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.6",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.7",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.8",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.9",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.10",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.11",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.net.12",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.1",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.2",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.3",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.4",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.5",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.6",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.7",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.8",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.9",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.10",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.11",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "pc.plu.12",
-  "limite": 300,
+  "limite": 460,
   "categoria": "pc",
   "marcadores": []
  },
  {
   "id": "asc.ari",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.tau",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.gem",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.can",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.leo",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.vir",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.lib",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.esc",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.sag",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.cap",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.aqu",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "asc.pei",
-  "limite": 750,
+  "limite": 620,
   "categoria": "asc",
   "marcadores": []
  },
  {
   "id": "mc.ari",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.tau",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.gem",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.can",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.leo",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.vir",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.lib",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.esc",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.sag",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.cap",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.aqu",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "mc.pei",
-  "limite": 480,
+  "limite": 500,
   "categoria": "mc",
   "marcadores": []
  },
  {
   "id": "nn.s.ari",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.tau",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.gem",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.can",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.leo",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.vir",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.lib",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.esc",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.sag",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.cap",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.aqu",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.s.pei",
-  "limite": 450,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.ari",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.tau",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.gem",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.can",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.leo",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.vir",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.lib",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.esc",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.sag",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.cap",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.aqu",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "ns.s.pei",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.1",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.2",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.3",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.4",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.5",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.6",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.7",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.8",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.9",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.10",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.11",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "nn.c.12",
-  "limite": 380,
+  "limite": 460,
   "categoria": "nn",
   "marcadores": []
  },
  {
   "id": "as.sol.lua.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.lua.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.lua.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.lua.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.lua.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.mer.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.ven.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.mar.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.mar.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.mar.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.mar.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.mar.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.jup.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.jup.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.jup.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.jup.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.jup.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.sat.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.sat.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.sat.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.sat.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.sat.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.ura.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.ura.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.ura.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.ura.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.ura.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.net.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.net.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.net.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.net.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.net.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.plu.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.plu.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.plu.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.plu.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sol.plu.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mer.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mer.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mer.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mer.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mer.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ven.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ven.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ven.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ven.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ven.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mar.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mar.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mar.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mar.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.mar.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.jup.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.jup.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.jup.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.jup.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.jup.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.sat.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.sat.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.sat.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.sat.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.sat.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ura.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ura.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ura.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ura.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.ura.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.net.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.net.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.net.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.net.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.net.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.plu.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.plu.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.plu.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.plu.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.lua.plu.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.ven.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.ven.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.mar.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.mar.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.mar.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.mar.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.mar.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.jup.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.jup.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.jup.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.jup.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.jup.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.sat.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.sat.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.sat.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.sat.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.sat.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.ura.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.ura.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.ura.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.ura.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.ura.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.net.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.net.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.net.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.net.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.net.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.plu.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.plu.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.plu.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.plu.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mer.plu.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.mar.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.mar.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.mar.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.mar.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.mar.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.jup.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.jup.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.jup.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.jup.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.jup.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.sat.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.sat.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.sat.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.sat.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.sat.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.ura.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.ura.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.ura.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.ura.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.ura.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.net.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.net.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.net.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.net.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.net.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.plu.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.plu.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.plu.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.plu.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ven.plu.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.jup.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.jup.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.jup.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.jup.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.jup.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.sat.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.sat.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.sat.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.sat.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.sat.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.ura.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.ura.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.ura.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.ura.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.ura.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.net.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.net.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.net.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.net.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.net.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.plu.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.plu.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.plu.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.plu.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.mar.plu.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.sat.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.sat.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.sat.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.sat.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.sat.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.ura.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.ura.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.ura.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.ura.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.ura.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.net.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.net.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.net.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.net.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.net.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.plu.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.plu.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.plu.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.plu.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.jup.plu.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.ura.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.ura.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.ura.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.ura.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.ura.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.net.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.net.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.net.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.net.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.net.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.plu.con",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.plu.sex",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.plu.qua",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.plu.tri",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.sat.plu.opo",
-  "limite": 320,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.net.con",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.net.sex",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.net.qua",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.net.tri",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.net.opo",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.plu.con",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.plu.sex",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.plu.qua",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.plu.tri",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.ura.plu.opo",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.net.plu.con",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.net.plu.sex",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.net.plu.qua",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.net.plu.tri",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "as.net.plu.opo",
-  "limite": 280,
+  "limite": 460,
   "categoria": "as",
   "marcadores": []
  },
  {
   "id": "aa.sol.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sol.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sol.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sol.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sol.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sol.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.lua.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.lua.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.lua.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.lua.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.lua.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.lua.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mer.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mer.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mer.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mer.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mer.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mer.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ven.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ven.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ven.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ven.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ven.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ven.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mar.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mar.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mar.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mar.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mar.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.mar.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.jup.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.jup.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.jup.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.jup.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.jup.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.jup.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sat.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sat.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sat.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sat.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sat.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.sat.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ura.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ura.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ura.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ura.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ura.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.ura.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.net.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.net.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.net.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.net.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.net.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.net.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.plu.asc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.plu.asc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.plu.asc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.plu.mc.con",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.plu.mc.qua",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "aa.plu.mc.opo",
-  "limite": 260,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": []
  },
  {
   "id": "ah.asc",
-  "limite": 220,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": [
    "planeta"
@@ -3453,7 +3453,7 @@
  },
  {
   "id": "ah.mc",
-  "limite": 220,
+  "limite": 460,
   "categoria": "aa",
   "marcadores": [
    "planeta"
@@ -3461,151 +3461,151 @@
  },
  {
   "id": "rt.mer",
-  "limite": 380,
+  "limite": 460,
   "categoria": "rt",
   "marcadores": []
  },
  {
   "id": "rt.ven",
-  "limite": 380,
+  "limite": 460,
   "categoria": "rt",
   "marcadores": []
  },
  {
   "id": "rt.mar",
-  "limite": 380,
+  "limite": 460,
   "categoria": "rt",
   "marcadores": []
  },
  {
   "id": "rt.jup",
-  "limite": 380,
+  "limite": 460,
   "categoria": "rt",
   "marcadores": []
  },
  {
   "id": "rt.sat",
-  "limite": 380,
+  "limite": 460,
   "categoria": "rt",
   "marcadores": []
  },
  {
   "id": "rt.ura",
-  "limite": 380,
+  "limite": 460,
   "categoria": "rt",
   "marcadores": []
  },
  {
   "id": "rt.net",
-  "limite": 380,
+  "limite": 460,
   "categoria": "rt",
   "marcadores": []
  },
  {
   "id": "rt.plu",
-  "limite": 380,
+  "limite": 460,
   "categoria": "rt",
   "marcadores": []
  },
  {
   "id": "el.dom.fogo",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "el.fal.fogo",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "el.dom.terra",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "el.fal.terra",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "el.dom.ar",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "el.fal.ar",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "el.dom.agua",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "el.fal.agua",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "mo.dom.card",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "mo.fal.card",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "mo.dom.fix",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "mo.fal.fix",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "mo.dom.mut",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "mo.fal.mut",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "el.eq",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "mo.eq",
-  "limite": 380,
+  "limite": 460,
   "categoria": "el",
   "marcadores": []
  },
  {
   "id": "rg.asc.1",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3613,7 +3613,7 @@
  },
  {
   "id": "rg.asc.2",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3621,7 +3621,7 @@
  },
  {
   "id": "rg.asc.3",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3629,7 +3629,7 @@
  },
  {
   "id": "rg.asc.4",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3637,7 +3637,7 @@
  },
  {
   "id": "rg.asc.5",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3645,7 +3645,7 @@
  },
  {
   "id": "rg.asc.6",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3653,7 +3653,7 @@
  },
  {
   "id": "rg.asc.7",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3661,7 +3661,7 @@
  },
  {
   "id": "rg.asc.8",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3669,7 +3669,7 @@
  },
  {
   "id": "rg.asc.9",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3677,7 +3677,7 @@
  },
  {
   "id": "rg.asc.10",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3685,7 +3685,7 @@
  },
  {
   "id": "rg.asc.11",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
@@ -3693,7 +3693,7 @@
  },
  {
   "id": "rg.asc.12",
-  "limite": 320,
+  "limite": 460,
   "categoria": "rg",
   "marcadores": [
    "planeta"
