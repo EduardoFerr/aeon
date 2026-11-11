@@ -31,7 +31,6 @@ const VETOS = [
   ["travessia", palavra("travessias?")],
   ["atravess*", palavra("atravess\\p{L}*")],
   ["Crowley", palavra("Crowley")],
-  ["você", palavra("voc[eê]s?")],
 ];
 
 const idsLista = new Map();
