@@ -46,3 +46,6 @@
 .prosa .guias a:focus-visible { outline-offset: -3px; }
 [data-theme="aurora"] .guias { background: none; }
 [data-theme="aurora"] .prosa .guias a[aria-current="page"] { background: none; box-shadow: inset 0 -2px 0 var(--accent); border-radius: 0; }
+
+/* Celular: o menu das paginas estaticas quebra em duas linhas e, fixo, cobria cerca de um quinto da tela. Aqui ele rola com a pagina. */
+@media (max-width: 859px) { .pagina .topbar { position: static; } }
