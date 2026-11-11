@@ -42,6 +42,10 @@ jobs:
         run: npm run validar
       - name: Build
         run: npm run build
+        env:
+          # Sincronizacao com a conta (Perfil, aba Dados). Para desligar, troque para "0" ou apague esta linha.
+          # O endereco do servidor ja e https://api.aeonfool.com por padrao (VITE_API_URL).
+          VITE_SYNC: "1"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
