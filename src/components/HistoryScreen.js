@@ -5,7 +5,7 @@ import { navigateTo } from '../utils/navigation.js';
 import { ic } from '../utils/glifos.js';
 import { abrir, avisar } from './Sobreposicao.js';
 import {
-    listar, agruparPorMes, diaDaEntrada, rotuloMes, salvarNota, apagarEntrada, apagarTudo, instantaneo, restaurar, exportar, importar, persiste, aoMudar,
+    listar, diaDaEntrada, rotuloMes, salvarNota, apagarEntrada, apagarTudo, instantaneo, restaurar, exportar, importar, persiste, aoMudar,
     consumirFoco, consumirAviso, LIMITE_NOTA, LIMITE_ARQUIVO,
 } from '../utils/diario.js';
 import('./TarotCardInfo.js');
@@ -34,7 +34,13 @@ const TEXTO = {
     desfazer: 'Desfazer',
     voltou: 'Entrada de volta no diário',
     manter: 'Manter',
-    maisUm: 'Mostrar mais',
+    mesAnterior: 'Mês anterior',
+    mesSeguinte: 'Mês seguinte',
+    hoje: 'Hoje',
+    calendario: 'Calendário do diário',
+    diaVazio: 'Nenhum registro neste dia.',
+    diaVazioHoje: 'Nenhum registro hoje ainda.',
+    semDataBotao: 'Sem data',
     vazioTitulo: 'Seu diário está em branco',
     vazioTexto: 'Cada carta que você guardar aparece aqui, com o que ela despertou.',
     irDia: 'Tirar uma carta',
@@ -66,7 +72,10 @@ const POS = {
     momento: 'Momento', ajuda: 'Ajuda', obstaculo: 'Obstáculo', caminho: 'Caminho', sintese: 'Síntese',
 };
 const ESPERA = 800; // ms de pausa na digitacao antes de salvar
-const PAGINA = 50;
+const SEMANA = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+const SEMANA_LONGA = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
+const fmtDiaCurto = new Intl.DateTimeFormat('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' });
+const isoDe = (a, m, d) => `${a}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 const PERTO_DO_LIMITE = 1800;
 
 const fmtDia = new Intl.DateTimeFormat('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
@@ -91,9 +100,9 @@ function dataLegivel(e) {
 export class HistoryScreen extends HTMLElement {
     async connectedCallback() {
         this.nos = new Map(); // id -> { li, json, capa }
-        this.meses = new Map(); // chave do mes -> { sec, tit, n, ol }
+        this.mes = null; // { ano, mes } exibido no calendario
+        this.sel = null; // dia escolhido: 'AAAA-MM-DD' ou 'sem-data'
         this.sujas = new Map(); // id -> timer de salvamento pendente
-        this.visiveis = PAGINA;
         this.cartas = new Map();
         this.local = false;
 
@@ -116,8 +125,25 @@ export class HistoryScreen extends HTMLElement {
                     <p>${TEXTO.vazioTexto}</p>
                     <button type="button" class="btn btn-primary" data-ir="home">${TEXTO.irDia}</button>
                 </div>
-                <div class="diario-lista" data-lista></div>
-                <div class="diario-mais" data-mais hidden><button type="button" class="btn btn-terciario" data-acao="mais">${TEXTO.maisUm}</button></div>
+                <div class="diario-corpo-tela" data-corpo>
+                    <div class="cal" data-cal>
+                        <div class="cal-nav">
+                            <button type="button" class="iconbtn" data-cal-nav="-1" aria-label="${TEXTO.mesAnterior}">${ic('voltar')}</button>
+                            <h2 class="cal-mes" data-cal-titulo aria-live="polite"></h2>
+                            <button type="button" class="iconbtn" data-cal-nav="1" aria-label="${TEXTO.mesSeguinte}">${ic('seta')}</button>
+                        </div>
+                        <div class="cal-grade" role="grid" aria-label="${TEXTO.calendario}" data-cal-grade></div>
+                        <div class="cal-rodape">
+                            <button type="button" class="btn btn-terciario" data-cal-hoje>${TEXTO.hoje}</button>
+                            <button type="button" class="btn btn-terciario" data-cal-sem hidden></button>
+                        </div>
+                    </div>
+                    <div class="diario-dia-sel">
+                        <h2 class="diario-dia-tit" data-dia-tit tabindex="-1"></h2>
+                        <p class="diario-dia-vazio" data-dia-vazio hidden></p>
+                        <ol class="diario-lista" data-lista></ol>
+                    </div>
+                </div>
             </section>
         `;
         document.querySelector('#page-title').textContent = TEXTO.titulo;
@@ -164,7 +190,8 @@ export class HistoryScreen extends HTMLElement {
     reconciliar() {
         const todas = listar();
         const ul = this.querySelector('[data-lista]');
-        const fatia = todas.slice(0, this.visiveis);
+        this.escolherDia(todas);
+        const fatia = todas.filter((e) => diaDaEntrada(e).iso === this.sel || (this.sel === 'sem-data' && diaDaEntrada(e).semData));
         const ids = new Set(fatia.map((e) => e.id));
 
         for (const [id, r] of this.nos) {
@@ -198,42 +225,164 @@ export class HistoryScreen extends HTMLElement {
             }
         }
 
-        this.montarMeses(ul, todas, fatia);
+        colocar(ul, fatia.map((e) => this.nos.get(e.id).li));
+        this.desenharCalendario(todas);
+        this.desenharDia(fatia);
 
         const total = todas.length;
         this.querySelector('[data-contagem]').textContent = total ? mais(total, 'registro', 'registros') : '';
         this.total = total;
         this.querySelector('.diario-exportar').hidden = total === 0;
         this.querySelector('[data-vazio]').hidden = total > 0;
-        const resto = total - fatia.length;
-        const caixa = this.querySelector('[data-mais]');
-        caixa.hidden = resto <= 0;
-        caixa.querySelector('button').textContent = `${TEXTO.maisUm} (${resto})`;
+        this.querySelector('[data-corpo]').hidden = total === 0;
     }
 
-    /** Distribui os cartoes em secoes por mes, mexendo so no que mudou de lugar (o foco do campo de nota fica onde esta). */
-    montarMeses(raiz, todas, fatia) {
-        const totais = new Map(agruparPorMes(todas).map((g) => [g.chave, g.itens.length]));
-        const grupos = agruparPorMes(fatia);
-        const secs = [];
-        for (const g of grupos) {
-            let m = this.meses.get(g.chave);
-            if (!m) {
-                const sec = document.createElement('section');
-                sec.className = 'diario-mes';
-                sec.innerHTML = '<h2 class="diario-mes-tit"><span class="diario-mes-nome"></span><span class="diario-mes-n"></span></h2><ol class="diario-mes-lista"></ol>';
-                m = { sec, nome: sec.querySelector('.diario-mes-nome'), n: sec.querySelector('.diario-mes-n'), ol: sec.querySelector('ol') };
-                this.meses.set(g.chave, m);
+    /* ---------- calendario ---------- */
+
+    /** Garante um dia escolhido valido: o de hoje se tem registro, senao o ultimo dia com registro, senao hoje. */
+    escolherDia(todas) {
+        const hoje = dataLocal();
+        const dias = new Set(todas.map((e) => diaDaEntrada(e)).filter((d) => !d.semData).map((d) => d.iso));
+        const temSemData = todas.some((e) => diaDaEntrada(e).semData);
+        if (this.sel === 'sem-data' && !temSemData) this.sel = null;
+        if (!this.sel) {
+            const ultimo = [...dias].sort().pop();
+            this.sel = dias.has(hoje) || !ultimo ? hoje : ultimo;
+            const [a, m] = this.sel.split('-').map(Number);
+            this.mes = { ano: a, mes: m };
+        }
+        if (!this.mes) {
+            const [a, m] = hoje.split('-').map(Number);
+            this.mes = { ano: a, mes: m };
+        }
+    }
+
+    /** Vai para um dia (e para o mes dele), fechando antes qualquer nota pendente. */
+    irParaDia(iso, { foco = false } = {}) {
+        this.salvarTudo();
+        this.sel = iso;
+        if (iso !== 'sem-data') {
+            const [a, m] = iso.split('-').map(Number);
+            this.mes = { ano: a, mes: m };
+        }
+        this.reconciliar();
+        if (foco) {
+            const b = this.querySelector(`.cal-dia[data-iso="${iso}"]`);
+            if (b) b.focus({ preventScroll: true });
+            // no celular os registros ficam abaixo do calendario: traz o dia escolhido para a vista
+            const tit = this.querySelector('[data-dia-tit]');
+            if (!matchMedia(DESKTOP).matches && tit.getBoundingClientRect().top > innerHeight * 0.6) {
+                tit.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
             }
-            m.nome.textContent = g.chave === 'sem-data' ? TEXTO.semData : rotuloMes(g.ano, g.mes);
-            m.n.textContent = mais(totais.get(g.chave) || g.itens.length, 'registro', 'registros');
-            colocar(m.ol, g.itens.map((e) => this.nos.get(e.id).li));
-            secs.push(m.sec);
         }
-        for (const [chave, m] of this.meses) {
-            if (!grupos.some((g) => g.chave === chave)) this.meses.delete(chave);
+    }
+
+    mudarMes(delta) {
+        this.salvarTudo();
+        const d = new Date(this.mes.ano, this.mes.mes - 1 + delta, 1);
+        this.mes = { ano: d.getFullYear(), mes: d.getMonth() + 1 };
+        this.desenharCalendario(listar());
+    }
+
+    desenharCalendario(todas) {
+        const grade = this.querySelector('[data-cal-grade]');
+        const { ano, mes } = this.mes;
+        const contagem = new Map();
+        let semData = 0;
+        for (const e of todas) {
+            const d = diaDaEntrada(e);
+            if (d.semData) semData++;
+            else contagem.set(d.iso, (contagem.get(d.iso) || 0) + 1);
         }
-        colocar(raiz, secs);
+        const hoje = dataLocal();
+        const t = this.querySelector('[data-cal-titulo]');
+        t.textContent = rotuloMes(ano, mes);
+        const primeiro = new Date(ano, mes - 1, 1).getDay();
+        const nDias = new Date(ano, mes, 0).getDate();
+        const focavel = this.sel && this.sel.startsWith(`${ano}-${String(mes).padStart(2, '0')}`) ? this.sel : isoDe(ano, mes, 1);
+        const tinhaFoco = this.contains(document.activeElement) && document.activeElement.classList.contains('cal-dia') ? document.activeElement.dataset.iso : null;
+
+        let h = `<div class="cal-semana" role="row">${SEMANA.map((l, i) => `<span class="cal-cab" role="columnheader" aria-label="${SEMANA_LONGA[i]}">${l}</span>`).join('')}</div>`;
+        let linha = '';
+        for (let i = 0; i < primeiro; i++) linha += '<span class="cal-vazio" role="gridcell"></span>';
+        for (let d = 1; d <= nDias; d++) {
+            const iso = isoDe(ano, mes, d);
+            const n = contagem.get(iso) || 0;
+            const rot = `${fmtDiaCurto.format(new Date(ano, mes - 1, d, 12))}${n ? `, ${mais(n, 'registro', 'registros')}` : ''}`;
+            linha += `<button type="button" role="gridcell" class="cal-dia${n ? ' tem' : ''}${iso === hoje ? ' hoje' : ''}${iso === this.sel ? ' sel' : ''}" data-iso="${iso}" tabindex="${iso === focavel ? 0 : -1}" aria-label="${rot}"${iso === this.sel ? ' aria-current="date"' : ''} aria-pressed="${iso === this.sel}"><span class="cal-n">${d}</span><span class="cal-pt" aria-hidden="true">${n ? '<i></i>'.repeat(Math.min(n, 3)) : ''}</span></button>`;
+            if ((primeiro + d) % 7 === 0 || d === nDias) {
+                h += `<div class="cal-linha" role="row">${linha}</div>`;
+                linha = '';
+            }
+        }
+        grade.innerHTML = h;
+        if (tinhaFoco) {
+            const b = grade.querySelector(`[data-iso="${tinhaFoco}"]`);
+            if (b) b.focus({ preventScroll: true });
+        }
+
+        const datas = [...contagem.keys()].sort();
+        const menor = datas[0];
+        const [ha, hm] = hoje.split('-').map(Number);
+        const limiteMin = menor ? menor.slice(0, 7) : `${ha}-${String(hm).padStart(2, '0')}`;
+        const atual = `${ano}-${String(mes).padStart(2, '0')}`;
+        const maxMes = datas.length && datas[datas.length - 1].slice(0, 7) > `${ha}-${String(hm).padStart(2, '0')}` ? datas[datas.length - 1].slice(0, 7) : `${ha}-${String(hm).padStart(2, '0')}`;
+        this.querySelector('[data-cal-nav="-1"]').disabled = atual <= limiteMin;
+        this.querySelector('[data-cal-nav="1"]').disabled = atual >= maxMes;
+        this.querySelector('[data-cal-hoje]').hidden = this.sel === hoje;
+        const sem = this.querySelector('[data-cal-sem]');
+        sem.hidden = !semData;
+        sem.textContent = `${TEXTO.semDataBotao} (${semData})`;
+        sem.setAttribute('aria-pressed', String(this.sel === 'sem-data'));
+    }
+
+    desenharDia(fatia) {
+        const tit = this.querySelector('[data-dia-tit]');
+        const vazio = this.querySelector('[data-dia-vazio]');
+        const hoje = dataLocal();
+        if (this.sel === 'sem-data') tit.textContent = TEXTO.semData;
+        else {
+            const [a, m, d] = this.sel.split('-').map(Number);
+            const txt = fmtDia.format(new Date(a, m - 1, d, 12));
+            tit.textContent = txt.charAt(0).toUpperCase() + txt.slice(1);
+        }
+        vazio.hidden = fatia.length > 0;
+        vazio.textContent = this.sel === hoje ? TEXTO.diaVazioHoje : TEXTO.diaVazio;
+    }
+
+    ligarCalendario() {
+        const cal = this.querySelector('[data-cal]');
+        cal.addEventListener('click', (ev) => {
+            const dia = ev.target.closest('.cal-dia');
+            if (dia) return this.irParaDia(dia.dataset.iso, { foco: true });
+            const nav = ev.target.closest('[data-cal-nav]');
+            if (nav) return this.mudarMes(Number(nav.dataset.calNav));
+            if (ev.target.closest('[data-cal-hoje]')) return this.irParaDia(dataLocal());
+            if (ev.target.closest('[data-cal-sem]')) this.irParaDia('sem-data');
+        });
+        cal.addEventListener('keydown', (ev) => {
+            const dia = ev.target.closest('.cal-dia');
+            if (!dia) return;
+            const passo = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 }[ev.key];
+            if (passo === undefined && ev.key !== 'PageUp' && ev.key !== 'PageDown' && ev.key !== 'Home' && ev.key !== 'End') return;
+            ev.preventDefault();
+            const [a, m, d] = dia.dataset.iso.split('-').map(Number);
+            let alvo;
+            if (ev.key === 'PageUp') alvo = new Date(a, m - 2, d);
+            else if (ev.key === 'PageDown') alvo = new Date(a, m, d);
+            else if (ev.key === 'Home') alvo = new Date(a, m - 1, 1);
+            else if (ev.key === 'End') alvo = new Date(a, m, 0);
+            else alvo = new Date(a, m - 1, d + passo);
+            const iso = isoDe(alvo.getFullYear(), alvo.getMonth() + 1, alvo.getDate());
+            this.mes = { ano: alvo.getFullYear(), mes: alvo.getMonth() + 1 };
+            this.desenharCalendario(listar());
+            const b = this.querySelector(`.cal-dia[data-iso="${iso}"]`);
+            if (b) {
+                this.querySelectorAll('.cal-dia').forEach((x) => (x.tabIndex = -1));
+                b.tabIndex = 0;
+                b.focus();
+            }
+        });
     }
 
     criarItem(e) {
@@ -354,6 +503,11 @@ export class HistoryScreen extends HTMLElement {
     }
 
     focarNota(id) {
+        const e = listar().find((x) => x.id === id);
+        if (e) {
+            const d = diaDaEntrada(e);
+            if (!d.semData && d.iso !== this.sel) this.irParaDia(d.iso);
+        }
         const r = this.nos.get(id);
         if (!r) return;
         const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -499,13 +653,7 @@ export class HistoryScreen extends HTMLElement {
         const acoes = this.querySelector('#abrir-acoes');
         acoes.addEventListener('click', () => this.abrirGaveta(acoes));
 
-        this.querySelector('[data-acao="mais"]').addEventListener('click', () => {
-            const antes = this.nos.size;
-            this.visiveis += PAGINA;
-            this.reconciliar();
-            const novo = this.querySelectorAll('.diario-item')[antes];
-            if (novo) novo.querySelector('.diario-data').focus();
-        });
+        this.ligarCalendario();
     }
 }
 
