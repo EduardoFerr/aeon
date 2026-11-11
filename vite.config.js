@@ -11,6 +11,13 @@ function pagina404() {
   const servir = (raiz) => (server) => () =>
     server.middlewares.use(async (req, res, next) => {
       if (req.method !== "GET" || !(req.headers.accept || "").includes("text/html")) return next();
+      // Caminho que existe no dist (inclui "/" e as paginas .html): quem serve e o arquivo, nao o 404.
+      const caminho = decodeURIComponent((req.url || "/").split("?")[0]);
+      const base = raiz(server);
+      const candidatos = caminho.endsWith("/") ? [path.join(base, caminho, "index.html")] : [path.join(base, caminho), path.join(base, caminho, "index.html")];
+      for (const c of candidatos) {
+        if (c.startsWith(base)) { try { if ((await fs.stat(c)).isFile()) return next(); } catch { /* segue */ } }
+      }
       try {
         let html = await fs.readFile(path.join(raiz(server), "404.html"), "utf-8");
         if (server.transformIndexHtml) html = await server.transformIndexHtml("/404.html", html);
