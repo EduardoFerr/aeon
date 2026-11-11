@@ -456,10 +456,15 @@ details.acc > .corpo { padding: 2px 0 16px; display: grid; gap: 12px; min-width:
 .meus-dados.convite p { max-width: 44ch; }
 .meus-dados.convite .btn-row { justify-content: center; }
 .perfil-grid.so-um { grid-template-columns: minmax(0, 1fr); max-width: 640px; }
-.form-voltar { display: flex; margin-bottom: calc(var(--sp-2) * -1); }
-.form-voltar .iconbtn { border-color: transparent; margin-left: -8px; }
+.form-cab { margin-left: -8px; }
 
 /* nome do signo e glifo alinhados nas tres colunas: empilhados no celular, em linha a partir de 640 px */
 .visita-tres .vcarta .sg { flex-direction: column; flex-wrap: nowrap; gap: 2px; font-size: clamp(1rem, 4.2vw, 1.3rem); }
 .visita-tres .vcarta .gr { margin-top: 0; }
 @media (min-width: 640px) { .visita-tres .vcarta .sg { flex-direction: row; gap: 6px; white-space: nowrap; font-size: 1.2rem; } }
+
+/* texto corrido do mapa e do formulario: coluna de leitura (<= 68 caracteres por linha) */
+.mc-painel p, .nota-geonames, .nota-priv { max-width: 52ch; }
+/* abas do perfil: largura do rotulo no desktop (tres terços esticados deixam o sublinhado enorme) */
+@media (min-width: 900px) { .perfil-tabs { gap: var(--sp-5); } .perfil-tabs .mc-tab { flex: 0 0 auto; padding-inline: var(--sp-2); } }
+#pendente-area:empty, #sug-area:empty { display: none; }

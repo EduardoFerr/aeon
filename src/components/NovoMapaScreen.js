@@ -100,6 +100,8 @@ export class NovoMapaScreen extends HTMLElement {
             status: '',
         };
         document.querySelector('#page-title').textContent = this.modoEu ? 'Meus dados' : m ? T.editar : T.novo;
+        const pt = document.querySelector('.page-title');
+        if (pt) pt.classList.add('sr');
         this.innerHTML = '<div class="mapa-tela" aria-busy="true"></div>';
         try {
             this.textos = await carregarTextos();
@@ -110,7 +112,12 @@ export class NovoMapaScreen extends HTMLElement {
         if (this.modoEu) document.querySelector('#page-title').textContent = this.t('ui.meusdados.titulo', {}, 'Meus dados');
         this.token = 0;
         this.desenhar();
-        focarCabecalho('#page-title');
+        focarCabecalho('#form-h');
+    }
+
+    disconnectedCallback() {
+        const t = document.querySelector('.page-title');
+        if (t) t.classList.remove('sr');
     }
 
     t(id, vars, padrao) {
@@ -155,7 +162,7 @@ export class NovoMapaScreen extends HTMLElement {
                ${s.local ? `<div class="local-ok">${ic('ok')}<span>${esc(s.local.nome)}</span></div>` : ''}
                <span class="dica" id="d-local">${esc(this.t('ui.form.local'))}</span><span class="dica">${T.foraDoBrasil}</span><button class="link-btn" type="button" data-acao="coord">${ic('pino')}${T.coordenadas}</button>`;
         this.innerHTML = `<div class="mapa-tela"><form class="form-mapa" id="form" novalidate aria-label="${esc(titulo)}">
-            <div class="form-voltar"><button class="iconbtn round" type="button" data-acao="voltar" aria-label="${T.voltar}" title="${T.voltar}">${ic('voltar')}</button></div>
+            <div class="mc-bar form-cab"><button class="iconbtn round mc-voltar" type="button" data-acao="voltar" aria-label="${T.voltar}" title="${T.voltar}">${ic('voltar')}</button><div class="mc-tit"><h2 id="form-h" tabindex="-1">${esc(titulo)}</h2></div></div>
             ${resumo}<div id="pendente-area">${s.pendente ? this.htmlPendente() : ''}</div>
             ${mostrarPara ? `<fieldset class="campo"><legend>${T.paraQuem}</legend><div class="seg"><label><input type="radio" name="para" value="mim"${s.para === 'mim' ? ' checked' : ''}>${T.paraMim}</label><label><input type="radio" name="para" value="outra"${s.para === 'outra' ? ' checked' : ''}>${T.outra}</label></div></fieldset>` : ''}
             ${campoNome}
