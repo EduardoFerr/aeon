@@ -224,7 +224,7 @@ export class PerfilScreen extends HTMLElement {
         const s = !!emV && x.id === emV.id;
         const corpo = s
             ? `<div class="mi-corpo">${calcV ? `<div class="visita-tres">${this.ponto(calcV.pontos.sol, 'sol')}${this.ponto(calcV.pontos.lua, 'lua')}${this.ponto(x.hora ? calcV.pontos.asc : null, 'asc')}</div>` : `<p class="aviso erro" role="alert" style="display:block">${T.erroCarregar}</p>`}
-                <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="ler" data-id="${esc(x.id)}">${T.lerEste}</button><button class="btn btn-terciario" type="button" data-exec="editar">${T.editar}</button><button class="btn btn-perigo" type="button" data-exec="apagar">${T.apagar}</button></div></div>`
+                <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="ler" data-id="${esc(x.id)}">${T.lerEste}</button><button class="btn btn-terciario" type="button" data-exec="editar">${T.editar}</button></div></div>`
             : '';
         return `<li class="mapa-item${s ? ' sel' : ''}"><div class="mi-topo"><div class="t"><span class="rot">${esc(x.rotulo)}</span><span class="res" data-res="${esc(x.id)}"></span></div>
             <button class="btn btn-terciario ver" type="button" data-ver="${esc(x.id)}" aria-pressed="${s}">${s ? T.emExibicao : T.ver}<span class="sr"> ${esc(x.rotulo)}</span></button></div>${corpo}</li>`;

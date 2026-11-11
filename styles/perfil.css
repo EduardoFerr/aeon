@@ -468,3 +468,6 @@ details.acc > .corpo { padding: 2px 0 16px; display: grid; gap: 12px; min-width:
 /* abas do perfil: largura do rotulo no desktop (tres terços esticados deixam o sublinhado enorme) */
 @media (min-width: 900px) { .perfil-tabs { gap: var(--sp-5); } .perfil-tabs .mc-tab { flex: 0 0 auto; padding-inline: var(--sp-2); } }
 #pendente-area:empty, #sug-area:empty { display: none; }
+/* pessoa em exibicao: o resumo ja aparece nas tres cartas, entao o resumo curto do cabecalho some */
+.mapa-item.sel .res { display: none; }
+@media (min-width: 600px) { .rodape-form { justify-items: start; } .rodape-form .btn { width: auto; min-width: 240px; } }
