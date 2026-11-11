@@ -30,7 +30,7 @@
 .home-screen:has(.dia-corpo[data-virada="false"]) .acao-card.destaque b, .home-screen:has(.dia-corpo[data-virada="false"]) .acao-card.destaque span { color: var(--accent-ink); }
 .home-screen:has(.dia-corpo[data-virada="false"]) .acao-card.destaque .ico { stroke: var(--accent-ink); }
 .home-screen:has(.dia-corpo[data-virada="false"]) .acao-card.destaque:hover { background: var(--accent-hover); }
-@media (min-width: 860px) { .home-acoes { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 860px) { .home-acoes { max-width: 560px; } }
 
 /* o baralho de Thoth: uma frase e o resto atras de "Saiba mais" (details, sem JS) */
 .home-sobre { display: grid; justify-items: center; gap: var(--sp-3); max-width: 62ch; padding-top: var(--sp-5); border-top: 1px solid var(--line); width: 100%; }
