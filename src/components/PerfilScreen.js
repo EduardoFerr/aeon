@@ -3,6 +3,9 @@ import { gl, ic } from '../utils/glifos.js';
 import { baixarBackup } from '../utils/backup.js';
 import { apagarMapaComDesfazer } from './desfazerMapa.js';
 import { avisar } from './Sobreposicao.js';
+import { SYNC_ATIVA } from '../utils/contaEstado.js';
+import { registrosFicam } from '../utils/conta.js';
+if (SYNC_ATIVA) import('./ContaPanel.js');
 import { desenharAvisoBackup } from './AvisoBackup.js';
 import { VERSAO, buscarAtualizacao, recarregarDoZero } from '../utils/atualizacao.js';
 import { rotuloVersao } from '../utils/versao.js';
@@ -55,6 +58,7 @@ const T = {
     grupoMapas: 'Mapas',
     grupoDados: 'Dados',
     registrosAqui: 'Seus registros ficam só neste aparelho. Limpar os dados do site no navegador apaga o diário e os mapas, por isso exporte um backup de vez em quando.',
+    registrosAquiConta: 'Seus registros ficam neste aparelho e na sua conta do Aeon. Se você limpar os dados do navegador, ligar a sincronização de novo traz tudo de volta. Mesmo assim, exporte um backup de vez em quando.',
     versaoTitulo: 'Versão do app',
     buscar: 'Buscar atualização',
     buscando: 'Buscando atualização...',
@@ -163,7 +167,7 @@ export class PerfilScreen extends HTMLElement {
 
     painelAba(dados) {
         if (this.aba === 'mapas') return this.painelMapas(...dados);
-        return `<div data-backup></div><div class="info-grid">${this.painelPriv(!dados[0] && !dados[2].length)}${this.painelVersao()}</div>`;
+        return `<div data-backup></div><div class="info-grid">${this.painelPriv(!dados[0] && !dados[2].length)}${SYNC_ATIVA ? '<conta-panel></conta-panel>' : ''}${this.painelVersao()}</div>`;
     }
 
     async desenhar(foco) {
@@ -239,7 +243,7 @@ export class PerfilScreen extends HTMLElement {
     }
 
     painelPriv(vazio) {
-        return `<section class="painel" aria-labelledby="pv-t"><div class="p-icon">${ic('cadeado')}<h3 id="pv-t">${T.privacidade}</h3></div><p>${esc(this.t('ui.aviso.privacidade'))}</p><p class="registros-aqui">${T.registrosAqui}</p>
+        return `<section class="painel" aria-labelledby="pv-t"><div class="p-icon">${ic('cadeado')}<h3 id="pv-t">${T.privacidade}</h3></div><p>${esc(this.t('ui.aviso.privacidade'))}</p><p class="registros-aqui">${registrosFicam(T.registrosAqui, T.registrosAquiConta)}</p>
             <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="exportar" aria-describedby="d-exp"${vazio ? ' disabled' : ''}>${ic('baixar')}${T.exportar}</button><button class="btn btn-ghost" type="button" data-exec="importar" aria-describedby="d-imp">${ic('copiar')}${T.importarBackup}</button></div>
             <p class="nota-geonames" id="d-exp">${esc(this.t('ui.dados.exportar'))}</p><p class="nota-geonames" id="d-imp">${esc(this.t('ui.dados.importar'))}</p></section>`;
     }

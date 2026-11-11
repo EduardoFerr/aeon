@@ -1,11 +1,13 @@
 import { exportar as exportarDiario, importar as importarDiario } from './diario.js';
 import { pedirPersistencia } from './persistencia.js';
+import { marcarApagado, desmarcarApagado } from './contaEstado.js';
 
 /**
  * Perfil e mapas astrais guardados, so no aparelho.
  *
- * Chave: "aeon:v2:perfil"  ->  { v: 2, apelido?, mapas: [Mapa] }
- *   Mapa = { id, rotulo, data "AAAA-MM-DD", hora "HH:MM" | null, local: { nome, lat, lon, tz }, principal, escolha?, criado }
+ * Chave: "aeon:v2:perfil"  ->  { v: 2, apelido?, atualizado?, mapas: [Mapa] }
+ *   Mapa = { id, rotulo, data "AAAA-MM-DD", hora "HH:MM" | null, local: { nome, lat, lon, tz }, principal, escolha?, criado, atualizado }
+ *   atualizado = ultima edicao (ISO). Serve para a sincronizacao com a conta decidir qual versao e a mais nova.
  *   escolha = 0 ou 1: qual das duas leituras vale quando a hora local e ambigua ou inexistente.
  *   casas = 'placidus' | 'signos-inteiros' | 'igual': sistema de casas preferido para este mapa.
  * Um so mapa pode ser o principal ("Meu mapa"). "Meus dados" e a visao e a edicao desse mapa mais o apelido.
@@ -69,6 +71,10 @@ function fusoValido(tz) {
     }
 }
 
+function dataIso(v) {
+    return typeof v === 'string' && v.length < 40 && Number.isFinite(Date.parse(v)) ? new Date(v).toISOString() : '';
+}
+
 /** Chave que identifica "o mesmo mapa": mesma data, mesma hora e mesmo lugar. */
 export function chaveMapa(m) {
     return [m.data, m.hora || '-', m.local.lat.toFixed(2), m.local.lon.toFixed(2), m.local.tz].join('|');
@@ -101,6 +107,7 @@ export function sanearMapa(bruto) {
         casas: SISTEMAS_CASAS.includes(bruto.casas) ? bruto.casas : 'placidus',
         criado: typeof bruto.criado === 'string' && Number.isFinite(Date.parse(bruto.criado)) && bruto.criado.length < 40 ? new Date(bruto.criado).toISOString() : new Date(0).toISOString(),
     };
+    mapa.atualizado = dataIso(bruto.atualizado) || mapa.criado;
     if (!mapa.rotulo) mapa.rotulo = mapa.principal ? 'Meu mapa' : 'Mapa';
     return mapa;
 }
@@ -112,6 +119,8 @@ function sanearDoc(bruto) {
         const ap = limparTexto(bruto.apelido, LIMITE_APELIDO);
         if (ap) doc.apelido = ap;
     }
+    const atualizado = dataIso(bruto.atualizado);
+    if (atualizado) doc.atualizado = atualizado;
     const ids = new Set();
     const chaves = new Set();
     let temPrincipal = false;
@@ -210,6 +219,7 @@ export function definirApelido(texto) {
     const ap = limparTexto(texto, LIMITE_APELIDO);
     if (ap) doc.apelido = ap;
     else delete doc.apelido;
+    doc.atualizado = new Date().toISOString();
     return gravar(doc);
 }
 
@@ -238,7 +248,8 @@ function novoId() {
 export function adicionar(entrada) {
     const doc = carregar();
     const quer = entrada.principal === true && !doc.mapas.some((m) => m.principal);
-    const m = sanearMapa({ ...entrada, id: novoId(), principal: quer, criado: new Date().toISOString() });
+    const agora = new Date().toISOString();
+    const m = sanearMapa({ ...entrada, id: novoId(), principal: quer, criado: agora, atualizado: agora });
     if (!m) return { ok: false, motivo: 'invalido' };
     const igual = doc.mapas.find((x) => chaveMapa(x) === chaveMapa(m));
     if (igual) return { ok: true, id: igual.id, repetido: true };
@@ -266,7 +277,7 @@ export function atualizar(id, entrada) {
     const mesma = mesmaDefinicao(atual, entrada);
     const escolha = mesma ? atual.escolha : entrada.escolha;
     const casas = SISTEMAS_CASAS.includes(entrada.casas) ? entrada.casas : mesma ? atual.casas : 'placidus';
-    const m = sanearMapa({ ...entrada, escolha, casas, id, principal: atual.principal, criado: atual.criado });
+    const m = sanearMapa({ ...entrada, escolha, casas, id, principal: atual.principal, criado: atual.criado, atualizado: new Date().toISOString() });
     if (!m) return { ok: false, motivo: 'invalido' };
     if (doc.mapas.some((x, j) => j !== i && chaveMapa(x) === chaveMapa(m))) return { ok: false, motivo: 'repetido' };
     doc.mapas[i] = m;
@@ -293,6 +304,7 @@ export function salvarMeusDados(entrada) {
             if (m) {
                 m.principal = true;
                 m.rotulo = 'Meu mapa';
+                m.atualizado = new Date().toISOString();
                 r = { ok: gravar(doc), id: m.id };
             }
         }
@@ -310,12 +322,14 @@ export function definirPreferencias(id, { escolha, casas }) {
     if (!m) return false;
     if (escolha === 0 || escolha === 1) m.escolha = escolha;
     if (SISTEMAS_CASAS.includes(casas)) m.casas = casas;
+    m.atualizado = new Date().toISOString();
     return gravar(doc);
 }
 
 export function apagar(id) {
     const doc = carregar();
     doc.mapas = doc.mapas.filter((m) => m.id !== id);
+    marcarApagado('mapa', id); // com a sincronizacao ligada, a exclusao tambem vai para a conta
     return gravar(doc);
 }
 
@@ -326,7 +340,82 @@ export function instantaneo() {
 
 /** Devolve o perfil ao estado da copia (o Desfazer). */
 export function restaurar(copia) {
+    (copia && Array.isArray(copia.mapas) ? copia.mapas : []).forEach((m) => m && typeof m.id === 'string' && desmarcarApagado('mapa', m.id));
     return gravar(sanearDoc(copia));
+}
+
+/* ---------- sincronizacao com a conta (o motor esta em conta.js) ---------- */
+
+export const mapasParaSync = () => carregar().mapas.map((m) => ({ ...m, local: { ...m.local } }));
+
+/** O apelido e quando mudou, ou null se nunca foi definido. */
+export function perfilParaSync() {
+    const doc = carregar();
+    return doc.atualizado ? { apelido: doc.apelido || '', atualizado: doc.atualizado } : null;
+}
+
+/**
+ * Aplica o que veio da conta: { mapas: [{ id, dados, atualizado_em, apagado }], perfil: { dados, atualizado_em } | null }.
+ * O conteudo e DADO NAO CONFIAVEL (mesma lista branca do backup). Vale a mudanca mais recente por mapa; o mesmo
+ * mapa criado em dois aparelhos (mesma data, hora e lugar) fica um so. Um so mapa e o principal: vence o mais novo.
+ * -> { marcados: ["mapa/ID" | "perfil/perfil"] } = os que ficaram iguais ao servidor.
+ */
+export function aplicarRemotosPerfil({ mapas = [], perfil = null }) {
+    const doc = carregar();
+    const marcados = [];
+    let mudou = false;
+    for (const item of mapas) {
+        const i = doc.mapas.findIndex((m) => m.id === item.id);
+        const local = i >= 0 ? doc.mapas[i] : null;
+        const chave = `mapa/${item.id}`;
+        if (item.apagado) {
+            if (!local) marcados.push(chave);
+            else if (local.atualizado <= item.atualizado_em) {
+                doc.mapas.splice(i, 1);
+                marcados.push(chave);
+                mudou = true;
+            }
+            continue;
+        }
+        const m = sanearMapa({ ...(item.dados || {}), id: item.id, atualizado: item.atualizado_em });
+        if (!m) continue;
+        if (local && item.atualizado_em <= local.atualizado) {
+            if (item.atualizado_em === local.atualizado) marcados.push(chave);
+            continue;
+        }
+        const repetido = doc.mapas.some((x) => x.id !== m.id && chaveMapa(x) === chaveMapa(m));
+        if (repetido) {
+            marcados.push(chave); // o mesmo mapa ja esta aqui com outro id: nao duplica
+            continue;
+        }
+        if (!local && doc.mapas.length >= LIMITE_MAPAS) continue;
+        if (m.principal) {
+            const outro = doc.mapas.find((x) => x.principal && x.id !== m.id);
+            if (outro) {
+                if (outro.atualizado > m.atualizado) m.principal = false;
+                else {
+                    outro.principal = false;
+                    outro.atualizado = new Date().toISOString(); // mudanca local: vai para a conta no proximo envio
+                }
+            }
+        }
+        if (local) doc.mapas[i] = m;
+        else doc.mapas.push(m);
+        marcados.push(chave);
+        mudou = true;
+    }
+    if (perfil && perfil.dados && typeof perfil.dados === 'object') {
+        if (perfil.atualizado_em > (doc.atualizado || '')) {
+            const ap = limparTexto(perfil.dados.apelido, LIMITE_APELIDO);
+            if (ap) doc.apelido = ap;
+            else delete doc.apelido;
+            doc.atualizado = perfil.atualizado_em;
+            marcados.push('perfil/perfil');
+            mudou = true;
+        } else if (perfil.atualizado_em === doc.atualizado) marcados.push('perfil/perfil');
+    }
+    if (mudou) gravar(doc);
+    return { marcados };
 }
 
 /* ---------- backup (perfil e diario em um arquivo so) ---------- */
@@ -335,6 +424,7 @@ export function exportar() {
     const doc = carregar();
     const perfil = { v: 2, mapas: doc.mapas };
     if (doc.apelido) perfil.apelido = doc.apelido;
+    if (doc.atualizado) perfil.atualizado = doc.atualizado;
     return { app: 'aeon', formato: FORMATO_BACKUP, exportado: new Date().toISOString(), perfil, diario: exportarDiario() };
 }
 
@@ -366,7 +456,10 @@ export function importar(texto) {
     if (p && typeof p === 'object' && !Array.isArray(p)) {
         if (!doc.apelido && typeof p.apelido === 'string') {
             const ap = limparTexto(p.apelido, LIMITE_APELIDO);
-            if (ap) doc.apelido = ap;
+            if (ap) {
+                doc.apelido = ap;
+                doc.atualizado = new Date().toISOString();
+            }
         }
         const lista = Array.isArray(p.mapas) ? p.mapas : [];
         ignorados += Math.max(0, lista.length - LIMITE_MAPAS * 2);

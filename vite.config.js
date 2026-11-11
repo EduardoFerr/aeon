@@ -62,6 +62,9 @@ export default defineConfig({
   define: {
     __APP_VERSAO__: JSON.stringify(APP_VERSAO),
     __APP_BUILD__: JSON.stringify(APP_BUILD),
+    // Sincronizacao com a conta: desligada ate o servidor estar no ar (VITE_SYNC=1 liga; VITE_API_URL troca o endereco).
+    __SYNC_ATIVA__: JSON.stringify(process.env.VITE_SYNC === '1'),
+    __API_URL__: JSON.stringify(process.env.VITE_API_URL || 'https://api.aeonfool.com'),
   },
   // Obs.: um bloco "build.build" (base, outDir, minify terser, publicDir) existia
   // aqui aninhado no nivel errado e o Vite o ignorava. Foi removido sem mudar o
