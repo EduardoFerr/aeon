@@ -1,0 +1,16 @@
+api.aeonfool.com {
+	encode zstd gzip
+	# O Caddy troca o X-Forwarded-For pelo IP real de quem chamou; o servidor lê o último valor.
+	reverse_proxy api:8787
+	log {
+		output stdout
+		# registra só rota, status e duração: sem IP, sem cookie, sem cabeçalhos
+		format filter {
+			wrap json
+			request>remote_ip delete
+			request>client_ip delete
+			request>headers delete
+			request>tls delete
+		}
+	}
+}

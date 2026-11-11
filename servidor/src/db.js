@@ -1,0 +1,84 @@
+import { DatabaseSync } from 'node:sqlite';
+import { mkdirSync } from 'node:fs';
+import { dirname } from 'node:path';
+
+/**
+ * Banco: um arquivo SQLite. Os dados dos usuários ficam em texto legível (JSON), por decisão do produto:
+ * o painel de administração da etapa 3 lê direto daqui.
+ *
+ * Migrações por PRAGMA user_version: cada função roda uma vez, em ordem, dentro de uma transação.
+ */
+const MIGRACOES = [
+    (db) =>
+        db.exec(`
+        CREATE TABLE usuarios (
+            id INTEGER PRIMARY KEY,
+            email TEXT NOT NULL UNIQUE,
+            criado_em TEXT NOT NULL,
+            ultimo_acesso TEXT NOT NULL,
+            seq INTEGER NOT NULL DEFAULT 0
+        );
+        CREATE TABLE codigos (
+            email TEXT PRIMARY KEY,
+            hash TEXT NOT NULL,
+            criado_em INTEGER NOT NULL,
+            expira_em INTEGER NOT NULL,
+            tentativas INTEGER NOT NULL DEFAULT 0
+        );
+        CREATE TABLE sessoes (
+            id TEXT PRIMARY KEY,
+            token_hash TEXT NOT NULL UNIQUE,
+            usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+            aparelho TEXT NOT NULL,
+            criada_em TEXT NOT NULL,
+            ultimo_uso TEXT NOT NULL
+        );
+        CREATE INDEX sessoes_usuario ON sessoes(usuario_id);
+        CREATE TABLE itens (
+            usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+            tipo TEXT NOT NULL CHECK (tipo IN ('perfil', 'diario', 'mapa')),
+            id TEXT NOT NULL,
+            dados TEXT NOT NULL,
+            atualizado_em TEXT NOT NULL,
+            seq INTEGER NOT NULL,
+            apagado INTEGER NOT NULL DEFAULT 0,
+            PRIMARY KEY (usuario_id, tipo, id)
+        );
+        CREATE INDEX itens_seq ON itens(usuario_id, seq);
+    `),
+];
+
+export function abrirBanco(caminho) {
+    if (caminho !== ':memory:') mkdirSync(dirname(caminho), { recursive: true });
+    const db = new DatabaseSync(caminho);
+    db.exec('PRAGMA journal_mode = WAL');
+    db.exec('PRAGMA foreign_keys = ON');
+    db.exec('PRAGMA busy_timeout = 5000');
+    db.exec('PRAGMA synchronous = NORMAL');
+    const versao = db.prepare('PRAGMA user_version').get().user_version;
+    for (let v = versao; v < MIGRACOES.length; v++) {
+        db.exec('BEGIN');
+        try {
+            MIGRACOES[v](db);
+            db.exec(`PRAGMA user_version = ${v + 1}`);
+            db.exec('COMMIT');
+        } catch (e) {
+            db.exec('ROLLBACK');
+            throw e;
+        }
+    }
+    return db;
+}
+
+/** Executa fn dentro de uma transação que já pega o bloqueio de escrita. Desfaz tudo se fn lançar. */
+export function transacao(db, fn) {
+    db.exec('BEGIN IMMEDIATE');
+    try {
+        const r = fn();
+        db.exec('COMMIT');
+        return r;
+    } catch (e) {
+        db.exec('ROLLBACK');
+        throw e;
+    }
+}

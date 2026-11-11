@@ -1,0 +1,44 @@
+# Servidor do Aeon. Dois jeitos de publicar:
+#   A) VPS sem proxy na porta 80/443:   docker compose --profile proxy up -d --build
+#      (o Caddy cuida do certificado de api.aeonfool.com sozinho)
+#   B) VPS que já tem nginx/Caddy/Traefik: docker compose up -d --build
+#      (a API fica só em 127.0.0.1:8787; aponte o seu proxy para lá. Veja DEPLOY.md)
+services:
+  api:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      CONFIAR_PROXY: "true"
+    volumes:
+      - ./dados:/dados
+    ports:
+      - "127.0.0.1:8787:8787"
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    networks: [aeon]
+
+  caddy:
+    image: caddy:2-alpine
+    profiles: [proxy]
+    restart: unless-stopped
+    depends_on: [api]
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_dados:/data
+      - caddy_config:/config
+    networks: [aeon]
+
+volumes:
+  caddy_dados:
+  caddy_config:
+
+networks:
+  aeon:
