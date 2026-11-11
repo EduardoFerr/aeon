@@ -294,9 +294,19 @@ export function avisar(msg, { erro = false, desfazer = null } = {}) {
         document.body.append(toastEl);
         for (const a of ['pointerenter', 'focusin']) toastEl.addEventListener(a, () => clearTimeout(toastTimer));
         for (const a of ['pointerleave', 'focusout']) toastEl.addEventListener(a, () => agendarAtual && agendarAtual());
+        // Desfazer pelo teclado: o botao fica no fim da pagina, longe do foco, entao Ctrl/Cmd+Z (fora de campos de texto) aciona o mesmo botao
+        document.addEventListener('keydown', (e) => {
+            if (!(e.ctrlKey || e.metaKey) || e.shiftKey || e.altKey || String(e.key).toLowerCase() !== 'z') return;
+            const f = document.activeElement;
+            if (f && (f.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(f.tagName))) return;
+            const b = toastEl.classList.contains('on') && toastEl.querySelector('.toast-acao');
+            if (!b) return;
+            e.preventDefault();
+            b.click();
+        });
     }
     clearTimeout(toastTimer);
-    toastEl.innerHTML = `${ic(erro ? 'erro' : 'ok')}<span></span>${desfazer ? `<button type="button" class="btn btn-terciario toast-acao">${desfazer.rotulo || 'Desfazer'}</button>` : ''}`;
+    toastEl.innerHTML = `${ic(erro ? 'erro' : 'ok')}<span></span>${desfazer ? `<button type="button" class="btn btn-terciario toast-acao" aria-keyshortcuts="Control+Z Meta+Z">${desfazer.rotulo || 'Desfazer'}</button>` : ''}`;
     toastEl.classList.toggle('erro', erro);
     toastEl.classList.toggle('com-acao', !!desfazer);
     const esconder = () => toastEl && toastEl.classList.remove('on');
