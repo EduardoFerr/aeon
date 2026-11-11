@@ -22,7 +22,6 @@ body:has(tarot-card-info:not([hidden])) { overflow: hidden; }
 .info-art { justify-self: center; width: min(62vw, 250px); position: relative; isolation: isolate; margin-bottom: var(--sp-3); }
 .info-art img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: var(--r-card); box-shadow: var(--sh-3); background: var(--surface-2); }
 #card-name { text-align: center; font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h2); line-height: 1.1; letter-spacing: -0.01em; text-wrap: balance; }
-#card-description { color: var(--text-soft); font-size: var(--fs-md); line-height: 1.7; max-width: 62ch; margin-inline: auto; }
 
 .info-body p { margin: 0; }
 .card-border, #card-meditation-reflection { display: grid; gap: var(--sp-4); padding: var(--sp-4) var(--sp-4); border-radius: var(--r-md); background: var(--bg); border: 1px solid var(--line); }

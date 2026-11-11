@@ -19,10 +19,9 @@ export class TarotCardInfo extends HTMLElement {
                     <div class="info-body">
                     <div class="info-art halo"><img id="card-image" src="assets/back.jpg" alt="Carta não revelada" width="274" height="410"></div>
                     <p id="card-name"></p>
-                    <p id="card-description"></p>
                     <div class="card-border">
                         <p>
-                            <strong>Descrição simbólica</strong><span id="card-symbolic-description"></span>
+                            <strong>Descrição</strong><span id="card-description"></span>
                         </p>
                         <p>
                             <strong>Mensagem esotérica</strong><span id="card-message-esoteric"></span>
@@ -147,7 +146,6 @@ export class TarotCardInfo extends HTMLElement {
 
         this.querySelector('#card-name').textContent = cardData.name || not_found;
         this.definirTexto('#card-description', cardData.description || not_found, usados);
-        this.definirTexto('#card-symbolic-description', cardData.description_symbolic || not_found, usados);
         this.definirTexto('#card-message-esoteric', cardData.message_esoteric || not_found, usados);
 
         // Na Corte o "número" 11 a 14 não existe em Thoth (a carta é a patente), então a linha some
