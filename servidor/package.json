@@ -1,0 +1,19 @@
+{
+  "name": "aeon-servidor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Servidor de sincronização do Aeon Fool: conta por e-mail com código, diário, mapas e perfil em texto legível.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test test/*.test.js",
+    "backup": "node scripts/backup.mjs"
+  },
+  "dependencies": {
+    "nodemailer": "^10.5.0"
+  },
+  "license": "ISC"
+}
