@@ -66,3 +66,28 @@ tarot-card:hover .tarot-card { transform: translateY(-4px); }
 .grade-vazio .icon { width: 40px; height: 40px; color: var(--accent); stroke-width: 1.2; margin-bottom: var(--sp-2); }
 .grade-vazio-titulo { margin: 0; font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; color: var(--text); text-wrap: balance; }
 .grade-vazio-dica { margin: 0 0 var(--sp-3); color: var(--text-soft); font-size: var(--fs-sm); }
+
+/* Entenda o baralho: botao na barra de ferramentas e menu lateral */
+.grade-topo { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); }
+.grade-topo .grade-busca { flex: 1 1 220px; }
+.grade-entenda { flex: none; }
+.sob-gaveta.entenda { width: min(94vw, 460px); }
+.sob-gaveta.entenda .sob-corpo { padding: 4px 16px 28px; }
+.ent-intro { color: var(--text-soft); line-height: 1.6; margin: 4px 0 var(--sp-3); }
+.ent-lista { display: grid; gap: 4px; }
+.ent-top { border-top: 1px solid var(--line); }
+.ent-top:last-child { border-bottom: 1px solid var(--line); }
+.sob-corpo .ent-top summary { position: relative; display: grid; align-items: start; gap: 2px; padding: 12px 32px 12px 4px; min-height: 44px; cursor: pointer; list-style: none; color: var(--text); font-weight: 400; font-size: inherit; }
+.ent-top summary::after { content: ""; position: absolute; right: 10px; top: 20px; width: 8px; height: 8px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); transition: transform 0.2s; }
+.ent-top[open] summary::after { transform: rotate(-135deg); top: 24px; }
+.ent-top summary::-webkit-details-marker { display: none; }
+.ent-top summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--r-sm); }
+.ent-tit { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.2rem; line-height: 1.25; color: var(--text); }
+.ent-top[open] .ent-tit { color: var(--accent); }
+.ent-res { font-size: var(--fs-sm); line-height: 1.45; color: var(--text-soft); }
+.ent-corpo { padding: 0 4px 16px; display: grid; gap: var(--sp-2); }
+.ent-corpo p { line-height: 1.65; color: var(--text); }
+.ent-itens { display: grid; gap: 8px; margin: 4px 0 0; }
+.ent-item { display: grid; gap: 2px; padding: 8px 12px; border-radius: var(--r-sm); background: var(--surface); border: 1px solid var(--line); }
+.ent-item dt { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.ent-item dd { margin: 0; font-size: var(--fs-sm); line-height: 1.5; color: var(--text-soft); }
