@@ -1,7 +1,7 @@
 /* Telas da aba Tiragens: a escolha, a cruz, o templo e a leitura de tres cartas. */
 const TIRAGENS = ['tiragens', 'cruz', 'templo', 'three-card-game'];
 
-/** Marca no menu a pagina atual (so visual e aria-current; a navegacao em si nao muda). */
+/** Marca no menu a pagina atual (so visual e aria-current; a navegacao em si nao muda). O biscoito e filho da Home: marca "Inicio". */
 function marcarNavAtual(page) {
     const PERFIL = ['perfil', 'novo-mapa', 'mapa'];
     const atual = PERFIL.includes(page) ? 'perfil' : TIRAGENS.includes(page) ? 'tiragens' : ['all-cards', 'history'].includes(page) ? page : 'home';
@@ -49,7 +49,7 @@ const posicoes = {};
 let telaAtual = null;
 let primeira = true;
 let montada = false; // so guarda a rolagem de uma tela que chegou a montar
-const abaDe = (page) => (['perfil', 'novo-mapa', 'mapa'].includes(page) ? 'perfil' : TIRAGENS.includes(page) ? 'tiragens' : page);
+const abaDe = (page) => (['perfil', 'novo-mapa', 'mapa'].includes(page) ? 'perfil' : TIRAGENS.includes(page) ? 'tiragens' : page === 'biscoito' ? 'home' : page);
 const reduz = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const irPara = (y) => window.scrollTo({ top: y, left: 0, behavior: 'auto' }); // nunca animado: nao e um gesto do usuario
 
@@ -118,6 +118,7 @@ const TELAS_TIRAGENS = {
     tiragens: ['tiragens-screen', () => import('../components/TiragensScreen.js')],
     cruz: ['cruz-screen', () => import('../components/CruzScreen.js')],
     templo: ['templo-screen', () => import('../components/TemploScreen.js')],
+    biscoito: ['biscoito-screen', () => import('../components/BiscoitoScreen.js')],
 };
 let corrida = 0;
 
@@ -126,11 +127,11 @@ let corrida = 0;
  * URL, nunca dado de nascimento, nome, mapa ou diario: mapa, novo mapa e edicao mostram o endereco do Perfil e,
  * aberto direto, caem no Perfil. O estado em history.state guarda so o nome da tela.
  */
-const CHAVES = { 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', templo: 'templo', 'three-card-game': 'three-card-game', history: 'history', perfil: 'profile' };
+const CHAVES = { biscoito: 'biscoito', 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', templo: 'templo', 'three-card-game': 'three-card-game', history: 'history', perfil: 'profile' };
 const SEM_URL = ['novo-mapa', 'mapa'];
 const raizDe = (page) => (SEM_URL.includes(page) ? 'perfil' : page);
 const buscaDe = (page) => (CHAVES[raizDe(page)] ? `?${CHAVES[raizDe(page)]}` : '');
-const ALIAS = { 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', templo: 'templo', 'three-card-game': 'three-card-game', history: 'history', profile: 'perfil', perfil: 'perfil', mapa: 'perfil', 'novo-mapa': 'perfil', editar: 'perfil' };
+const ALIAS = { biscoito: 'biscoito', 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', templo: 'templo', 'three-card-game': 'three-card-game', history: 'history', profile: 'perfil', perfil: 'perfil', mapa: 'perfil', 'novo-mapa': 'perfil', editar: 'perfil' };
 /** Tela pedida pela URL atual (a primeira chave conhecida da busca); sem chave conhecida, a Home. */
 function paginaDaUrl() {
     for (const k of new URLSearchParams(location.search).keys()) if (ALIAS[k]) return ALIAS[k];

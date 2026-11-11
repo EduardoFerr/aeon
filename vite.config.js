@@ -148,15 +148,15 @@ export default defineConfig({
             },
           },
           {
-            // Cartas, glossario e "Entenda o baralho" tambem mudam a cada versao: rede primeiro, cache so como reserva
+            // Cartas, glossario, "Entenda o baralho" e as frases do biscoito (so entram no cache depois da primeira leitura, nunca no precache) tambem mudam a cada versao: rede primeiro, cache so como reserva
             // offline, para nunca aparecer tela nova com dado antigo.
-            urlPattern: ({ url }) => ["/data/cards.json", "/data/glossario.json", "/data/entenda-baralho.json"].includes(url.pathname),
+            urlPattern: ({ url }) => ["/data/cards.json", "/data/glossario.json", "/data/entenda-baralho.json", "/data/biscoito.json"].includes(url.pathname),
             handler: "NetworkFirst",
             options: {
               cacheName: "aeon-dados-base",
               networkTimeoutSeconds: 4,
               fetchOptions: { cache: "no-cache" },
-              expiration: { maxEntries: 6, maxAgeSeconds: 60 * 60 * 24 * 90 },
+              expiration: { maxEntries: 8, maxAgeSeconds: 60 * 60 * 24 * 90 },
               cacheableResponse: { statuses: [200] },
             },
           },

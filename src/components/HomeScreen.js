@@ -2,6 +2,9 @@ import { navigateTo } from '../utils/navigation.js';
 import './CartaDoDia.js';
 import { principal } from '../utils/perfil.js';
 import { SYNC_ATIVA } from '../utils/contaEstado.js';
+import { primeiroDeHoje } from '../utils/biscoitoDia.js';
+import { ic } from '../utils/glifos.js';
+import { escaparHtml } from '../utils/glossario.js';
 if (SYNC_ATIVA) import('./ConviteConta.js');
 
 const icone = (corpo) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${corpo}</svg>`;
@@ -13,6 +16,20 @@ const ICONES = {
 
 const acao = (ir, icon, nome, linha, extra = '') =>
     `<li><button type="button" class="acao-card${extra}" data-ir="${ir}">${icon}<b>${nome}</b><span>${linha}</span></button></li>`;
+
+/**
+ * Cartao largo do biscoito. Com biscoito de hoje guardado mostra a frase (vem do estado do aparelho, sem baixar
+ * as frases); sem ele, convida a quebrar um.
+ */
+function cartaoBiscoito() {
+    const item = primeiroDeHoje();
+    const icone = ic('biscoito', 'ico');
+    if (!item) {
+        return `<button type="button" class="acao-card largo" data-ir="biscoito" aria-label="Biscoito da sorte. Quebre um e leia o que saiu.">${icone}<span class="largo-texto"><b>Biscoito da sorte</b><span class="largo-linha">Quebre um e leia o que saiu</span></span></button>`;
+    }
+    const frase = escaparHtml(item.texto);
+    return `<button type="button" class="acao-card largo" data-ir="biscoito" aria-label="Seu biscoito de hoje: ${frase}. Abrir.">${icone}<span class="largo-texto"><b>Seu biscoito de hoje</b><span class="largo-linha frase">${frase}</span></span></button>`;
+}
 
 export class HomeScreen extends HTMLElement {
     connectedCallback() {
@@ -35,6 +52,7 @@ export class HomeScreen extends HTMLElement {
                             ? acao('mapa', ICONES.mapa, 'Seu mapa', 'O mapa principal')
                             : acao('novo-mapa', ICONES.mapa, 'Mapa astral', 'Crie o seu')}
                     </ul>
+                    ${cartaoBiscoito()}
                 </nav>
 
                 <section class="home-sobre" aria-labelledby="sobre-t">
