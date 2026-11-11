@@ -28,7 +28,7 @@
 /* (a) pergunta */
 .leitura-campo { display: grid; gap: var(--sp-2); }
 .leitura-campo label { font-size: var(--fs-sm); font-weight: 500; color: var(--text-soft); }
-.leitura-campo textarea { width: 100%; min-height: 96px; resize: vertical; padding: 12px 14px; border-radius: var(--r-sm); border: 1px solid var(--control); background: var(--surface-2); color: var(--text); font: 400 var(--fs-lg)/1.5 var(--font-display); }
+.leitura-campo textarea { width: 100%; min-height: 96px; resize: none; padding: 12px 14px; border-radius: var(--r-sm); border: 1px solid var(--control); background: var(--surface-2); color: var(--text); font: 400 var(--fs-lg)/1.5 var(--font-display); }
 .leitura-campo textarea::placeholder { color: var(--text-mute); }
 .leitura-campo-pe { display: flex; justify-content: space-between; gap: var(--sp-3); align-items: start; }
 .leitura-contador { flex: none; color: var(--text-soft); font-size: var(--fs-xs); font-variant-numeric: tabular-nums; }
@@ -84,4 +84,21 @@
   .leitura-interp { justify-items: start; text-align: left; width: 100%; }
   .leitura-interp .btn { justify-self: start; }
   .leitura-slot + .leitura-slot { padding-top: 0; border-top: 0; }
+}
+
+/* desktop: as tres colunas dividem as mesmas linhas (posicao, carta, rotulo, texto, Luz, botao), entao o texto e a Luz
+   de cada carta comecam na mesma altura, qualquer que seja o tamanho da frase */
+@media (min-width: 900px) {
+  .leitura-cartas { row-gap: 0; }
+  .leitura-slot { grid-row: span 6; grid-template-rows: subgrid; grid-template-areas: none; row-gap: var(--sp-3); }
+  .leitura-slot .leitura-pos { grid-area: auto; grid-row: 1; }
+  .leitura-slot .leitura-slot-carta { grid-area: auto; grid-row: 2; }
+  .leitura-slot .leitura-interp { display: contents; }
+  .leitura-interp > * { justify-self: start; text-align: left; width: 100%; max-width: 62ch; }
+  .leitura-interp > .leitura-rotulo, .leitura-interp > .leitura-espera { grid-row: 3; }
+  .leitura-interp > .leitura-texto { grid-row: 4; }
+  .leitura-interp > .leitura-luz { grid-row: 5; align-self: start; }
+  .leitura-interp > .btn { grid-row: 6; width: auto; }
+  .leitura-interp[data-aberta] { animation: none; }
+  .leitura-interp[data-aberta] > * { animation: rise 400ms var(--ease-ritual) both; }
 }
