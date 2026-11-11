@@ -5,6 +5,8 @@ import { chaveDe } from './contas.js';
  * Chave: "aeon:v2:conta" -> {
  *   v: 1,
  *   email,            e-mail da conta (so para mostrar na tela)
+ *   servidorId,       id desta conta no servidor (0 = ainda nao ligada); vai no cabecalho X-Aeon-Conta
+ *   chave,            chave de recuperacao (12 palavras) de quem gerou uma; fica so aqui, para poder mostrar de novo
  *   ligada,           a sincronizacao esta ligada neste aparelho
  *   entrou,           ja confirmou o codigo (a sessao e um cookie do servidor, nunca fica aqui)
  *   cursor,           ultimo "seq" recebido do servidor
@@ -24,7 +26,7 @@ export const API_URL = typeof __API_URL__ !== 'undefined' ? __API_URL__ : 'https
 export const ESPERA_EXCLUSAO_MS = 15 * 1000;
 
 const RE_CHAVE = /^(diario|mapa)\/[A-Za-z0-9_-]{1,64}$/;
-const vazio = () => ({ v: 1, email: '', ligada: false, entrou: false, cursor: 0, enviados: {}, apagados: {}, ultima: '', erro: '' });
+const vazio = () => ({ v: 1, email: '', servidorId: 0, chave: '', ligada: false, entrou: false, cursor: 0, enviados: {}, apagados: {}, ultima: '', erro: '' });
 
 function dataOuVazio(v) {
     return typeof v === 'string' && v.length < 40 && Number.isFinite(Date.parse(v)) ? v : '';
@@ -39,13 +41,15 @@ function mapaDeDatas(obj) {
     return saida;
 }
 
-export function lerEstado() {
+export function lerEstado(id) {
     try {
-        const bruto = JSON.parse(localStorage.getItem(chaveDe('conta')));
+        const bruto = JSON.parse(localStorage.getItem(chaveDe('conta', id)));
         if (!bruto || typeof bruto !== 'object' || bruto.v !== 1) return vazio();
         return {
             v: 1,
             email: typeof bruto.email === 'string' ? bruto.email.slice(0, 254) : '',
+            servidorId: Number.isInteger(bruto.servidorId) && bruto.servidorId > 0 ? bruto.servidorId : 0,
+            chave: typeof bruto.chave === 'string' && /^[a-z]+( [a-z]+){11}$/.test(bruto.chave) ? bruto.chave : '',
             ligada: bruto.ligada === true,
             entrou: bruto.entrou === true,
             cursor: Number.isInteger(bruto.cursor) && bruto.cursor >= 0 ? bruto.cursor : 0,
@@ -59,19 +63,19 @@ export function lerEstado() {
     }
 }
 
-export function salvarEstado(parte) {
-    const novo = { ...lerEstado(), ...parte };
+export function salvarEstado(parte, id) {
+    const novo = { ...lerEstado(id), ...parte };
     try {
-        localStorage.setItem(chaveDe('conta'), JSON.stringify(novo));
+        localStorage.setItem(chaveDe('conta', id), JSON.stringify(novo));
     } catch (e) {
         /* sem armazenamento: a sincronizacao nao liga */
     }
     return novo;
 }
 
-export function limparEstado() {
+export function limparEstado(id) {
     try {
-        localStorage.removeItem(chaveDe('conta'));
+        localStorage.removeItem(chaveDe('conta', id));
     } catch (e) {
         /* nada a apagar */
     }

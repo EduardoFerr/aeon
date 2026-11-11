@@ -7,6 +7,7 @@ import {
 import {
     aoMudar as aoMudarPerfil, aplicarRemotosPerfil, mapasParaSync, perfilParaSync,
 } from './perfil.js';
+import { criarContaLocal } from './contas.js';
 
 /**
  * Sincronizacao OPCIONAL com a conta do Aeon (servidor em api.aeonfool.com). Desligada por padrao.
@@ -37,7 +38,10 @@ let timer = null;
 export function estadoConta() {
     const e = lerEstado();
     const fase = e.ligada ? 'ligada' : e.entrou ? 'juntar' : 'desligada';
-    return { ativa: SYNC_ATIVA, fase, email: e.email, ultima: e.ultima, erro: e.erro, sincronizando };
+    return {
+        ativa: SYNC_ATIVA, fase, email: e.email, ultima: e.ultima, erro: e.erro, sincronizando,
+        servidorId: e.servidorId, temChave: !!e.chave, anonima: !!e.servidorId && !e.email,
+    };
 }
 
 export function aoMudarConta(fn) {
@@ -71,13 +75,21 @@ export class ErroConta extends Error {
     }
 }
 
-async function chamar(metodo, caminho, corpo) {
+/**
+ * Chama a API. Cada pedido diz qual conta do aparelho esta em uso (cabecalho X-Aeon-Conta), pois a sessao do aparelho
+ * pode estar ligada a varias. `semConta` e para entrar e criar conta: ai o cabecalho nao existe.
+ */
+async function chamar(metodo, caminho, corpo, { semConta = false } = {}) {
     let r;
+    const headers = {};
+    if (corpo !== undefined) headers['Content-Type'] = 'application/json';
+    const id = semConta ? 0 : lerEstado().servidorId;
+    if (id) headers['X-Aeon-Conta'] = String(id);
     try {
         r = await cfg.fetch(`${cfg.api}/v1${caminho}`, {
             method: metodo,
             credentials: 'include',
-            headers: corpo !== undefined ? { 'Content-Type': 'application/json' } : undefined,
+            headers: Object.keys(headers).length ? headers : undefined,
             body: corpo !== undefined ? JSON.stringify(corpo) : undefined,
         });
     } catch (e) {
@@ -97,10 +109,10 @@ async function chamar(metodo, caminho, corpo) {
 export function motivoDoErro(e) {
     if (!(e instanceof ErroConta)) return 'servidor';
     if (e.codigo === 'rede') return 'rede';
-    if (e.status === 401) return 'sessao';
+    if (e.status === 401 || e.status === 403) return 'sessao';
     if (e.status === 429) return 'limite';
     if (e.status === 413) return 'espaco';
-    return e.codigo === 'codigo_invalido' || e.codigo === 'email_invalido' ? e.codigo : 'servidor';
+    return e.codigo === 'codigo_invalido' || e.codigo === 'email_invalido' || e.codigo === 'chave_invalida' ? e.codigo : 'servidor';
 }
 
 function nomeDoAparelho() {
@@ -112,17 +124,104 @@ function nomeDoAparelho() {
 
 /* ---------- entrar ---------- */
 
-export const pedirCodigo = (email) => chamar('POST', '/auth/pedir', { email });
+export const pedirCodigo = (email) => chamar('POST', '/auth/pedir', { email }, { semConta: true });
 
-/** Confirma o codigo. Se der certo, a pessoa esta dentro da conta, mas a sincronizacao so liga em ligar(). */
-export async function confirmarCodigo(email, codigo) {
-    const r = await chamar('POST', '/auth/confirmar', { email, codigo, aparelho: nomeDoAparelho() });
+/**
+ * Guarda no estado de uma conta local o que o servidor devolveu num login. `destino`:
+ *  - 'esta' (padrao): a conta ativa daqui passa a estar ligada a conta do servidor e fica em "juntar", esperando ligar();
+ *  - 'nova': cria uma conta local so para ela, ja ligada e sem nada para juntar. -> { contaLocal } (quem chamou troca para ela).
+ * A conta que esta conta local tinha no servidor antes (se tinha outra) sai deste aparelho; os dados locais ficam.
+ */
+async function guardarLogin(usuario, chave, destino) {
+    const novo = { email: usuario.email || '', servidorId: usuario.id, chave: chave || '', erro: '' };
+    if (destino === 'nova') {
+        const contaLocal = criarContaLocal();
+        if (!contaLocal) throw new ErroConta(409, 'muitas_contas');
+        salvarEstado({ ...novo, entrou: true, ligada: true, cursor: 0, enviados: {}, apagados: {}, ultima: '' }, contaLocal);
+        avisarConta();
+        return { contaLocal };
+    }
     const antes = lerEstado();
     // Voltou a entrar na MESMA conta que ja estava ligada (a sessao acabou): segue de onde parou, sem refazer a juncao.
-    if (antes.ligada && antes.email === r.usuario.email) salvarEstado({ entrou: true, erro: '' });
-    else salvarEstado({ email: r.usuario.email, entrou: true, ligada: false, cursor: 0, enviados: {}, apagados: {}, ultima: '', erro: '' });
+    if (antes.ligada && antes.servidorId === usuario.id) salvarEstado({ ...novo, entrou: true, chave: chave || antes.chave });
+    else {
+        salvarEstado({ ...novo, entrou: true, ligada: false, cursor: 0, enviados: {}, apagados: {}, ultima: '' });
+        if (antes.servidorId && antes.servidorId !== usuario.id) {
+            try {
+                await chamar('DELETE', `/contas/${antes.servidorId}`, {}, { semConta: true });
+            } catch (e) {
+                /* sem rede ou ja desligada: a conta antiga some do servidor sozinha quando ficar sem aparelho */
+            }
+        }
+    }
     avisarConta();
-    return r.usuario;
+    return {};
+}
+
+/** Confirma o codigo. Se der certo, a pessoa esta dentro da conta, mas a sincronizacao so liga em ligar(). */
+export async function confirmarCodigo(email, codigo, { destino = 'esta' } = {}) {
+    const r = await chamar('POST', '/auth/confirmar', { email, codigo, aparelho: nomeDoAparelho(), modo: 'adicionar' }, { semConta: true });
+    const extra = await guardarLogin(r.usuario, '', destino);
+    return { ...r.usuario, ...extra };
+}
+
+/** Entra com a chave de recuperacao (12 palavras). Mesmo desfecho do e-mail. */
+export async function entrarComChave(frase, { destino = 'esta' } = {}) {
+    const r = await chamar('POST', '/auth/chave', { chave: frase, aparelho: nomeDoAparelho(), modo: 'adicionar' }, { semConta: true });
+    const extra = await guardarLogin(r.usuario, frase, destino);
+    return { ...r.usuario, ...extra };
+}
+
+/**
+ * Cria a conta no servidor para esta conta local e liga a sincronizacao. So acontece quando a pessoa pede: o app nunca
+ * cria conta sozinho. A frase de 12 palavras aparece nesta resposta; fica guardada aqui para poder mostrar de novo.
+ * Se a conta ja esta ligada, devolve a chave que ja existe (ou gera uma, se ela nasceu por e-mail e nao tem).
+ * -> { chave, nova }
+ */
+export async function gerarChave() {
+    const est = lerEstado();
+    if (est.servidorId && est.chave) return { chave: est.chave, nova: false };
+    if (est.servidorId) return { chave: await gerarNovaChave(), nova: true };
+    let r;
+    try {
+        r = await chamar('POST', '/contas/anonima', {}, { semConta: true }); // aproveita a sessao deste aparelho
+    } catch (e) {
+        if (!(e instanceof ErroConta) || e.status !== 401) throw e;
+        r = await chamar('POST', '/auth/anonimo', { aparelho: nomeDoAparelho() }, { semConta: true }); // aparelho sem sessao
+    }
+    salvarEstado({ email: '', servidorId: r.usuario.id, chave: r.chave, entrou: true, ligada: true, cursor: 0, enviados: {}, apagados: {}, ultima: '', erro: '' });
+    avisarConta();
+    iniciarConta();
+    sincronizar();
+    return { chave: r.chave, nova: true };
+}
+
+/** A chave guardada neste aparelho, ou '' (conta que nasceu por e-mail e nunca pediu uma, ou chave ja descartada). */
+export function verChave() {
+    return lerEstado().chave;
+}
+
+/** Chave nova para a conta em uso: a anterior deixa de valer. */
+export async function gerarNovaChave() {
+    const r = await chamar('POST', '/contas/chave', {});
+    salvarEstado({ chave: r.chave });
+    avisarConta();
+    return r.chave;
+}
+
+let ultimaReentrada = 0;
+/** A sessao deste aparelho acabou (cookie limpo ou vencido): quem tem a chave guardada volta sozinho, no maximo a cada 10 minutos. */
+async function reentrar() {
+    const est = lerEstado();
+    if (!est.chave || Date.now() - ultimaReentrada < 10 * 60 * 1000) return false;
+    ultimaReentrada = Date.now();
+    try {
+        const r = await chamar('POST', '/auth/chave', { chave: est.chave, aparelho: nomeDoAparelho(), modo: 'adicionar' }, { semConta: true });
+        salvarEstado({ servidorId: r.usuario.id, email: r.usuario.email || est.email, erro: '' });
+        return true;
+    } catch (e) {
+        return false;
+    }
 }
 
 /** Quanto ha na conta e aqui, para a tela mostrar antes de juntar. */
@@ -152,8 +251,11 @@ export async function ligar() {
 
 /** Desliga neste aparelho: encerra a sessao e esquece a conta aqui. Os registros do aparelho e da conta ficam. */
 export async function sair() {
+    const id = lerEstado().servidorId;
     try {
-        await chamar('POST', '/auth/sair', {});
+        // so esta conta sai deste aparelho; as outras contas dele continuam. Estado antigo, sem id: encerra a sessao.
+        if (id) await chamar('DELETE', `/contas/${id}`, {});
+        else await chamar('POST', '/auth/sair', {});
     } catch (e) {
         /* sem rede: a sessao some sozinha do servidor com o tempo; aqui a pessoa ja saiu */
     }
@@ -244,7 +346,7 @@ function registrarResposta(est, resp, enviadosAgora) {
     return enviados;
 }
 
-async function rodar() {
+async function rodar(jaReentrou = false) {
     let est = lerEstado();
     if (!SYNC_ATIVA || !est.ligada) return { ok: false, motivo: 'desligada' };
     if (!persiste()) return fim({ ok: false, motivo: 'sem-armazenamento' }, 'armazenamento');
@@ -275,6 +377,11 @@ async function rodar() {
     }
 
     try {
+        // conta ligada antes de existirem varias contas por aparelho: descobre o id dela uma vez
+        if (!est.servidorId) {
+            const eu = await chamar('GET', '/eu');
+            if (eu && Array.isArray(eu.contas) && eu.contas.length === 1) est = salvarEstado({ servidorId: eu.id });
+        }
         let cursor = est.cursor;
         for (let i = 0; i < envios.length; i += 200) {
             const lote = envios.slice(i, i + 200);
@@ -307,6 +414,7 @@ async function rodar() {
         if (aindaEsperando) agendar(aindaEsperando + 500);
         return fim({ ok: true }, '');
     } catch (e) {
+        if (!jaReentrou && e instanceof ErroConta && (e.status === 401 || e.status === 403) && (await reentrar())) return rodar(true);
         return fim({ ok: false, motivo: motivoDoErro(e) }, motivoDoErro(e));
     }
 }
