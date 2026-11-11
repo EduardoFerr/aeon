@@ -18,6 +18,19 @@ export const SESSAO_RENOVA_APOS_MS = 60 * 60 * 1000;
 export const LIMITE_ITEM_BYTES = 1024 * 1024;
 export const LIMITE_USUARIO_BYTES = 5 * 1024 * 1024;
 export const LIMITE_DIARIO = 500;
+/** Conta anonima tem teto de espaco menor: so o login (e-mail) libera os 5 MB. Segura quem abre contas em massa para encher o disco. */
+export const LIMITE_USUARIO_BYTES_ANONIMO = 2 * 1024 * 1024;
+/**
+ * Criar conta anonima (gerar a chave de recuperacao) e uma escolha rara da pessoa, entao os freios sao severos:
+ * por IP (IPv6 pelo /64) 1 a cada 30 minutos e 5 por dia; no servidor todo 200 por hora e 2000 por dia.
+ * Passou disso, o app segue so no aparelho e a pessoa tenta de novo depois.
+ */
+export const ANONIMA_IP_ESPERA_MS = 30 * 60 * 1000;
+export const ANONIMAS_POR_IP_POR_DIA = 5;
+export const ANONIMAS_POR_HORA_GLOBAL = 200;
+export const ANONIMAS_POR_DIA_GLOBAL = 2000;
+/** Conta anonima sem nenhum item e sem uso ha tanto tempo e apagada na limpeza (nao ha o que perder). */
+export const EXPURGO_ANONIMA_VAZIA_MS = 7 * 24 * 60 * 60 * 1000;
 export const LIMITE_ITENS_POR_PEDIDO = 200;
 export const LIMITE_CORPO_SYNC = 6 * 1024 * 1024;
 export const LIMITE_CORPO_AUTH = 8 * 1024;

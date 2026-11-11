@@ -13,9 +13,10 @@ const enviar = (s, cookie, itens, conta) => s.chamar('POST', '/v1/sync', { cooki
 const ler = (s, cookie, conta) => s.chamar('GET', '/v1/sync?desde=0', { cookie, cabecalhos: como(conta) });
 
 async function anonimo(s, aparelho = 'Aparelho') {
+    s.avancar(31 * 60 * 1000); // o servidor so cria uma conta anonima por IP a cada 30 minutos
     const r = await s.chamar('POST', '/v1/auth/anonimo', { corpo: { aparelho } });
     assert.equal(r.status, 201);
-    return { cookie: r.setCookie.split(';')[0], id: r.json.usuario.id };
+    return { cookie: r.setCookie.split(';')[0], id: r.json.usuario.id, chave: r.json.chave };
 }
 
 /** Pede o código e confirma. Devolve a resposta; `codigoAnterior` permite reusar um código já enviado. */
@@ -38,7 +39,7 @@ test('migrações: v1 vira a versão atual sem perder usuários, itens nem sess�
     v1.prepare("INSERT INTO sessoes (id, token_hash, usuario_id, aparelho, criada_em, ultimo_uso) VALUES ('s', 'h', 1, 'a', 'x', 'x')").run();
     v1.close();
     const v3 = abrirBanco(caminho);
-    assert.equal(v3.prepare('PRAGMA user_version').get().user_version, 3);
+    assert.equal(v3.prepare('PRAGMA user_version').get().user_version, 4);
     assert.equal(v3.prepare('SELECT COUNT(*) AS n FROM itens').get().n, 1);
     assert.equal(v3.prepare('SELECT COUNT(*) AS n FROM sessoes').get().n, 1);
     assert.deepEqual({ ...v3.prepare('SELECT sessao_id, usuario_id FROM sessao_contas').get() }, { sessao_id: 's', usuario_id: 1 });
@@ -67,16 +68,27 @@ test('conta anônima: nasce sem e-mail, sincroniza e /v1/eu mostra id, anonimato
     assert.equal(eu.json.email, null);
     assert.equal(eu.json.anonimo, true);
     assert.equal(eu.json.id, a.id);
-    assert.deepEqual(eu.json.contas, [{ id: a.id, email: null, anonimo: true }]);
+    assert.equal(typeof a.chave, 'string');
+    assert.deepEqual(eu.json.contas, [{ id: a.id, email: null, anonimo: true, tem_chave: true }]);
     assert.equal((await enviar(s, a.cookie, [item('diario', 'd1', entrada('oi'), T(1))])).json.aplicados, 1);
 });
 
-test('criar conta anônima tem limite por IP', async (t) => {
+test('criar conta anônima: 1 por IP a cada 30 minutos e 5 por dia', async (t) => {
     const s = await subir();
     t.after(() => s.fechar());
-    let ultimo;
-    for (let i = 0; i < 31; i++) ultimo = await s.chamar('POST', '/v1/auth/anonimo', { corpo: {} });
-    assert.equal(ultimo.status, 429);
+    const criar = () => s.chamar('POST', '/v1/auth/anonimo', { corpo: {} });
+    assert.equal((await criar()).status, 201);
+    const logo = await criar();
+    assert.equal(logo.status, 429);
+    assert.ok(Number(logo.cabecalhos.get('retry-after')) > 0);
+    for (let i = 0; i < 4; i++) {
+        s.avancar(31 * 60 * 1000);
+        assert.equal((await criar()).status, 201);
+    }
+    s.avancar(31 * 60 * 1000);
+    assert.equal((await criar()).status, 429); // a sexta no mesmo dia
+    s.avancar(24 * 60 * 60 * 1000);
+    assert.equal((await criar()).status, 201);
 });
 
 test('e-mail novo numa conta anônima: o e-mail passa a ser dela, com os dados e a mesma sessão', async (t) => {
@@ -213,6 +225,7 @@ test('adicionar outra conta anônima e tirar contas do aparelho', async (t) => {
     const s = await subir();
     t.after(() => s.fechar());
     const a = await anonimo(s);
+    s.avancar(31 * 60 * 1000);
     const nova = await s.chamar('POST', '/v1/contas/anonima', { cookie: a.cookie, corpo: {} });
     assert.equal(nova.status, 201);
     assert.equal(nova.json.contas.length, 2);
@@ -260,6 +273,7 @@ test('apagar a conta anônima não envia e-mail; apagar uma das contas mantém o
     const s = await subir();
     t.after(() => s.fechar());
     const a = await anonimo(s);
+    s.avancar(31 * 60 * 1000);
     const nova = await s.chamar('POST', '/v1/contas/anonima', { cookie: a.cookie, corpo: {} });
     const antes = s.enviados.length;
     const r = await s.chamar('DELETE', '/v1/conta', { cookie: a.cookie, cabecalhos: como(nova.json.usuario.id), corpo: { confirmo: 'apagar' } });
@@ -270,4 +284,68 @@ test('apagar a conta anônima não envia e-mail; apagar uma das contas mantém o
     assert.equal((await s.chamar('GET', '/v1/eu', { cookie: a.cookie })).json.id, a.id);
     const ultima = await s.chamar('DELETE', '/v1/conta', { cookie: a.cookie, corpo: { confirmo: 'apagar' } });
     assert.match(ultima.setCookie, /Max-Age=0/);
+});
+
+test('contas anônimas novas têm teto por hora e por dia no servidor todo', async (t) => {
+    const s = await subir({ env: { CONFIAR_PROXY: 'true' } });
+    t.after(() => s.fechar());
+    const criar = (i) => s.chamar('POST', '/v1/auth/anonimo', { corpo: {}, cabecalhos: { 'X-Forwarded-For': `10.${(i >> 16) & 255}.${(i >> 8) & 255}.${i & 255}` } });
+    for (let i = 0; i < 200; i++) assert.equal((await criar(i)).status, 201, `pedido ${i}`);
+    assert.equal((await criar(200)).status, 429); // 200 por hora
+    let criadas = 200;
+    let i = 1000;
+    while (criadas < 2000) {
+        s.avancar(61 * 60 * 1000);
+        for (let k = 0; k < 150 && criadas < 2000; k++, i++, criadas++) assert.equal((await criar(i)).status, 201, `pedido ${criadas}`);
+    }
+    s.avancar(61 * 60 * 1000);
+    assert.equal((await criar(99999)).status, 429); // 2000 por dia
+    s.avancar(25 * 60 * 60 * 1000);
+    assert.equal((await criar(99998)).status, 201); // no dia seguinte volta
+});
+
+test('conta anônima tem teto de espaço de 2 MB; a com e-mail continua com 5 MB', async (t) => {
+    const s = await subir();
+    t.after(() => s.fechar());
+    const grande = (id) => item('mapa', id, { x: 'a'.repeat(900_000) }, T(1));
+    const a = await anonimo(s);
+    const r = await enviar(s, a.cookie, [grande('m1'), grande('m2'), grande('m3')]);
+    assert.equal(r.status, 413);
+    assert.equal(r.json.erro, 'limite_de_espaco');
+    assert.equal(r.json.limite_bytes, 2 * 1024 * 1024);
+    const ana = await s.entrar('ana@exemplo.com', 'Casa');
+    assert.equal((await enviar(s, ana, [grande('m1'), grande('m2'), grande('m3')])).status, 200);
+});
+
+test('a limpeza apaga conta anônima vazia parada há 7 dias, e só ela', async (t) => {
+    const s = await subir();
+    t.after(() => s.fechar());
+    const vazia = await anonimo(s, 'Vazia');
+    const com = await anonimo(s, 'Com dados');
+    await enviar(s, com.cookie, [item('diario', 'd1', entrada('x'), T(1))]);
+    const email = await s.entrar('ana@exemplo.com', 'Casa');
+    s.avancar(6 * 24 * 60 * 60 * 1000);
+    s.app.auth.limpar();
+    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM usuarios').get().n, 3);
+    s.avancar(2 * 24 * 60 * 60 * 1000);
+    s.app.auth.limpar();
+    const restam = s.app.db.prepare('SELECT id, email FROM usuarios ORDER BY id').all().map((u) => u.id);
+    assert.ok(!restam.includes(vazia.id));
+    assert.ok(restam.includes(com.id));
+    assert.equal(restam.length, 2); // a anônima com dados e a do e-mail
+    assert.ok(email);
+});
+
+test('outra conta anônima na sessão: 3 por dia por aparelho e o mesmo freio por IP', async (t) => {
+    const s = await subir();
+    t.after(() => s.fechar());
+    const a = await anonimo(s);
+    const criar = () => s.chamar('POST', '/v1/contas/anonima', { cookie: a.cookie, corpo: {} });
+    assert.equal((await criar()).status, 429); // o IP acabou de criar uma
+    for (let i = 0; i < 3; i++) {
+        s.avancar(31 * 60 * 1000);
+        assert.equal((await criar()).status, 201);
+    }
+    s.avancar(31 * 60 * 1000);
+    assert.equal((await criar()).status, 429); // a quarta no dia
 });
