@@ -4,6 +4,10 @@ import { dataLocal } from '../utils/cartaDoDia.js';
 import { navigateTo } from '../utils/navigation.js';
 import { ic } from '../utils/glifos.js';
 import { abrir, avisar } from './Sobreposicao.js';
+import { desenharAvisoBackup } from './AvisoBackup.js';
+import { registrarBackup } from '../utils/backup.js';
+import { listar as listarMapas } from '../utils/perfil.js';
+import { EVENTO_ANTES } from '../utils/versao.js';
 import {
     listar, diaDaEntrada, rotuloMes, salvarNota, apagarEntrada, apagarTudo, instantaneo, restaurar, exportar, importar, persiste, aoMudar,
     consumirFoco, consumirAviso, LIMITE_NOTA, LIMITE_ARQUIVO,
@@ -123,6 +127,7 @@ export class HistoryScreen extends HTMLElement {
                     </div>
                     <input type="file" accept="application/json,.json" hidden data-arquivo>
                 </header>
+                <div data-backup></div>
                 <p class="diario-aviso" role="status" aria-live="polite" data-aviso></p>
                 <div class="diario-vazio" data-vazio hidden>
                     <h2>${TEXTO.vazioTitulo}</h2>
@@ -175,6 +180,9 @@ export class HistoryScreen extends HTMLElement {
         };
         document.addEventListener('visibilitychange', this.aoSair);
         window.addEventListener('pagehide', this.aoSair);
+        // Antes de aplicar uma versao nova do app (recarrega a pagina), nada fica pendente
+        this.aoAtualizar = () => this.salvarTudo();
+        window.addEventListener(EVENTO_ANTES, this.aoAtualizar);
         this.reconciliar();
 
         const foco = consumirFoco();
@@ -187,6 +195,7 @@ export class HistoryScreen extends HTMLElement {
         if (this.desligar) this.desligar();
         document.removeEventListener('visibilitychange', this.aoSair);
         window.removeEventListener('pagehide', this.aoSair);
+        window.removeEventListener(EVENTO_ANTES, this.aoAtualizar);
     }
 
     /* ---------- lista ---------- */
@@ -239,6 +248,7 @@ export class HistoryScreen extends HTMLElement {
         this.querySelector('.diario-exportar').hidden = total === 0;
         this.querySelector('[data-vazio]').hidden = total > 0;
         this.querySelector('[data-corpo]').hidden = total === 0;
+        desenharAvisoBackup(this.querySelector('[data-backup]'), { foco: '#page-title', antes: () => this.salvarTudo() });
     }
 
     /* ---------- calendario ---------- */
@@ -589,6 +599,9 @@ export class HistoryScreen extends HTMLElement {
             a.click();
             a.remove();
             setTimeout(() => URL.revokeObjectURL(url), 1000);
+            // este arquivo leva so o diario: so conta como backup dos registros se nao ha mapas guardados
+            if (listarMapas().length === 0) registrarBackup();
+            desenharAvisoBackup(this.querySelector('[data-backup]'));
             avisar(TEXTO.exportado);
         } catch (e) {
             avisar(TEXTO.erroExportar, { erro: true });

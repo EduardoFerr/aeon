@@ -476,3 +476,9 @@ details.acc > .corpo { padding: 2px 0 16px; display: grid; gap: 12px; min-width:
 .leit-guia { margin: 0; padding-top: var(--sp-2); font-size: var(--fs-sm); }
 .leit-guia a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .leit-guia a:hover { color: var(--accent-hover); }
+
+/* lembrete de backup (Perfil, aba Dados, e topo do Diario) e texto fixo sobre onde ficam os registros */
+.aviso-backup { display: grid; gap: var(--sp-2); padding: var(--sp-3) var(--sp-4); margin-bottom: var(--sp-4); border-radius: var(--r-md); border: 1px solid var(--line-strong); border-left: 4px solid var(--warn); background: var(--surface); }
+.aviso-backup p { color: var(--text); font-size: var(--fs-sm); line-height: 1.5; }
+.aviso-backup .btn-row { gap: var(--sp-2); }
+.painel p.registros-aqui { color: var(--text); font-size: var(--fs-sm); }
