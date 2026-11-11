@@ -272,3 +272,50 @@ test('apagar a conta anônima não envia e-mail; apagar uma das contas mantém o
     const ultima = await s.chamar('DELETE', '/v1/conta', { cookie: a.cookie, corpo: { confirmo: 'apagar' } });
     assert.match(ultima.setCookie, /Max-Age=0/);
 });
+
+test('contas anônimas novas têm teto por dia no servidor todo', async (t) => {
+    const s = await subir({ env: { CONFIAR_PROXY: 'true' } });
+    t.after(() => s.fechar());
+    const criar = (i) => s.chamar('POST', '/v1/auth/anonimo', { corpo: {}, cabecalhos: { 'X-Forwarded-For': `10.${(i >> 16) & 255}.${(i >> 8) & 255}.${i & 255}` } });
+    let ultimo;
+    for (let i = 0; i < 5001; i++) {
+        if (i > 0 && i % 500 === 0) s.avancar(61 * 60 * 1000); // respeita o teto por hora
+        ultimo = await criar(i);
+        if (i < 5000) assert.equal(ultimo.status, 201, `pedido ${i}`);
+    }
+    assert.equal(ultimo.status, 429);
+    s.avancar(25 * 60 * 60 * 1000);
+    assert.equal((await criar(99999)).status, 201); // no dia seguinte volta
+});
+
+test('conta anônima tem teto de espaço de 2 MB; a com e-mail continua com 5 MB', async (t) => {
+    const s = await subir();
+    t.after(() => s.fechar());
+    const grande = (id) => item('mapa', id, { x: 'a'.repeat(900_000) }, T(1));
+    const a = await anonimo(s);
+    const r = await enviar(s, a.cookie, [grande('m1'), grande('m2'), grande('m3')]);
+    assert.equal(r.status, 413);
+    assert.equal(r.json.erro, 'limite_de_espaco');
+    assert.equal(r.json.limite_bytes, 2 * 1024 * 1024);
+    const ana = await s.entrar('ana@exemplo.com', 'Casa');
+    assert.equal((await enviar(s, ana, [grande('m1'), grande('m2'), grande('m3')])).status, 200);
+});
+
+test('a limpeza apaga conta anônima vazia parada há 7 dias, e só ela', async (t) => {
+    const s = await subir();
+    t.after(() => s.fechar());
+    const vazia = await anonimo(s, 'Vazia');
+    const com = await anonimo(s, 'Com dados');
+    await enviar(s, com.cookie, [item('diario', 'd1', entrada('x'), T(1))]);
+    const email = await s.entrar('ana@exemplo.com', 'Casa');
+    s.avancar(6 * 24 * 60 * 60 * 1000);
+    s.app.auth.limpar();
+    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM usuarios').get().n, 3);
+    s.avancar(2 * 24 * 60 * 60 * 1000);
+    s.app.auth.limpar();
+    const restam = s.app.db.prepare('SELECT id, email FROM usuarios ORDER BY id').all().map((u) => u.id);
+    assert.ok(!restam.includes(vazia.id));
+    assert.ok(restam.includes(com.id));
+    assert.equal(restam.length, 2); // a anônima com dados e a do e-mail
+    assert.ok(email);
+});

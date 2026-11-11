@@ -1,7 +1,7 @@
 import { createServer } from 'node:http';
 import { abrirBanco } from './db.js';
 import {
-    ENVIOS_POR_HORA_GLOBAL, LIMITE_CORPO_AUTH, LIMITE_CORPO_SYNC, SESSAO_MS,
+    ANONIMAS_POR_DIA_GLOBAL, ENVIOS_POR_HORA_GLOBAL, LIMITE_CORPO_AUTH, LIMITE_CORPO_SYNC, SESSAO_MS,
 } from './config.js';
 import {
     ErroHttp, criarRoteador, lerCookies, lerCorpo, montarCookie, responder,
@@ -74,6 +74,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     rotas.adicionar('POST', '/v1/auth/anonimo', { livre: true, limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, corpo }) => {
         limiteOuErro(`anonimo-ip:${chaveIp(ipDe(req))}`, 30, HORA);
         limiteOuErro('anonimo-global', 600, HORA);
+        limiteOuErro('anonimo-dia', ANONIMAS_POR_DIA_GLOBAL, 24 * HORA);
         const r = auth.criarAnonimo(corpo.aparelho);
         return { status: 201, corpo: { usuario: r.usuario, chave: r.chave, contas: r.contas }, cabecalhos: { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } };
     });
@@ -121,6 +122,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     rotas.adicionar('POST', '/v1/contas/anonima', { limiteCorpo: LIMITE_CORPO_AUTH }, async ({ sessao }) => {
         limiteOuErro(`anonima:${sessao.sessaoId}`, 10, HORA);
         limiteOuErro('anonimo-global', 600, HORA);
+        limiteOuErro('anonimo-dia', ANONIMAS_POR_DIA_GLOBAL, 24 * HORA);
         const r = auth.adicionarAnonima(sessao.sessaoId);
         return { status: 201, corpo: { usuario: r.usuario, chave: r.chave, contas: r.contas } };
     });

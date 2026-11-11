@@ -1,6 +1,6 @@
 import { transacao } from './db.js';
 import {
-    LIMITE_LINHAS_USUARIO, LIMITE_DIARIO, LIMITE_ITEM_BYTES, LIMITE_ITENS_POR_PEDIDO, LIMITE_USUARIO_BYTES, PAGINA_SYNC,
+    LIMITE_LINHAS_USUARIO, LIMITE_DIARIO, LIMITE_ITEM_BYTES, LIMITE_ITENS_POR_PEDIDO, LIMITE_USUARIO_BYTES, LIMITE_USUARIO_BYTES_ANONIMO, PAGINA_SYNC,
 } from './config.js';
 import { ErroHttp } from './http.js';
 
@@ -67,7 +67,9 @@ export function criarSync({ db, relogio }) {
         const linhas = db.prepare('SELECT COUNT(*) AS n FROM itens WHERE usuario_id = ?').get(uid).n;
         if (linhas > LIMITE_LINHAS_USUARIO) throw new ErroHttp(413, 'limite_de_itens', { limite: LIMITE_LINHAS_USUARIO });
         const bytes = db.prepare('SELECT COALESCE(SUM(LENGTH(CAST(dados AS BLOB)) + LENGTH(id) + 64), 0) AS b FROM itens WHERE usuario_id = ?').get(uid).b;
-        if (bytes > LIMITE_USUARIO_BYTES) throw new ErroHttp(413, 'limite_de_espaco', { limite_bytes: LIMITE_USUARIO_BYTES });
+        const anonima = db.prepare('SELECT email FROM usuarios WHERE id = ?').get(uid).email === null;
+        const teto = anonima ? LIMITE_USUARIO_BYTES_ANONIMO : LIMITE_USUARIO_BYTES;
+        if (bytes > teto) throw new ErroHttp(413, 'limite_de_espaco', { limite_bytes: teto });
     }
 
     function pagina(uid, desde, excluir) {

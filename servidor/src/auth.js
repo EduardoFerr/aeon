@@ -1,7 +1,7 @@
 import { createHash, createHmac, randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
 import { transacao } from './db.js';
 import {
-    CODIGO_BLOQUEIO_MS, CODIGO_REENVIO_MS, CODIGO_TENTATIVAS, CODIGO_VALE_MS, EXPURGO_MARCAS_MS, MAX_CONTAS_POR_SESSAO,
+    CODIGO_BLOQUEIO_MS, CODIGO_REENVIO_MS, CODIGO_TENTATIVAS, CODIGO_VALE_MS, EXPURGO_ANONIMA_VAZIA_MS, EXPURGO_MARCAS_MS, MAX_CONTAS_POR_SESSAO,
     MAX_SESSOES_POR_USUARIO, SESSAO_MS, SESSAO_RENOVA_APOS_MS,
 } from './config.js';
 import { ErroHttp } from './http.js';
@@ -375,6 +375,11 @@ export function criarAuth({ db, config, relogio, fundir }) {
             // marcas de exclusão (sem conteúdo) com mais de 1 ano: um aparelho parado por tanto tempo já perdeu a sessão
             db.prepare('DELETE FROM itens WHERE apagado = 1 AND atualizado_em < ?').run(iso(agora - EXPURGO_MARCAS_MS));
             db.prepare('DELETE FROM sessoes WHERE ultimo_uso < ?').run(iso(agora - SESSAO_MS));
+            // conta anonima que nunca guardou nada e nao e usada ha 7 dias: sai (nao ha dado a perder)
+            db.prepare(
+                `DELETE FROM usuarios WHERE email IS NULL AND ultimo_acesso < ?
+                 AND NOT EXISTS (SELECT 1 FROM itens WHERE itens.usuario_id = usuarios.id)`,
+            ).run(iso(agora - EXPURGO_ANONIMA_VAZIA_MS));
             aposDesligar();
         },
     };
