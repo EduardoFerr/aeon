@@ -2,6 +2,30 @@ import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "node:path";
 import fs from "node:fs/promises";
+import { readFileSync } from "node:fs";
+
+const pacote = JSON.parse(readFileSync(path.resolve(__dirname, "package.json"), "utf-8"));
+// Versao do app: package.json + data e hora do build. Aparece em Perfil, aba Dados, e em /versao.json.
+const APP_VERSAO = pacote.version;
+const APP_BUILD = new Date().toISOString();
+
+/**
+ * Publica /versao.json ({ versao, build }). Serve para o botao "Buscar atualizacao" quando o navegador nao tem
+ * service worker (a verificacao normal e a do proprio service worker). Fica fora do precache e do cache de dados:
+ * e sempre lido da rede.
+ */
+function versaoJson() {
+  return {
+    name: "aeon-versao-json",
+    generateBundle() {
+      this.emitFile({
+        type: "asset",
+        fileName: "versao.json",
+        source: JSON.stringify({ versao: APP_VERSAO, build: APP_BUILD }),
+      });
+    },
+  };
+}
 
 /**
  * No GitHub Pages, URL sem arquivo responde 404 com o 404.html. O servidor de preview (que serve o dist)
@@ -35,6 +59,10 @@ function pagina404() {
 }
 
 export default defineConfig({
+  define: {
+    __APP_VERSAO__: JSON.stringify(APP_VERSAO),
+    __APP_BUILD__: JSON.stringify(APP_BUILD),
+  },
   // Obs.: um bloco "build.build" (base, outDir, minify terser, publicDir) existia
   // aqui aninhado no nivel errado e o Vite o ignorava. Foi removido sem mudar o
   // resultado: os valores efetivos sempre foram os padroes (base "/", outDir
@@ -63,10 +91,26 @@ export default defineConfig({
   },
   plugins: [
     pagina404(),
+    versaoJson(),
     VitePWA({
-      registerType: "autoUpdate",
+      // "prompt": a versao nova instala em segundo plano e espera. Quem decide quando trocar e a pessoa (aviso
+      // "Atualizar agora"), assim a pagina nunca recarrega sozinha no meio de uma anotacao.
+      registerType: "prompt",
+      // O registro e manual (src/utils/atualizacao.js, via virtual:pwa-register), para checar versao nova ao abrir,
+      // ao voltar para a aba e a cada 30 minutos, e mostrar o aviso.
+      injectRegister: false,
       workbox: {
+        // Sem skipWaiting (o aviso decide), mas com clientsClaim: na primeira visita o service worker ja
+        // controla a pagina, e o app abre sem internet logo na segunda abertura.
+        skipWaiting: false,
+        clientsClaim: true,
+        // Apaga os caches de precache de versoes antigas quando a nova ativa.
+        cleanupOutdatedCaches: true,
+        // Transicao unica: quem ainda tem o service worker antigo (autoUpdate) nao sabe pedir a troca. Este
+        // arquivo faz a PRIMEIRA versao "prompt" assumir na hora, como o antigo fazia. Dai em diante vale o aviso.
+        importScripts: ["sw-transicao.js"],
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+        globIgnores: ["sw-transicao.js"],
         // Sem fallback para a Home: URL inexistente vai a rede e recebe o 404.html. Os parametros de
         // consulta (/?profile, /?history...) sao ignorados ao procurar no precache, entao abrem o index.html offline.
         navigateFallback: null,
@@ -84,7 +128,21 @@ export default defineConfig({
             options: {
               cacheName: "aeon-astro-textos",
               networkTimeoutSeconds: 4,
+              fetchOptions: { cache: "no-cache" }, // revalida (304) em vez de aceitar o cache HTTP de ate 10 min do Pages
               expiration: { maxEntries: 2, maxAgeSeconds: 60 * 60 * 24 * 90 },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
+          {
+            // Cartas, glossario e "Entenda o baralho" tambem mudam a cada versao: rede primeiro, cache so como reserva
+            // offline, para nunca aparecer tela nova com dado antigo.
+            urlPattern: ({ url }) => ["/data/cards.json", "/data/glossario.json", "/data/entenda-baralho.json"].includes(url.pathname),
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "aeon-dados-base",
+              networkTimeoutSeconds: 4,
+              fetchOptions: { cache: "no-cache" },
+              expiration: { maxEntries: 6, maxAgeSeconds: 60 * 60 * 24 * 90 },
               cacheableResponse: { statuses: [200] },
             },
           },

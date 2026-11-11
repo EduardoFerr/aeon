@@ -83,13 +83,21 @@
 .sob-pn .toggle-linha, .sob-pn .diario-marca { min-height: 44px; }
 
 /* toast de confirmacao (so para 'Mapa guardado', 'Texto copiado') */
-.toast { position: fixed; z-index: 1300; left: 50%; bottom: var(--float-b); transform: translate(-50%, 12px); opacity: 0; width: max-content; max-width: min(92vw, 420px); padding: 12px 18px; border-radius: var(--r-md); background: var(--surface-2); color: var(--text); border: 1px solid var(--line-strong); box-shadow: var(--sh-3); font-size: var(--fs-sm); font-weight: 500; transition: transform 240ms var(--ease-ritual), opacity 240ms var(--ease-ritual); pointer-events: none; display: flex; gap: 10px; align-items: center; visibility: hidden; }
+.toast { position: fixed; z-index: 1300; left: 50%; bottom: calc(var(--float-b) + var(--versao-h)); transform: translate(-50%, 12px); opacity: 0; width: max-content; max-width: min(92vw, 420px); padding: 12px 18px; border-radius: var(--r-md); background: var(--surface-2); color: var(--text); border: 1px solid var(--line-strong); box-shadow: var(--sh-3); font-size: var(--fs-sm); font-weight: 500; transition: transform 240ms var(--ease-ritual), opacity 240ms var(--ease-ritual); pointer-events: none; display: flex; gap: 10px; align-items: center; visibility: hidden; }
 .toast.on { transform: translate(-50%, 0); opacity: 1; visibility: visible; }
 .toast.com-acao.on { pointer-events: auto; padding-right: 8px; }
 .toast .toast-acao { margin-left: 4px; flex: none; }
 .toast .icon { width: 20px; height: 20px; color: var(--ok); flex: none; }
-@media (min-width: 860px) { .toast { bottom: var(--sp-5); } }
+@media (min-width: 860px) { .toast { bottom: calc(var(--sp-5) + var(--versao-h)); } }
+
+/* aviso fixo de versao nova (nao some sozinho): acima da barra de navegacao; --versao-h levanta o que fica no rodape */
+.versao-nova { position: fixed; z-index: 35; left: 50%; bottom: var(--float-b); width: min(calc(100vw - 2 * var(--gutter)), 520px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-3); padding: var(--sp-3) var(--sp-3) var(--sp-3) var(--sp-4); border-radius: var(--r-md); background: var(--surface-2); color: var(--text); border: 1px solid var(--line-strong); border-left: 4px solid var(--accent); box-shadow: var(--sh-3); font-size: var(--fs-sm); font-weight: 500; transform: translate(-50%, 12px); opacity: 0; transition: transform 240ms var(--ease-ritual), opacity 240ms var(--ease-ritual); }
+.versao-nova[hidden] { display: none; }
+.versao-nova.on { transform: translate(-50%, 0); opacity: 1; }
+.versao-nova-texto { flex: 1 1 14ch; min-width: 0; text-wrap: balance; }
+.versao-nova .btn { flex: none; }
+@media (min-width: 860px) { .versao-nova { bottom: var(--sp-5); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .sob *, .sob-pn, .sob-fundo, .toast, .btn { transition: none !important; animation: none !important; }
+  .sob *, .sob-pn, .sob-fundo, .toast, .versao-nova, .btn { transition: none !important; animation: none !important; }
 }

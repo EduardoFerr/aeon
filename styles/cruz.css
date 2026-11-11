@@ -61,7 +61,7 @@
 .cz-lado-col { display: grid; gap: var(--sp-5); width: 100%; }
 .cz-acoes { display: flex; flex-wrap: wrap; gap: var(--sp-3); justify-content: center; align-items: center; min-height: 40px; }
 .cz-acoes:empty { display: none; }
-.cz-barra { display: flex; gap: var(--sp-3); justify-content: center; position: sticky; bottom: var(--nav-total); z-index: 6; justify-self: stretch; width: calc(100% + 2 * var(--gutter)); margin-inline: calc(-1 * var(--gutter)); padding: var(--sp-2) var(--gutter); background: var(--scrim); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-top: 1px solid var(--line); }
+.cz-barra { display: flex; gap: var(--sp-3); justify-content: center; position: sticky; bottom: calc(var(--nav-total) + var(--versao-h)); z-index: 6; justify-self: stretch; width: calc(100% + 2 * var(--gutter)); margin-inline: calc(-1 * var(--gutter)); padding: var(--sp-2) var(--gutter); background: var(--scrim); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-top: 1px solid var(--line); }
 .cz-barra:empty { display: none; }
 .cz-lista { list-style: none; margin: 0; padding: 0; display: grid; text-align: left; border-top: 1px solid var(--line); }
 .cz-lista li { border-bottom: 1px solid var(--line); }
