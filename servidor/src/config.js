@@ -61,7 +61,7 @@ export function lerConfig(env = process.env) {
     const de = env.EMAIL_DE || '';
     if (emailModo === 'smtp') {
         if (!smtp.host || !smtp.usuario || !smtp.senha) erros.push('Defina SMTP_HOST, SMTP_USUARIO e SMTP_SENHA.');
-        if (!/^[A-Za-z0-9._%+'-]{1,64}@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/.test(de)) erros.push('EMAIL_DE precisa ser um e-mail (ex.: nao-responda@aeonfool.com).');
+        if (!/^[A-Za-z0-9._%+'-]{1,64}@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/.test(de)) erros.push('EMAIL_DE precisa ser um e-mail (ex.: atendimento@aeonfool.com).');
     }
 
     // Em produção o cookie é sempre Secure. Fora dela, só com COOKIE_SEGURO=true (o padrão permite http://localhost).

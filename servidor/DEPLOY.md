@@ -29,10 +29,10 @@ Deve responder `2.25.152.64`.
 
 ## 2. E-mail do código de acesso
 
-1. No hPanel, Emails, crie a caixa `nao-responda@aeonfool.com` com uma senha forte.
-2. Dados do SMTP: servidor `smtp.hostinger.com`, porta `465` (SSL), usuário `nao-responda@aeonfool.com`.
+1. No hPanel, Emails, crie a caixa `atendimento@aeonfool.com` com uma senha forte.
+2. Dados do SMTP: servidor `smtp.hostinger.com`, porta `465` (SSL), usuário `atendimento@aeonfool.com`.
 3. Confira no DNS do `aeonfool.com` os registros que a Hostinger cria ao ativar o e-mail: MX (mx1 e mx2.hostinger.com), SPF (TXT `v=spf1 include:_spf.mail.hostinger.com ~all`) e os três DKIM (CNAME `hostingermail-a`, `-b`, `-c` `._domainkey`). Se algum faltar, o hPanel mostra o valor exato na própria página do e-mail.
-4. Acrescente o DMARC (TXT, nome `_dmarc`): `v=DMARC1; p=none; rua=mailto:SEU-EMAIL-QUE-VOCE-LE`. Troque `SEU-EMAIL-QUE-VOCE-LE` por um e-mail que você lê (a caixa nao-responda ninguém abre). Depois de uma semana sem problemas, troque `p=none` por `p=quarantine`.
+4. Acrescente o DMARC (TXT, nome `_dmarc`): `v=DMARC1; p=none; rua=mailto:SEU-EMAIL-QUE-VOCE-LE`. Troque `SEU-EMAIL-QUE-VOCE-LE` por um e-mail que você lê (pode ser o próprio `atendimento@aeonfool.com`). Depois de uma semana sem problemas, troque `p=none` por `p=quarantine`.
 5. Teste de entrega: depois do passo 5 deste guia, peça um código para um Gmail e use "Mostrar original". Devem aparecer `SPF: PASS` e `DKIM: PASS`. Se o código cair no spam, marque "não é spam" uma vez e confira o DMARC.
 
 Limite a conhecer: caixas de hospedagem têm teto de envios por hora e por dia (veja o do seu plano no hPanel). Para o começo basta. Se o app crescer, troque o SMTP por um serviço de envio (Resend, Brevo, SES); só mudam as variáveis `SMTP_*`.
