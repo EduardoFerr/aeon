@@ -1,7 +1,7 @@
 import { createServer } from 'node:http';
 import { abrirBanco } from './db.js';
 import {
-    ANONIMAS_POR_DIA_GLOBAL, ENVIOS_POR_HORA_GLOBAL, LIMITE_CORPO_AUTH, LIMITE_CORPO_SYNC, SESSAO_MS,
+    ANONIMA_IP_ESPERA_MS, ANONIMAS_POR_DIA_GLOBAL, ANONIMAS_POR_HORA_GLOBAL, ANONIMAS_POR_IP_POR_DIA, ENVIOS_POR_HORA_GLOBAL, LIMITE_CORPO_AUTH, LIMITE_CORPO_SYNC, SESSAO_MS,
 } from './config.js';
 import {
     ErroHttp, criarRoteador, lerCookies, lerCorpo, montarCookie, responder,
@@ -70,11 +70,15 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         return { status: 202, corpo: { ok: true } };
     });
 
-    // Conta anonima: todo aparelho ganha uma ao abrir o app. Sem e-mail; o login depois so associa o e-mail a ela.
+    // Conta anonima so existe quando a pessoa pede (gerar a chave de recuperacao). Nunca ao abrir o app. Freios severos.
+    const freioCriacao = (ip) => {
+        limiteOuErro(`anonima-ip-espera:${ip}`, 1, ANONIMA_IP_ESPERA_MS);
+        limiteOuErro(`anonima-ip-dia:${ip}`, ANONIMAS_POR_IP_POR_DIA, 24 * HORA);
+        limiteOuErro('anonima-global-hora', ANONIMAS_POR_HORA_GLOBAL, HORA);
+        limiteOuErro('anonima-global-dia', ANONIMAS_POR_DIA_GLOBAL, 24 * HORA);
+    };
     rotas.adicionar('POST', '/v1/auth/anonimo', { livre: true, limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, corpo }) => {
-        limiteOuErro(`anonimo-ip:${chaveIp(ipDe(req))}`, 30, HORA);
-        limiteOuErro('anonimo-global', 600, HORA);
-        limiteOuErro('anonimo-dia', ANONIMAS_POR_DIA_GLOBAL, 24 * HORA);
+        freioCriacao(chaveIp(ipDe(req)));
         const r = auth.criarAnonimo(corpo.aparelho);
         return { status: 201, corpo: { usuario: r.usuario, chave: r.chave, contas: r.contas }, cabecalhos: { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } };
     });
@@ -119,10 +123,9 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     // Varias contas no mesmo aparelho: a sessao (um cookie) liga-se a elas; o cabecalho X-Aeon-Conta escolhe a em uso.
     rotas.adicionar('GET', '/v1/contas', {}, async ({ sessao }) => ({ corpo: { contas: sessao.contas } }));
 
-    rotas.adicionar('POST', '/v1/contas/anonima', { limiteCorpo: LIMITE_CORPO_AUTH }, async ({ sessao }) => {
-        limiteOuErro(`anonima:${sessao.sessaoId}`, 10, HORA);
-        limiteOuErro('anonimo-global', 600, HORA);
-        limiteOuErro('anonimo-dia', ANONIMAS_POR_DIA_GLOBAL, 24 * HORA);
+    rotas.adicionar('POST', '/v1/contas/anonima', { limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, sessao }) => {
+        freioCriacao(chaveIp(ipDe(req)));
+        limiteOuErro(`anonima-sessao:${sessao.sessaoId}`, 3, 24 * HORA);
         const r = auth.adicionarAnonima(sessao.sessaoId);
         return { status: 201, corpo: { usuario: r.usuario, chave: r.chave, contas: r.contas } };
     });

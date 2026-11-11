@@ -11,6 +11,7 @@ const enviar = (s, cookie, itens, conta) => s.chamar('POST', '/v1/sync', { cooki
 const ler = (s, cookie, conta) => s.chamar('GET', '/v1/sync?desde=0', { cookie, cabecalhos: como(conta) });
 
 async function anonimo(s, aparelho = 'Aparelho') {
+    s.avancar(31 * 60 * 1000); // o servidor so cria uma conta anonima por IP a cada 30 minutos
     const r = await s.chamar('POST', '/v1/auth/anonimo', { corpo: { aparelho } });
     return { cookie: r.setCookie.split(';')[0], id: r.json.usuario.id, chave: r.json.chave };
 }
@@ -152,6 +153,7 @@ test('conta anônima extra também recebe chave', async (t) => {
     const s = await subir();
     t.after(() => s.fechar());
     const a = await anonimo(s);
+    s.avancar(31 * 60 * 1000);
     const nova = await s.chamar('POST', '/v1/contas/anonima', { cookie: a.cookie, corpo: {} });
     assert.equal(normalizarChave(nova.json.chave), nova.json.chave);
     assert.notEqual(nova.json.chave, a.chave);
