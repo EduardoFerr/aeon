@@ -6,8 +6,8 @@
       "Árvore da Vida"
     ],
     "auto": true,
-    "curto": "O mapa da Cabala: dez esferas ligadas por vinte e dois caminhos. É o esqueleto sobre o qual o Tarot de Thoth organiza as suas cartas.",
-    "mais": "As dez esferas correspondem às cartas numeradas, de 1 (Kether) a 10 (Malkuth); os vinte e dois caminhos, aos arcanos maiores. Lê-se de cima, o divino ainda indivisível, até embaixo, o mundo concreto.",
+    "curto": "Esquema da Cabala (tradição mística de origem judaica) com dez esferas ligadas por 22 caminhos. O Tarot de Thoth usa esse desenho para organizar as cartas.",
+    "mais": "As dez esferas correspondem às cartas numeradas, do Ás em Kether (a Coroa) ao Dez em Malkuth (o mundo material). Os 22 caminhos correspondem aos Arcanos Maiores. Lê-se de cima, onde tudo ainda é um só, até embaixo, o mundo concreto.",
     "ver_tambem": [
       "esfera",
       "caminho",
@@ -23,8 +23,8 @@
       "sephiroth"
     ],
     "auto": false,
-    "curto": "Cada um dos dez pontos da Árvore da Vida (sephirah, no plural sephiroth). Cada esfera é uma qualidade do mundo: sabedoria, rigor, beleza, matéria.",
-    "mais": "As cartas numeradas moram nas esferas: o Ás em Kether, o Dois em Chokmah, e assim até o Dez em Malkuth. A esfera dá a nota da carta; o naipe, o instrumento.",
+    "curto": "Cada um dos dez pontos da Árvore da Vida. Em hebraico, sephirah (plural sephiroth). Cada esfera representa uma qualidade, como sabedoria, rigor, beleza ou matéria.",
+    "mais": "As cartas numeradas ficam nas esferas: os Ases em Kether (a Coroa), os Dois em Chokmah (a Sabedoria), e assim até os Dez em Malkuth (o mundo material). A esfera dá o tema da carta, e o naipe mostra em que área da vida ele aparece.",
     "ver_tambem": [
       "arvore-da-vida",
       "kether",
@@ -38,8 +38,8 @@
       "caminho"
     ],
     "auto": false,
-    "curto": "Cada uma das vinte e duas linhas que ligam duas esferas da Árvore da Vida. Cada caminho tem uma letra hebraica e um arcano maior.",
-    "mais": "Os caminhos são numerados de 11 a 32. Percorrer um caminho é viver a lição da carta que o habita: o 11 é o do Louco, o 32, o do Universo.",
+    "curto": "Cada uma das 22 linhas que ligam duas esferas da Árvore da Vida. Cada caminho tem uma letra hebraica e um Arcano Maior.",
+    "mais": "Os caminhos são numerados de 11 a 32. O 11 pertence à carta O Louco e liga Kether (a Coroa) a Chokmah (a Sabedoria); o 32 pertence à carta O Universo e liga Yesod (o Fundamento) a Malkuth (o mundo material). Estudar um caminho é entender o tema da carta que está nele.",
     "ver_tambem": [
       "arvore-da-vida",
       "esfera",
@@ -53,8 +53,8 @@
       "coluna central"
     ],
     "auto": true,
-    "curto": "A coluna do meio da Árvore da Vida, a do equilíbrio: Kether, Tiphareth, Yesod e Malkuth, unidas pelos caminhos 13, 25 e 32.",
-    "mais": "As colunas laterais são a da Misericórdia e a do Rigor. A central reconcilia as duas, e é por ela que a consciência sobe e desce a Árvore.",
+    "curto": "A coluna do meio da Árvore da Vida, a do equilíbrio: Kether (Coroa), Tiphareth (Beleza), Yesod (Fundamento) e Malkuth (mundo material), unidas pelos caminhos 13, 25 e 32.",
+    "mais": "As colunas laterais são a da Misericórdia e a do Rigor, que se opõem. A coluna central equilibra as duas, e é por ela que se sobe e se desce na Árvore, da matéria até a origem.",
     "ver_tambem": [
       "arvore-da-vida",
       "caminho"
@@ -67,8 +67,8 @@
       "Abismo"
     ],
     "auto": true,
-    "curto": "O vazio que separa as três esferas superiores das demais. Atravessá-lo é passar do eu individual ao que o ultrapassa.",
-    "mais": "Vários caminhos o cruzam, e o 13, o da Sacerdotisa, vai de Tiphareth direto a Kether. A Cabala o descreve como o limite entre o que se pensa e o que simplesmente é.",
+    "curto": "O vazio entre as três esferas superiores e as sete de baixo. Cruzá-lo é deixar o ponto de vista individual e chegar a algo maior que a própria pessoa.",
+    "mais": "Cinco caminhos o cruzam: o 13, o 15, o 16, o 17 e o 18, todos entre uma esfera de cima e uma de baixo. O 13, da carta A Sacerdotisa, liga Tiphareth (a Beleza) direto a Kether (a Coroa).",
     "ver_tambem": [
       "arvore-da-vida",
       "gimel"
@@ -81,8 +81,8 @@
       "Ain"
     ],
     "auto": true,
-    "curto": "O nada anterior a tudo, o zero da Cabala. Vem antes de Kether, e é a casa do Louco.",
-    "mais": "Em hebraico, a palavra quer dizer 'nada'. A Cabala o descreve em três véus: Ain, Ain Soph (o sem-limite) e Ain Soph Aur (a luz sem limite), dos quais nasce Kether.",
+    "curto": "O nada que vem antes de tudo, o zero da Cabala. Fica antes de Kether (a Coroa) e corresponde à carta O Louco, de número zero.",
+    "mais": "Em hebraico, a palavra quer dizer 'nada'. A Cabala o descreve em três véus, ou camadas: Ain, Ain Soph (o sem limite) e Ain Soph Aur (a luz sem limite). Desse último nasce Kether.",
     "ver_tambem": [
       "kether",
       "aleph"
@@ -95,8 +95,8 @@
       "Tetragrama"
     ],
     "auto": true,
-    "curto": "O nome divino de quatro letras hebraicas: Yod, Heh, Vav, Heh. Cada letra corresponde a um elemento, a um naipe e a uma patente da Corte.",
-    "mais": "Yod é o Fogo, os Bastões e o Cavaleiro; o primeiro Heh, a Água, as Taças e a Rainha; Vav, o Ar, as Espadas e o Príncipe; o segundo Heh, a Terra, os Discos e a Princesa.",
+    "curto": "Quatro letras hebraicas que formam o nome divino: Yod, Heh, Vav, Heh. Cada uma corresponde a um elemento, a um naipe e a uma figura da Corte.",
+    "mais": "Yod corresponde ao Fogo, aos Bastões e ao Cavaleiro. O primeiro Heh, à Água, às Taças e à Rainha. Vav, ao Ar, às Espadas e ao Príncipe. O segundo Heh, à Terra, aos Discos e à Princesa.",
     "ver_tambem": [
       "corte",
       "elementos",
@@ -112,8 +112,8 @@
       "Kether"
     ],
     "auto": true,
-    "curto": "A esfera do topo da Árvore da Vida, a Coroa: a origem, o ponto onde tudo é ainda um só. Nela moram os quatro Ases.",
-    "mais": "É a esfera 1. Dela partem os três primeiros caminhos, o 11, o 12 e o 13. É a raiz do que virá, antes de qualquer forma.",
+    "curto": "A esfera do topo da Árvore da Vida, a Coroa: a origem, o ponto em que tudo ainda é um só. Os quatro Ases ficam nela.",
+    "mais": "É a esfera de número 1. Dela saem os três primeiros caminhos, o 11, o 12 e o 13. Representa a raiz de tudo o que vem depois, antes de existir qualquer forma.",
     "ver_tambem": [
       "arvore-da-vida",
       "esfera",
@@ -128,7 +128,7 @@
     ],
     "auto": true,
     "curto": "A segunda esfera, a Sabedoria: o primeiro impulso, a força que sai da origem e busca direção. Rege os Dois e os Cavaleiros.",
-    "mais": "É o pai da Árvore: força sem forma, rapidez, ímpeto. Em cada naipe, o Dois é seu, e o Cavaleiro também.",
+    "mais": "É o pai da Árvore: força sem forma, rapidez, ímpeto. Em cada naipe, o Dois e o Cavaleiro pertencem a ela, e por isso trazem energia de arranque, ainda sem contorno.",
     "ver_tambem": [
       "binah",
       "cavaleiro"
@@ -142,7 +142,7 @@
     ],
     "auto": true,
     "curto": "A terceira esfera, o Entendimento: a forma que recebe a força. É a Grande Mãe da Árvore e rege os Três e as Rainhas.",
-    "mais": "Onde a energia ganha contorno, limite e tempo. Saturno é seu planeta. As Rainhas, Água de cada naipe, vêm daqui.",
+    "mais": "É onde a energia ganha contorno, limite e tempo. Seu planeta é Saturno, o do tempo e do limite. As Rainhas, que são a Água de cada naipe, vêm daqui.",
     "ver_tambem": [
       "chokmah",
       "rainha"
@@ -155,8 +155,8 @@
       "Chesed"
     ],
     "auto": true,
-    "curto": "A quarta esfera, a Misericórdia: expansão, generosidade, ordem estável. Rege os Quatros. Seu planeta é Júpiter.",
-    "mais": "É a esfera da abundância organizada: o que cresce sem se desmanchar.",
+    "curto": "A quarta esfera, a Misericórdia: expansão, generosidade e ordem estável. Rege os Quatros e tem Júpiter como planeta.",
+    "mais": "É a esfera da abundância organizada: aquilo que cresce sem se desmanchar. Júpiter, o planeta da expansão e da sorte, é o seu astro. Seu par, do outro lado da Árvore, é Geburah (o Rigor).",
     "ver_tambem": [
       "geburah"
     ]
@@ -168,8 +168,8 @@
       "Geburah"
     ],
     "auto": true,
-    "curto": "A quinta esfera, o Rigor: a força que corta, delimita e põe à prova. Rege os Cincos. Seu planeta é Marte.",
-    "mais": "É o par de Chesed: onde a generosidade encontra o limite. Dela vêm o corte e a disciplina.",
+    "curto": "A quinta esfera, o Rigor: a força que corta, delimita e põe à prova. Rege os Cincos e tem Marte como planeta.",
+    "mais": "É o par de Chesed (a Misericórdia): onde a generosidade encontra o limite. Dela vêm o corte e a disciplina. Seu astro é Marte, o planeta da ação e do conflito.",
     "ver_tambem": [
       "chesed"
     ]
@@ -182,7 +182,7 @@
     ],
     "auto": true,
     "curto": "A sexta esfera, a Beleza: o centro solar da Árvore, onde todas as forças se equilibram. Rege os Seis e os Príncipes.",
-    "mais": "O Sol é o seu astro. É o ponto de encontro de quase todos os caminhos e o coração da coluna central.",
+    "mais": "Seu astro é o Sol. Tiphareth se liga a oito das outras nove esferas, só não a Malkuth (o mundo material), e fica no coração da coluna central.",
     "ver_tambem": [
       "coluna-central",
       "principe"
@@ -195,8 +195,8 @@
       "Netzach"
     ],
     "auto": true,
-    "curto": "A sétima esfera, a Vitória: desejo, instinto, natureza e arte. Rege os Setes. Seu planeta é Vênus.",
-    "mais": "Vitória, aqui, é a persistência do desejo, não o triunfo da carta que leva esse nome.",
+    "curto": "A sétima esfera, a Vitória: desejo, instinto, natureza e arte. Rege os Setes e tem Vênus como planeta.",
+    "mais": "Vitória, aqui, quer dizer a persistência do desejo, e não um triunfo. Não confunda com a carta Seis de Bastões, que se chama Vitória.",
     "ver_tambem": [
       "hod"
     ]
@@ -208,8 +208,8 @@
       "Hod"
     ],
     "auto": true,
-    "curto": "A oitava esfera, o Esplendor: intelecto, palavra e comunicação. Rege os Oitos. Seu planeta é Mercúrio.",
-    "mais": "É o par de Netzach: onde o desejo encontra a forma da linguagem e do pensamento.",
+    "curto": "A oitava esfera, o Esplendor: intelecto, palavra e comunicação. Rege os Oitos e tem Mercúrio como planeta.",
+    "mais": "É o par de Netzach (a Vitória): onde o desejo encontra a forma da palavra e do pensamento. É a esfera da fala, da escrita e do método.",
     "ver_tambem": [
       "netzach"
     ]
@@ -221,8 +221,8 @@
       "Yesod"
     ],
     "auto": true,
-    "curto": "A nona esfera, o Fundamento: imagens, ritmos e corpo, o espelho que reflete as esferas de cima. Rege os Noves. Seu astro é a Lua.",
-    "mais": "Tudo o que vem de cima passa por Yesod antes de se tornar matéria.",
+    "curto": "A nona esfera, o Fundamento: imagens, ritmos e corpo. Reflete o que vem das esferas de cima. Rege os Noves, e seu astro é a Lua.",
+    "mais": "Tudo o que vem de cima passa por Yesod antes de virar matéria em Malkuth (o mundo material). A Lua, que muda de fase e marca ritmos, combina com essa função de refletir e transmitir.",
     "ver_tambem": [
       "malkuth"
     ]
@@ -234,8 +234,8 @@
       "Malkuth"
     ],
     "auto": true,
-    "curto": "A décima esfera, o Reino: o mundo concreto e a matéria. Rege os Dez e as Princesas.",
-    "mais": "A Terra é o seu elemento. Nela termina a Árvore e recomeça o ciclo; o caminho 32, o do Universo, é o que sobe dela.",
+    "curto": "A décima esfera, o Reino: o mundo material e concreto. Rege os Dez e as Princesas.",
+    "mais": "A Terra é o seu elemento. Nela termina a Árvore e recomeça o ciclo. O caminho 32, o da carta O Universo, é o que sobe de Malkuth até Yesod (o Fundamento).",
     "ver_tambem": [
       "yesod",
       "princesa"
@@ -248,8 +248,8 @@
       "Aleph"
     ],
     "auto": true,
-    "curto": "Primeira letra do alfabeto hebraico; significa boi. É a letra do Louco, no caminho 11, ligada ao Ar.",
-    "mais": "Silenciosa na fala, é o sopro anterior à palavra. Liga Kether a Chokmah, o primeiro passo da origem rumo à multiplicidade.",
+    "curto": "Primeira letra do alfabeto hebraico, que significa boi. É a letra de O Louco, no caminho 11, e corresponde ao Ar.",
+    "mais": "É uma letra que não se pronuncia: o sopro que vem antes da palavra. O caminho 11 liga Kether (a Coroa) a Chokmah (a Sabedoria), o primeiro passo da origem rumo à variedade.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -262,8 +262,8 @@
       "Beth"
     ],
     "auto": true,
-    "curto": "Segunda letra; significa casa. É a letra do Mago, no caminho 12, sob Mercúrio.",
-    "mais": "A casa é o primeiro recipiente em que a unidade se expressa. O caminho liga Kether a Binah.",
+    "curto": "Segunda letra do alfabeto hebraico, que significa casa. É a letra de O Mago, no caminho 12, e corresponde a Mercúrio.",
+    "mais": "A casa é o primeiro recipiente em que a unidade se expressa. O caminho 12 liga Kether (a Coroa) a Binah (o Entendimento). Mercúrio é o planeta da comunicação.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -276,8 +276,8 @@
       "Gimel"
     ],
     "auto": true,
-    "curto": "Terceira letra; significa camelo. É a letra da Sacerdotisa, no caminho 13, sob a Lua.",
-    "mais": "O camelo atravessa o deserto; o caminho atravessa o Abismo e liga Tiphareth a Kether. É o mais longo da Árvore.",
+    "curto": "Terceira letra, que significa camelo. É a letra de A Sacerdotisa, no caminho 13, e corresponde à Lua.",
+    "mais": "O camelo cruza o deserto, e o caminho 13 cruza o Abismo, ligando Tiphareth (a Beleza) a Kether (a Coroa). É o caminho mais longo da Árvore.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -290,8 +290,8 @@
       "Daleth"
     ],
     "auto": true,
-    "curto": "Quarta letra; significa porta. É a letra da Imperatriz, no caminho 14, sob Vênus.",
-    "mais": "Porta e ventre: passagem do invisível ao visível. O caminho une Chokmah e Binah, o pai e a mãe da Árvore.",
+    "curto": "Quarta letra, que significa porta. É a letra de A Imperatriz, no caminho 14, e corresponde a Vênus.",
+    "mais": "Porta e ventre: a passagem do invisível ao visível. O caminho 14 une Chokmah (a Sabedoria) e Binah (o Entendimento), o pai e a mãe da Árvore.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -304,8 +304,8 @@
       "Heh"
     ],
     "auto": true,
-    "curto": "Quinta letra; significa janela. No Thoth é a letra da Estrela, no caminho 15, sob Aquário.",
-    "mais": "Liga Chokmah a Tiphareth. É também a segunda e a quarta letra do Tetragrama. Em outros baralhos, Heh é do Imperador; veja 'Heh e Tzaddi'.",
+    "curto": "Quinta letra, que significa janela. No Thoth é a letra de A Estrela, no caminho 15, e corresponde a Aquário.",
+    "mais": "O caminho 15 liga Chokmah (a Sabedoria) a Tiphareth (a Beleza). Heh é também a segunda e a quarta letra do Tetragrama. Em outros baralhos, Heh é do Imperador; veja 'Heh e Tzaddi'.",
     "ver_tambem": [
       "heh-e-tzaddi",
       "caminho"
@@ -318,8 +318,8 @@
       "Vav"
     ],
     "auto": true,
-    "curto": "Sexta letra; significa prego e também 'e'. É a letra do Hierofante, no caminho 16, sob Touro.",
-    "mais": "O que une e fixa. O caminho liga Chokmah a Chesed. Vav é a terceira letra do Tetragrama, ligada ao Ar e aos Príncipes.",
+    "curto": "Sexta letra, que significa prego e também a palavra 'e'. É a letra de O Hierofante, no caminho 16, e corresponde a Touro.",
+    "mais": "Vav é o que une e fixa. O caminho 16 liga Chokmah (a Sabedoria) a Chesed (a Misericórdia). É a terceira letra do Tetragrama, ligada ao Ar e aos Príncipes.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -332,8 +332,8 @@
       "Zayin"
     ],
     "auto": true,
-    "curto": "Sétima letra; significa espada. É a letra dos Enamorados, no caminho 17, sob Gêmeos.",
-    "mais": "A espada separa para que algo possa ser escolhido. O caminho liga Binah a Tiphareth.",
+    "curto": "Sétima letra, que significa espada. É a letra de Os Amantes, no caminho 17, e corresponde a Gêmeos.",
+    "mais": "A espada separa, para que algo possa ser escolhido, e a escolha é o tema de Os Amantes. O caminho 17 liga Binah (o Entendimento) a Tiphareth (a Beleza).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -346,8 +346,8 @@
       "Cheth"
     ],
     "auto": true,
-    "curto": "Oitava letra; significa cerca ou recinto. É a letra do Carro, no caminho 18, sob Câncer.",
-    "mais": "A cerca define o que está dentro e o que está fora, e guarda o que é precioso. O caminho liga Binah a Geburah.",
+    "curto": "Oitava letra, que significa cerca ou recinto. É a letra de A Carruagem, no caminho 18, e corresponde a Câncer.",
+    "mais": "A cerca define o que fica dentro e o que fica fora, e protege o que é precioso. O caminho 18 liga Binah (o Entendimento) a Geburah (o Rigor).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -360,8 +360,8 @@
       "Teth"
     ],
     "auto": true,
-    "curto": "Nona letra; significa serpente. É a letra da Luxúria, no caminho 19, sob Leão.",
-    "mais": "A serpente é a energia que sobe. O caminho liga Chesed a Geburah, a generosidade e o rigor.",
+    "curto": "Nona letra, que significa serpente. É a letra de A Luxúria, no caminho 19, e corresponde a Leão.",
+    "mais": "A serpente representa a energia que sobe. O caminho 19 liga Chesed (a Misericórdia) a Geburah (o Rigor), a generosidade e o limite.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -374,8 +374,8 @@
       "Yod"
     ],
     "auto": true,
-    "curto": "Décima letra, a menor de todas; significa mão. É a letra do Eremita, no caminho 20, sob Virgem.",
-    "mais": "Um simples ponto, de onde as outras letras nascem. É a primeira do Tetragrama, ligada ao Fogo e aos Cavaleiros. O caminho liga Chesed a Tiphareth.",
+    "curto": "Décima letra, a menor de todas, que significa mão. É a letra de O Eremita, no caminho 20, e corresponde a Virgem.",
+    "mais": "É só um ponto, e dele nascem as outras letras. Yod é a primeira letra do Tetragrama, ligada ao Fogo e aos Cavaleiros. O caminho 20 liga Chesed (a Misericórdia) a Tiphareth (a Beleza).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -388,8 +388,8 @@
       "Kaph"
     ],
     "auto": true,
-    "curto": "Décima primeira letra; significa palma da mão. É a letra da Roda da Fortuna, no caminho 21, sob Júpiter.",
-    "mais": "A palma aberta recebe, a fechada retém. O caminho liga Chesed a Netzach.",
+    "curto": "Décima primeira letra, que significa palma da mão. É a letra de A Fortuna, no caminho 21, e corresponde a Júpiter.",
+    "mais": "A palma aberta recebe, e a fechada retém. O caminho 21 liga Chesed (a Misericórdia) a Netzach (a Vitória).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -402,8 +402,8 @@
       "Lamed"
     ],
     "auto": true,
-    "curto": "Décima segunda letra; significa aguilhão, a vara que conduz o boi. É a letra do Ajustamento, no caminho 22, sob Libra.",
-    "mais": "Ensina corrigindo, e é a letra mais alta do alfabeto. O caminho liga Geburah a Tiphareth.",
+    "curto": "Décima segunda letra, que significa aguilhão, a vara que conduz o boi. É a letra de O Ajustamento, no caminho 22, e corresponde a Libra.",
+    "mais": "O aguilhão ensina corrigindo o rumo do boi, e Lamed é a letra mais alta do alfabeto hebraico. O caminho 22 liga Geburah (o Rigor) a Tiphareth (a Beleza).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -416,8 +416,8 @@
       "Mem"
     ],
     "auto": true,
-    "curto": "Décima terceira letra; significa água. É a letra do Enforcado, no caminho 23.",
-    "mais": "Uma das três letras-mãe (Aleph, Mem, Shin), ligadas ao Ar, à Água e ao Fogo. O caminho liga Geburah a Hod.",
+    "curto": "Décima terceira letra, que significa água. É a letra de O Homem Enforcado, no caminho 23, e corresponde ao elemento Água.",
+    "mais": "É uma das três letras-mãe (Aleph, Mem e Shin), ligadas ao Ar, à Água e ao Fogo. O caminho 23 liga Geburah (o Rigor) a Hod (o Esplendor).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -430,8 +430,8 @@
       "Nun"
     ],
     "auto": true,
-    "curto": "Décima quarta letra; significa peixe. É a letra da Morte, no caminho 24, sob Escorpião.",
-    "mais": "O peixe vive no escuro e no fundo. O caminho liga Tiphareth a Netzach.",
+    "curto": "Nun é a 14ª letra do alfabeto hebraico e significa peixe. No Thoth, pertence a A Morte e ao caminho 24 da Árvore da Vida, sob o signo de Escorpião.",
+    "mais": "O peixe vive em águas fundas, o que combina com Escorpião, signo de Água e de intensidade. O caminho 24 é a linha que liga Tiphareth (Beleza) a Netzach (Vitória), duas esferas da Árvore da Vida.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -444,8 +444,8 @@
       "Samekh"
     ],
     "auto": true,
-    "curto": "Décima quinta letra; significa suporte ou escora. É a letra da Arte, no caminho 25, sob Sagitário.",
-    "mais": "Aquilo que mantém algo de pé enquanto se arma. O caminho liga Tiphareth a Yesod, na coluna central.",
+    "curto": "Samekh é a 15ª letra do alfabeto hebraico e significa escora, o apoio que mantém algo de pé. No Thoth, pertence a A Arte e ao caminho 25, sob Sagitário.",
+    "mais": "A escora combina com A Arte, a carta da mistura equilibrada de opostos. O caminho 25 liga Tiphareth (Beleza) a Yesod (Fundamento) e fica na coluna central da Árvore da Vida.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -458,8 +458,8 @@
       "Ayin"
     ],
     "auto": true,
-    "curto": "Décima sexta letra; significa olho. É a letra do Diabo, no caminho 26, sob Capricórnio.",
-    "mais": "O olho que vê sem disfarce. O caminho liga Tiphareth a Hod.",
+    "curto": "Ayin é a 16ª letra do alfabeto hebraico e significa olho. No Thoth, pertence a O Diabo e ao caminho 26 da Árvore da Vida, sob o signo de Capricórnio.",
+    "mais": "O olho combina com O Diabo, carta que mostra o desejo e a natureza sem disfarce. Capricórnio é o signo de Terra, do bode que sobe montanhas. O caminho 26 liga Tiphareth (Beleza) a Hod (Esplendor).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -472,8 +472,8 @@
       "Peh"
     ],
     "auto": true,
-    "curto": "Décima sétima letra; significa boca. É a letra da Torre, no caminho 27, sob Marte.",
-    "mais": "A boca fala e devora. O caminho liga Netzach a Hod.",
+    "curto": "Peh é a 17ª letra do alfabeto hebraico e significa boca. No Thoth, pertence a A Torre e ao caminho 27 da Árvore da Vida, ligado ao planeta Marte.",
+    "mais": "A boca serve para falar e para devorar, e A Torre mostra uma ruptura brusca, como a de Marte, planeta da ação e do conflito. O caminho 27 liga Netzach (Vitória) a Hod (Esplendor).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -486,8 +486,8 @@
       "Tzaddi"
     ],
     "auto": true,
-    "curto": "Décima oitava letra; significa anzol. No Thoth é a letra do Imperador, no caminho 28, sob Áries.",
-    "mais": "O anzol pesca e traz para si. Liga Netzach a Yesod. Em outros baralhos, Tzaddi é da Estrela; veja 'Heh e Tzaddi'.",
+    "curto": "Tzaddi é a 18ª letra do alfabeto hebraico e significa anzol. No Thoth, pertence a O Imperador e ao caminho 28 da Árvore da Vida, sob o signo de Áries.",
+    "mais": "O caminho 28 liga Netzach (Vitória) a Yesod (Fundamento). Em outros baralhos, como os que seguem a Golden Dawn, Tzaddi pertence a A Estrela, e no Thoth as duas letras trocam de carta. Veja 'Heh e Tzaddi'.",
     "ver_tambem": [
       "heh-e-tzaddi",
       "caminho"
@@ -500,8 +500,8 @@
       "Qoph"
     ],
     "auto": true,
-    "curto": "Décima nona letra; significa nuca, a parte de trás da cabeça. É a letra da Lua, no caminho 29, sob Peixes.",
-    "mais": "Algumas fontes a traduzem como 'ouvido da agulha'. O caminho liga Netzach a Malkuth.",
+    "curto": "Qoph é a 19ª letra do alfabeto hebraico e significa nuca, a parte de trás da cabeça. No Thoth, pertence a A Lua e ao caminho 29, sob o signo de Peixes.",
+    "mais": "A nuca é a parte da cabeça que você não vê, o que combina com A Lua, carta do que fica meio oculto. O caminho 29 liga Netzach (Vitória) a Malkuth (o mundo material). Algumas fontes traduzem Qoph de outro modo, como olho da agulha.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -514,8 +514,8 @@
       "Resh"
     ],
     "auto": true,
-    "curto": "Vigésima letra; significa cabeça. É a letra do Sol, no caminho 30.",
-    "mais": "A cabeça é o lugar onde a consciência se acende. O caminho liga Hod a Yesod.",
+    "curto": "Resh é a 20ª letra do alfabeto hebraico e significa cabeça. No Thoth, pertence a O Sol e ao caminho 30 da Árvore da Vida.",
+    "mais": "A cabeça é a sede da visão e da consciência, o que combina com a luz de O Sol, astro de Fogo. O caminho 30 liga Hod (Esplendor) a Yesod (Fundamento).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -528,8 +528,8 @@
       "Shin"
     ],
     "auto": true,
-    "curto": "Vigésima primeira letra; significa dente. É a letra do Aeon, no caminho 31, ligada ao Fogo e ao espírito.",
-    "mais": "Tem três traços, como três línguas de fogo, e é uma das letras-mãe. O caminho liga Hod a Malkuth.",
+    "curto": "Shin é a 21ª letra do alfabeto hebraico e significa dente. No Thoth, pertence a O Aeon e ao caminho 31 da Árvore da Vida, ligado ao Fogo e ao espírito.",
+    "mais": "Shin tem três traços, parecidos com três línguas de chama, e é uma das três letras-mãe, as ligadas aos elementos Ar, Água e Fogo. O caminho 31 liga Hod (Esplendor) a Malkuth (o mundo material).",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -542,8 +542,8 @@
       "Tav"
     ],
     "auto": true,
-    "curto": "Última letra, a vigésima segunda; significa marca ou cruz. É a letra do Universo, no caminho 32, sob Saturno.",
-    "mais": "A marca final que assina e fecha. O caminho liga Yesod a Malkuth, o último da Árvore.",
+    "curto": "Tav é a 22ª e última letra do alfabeto hebraico e significa marca ou cruz. No Thoth, pertence a O Universo e ao caminho 32, ligado ao planeta Saturno.",
+    "mais": "A marca final fecha a sequência das letras, assim como O Universo fecha os Arcanos Maiores. O caminho 32 liga Yesod (Fundamento) a Malkuth (o mundo material), a última esfera da Árvore da Vida.",
     "ver_tambem": [
       "caminho",
       "vibrar"
@@ -556,8 +556,8 @@
       "decano"
     ],
     "auto": true,
-    "curto": "Cada signo do zodíaco se divide em três partes de dez graus, os decanos. Cada decano tem um planeta, e é nele que mora uma carta numerada.",
-    "mais": "As cartas de 2 a 10 de cada naipe ocupam um decano: três por signo, de modo que cada naipe percorre três signos. O planeta do decano dá o tom da carta.",
+    "curto": "Decano é cada um dos três trechos de 10 graus de um signo do zodíaco. Cada decano tem um planeta regente, e as cartas numeradas de 2 a 10 ocupam um deles.",
+    "mais": "São 36 decanos, um para cada carta de 2 a 10 dos quatro naipes. Cada naipe cobre três signos do seu elemento: Bastões, por exemplo, ocupa Áries, Leão e Sagitário. O planeta do decano dá o tom da carta, e o 2 de Bastões é regido por Marte.",
     "ver_tambem": [
       "ordem-caldeia",
       "elementos"
@@ -570,8 +570,8 @@
       "ordem caldeia"
     ],
     "auto": false,
-    "curto": "A ordem tradicional dos planetas, do mais lento ao mais rápido. Nos decanos ela recomeça em Marte, no primeiro de Áries, e se repete pelos signos.",
-    "mais": "A sequência dos decanos é Marte, Sol, Vênus, Mercúrio, Lua, Saturno, Júpiter, e de novo: Marte rege o primeiro decano de Áries, o Sol o segundo, Vênus o terceiro, e assim por diante.",
+    "curto": "Ordem caldeia é a sequência tradicional dos planetas, do mais lento ao mais rápido no céu: Saturno, Júpiter, Marte, Sol, Vênus, Mercúrio e Lua.",
+    "mais": "Nos decanos, a sequência começa em Marte, no primeiro decano de Áries, e segue com Sol, Vênus, Mercúrio, Lua, Saturno e Júpiter, repetindo-se por todo o zodíaco. Assim, o Sol rege o segundo decano de Áries e Vênus, o terceiro.",
     "ver_tambem": [
       "decano"
     ]
@@ -584,8 +584,8 @@
       "exaltação"
     ],
     "auto": true,
-    "curto": "Na astrologia, o signo em que um planeta brilha com mais força. O Sol é exaltado em Áries; Saturno, em Libra.",
-    "mais": "A tradição liga cada exaltação a um grau preciso: a do Sol em Áries é o 19º.",
+    "curto": "Na astrologia, é o signo em que um planeta rende muito, porque sua energia combina bem com o ambiente. O Sol é exaltado em Áries e Saturno, em Libra.",
+    "mais": "A tradição liga cada exaltação a um grau exato: a do Sol em Áries fica no 19º grau. O oposto é a queda, o signo em que o planeta tem de se esforçar mais, como o Sol em Libra.",
     "ver_tambem": [
       "decano"
     ]
@@ -600,8 +600,8 @@
       "Terra"
     ],
     "auto": false,
-    "curto": "Fogo (Bastões), Água (Taças), Ar (Espadas) e Terra (Discos): as quatro energias do tarot, uma por naipe.",
-    "mais": "Fogo é vontade e impulso; Água, emoção e intuição; Ar, mente e palavra; Terra, corpo, trabalho e matéria. Os quatro formam o Tetragrama.",
+    "curto": "Os quatro elementos são Fogo, Água, Ar e Terra, e cada um corresponde a um naipe: Fogo aos Bastões, Água às Taças, Ar às Espadas e Terra aos Discos.",
+    "mais": "Fogo é vontade e impulso; Água, emoção e intuição; Ar, pensamento e palavra; Terra, corpo, trabalho e matéria. As quatro letras do Tetragrama correspondem a eles, na mesma ordem.",
     "ver_tambem": [
       "tetragrama",
       "arcanos-menores"
@@ -615,7 +615,7 @@
       "arcanos maiores"
     ],
     "auto": false,
-    "curto": "As 22 cartas de nome e imagem próprios, do Louco ao Universo. Cada uma ocupa um caminho da Árvore da Vida e leva uma letra hebraica.",
+    "curto": "São as 22 cartas de O Louco a O Universo, numeradas de 0 a 21. Cada uma ocupa um caminho da Árvore da Vida e leva uma letra do alfabeto hebraico.",
     "mais": "",
     "ver_tambem": [
       "caminho",
@@ -630,7 +630,7 @@
       "arcanos menores"
     ],
     "auto": false,
-    "curto": "As 56 cartas dos quatro naipes: Ás a Dez e a Corte. As numeradas moram nas esferas e, de 2 a 10, em um decano.",
+    "curto": "São as 56 cartas dos quatro naipes: 40 numeradas, do Ás ao Dez, e 16 da Corte. As numeradas correspondem às esferas da Árvore da Vida; as de 2 a 10 também a um decano.",
     "mais": "",
     "ver_tambem": [
       "arcanos-maiores",
@@ -645,8 +645,8 @@
       "Corte"
     ],
     "auto": false,
-    "curto": "As quatro figuras de cada naipe: Cavaleiro, Rainha, Príncipe e Princesa. Equivalem a Rei, Rainha, Cavaleiro e Pajem do tarot comum.",
-    "mais": "Cada patente é um elemento dentro do elemento do naipe: o Príncipe de Bastões é Ar de Fogo. As quatro seguem as letras do Tetragrama.",
+    "curto": "A Corte reúne as quatro figuras de cada naipe: Cavaleiro, Rainha, Príncipe e Princesa. Equivalem a Rei, Rainha, Cavaleiro e Pajem do Rider-Waite (Valete, na Marselha).",
+    "mais": "Cada figura é um elemento dentro do elemento do naipe: o Príncipe de Bastões é Ar de Fogo. As quatro posições seguem as letras do Tetragrama.",
     "ver_tambem": [
       "cavaleiro",
       "rainha",
@@ -662,8 +662,8 @@
       "Cavaleiro"
     ],
     "auto": false,
-    "curto": "A patente mais ativa da Corte: o Fogo do naipe, ligado a Yod e a Chokmah. Chega, avança e passa; corresponde ao Rei do tarot comum.",
-    "mais": "Rege 30 graus do zodíaco, de 20° de um signo a 20° do seguinte.",
+    "curto": "Cavaleiro é a figura mais ativa da Corte: o Fogo do naipe, ligado à letra Yod e a Chokmah (Sabedoria). Age com rapidez e impulso. Equivale ao Rei de outros baralhos.",
+    "mais": "O Cavaleiro rege 30 graus do zodíaco, de 20° de um signo a 20° do seguinte. O Cavaleiro de Bastões, por exemplo, cobre de 20° de Escorpião a 20° de Sagitário.",
     "ver_tambem": [
       "corte",
       "chokmah",
@@ -677,8 +677,8 @@
       "Rainha"
     ],
     "auto": false,
-    "curto": "A patente receptiva e formadora: a Água do naipe, ligada ao primeiro Heh e a Binah. Sustenta, atrai e dá forma.",
-    "mais": "Rege 30 graus do zodíaco, de 20° de um signo a 20° do seguinte.",
+    "curto": "Rainha é a figura receptiva e formadora da Corte: a Água do naipe, ligada ao primeiro Heh e à esfera Binah (Entendimento). Sustenta, atrai e dá forma às coisas.",
+    "mais": "A Rainha rege 30 graus do zodíaco, de 20° de um signo a 20° do seguinte. A Rainha de Bastões, por exemplo, cobre de 20° de Peixes a 20° de Áries.",
     "ver_tambem": [
       "corte",
       "binah",
@@ -692,8 +692,8 @@
       "Príncipe"
     ],
     "auto": false,
-    "curto": "A patente do filho: o Ar do naipe, ligado a Vav e a Tiphareth. Pensa, planeja e conduz; corresponde ao Cavaleiro do tarot comum.",
-    "mais": "Rege 30 graus do zodíaco, de 20° de um signo a 20° do seguinte.",
+    "curto": "Príncipe é a figura do filho na Corte: o Ar do naipe, ligado à letra Vav e à esfera Tiphareth (Beleza). Pensa, planeja e conduz. Equivale ao Cavaleiro de outros baralhos.",
+    "mais": "O Príncipe rege 30 graus do zodíaco, de 20° de um signo a 20° do seguinte. O Príncipe de Bastões, por exemplo, cobre de 20° de Câncer a 20° de Leão.",
     "ver_tambem": [
       "corte",
       "tiphareth",
@@ -707,8 +707,8 @@
       "Princesa"
     ],
     "auto": false,
-    "curto": "A patente mais jovem: a Terra do naipe, ligada ao segundo Heh e a Malkuth. Traz o elemento ao chão; corresponde ao Pajem do tarot comum.",
-    "mais": "Não rege um signo: a tradição a liga a quadrantes do céu em torno do polo, e por isso não tem decano nem datas.",
+    "curto": "Princesa é a figura mais jovem da Corte: a Terra do naipe, ligada ao segundo Heh e a Malkuth (o mundo material). Equivale ao Pajem de outros baralhos.",
+    "mais": "A Princesa não rege um signo: a tradição a liga a quadrantes do céu, as regiões em torno do polo celeste, o ponto do céu em torno do qual as estrelas parecem girar. Por isso ela não tem decano nem datas.",
     "ver_tambem": [
       "corte",
       "malkuth",
@@ -738,8 +738,8 @@
       "Terra de Terra"
     ],
     "auto": true,
-    "curto": "A combinação do elemento da patente com o do naipe: Ar de Fogo é a mente (Ar) dentro do impulso (Fogo). Cada figura da Corte tem a sua.",
-    "mais": "Cavaleiro é Fogo; Rainha, Água; Príncipe, Ar; Princesa, Terra. O naipe vem depois do 'de': o Príncipe de Bastões é Ar de Fogo; a Rainha de Taças, Água de Água; o Cavaleiro de Espadas, Fogo de Ar; a Princesa de Discos, Terra de Terra.",
+    "curto": "É a combinação do elemento da figura com o do naipe. Ar de Fogo, por exemplo, é o pensamento (Ar) dentro do impulso (Fogo). Cada figura da Corte tem o seu.",
+    "mais": "Cavaleiro é Fogo; Rainha, Água; Príncipe, Ar; Princesa, Terra. O naipe vem depois do 'de': Príncipe de Bastões é Ar de Fogo; Rainha de Taças, Água de Água; Cavaleiro de Espadas, Fogo de Ar; Princesa de Discos, Terra de Terra.",
     "ver_tambem": [
       "corte",
       "elementos"
@@ -753,8 +753,8 @@
       "Sombra"
     ],
     "auto": false,
-    "curto": "No site, a Luz é o melhor que a carta oferece; a Sombra é essa mesma força em excesso, em falta ou deformada. Não é a carta invertida.",
-    "mais": "A Sombra do Louco é a leveza que esquece o chão; a Luz, o salto de coragem. Cada carta tem as duas faces, e as duas pertencem à mesma raiz.",
+    "curto": "No site, a Luz é o melhor que a carta oferece, e a Sombra é a mesma força em excesso, em falta ou deformada. Não é a carta invertida.",
+    "mais": "A Luz de O Louco é a coragem de dar o primeiro passo; a Sombra é a leveza que vira descuido. As duas faces vêm da mesma energia, vista de dois lados.",
     "ver_tambem": [
       "raiz",
       "dilema",
@@ -768,7 +768,7 @@
       "Raiz"
     ],
     "auto": false,
-    "curto": "O primeiro tempo da leitura: de onde a carta vem, o que a plantou.",
+    "curto": "Raiz é o primeiro tempo da leitura de uma carta: de onde ela vem e o que deu origem ao tema que aparece.",
     "mais": "",
     "ver_tambem": [
       "dilema",
@@ -782,7 +782,7 @@
       "Dilema"
     ],
     "auto": false,
-    "curto": "O segundo tempo: o que está em jogo agora e a escolha que a carta põe diante da consulente.",
+    "curto": "Dilema é o segundo tempo da leitura: o que está em jogo agora e a escolha que a carta coloca diante de você.",
     "mais": "",
     "ver_tambem": [
       "raiz",
@@ -796,7 +796,7 @@
       "Tendência"
     ],
     "auto": false,
-    "curto": "O terceiro tempo: para onde a carta aponta e o que ela anuncia ou pede.",
+    "curto": "Tendência é o terceiro tempo da leitura: a direção para a qual a carta aponta, como possibilidade e não como previsão.",
     "mais": "",
     "ver_tambem": [
       "raiz",
@@ -810,7 +810,7 @@
       "consulente"
     ],
     "auto": false,
-    "curto": "Quem faz a pergunta ao baralho e recebe a leitura.",
+    "curto": "Consulente é quem faz a pergunta ao baralho e recebe a leitura. No site, é você.",
     "mais": "",
     "ver_tambem": []
   },
@@ -822,8 +822,8 @@
       "vibrar"
     ],
     "auto": false,
-    "curto": "Pronunciar o nome de uma letra ou de um planeta numa expiração longa e grave, sentindo-o no peito. É prática comum na magia cerimonial.",
-    "mais": "Diante da imagem da carta, respire fundo e deixe o nome sair devagar, até o fim do ar. Repetir três ou sete vezes é o costume.",
+    "curto": "Vibrar é pronunciar o nome de uma letra ou de um planeta numa expiração longa e grave, sentindo o som no peito. É prática comum na magia cerimonial.",
+    "mais": "Olhando a imagem da carta, respire fundo e solte o nome devagar, até o fim do ar. O costume é repetir três ou sete vezes.",
     "ver_tambem": [
       "pathworking"
     ]
@@ -835,8 +835,8 @@
       "pathworking"
     ],
     "auto": false,
-    "curto": "Uma viagem interior guiada por um caminho da Árvore da Vida: contempla-se a carta e imagina-se andar dentro dela, como numa porta.",
-    "mais": "Começa-se pela imagem da carta, entra-se nela de olhos fechados e anota-se depois o que se viu. O diário da carta serve para isso.",
+    "curto": "Pathworking é uma meditação guiada por um caminho da Árvore da Vida: você contempla a carta e imagina entrar na cena, de olhos fechados.",
+    "mais": "Depois da meditação, anota-se o que apareceu: imagens, sensações, palavras. O diário da carta serve para guardar esses registros. O nome vem do inglês: path é caminho, e working, trabalho.",
     "ver_tambem": [
       "caminho",
       "diario-da-carta"
@@ -849,7 +849,7 @@
       "diário da carta"
     ],
     "auto": false,
-    "curto": "Caderno onde se anota a carta tirada: a data, a pergunta, a imagem que mais chamou atenção e o que veio depois.",
+    "curto": "Diário da carta é o caderno em que você anota a carta tirada: a data, a pergunta, a imagem que mais chamou sua atenção e o que aconteceu depois.",
     "mais": "",
     "ver_tambem": [
       "pathworking"
@@ -862,8 +862,8 @@
       "solve et coagula"
     ],
     "auto": true,
-    "curto": "Fórmula alquímica em latim: dissolver e coagular. Desfazer o que está rígido para refazê-lo em forma melhor.",
-    "mais": "É a respiração da Grande Obra: o que se dissolve na água volta a se firmar na terra, mais puro. A carta da Arte a mostra em ação.",
+    "curto": "Solve et coagula é uma fórmula alquímica em latim: dissolver e coagular. Quer dizer desfazer o que está rígido e refazê-lo numa forma melhor.",
+    "mais": "É um lema, e não uma operação isolada: resume toda a Grande Obra. A carta A Arte o ilustra: uma figura de duas faces despeja líquidos num caldeirão em chamas, onde bebem um leão e uma águia.",
     "ver_tambem": [
       "grande-obra"
     ]
@@ -876,8 +876,8 @@
       "A Obra"
     ],
     "auto": false,
-    "curto": "A transformação completa, na alquimia: do chumbo ao ouro e, no sentido interior, de quem se refina até encontrar a própria natureza.",
-    "mais": "Passa por fases com nomes de cores: nigredo (preto), albedo (branco), citrinitas (amarelo) e rubedo (vermelho).",
+    "curto": "Na alquimia, a transformação completa da matéria, do chumbo ao ouro. No sentido interior, é o aperfeiçoamento da própria pessoa.",
+    "mais": "Passa por fases com nome de cor: nigredo (preto), albedo (branco), citrinitas (amarelo) e rubedo (vermelho). Algumas listas citam só três, sem o amarelo. Em Thelema, a Grande Obra é descobrir a vontade verdadeira. Neste app, cada carta recebe uma operação alquímica, por escolha do app e não por uma tabela do Thoth.",
     "ver_tambem": [
       "nigredo",
       "citrinitas",
@@ -892,8 +892,8 @@
       "Nigredo"
     ],
     "auto": true,
-    "curto": "A fase negra da alquimia: a matéria escurece e apodrece para se desfazer. É o primeiro passo da Obra.",
-    "mais": "Vem antes do branco (albedo). Costuma ser associada à Morte e à noite que precede a transformação.",
+    "curto": "A fase negra da alquimia: a matéria escurece e se decompõe para poder ganhar outra forma. É o primeiro passo da Grande Obra.",
+    "mais": "Vem antes do branco (albedo) na sequência de cores. Neste app, aparece em A Morte e no Dez de Espadas, cartas de encerramento e de fundo de uma fase. É uma escolha do app, não de uma tabela do Thoth.",
     "ver_tambem": [
       "grande-obra",
       "citrinitas"
@@ -906,7 +906,7 @@
       "Citrinitas"
     ],
     "auto": true,
-    "curto": "A fase amarela da alquimia: o trabalho amadurece em luz dourada, entre o branco e o vermelho.",
+    "curto": "A fase amarela da alquimia, entre o branco (albedo) e o vermelho (rubedo). Marca o amadurecimento do trabalho, quando a cor dourada do ouro começa a aparecer.",
     "mais": "",
     "ver_tambem": [
       "grande-obra",
@@ -920,7 +920,7 @@
       "Calcinação"
     ],
     "auto": true,
-    "curto": "A primeira operação alquímica: queimar a matéria até virar cinza e restar só o essencial. O Fogo é o seu agente.",
+    "curto": "A primeira operação alquímica: aquecer a matéria até virar cinza, para que sobre só o essencial. Seu agente é o Fogo.",
     "mais": "",
     "ver_tambem": [
       "grande-obra",
@@ -934,7 +934,7 @@
       "Volatilização"
     ],
     "auto": true,
-    "curto": "Operação alquímica em que o que era fixo vira vapor, leve e móvel. É o movimento do Ar e de Mercúrio.",
+    "curto": "Operação alquímica em que algo fixo e pesado vira vapor, leve e móvel. Associa-se ao elemento Ar e ao mercúrio, o metal que evapora com facilidade.",
     "mais": "",
     "ver_tambem": [
       "grande-obra"
@@ -947,8 +947,8 @@
       "Thelema"
     ],
     "auto": true,
-    "curto": "Filosofia e religião fundada por Aleister Crowley em 1904. Seu centro é a ideia de que cada pessoa tem uma vontade verdadeira a descobrir e cumprir.",
-    "mais": "A palavra vem do grego e quer dizer 'vontade'. Seu lema é 'faze o que tu queres', entendido como seguir a vontade verdadeira e não o capricho. É a base do baralho de Thoth.",
+    "curto": "Filosofia e religião fundada por Aleister Crowley em 1904. Defende que cada pessoa tem uma vontade verdadeira, que deve descobrir e seguir.",
+    "mais": "A palavra vem do grego e quer dizer 'vontade'. O lema, 'Faze o que tu queres', não é licença para o capricho. Os textos de Thelema, como o Livro da Lei, e a nova era que eles anunciam, o éon de Hórus, são a base filosófica do Tarot de Thoth.",
     "ver_tambem": [
       "livro-da-lei",
       "nuit",
@@ -965,8 +965,8 @@
       "Liber AL"
     ],
     "auto": false,
-    "curto": "Texto central de Thelema, que Aleister Crowley disse ter recebido em 1904, no Cairo, de uma voz que se chamou Aiwass.",
-    "mais": "Tem três capítulos, falados por Nuit, Hadit e Hórus. Dele vêm a Lei de Thelema e a troca das letras Heh e Tzaddi no Thoth.",
+    "curto": "Texto central de Thelema. Aleister Crowley contou que o recebeu em 1904, no Cairo, ditado por uma voz que se chamou Aiwass.",
+    "mais": "Tem três capítulos, falados por Nuit, Hadit e Hórus (na forma Ra-Hoor-Khuit). Dele vêm a frase central de Thelema e a troca das letras Heh e Tzaddi no Thoth, que inverte as letras do Imperador e da Estrela.",
     "ver_tambem": [
       "thelema",
       "heh-e-tzaddi"
@@ -979,8 +979,8 @@
       "Nuit"
     ],
     "auto": true,
-    "curto": "Deusa do espaço infinito e das estrelas em Thelema; seu corpo arqueado é o céu. Aparece na Estrela e no Aeon.",
-    "mais": "O nome vem da deusa egípcia Nut. É o infinito do espaço, a possibilidade de tudo; seu par, Hadit, é o ponto onde tudo se experimenta.",
+    "curto": "Deusa do espaço infinito e das estrelas em Thelema; seu corpo arqueado forma o céu. Aparece nas cartas A Estrela e O Aeon.",
+    "mais": "O nome vem da deusa egípcia Nut. Nuit representa o infinito e tudo o que é possível. Seu par, Hadit, é o ponto onde tudo é vivido: o 'eu aqui e agora'.",
     "ver_tambem": [
       "hadit",
       "thelema"
@@ -993,8 +993,8 @@
       "Hadit"
     ],
     "auto": true,
-    "curto": "Em Thelema, o ponto central de cada ser: a centelha, o núcleo que se move. Par de Nuit, o espaço infinito.",
-    "mais": "Seu símbolo é o globo alado. Nuit é o 'tudo possível'; Hadit, o 'eu aqui e agora' que o experimenta.",
+    "curto": "Em Thelema, o ponto central de cada ser, a centelha que se move. É o par de Nuit, o espaço infinito.",
+    "mais": "Seu símbolo é o globo alado. Nuit é o 'tudo possível'; Hadit é o 'eu aqui e agora' que experimenta esse tudo. Da união dos dois nasce Hórus, a criança.",
     "ver_tambem": [
       "nuit",
       "thelema"
@@ -1007,8 +1007,8 @@
       "Hórus"
     ],
     "auto": true,
-    "curto": "Deus egípcio de cabeça de falcão. Em Thelema, é o deus da nova era, que se abre em 1904; aparece como criança e como guerreiro.",
-    "mais": "Hoor-paar-kraat é o Hórus criança, do silêncio; Ra-Hoor-Khuit, o Hórus guerreiro, da ação. A carta do Aeon traz a sua era.",
+    "curto": "Deus egípcio de cabeça de falcão. Em Thelema, é o deus da nova era, iniciada em 1904, e aparece em duas formas: a criança e o guerreiro.",
+    "mais": "Hoor-paar-kraat é o Hórus criança, ligado ao silêncio; Ra-Hoor-Khuit é o Hórus guerreiro, ligado à ação. A carta O Aeon traz a imagem dessa era.",
     "ver_tambem": [
       "eon-de-horus",
       "thelema"
@@ -1023,8 +1023,8 @@
       "Aeon"
     ],
     "auto": false,
-    "curto": "Uma era de longa duração, marcada por um princípio dominante. Em Thelema, a história se divide em éons: o de Ísis, o de Osíris e o de Hórus.",
-    "mais": "Cada éon tem uma fórmula própria: a maternidade e a natureza (Ísis), a morte e o sacrifício (Osíris), a vontade e a criança (Hórus).",
+    "curto": "Uma era longa, marcada por um princípio dominante. Em Thelema, a história se divide em éons: o de Ísis, o de Osíris e o de Hórus.",
+    "mais": "Cada éon tem uma fórmula própria: maternidade e natureza (Ísis), morte e sacrifício (Osíris), vontade e criança (Hórus). Não confunda o termo com a carta O Aeon, que mostra a passagem para o éon de Hórus.",
     "ver_tambem": [
       "eon-de-horus",
       "osiris",
@@ -1039,7 +1039,7 @@
     ],
     "auto": false,
     "curto": "A era que, segundo Thelema, começou em 1904 com o Livro da Lei e tem como centro a vontade verdadeira de cada pessoa.",
-    "mais": "Sucede o éon de Osíris, regido pela fórmula do deus que morre. O Aeon do tarot (carta XX) é o seu retrato.",
+    "mais": "Sucede o éon de Osíris, regido pela fórmula do deus que morre. A carta O Aeon (XX) traz a imagem dessa era: mostra Nuit, Hadit e Hórus, as figuras dela.",
     "ver_tambem": [
       "eon",
       "livro-da-lei"
@@ -1053,8 +1053,8 @@
       "Mulher Escarlate"
     ],
     "auto": true,
-    "curto": "Figura de Thelema: a Mulher Escarlate, símbolo do êxtase, do desejo e da entrega. Cavalga a Besta e ergue o cálice na Luxúria.",
-    "mais": "O nome vem do imaginário do Apocalipse, relido de forma luminosa. Babalon não é o pecado: é a força feminina que se entrega ao que ama e transforma quem a encontra.",
+    "curto": "Figura de Thelema: a Mulher Escarlate, símbolo do êxtase, do desejo e da entrega. Na carta A Luxúria, monta a Besta e ergue o cálice.",
+    "mais": "O nome é uma grafia de Babilônia: a figura vem da Mulher Escarlate do Apocalipse, que Thelema relê de forma positiva. Babalon não representa o pecado, e sim a força feminina que se entrega por inteiro ao que ama. O cálice que ela ergue na carta é o Graal.",
     "ver_tambem": [
       "besta",
       "thelema"
@@ -1067,8 +1067,8 @@
       "Besta"
     ],
     "auto": true,
-    "curto": "No Apocalipse, símbolo do mal. Em Thelema, é a vitalidade animal e o impulso vital, que Babalon cavalga e conduz.",
-    "mais": "Na carta, a Besta tem várias cabeças, sinal de uma força que não cabe numa só forma. Conduzi-la é a arte da Luxúria.",
+    "curto": "No Apocalipse, a Besta é símbolo do mal. Em Thelema, é a vitalidade animal e o impulso vital, que Babalon monta e conduz.",
+    "mais": "Na carta A Luxúria, a Besta tem várias cabeças, como a do Apocalipse, e Babalon a conduz em vez de reprimi-la. Esse é o tema da carta. Crowley também usou 'a Grande Besta' como apelido pessoal.",
     "ver_tambem": [
       "babalon"
     ]
@@ -1080,8 +1080,8 @@
       "Golden Dawn"
     ],
     "auto": false,
-    "curto": "Ordem iniciática inglesa fundada em 1888. Organizou as correspondências do tarot com a Cabala e a astrologia usadas até hoje, inclusive no Thoth.",
-    "mais": "Aleister Crowley passou pela ordem. O Tarot de Thoth segue a sua estrutura, mas muda alguns pontos, como a troca de Heh e Tzaddi.",
+    "curto": "Ordem iniciática inglesa fundada em 1888. Sistematizou as correspondências entre tarô, Cabala e astrologia, que o Thoth retoma em grande parte.",
+    "mais": "Aleister Crowley entrou na ordem em 1898. O Tarot de Thoth segue a estrutura da Golden Dawn, mas muda alguns pontos, como a troca de Heh e Tzaddi entre o Imperador e a Estrela.",
     "ver_tambem": [
       "tarot-de-thoth",
       "heh-e-tzaddi"
@@ -1095,7 +1095,7 @@
     ],
     "auto": true,
     "curto": "Deusa egípcia da verdade, da ordem e da justiça cósmica. Sua pena servia de contrapeso ao coração dos mortos.",
-    "mais": "Pesar o coração contra a pena de Maat era o juízo dos mortos. Na carta do Ajustamento, a figura com espada e balança remete a ela.",
+    "mais": "Pesar o coração contra a pena de Maat era o julgamento dos mortos no Egito. Na carta O Ajustamento, a figura com espada e balança está ligada a ela.",
     "ver_tambem": [
       "osiris"
     ]
@@ -1107,8 +1107,8 @@
       "Osíris"
     ],
     "auto": true,
-    "curto": "Deus egípcio que morre, é desmembrado e renasce; rei dos mortos e símbolo do ciclo da vida. Aparece no Enforcado.",
-    "mais": "Em Thelema, dá nome ao éon que precedeu o de Hórus, o da fórmula do sacrifício.",
+    "curto": "Deus egípcio que morre, é desmembrado e renasce; rei dos mortos e símbolo do ciclo da vida. Sua fórmula, morrer para renascer, está na carta O Homem Enforcado.",
+    "mais": "Pelo mito, foi morto e desmembrado por seu irmão Set, e Ísis reuniu os pedaços. Em Thelema, dá nome ao éon anterior ao de Hórus, regido pela fórmula do sacrifício.",
     "ver_tambem": [
       "eon",
       "horus"
@@ -1122,7 +1122,7 @@
     ],
     "auto": true,
     "curto": "Deus grego dos bosques e dos rebanhos, metade homem, metade bode. Seu nome lembra a palavra grega para 'tudo'.",
-    "mais": "Representa a natureza em sua força bruta, o riso, o pânico e o desejo. Na carta do Diabo, é a figura central.",
+    "mais": "Representa a natureza em sua força bruta: o riso, o pânico (palavra que vem dele) e o desejo. Na carta O Diabo, cujo subtítulo neste app é O Pã Cósmico, ele é a figura central.",
     "ver_tambem": [
       "dionisio"
     ]
@@ -1134,7 +1134,7 @@
       "Dionísio"
     ],
     "auto": true,
-    "curto": "Deus grego do vinho, do êxtase e do renascimento. Representa a vida que transborda.",
+    "curto": "Deus grego do vinho, do êxtase e do renascimento. Representa a vida em plena abundância, com seu excesso e sua festa.",
     "mais": "",
     "ver_tambem": [
       "pa"
@@ -1147,8 +1147,8 @@
       "Parsifal"
     ],
     "auto": true,
-    "curto": "Cavaleiro das lendas do Graal, o 'tolo puro' que chega ao sagrado por ingenuidade e compaixão.",
-    "mais": "O Louco é muitas vezes comparado a ele: quem dá o primeiro passo sem saber o que o espera.",
+    "curto": "Cavaleiro das lendas do Graal, o 'tolo puro': chega ao sagrado por ingenuidade e compaixão, e não por esperteza.",
+    "mais": "O Louco costuma ser comparado a ele: alguém que dá o primeiro passo sem saber o que o espera.",
     "ver_tambem": [
       "graal"
     ]
@@ -1161,8 +1161,8 @@
       "Hermes"
     ],
     "auto": true,
-    "curto": "Thoth é o deus egípcio da escrita e da sabedoria; Hermes, o mensageiro grego. Os dois se fundem na figura do Mago.",
-    "mais": "Hermes Trismegisto, 'três vezes grande', reúne os dois e é o patrono da alquimia e da magia. É dele o nome do baralho.",
+    "curto": "Thoth é o deus egípcio da escrita e da sabedoria; Hermes é o mensageiro dos deuses gregos. Os dois se fundem na figura de O Mago.",
+    "mais": "Hermes Trismegisto, 'três vezes grande', reúne os dois e é o patrono da alquimia e da magia. O baralho leva o nome de Thoth.",
     "ver_tambem": [
       "tarot-de-thoth"
     ]
@@ -1174,7 +1174,7 @@
       "ankh"
     ],
     "auto": true,
-    "curto": "Cruz egípcia com alça, símbolo da vida. Na carta do Enforcado, o corpo pende dela.",
+    "curto": "Cruz egípcia com uma alça no alto, símbolo da vida. Na carta O Homem Enforcado, o corpo pende de um ankh azul.",
     "mais": "",
     "ver_tambem": [
       "osiris"
@@ -1187,7 +1187,7 @@
       "pentagrama"
     ],
     "auto": true,
-    "curto": "Estrela de cinco pontas, símbolo dos quatro elementos coroados pelo espírito. Aparece no peito do Hierofante.",
+    "curto": "Estrela de cinco pontas: simboliza os quatro elementos (Fogo, Água, Ar e Terra) coroados pelo espírito. Aparece no peito de O Hierofante.",
     "mais": "",
     "ver_tambem": [
       "elementos"
@@ -1200,8 +1200,8 @@
       "Graal"
     ],
     "auto": true,
-    "curto": "O cálice sagrado das lendas arturianas, que guarda o que há de mais precioso. No Carro, o vaso que o condutor leva lembra o Graal.",
-    "mais": "O Graal é a taça da experiência plena, a que dá vida e plenitude a quem a alcança.",
+    "curto": "O cálice sagrado das lendas do rei Artur, que guarda o que há de mais precioso. Em A Carruagem, o condutor segura um vaso que a tradição lê como o Graal.",
+    "mais": "Nas lendas cristãs, é o cálice da Última Ceia, e só quem tem pureza de intenção o encontra. No Thoth, a ideia do Graal também aparece no Ás de Taças. Este app dá à Carruagem o subtítulo 'O Portador do Graal'.",
     "ver_tambem": [
       "parsifal"
     ]
@@ -1214,7 +1214,7 @@
     ],
     "auto": true,
     "curto": "As três qualidades da natureza na filosofia indiana: sattva (equilíbrio e luz), rajas (movimento e paixão) e tamas (peso e inércia).",
-    "mais": "Na Roda da Fortuna, a roda gira pelos três ritmos: toda coisa passa de um a outro.",
+    "mais": "Na carta A Fortuna, a roda se liga às três gunas, que se alternam: toda coisa passa de uma a outra, e nenhum estado é fixo.",
     "ver_tambem": []
   },
   {
@@ -1225,8 +1225,8 @@
       "Thoth"
     ],
     "auto": false,
-    "curto": "Baralho de 78 cartas criado por Aleister Crowley e pintado por Lady Frieda Harris. Concluído em 1943, só foi publicado em 1969.",
-    "mais": "Segue a Cabala e a astrologia, com nomes e imagens próprios: Ajustamento no lugar de Justiça, Luxúria no de Força, Arte no de Temperança, Aeon no de Julgamento e Universo no de Mundo. A Corte é Cavaleiro, Rainha, Príncipe e Princesa.",
+    "curto": "Baralho de 78 cartas criado por Aleister Crowley e pintado por Lady Frieda Harris. Ficou pronto em 1943 e só foi publicado em 1969.",
+    "mais": "Segue a Cabala e a astrologia, com nomes próprios: Ajustamento no lugar de Justiça, Luxúria no de Força, Arte no de Temperança, Aeon no de Julgamento e Universo no de Mundo. Os naipes são Bastões, Taças, Espadas e Discos; a Corte é Cavaleiro, Rainha, Príncipe e Princesa.",
     "ver_tambem": [
       "golden-dawn",
       "tarot-de-marselha",
@@ -1240,8 +1240,8 @@
       "Heh e Tzaddi"
     ],
     "auto": false,
-    "curto": "No Thoth, o Imperador é Tzaddi e a Estrela é Heh; em outros baralhos é o contrário. A troca vem de uma passagem do Livro da Lei.",
-    "mais": "Na Golden Dawn, Heh pertencia ao Imperador e Tzaddi à Estrela. Crowley os inverteu por causa de uma frase do Livro da Lei: com isso, o Imperador passa ao caminho 28 e a Estrela ao 15.",
+    "curto": "No Thoth, o Imperador é ligado a Tzaddi e a Estrela a Heh; na Golden Dawn é o contrário. A troca vem de uma frase do Livro da Lei.",
+    "mais": "Na Golden Dawn, Heh pertencia ao Imperador e Tzaddi à Estrela. Como o Livro da Lei diz que 'Tzaddi não é a Estrela', as letras foram invertidas. Com isso, o Imperador passa ao caminho 28 e a Estrela ao 15.",
     "ver_tambem": [
       "heh",
       "tzaddi",
@@ -1255,7 +1255,7 @@
       "Tarot de Marselha"
     ],
     "auto": true,
-    "curto": "Antigo baralho francês, base de muitos outros. Nele, a Justiça é a carta VIII e a Força, a XI, como no Thoth, que muda os nomes.",
+    "curto": "Antigo baralho francês, base de muitos outros. Nele a Justiça é a carta VIII e a Força, a XI; o Thoth mantém a ordem e troca os nomes por Ajustamento e Luxúria.",
     "mais": "",
     "ver_tambem": [
       "tarot-de-thoth"
@@ -1281,8 +1281,8 @@
       "Destilação"
     ],
     "auto": true,
-    "curto": "Os passos da Grande Obra alquímica: cada operação transforma a matéria de um jeito. Dissolver desfaz, separar aparta, unir junta, sublimar eleva.",
-    "mais": "A tradição lista doze: calcinação, dissolução, separação, conjunção, putrefação, congelação, cibação, sublimação, fermentação, exaltação, multiplicação e projeção. A destilação, que também aparece aqui, é uma variante corrente na prática. Cada carta recebe a operação que mais combina com ela.",
+    "curto": "Os passos da Grande Obra alquímica: cada operação transforma a matéria de um jeito. Dissolver desfaz, separar aparta, unir junta e sublimar eleva.",
+    "mais": "Uma lista tradicional traz doze: calcinação, dissolução, separação, conjunção, putrefação, congelação, cibação, sublimação, fermentação, exaltação, multiplicação e projeção. Este app usa também a destilação e a volatilização. Não existe tabela do Thoth que ligue operação a carta: a escolha de cada uma é do app.",
     "ver_tambem": [
       "grande-obra",
       "calcinacao",
@@ -1297,8 +1297,8 @@
       "quadrantes do céu"
     ],
     "auto": true,
-    "curto": "As regiões do céu em torno do polo, às quais a Golden Dawn liga as Princesas em lugar dos signos do zodíaco.",
-    "mais": "Por isso a Princesa não tem decano nem datas: ela marca um território do céu, e não uma estação do ano. As fontes não concordam sobre como mapear esses quadrantes.",
+    "curto": "As quatro regiões do céu em torno do polo celeste, que a Golden Dawn liga às Princesas no lugar dos signos do zodíaco.",
+    "mais": "O polo celeste é o ponto do céu em torno do qual as estrelas parecem girar. Por isso a Princesa não tem decano nem datas: ela marca um território do céu, e não um período do ano. As fontes não concordam sobre como dividir e mapear esses quadrantes.",
     "ver_tambem": [
       "princesa",
       "corte",
@@ -1312,8 +1312,8 @@
       "pedra filosofal"
     ],
     "auto": true,
-    "curto": "A substância final da alquimia: a que transmuta o metal comum em ouro e a matéria bruta em perfeição. É o fruto da Grande Obra.",
-    "mais": "Mais que um objeto, a pedra é a imagem do trabalho concluído: o que foi calcinado, dissolvido, separado e unido volta como ouro vivo. Nas cartas de Discos, ela aparece quando a matéria chega ao seu termo e passa a multiplicar o que toca.",
+    "curto": "Na alquimia, a substância capaz de transformar metal comum em ouro e de levar a matéria bruta à perfeição. É o resultado final da Grande Obra.",
+    "mais": "Mais que um objeto, a pedra representa o trabalho concluído: o que foi calcinado, dissolvido, separado e unido volta como ouro. Neste app, aparece no Dez de Discos, ligada à Projeção, o último passo, em que a pedra pronta transforma um metal comum.",
     "ver_tambem": [
       "grande-obra",
       "operacoes-alquimicas"
@@ -1327,8 +1327,8 @@
       "casas"
     ],
     "auto": false,
-    "curto": "Cada uma das doze áreas da vida em que o céu do nascimento é dividido. A casa diz onde, na vida, um planeta atua.",
-    "mais": "A casa 1 é o corpo e a chegada; a 2, os bens; a 3, a palavra; a 4, a raiz; a 5, a criação; a 6, o ofício; a 7, o par; a 8, o limiar; a 9, o sentido; a 10, a vocação; a 11, o grupo; a 12, o retiro. As casas dependem da hora de nascimento.",
+    "curto": "Cada uma das doze áreas da vida em que o céu do nascimento é dividido. A casa mostra em que assunto da vida um planeta atua.",
+    "mais": "A casa 1 é o corpo e o modo de chegar; a 2, os bens e recursos; a 3, a comunicação; a 4, a raiz e o lar; a 5, a criação e o prazer; a 6, o trabalho do dia a dia; a 7, as parcerias; a 8, o que se divide com outros e as transformações; a 9, o estudo e o sentido; a 10, a carreira; a 11, os amigos e grupos; a 12, o recolhimento. As casas dependem da hora de nascimento.",
     "ver_tambem": [
       "ascendente",
       "placidus",
@@ -1343,8 +1343,8 @@
       "aspectos"
     ],
     "auto": false,
-    "curto": "A distância angular entre dois astros no céu. Só alguns ângulos contam: 0°, 60°, 90°, 120° e 180°.",
-    "mais": "Cada ângulo tem nome e temperamento: conjunção, sextil, quadratura, trígono e oposição. O aspecto liga dois astros num mesmo assunto; a folga aceita em torno do ângulo exato é o orbe.",
+    "curto": "O ângulo, em graus, entre dois astros no céu. Os cinco principais são 0°, 60°, 90°, 120° e o de lados opostos do círculo.",
+    "mais": "Os cinco têm nome e efeito próprio: conjunção (0°), sextil (60°), quadratura (90°), trígono (120°) e oposição. Eles ligam dois astros num mesmo assunto, uns com tensão, outros com facilidade. A folga aceita em torno do ângulo exato chama-se orbe.",
     "ver_tambem": [
       "orbe",
       "conjuncao",
@@ -1362,7 +1362,7 @@
       "orbes"
     ],
     "auto": true,
-    "curto": "A diferença, em graus, entre a distância real de dois astros e o ângulo exato do aspecto. Quanto menor o orbe, mais exato o aspecto.",
+    "curto": "A diferença, em graus, entre o ângulo real de dois astros e o ângulo exato do aspecto. Quanto menor o orbe, mais forte e nítido o aspecto.",
     "mais": "Dois astros a 118° um do outro formam um trígono com orbe de 2°. O mapa aceita orbe de até 8° na conjunção e na oposição, de até 7° na quadratura e no trígono e de até 5° no sextil, os mesmos para todos os astros.",
     "ver_tambem": [
       "aspecto"
@@ -1378,8 +1378,8 @@
       "retrogradar"
     ],
     "auto": true,
-    "curto": "Quando um planeta parece andar para trás no céu, visto da Terra. É efeito de perspectiva: o planeta não inverte o curso.",
-    "mais": "Do Sol e da Lua nunca se diz isso. De Mercúrio a Plutão, o planeta retrógrado é lido como uma energia que trabalha para dentro, revisando o que já foi feito. Urano, Netuno e Plutão passam cerca de metade do ano assim.",
+    "curto": "Quando um planeta parece andar para trás no céu, visto da Terra. É efeito de perspectiva: o planeta não inverte o seu curso.",
+    "mais": "O Sol e a Lua não ficam retrógrados; de Mercúrio a Plutão, todos ficam. Na leitura, o planeta retrógrado costuma trabalhar para dentro e rever o que já foi feito. Mercúrio parece recuar por cerca de três semanas, umas três vezes ao ano; Urano, Netuno e Plutão, por cerca de cinco meses a cada ano.",
     "ver_tambem": [
       "aspecto"
     ]
@@ -1395,8 +1395,8 @@
       "Nodo Sul"
     ],
     "auto": true,
-    "curto": "Os dois pontos em que a órbita da Lua cruza a trajetória aparente do Sol. O Norte aponta uma direção; o Sul, o terreno já conhecido.",
-    "mais": "O Nodo Sul fica sempre no ponto oposto ao Norte. O mapa usa o nodo médio, que é a posição calculada pela média e anda de forma regular, sem as oscilações do nodo verdadeiro.",
+    "curto": "Os dois pontos em que a órbita da Lua cruza o caminho aparente do Sol. O Nodo Norte mostra uma direção de crescimento; o Sul, o que você já conhece.",
+    "mais": "O Nodo Sul fica no ponto oposto ao Norte, a meio círculo de distância. O mapa usa o nodo médio, calculado pela média e de movimento regular, sem as oscilações do nodo verdadeiro. Ele anda para trás pelos signos e completa uma volta em cerca de 18,6 anos.",
     "ver_tambem": [
       "casa",
       "aspecto"
@@ -1409,8 +1409,8 @@
       "Ascendente"
     ],
     "auto": true,
-    "curto": "O signo que nascia no horizonte leste no instante do nascimento. Abre a casa 1 e marca o modo de chegar e de ser visto.",
-    "mais": "O Ascendente muda de signo em cerca de duas horas, por isso exige a hora exata. Do lado oposto fica o Descendente, e no ponto mais alto do céu, o Meio do Céu.",
+    "curto": "O signo que nascia no horizonte leste no instante do seu nascimento. Abre a casa 1 e indica o modo de chegar às situações e de ser visto pelos outros.",
+    "mais": "O Ascendente muda de signo, em média, a cada duas horas, por isso exige a hora exata de nascimento. Do lado oposto fica o Descendente, e no ponto mais alto do céu, o Meio do Céu. Em Signos Inteiros, ele fica dentro da casa 1, e não no começo dela.",
     "ver_tambem": [
       "descendente",
       "meio-do-ceu",
@@ -1425,8 +1425,8 @@
       "MC"
     ],
     "auto": true,
-    "curto": "O ponto da eclíptica que cruzava o alto do céu no instante do nascimento. Abre a casa 10 e fala do que se constrói à vista.",
-    "mais": "Fica no meridiano do lugar, no ponto mais alto do trajeto do Sol. Oposto a ele está o Fundo do Céu, que abre a casa 4, a raiz.",
+    "curto": "O ponto da eclíptica (o caminho aparente do Sol) que cruzava o alto do céu no nascimento. Abre a casa 10, da carreira e do que se constrói à vista.",
+    "mais": "Fica no meridiano do lugar, a linha imaginária que corre do norte ao sul passando acima de você. No lado oposto está o Fundo do Céu, que abre a casa 4, a da raiz e do lar. Em Signos Inteiros, esses pontos ficam dentro das casas, e não no começo delas.",
     "ver_tambem": [
       "ascendente",
       "casa"
@@ -1439,8 +1439,8 @@
       "Descendente"
     ],
     "auto": true,
-    "curto": "O ponto oposto ao Ascendente, onde os astros se punham no horizonte oeste. Abre a casa 7, a do par.",
-    "mais": "Está sempre a 180° do Ascendente. Uma oposição ao Ascendente é o mesmo que uma conjunção com o Descendente.",
+    "curto": "O ponto oposto ao Ascendente, onde os astros se punham no horizonte oeste. Abre a casa 7, a das parcerias e dos relacionamentos.",
+    "mais": "Na casa 7 ficam o cônjuge, os sócios e também os adversários declarados. Um astro em oposição ao Ascendente está, por isso, em conjunção com o Descendente. Em Signos Inteiros, o Descendente fica dentro da casa 7.",
     "ver_tambem": [
       "ascendente",
       "casa"
@@ -1456,7 +1456,7 @@
       "rege"
     ],
     "auto": false,
-    "curto": "O planeta que governa um signo e nele atua em casa. Cada signo tem um regente tradicional; três têm também um moderno.",
+    "curto": "O planeta que governa um signo e atua nele com naturalidade. Cada signo tem um regente tradicional; Escorpião, Aquário e Peixes têm também um moderno.",
     "mais": "Pela tradição, Áries e Escorpião são de Marte, Touro e Libra de Vênus, Gêmeos e Virgem de Mercúrio, Câncer da Lua, Leão do Sol, Sagitário e Peixes de Júpiter, Capricórnio e Aquário de Saturno. A convenção moderna acrescenta Plutão em Escorpião, Urano em Aquário e Netuno em Peixes.",
     "ver_tambem": [
       "domicilio",
@@ -1471,8 +1471,8 @@
       "elemento"
     ],
     "auto": false,
-    "curto": "Os signos se agrupam em quatro elementos: Fogo, Terra, Ar e Água, três signos em cada um.",
-    "mais": "Fogo: Áries, Leão, Sagitário. Terra: Touro, Virgem, Capricórnio. Ar: Gêmeos, Libra, Aquário. Água: Câncer, Escorpião, Peixes. Quando o mapa tem muito de um elemento, ou quase nada, a leitura destaca isso.",
+    "curto": "Os doze signos se agrupam em quatro elementos: Fogo, Terra, Ar e Água, com três signos em cada um.",
+    "mais": "Fogo: Áries, Leão, Sagitário. Terra: Touro, Virgem, Capricórnio. Ar: Gêmeos, Libra, Aquário. Água: Câncer, Escorpião, Peixes. Quando o mapa tem muito de um elemento, ou quase nada dele, a leitura destaca isso.",
     "ver_tambem": [
       "elementos",
       "modalidade"
@@ -1486,7 +1486,7 @@
       "modalidades"
     ],
     "auto": false,
-    "curto": "O modo de agir de cada signo: cardeal começa, fixo sustenta, mutável adapta. Cada modalidade reúne quatro signos.",
+    "curto": "O modo de agir de cada signo: o cardeal começa, o fixo sustenta e o mutável se adapta. Cada modalidade reúne quatro signos.",
     "mais": "Cardeais: Áries, Câncer, Libra, Capricórnio. Fixos: Touro, Leão, Escorpião, Aquário. Mutáveis: Gêmeos, Virgem, Sagitário, Peixes. Cada elemento tem um signo de cada modalidade.",
     "ver_tambem": [
       "cardeal",
@@ -1503,8 +1503,8 @@
       "cardeais"
     ],
     "auto": false,
-    "curto": "Modalidade dos signos que abrem uma estação: Áries, Câncer, Libra e Capricórnio. Iniciam, dão o primeiro passo.",
-    "mais": "Os signos cardeais caem nos solstícios e nos equinócios, os quatro pontos em que o ano muda de quadrante.",
+    "curto": "Modalidade dos quatro signos que abrem cada trimestre do ano: Áries, Câncer, Libra e Capricórnio. Têm iniciativa e dão o primeiro passo.",
+    "mais": "Os signos cardeais começam nos equinócios e nos solstícios, os quatro pontos do ano em que o Sol entra num novo quarto do zodíaco. O excesso aparece como impaciência; a falta, como dificuldade de começar.",
     "ver_tambem": [
       "modalidade",
       "estacoes-no-brasil"
@@ -1518,8 +1518,8 @@
       "fixos"
     ],
     "auto": false,
-    "curto": "Modalidade dos signos do meio da estação: Touro, Leão, Escorpião e Aquário. Sustentam, firmam, resistem à mudança.",
-    "mais": "Caem quando a estação está no auge. O excesso aparece como teimosia; a falta, como dificuldade de manter o que se começou.",
+    "curto": "Modalidade dos quatro signos do meio de cada trimestre do ano: Touro, Leão, Escorpião e Aquário. Sustentam, firmam e resistem à mudança.",
+    "mais": "Marcam o centro de cada trimestre do zodíaco, quando ele já se firmou. O excesso aparece como teimosia; a falta, como dificuldade de manter o que se começou.",
     "ver_tambem": [
       "modalidade"
     ]
@@ -1532,8 +1532,8 @@
       "mutáveis"
     ],
     "auto": false,
-    "curto": "Modalidade dos signos que fecham uma estação: Gêmeos, Virgem, Sagitário e Peixes. Adaptam, ajustam, preparam a virada.",
-    "mais": "Caem no fim de cada estação, quando o próximo clima já se anuncia. O excesso aparece como dispersão; a falta, como rigidez diante do imprevisto.",
+    "curto": "Modalidade dos quatro signos que fecham cada trimestre do ano: Gêmeos, Virgem, Sagitário e Peixes. Adaptam, ajustam e preparam a virada.",
+    "mais": "Caem no fim de cada trimestre, quando o seguinte já se anuncia. O excesso aparece como dispersão; a falta, como rigidez diante do imprevisto.",
     "ver_tambem": [
       "modalidade"
     ]
@@ -1547,8 +1547,8 @@
       "em exílio"
     ],
     "auto": false,
-    "curto": "O signo oposto ao do domicílio de um planeta, onde ele atua com mais esforço. Também se diz detrimento.",
-    "mais": "Marte tem o domicílio em Áries e o exílio em Libra; Vênus faz o caminho inverso. É a dignidade fraca: o planeta funciona, mas fora de casa.",
+    "curto": "O signo oposto ao do domicílio de um planeta, onde ele atua com mais esforço. Também se chama detrimento.",
+    "mais": "Marte tem o domicílio em Áries e o exílio em Libra; Vênus faz o inverso, com domicílio em Libra e exílio em Áries. É a dignidade fraca: o planeta funciona, mas fora do ambiente que lhe é natural.",
     "ver_tambem": [
       "domicilio",
       "queda",
@@ -1563,8 +1563,8 @@
       "em domicílio"
     ],
     "auto": false,
-    "curto": "O signo que um planeta rege: sua casa de origem, onde atua com naturalidade. Marte em Áries, Vênus em Libra.",
-    "mais": "Domicílio, exaltação, exílio e queda são as quatro dignidades de signo. O domicílio é a mais firme; o exílio, seu oposto.",
+    "curto": "O signo que um planeta rege, onde ele atua com naturalidade. Marte tem domicílio em Áries, e Vênus em Libra.",
+    "mais": "Domicílio, exaltação, exílio e queda são as quatro principais dignidades de signo, isto é, os graus de conforto de um planeta em cada signo. O domicílio é a mais firme; o exílio é o seu oposto.",
     "ver_tambem": [
       "regente",
       "exilio",
@@ -1580,8 +1580,8 @@
       "em queda"
     ],
     "auto": false,
-    "curto": "O signo oposto ao da exaltação de um planeta, onde ele perde o brilho. O Sol cai em Libra; Saturno, em Áries.",
-    "mais": "Queda não é defeito: é o signo em que o planeta precisa de mais cuidado para se expressar. Fica a 180° da exaltação.",
+    "curto": "O signo oposto ao da exaltação de um planeta, onde ele rende menos. O Sol está em queda em Libra; Saturno, em Áries.",
+    "mais": "Queda não é defeito: o planeta funciona, mas tem de se esforçar mais para se expressar bem. Outros exemplos: a Lua em Escorpião, Marte em Câncer e Júpiter em Capricórnio.",
     "ver_tambem": [
       "exaltacao",
       "exilio",
@@ -1596,8 +1596,8 @@
       "alegria"
     ],
     "auto": false,
-    "curto": "A casa em que um planeta se sente à vontade, na astrologia tradicional. Mercúrio na 1, Lua na 3, Vênus na 5, Marte na 6.",
-    "mais": "Segue: Sol na 9, Júpiter na 11 e Saturno na 12. É uma dignidade de casa, diferente das de signo (domicílio, exaltação, exílio, queda).",
+    "curto": "A casa em que um planeta se sente à vontade, na astrologia tradicional. Mercúrio na casa 1, Lua na 3, Vênus na 5, Marte na 6.",
+    "mais": "A lista segue com o Sol na 9, Júpiter na 11 e Saturno na 12. É uma dignidade de casa, diferente das de signo (domicílio, exaltação, exílio e queda).",
     "ver_tambem": [
       "casa",
       "domicilio"
@@ -1612,7 +1612,7 @@
     ],
     "auto": false,
     "curto": "A ligação entre cada casa e o signo de mesma ordem: casa 1 com Áries, casa 2 com Touro, até a casa 12 com Peixes.",
-    "mais": "É uma convenção moderna, útil para lembrar o tema da casa. Não é uma dignidade: um planeta não ganha força por estar numa casa que corresponde a certo signo.",
+    "mais": "É uma correspondência convencional, útil para lembrar o tema de cada casa. Não é uma dignidade: um planeta não ganha força por estar numa casa que corresponde a certo signo.",
     "ver_tambem": [
       "casa",
       "alegria-planetaria"
@@ -1625,7 +1625,7 @@
       "Placidus"
     ],
     "auto": true,
-    "curto": "O sistema de casas mais usado hoje: divide o tempo que cada ponto leva para subir ao alto do céu. As casas saem de tamanhos desiguais.",
+    "curto": "O sistema de casas mais usado hoje. Divide o céu pelo tempo que cada ponto leva para subir do horizonte ao alto, e por isso as casas saem de tamanhos desiguais.",
     "mais": "Em latitudes muito altas, perto dos círculos polares, o Placidus se torna instável e deixa de funcionar. Acima de 66° de latitude, norte ou sul, o mapa passa a usar Signos Inteiros e avisa.",
     "ver_tambem": [
       "signos-inteiros",
@@ -1639,8 +1639,8 @@
       "Signos Inteiros"
     ],
     "auto": true,
-    "curto": "Sistema de casas em que a casa 1 é o signo inteiro do Ascendente, a 2 o signo seguinte, e assim por diante. Todas medem 30°.",
-    "mais": "É o sistema mais antigo e o mais simples, e não falha em nenhuma latitude. Por isso serve de saída quando o Placidus se torna instável.",
+    "curto": "Sistema de casas em que a casa 1 é o signo inteiro do Ascendente, a 2 é o signo seguinte, e assim por diante. Todas as casas medem 30°.",
+    "mais": "É o sistema mais antigo e o mais simples, e funciona em qualquer latitude. Por isso serve de alternativa quando o Placidus se torna instável.",
     "ver_tambem": [
       "placidus",
       "ascendente",
@@ -1655,8 +1655,8 @@
       "conjunções"
     ],
     "auto": false,
-    "curto": "Aspecto de 0°: dois astros no mesmo ponto do céu. Os dois assuntos se fundem e passam a agir como um só.",
-    "mais": "É o aspecto mais forte. O resultado depende dos astros envolvidos: com Vênus, funde-se a doçura; com Marte, o impulso.",
+    "curto": "Aspecto de 0°: dois astros no mesmo ponto do céu. Os dois assuntos se fundem e passam a agir juntos, como um só.",
+    "mais": "Costuma ser lida como o aspecto mais intenso. O resultado depende dos astros envolvidos: se um deles é Vênus, a fusão tem afeto e valor; se é Marte, tem impulso e ação.",
     "ver_tambem": [
       "aspecto",
       "orbe"
@@ -1670,8 +1670,8 @@
       "sextis"
     ],
     "auto": false,
-    "curto": "Aspecto de 60°: uma porta aberta entre dois astros. A abertura existe, mas o uso depende de quem a abre.",
-    "mais": "É um aspecto suave e discreto. Liga signos de elementos compatíveis, Fogo com Ar ou Terra com Água.",
+    "curto": "Aspecto de 60°: uma oportunidade entre dois astros. A ligação existe, mas aproveitá-la depende de você.",
+    "mais": "É um aspecto suave e discreto. Liga signos de elementos compatíveis, Fogo com Ar ou Terra com Água, e rende mais quando você toma a iniciativa de usá-lo.",
     "ver_tambem": [
       "aspecto",
       "orbe"
@@ -1685,8 +1685,8 @@
       "quadraturas"
     ],
     "auto": false,
-    "curto": "Aspecto de 90°: dois astros em atrito. A tensão incomoda e, por isso mesmo, move.",
-    "mais": "Liga signos da mesma modalidade e de elementos que não se entendem. É o aspecto das tarefas que exigem esforço e que costumam render mais.",
+    "curto": "Aspecto de 90°: dois astros em atrito. A tensão incomoda e, justamente por isso, leva a agir.",
+    "mais": "Liga signos da mesma modalidade e de elementos que não combinam bem: Fogo e Ar com Terra e Água. Costuma marcar áreas que exigem esforço, e esse esforço tende a render resultado.",
     "ver_tambem": [
       "aspecto",
       "orbe"
@@ -1700,8 +1700,8 @@
       "trígonos"
     ],
     "auto": false,
-    "curto": "Aspecto de 120°: dois astros em fluxo. As coisas correm com facilidade, às vezes demais, e o talento passa despercebido.",
-    "mais": "Liga signos do mesmo elemento. É o aspecto do dom natural, que pode acomodar justamente por não exigir esforço.",
+    "curto": "Aspecto de 120°: dois astros em sintonia. As coisas fluem com facilidade, às vezes tanta que o talento passa despercebido.",
+    "mais": "Liga signos do mesmo elemento. É o aspecto do dom natural, que pode levar à acomodação justamente por não exigir esforço.",
     "ver_tambem": [
       "aspecto",
       "orbe"
@@ -1715,8 +1715,8 @@
       "oposições"
     ],
     "auto": false,
-    "curto": "Aspecto de 180°: dois astros frente a frente, cada um de um lado do céu. Exige achar o equilíbrio entre os polos.",
-    "mais": "Liga signos opostos do zodíaco. Costuma aparecer como um vaivém entre duas necessidades, até se achar o ponto de encontro.",
+    "curto": "Aspecto em que dois astros ficam em lados opostos do céu, a meio círculo de distância. Exige achar o equilíbrio entre os dois polos.",
+    "mais": "Liga signos opostos do zodíaco, como Áries e Libra, de elementos que se complementam: Fogo com Ar, Terra com Água. Costuma aparecer como uma alternância entre duas necessidades, até se encontrar o ponto de equilíbrio.",
     "ver_tambem": [
       "aspecto",
       "orbe"
@@ -1733,8 +1733,8 @@
       "equinócios"
     ],
     "auto": true,
-    "curto": "No hemisfério sul as estações são invertidas em relação ao zodíaco: o equinócio de março abre o outono, e o de setembro, a primavera.",
-    "mais": "O solstício de junho, perto do dia 21, abre o inverno aqui; o de dezembro abre o verão. Os signos seguem a mesma ordem, mas Áries, que começa no equinócio de março, chega com o outono, não com a primavera.",
+    "curto": "No hemisfério sul, as estações são invertidas em relação ao zodíaco tradicional: o equinócio de março abre o outono, e o de setembro, a primavera.",
+    "mais": "Equinócio é o dia em que dia e noite se igualam; solstício, o de maior ou menor duração do dia. O solstício de junho, perto do dia 21, abre o inverno aqui, e o de dezembro, o verão. Os signos seguem a mesma ordem, mas Áries, que começa no equinócio de março, chega com o outono, não com a primavera.",
     "ver_tambem": [
       "cardeal",
       "modalidade"
