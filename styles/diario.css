@@ -31,14 +31,40 @@
 .diario-vazio h2 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; color: var(--accent); }
 .diario-vazio p { color: var(--text-soft); max-width: 40ch; margin-bottom: var(--sp-2); }
 
-/* meses */
-.diario-lista { display: grid; gap: var(--sp-5); }
-.diario-mes { display: grid; gap: var(--sp-3); }
-.diario-mes-tit { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); padding-bottom: 8px; border-bottom: 1px solid var(--line); font-weight: 400; }
-.diario-mes-nome { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; }
-.diario-mes-nome::first-letter { text-transform: uppercase; }
-.diario-mes-n { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mute); white-space: nowrap; }
-.diario-mes-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+/* calendario do mes + registros do dia escolhido */
+.diario-corpo-tela { display: grid; gap: var(--sp-4); align-items: start; }
+.diario-corpo-tela[hidden] { display: none; }
+.cal { display: grid; gap: var(--sp-2); padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.cal-nav { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: var(--sp-2); }
+.cal-nav .iconbtn:disabled { opacity: 0.35; cursor: default; }
+.cal-mes { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; text-align: center; }
+.cal-mes::first-letter { text-transform: uppercase; }
+.cal-grade { display: grid; gap: 2px; }
+.cal-semana, .cal-linha { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; }
+.cal-cab { text-align: center; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.12em; color: var(--text-soft); padding: 4px 0; }
+.cal-vazio { min-height: 44px; }
+.cal-dia { position: relative; display: grid; place-items: center; align-content: center; gap: 2px; min-height: 44px; padding: 0; border: 0; border-radius: var(--r-sm); background: transparent; color: var(--text); font: inherit; font-variant-numeric: lining-nums tabular-nums; cursor: pointer; }
+.cal-dia:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.cal-dia:focus-visible { outline: 2px solid var(--focus); outline-offset: 0; }
+.cal-n { font-size: var(--fs-md); line-height: 1; }
+.cal-pt { display: flex; gap: 3px; height: 5px; }
+.cal-pt i { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.cal-dia.hoje { box-shadow: inset 0 0 0 1.5px var(--accent); }
+.cal-dia.sel { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.cal-dia.sel .cal-pt i { background: var(--accent-ink); }
+.cal-rodape { display: flex; justify-content: space-between; align-items: center; min-height: 44px; }
+.cal-rodape [hidden] { display: none; }
+.cal-rodape:not(:has(> :not([hidden]))) { display: none; }
+.diario-dia-sel { display: grid; gap: var(--sp-3); min-width: 0; }
+.diario-dia-tit { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h3); line-height: 1.2; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.diario-dia-tit:focus-visible { outline-offset: 4px; }
+.diario-dia-vazio { color: var(--text-soft); }
+.diario-dia-vazio[hidden] { display: none; }
+.diario-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+@media (min-width: 900px) {
+  .diario-corpo-tela { grid-template-columns: 340px minmax(0, 1fr); gap: var(--sp-5); }
+  .cal { position: sticky; top: var(--sp-3); }
+}
 
 /* registro */
 .diario-item { position: relative; }
@@ -85,8 +111,6 @@
 .diario-estado[data-estado="falha"] { color: var(--err); font-weight: 600; }
 .diario-contador { font-size: var(--fs-sm); color: var(--text-soft); margin-left: auto; font-variant-numeric: tabular-nums; }
 .diario-contador.no-limite { color: var(--warn); font-weight: 600; }
-.diario-mais { display: flex; justify-content: center; }
-.diario-mais[hidden] { display: none; }
 
 @media (min-width: 640px) {
   .diario-corpo { grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: var(--sp-4); }
