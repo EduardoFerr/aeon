@@ -11,7 +11,7 @@ export async function subir(extra = {}) {
         SEGREDO: 'segredo-de-teste-com-mais-de-trinta-e-dois-caracteres',
         EMAIL_MODO: 'smtp',
         SMTP_HOST: 'x', SMTP_USUARIO: 'x', SMTP_SENHA: 'x',
-        EMAIL_DE: 'nao-responda@aeonfool.com',
+        EMAIL_DE: 'atendimento@aeonfool.com',
         ...extra.env,
     });
     let agora = Date.parse('2026-11-12T12:00:00Z');

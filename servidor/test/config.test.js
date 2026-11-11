@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { lerConfig } from '../src/config.js';
 import { abrirBanco } from '../src/db.js';
 
-const base = { NODE_ENV: 'production', SEGREDO: 'x'.repeat(40), SMTP_HOST: 'h', SMTP_USUARIO: 'u', SMTP_SENHA: 's', EMAIL_DE: 'nao-responda@aeonfool.com' };
+const base = { NODE_ENV: 'production', SEGREDO: 'x'.repeat(40), SMTP_HOST: 'h', SMTP_USUARIO: 'u', SMTP_SENHA: 's', EMAIL_DE: 'atendimento@aeonfool.com' };
 
 test('configuração mínima de produção vale e usa o padrão https://aeonfool.com', () => {
     const c = lerConfig(base);
