@@ -70,6 +70,8 @@
 .diario-mini:hover .diario-nome { color: var(--accent); }
 .diario-mini:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .diario-nome { font-size: 0.8125rem; line-height: 1.25; overflow-wrap: anywhere; }
+/* celular: tres cartas em tres colunas estreitas; a miniatura fica sobre o nome para o nome nao quebrar no meio da palavra */
+@media (max-width: 599px) { .diario-mini { grid-template-columns: minmax(0, 1fr); align-items: start; align-content: start; gap: 6px; min-height: 0; } .diario-nome { overflow-wrap: break-word; } }
 
 .diario-nota { display: grid; gap: 6px; align-content: start; min-width: 0; }
 .diario-nota textarea { width: 100%; min-height: 72px; padding: 10px 12px; border-radius: var(--r-sm); border: 1px solid var(--control); background: var(--bg); color: var(--text); font: 400 var(--fs-md)/1.6 var(--font-ui); resize: none; }
