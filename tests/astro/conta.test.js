@@ -348,12 +348,10 @@ test('apagar os dados da conta limpa o servidor e mantém tudo no aparelho', { s
     assert.equal(C.estadoConta().fase, 'desligada');
 });
 
-test('com a chave desligada nada acontece: apagar não anota exclusão e o texto é o de sempre', async () => {
-    // contaEstado le a chave na carga; aqui so conferimos a regra de "ligada" do estado
+test('com a sincronizacao desligada nada acontece: apagar nao anota exclusao', async () => {
     limparTudo();
     E.marcarApagado('diario', 'x'); // sem estado ligado: nao anota
     assert.deepEqual(E.lerEstado().apagados, {});
-    assert.equal(C.registrosFicam('so aqui', 'aqui e na conta'), 'so aqui');
 });
 
 test('perfil e mapas ganham data de edição e o backup continua válido', async () => {

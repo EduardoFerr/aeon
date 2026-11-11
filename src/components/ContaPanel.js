@@ -2,22 +2,38 @@ import { ic } from '../utils/glifos.js';
 import { esc } from '../utils/mapaComum.js';
 import { avisar, abrir } from './Sobreposicao.js';
 import {
-    ErroConta, aoMudarConta, aparelhos, apagarDadosDoServidor, baixarDadosDaConta, confirmarCodigo, encerrarAparelho,
-    estadoConta, ligar, motivoDoErro, pedirCodigo, resumoParaJuntar, sair, sairDeTodos, sincronizar,
+    ErroConta, aoMudarConta, aparelhos, apagarDadosDoServidor, apagarRegistrosLocais, baixarDadosDaConta, confirmarCodigo,
+    encerrarAparelho, entrarComChave, estadoConta, gerarChave, gerarNovaChave, ligar, motivoDoErro, moverLigacaoParaNovaConta,
+    pedirCodigo, registrosLocais, resumoParaJuntar, sair, sairDeTodos, sincronizar, verChave,
 } from '../utils/conta.js';
+import { contaAtiva, criarContaLocal, listarContas, removerContaLocal, trocarConta } from '../utils/contas.js';
+import { lerEstado } from '../utils/contaEstado.js';
 
+/**
+ * Textos do painel de conta. Regra de produto: nenhum texto aqui diz o que e guardado nem como. So o que a pessoa
+ * pode fazer (criar login, entrar, trocar de conta) e o que acontece com a conta no aparelho.
+ */
 const T = {
-    titulo: 'Conta e sincronização',
-    intro: 'Guarde uma cópia do seu diário, dos seus mapas e do seu apelido na sua conta. Assim você não perde nada ao limpar o navegador e vê o mesmo conteúdo em outro aparelho. É opcional e fica desligada até você ligar.',
-    ligar: 'Ligar a sincronização',
-    antes: 'Antes de ligar',
-    oQue: 'O que vai para a sua conta: seu diário (leituras, notas e perguntas), seus mapas, com data, hora e cidade de nascimento, e seu apelido.',
-    onde: 'Onde fica: num servidor do Aeon, em texto legível. Quem cuida do servidor consegue ver esses dados. Não há criptografia que esconda o conteúdo de quem administra.',
-    paraQue: 'Para que serve: só para guardar a cópia e mostrá-la nos seus aparelhos.',
-    sair: 'Como sair: você apaga tudo da conta quando quiser, aqui mesmo, em "Apagar meus dados da conta".',
-    entendi: 'Entendi e quero ligar',
-    continuar: 'Continuar',
-    cancelar: 'Cancelar',
+    titulo: 'Conta',
+    intro: 'Crie seu login para recuperar seus registros em outro aparelho.',
+    gerar: 'Gerar chave de recuperação',
+    comEmail: 'Entrar com e-mail',
+    comChave: 'Entrar com minha chave',
+    chaveNovaTitulo: 'Sua chave de recuperação',
+    chaveNovaTexto: 'Anote estas 12 palavras, na ordem. Com elas você recupera seus registros em outro aparelho.',
+    copiar: 'Copiar chave',
+    copiada: 'Chave copiada.',
+    naoCopiou: 'Não deu para copiar. Selecione as palavras e copie.',
+    anotei: 'Anotei minha chave',
+    concluir: 'Concluir',
+    chaveRotulo: 'Sua chave de 12 palavras',
+    chaveDica: 'Cole ou digite as palavras, separadas por espaço.',
+    verChave: 'Ver minha chave',
+    esconderChave: 'Esconder chave',
+    novaChave: 'Gerar nova chave',
+    novaChaveTitulo: 'Gerar uma chave nova?',
+    novaChaveCorpo: 'A chave atual deixa de funcionar. Anote a nova.',
+    novaChaveSim: 'Gerar nova chave',
     emailRotulo: 'Seu e-mail',
     emailDica: 'Enviamos um código de 6 dígitos para esse e-mail. Não há senha.',
     enviarCodigo: 'Enviar código',
@@ -28,11 +44,22 @@ const T = {
     reenviar: 'Reenviar código',
     reenviarEm: (n) => `Reenviar em ${n} s`,
     trocarEmail: 'Trocar e-mail',
-    entrouComo: (e) => `Você entrou como ${e}.`,
+    addEmail: 'Adicionar e-mail',
+    entrouComo: (e) => (e ? `Você entrou como ${e}.` : 'Você entrou.'),
+    cancelar: 'Cancelar',
+    voltar: 'Voltar',
+    escolhaTitulo: 'O que fazer com os registros deste aparelho?',
     resumo: (a, c) => `Neste aparelho há ${a.diario} ${a.diario === 1 ? 'entrada' : 'entradas'} no diário e ${a.mapas} ${a.mapas === 1 ? 'mapa' : 'mapas'}. Na conta há ${c.diario} ${c.diario === 1 ? 'entrada' : 'entradas'} e ${c.mapas} ${c.mapas === 1 ? 'mapa' : 'mapas'}.`,
-    juntar: 'Vamos juntar os dois lados. Nada é apagado nem trocado.',
-    juntarBotao: 'Juntar e ligar',
-    ligadaTitulo: 'Sincronização ligada',
+    duas: 'Ficar com as duas contas',
+    duasDesc: 'Você troca entre elas quando quiser.',
+    juntarTudo: 'Juntar tudo numa conta',
+    juntarDesc: 'Reúne os registros dos dois lados. Nada é apagado.',
+    descartar: 'Descartar os registros deste aparelho',
+    descartarDesc: 'Fica só o que já estava na conta.',
+    descartarTitulo: 'Descartar os registros deste aparelho?',
+    descartarCorpo: 'Os registros que estão aqui serão apagados e não dá para desfazer. Ficam só os da conta em que você entrou.',
+    descartarSim: 'Descartar',
+    ligadaTitulo: 'Sua conta',
     ultima: (q) => `Última sincronização: ${q}.`,
     nunca: 'Ainda não sincronizou.',
     sincronizar: 'Sincronizar agora',
@@ -42,50 +69,116 @@ const T = {
     encerrar: 'Encerrar',
     sairTodos: 'Sair de todos os aparelhos',
     baixar: 'Baixar meus dados da conta',
-    sairAqui: 'Sair desta conta neste aparelho',
-    sairAquiNota: 'Seus registros ficam neste aparelho e na conta. Só a sincronização para.',
+    remover: 'Remover esta conta deste aparelho',
+    removerTitulo: 'Remover esta conta deste aparelho?',
+    removerEmail: 'Você pode entrar de novo com o e-mail. Os registros desta conta saem deste aparelho.',
+    removerChave: 'Sem a chave de recuperação não será possível recuperar esta conta. Os registros dela saem deste aparelho.',
+    removerLocal: 'Os registros desta conta serão apagados deste aparelho. Não dá para desfazer.',
+    removerSim: 'Remover',
+    manter: 'Manter',
     apagar: 'Apagar meus dados da conta',
     apagarTitulo: 'Apagar os dados da conta?',
-    apagarCorpo: 'Isso apaga da nossa conta o diário, os mapas e o apelido que foram sincronizados, e encerra a conta. Não dá para desfazer. O que está neste aparelho continua nele.',
+    apagarCorpo: 'Isso apaga a conta e tudo o que ela tem, e encerra o login. Não dá para desfazer. O que está neste aparelho continua nele.',
     apagarSim: 'Apagar da conta',
-    manter: 'Manter',
-    apagado: 'Seus dados foram apagados da conta. O que está neste aparelho continua nele.',
-    voltar: 'Voltar',
+    apagado: 'Sua conta foi apagada. O que está neste aparelho continua nele.',
+    contas: 'Contas neste aparelho',
+    usar: 'Usar',
+    emUso: 'em uso',
+    outra: 'Adicionar outra conta',
+    contaN: (n) => `Conta ${n}`,
+    tipoEmail: 'com e-mail',
+    tipoChave: 'com chave',
+    tipoLocal: 'só neste aparelho',
     entrarDeNovo: 'Entrar de novo',
     erros: {
-        rede: 'Sem conexão com a conta. Tentamos de novo quando a internet voltar.',
+        rede: 'Sem conexão. Tentamos de novo quando a internet voltar.',
         sessao: 'Sua sessão acabou. Entre de novo para continuar sincronizando.',
-        limite: 'Muitos pedidos seguidos. Tente de novo em alguns minutos.',
+        limite: 'Não foi possível agora. Tente de novo mais tarde.',
         espaco: 'A conta chegou ao limite de espaço. Apague registros antigos ou baixe um backup.',
         armazenamento: 'Este navegador não deixa guardar dados, então não há o que sincronizar.',
-        servidor: 'Não foi possível sincronizar agora. Tentamos de novo em breve.',
+        servidor: 'Não foi possível agora. Tentamos de novo em breve.',
         codigo_invalido: 'Código incorreto ou vencido. Confira os 6 dígitos ou peça outro.',
         email_invalido: 'Confira o e-mail digitado.',
+        chave_invalida: 'Chave incorreta. Confira as 12 palavras.',
+        email_ocupado: 'Este e-mail já tem uma conta. Use outro e-mail.',
     },
     aguarde: (n) => `Aguarde ${n} segundos para pedir outro código.`,
 };
 
 const fmt = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
 const quando = (iso) => (iso ? fmt.format(new Date(iso)) : '');
+const soTotal = (r) => r.diario + r.mapas;
+
+/** Pergunta de confirmacao em dialogo. -> Promise<boolean> */
+function confirmar({ titulo, corpo, sim, perigo = true, gatilho }) {
+    return new Promise((resolver) => {
+        let respondeu = false;
+        const c = abrir({
+            tipo: 'confirmacao', titulo, gatilho, descricao: true,
+            aoFechar: () => { if (!respondeu) resolver(false); },
+            corpo: `<p>${corpo}</p>
+                <div class="sob-pilha" style="margin-top:18px"><button class="btn btn-ghost" type="button" data-foco data-nao>${T.manter}</button>
+                <button class="btn ${perigo ? 'btn-perigo cheio' : 'btn-ghost'}" type="button" data-sim>${perigo ? ic('lixo') : ''}${sim}</button></div>`,
+        });
+        c.corpo.addEventListener('click', (ev) => {
+            if (ev.target.closest('[data-nao]')) {
+                respondeu = true;
+                c.fechar();
+                resolver(false);
+            } else if (ev.target.closest('[data-sim]')) {
+                respondeu = true;
+                c.fechar(false);
+                resolver(true);
+            }
+        });
+    });
+}
+
+async function copiarTexto(texto) {
+    try {
+        await navigator.clipboard.writeText(texto);
+        return true;
+    } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = texto;
+        ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:absolute;left:-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        let ok = false;
+        try {
+            ok = document.execCommand('copy');
+        } catch (err) {
+            ok = false;
+        }
+        ta.remove();
+        return ok;
+    }
+}
 
 /**
- * Painel "Conta e sincronização" (Perfil, aba Dados). Passos: inicio, consentimento, e-mail, codigo, juntar, ligada.
- * Nada daqui toca nos registros do aparelho; o trabalho esta em utils/conta.js.
+ * Painel "Conta" (Perfil, aba Dados). Passos: inicio, chave-nova, chave-entrar, email, codigo, escolha, ligada.
+ * Nada daqui toca nos registros do aparelho sem a pessoa pedir; o trabalho esta em utils/conta.js e utils/contas.js.
  */
 export class ContaPanel extends HTMLElement {
     connectedCallback() {
         const e = estadoConta();
-        this.passo = e.fase === 'ligada' ? 'ligada' : e.fase === 'juntar' ? 'juntar' : 'inicio';
+        this.passo = e.fase === 'ligada' ? 'ligada' : 'inicio';
+        if (e.fase === 'juntar') this.passo = 'retomar';
         this.email = e.email;
+        this.vincular = false;
         this.erro = '';
         this.resumo = null;
+        this.chave = '';
+        this.mostrarChave = false;
         this.espera = 0;
         this.ocupado = false;
         this.lista = null;
         this.desligar = aoMudarConta(() => {
             if (this.passo === 'ligada') this.atualizarStatus();
         });
-        this.desenhar();
+        if (this.passo === 'retomar') this.retomar();
+        else this.desenhar();
     }
 
     disconnectedCallback() {
@@ -94,30 +187,66 @@ export class ContaPanel extends HTMLElement {
     }
 
     erroTexto(codigo, extra) {
-        if (codigo === 'limite' && extra && extra.espera_s) return T.aguarde(extra.espera_s);
+        if (codigo === 'limite' && extra && extra.espera_s) return T.erros.limite;
         return T.erros[codigo] || T.erros.servidor;
     }
 
     /* ---------- desenho ---------- */
 
+    erroHtml() {
+        return this.erro ? `<p class="erro-msg" role="alert">${ic('info')}<span>${esc(this.erro)}</span></p>` : '';
+    }
+
+    chaveHtml(frase) {
+        const palavras = frase.split(' ');
+        return `<ol class="chave-lista" aria-label="${T.chaveNovaTitulo}">${palavras.map((p, i) => `<li><span aria-hidden="true">${i + 1}</span>${esc(p)}</li>`).join('')}</ol>
+            <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="copiar">${ic('copiar')}${T.copiar}</button></div>`;
+    }
+
+    contasHtml() {
+        const lista = listarContas();
+        if (lista.length < 2) return '';
+        const ativa = contaAtiva();
+        const itens = lista.map((c, i) => {
+            const e = lerEstado(c.id);
+            const nome = c.rotulo || e.email || T.contaN(i + 1);
+            const tipo = e.email ? T.tipoEmail : e.servidorId ? T.tipoChave : T.tipoLocal;
+            const eu = c.id === ativa;
+            return `<li><span><strong>${esc(nome)}</strong>${eu ? ` <em>(${T.emUso})</em>` : ''}<br><small>${esc(tipo)}</small></span>
+                <span class="conta-acoes">${eu ? '' : `<button class="btn btn-terciario" type="button" data-usar="${esc(c.id)}">${T.usar}<span class="sr"> ${esc(nome)}</span></button>`}
+                ${eu ? '' : `<button class="btn btn-perigo" type="button" data-tirar="${esc(c.id)}">${T.removerSim}<span class="sr"> ${esc(nome)}</span></button>`}</span></li>`;
+        }).join('');
+        return `<h4 class="conta-sub">${T.contas}</h4><ul class="conta-aparelhos" aria-label="${T.contas}">${itens}</ul>`;
+    }
+
     corpo() {
         const p = this.passo;
-        const erro = this.erro ? `<p class="erro-msg" role="alert">${ic('info')}<span>${esc(this.erro)}</span></p>` : '';
+        const erro = this.erroHtml();
         if (p === 'inicio') {
-            return `<p>${T.intro}</p><div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="comecar">${T.ligar}</button></div>`;
+            return `${this.contasHtml()}<p>${T.intro}</p>${erro}
+                <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="gerar"${this.ocupado ? ' disabled' : ''}>${T.gerar}</button>
+                <button class="btn btn-terciario" type="button" data-acao="com-email">${T.comEmail}</button>
+                <button class="btn btn-terciario" type="button" data-acao="com-chave">${T.comChave}</button></div>
+                <div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="outra">${T.outra}</button></div>`;
         }
-        if (p === 'consent') {
-            return `<h4 class="conta-sub" tabindex="-1" data-foco>${T.antes}</h4>
-                <ul class="conta-lista"><li>${T.oQue}</li><li>${T.onde}</li><li>${T.paraQue}</li><li>${T.sair}</li></ul>
-                <label class="diario-marca"><input type="checkbox" data-entendi><span>${T.entendi}</span></label>
-                <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="consent-ok" disabled>${T.continuar}</button><button class="btn btn-terciario" type="button" data-acao="voltar-inicio">${T.cancelar}</button></div>`;
+        if (p === 'chave-nova') {
+            return `<h4 class="conta-sub" tabindex="-1" data-foco>${T.chaveNovaTitulo}</h4><p>${T.chaveNovaTexto}</p>${this.chaveHtml(this.chave)}
+                <label class="diario-marca"><input type="checkbox" data-anotei><span>${T.anotei}</span></label>
+                <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="concluir" disabled>${T.concluir}</button></div>`;
+        }
+        if (p === 'chave-entrar') {
+            return `<form class="campo" data-form="chave" novalidate>
+                <label class="rot" for="conta-chave">${T.chaveRotulo}</label>
+                <textarea class="entrada" id="conta-chave" rows="3" autocomplete="off" autocapitalize="none" spellcheck="false" style="padding:12px 16px;min-height:96px;resize:vertical" aria-describedby="conta-chave-d"${this.erro ? ' aria-invalid="true"' : ''}></textarea>
+                <span class="dica" id="conta-chave-d">${T.chaveDica}</span>${erro}
+                <div class="btn-row"><button class="btn btn-ghost" type="submit"${this.ocupado ? ' disabled' : ''}>${T.entrar}</button><button class="btn btn-terciario" type="button" data-acao="voltar-inicio">${T.cancelar}</button></div></form>`;
         }
         if (p === 'email') {
             return `<form class="campo" data-form="email" novalidate>
                 <label class="rot" for="conta-email">${T.emailRotulo}</label>
                 <input class="entrada" id="conta-email" type="email" inputmode="email" autocomplete="email" maxlength="254" value="${esc(this.email)}" aria-describedby="conta-email-d"${this.erro ? ' aria-invalid="true"' : ''}>
                 <span class="dica" id="conta-email-d">${T.emailDica}</span>${erro}
-                <div class="btn-row"><button class="btn btn-ghost" type="submit">${this.ocupado ? T.enviando : T.enviarCodigo}</button><button class="btn btn-terciario" type="button" data-acao="voltar-inicio">${T.cancelar}</button></div></form>`;
+                <div class="btn-row"><button class="btn btn-ghost" type="submit">${this.ocupado ? T.enviando : T.enviarCodigo}</button><button class="btn btn-terciario" type="button" data-acao="voltar">${T.cancelar}</button></div></form>`;
         }
         if (p === 'codigo') {
             return `<form class="campo" data-form="codigo" novalidate>
@@ -128,11 +257,15 @@ export class ContaPanel extends HTMLElement {
                 <button class="btn btn-terciario" type="button" data-acao="reenviar"${this.espera > 0 ? ' disabled' : ''}>${this.espera > 0 ? T.reenviarEm(this.espera) : T.reenviar}</button>
                 <button class="btn btn-terciario" type="button" data-acao="trocar-email">${T.trocarEmail}</button></div></form>`;
         }
-        if (p === 'juntar') {
+        if (p === 'escolha') {
             const r = this.resumo;
-            return `<h4 class="conta-sub" tabindex="-1" data-foco>${esc(T.entrouComo(this.email))}</h4>
-                ${r ? `<p>${esc(T.resumo(r.aqui, r.naConta))}</p><p>${T.juntar}</p>` : `<p>${this.erro ? '' : '...'}</p>`}${erro}
-                <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="juntar"${r ? '' : ' disabled'}>${this.ocupado ? T.sincronizando : T.juntarBotao}</button><button class="btn btn-terciario" type="button" data-acao="sair">${T.cancelar}</button></div>`;
+            return `<h4 class="conta-sub" tabindex="-1" data-foco>${T.escolhaTitulo}</h4>
+                ${r ? `<p>${esc(T.resumo(r.aqui, r.naConta))}</p>` : `<p>${this.erro ? '' : '...'}</p>`}${erro}
+                <div class="conta-opcoes">
+                <button class="conta-opcao" type="button" data-acao="duas"${r ? '' : ' disabled'}><strong>${T.duas}</strong><span>${T.duasDesc}</span></button>
+                <button class="conta-opcao" type="button" data-acao="juntar"${r ? '' : ' disabled'}><strong>${T.juntarTudo}</strong><span>${T.juntarDesc}</span></button>
+                <button class="conta-opcao perigo" type="button" data-acao="descartar"${r ? '' : ' disabled'}><strong>${T.descartar}</strong><span>${T.descartarDesc}</span></button></div>
+                <div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="cancelar-login">${T.cancelar}</button></div>`;
         }
         // ligada
         const e = estadoConta();
@@ -140,8 +273,11 @@ export class ContaPanel extends HTMLElement {
             ? `<ul class="conta-aparelhos" aria-label="${T.aparelhos}">${this.lista.map((a) => `<li><span><strong>${esc(a.aparelho)}</strong>${a.atual ? ` <em>(${T.esteAparelho})</em>` : ''}<br><small>${esc(quando(a.ultimo_uso))}</small></span>${a.atual ? '' : `<button class="btn btn-terciario" type="button" data-encerrar="${esc(a.id)}">${T.encerrar}<span class="sr"> ${esc(a.aparelho)}</span></button>`}</li>`).join('')}</ul>
                <div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="sair-todos">${T.sairTodos}</button></div>`
             : '';
-        return `<h4 class="conta-sub" tabindex="-1" data-foco>${T.ligadaTitulo}</h4>
-            <p>${esc(this.email)}</p>
+        const chaveBloco = e.temChave
+            ? `<div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="ver-chave" aria-expanded="${this.mostrarChave}">${this.mostrarChave ? T.esconderChave : T.verChave}</button><button class="btn btn-terciario" type="button" data-acao="nova-chave">${T.novaChave}</button></div>${this.mostrarChave && verChave() ? this.chaveHtml(verChave()) : ''}`
+            : `<div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="gerar">${T.gerar}</button></div>`;
+        return `${this.contasHtml()}<h4 class="conta-sub" tabindex="-1" data-foco>${T.ligadaTitulo}</h4>
+            ${e.email ? `<p>${esc(e.email)}</p>` : ''}
             <p class="diario-aviso" role="status" aria-live="polite" data-status>${esc(this.statusTexto(e))}</p>
             ${e.erro === 'sessao' ? `<div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="entrar-de-novo">${T.entrarDeNovo}</button></div>` : ''}
             ${erro}
@@ -149,8 +285,10 @@ export class ContaPanel extends HTMLElement {
             <button class="btn btn-terciario" type="button" data-acao="aparelhos" aria-expanded="${!!this.lista}">${T.aparelhos}</button>
             <button class="btn btn-terciario" type="button" data-acao="baixar">${ic('baixar')}${T.baixar}</button></div>
             ${aparelhosHtml}
-            <div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="sair" aria-describedby="conta-sair-d">${T.sairAqui}</button><button class="btn btn-perigo" type="button" data-acao="apagar">${ic('lixo')}${T.apagar}</button></div>
-            <p class="nota-geonames" id="conta-sair-d">${T.sairAquiNota}</p>`;
+            ${chaveBloco}
+            ${e.email ? '' : `<div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="add-email">${T.addEmail}</button></div>`}
+            <div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="remover">${T.remover}</button><button class="btn btn-perigo" type="button" data-acao="apagar">${ic('lixo')}${T.apagar}</button></div>
+            <div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="outra">${T.outra}</button></div>`;
     }
 
     statusTexto(e) {
@@ -164,7 +302,7 @@ export class ContaPanel extends HTMLElement {
         this.innerHTML = `<section class="painel conta-painel" aria-labelledby="conta-t"><div class="p-icon">${ic('cadeado')}<h3 id="conta-t">${T.titulo}</h3></div>${this.corpo()}</section>`;
         this.ligarEventos();
         if (foco) {
-            const alvo = this.querySelector('input:not([type=checkbox])') || this.querySelector('[data-foco]');
+            const alvo = this.querySelector('input:not([type=checkbox]), textarea') || this.querySelector('[data-foco]');
             if (alvo && this.passo !== 'inicio') alvo.focus({ preventScroll: true });
         }
     }
@@ -194,29 +332,65 @@ export class ContaPanel extends HTMLElement {
     ligarEventos() {
         this.querySelectorAll('[data-acao]').forEach((b) => b.addEventListener('click', () => this.acao(b.dataset.acao, b)));
         this.querySelectorAll('[data-encerrar]').forEach((b) => b.addEventListener('click', () => this.encerrar(b.dataset.encerrar)));
-        const chk = this.querySelector('[data-entendi]');
-        if (chk) chk.addEventListener('change', () => (this.querySelector('[data-acao="consent-ok"]').disabled = !chk.checked));
+        this.querySelectorAll('[data-usar]').forEach((b) => b.addEventListener('click', () => trocarConta(b.dataset.usar)));
+        this.querySelectorAll('[data-tirar]').forEach((b) => b.addEventListener('click', () => this.tirarOutra(b.dataset.tirar, b)));
+        const chk = this.querySelector('[data-anotei]');
+        if (chk) chk.addEventListener('change', () => (this.querySelector('[data-acao="concluir"]').disabled = !chk.checked));
         const fe = this.querySelector('[data-form="email"]');
         if (fe) fe.addEventListener('submit', (ev) => (ev.preventDefault(), this.enviarCodigo()));
         const fc = this.querySelector('[data-form="codigo"]');
         if (fc) fc.addEventListener('submit', (ev) => (ev.preventDefault(), this.entrar()));
+        const fk = this.querySelector('[data-form="chave"]');
+        if (fk) fk.addEventListener('submit', (ev) => (ev.preventDefault(), this.entrarChave()));
         const cod = this.querySelector('#conta-codigo');
         if (cod) cod.addEventListener('input', () => (cod.value = cod.value.replace(/\D/g, '').slice(0, 6)));
     }
 
     async acao(nome, botao) {
-        if (nome === 'comecar') return this.ir('consent');
-        if (nome === 'voltar-inicio') return this.ir('inicio');
-        if (nome === 'consent-ok') return this.ir('email');
+        if (nome === 'gerar') return this.gerar();
+        if (nome === 'com-email') {
+            this.vincular = false;
+            return this.ir('email');
+        }
+        if (nome === 'add-email') {
+            this.vincular = true;
+            return this.ir('email');
+        }
+        if (nome === 'com-chave') return this.ir('chave-entrar');
+        if (nome === 'voltar-inicio') return this.ir(estadoConta().fase === 'ligada' ? 'ligada' : 'inicio');
+        if (nome === 'voltar') return this.ir(this.vincular ? 'ligada' : 'inicio');
+        if (nome === 'concluir') return this.ir('ligada');
+        if (nome === 'copiar') {
+            const ok = await copiarTexto(this.chave || verChave());
+            return avisar(ok ? T.copiada : T.naoCopiou);
+        }
+        if (nome === 'ver-chave') {
+            this.mostrarChave = !this.mostrarChave;
+            return this.desenhar(false);
+        }
+        if (nome === 'nova-chave') return this.novaChave(botao);
         if (nome === 'trocar-email') return this.ir('email');
         if (nome === 'reenviar') return this.enviarCodigo(true);
-        if (nome === 'entrar-de-novo') return this.ir('email');
+        if (nome === 'entrar-de-novo') {
+            this.vincular = false;
+            return this.ir(estadoConta().temChave ? 'chave-entrar' : 'email');
+        }
+        if (nome === 'duas') return this.ficarComAsDuas();
         if (nome === 'juntar') return this.juntar();
-        if (nome === 'sair') {
+        if (nome === 'descartar') return this.descartarAqui(botao);
+        if (nome === 'cancelar-login') {
             await sair();
-            avisar('Você saiu da conta neste aparelho.');
             return this.ir('inicio');
         }
+        if (nome === 'outra') {
+            const id = criarContaLocal();
+            if (!id) {
+                this.erro = T.erros.servidor;
+                return this.desenhar(false);
+            }
+            return trocarConta(id);
+        }
+        if (nome === 'remover') return this.removerEsta(botao);
         if (nome === 'sincronizar') {
             await sincronizar();
             return this.atualizarStatus();
@@ -243,6 +417,36 @@ export class ContaPanel extends HTMLElement {
         }
         if (nome === 'apagar') return this.confirmarApagar(botao);
         return undefined;
+    }
+
+    /* ---------- criar e entrar ---------- */
+
+    async gerar() {
+        this.ocupado = true;
+        this.erro = '';
+        this.desenhar(false);
+        try {
+            const r = await gerarChave();
+            this.ocupado = false;
+            this.chave = r.chave;
+            return this.ir(r.nova ? 'chave-nova' : 'ligada');
+        } catch (e) {
+            this.ocupado = false;
+            this.erro = this.erroTexto(motivoDoErro(e), e.extra);
+            return this.desenhar(false);
+        }
+    }
+
+    async novaChave(gatilho) {
+        const sim = await confirmar({ titulo: T.novaChaveTitulo, corpo: T.novaChaveCorpo, sim: T.novaChaveSim, perigo: false, gatilho });
+        if (!sim) return undefined;
+        try {
+            this.chave = await gerarNovaChave();
+            return this.ir('chave-nova');
+        } catch (e) {
+            this.erro = this.erroTexto(motivoDoErro(e), e.extra);
+            return this.desenhar(false);
+        }
     }
 
     async enviarCodigo(reenvio = false) {
@@ -285,6 +489,11 @@ export class ContaPanel extends HTMLElement {
         }, 1000);
     }
 
+    /** Conta ja ligada: o login entra como conta nova no aparelho (nunca mexe na que esta em uso). Senao, liga esta. */
+    destino() {
+        return estadoConta().servidorId ? 'nova' : 'esta';
+    }
+
     async entrar() {
         const campo = this.querySelector('#conta-codigo');
         const codigo = campo ? campo.value.trim() : '';
@@ -293,24 +502,62 @@ export class ContaPanel extends HTMLElement {
             return this.desenhar();
         }
         try {
-            await confirmarCodigo(this.email, codigo);
+            if (this.vincular) {
+                await confirmarCodigo(this.email, codigo, { destino: 'vincular' });
+                clearInterval(this.contador);
+                this.vincular = false;
+                avisar('E-mail adicionado.');
+                return this.ir('ligada');
+            }
+            const r = await confirmarCodigo(this.email, codigo, { destino: this.destino() });
+            clearInterval(this.contador);
+            return this.depoisDeEntrar(r);
         } catch (e) {
             this.erro = this.erroTexto(motivoDoErro(e), e.extra);
             return this.desenhar();
         }
-        clearInterval(this.contador);
+    }
+
+    async entrarChave() {
+        const campo = this.querySelector('#conta-chave');
+        const frase = campo ? campo.value.trim() : '';
+        if (!frase) {
+            this.erro = T.erros.chave_invalida;
+            return this.desenhar();
+        }
+        this.ocupado = true;
+        try {
+            const r = await entrarComChave(frase, { destino: this.destino() });
+            this.ocupado = false;
+            return this.depoisDeEntrar(r);
+        } catch (e) {
+            this.ocupado = false;
+            this.erro = this.erroTexto(motivoDoErro(e), e.extra);
+            return this.desenhar();
+        }
+    }
+
+    /** Entrou numa conta do servidor: decide sozinho quando nao ha o que perguntar. */
+    async depoisDeEntrar(r) {
+        if (r && r.contaLocal) return trocarConta(r.contaLocal); // conta nova no aparelho: vai para ela
+        return this.retomar();
+    }
+
+    /** A conta local esta ligada a uma conta do servidor e espera juntar: sem registros de um dos lados, liga direto; senao pergunta. */
+    async retomar() {
         const e = estadoConta();
-        if (e.fase === 'ligada') return this.ir('ligada'); // voltou a entrar numa conta ja ligada
+        if (e.fase === 'ligada') return this.ir('ligada');
         this.resumo = null;
-        this.ir('juntar');
+        this.ir('escolha');
         try {
             this.resumo = await resumoParaJuntar();
             this.erro = '';
         } catch (err) {
             this.erro = this.erroTexto(motivoDoErro(err));
+            return this.desenhar(false);
         }
-        if (this.isConnected) this.desenhar(false);
-        return undefined;
+        if (soTotal(this.resumo.aqui) === 0 || soTotal(this.resumo.naConta) === 0) return this.juntar(); // nada a perguntar
+        return this.desenhar(false);
     }
 
     async juntar() {
@@ -322,8 +569,47 @@ export class ContaPanel extends HTMLElement {
             this.erro = this.erroTexto(r.motivo);
             return this.desenhar(false);
         }
-        avisar('Sincronização ligada.');
         return this.ir('ligada');
+    }
+
+    ficarComAsDuas() {
+        try {
+            return trocarConta(moverLigacaoParaNovaConta());
+        } catch (e) {
+            this.erro = this.erroTexto(motivoDoErro(e));
+            return this.desenhar(false);
+        }
+    }
+
+    async descartarAqui(gatilho) {
+        const sim = await confirmar({ titulo: T.descartarTitulo, corpo: T.descartarCorpo, sim: T.descartarSim, gatilho });
+        if (!sim) return undefined;
+        apagarRegistrosLocais();
+        return this.juntar();
+    }
+
+    /* ---------- contas do aparelho ---------- */
+
+    async removerEsta(gatilho) {
+        const e = estadoConta();
+        const corpo = e.email ? T.removerEmail : e.servidorId ? T.removerChave : T.removerLocal;
+        const sim = await confirmar({ titulo: T.removerTitulo, corpo, sim: T.removerSim, gatilho });
+        if (!sim) return undefined;
+        try {
+            if (e.servidorId) await sair();
+        } catch (err) {
+            /* sem rede: a conta sai do aparelho do mesmo jeito */
+        }
+        return removerContaLocal(contaAtiva());
+    }
+
+    async tirarOutra(id, gatilho) {
+        const e = lerEstado(id);
+        const corpo = e.email ? T.removerEmail : e.servidorId ? T.removerChave : T.removerLocal;
+        const sim = await confirmar({ titulo: T.removerTitulo, corpo, sim: T.removerSim, gatilho });
+        if (!sim) return undefined;
+        removerContaLocal(id);
+        return this.desenhar(false);
     }
 
     async alternarAparelhos() {
@@ -350,27 +636,17 @@ export class ContaPanel extends HTMLElement {
         this.desenhar(false);
     }
 
-    confirmarApagar(gatilho) {
-        const c = abrir({
-            tipo: 'confirmacao', titulo: T.apagarTitulo, gatilho, descricao: true,
-            corpo: `<p>${T.apagarCorpo}</p>
-                <div class="sob-pilha" style="margin-top:18px"><button class="btn btn-ghost" type="button" data-foco data-manter>${T.manter}</button>
-                <button class="btn btn-perigo cheio" type="button" data-apagar>${ic('lixo')}${T.apagarSim}</button></div>`,
-        });
-        c.corpo.addEventListener('click', async (ev) => {
-            if (ev.target.closest('[data-manter]')) return c.fechar();
-            if (!ev.target.closest('[data-apagar]')) return undefined;
-            try {
-                await apagarDadosDoServidor();
-            } catch (e) {
-                c.fechar(false);
-                this.erro = this.erroTexto(motivoDoErro(e));
-                return this.desenhar(false);
-            }
-            c.fechar(false);
-            avisar(T.apagado);
-            return this.ir('inicio');
-        });
+    async confirmarApagar(gatilho) {
+        const sim = await confirmar({ titulo: T.apagarTitulo, corpo: T.apagarCorpo, sim: T.apagarSim, gatilho });
+        if (!sim) return undefined;
+        try {
+            await apagarDadosDoServidor();
+        } catch (e) {
+            this.erro = this.erroTexto(motivoDoErro(e));
+            return this.desenhar(false);
+        }
+        avisar(T.apagado);
+        return this.ir('inicio');
     }
 }
 

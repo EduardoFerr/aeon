@@ -502,3 +502,18 @@ details.acc > .corpo { padding: 2px 0 16px; display: grid; gap: 12px; min-width:
 .verso-op:hover { border-color: var(--accent); }
 .verso-op[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .verso-op:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Conta: chave de recuperacao, escolha ao entrar e lista de contas do aparelho */
+.chave-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); counter-reset: none; }
+.chave-lista li { display: flex; align-items: baseline; gap: var(--sp-2); padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--surface); font-family: var(--font-mono, ui-monospace, monospace); font-size: var(--fs-md); overflow-wrap: anywhere; }
+.chave-lista li span { min-width: 1.6em; color: var(--text-mute); font-size: var(--fs-xs); text-align: right; }
+@media (min-width: 560px) { .chave-lista { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.conta-opcoes { display: grid; gap: var(--sp-2); }
+.conta-opcao { display: grid; gap: 2px; text-align: left; width: 100%; min-height: 56px; padding: 12px 16px; border-radius: var(--r-sm); border: 1px solid var(--control); background: var(--surface); color: var(--text); font: inherit; cursor: pointer; }
+.conta-opcao span { color: var(--text-soft); font-size: var(--fs-sm); }
+.conta-opcao:hover:not(:disabled) { border-color: var(--accent); }
+.conta-opcao:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.conta-opcao:disabled { opacity: 0.5; cursor: not-allowed; }
+.conta-opcao.perigo strong { color: var(--err); }
+.conta-acoes { display: flex; align-items: center; gap: var(--sp-1); flex-wrap: wrap; justify-content: flex-end; }
+textarea.entrada { line-height: 1.4; }
