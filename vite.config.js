@@ -113,7 +113,8 @@ export default defineConfig({
         // arquivo faz a PRIMEIRA versao "prompt" assumir na hora, como o antigo fazia. Dai em diante vale o aviso.
         importScripts: ["sw-transicao.js"],
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
-        globIgnores: ["sw-transicao.js"],
+        // email/: imagens usadas so nos e-mails do servidor (ficam no site, mas nao precisam do cache do app)
+        globIgnores: ["sw-transicao.js", "email/**"],
         // Sem fallback para a Home: URL inexistente vai a rede e recebe o 404.html. Os parametros de
         // consulta (/?profile, /?history...) sao ignorados ao procurar no precache, entao abrem o index.html offline.
         navigateFallback: null,
