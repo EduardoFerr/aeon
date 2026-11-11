@@ -64,13 +64,16 @@ Pedidos que mudam dados só valem com `Origin` permitido (`ORIGENS_PERMITIDAS`).
 
 ### Limites
 
-1 MB por item, 200 itens por pedido, 500 entradas de diário e 5 MB por usuário (o pedido que passar é desfeito por inteiro).
+1 MB por item, 200 itens por pedido, 500 entradas de diário, 5000 linhas (inclui marcas de exclusão) e 5 MB por usuário, até 20 aparelhos por conta (o pedido que passar é desfeito por inteiro). Marcas de exclusão com mais de 1 ano são apagadas na limpeza.
+
+Números em `dados` passam por JSON do JavaScript: inteiros acima de 2^53 não são preservados. O app não usa isso.
 
 ## Segurança, em uma lista
 
 - Códigos e tokens de sessão ficam no banco só como hash (código com HMAC e o `SEGREDO`; token com SHA-256).
-- Limites: 5 códigos por hora por e-mail, 20 por hora por IP, 30 s entre reenvios, 10 confirmações a cada 15 minutos por IP.
-- O código vale uma vez, 10 minutos, 5 tentativas. A resposta de erro é a mesma exista a conta ou não.
+- Limites: 100 códigos por hora no total (protege a cota do SMTP), 20 por hora por IP, 5 por hora por IP e caixa, 15 por hora por caixa (o `+etiqueta` não conta como outra caixa), 30 s entre reenvios, 10 confirmações a cada 15 minutos por IP. IPv6 conta por /64. Em `/sync`, 60 pedidos por minuto por usuário (10 em `/exportar`).
+- O código vale uma vez, 10 minutos, 5 tentativas. Pedir de novo reenvia o mesmo código e não devolve as tentativas. Depois de 5 erros o e-mail fica 6 horas sem receber código novo. A resposta de erro é a mesma exista a conta ou não.
+- O código não é guardado: sai de uma semente aleatória do banco e do `SEGREDO`, que fica fora dele.
 - E-mail aceito só em ASCII comum (sem aspas, vírgula nem comentários), para não haver ambiguidade no envio.
 - Logs: só rota, status, duração e id numérico do usuário. Nunca e-mail, código, cookie, IP nem conteúdo.
 - Cabeçalhos: `Cache-Control: no-store`, `nosniff`, `Referrer-Policy: no-referrer`, CSP `default-src 'none'`, HSTS.

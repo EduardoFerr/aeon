@@ -16,6 +16,7 @@ export function criarEmail(config, log) {
         host: config.smtp.host,
         port: config.smtp.porta,
         secure: config.smtp.porta === 465,
+        requireTLS: config.smtp.porta !== 465, // porta 587: sem STARTTLS não envia (evita downgrade)
         auth: { user: config.smtp.usuario, pass: config.smtp.senha },
         connectionTimeout: 10_000,
         socketTimeout: 20_000,

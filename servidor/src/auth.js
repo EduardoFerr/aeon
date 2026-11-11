@@ -1,7 +1,8 @@
 import { createHash, createHmac, randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
 import { transacao } from './db.js';
 import {
-    CODIGO_REENVIO_MS, CODIGO_TENTATIVAS, CODIGO_VALE_MS, SESSAO_MS, SESSAO_RENOVA_APOS_MS,
+    CODIGO_BLOQUEIO_MS, CODIGO_REENVIO_MS, CODIGO_TENTATIVAS, CODIGO_VALE_MS, EXPURGO_MARCAS_MS, MAX_SESSOES_POR_USUARIO,
+    SESSAO_MS, SESSAO_RENOVA_APOS_MS,
 } from './config.js';
 import { ErroHttp } from './http.js';
 
@@ -27,31 +28,40 @@ function aparelhoLimpo(valor) {
 
 export function criarAuth({ db, config, relogio }) {
     const hmac = (texto) => createHmac('sha256', config.segredo).update(texto).digest('hex');
+    // O código nunca é guardado: sai da semente (aleatória, no banco) e do SEGREDO (fora do banco).
+    const codigoDe = (email, semente) =>
+        String(parseInt(hmac(`codigo:${email}:${semente}`).slice(0, 8), 16) % 1_000_000).padStart(6, '0');
     const iguais = (a, b) => {
-        const x = Buffer.from(a, 'hex');
-        const y = Buffer.from(b, 'hex');
+        const x = Buffer.from(a);
+        const y = Buffer.from(b);
         return x.length === y.length && timingSafeEqual(x, y);
     };
 
     return {
         /**
-         * Gera e guarda um código novo para o e-mail. Lança 429 se o último foi há menos de 30 s.
+         * Código para o e-mail. Dentro da validade, reenvia o MESMO código (as tentativas não voltam a zero).
+         * Lança 429 se o último envio foi há menos de 30 s, ou se o e-mail está bloqueado (5 erros seguidos).
          * Existir conta ou não não muda nada aqui: a resposta é a mesma.
          */
         novoCodigo(email) {
             const agora = relogio();
-            const atual = db.prepare('SELECT criado_em FROM codigos WHERE email = ?').get(email);
-            if (atual && agora - atual.criado_em < CODIGO_REENVIO_MS) {
-                const esperaS = Math.ceil((CODIGO_REENVIO_MS - (agora - atual.criado_em)) / 1000);
-                throw new ErroHttp(429, 'aguarde', { espera_s: esperaS });
+            const bloqueio = db.prepare('SELECT ate FROM bloqueios WHERE email = ?').get(email);
+            if (bloqueio && agora < bloqueio.ate) throw new ErroHttp(429, 'aguarde', { espera_s: Math.ceil((bloqueio.ate - agora) / 1000) });
+            const atual = db.prepare('SELECT semente, enviado_em, expira_em, tentativas FROM codigos WHERE email = ?').get(email);
+            if (atual && agora - atual.enviado_em < CODIGO_REENVIO_MS) {
+                throw new ErroHttp(429, 'aguarde', { espera_s: Math.ceil((CODIGO_REENVIO_MS - (agora - atual.enviado_em)) / 1000) });
             }
-            const codigo = String(randomInt(0, 1_000_000)).padStart(6, '0');
+            if (atual && agora <= atual.expira_em && atual.tentativas < CODIGO_TENTATIVAS) {
+                db.prepare('UPDATE codigos SET enviado_em = ? WHERE email = ?').run(agora, email);
+                return codigoDe(email, atual.semente);
+            }
+            const semente = randomBytes(16).toString('hex');
             db.prepare(
-                `INSERT INTO codigos (email, hash, criado_em, expira_em, tentativas) VALUES (?, ?, ?, ?, 0)
-                 ON CONFLICT(email) DO UPDATE SET hash = excluded.hash, criado_em = excluded.criado_em,
-                 expira_em = excluded.expira_em, tentativas = 0`,
-            ).run(email, hmac(`${email}:${codigo}`), agora, agora + CODIGO_VALE_MS);
-            return codigo;
+                `INSERT INTO codigos (email, semente, criado_em, enviado_em, expira_em, tentativas) VALUES (?, ?, ?, ?, ?, 0)
+                 ON CONFLICT(email) DO UPDATE SET semente = excluded.semente, criado_em = excluded.criado_em,
+                 enviado_em = excluded.enviado_em, expira_em = excluded.expira_em, tentativas = 0`,
+            ).run(email, semente, agora, agora, agora + CODIGO_VALE_MS);
+            return codigoDe(email, semente);
         },
 
         /** Confere o código. Todo erro é o mesmo "codigo_invalido": não diz se o e-mail existe nem o que falhou. */
@@ -61,16 +71,20 @@ export function criarAuth({ db, config, relogio }) {
             const agora = relogio();
             // Dentro da transação nada é lançado: a tentativa errada precisa ficar gravada. O erro sai depois.
             const r = transacao(db, () => {
-                const linha = db.prepare('SELECT hash, expira_em, tentativas FROM codigos WHERE email = ?').get(email);
+                const bloqueio = db.prepare('SELECT ate FROM bloqueios WHERE email = ?').get(email);
+                if (bloqueio && agora < bloqueio.ate) return null;
+                const linha = db.prepare('SELECT semente, expira_em, tentativas FROM codigos WHERE email = ?').get(email);
                 if (!linha) return null;
                 if (agora > linha.expira_em || linha.tentativas >= CODIGO_TENTATIVAS) {
                     db.prepare('DELETE FROM codigos WHERE email = ?').run(email);
                     return null;
                 }
-                if (!iguais(hmac(`${email}:${codigo}`), linha.hash)) {
+                if (!iguais(codigo, codigoDe(email, linha.semente))) {
                     const n = linha.tentativas + 1;
-                    if (n >= CODIGO_TENTATIVAS) db.prepare('DELETE FROM codigos WHERE email = ?').run(email);
-                    else db.prepare('UPDATE codigos SET tentativas = ? WHERE email = ?').run(n, email);
+                    if (n >= CODIGO_TENTATIVAS) {
+                        db.prepare('DELETE FROM codigos WHERE email = ?').run(email);
+                        db.prepare('INSERT OR REPLACE INTO bloqueios (email, ate) VALUES (?, ?)').run(email, agora + CODIGO_BLOQUEIO_MS);
+                    } else db.prepare('UPDATE codigos SET tentativas = ? WHERE email = ?').run(n, email);
                     return null;
                 }
                 db.prepare('DELETE FROM codigos WHERE email = ?').run(email);
@@ -85,6 +99,10 @@ export function criarAuth({ db, config, relogio }) {
                 db.prepare(
                     'INSERT INTO sessoes (id, token_hash, usuario_id, aparelho, criada_em, ultimo_uso) VALUES (?, ?, ?, ?, ?, ?)',
                 ).run(id, sha256(token), usuario.id, aparelhoLimpo(aparelho), agoraIso, agoraIso);
+                // no máximo MAX_SESSOES_POR_USUARIO aparelhos por conta: a mais antiga em uso sai
+                db.prepare(
+                    'DELETE FROM sessoes WHERE usuario_id = ? AND id NOT IN (SELECT id FROM sessoes WHERE usuario_id = ? ORDER BY ultimo_uso DESC, criada_em DESC LIMIT ?)',
+                ).run(usuario.id, usuario.id, MAX_SESSOES_POR_USUARIO);
                 return { token, usuario: { email: usuario.email, criado_em: usuario.criado_em } };
             });
             if (!r) throw falha();
@@ -137,6 +155,9 @@ export function criarAuth({ db, config, relogio }) {
         limpar() {
             const agora = relogio();
             db.prepare('DELETE FROM codigos WHERE expira_em < ?').run(agora);
+            db.prepare('DELETE FROM bloqueios WHERE ate < ?').run(agora);
+            // marcas de exclusão (sem conteúdo) com mais de 1 ano: um aparelho parado por tanto tempo já perdeu a sessão
+            db.prepare('DELETE FROM itens WHERE apagado = 1 AND atualizado_em < ?').run(iso(agora - EXPURGO_MARCAS_MS));
             db.prepare('DELETE FROM sessoes WHERE ultimo_uso < ?').run(iso(agora - SESSAO_MS));
         },
     };

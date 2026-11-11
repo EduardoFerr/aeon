@@ -1,6 +1,6 @@
 # Implantação do servidor do Aeon
 
-Para a VPS que você já usa (IP 2.25.152.64) e o domínio `api.aeonfool.com`. Tempo estimado: 40 minutos, mais a espera do DNS.
+Para a VPS que você já usa (srv1717921, IP 2.25.152.64) e o domínio `api.aeonfool.com`. Tempo estimado: 40 minutos, mais a espera do DNS.
 
 Passos, em ordem:
 1. DNS do `api.aeonfool.com`
@@ -32,7 +32,7 @@ Deve responder `2.25.152.64`.
 1. No hPanel, Emails, crie a caixa `nao-responda@aeonfool.com` com uma senha forte.
 2. Dados do SMTP: servidor `smtp.hostinger.com`, porta `465` (SSL), usuário `nao-responda@aeonfool.com`.
 3. Confira no DNS do `aeonfool.com` os registros que a Hostinger cria ao ativar o e-mail: MX (mx1 e mx2.hostinger.com), SPF (TXT `v=spf1 include:_spf.mail.hostinger.com ~all`) e os três DKIM (CNAME `hostingermail-a`, `-b`, `-c` `._domainkey`). Se algum faltar, o hPanel mostra o valor exato na própria página do e-mail.
-4. Acrescente o DMARC (TXT, nome `_dmarc`): `v=DMARC1; p=none; rua=mailto:nao-responda@aeonfool.com`. Depois de uma semana sem problemas, troque `p=none` por `p=quarantine`.
+4. Acrescente o DMARC (TXT, nome `_dmarc`): `v=DMARC1; p=none; rua=mailto:SEU-EMAIL-QUE-VOCE-LE`. Troque `SEU-EMAIL-QUE-VOCE-LE` por um e-mail que você lê (a caixa nao-responda ninguém abre). Depois de uma semana sem problemas, troque `p=none` por `p=quarantine`.
 5. Teste de entrega: depois do passo 5 deste guia, peça um código para um Gmail e use "Mostrar original". Devem aparecer `SPF: PASS` e `DKIM: PASS`. Se o código cair no spam, marque "não é spam" uma vez e confira o DMARC.
 
 Limite a conhecer: caixas de hospedagem têm teto de envios por hora e por dia (veja o do seu plano no hPanel). Para o começo basta. Se o app crescer, troque o SMTP por um serviço de envio (Resend, Brevo, SES); só mudam as variáveis `SMTP_*`.
@@ -46,6 +46,8 @@ git clone https://github.com/EduardoFerr/aeon.git /opt/aeon
 cd /opt/aeon/servidor
 cp .env.example .env
 chmod 600 .env
+# pasta do banco: o servidor roda como usuário 1000 dentro do contêiner e só ele deve ler o arquivo
+mkdir -p dados && chown 1000:1000 dados && chmod 700 dados
 ```
 
 Edite o `.env`:
@@ -56,35 +58,67 @@ Edite o `.env`:
 
 ## 4. Proxy e certificado
 
-Descubra se a porta 80 e a 443 já estão em uso (provavelmente estão, por causa do gataon.com):
+### O seu caso (conferido na VPS em 11/11/2026): Caddy do gataon, em Docker
 
-```bash
-sudo ss -ltnp | grep -E ':(80|443)\s'
+As portas 80 e 443 são do contêiner `gataon-caddy-1` (Caddy 2, projeto em `/opt/gataon`, arquivo `/opt/gataon/Caddyfile`, redes `gataon_front` e `gataon_back`). Não suba outro proxy: ele não conseguiria as portas e, se conseguisse, derrubaria o gataon.com. O certo é pôr o `api.aeonfool.com` como mais um site do Caddy que já existe.
+
+**a) Ponha a API na rede do Caddy.** Crie `/opt/aeon/servidor/docker-compose.override.yml`:
+
+```yaml
+services:
+  api:
+    networks: [aeon, gataon_front]
+networks:
+  gataon_front:
+    external: true
 ```
 
-### Caminho A: nada usa a 80 e a 443
-
 ```bash
-docker compose --profile proxy up -d --build
+cd /opt/aeon/servidor && docker compose up -d --build
+docker exec gataon-caddy-1 wget -qO- http://aeon-api:8787/v1/saude   # deve responder {"ok":true}
 ```
 
-O Caddy pega o certificado de `api.aeonfool.com` sozinho (o DNS do passo 1 precisa já estar valendo).
-
-### Caminho B: já existe nginx, Caddy ou Traefik
+**b) Acrescente o site ao Caddyfile do gataon** (faça cópia antes, valide e só então recarregue):
 
 ```bash
-docker compose up -d --build
+cp /opt/gataon/Caddyfile /opt/gataon/Caddyfile.bak-$(date +%Y%m%d)
+cat >> /opt/gataon/Caddyfile <<'FIM'
+
+api.aeonfool.com {
+	encode zstd gzip
+	reverse_proxy aeon-api:8787
+	log {
+		output stdout
+		format filter {
+			wrap json
+			request>remote_ip delete
+			request>client_ip delete
+			request>headers delete
+			request>tls delete
+		}
+	}
+}
+FIM
+docker exec gataon-caddy-1 caddy validate --config /etc/caddy/Caddyfile
+docker exec gataon-caddy-1 caddy reload --config /etc/caddy/Caddyfile
 ```
 
-A API passa a ouvir só em `127.0.0.1:8787`. Aponte o seu proxy para lá.
+O Caddyfile é montado como arquivo único. Acrescentar com `cat >>` funciona. Se você editar com um editor que troca o arquivo (vim, por exemplo) e o `reload` continuar com a configuração antiga, rode `cd /opt/gataon && docker compose restart caddy`. Se algo der errado, volte a cópia `.bak` e recarregue: o gataon.com não é afetado enquanto o `validate` passar.
 
-**nginx** (`/etc/nginx/sites-available/api.aeonfool.com`):
+O Caddy pega o certificado do `api.aeonfool.com` sozinho (o DNS do passo 1 precisa já estar valendo) e troca o `X-Forwarded-For` pelo IP real de quem chamou, que é o que o servidor lê (`CONFIAR_PROXY=true`, já no compose).
+
+### Outros casos (se um dia mudar de servidor)
+
+**Nada usa a 80 e a 443:** `docker compose --profile proxy up -d --build` (o Caddy do próprio compose cuida de tudo).
+
+**nginx no host:**
 
 ```nginx
 server {
     listen 80;
     server_name api.aeonfool.com;
     client_max_body_size 7m;
+    access_log off;   # o servidor não guarda IP; o proxy também não deve
     location / {
         proxy_pass http://127.0.0.1:8787;
         proxy_set_header Host $host;
@@ -101,17 +135,11 @@ sudo nginx -t && sudo systemctl reload nginx
 sudo certbot --nginx -d api.aeonfool.com
 ```
 
-**Caddy que já existe:** acrescente ao seu Caddyfile `api.aeonfool.com { reverse_proxy 127.0.0.1:8787 }` e recarregue.
+**Proxy em contêiner (Caddy, Traefik, nginx):** `127.0.0.1` dentro dele é o próprio contêiner, e `host.docker.internal` não alcança a porta publicada só em loopback. Faça como no seu caso acima: ponha a API na rede do proxy (override com `networks: [aeon, <rede-do-proxy>]` e `external: true`) e aponte o proxy para `aeon-api:8787`.
 
-**Traefik:** crie um roteador para `Host(\`api.aeonfool.com\`)` apontando para `http://host.docker.internal:8787` (ou ponha a API na rede do Traefik).
+Importante: `CONFIAR_PROXY=true` só é seguro porque a 8787 fica em `127.0.0.1` ou numa rede interna, e só o seu proxy chega nela. Não publique a 8787 na internet.
 
-Importante: o servidor lê o IP de quem chamou no último valor de `X-Forwarded-For` (`CONFIAR_PROXY=true`, já definido no compose). Isso só é seguro porque a porta 8787 fica em `127.0.0.1` e só o seu proxy chega nela. Não publique a 8787 na internet.
-
-Firewall: deixe aberto só 22, 80 e 443.
-
-```bash
-sudo ufw allow 22 && sudo ufw allow 80 && sudo ufw allow 443 && sudo ufw enable
-```
+Firewall: a VPS já tem o gataon.com no ar, então um firewall provavelmente já existe. Confira com `ufw status` antes de mudar qualquer coisa, e nunca rode `ufw enable` sem ter liberado a porta do SSH (se não for a 22, a sua).
 
 ## 5. Conferir de ponta a ponta
 
@@ -136,6 +164,8 @@ curl -s -c /tmp/aeon.cookies -X POST https://api.aeonfool.com/v1/auth/confirmar 
 curl -s -b /tmp/aeon.cookies https://api.aeonfool.com/v1/eu
 ```
 
+Se você tem um iPhone, depois que o cliente estiver no app, confira uma vez: entre, deixe o Safari de lado por uma semana e veja se continua logado. O Safari limita a 7 dias os cookies de subdomínios que ficam em outro IP que o site principal (o `api` está em 2.25.152.64; o `aeonfool.com` está nos IPs do GitHub Pages). Se isso acontecer, a "sessão de 1 ano" vira 7 dias nesse aparelho e a pessoa só precisa pedir um código novo. Não é perda de dados.
+
 Apague a conta de teste ao terminar:
 
 ```bash
@@ -152,7 +182,7 @@ O script faz uma cópia consistente do banco, criptografa e guarda as 14 mais re
 2. Guarde-a num arquivo que só o root lê:
 
 ```bash
-echo 'BACKUP_SENHA=troque-por-uma-senha-longa' | sudo tee /root/.aeon-backup >/dev/null
+echo "BACKUP_SENHA='troque-por-uma-senha-longa'" | sudo tee /root/.aeon-backup >/dev/null   # aspas simples: aceita espaço, $ e #
 sudo chmod 600 /root/.aeon-backup
 ```
 
@@ -171,7 +201,7 @@ sqlite3 /tmp/aeon-teste.sqlite 'select count(*) from usuarios;'
 rm /tmp/aeon-teste.sqlite
 ```
 
-Para restaurar de verdade: `docker compose stop api`, troque `dados/aeon.sqlite` pelo arquivo restaurado (apague `aeon.sqlite-wal` e `aeon.sqlite-shm`), `docker compose start api`.
+Para restaurar de verdade: `docker compose stop api`, troque `dados/aeon.sqlite` pelo arquivo restaurado (apague `aeon.sqlite-wal` e `aeon.sqlite-shm`), devolva a posse com `chown 1000:1000 dados/aeon.sqlite && chmod 600 dados/aeon.sqlite` (sem isso o servidor não consegue gravar) e `docker compose start api`.
 
 ## 7. Manutenção
 
@@ -180,7 +210,11 @@ Para restaurar de verdade: `docker compose stop api`, troque `dados/aeon.sqlite`
 - Monitoramento: um serviço de uptime gratuito (UptimeRobot, Better Stack) apontando para `https://api.aeonfool.com/v1/saude`.
 - Segurança da VPS: login SSH só por chave, atualizações automáticas (`unattended-upgrades`), `.env` com permissão 600.
 - Ver o que há no banco (útil até o painel existir): `docker compose exec api node -e "const {DatabaseSync}=require('node:sqlite');const d=new DatabaseSync('/dados/aeon.sqlite');console.log(d.prepare('select count(*) usuarios from usuarios').get(), d.prepare('select tipo,count(*) n from itens where apagado=0 group by tipo').all())"`
-- Apagar uma conta por pedido por e-mail: peça para a pessoa usar o botão no app (é o caminho que registra a exclusão e envia o aviso). Se ela não conseguir entrar, apague pelo banco, no `sqlite3` do host, com o serviço parado: `delete from usuarios where email='fulano@exemplo.com';` (sessões e itens saem em cascata).
+- Apagar uma conta por pedido por e-mail: peça para a pessoa usar o botão no app (é o caminho que registra a exclusão e envia o aviso). Se ela não conseguir entrar, apague com o próprio servidor, que liga as chaves estrangeiras (sessões e itens saem juntos; o `sqlite3` solto do host NÃO faz isso e deixaria dados órfãos):
+
+```bash
+docker compose exec -e EMAIL=fulano@exemplo.com api node -e "const {DatabaseSync}=require('node:sqlite');const d=new DatabaseSync('/dados/aeon.sqlite');d.exec('PRAGMA foreign_keys=ON');console.log(d.prepare('DELETE FROM usuarios WHERE email=?').run(process.env.EMAIL))"
+```
 
 ## LGPD, em curto
 

@@ -12,6 +12,12 @@ try {
     process.exit(1);
 }
 
+process.on('unhandledRejection', (e) => log({ evento: 'rejeicao_nao_tratada', motivo: String(e && e.message).slice(0, 200) }));
+process.on('uncaughtException', (e) => {
+    log({ evento: 'excecao_nao_tratada', motivo: String(e && e.message).slice(0, 200) });
+    process.exit(1); // o Docker reinicia; estado incerto não deve continuar
+});
+
 const email = criarEmail(config, log);
 const app = criarApp({ config, email, log });
 const porta = await app.escutar(config.porta, config.host);
