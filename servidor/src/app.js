@@ -75,7 +75,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         limiteOuErro(`anonimo-ip:${chaveIp(ipDe(req))}`, 30, HORA);
         limiteOuErro('anonimo-global', 600, HORA);
         const r = auth.criarAnonimo(corpo.aparelho);
-        return { status: 201, corpo: { usuario: r.usuario, contas: r.contas }, cabecalhos: { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } };
+        return { status: 201, corpo: { usuario: r.usuario, chave: r.chave, contas: r.contas }, cabecalhos: { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } };
     });
 
     rotas.adicionar('POST', '/v1/auth/confirmar', { livre: true, limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, corpo }) => {
@@ -86,6 +86,17 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         return {
             corpo: { usuario: r.usuario, contas: r.contas, acao: r.acao },
             // com sessao no aparelho ela continua a mesma; so uma sessao nova leva cookie novo
+            cabecalhos: r.token ? { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } : {},
+        };
+    });
+
+    // Entrar com a chave de recuperacao (12 palavras). Mesmo desfecho do e-mail: 409 pede o modo, depois adicionar/unir/descartar.
+    rotas.adicionar('POST', '/v1/auth/chave', { livre: true, limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, corpo }) => {
+        limiteOuErro(`chave-ip:${chaveIp(ipDe(req))}`, 10, 15 * 60 * 1000);
+        limiteOuErro('chave-global', 300, HORA);
+        const r = auth.entrarComChave(corpo.chave, corpo.aparelho, lerCookies(req)[nomeCookie], req.headers['x-aeon-conta'], corpo.modo);
+        return {
+            corpo: { usuario: r.usuario, contas: r.contas, acao: r.acao },
             cabecalhos: r.token ? { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } : {},
         };
     });
@@ -111,7 +122,13 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         limiteOuErro(`anonima:${sessao.sessaoId}`, 10, HORA);
         limiteOuErro('anonimo-global', 600, HORA);
         const r = auth.adicionarAnonima(sessao.sessaoId);
-        return { status: 201, corpo: { usuario: r.usuario, contas: r.contas } };
+        return { status: 201, corpo: { usuario: r.usuario, chave: r.chave, contas: r.contas } };
+    });
+
+    // Chave nova para a conta em uso (a anterior deixa de valer). A frase aparece so nesta resposta.
+    rotas.adicionar('POST', '/v1/contas/chave', { limiteCorpo: LIMITE_CORPO_AUTH }, async ({ sessao }) => {
+        limiteOuErro(`nova-chave:${sessao.usuario.id}`, 10, HORA);
+        return { corpo: { chave: auth.novaChave(sessao.usuario.id) } };
     });
 
     rotas.adicionar('DELETE', '/v1/contas/:id', {}, async ({ sessao, params }) => {

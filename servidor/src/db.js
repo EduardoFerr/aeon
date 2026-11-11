@@ -91,6 +91,12 @@ const MIGRACOES = [
         DROP TABLE sessoes;
         ALTER TABLE sessoes_nova RENAME TO sessoes;
     `),
+    // 4: chave de recuperacao (12 palavras). So o hash fica no banco; a chave aparece uma vez para a pessoa.
+    (db) =>
+        db.exec(`
+        ALTER TABLE usuarios ADD COLUMN chave_hash TEXT;
+        CREATE UNIQUE INDEX usuarios_chave ON usuarios (chave_hash) WHERE chave_hash IS NOT NULL;
+    `),
 ];
 
 export function abrirBanco(caminho, { ateVersao = MIGRACOES.length } = {}) {

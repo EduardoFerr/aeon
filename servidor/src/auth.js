@@ -5,12 +5,24 @@ import {
     MAX_SESSOES_POR_USUARIO, SESSAO_MS, SESSAO_RENOVA_APOS_MS,
 } from './config.js';
 import { ErroHttp } from './http.js';
+import { PALAVRAS } from './palavras.js';
 
 // Conservador de propósito: só ASCII comum, sem aspas, vírgula, parênteses nem comentários. Endereços com
 // caracteres fora disso são recusados em vez de arriscar uma interpretação diferente no envio.
 const RE_EMAIL = /^[a-z0-9._%+'-]{1,64}@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$/;
 const RE_CODIGO = /^\d{6}$/;
 const MODOS = new Set(['adicionar', 'unir', 'descartar']);
+const NUM_PALAVRAS = 12;
+const semAcento = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+const INDICE = new Map(PALAVRAS.map((p, i) => [p, i]));
+
+/** Texto digitado -> as 12 palavras da lista, na forma canonica (minusculas, sem acento), ou null. */
+export function normalizarChave(valor) {
+    if (typeof valor !== 'string' || valor.length > 400) return null;
+    const palavras = semAcento(valor.toLowerCase()).split(/[^a-z]+/).filter(Boolean);
+    if (palavras.length !== NUM_PALAVRAS) return null;
+    return palavras.every((p) => INDICE.has(p)) ? palavras.join(' ') : null;
+}
 
 export function normalizarEmail(valor) {
     if (typeof valor !== 'string') return null;
@@ -38,10 +50,10 @@ export function criarAuth({ db, config, relogio, fundir }) {
         return x.length === y.length && timingSafeEqual(x, y);
     };
 
-    const resumo = (c) => ({ id: c.id, email: c.email, anonimo: c.email === null });
+    const resumo = (c) => ({ id: c.id, email: c.email, anonimo: c.email === null, tem_chave: !!c.tem_chave });
     const contasDaSessao = (sessaoId) =>
         db.prepare(
-            `SELECT u.id, u.email, u.criado_em FROM sessao_contas sc JOIN usuarios u ON u.id = sc.usuario_id
+            `SELECT u.id, u.email, u.criado_em, (u.chave_hash IS NOT NULL) AS tem_chave FROM sessao_contas sc JOIN usuarios u ON u.id = sc.usuario_id
              WHERE sc.sessao_id = ? ORDER BY sc.rowid`,
         ).all(sessaoId);
     const sessaoPorToken = (token) => {
@@ -57,8 +69,55 @@ export function criarAuth({ db, config, relogio, fundir }) {
         );
         return { id, token };
     };
-    const novoAnonimo = (agoraIso) =>
-        Number(db.prepare('INSERT INTO usuarios (email, criado_em, ultimo_acesso) VALUES (NULL, ?, ?)').run(agoraIso, agoraIso).lastInsertRowid);
+    const chaveHash = (canonica) => hmac(`chave:${canonica}`);
+    /** Sorteia 12 palavras, grava so o hash na conta (a chave anterior deixa de valer) e devolve a frase. */
+    function gravarChave(uid) {
+        for (;;) {
+            const frase = Array.from({ length: NUM_PALAVRAS }, () => PALAVRAS[randomInt(PALAVRAS.length)]).join(' ');
+            try {
+                db.prepare('UPDATE usuarios SET chave_hash = ? WHERE id = ?').run(chaveHash(frase), uid);
+                return frase;
+            } catch (e) {
+                if (!/UNIQUE/.test(String(e && e.message))) throw e; // colisao de 132 bits: nao acontece, mas sorteia de novo
+            }
+        }
+    }
+    const novoAnonimo = (agoraIso) => {
+        const uid = Number(db.prepare('INSERT INTO usuarios (email, criado_em, ultimo_acesso) VALUES (NULL, ?, ?)').run(agoraIso, agoraIso).lastInsertRowid);
+        return { uid, chave: gravarChave(uid) };
+    };
+    /**
+     * A conta `existente` entra neste aparelho (e-mail ja cadastrado ou chave certa). Regras: ja estava na sessao -> nada;
+     * conta ativa anonima com dados e sem modo -> { conflito }; modos adicionar, unir e descartar; conta ativa vazia troca em silencio.
+     */
+    function aderir({ sess, contas, ativa, existente, modo, aparelho, agoraIso }) {
+        const pronto = (token, sessaoId, acao) => ({
+            token, acao, usuario: { id: existente.id, email: existente.email, criado_em: existente.criado_em },
+            contas: contasDaSessao(sessaoId).map(resumo),
+        });
+        if (sess && contas.some((c) => c.id === existente.id)) return { ...pronto(null, sess.id, 'ja_estava'), consome: true };
+        if (sess && ativa && ativa.email === null) {
+            let m = modo || null;
+            if (!m) {
+                const vivos = db.prepare('SELECT COUNT(*) AS n FROM itens WHERE usuario_id = ? AND apagado = 0').get(ativa.id).n;
+                if (vivos === 0) m = 'descartar'; // nada a perder: troca em silencio
+            }
+            if (!m) return { conflito: true };
+            ligar(sess.id, existente.id, agoraIso);
+            if (m === 'unir') fundir(ativa.id, existente.id);
+            if (m === 'unir' || m === 'descartar') db.prepare('DELETE FROM usuarios WHERE id = ?').run(ativa.id);
+            db.prepare('UPDATE usuarios SET ultimo_acesso = ? WHERE id = ?').run(agoraIso, existente.id);
+            return { ...pronto(null, sess.id, m), consome: true };
+        }
+        db.prepare('UPDATE usuarios SET ultimo_acesso = ? WHERE id = ?').run(agoraIso, existente.id);
+        if (sess) {
+            ligar(sess.id, existente.id, agoraIso);
+            return { ...pronto(null, sess.id, 'adicionou'), consome: true };
+        }
+        const nova = novaSessao(aparelho, agoraIso);
+        ligar(nova.id, existente.id, agoraIso);
+        return { ...pronto(nova.token, nova.id, 'entrou'), consome: true };
+    }
     /** Liga a conta à sessão, respeitando os tetos: contas por aparelho e aparelhos por conta (a ligação mais antiga em uso sai). */
     function ligar(sessaoId, uid, agoraIso) {
         const ja = db.prepare('SELECT 1 FROM sessao_contas WHERE sessao_id = ? AND usuario_id = ?').get(sessaoId, uid);
@@ -140,47 +199,26 @@ export function criarAuth({ db, config, relogio, fundir }) {
                     } else db.prepare('UPDATE codigos SET tentativas = ? WHERE email = ?').run(n, email);
                     return null;
                 }
-                const consumir = () => db.prepare('DELETE FROM codigos WHERE email = ?').run(email);
-
                 const sess = sessaoPorToken(tokenAtual);
                 const contas = sess ? contasDaSessao(sess.id) : [];
                 const ativa = contas.find((c) => String(c.id) === String(contaAtivaId)) || contas[0] || null;
                 const existente = db.prepare('SELECT id, email, criado_em FROM usuarios WHERE email = ?').get(email);
+                if (existente) {
+                    const r2 = aderir({ sess, contas, ativa, existente, modo, aparelho, agoraIso });
+                    if (!r2.conflito) db.prepare('DELETE FROM codigos WHERE email = ?').run(email); // em conflito o codigo continua valendo
+                    return r2;
+                }
+                db.prepare('DELETE FROM codigos WHERE email = ?').run(email);
                 const pronto = (usuario, token, sessaoId, acao) => ({
                     token, acao, usuario: { id: usuario.id, email: usuario.email, criado_em: usuario.criado_em },
                     contas: contasDaSessao(sessaoId).map(resumo),
                 });
-
-                if (sess && existente && contas.some((c) => c.id === existente.id)) {
-                    consumir();
-                    return pronto(existente, null, sess.id, 'ja_estava');
-                }
-
-                if (sess && ativa && ativa.email === null && existente) {
-                    let m = modo || null;
-                    if (!m) {
-                        const vivos = db.prepare('SELECT COUNT(*) AS n FROM itens WHERE usuario_id = ? AND apagado = 0').get(ativa.id).n;
-                        if (vivos === 0) m = 'descartar'; // nada a perder: troca em silêncio
-                    }
-                    if (!m) return { conflito: true }; // o código continua valendo
-                    consumir();
-                    ligar(sess.id, existente.id, agoraIso);
-                    if (m === 'unir') fundir(ativa.id, existente.id);
-                    if (m === 'unir' || m === 'descartar') db.prepare('DELETE FROM usuarios WHERE id = ?').run(ativa.id);
-                    db.prepare('UPDATE usuarios SET ultimo_acesso = ? WHERE id = ?').run(agoraIso, existente.id);
-                    return pronto(existente, null, sess.id, m);
-                }
-
-                consumir();
                 if (sess && ativa && ativa.email === null) {
                     db.prepare('UPDATE usuarios SET email = ?, ultimo_acesso = ? WHERE id = ?').run(email, agoraIso, ativa.id);
                     return pronto({ ...ativa, email }, null, sess.id, 'vinculou');
                 }
-                db.prepare(
-                    `INSERT INTO usuarios (email, criado_em, ultimo_acesso) VALUES (?, ?, ?)
-                     ON CONFLICT(email) DO UPDATE SET ultimo_acesso = excluded.ultimo_acesso`,
-                ).run(email, agoraIso, agoraIso);
-                const usuario = db.prepare('SELECT id, email, criado_em FROM usuarios WHERE email = ?').get(email);
+                const novo = Number(db.prepare('INSERT INTO usuarios (email, criado_em, ultimo_acesso) VALUES (?, ?, ?)').run(email, agoraIso, agoraIso).lastInsertRowid);
+                const usuario = db.prepare('SELECT id, email, criado_em FROM usuarios WHERE id = ?').get(novo);
                 if (sess) {
                     ligar(sess.id, usuario.id, agoraIso);
                     return pronto(usuario, null, sess.id, 'adicionou');
@@ -199,9 +237,9 @@ export function criarAuth({ db, config, relogio, fundir }) {
             const agoraIso = iso(relogio());
             return transacao(db, () => {
                 const nova = novaSessao(aparelho, agoraIso);
-                const uid = novoAnonimo(agoraIso);
+                const { uid, chave } = novoAnonimo(agoraIso);
                 ligar(nova.id, uid, agoraIso);
-                return { token: nova.token, usuario: { id: uid, email: null, criado_em: agoraIso }, contas: contasDaSessao(nova.id).map(resumo) };
+                return { token: nova.token, usuario: { id: uid, email: null, criado_em: agoraIso }, chave, contas: contasDaSessao(nova.id).map(resumo) };
             });
         },
 
@@ -209,10 +247,37 @@ export function criarAuth({ db, config, relogio, fundir }) {
         adicionarAnonima(sessaoId) {
             const agoraIso = iso(relogio());
             return transacao(db, () => {
-                const uid = novoAnonimo(agoraIso);
+                const { uid, chave } = novoAnonimo(agoraIso);
                 ligar(sessaoId, uid, agoraIso);
-                return { usuario: { id: uid, email: null, criado_em: agoraIso }, contas: contasDaSessao(sessaoId).map(resumo) };
+                return { usuario: { id: uid, email: null, criado_em: agoraIso }, chave, contas: contasDaSessao(sessaoId).map(resumo) };
             });
+        },
+
+        /**
+         * Entra com a chave de 12 palavras: mesma regra do e-mail (ja estava, conflito, adicionar, unir, descartar).
+         * Chave errada, malformada ou de conta inexistente: o mesmo "chave_invalida".
+         */
+        entrarComChave(frase, aparelho, tokenAtual, contaAtivaId, modo) {
+            const canonica = normalizarChave(frase);
+            if (!canonica) throw new ErroHttp(400, 'chave_invalida');
+            if (modo !== undefined && modo !== null && !MODOS.has(modo)) throw new ErroHttp(400, 'modo_invalido');
+            const agoraIso = iso(relogio());
+            const r = transacao(db, () => {
+                const existente = db.prepare('SELECT id, email, criado_em FROM usuarios WHERE chave_hash = ?').get(chaveHash(canonica));
+                if (!existente) return null;
+                const sess = sessaoPorToken(tokenAtual);
+                const contas = sess ? contasDaSessao(sess.id) : [];
+                const ativa = contas.find((c) => String(c.id) === String(contaAtivaId)) || contas[0] || null;
+                return aderir({ sess, contas, ativa, existente, modo, aparelho, agoraIso });
+            });
+            if (!r) throw new ErroHttp(400, 'chave_invalida');
+            if (r.conflito) throw new ErroHttp(409, 'conta_existente');
+            return r;
+        },
+
+        /** Gera uma chave nova para a conta (a anterior deixa de valer). A frase só existe nesta resposta. */
+        novaChave(uid) {
+            return transacao(db, () => gravarChave(uid));
         },
 
         /** Contas ligadas à sessão. */

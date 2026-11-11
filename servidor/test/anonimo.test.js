@@ -15,7 +15,7 @@ const ler = (s, cookie, conta) => s.chamar('GET', '/v1/sync?desde=0', { cookie, 
 async function anonimo(s, aparelho = 'Aparelho') {
     const r = await s.chamar('POST', '/v1/auth/anonimo', { corpo: { aparelho } });
     assert.equal(r.status, 201);
-    return { cookie: r.setCookie.split(';')[0], id: r.json.usuario.id };
+    return { cookie: r.setCookie.split(';')[0], id: r.json.usuario.id, chave: r.json.chave };
 }
 
 /** Pede o código e confirma. Devolve a resposta; `codigoAnterior` permite reusar um código já enviado. */
@@ -38,7 +38,7 @@ test('migrações: v1 vira a versão atual sem perder usuários, itens nem sess�
     v1.prepare("INSERT INTO sessoes (id, token_hash, usuario_id, aparelho, criada_em, ultimo_uso) VALUES ('s', 'h', 1, 'a', 'x', 'x')").run();
     v1.close();
     const v3 = abrirBanco(caminho);
-    assert.equal(v3.prepare('PRAGMA user_version').get().user_version, 3);
+    assert.equal(v3.prepare('PRAGMA user_version').get().user_version, 4);
     assert.equal(v3.prepare('SELECT COUNT(*) AS n FROM itens').get().n, 1);
     assert.equal(v3.prepare('SELECT COUNT(*) AS n FROM sessoes').get().n, 1);
     assert.deepEqual({ ...v3.prepare('SELECT sessao_id, usuario_id FROM sessao_contas').get() }, { sessao_id: 's', usuario_id: 1 });
@@ -67,7 +67,8 @@ test('conta anônima: nasce sem e-mail, sincroniza e /v1/eu mostra id, anonimato
     assert.equal(eu.json.email, null);
     assert.equal(eu.json.anonimo, true);
     assert.equal(eu.json.id, a.id);
-    assert.deepEqual(eu.json.contas, [{ id: a.id, email: null, anonimo: true }]);
+    assert.equal(typeof a.chave, 'string');
+    assert.deepEqual(eu.json.contas, [{ id: a.id, email: null, anonimo: true, tem_chave: true }]);
     assert.equal((await enviar(s, a.cookie, [item('diario', 'd1', entrada('oi'), T(1))])).json.aplicados, 1);
 });
 
