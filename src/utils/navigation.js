@@ -113,11 +113,11 @@ let corrida = 0;
  * URL, nunca dado de nascimento, nome, mapa ou diario: mapa, novo mapa e edicao mostram o endereco do Perfil e,
  * aberto direto, caem no Perfil. O estado em history.state guarda so o nome da tela.
  */
-const CHAVES = { 'all-cards': 'all-cards', 'three-card-game': 'three-card-game', history: 'history', perfil: 'profile' };
+const CHAVES = { 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', 'three-card-game': 'three-card-game', history: 'history', perfil: 'profile' };
 const SEM_URL = ['novo-mapa', 'mapa'];
 const raizDe = (page) => (SEM_URL.includes(page) ? 'perfil' : page);
 const buscaDe = (page) => (CHAVES[raizDe(page)] ? `?${CHAVES[raizDe(page)]}` : '');
-const ALIAS = { 'all-cards': 'all-cards', 'three-card-game': 'three-card-game', history: 'history', profile: 'perfil', perfil: 'perfil', mapa: 'perfil', 'novo-mapa': 'perfil', editar: 'perfil' };
+const ALIAS = { 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', 'three-card-game': 'three-card-game', history: 'history', profile: 'perfil', perfil: 'perfil', mapa: 'perfil', 'novo-mapa': 'perfil', editar: 'perfil' };
 /** Tela pedida pela URL atual (a primeira chave conhecida da busca); sem chave conhecida, a Home. */
 function paginaDaUrl() {
     for (const k of new URLSearchParams(location.search).keys()) if (ALIAS[k]) return ALIAS[k];

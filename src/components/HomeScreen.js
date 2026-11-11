@@ -26,7 +26,7 @@ export class HomeScreen extends HTMLElement {
 
                 <nav aria-label="Por onde começar">
                     <ul class="home-acoes">
-                        ${acao('three-card-game', ICONES.tirar, 'Tirar cartas', 'Leitura de três', ' destaque')}
+                        ${acao('tiragens', ICONES.tirar, 'Tirar cartas', 'Cruz ou três cartas', ' destaque')}
                         ${temMapa
                             ? acao('mapa', ICONES.mapa, 'Seu mapa', 'O mapa principal')
                             : acao('novo-mapa', ICONES.mapa, 'Mapa astral', 'Crie o seu')}
