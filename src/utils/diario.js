@@ -1,4 +1,5 @@
 import { hash, dataLocal } from './cartaDoDia.js';
+import { marcarApagado, desmarcarApagado } from './contaEstado.js';
 import { pedirPersistencia } from './persistencia.js';
 
 /**
@@ -410,6 +411,7 @@ export function apagarEntrada(id) {
     const doc = carregar();
     doc.entradas = doc.entradas.filter((e) => e.id !== id);
     if (id.startsWith('antigo-') && !doc.ocultos.includes(id)) doc.ocultos.push(id);
+    else marcarApagado('diario', id); // com a sincronizacao ligada, a exclusao tambem vai para a conta
     return gravar(doc);
 }
 
@@ -426,6 +428,7 @@ export function instantaneo() {
 
 /** Devolve o diario ao estado da copia (o Desfazer), inclusive o historico antigo se ele foi removido. */
 export function restaurar(copia) {
+    (copia.doc && Array.isArray(copia.doc.entradas) ? copia.doc.entradas : []).forEach((e) => e && typeof e.id === 'string' && desmarcarApagado('diario', e.id));
     if (copia.antigo != null) {
         try {
             if (localStorage.getItem(CHAVE_ANTIGA) == null) localStorage.setItem(CHAVE_ANTIGA, copia.antigo);
@@ -441,6 +444,7 @@ export function restaurar(copia) {
  * Nao apaga a carta do dia nem a semana em estrelas. So apaga o historico antigo se `tambemAntigo` for true.
  */
 export function apagarTudo({ tambemAntigo = false } = {}) {
+    carregar().entradas.forEach((e) => marcarApagado('diario', e.id));
     const doc = vazio();
     if (tambemAntigo) {
         try {
@@ -525,6 +529,59 @@ export function importar(texto) {
     aplicarLimite(doc);
     const ok = gravar(doc);
     return { ok, motivo: ok ? '' : 'Não foi possível guardar neste aparelho.', importadas, ignoradas };
+}
+
+/* ---------- sincronizacao com a conta (o motor esta em conta.js) ---------- */
+
+/** Quando a entrada mudou por ultimo: a edicao da nota, ou a criacao se a nota nunca foi editada. */
+export const atualizadoEm = (e) => (e.m && e.m > e.t ? e.m : e.t);
+
+/** As entradas proprias do diario (sem as leituras do historico antigo, que so existem para leitura). */
+export function entradasParaSync() {
+    return carregar().entradas.map((e) => ({ ...e }));
+}
+
+/**
+ * Aplica o que veio da conta. Cada item: { id, dados, atualizado_em, apagado }. O conteudo e DADO NAO CONFIAVEL
+ * (passa pela mesma lista branca do backup). Vale a mudanca mais recente por entrada; a local mais nova nunca e
+ * sobrescrita. -> { marcados: [id] } = os que ficaram iguais ao servidor (aplicados ou ja iguais).
+ */
+export function aplicarRemotos(itens) {
+    const doc = carregar();
+    const marcados = [];
+    let mudou = false;
+    for (const item of itens) {
+        const i = doc.entradas.findIndex((e) => e.id === item.id);
+        const local = i >= 0 ? doc.entradas[i] : null;
+        if (item.apagado) {
+            if (!local) {
+                marcados.push(item.id);
+            } else if (atualizadoEm(local) <= item.atualizado_em) {
+                doc.entradas.splice(i, 1);
+                marcados.push(item.id);
+                mudou = true;
+            }
+            continue;
+        }
+        const nova = sanearEntrada(item.dados);
+        if (!nova || nova.id !== item.id) continue;
+        if (!local) {
+            doc.entradas.push(nova);
+            marcados.push(item.id);
+            mudou = true;
+        } else if (item.atualizado_em > atualizadoEm(local)) {
+            doc.entradas[i] = nova;
+            marcados.push(item.id);
+            mudou = true;
+        } else if (item.atualizado_em === atualizadoEm(local)) {
+            marcados.push(item.id);
+        }
+    }
+    if (mudou) {
+        aplicarLimite(doc);
+        gravar(doc);
+    }
+    return { marcados };
 }
 
 /* ---------- recados entre telas ---------- */

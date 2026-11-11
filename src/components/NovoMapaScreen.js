@@ -1,4 +1,5 @@
 import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
+import { registrosFicam } from '../utils/conta.js';
 import { ic } from '../utils/glifos.js';
 import { avisar } from './Sobreposicao.js';
 import { loadCards } from '../utils/cardsUtil.js';
@@ -33,6 +34,8 @@ const T = {
     dicaCoord: 'Latitude de −90 a 90 e longitude de −180 a 180. Sul e oeste levam o sinal de menos. No Brasil, as duas são negativas. O fuso é o nome da lista IANA, como America/Sao_Paulo.',
     voltarBusca: 'Voltar a buscar por cidade',
     privado: 'Os dados de nascimento ficam só neste aparelho.',
+    privadoConta: 'Os dados de nascimento ficam neste aparelho e na sua conta do Aeon.',
+    meusDadosPrivadoConta: 'Só o necessário para calcular o mapa: apelido, data, hora e cidade. Fica neste aparelho e na sua conta do Aeon.',
     naoAchouTitulo: 'Não encontramos esse local',
     usarHorario: 'Usar este horário',
     ambiguaTitulo: 'Esse horário aconteceu duas vezes',
@@ -172,7 +175,7 @@ export class NovoMapaScreen extends HTMLElement {
               <span class="dica" id="d-hora">${esc(s.semHora ? this.t('ui.form.semhora') : this.t('ui.form.hora'))}</span></fieldset>
             <div class="campo" id="c-local"><label class="rot" for="${s.coord ? 'c-lat' : 'c-q'}">${T.local}</label>${localHtml}</div>
             <div class="rodape-form"><button class="btn btn-primary" type="submit">${esc(this.modoEu && this.editando ? this.t('ui.meusdados.salvar') : this.t('ui.btn.calcular', {}, 'Montar o mapa astral'))}</button>
-              <p class="nota-priv">${ic('cadeado')}<span>${this.modoEu ? esc(this.t('ui.meusdados.form.privado')) : T.privado}</span></p>
+              <p class="nota-priv">${ic('cadeado')}<span>${this.modoEu ? esc(registrosFicam(this.t('ui.meusdados.form.privado'), T.meusDadosPrivadoConta)) : registrosFicam(T.privado, T.privadoConta)}</span></p>
               <p class="sr" role="status" aria-live="polite" data-status>${esc(s.status)}</p>
               <p class="nota-geonames">${atribuicaoGeoNames(this.textos)}</p></div>
           </form></div>`;

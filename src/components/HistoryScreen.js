@@ -5,6 +5,7 @@ import { navigateTo, registrarGuardaSaida } from '../utils/navigation.js';
 import { gravarRascunho, lerRascunho, limparRascunho, limparTodosRascunhos } from '../utils/rascunhos.js';
 import { ic } from '../utils/glifos.js';
 import { abrir, avisar } from './Sobreposicao.js';
+import { registrosFicam } from '../utils/conta.js';
 import { desenharAvisoBackup } from './AvisoBackup.js';
 import { registrarBackup } from '../utils/backup.js';
 import { listar as listarMapas } from '../utils/perfil.js';
@@ -19,6 +20,7 @@ const TEXTO = {
     titulo: 'Diário',
     sub: 'O que cada carta despertou, guardado com data.',
     privado: 'Suas anotações ficam só neste aparelho.',
+    privadoConta: 'Suas anotações ficam neste aparelho e na sua conta do Aeon.',
     semArmazenamento: 'Este navegador não deixa guardar dados. Suas anotações valem só enquanto esta página estiver aberta.',
     tipoDia: 'Carta do dia',
     tipoLeitura: 'Leitura de 3 cartas',
@@ -132,7 +134,7 @@ export class HistoryScreen extends HTMLElement {
                 <header class="diario-topo">
                     <div class="diario-tit">
                         <p class="diario-sub">${TEXTO.sub}</p>
-                        <p class="diario-meta"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>${TEXTO.privado}</span><span class="diario-contagem" data-contagem></span></p>
+                        <p class="diario-meta"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>${registrosFicam(TEXTO.privado, TEXTO.privadoConta)}</span><span class="diario-contagem" data-contagem></span></p>
                     </div>
                     <div class="diario-ferr">
                         <button class="btn btn-ghost diario-exportar" type="button" data-exec="exportar">${ic('baixar')}${TEXTO.exportarCurto}</button>
