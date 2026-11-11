@@ -224,8 +224,8 @@ export class ContaPanel extends HTMLElement {
         const erro = this.erroHtml();
         if (p === 'inicio') {
             return `${this.contasHtml()}<p>${T.intro}</p>${erro}
-                <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="gerar"${this.ocupado ? ' disabled' : ''}>${T.gerar}</button>
-                <button class="btn btn-terciario" type="button" data-acao="com-email">${T.comEmail}</button>
+                <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="com-email">${T.comEmail}</button>
+                <button class="btn btn-terciario" type="button" data-acao="gerar"${this.ocupado ? ' disabled' : ''}>${T.gerar}</button>
                 <button class="btn btn-terciario" type="button" data-acao="com-chave">${T.comChave}</button></div>
                 <div class="btn-row"><button class="btn btn-terciario" type="button" data-acao="outra">${T.outra}</button></div>`;
         }
