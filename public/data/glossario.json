@@ -1361,8 +1361,8 @@
       "orbes"
     ],
     "auto": true,
-    "curto": "A folga, em graus, que se aceita em torno do ângulo exato de um aspecto. Quanto menor o orbe, mais forte o aspecto.",
-    "mais": "Dois astros a 118° um do outro formam um trígono com orbe de 2°. Cada leitor escolhe os seus orbes; o mapa usa uma folga maior para o Sol e a Lua e menor para os demais.",
+    "curto": "A diferença, em graus, entre a distância real de dois astros e o ângulo exato do aspecto. Quanto menor o orbe, mais exato o aspecto.",
+    "mais": "Dois astros a 118° um do outro formam um trígono com orbe de 2°. O mapa aceita orbe de até 8° na conjunção e na oposição, de até 7° na quadratura e no trígono e de até 5° no sextil, os mesmos para todos os astros.",
     "ver_tambem": [
       "aspecto"
     ]
@@ -1625,7 +1625,7 @@
     ],
     "auto": true,
     "curto": "O sistema de casas mais usado hoje: divide o tempo que cada ponto leva para subir ao alto do céu. As casas saem de tamanhos desiguais.",
-    "mais": "Em latitudes muito altas, perto dos círculos polares, o Placidus se torna instável e deixa de funcionar. Nesses casos o mapa avisa e sugere outro sistema, como o de Signos Inteiros.",
+    "mais": "Em latitudes muito altas, perto dos círculos polares, o Placidus se torna instável e deixa de funcionar. Acima de 66° de latitude, norte ou sul, o mapa passa a usar Signos Inteiros e avisa.",
     "ver_tambem": [
       "signos-inteiros",
       "casa"
