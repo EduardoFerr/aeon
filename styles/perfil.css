@@ -8,7 +8,7 @@ svg.gl { display: inline-block; vertical-align: -0.12em; }
 .sec-titulo small { font-family: var(--font-ui); font-size: var(--fs-sm); color: var(--text-mute); font-weight: 400; }
 .mute { color: var(--text-soft); }
 .nav-guia { display: none; }
-@media (min-width: 860px) { .nav-guia { display: block; } }
+@media (min-width: 860px) { .nav-guia { display: block; } .foot-guia { display: none; } } /* o Guia fica na barra do topo; o rodape so o repete nas telas estreitas */
 
 
 
