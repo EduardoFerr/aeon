@@ -103,6 +103,7 @@ let seq = 0;
  * @returns {{raiz:HTMLElement, painel:HTMLElement, corpo:HTMLElement, fechar:Function, trocarCorpo:Function, aberto:boolean}}
  */
 export function abrir(o) {
+    esconderAviso();
     const desk = ehDesktop();
     let tipo = o.tipo;
     if (tipo === 'sheet' && desk) tipo = 'dialogo';
@@ -270,6 +271,15 @@ export function abrir(o) {
 let toastEl = null;
 let toastTimer = 0;
 let agendarAtual = null;
+/** Fecha o aviso na tela (e apaga o texto depois da saida), para o proximo dialogo ou menu nao herdar a mensagem. */
+export function esconderAviso() {
+    if (!toastEl) return;
+    clearTimeout(toastTimer);
+    agendarAtual = null;
+    toastEl.classList.remove('on');
+    const el = toastEl;
+    setTimeout(() => { if (!el.classList.contains('on')) el.innerHTML = ''; }, 300);
+}
 /**
  * Confirmacao curta ("Mapa guardado", "Texto copiado"). Fica numa regiao role=status, some sozinha.
  * Com `desfazer: { rotulo, aoClicar }` vira o aviso de uma exclusao: o botao "Desfazer" fica 8 s

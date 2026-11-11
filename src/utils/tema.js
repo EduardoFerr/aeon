@@ -1,3 +1,4 @@
+import { esconderAviso } from '../components/Sobreposicao.js';
 /**
  * Tema da pagina (Crepusculo e Aurora). O script inline do <head> escolhe o tema antes da primeira
  * pintura e define window.AEON_THEMES. Aqui ficam o botao "Tema", o painel com as duas opcoes e a
@@ -12,12 +13,12 @@ const TEXTO = {
     opcoes: {
         crepusculo: {
             nome: 'Crepúsculo',
-            desc: 'Ameixa profunda, pêssego e ouro velado. Para o fim do dia.',
+            desc: 'Escuro e pêssego.',
             aria: 'Tema Crepúsculo, versão escura, fundo ameixa com detalhes dourados.',
         },
         aurora: {
             nome: 'Aurora',
-            desc: 'Papel claro, azul ultramar e luz de janela. Para começar com calma.',
+            desc: 'Claro e ultramar.',
             aria: 'Tema Aurora, versão clara, fundo de papel com azul ultramar.',
         },
     },
@@ -28,6 +29,7 @@ const TEXTO = {
 };
 
 const ICONE_FECHAR = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+const ICONE_OK = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 const html = document.documentElement;
 const TEMAS = window.AEON_THEMES || {};
 
@@ -120,7 +122,6 @@ function pintar() {
         r.setAttribute('aria-checked', String(ligado));
         r.tabIndex = ligado ? 0 : -1;
         r.setAttribute('aria-label', `${TEXTO.opcoes[t].aria} ${ligado ? TEXTO.selecionado : TEXTO.naoSelecionado}`);
-        r.querySelector('.st').textContent = ligado ? TEXTO.selecionado : '';
     });
 }
 
@@ -137,8 +138,13 @@ function montarPainel() {
         <div class="themes" role="radiogroup" aria-label="${TEXTO.grupo}">
             ${TEXTO.ordem.map((t) => `
                 <div class="themeopt" role="radio" data-t="${t}" aria-checked="false" tabindex="-1">
-                    <span class="swatch sw-${t}" aria-hidden="true"></span>
-                    <span class="tx"><b>${TEXTO.opcoes[t].nome}</b><span>${TEXTO.opcoes[t].desc}</span><span class="st"></span></span>
+                    <span class="pv" data-theme="${t}" aria-hidden="true">
+                        <span><span class="pv-eb">Tarot de Thoth</span><span class="pv-ti" style="display:block">Carta do dia</span></span>
+                        <span class="pv-ca"><span class="pv-carta"></span><span class="pv-lin"><i></i><i></i></span></span>
+                        <span><span class="pv-bt">Virar</span></span>
+                        <span class="pv-ck">${ICONE_OK}</span>
+                    </span>
+                    <span class="tx"><b>${TEXTO.opcoes[t].nome}</b><span>${TEXTO.opcoes[t].desc}</span></span>
                 </div>`).join('')}
         </div>`;
     document.body.appendChild(dialogo);
@@ -161,6 +167,8 @@ function montarPainel() {
         let n = -1;
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % radios.length;
         else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + radios.length) % radios.length;
+        if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = radios.length - 1;
         if (n >= 0) {
             e.preventDefault();
             radios[n].focus();
@@ -174,6 +182,8 @@ function montarPainel() {
 }
 
 export function abrirSeletor() {
+    esconderAviso();
+    TEXTO.ordem.forEach((t) => carregarFontes(t)); // as miniaturas mostram a fonte de cada tema
     if (!dialogo) montarPainel();
     pintar();
     if (!dialogo.open) dialogo.showModal();

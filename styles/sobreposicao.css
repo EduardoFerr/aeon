@@ -81,12 +81,12 @@
 .sob-pn .toggle-linha, .sob-pn .diario-marca { min-height: 44px; }
 
 /* toast de confirmacao (so para 'Mapa guardado', 'Texto copiado') */
-.toast { position: fixed; z-index: 1300; left: 50%; bottom: calc(var(--bnav-h) + 16px + env(safe-area-inset-bottom)); transform: translate(-50%, 12px); opacity: 0; width: max-content; max-width: min(92vw, 420px); padding: 12px 18px; border-radius: var(--r-md); background: var(--surface-2); color: var(--text); border: 1px solid var(--line-strong); box-shadow: var(--sh-3); font-size: var(--fs-sm); font-weight: 500; transition: transform 240ms var(--ease-ritual), opacity 240ms var(--ease-ritual); pointer-events: none; display: flex; gap: 10px; align-items: center; visibility: hidden; }
+.toast { position: fixed; z-index: 1300; left: 50%; bottom: var(--float-b); transform: translate(-50%, 12px); opacity: 0; width: max-content; max-width: min(92vw, 420px); padding: 12px 18px; border-radius: var(--r-md); background: var(--surface-2); color: var(--text); border: 1px solid var(--line-strong); box-shadow: var(--sh-3); font-size: var(--fs-sm); font-weight: 500; transition: transform 240ms var(--ease-ritual), opacity 240ms var(--ease-ritual); pointer-events: none; display: flex; gap: 10px; align-items: center; visibility: hidden; }
 .toast.on { transform: translate(-50%, 0); opacity: 1; visibility: visible; }
 .toast.com-acao.on { pointer-events: auto; padding-right: 8px; }
 .toast .toast-acao { margin-left: 4px; flex: none; }
 .toast .icon { width: 20px; height: 20px; color: var(--ok); flex: none; }
-@media (min-width: 860px) { .toast { bottom: 24px; } }
+@media (min-width: 860px) { .toast { bottom: var(--sp-5); } }
 
 @media (prefers-reduced-motion: reduce) {
   .sob *, .sob-pn, .sob-fundo, .toast, .btn { transition: none !important; animation: none !important; }
