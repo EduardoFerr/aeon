@@ -1,7 +1,10 @@
+/* Telas da aba Tiragens: a escolha, a cruz e a leitura de tres cartas. */
+const TIRAGENS = ['tiragens', 'cruz', 'three-card-game'];
+
 /** Marca no menu a pagina atual (so visual e aria-current; a navegacao em si nao muda). */
 function marcarNavAtual(page) {
     const PERFIL = ['perfil', 'novo-mapa', 'mapa'];
-    const atual = PERFIL.includes(page) ? 'perfil' : ['all-cards', 'three-card-game', 'history'].includes(page) ? page : 'home';
+    const atual = PERFIL.includes(page) ? 'perfil' : TIRAGENS.includes(page) ? 'tiragens' : ['all-cards', 'history'].includes(page) ? page : 'home';
     document.querySelectorAll('.mainnav a[data-page]').forEach((link) => {
         if (link.dataset.page === atual) link.setAttribute('aria-current', 'page');
         else link.removeAttribute('aria-current');
@@ -34,7 +37,7 @@ const posicoes = {};
 let telaAtual = null;
 let primeira = true;
 let montada = false; // so guarda a rolagem de uma tela que chegou a montar
-const abaDe = (page) => (['perfil', 'novo-mapa', 'mapa'].includes(page) ? 'perfil' : page);
+const abaDe = (page) => (['perfil', 'novo-mapa', 'mapa'].includes(page) ? 'perfil' : TIRAGENS.includes(page) ? 'tiragens' : page);
 const reduz = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const irPara = (y) => window.scrollTo({ top: y, left: 0, behavior: 'auto' }); // nunca animado: nao e um gesto do usuario
 
@@ -82,7 +85,7 @@ function concluir(page, y) {
     montada = true;
     if (primeira) { primeira = false; return; } // na carga nao rouba o foco
     entrarSuave();
-    if (TELAS_PERFIL[page]) return; // essas telas focam o proprio titulo quando terminam de montar
+    if (TELAS_PERFIL[page] || page === 'cruz') return; // essas telas focam o proprio titulo (ou o campo) quando terminam de montar
     const a = document.activeElement;
     const dentro = a && document.getElementById('app').contains(a);
     if (dentro) return;
@@ -97,6 +100,11 @@ const TELAS_PERFIL = {
     perfil: ['perfil-screen', () => import('../components/PerfilScreen.js')],
     'novo-mapa': ['novo-mapa-screen', () => import('../components/NovoMapaScreen.js')],
     mapa: ['mapa-screen', () => import('../components/MapaScreen.js')],
+};
+/* Telas da aba Tiragens, carregadas sob demanda como as do Perfil. */
+const TELAS_TIRAGENS = {
+    tiragens: ['tiragens-screen', () => import('../components/TiragensScreen.js')],
+    cruz: ['cruz-screen', () => import('../components/CruzScreen.js')],
 };
 let corrida = 0;
 
@@ -145,8 +153,8 @@ export function navigateTo(page, estado = null, opts = {}) {
     if (titulo) titulo.hidden = page === 'perfil'; // o perfil tem o proprio h1
     estadoNav = estado;
 
-    if (TELAS_PERFIL[page]) {
-        const [tag, carregar] = TELAS_PERFIL[page];
+    if (TELAS_PERFIL[page] || TELAS_TIRAGENS[page]) {
+        const [tag, carregar] = TELAS_PERFIL[page] || TELAS_TIRAGENS[page];
         carregar().then(() => {
             if (minha !== corrida) return;
             appContainer.innerHTML = `<${tag}></${tag}>`;

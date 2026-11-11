@@ -60,6 +60,7 @@ const IC = {
     trocar: '<path d="M4 8h14l-3-3M20 16H6l3 3"/>',
     subir: '<path d="M5 15l7-7 7 7"/>',
     descer: '<path d="M5 9l7 7 7-7"/>',
+    baralho: '<rect x="3.5" y="6" width="9" height="13" rx="1.5"/><rect x="7.5" y="4" width="9" height="13" rx="1.5"/><rect x="11.5" y="6" width="9" height="13" rx="1.5"/>',
     estrela: '<path d="M12 3.5l2.2 6.3 6.3 2.2-6.3 2.2L12 20.5l-2.2-6.3L3.5 12l6.3-2.2z"/>'
   };
 
