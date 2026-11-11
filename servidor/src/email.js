@@ -41,6 +41,8 @@ const COR = {
     destaque: '#e8b7a0',
     linha: '#3a3247',
 };
+/** As imagens ficam no proprio site (public/email/), em endereco fixo e igual para todo mundo. */
+const IMG = 'https://aeonfool.com/email';
 const SERIF = "'Cormorant Garamond', Georgia, 'Times New Roman', serif";
 const SANS = "Inter, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
 const MONO = "'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace";
@@ -64,9 +66,10 @@ function moldura({ previa, titulo, corpo, rodape }) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${COR.fundo}" style="background:${COR.fundo};">
 <tr><td align="center" style="padding:32px 16px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:480px;">
-    <tr><td align="center" style="padding:0 0 24px 0;font-family:${SERIF};font-size:28px;letter-spacing:12px;color:${COR.texto};">AEON</td></tr>
+    <tr><td align="center" style="padding:0 0 16px 0;font-family:${SERIF};font-size:28px;letter-spacing:12px;color:${COR.texto};"><img src="${IMG}/aeon-topo.png" width="480" height="150" alt="AEON" style="display:block;margin:0 auto;border:0;outline:none;width:100%;max-width:480px;height:auto;font-family:${SERIF};font-size:28px;letter-spacing:12px;color:${COR.texto};"></td></tr>
     <tr><td bgcolor="${COR.cartao}" style="background:${COR.cartao};border:1px solid ${COR.linha};border-radius:16px;padding:32px 28px;font-family:${SANS};color:${COR.suave};font-size:16px;line-height:1.6;">
-      <h1 style="margin:0 0 16px 0;font-family:${SERIF};font-weight:500;font-size:26px;line-height:1.2;color:${COR.texto};">${esc(titulo)}</h1>
+      <div style="text-align:center;padding:0 0 20px 0;"><img src="${IMG}/aeon-carta.png" width="80" height="120" alt="" style="display:inline-block;border:0;width:80px;height:120px;"></div>
+      <h1 style="margin:0 0 16px 0;text-align:center;font-family:${SERIF};font-weight:500;font-size:26px;line-height:1.2;color:${COR.texto};">${esc(titulo)}</h1>
       ${corpo}
     </td></tr>
     <tr><td align="center" style="padding:20px 8px 0 8px;font-family:${SANS};font-size:13px;line-height:1.5;color:${COR.mudo};">${rodape}</td></tr>
