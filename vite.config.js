@@ -8,6 +8,9 @@ export default defineConfig({
   // aqui aninhado no nivel errado e o Vite o ignorava. Foi removido sem mudar o
   // resultado: os valores efetivos sempre foram os padroes (base "/", outDir
   // "dist", minify esbuild, publicDir "public").
+  // O site e um conjunto de paginas HTML (nao ha rota de servidor): URL sem arquivo correspondente
+  // responde 404 (e o 404.html no GitHub Pages), em vez de cair na Home.
+  appType: "mpa",
   build: {
     manifest: true,
     rollupOptions: {
@@ -16,6 +19,8 @@ export default defineConfig({
         sobre: path.resolve(__dirname, "sobre.html"),
         contato: path.resolve(__dirname, "contato.html"),
         livro: path.resolve(__dirname, "livro.html"),
+        // pagina de erro do GitHub Pages: servida em dist/404.html para qualquer URL inexistente
+        "404": path.resolve(__dirname, "404.html"),
         "politica-privacidade": path.resolve(
           __dirname,
           "politica-privacidade.html"
@@ -29,6 +34,10 @@ export default defineConfig({
       registerType: "autoUpdate",
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+        // Sem fallback para a Home: URL inexistente vai a rede e recebe o 404.html. Os parametros de
+        // consulta (/?profile, /?history...) sao ignorados ao procurar no precache, entao abrem o index.html offline.
+        navigateFallback: null,
+        ignoreURLParametersMatching: [/.*/],
         sourcemap: true,
         // Dados do mapa astral (textos e lista de cidades) nao entram no precache: ficam fora do
         // globPatterns (so js, css, html e imagens). Depois da primeira leitura online, o service worker

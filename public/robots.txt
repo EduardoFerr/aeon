@@ -7,7 +7,7 @@ Disallow: /dist/
 Disallow: /vite/
 
 # Permite acesso ao manifesto, favicon e páginas públicas
-Allow: /manifest.json
+Allow: /manifest.webmanifest
 Allow: /favicon.ico
 Allow: /icons/
 Allow: /index.html
