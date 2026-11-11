@@ -1,4 +1,5 @@
 import { hash, dataLocal } from './cartaDoDia.js';
+import { pedirPersistencia } from './persistencia.js';
 
 /**
  * Diario: anotacoes e leituras, guardadas so no aparelho.
@@ -152,6 +153,7 @@ function gravar(doc) {
     try {
         localStorage.setItem(CHAVE_DIARIO, JSON.stringify(doc)); // escrita atomica: um unico setItem
         gravacaoFalhou = false;
+        pedirPersistencia();
     } catch (e) {
         gravacaoFalhou = true; // quota excedida ou bloqueado
         ok = false;

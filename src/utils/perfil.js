@@ -1,4 +1,5 @@
 import { exportar as exportarDiario, importar as importarDiario } from './diario.js';
+import { pedirPersistencia } from './persistencia.js';
 
 /**
  * Perfil e mapas astrais guardados, so no aparelho.
@@ -155,6 +156,7 @@ function gravar(doc) {
     try {
         localStorage.setItem(CHAVE_PERFIL, JSON.stringify(doc));
         gravacaoFalhou = false;
+        pedirPersistencia();
     } catch (e) {
         gravacaoFalhou = true;
         ok = false;

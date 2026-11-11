@@ -3,6 +3,9 @@ import { gl, ic } from '../utils/glifos.js';
 import { baixarBackup } from '../utils/backup.js';
 import { apagarMapaComDesfazer } from './desfazerMapa.js';
 import { avisar } from './Sobreposicao.js';
+import { desenharAvisoBackup } from './AvisoBackup.js';
+import { VERSAO, buscarAtualizacao, recarregarDoZero } from '../utils/atualizacao.js';
+import { rotuloVersao } from '../utils/versao.js';
 import { abrirMenuAcoes } from './menuAcoes.js';
 import { loadCards } from '../utils/cardsUtil.js';
 import { listar, principal, apelido, importar, persiste, aoMudar, LIMITE_ARQUIVO } from '../utils/perfil.js';
@@ -51,6 +54,18 @@ const T = {
     abas: 'Seções do perfil',
     grupoMapas: 'Mapas',
     grupoDados: 'Dados',
+    registrosAqui: 'Seus registros ficam só neste aparelho. Limpar os dados do site no navegador apaga o diário e os mapas, por isso exporte um backup de vez em quando.',
+    versaoTitulo: 'Versão do app',
+    buscar: 'Buscar atualização',
+    buscando: 'Buscando atualização...',
+    zero: 'Recarregar do zero',
+    zeroNota: 'Recarregar do zero apaga só os arquivos que o app guarda para abrir sem internet e baixa tudo de novo. Seu diário e seus mapas não são tocados.',
+    versaoNova: 'Há uma versão nova do Aeon. Use o botão Atualizar agora no aviso.',
+    versaoAtual: (v) => `Você já está na versão mais recente (versão ${v}).`,
+    erroBuscar: 'Não foi possível buscar agora. Confira sua conexão e tente de novo.',
+    zeroSemRede: 'Sem conexão com o site. Conecte-se à internet para recarregar do zero.',
+    zeroErro: 'Não foi possível apagar os arquivos guardados agora. Tente de novo.',
+    zeroFazendo: 'Recarregando do zero...',
 };
 const ABAS = [['mapas', 'Mapas'], ['dados', 'Dados']];
 let ABA_LEMBRADA = 'mapas';
@@ -148,7 +163,7 @@ export class PerfilScreen extends HTMLElement {
 
     painelAba(dados) {
         if (this.aba === 'mapas') return this.painelMapas(...dados);
-        return `<div class="info-grid">${this.painelPriv(!dados[0] && !dados[2].length)}</div>`;
+        return `<div data-backup></div><div class="info-grid">${this.painelPriv(!dados[0] && !dados[2].length)}${this.painelVersao()}</div>`;
     }
 
     async desenhar(foco) {
@@ -176,6 +191,7 @@ export class PerfilScreen extends HTMLElement {
             <div id="painel-perfil" role="tabpanel" aria-labelledby="pt-${this.aba}" tabindex="0" class="mc-painel">${this.painelAba([p, calcP, outros, emV, calcV])}</div>
             <input type="file" accept="application/json,.json" hidden data-arquivo></div>`;
         this.ligar();
+        if (this.aba === 'dados') desenharAvisoBackup(this.querySelector('[data-backup]'), { foco: '#perfil-h1' });
         if (foco) {
             const el = this.querySelector(foco);
             if (el) el.focus({ preventScroll: false });
@@ -223,9 +239,41 @@ export class PerfilScreen extends HTMLElement {
     }
 
     painelPriv(vazio) {
-        return `<section class="painel" aria-labelledby="pv-t"><div class="p-icon">${ic('cadeado')}<h3 id="pv-t">${T.privacidade}</h3></div><p>${esc(this.t('ui.aviso.privacidade'))}</p>
+        return `<section class="painel" aria-labelledby="pv-t"><div class="p-icon">${ic('cadeado')}<h3 id="pv-t">${T.privacidade}</h3></div><p>${esc(this.t('ui.aviso.privacidade'))}</p><p class="registros-aqui">${T.registrosAqui}</p>
             <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="exportar" aria-describedby="d-exp"${vazio ? ' disabled' : ''}>${ic('baixar')}${T.exportar}</button><button class="btn btn-ghost" type="button" data-exec="importar" aria-describedby="d-imp">${ic('copiar')}${T.importarBackup}</button></div>
             <p class="nota-geonames" id="d-exp">${esc(this.t('ui.dados.exportar'))}</p><p class="nota-geonames" id="d-imp">${esc(this.t('ui.dados.importar'))}</p></section>`;
+    }
+
+    /** Versao do app, com os botoes "Buscar atualizacao" e "Recarregar do zero". */
+    painelVersao() {
+        return `<section class="painel" aria-labelledby="vs-t"><div class="p-icon">${ic('info')}<h3 id="vs-t">${T.versaoTitulo}</h3></div>
+            <p>Versão ${esc(rotuloVersao(VERSAO))}.</p>
+            <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="buscar-atualizacao">${T.buscar}</button><button class="btn btn-terciario" type="button" data-exec="recarregar-zero" aria-describedby="d-zero">${T.zero}</button></div>
+            <p class="nota-geonames" id="d-zero">${T.zeroNota}</p>
+            <p class="diario-aviso" role="status" aria-live="polite" data-status-versao>${esc(this.statusVersao || '')}</p></section>`;
+    }
+
+    dizerVersao(msg) {
+        this.statusVersao = msg;
+        const el = this.querySelector('[data-status-versao]');
+        if (el) el.textContent = msg;
+    }
+
+    async buscarAtualizacao(botao) {
+        botao.disabled = true;
+        this.dizerVersao(T.buscando);
+        const r = await buscarAtualizacao();
+        botao.disabled = false;
+        this.dizerVersao(r === 'nova' ? T.versaoNova : r === 'atual' ? T.versaoAtual(VERSAO.versao) : T.erroBuscar);
+    }
+
+    async recarregarDoZero(botao) {
+        botao.disabled = true;
+        this.dizerVersao(T.zeroFazendo);
+        const r = await recarregarDoZero();
+        if (r === 'ok') return; // a pagina esta recarregando
+        botao.disabled = false;
+        this.dizerVersao(r === 'sem-rede' ? T.zeroSemRede : T.zeroErro);
     }
 
     dizer(msg) {
@@ -304,12 +352,16 @@ export class PerfilScreen extends HTMLElement {
         });
     }
 
-    executar(id) {
+    executar(id, botao) {
         const { p, emV } = this.dados;
         if (id === 'novo') navigateTo('novo-mapa');
         else if (id === 'meus-dados') navigateTo('novo-mapa', p ? { editar: p.id } : { meusDados: true });
         else if (id === 'editar' && emV) navigateTo('novo-mapa', { editar: emV.id });
-        else if (id === 'exportar') this.dizer(baixarBackup() ? T.exportado : T.erroExportar);
+        else if (id === 'exportar') {
+            this.dizer(baixarBackup() ? T.exportado : T.erroExportar);
+            desenharAvisoBackup(this.querySelector('[data-backup]'));
+        } else if (id === 'buscar-atualizacao') this.buscarAtualizacao(botao);
+        else if (id === 'recarregar-zero') this.recarregarDoZero(botao);
         else if (id === 'importar') this.querySelector('[data-arquivo]').click();
         else if (id === 'apagar') this.apagarMapa();
     }

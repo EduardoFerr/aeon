@@ -1,4 +1,9 @@
 import { esconderAviso } from '../components/Sobreposicao.js';
+import { iniciarAtualizacao } from './atualizacao.js';
+
+// Todas as paginas carregam este arquivo: e daqui que o service worker e registrado e que a versao nova e avisada.
+iniciarAtualizacao();
+
 /**
  * Tema da pagina (Crepusculo e Aurora). O script inline do <head> escolhe o tema antes da primeira
  * pintura e define window.AEON_THEMES. Aqui ficam o botao "Tema", o painel com as duas opcoes e a
