@@ -1,0 +1,86 @@
+/* O Templo de Afrodite. Reaproveita a mesa da Cruz (.cz-no, .cz-tela, .cz-barra, .cz-lista, painel .sob-cruz);
+   aqui ficam so a grade de tres colunas, a comparacao por linha, as dicas e a entrada do diario. So tokens dos temas. */
+
+/* ---------- a mesa: voce | rotulo do plano | a outra pessoa, e a Sintese embaixo, no centro ---------- */
+.tp-mesa { --gc: 12px; --gr: 8px; --w: min(100px, calc((100vw - 2 * var(--gutter) - 2 * var(--gc)) / 3));
+  display: grid; width: max-content; margin-inline: auto; justify-content: center; justify-items: center; align-items: start;
+  grid-template-columns: repeat(3, var(--w)); column-gap: var(--gc); row-gap: var(--gr); }
+.tp-col { margin: 0; width: var(--w); text-align: center; font: 600 0.6875rem/1.25 var(--font-ui); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); text-wrap: balance; }
+.tp-no .cz-rot { white-space: nowrap; }
+/* rotulo do plano: fica na altura da carta, no meio das duas colunas */
+.tp-plano { display: grid; align-content: center; justify-items: center; gap: 4px; width: var(--w); height: calc(var(--w) * 1.5); text-align: center; }
+.tp-plano b { font: 600 0.75rem/1.2 var(--font-ui); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.tp-plano .tp-rel { min-height: 1.2em; font: 400 0.75rem/1.2 var(--font-ui); letter-spacing: 0; text-transform: none; color: var(--text-soft); text-wrap: balance; }
+.tp-plano[data-relacao="tensao"] .tp-rel { color: var(--warn); }
+.tp-plano[data-relacao="sintonia"] .tp-rel, .tp-plano[data-relacao="combina"] .tp-rel { color: var(--text); font-weight: 500; }
+
+/* ---------- dicas de leitura ---------- */
+.tp-dicas-lista { display: grid; gap: var(--sp-2); text-align: left; padding: var(--sp-3) var(--sp-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-2); }
+.tp-dicas-lista h3 { margin: 0; font: 500 0.6875rem/1.2 var(--font-ui); letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.tp-dicas-lista ul, .tp-dicas ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
+.tp-dicas-lista li, .tp-dicas li { color: var(--text-soft); font-size: var(--fs-sm); line-height: 1.55; }
+.tp-dicas-lista li b, .tp-dicas li b { color: var(--text); font-weight: 600; }
+.tp-dicas { text-align: left; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.tp-dicas summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; color: var(--accent); font: 500 var(--fs-sm)/1.2 var(--font-ui); }
+.tp-dicas summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+.tp-dicas ul { padding-bottom: var(--sp-3); }
+.tp-dicas[open] summary { color: var(--text); }
+
+/* ---------- comparacao por linha e equilibrio ---------- */
+.tp-comp { display: grid; gap: var(--sp-4); text-align: left; padding: var(--sp-4) 0; border-top: 1px solid var(--line); }
+.tp-comp[hidden] { display: none; }
+.tp-h { margin: 0; font: var(--w-display) 1.375rem/1.2 var(--font-display); }
+.tp-h:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+.tp-lead { margin: 0; color: var(--text-soft); font-size: var(--fs-sm); line-height: 1.55; }
+.tp-linhas, .tp-barras { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+.tp-lin { display: grid; gap: 6px; padding: var(--sp-3) var(--sp-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); }
+.tp-lin-cab { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3); }
+.tp-lin h4 { margin: 0; font: 600 0.75rem/1.2 var(--font-ui); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.tp-rel-sintonia, .tp-rel-combina, .tp-rel-distinto, .tp-rel-tensao { display: inline-block; padding: 3px 10px; border-radius: var(--r-pill); border: 1px solid var(--accent); color: var(--text); font: 500 0.75rem/1.3 var(--font-ui); white-space: nowrap; }
+.tp-rel-combina { border-color: var(--text-soft); }
+.tp-rel-distinto { border-color: var(--line-strong); }
+.tp-rel-tensao { border-color: var(--warn); }
+.tp-lados { margin: 0; color: var(--text); font: 600 var(--fs-sm)/1.4 var(--font-ui); }
+.tp-frase, .tp-peso { margin: 0; color: var(--text-soft); font-size: var(--fs-sm); line-height: 1.55; }
+.tp-peso { color: var(--text); }
+.tp-eq { display: grid; gap: var(--sp-3); padding-top: var(--sp-4); border-top: 1px solid var(--line); }
+.tp-barra { display: grid; grid-template-columns: 4.5rem 6.5rem minmax(0, 1fr); align-items: center; gap: var(--sp-3); font-size: var(--fs-sm); }
+.tp-b-n { font-weight: 600; }
+.tp-seg { display: inline-flex; gap: 4px; }
+.tp-seg i { width: 22px; height: 8px; border-radius: 2px; background: var(--line-strong); }
+.tp-seg i.on { background: var(--accent); }
+.tp-barra[data-relacao="tensao"] .tp-seg i.on { background: var(--warn); }
+.tp-b-r { color: var(--text-soft); }
+.tp-eq-frase { margin: 0; color: var(--text); font-size: 1.0625rem; line-height: 1.5; }
+.tp-aviso { margin: 0; color: var(--text-mute); font-size: var(--fs-xs); line-height: 1.5; font-style: italic; }
+.tp-nota { margin-top: var(--sp-3); }
+
+/* ---------- painel: o nome da posicao e longo; o contexto cabe em duas ou tres linhas ---------- */
+.sob-templo .sob-ctx { line-height: 1.5; }
+
+/* ---------- desktop: mesa a esquerda, texto e acoes a direita ---------- */
+@media (min-width: 900px) {
+  .tp-mesa { --w: clamp(72px, calc((100dvh - 400px) / 6), 104px); --gc: 18px; --gr: 10px; }
+  .tp-tela .cz-lado-col { gap: var(--sp-4); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tp-no.proxima .cz-carta, .tp-no.entra .cz-carta { animation: none; }
+}
+
+/* ---------- diario: entrada do templo (duas colunas como na mesa, e a Sintese embaixo) ---------- */
+.diario-cartas.sete { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "a d" "b e" "c f" "g g"; gap: var(--sp-3); }
+.diario-cartas.sete .p-mental-voce { grid-area: a; }
+.diario-cartas.sete .p-afetivo-voce { grid-area: b; }
+.diario-cartas.sete .p-fisico-voce { grid-area: c; }
+.diario-cartas.sete .p-mental-outra { grid-area: d; }
+.diario-cartas.sete .p-afetivo-outra { grid-area: e; }
+.diario-cartas.sete .p-fisico-outra { grid-area: f; }
+.diario-cartas.sete .p-sintese { grid-area: g; justify-self: center; width: calc(50% - var(--sp-3) / 2); }
+.diario-cartas.sete .diario-pos { font-size: 0.625rem; letter-spacing: 0.06em; line-height: 1.25; }
+.diario-cartas.sete .diario-mini { grid-template-columns: 48px minmax(0, 1fr); align-items: center; gap: 8px; min-height: 72px; }
+.diario-cartas.sete .diario-mini img { width: 48px; height: 72px; }
+.diario-cartas.sete .diario-nome { font-size: 0.8125rem; overflow-wrap: break-word; }
+@media (min-width: 640px) {
+  .diario-cartas.sete { grid-template-columns: repeat(2, 168px); }
+  .diario-cartas.sete .p-sintese { width: 168px; }
+}

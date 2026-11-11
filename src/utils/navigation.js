@@ -1,5 +1,5 @@
-/* Telas da aba Tiragens: a escolha, a cruz e a leitura de tres cartas. */
-const TIRAGENS = ['tiragens', 'cruz', 'three-card-game'];
+/* Telas da aba Tiragens: a escolha, a cruz, o templo e a leitura de tres cartas. */
+const TIRAGENS = ['tiragens', 'cruz', 'templo', 'three-card-game'];
 
 /** Marca no menu a pagina atual (so visual e aria-current; a navegacao em si nao muda). */
 function marcarNavAtual(page) {
@@ -85,7 +85,7 @@ function concluir(page, y) {
     montada = true;
     if (primeira) { primeira = false; return; } // na carga nao rouba o foco
     entrarSuave();
-    if (TELAS_PERFIL[page] || page === 'cruz') return; // essas telas focam o proprio titulo (ou o campo) quando terminam de montar
+    if (TELAS_PERFIL[page] || page === 'cruz' || page === 'templo') return; // essas telas focam o proprio titulo (ou o campo) quando terminam de montar
     const a = document.activeElement;
     const dentro = a && document.getElementById('app').contains(a);
     if (dentro) return;
@@ -105,6 +105,7 @@ const TELAS_PERFIL = {
 const TELAS_TIRAGENS = {
     tiragens: ['tiragens-screen', () => import('../components/TiragensScreen.js')],
     cruz: ['cruz-screen', () => import('../components/CruzScreen.js')],
+    templo: ['templo-screen', () => import('../components/TemploScreen.js')],
 };
 let corrida = 0;
 
@@ -113,11 +114,11 @@ let corrida = 0;
  * URL, nunca dado de nascimento, nome, mapa ou diario: mapa, novo mapa e edicao mostram o endereco do Perfil e,
  * aberto direto, caem no Perfil. O estado em history.state guarda so o nome da tela.
  */
-const CHAVES = { 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', 'three-card-game': 'three-card-game', history: 'history', perfil: 'profile' };
+const CHAVES = { 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', templo: 'templo', 'three-card-game': 'three-card-game', history: 'history', perfil: 'profile' };
 const SEM_URL = ['novo-mapa', 'mapa'];
 const raizDe = (page) => (SEM_URL.includes(page) ? 'perfil' : page);
 const buscaDe = (page) => (CHAVES[raizDe(page)] ? `?${CHAVES[raizDe(page)]}` : '');
-const ALIAS = { 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', 'three-card-game': 'three-card-game', history: 'history', profile: 'perfil', perfil: 'perfil', mapa: 'perfil', 'novo-mapa': 'perfil', editar: 'perfil' };
+const ALIAS = { 'all-cards': 'all-cards', tiragens: 'tiragens', cruz: 'cruz', templo: 'templo', 'three-card-game': 'three-card-game', history: 'history', profile: 'perfil', perfil: 'perfil', mapa: 'perfil', 'novo-mapa': 'perfil', editar: 'perfil' };
 /** Tela pedida pela URL atual (a primeira chave conhecida da busca); sem chave conhecida, a Home. */
 function paginaDaUrl() {
     for (const k of new URLSearchParams(location.search).keys()) if (ALIAS[k]) return ALIAS[k];
