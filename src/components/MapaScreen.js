@@ -69,6 +69,7 @@ const T = {
     semCasas: 'Sem a hora de nascimento não há Ascendente, Meio do Céu nem casas.',
     aspectosLegenda: 'Linhas dos aspectos na roda',
     mais: 'Mais',
+    comoLer: 'Como ler o mapa',
 };
 const ABAS = [['resumo', 'Resumo'], ['leitura', 'Leitura'], ['casas', 'Casas'], ['aspectos', 'Aspectos']];
 const CHIP_ROTULO = { sol: 'Sol', lua: 'Lua', asc: 'Ascendente', planetas: 'Planetas', nodos: 'Nodos', retro: 'Retrógrados', elementos: 'Elementos' };
@@ -258,7 +259,7 @@ export class MapaScreen extends HTMLElement {
             this.secaoId = s.id;
         }
         const chips = `<nav class="mc-chips" aria-label="${T.secoesLeitura}"><div class="chips">${ss.map((x) => `<button class="chip" type="button" data-sec="${x.id}"${x.id === s.id ? ' aria-current="true"' : ''}>${x.glifo ? gl(x.glifo) : ic('roda')}${esc(CHIP_ROTULO[x.id] || x.titulo)}</button>`).join('')}</div></nav>`;
-        return `<div class="mc-pilha">${chips}<article class="mc-sec" aria-labelledby="leit-h">${this.corpoSecao(s)}</article></div>`;
+        return `<div class="mc-pilha">${chips}<article class="mc-sec" aria-labelledby="leit-h">${this.corpoSecao(s)}</article><p class="leit-guia"><a href="/guia-mapa-astral.html">${T.comoLer}</a></p></div>`;
     }
 
     painelCasas() {
