@@ -14,6 +14,8 @@
 .sob-ctx b { display: block; color: var(--text); font-size: var(--fs-md); font-weight: 600; }
 .sob-corpo { padding: 6px 20px 24px; overflow-y: auto; overscroll-behavior: contain; min-height: 0; flex: 1 1 auto; }
 .sob-corpo > * + * { margin-top: 12px; }
+.sob-rod { flex: none; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 10px; border-top: 1px solid var(--line); }
+.sob-rod .btn { width: auto; }
 
 /* menu lateral */
 .sob-gaveta { top: 0; right: 0; bottom: auto; max-height: 100vh; max-height: 100dvh; width: min(86vw, 340px); border-width: 0 0 1px 1px; border-radius: 0 0 0 var(--r-md); transform: translateX(100%); transition: transform 300ms var(--ease-ritual), opacity 300ms var(--ease-ritual); }
