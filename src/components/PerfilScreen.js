@@ -31,12 +31,9 @@ const T = {
     apagarMeus: 'Apagar meus dados',
     apagarEste: 'Apagar este mapa',
     apagar: 'Apagar',
-    tema: 'Tema',
-    mudarTema: 'Mudar o tema',
     privacidade: 'Privacidade e backup',
-    exportar: 'Exportar tudo',
-    importar: 'Importar',
-    importarBackup: 'Importar um backup',
+    exportar: 'Exportar backup',
+    importarBackup: 'Importar backup',
     naoCalculado: 'Não calculado',
     semAsc: 'Sem a hora, sem Ascendente',
     guardadoOk: 'Mapa guardado neste aparelho.',
@@ -55,7 +52,7 @@ const T = {
     grupoMapas: 'Mapas',
     grupoDados: 'Dados',
 };
-const ABAS = [['mapas', 'Mapas'], ['dados', 'Dados'], ['prefs', 'Preferências']];
+const ABAS = [['mapas', 'Mapas'], ['dados', 'Dados']];
 let ABA_LEMBRADA = 'mapas';
 
 const PAPEIS = { sol: 'Sol', lua: 'Lua', asc: 'Ascendente' };
@@ -85,8 +82,6 @@ export class PerfilScreen extends HTMLElement {
         this.desligar = aoMudar(() => {
             if (!(this.sobre && this.sobre.aberto)) this.desenhar();
         });
-        this.observador = new MutationObserver(() => this.marcarTema());
-        this.observador.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
         await this.desenhar();
         focarCabecalho('#perfil-h1');
         const a = this.estado.aviso;
@@ -97,7 +92,6 @@ export class PerfilScreen extends HTMLElement {
 
     disconnectedCallback() {
         if (this.desligar) this.desligar();
-        if (this.observador) this.observador.disconnect();
         if (this.sobre && this.sobre.aberto) this.sobre.fechar(false);
     }
 
@@ -111,15 +105,15 @@ export class PerfilScreen extends HTMLElement {
         return this.calculos.get(chave);
     }
 
-    /** Itens do menu "Ações": o que vale para o mapa em exibição (ou para os meus dados) e para o perfil todo. */
+    /**
+     * Itens do menu "Ações": so o que a aba aberta nao mostra. Backup mora na aba Dados, "Editar meus dados" no
+     * cartao e "Editar" na linha da pessoa; "Adicionar pessoa" so entra aqui quando a lista nao esta a vista.
+     */
     grupos(p, emV, total) {
-        const mapas = [];
-        if (emV) mapas.push({ id: 'editar', rot: T.editarEste, ic: 'editar' });
-        else if (p) mapas.push({ id: 'meus-dados', rot: T.editarMeus, ic: 'editar' });
-        mapas.push({ id: 'novo', rot: T.adicionar, ic: 'mais' });
-        const g = [[T.grupoMapas, mapas], [T.grupoDados, [...(total ? [{ id: 'exportar', rot: T.exportar, ic: 'baixar' }] : []), { id: 'importar', rot: T.importar, ic: 'copiar' }]]];
-        if (emV || p) g.push(['', [{ id: 'apagar', rot: emV ? T.apagarEste : T.apagarMeus, ic: 'lixo', perigo: true }]]);
-        return g;
+        const itens = [];
+        if (!(this.aba === 'mapas' && total > 0)) itens.push({ id: 'novo', rot: T.adicionar, ic: 'mais' });
+        if (emV || p) itens.push({ id: 'apagar', rot: emV ? T.apagarEste : T.apagarMeus, ic: 'lixo', perigo: true });
+        return itens.length ? [[T.grupoMapas, itens]] : [];
     }
 
     /** Cartao "Meus dados": o resumo do mapa principal, ou o convite unico para preencher. */
@@ -154,8 +148,7 @@ export class PerfilScreen extends HTMLElement {
 
     painelAba(dados) {
         if (this.aba === 'mapas') return this.painelMapas(...dados);
-        if (this.aba === 'dados') return `<div class="info-grid">${this.painelPriv(!dados[0] && !dados[2].length)}</div>`;
-        return `<div class="info-grid">${this.painelTema()}</div>`;
+        return `<div class="info-grid">${this.painelPriv(!dados[0] && !dados[2].length)}</div>`;
     }
 
     async desenhar(foco) {
@@ -172,7 +165,7 @@ export class PerfilScreen extends HTMLElement {
             <div class="perfil-topo">
                 ${ap ? `<span class="avatar" aria-hidden="true">${esc([...ap][0].toUpperCase())}</span>` : `<span class="avatar vazio" aria-hidden="true">${ic('perfil')}</span>`}
                 <div><span class="eyebrow">${T.eyebrow}</span><h1 id="perfil-h1" tabindex="-1">${T.titulo}</h1></div>
-                <button class="btn btn-ghost" id="abrir-acoes" data-abrir-acoes type="button" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${T.acoes}</button>
+                ${this.grupos(p, emV, this.dados.total).length ? `<button class="btn btn-ghost" id="abrir-acoes" data-abrir-acoes type="button" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${T.acoes}</button>` : ''}
             </div>`;
         const abas = ABAS.map(([k, n]) => `<button class="mc-tab" type="button" role="tab" id="pt-${k}" aria-selected="${k === this.aba}" aria-controls="painel-perfil" data-aba="${k}" tabindex="${k === this.aba ? 0 : -1}">${n}</button>`).join('');
         const alvo = emV || p;
@@ -183,7 +176,6 @@ export class PerfilScreen extends HTMLElement {
             <div id="painel-perfil" role="tabpanel" aria-labelledby="pt-${this.aba}" tabindex="0" class="mc-painel">${this.painelAba([p, calcP, outros, emV, calcV])}</div>
             <input type="file" accept="application/json,.json" hidden data-arquivo></div>`;
         this.ligar();
-        this.marcarTema();
         if (foco) {
             const el = this.querySelector(foco);
             if (el) el.focus({ preventScroll: false });
@@ -230,20 +222,10 @@ export class PerfilScreen extends HTMLElement {
             <button class="btn btn-terciario ver" type="button" data-ver="${esc(x.id)}" aria-pressed="${s}">${s ? T.emExibicao : T.ver}<span class="sr"> ${esc(x.rotulo)}</span></button></div>${corpo}</li>`;
     }
 
-    painelTema() {
-        return `<section class="painel" aria-labelledby="tm-t"><h3 id="tm-t">${T.tema}</h3><p>Agora: <strong style="color:var(--text)" data-tema-nome></strong>. A escolha vale para o site todo.</p>
-            <div class="btn-row"><button class="btn btn-ghost" type="button" data-acao="tema" aria-haspopup="dialog">${ic('tema')}${T.mudarTema}</button></div></section>`;
-    }
-
     painelPriv(vazio) {
         return `<section class="painel" aria-labelledby="pv-t"><div class="p-icon">${ic('cadeado')}<h3 id="pv-t">${T.privacidade}</h3></div><p>${esc(this.t('ui.aviso.privacidade'))}</p>
             <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="exportar" aria-describedby="d-exp"${vazio ? ' disabled' : ''}>${ic('baixar')}${T.exportar}</button><button class="btn btn-ghost" type="button" data-exec="importar" aria-describedby="d-imp">${ic('copiar')}${T.importarBackup}</button></div>
             <p class="nota-geonames" id="d-exp">${esc(this.t('ui.dados.exportar'))}</p><p class="nota-geonames" id="d-imp">${esc(this.t('ui.dados.importar'))}</p></section>`;
-    }
-
-    marcarTema() {
-        const t = document.documentElement.getAttribute('data-theme');
-        this.querySelectorAll('[data-tema-nome]').forEach((e) => (e.textContent = t === 'aurora' ? 'Aurora' : 'Crepúsculo'));
     }
 
     dizer(msg) {
@@ -282,10 +264,6 @@ export class PerfilScreen extends HTMLElement {
         );
         const acao = (nome, fn) => this.querySelectorAll(`[data-acao="${nome}"]`).forEach((b) => b.addEventListener('click', () => fn(b)));
         acao('ler', (b) => navigateTo('mapa', { id: b.dataset.id }));
-        acao('tema', () => {
-            const b = document.querySelector('.topbar .themebtn');
-            if (b) b.click();
-        });
         this.querySelectorAll('[data-exec]').forEach((b) => b.addEventListener('click', () => this.executar(b.dataset.exec, b)));
         this.querySelectorAll('[data-abrir-acoes]').forEach((b) => b.addEventListener('click', () => this.abrirAcoes(b)));
         this.querySelectorAll('.mc-tab').forEach((t) => {
