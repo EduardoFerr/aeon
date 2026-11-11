@@ -68,6 +68,29 @@ const MIGRACOES = [
         DROP TABLE usuarios;
         ALTER TABLE usuarios_novo RENAME TO usuarios;
     `),
+    // 3: varias contas por aparelho. A sessao (um cookie por aparelho) deixa de ter uma conta so e passa a ligar-se a varias,
+    // pela tabela sessao_contas. Recria sessoes sem usuario_id, com as ligacoes atuais copiadas antes.
+    (db) =>
+        db.exec(`
+        CREATE TABLE sessoes_nova (
+            id TEXT PRIMARY KEY,
+            token_hash TEXT NOT NULL UNIQUE,
+            aparelho TEXT NOT NULL,
+            criada_em TEXT NOT NULL,
+            ultimo_uso TEXT NOT NULL
+        );
+        INSERT INTO sessoes_nova (id, token_hash, aparelho, criada_em, ultimo_uso) SELECT id, token_hash, aparelho, criada_em, ultimo_uso FROM sessoes;
+        CREATE TABLE sessao_contas (
+            sessao_id TEXT NOT NULL REFERENCES sessoes(id) ON DELETE CASCADE,
+            usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+            vinculada_em TEXT NOT NULL,
+            PRIMARY KEY (sessao_id, usuario_id)
+        );
+        INSERT INTO sessao_contas (sessao_id, usuario_id, vinculada_em) SELECT id, usuario_id, criada_em FROM sessoes;
+        CREATE INDEX sessao_contas_usuario ON sessao_contas (usuario_id);
+        DROP TABLE sessoes;
+        ALTER TABLE sessoes_nova RENAME TO sessoes;
+    `),
 ];
 
 export function abrirBanco(caminho, { ateVersao = MIGRACOES.length } = {}) {

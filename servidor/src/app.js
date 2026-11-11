@@ -75,17 +75,17 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         limiteOuErro(`anonimo-ip:${chaveIp(ipDe(req))}`, 30, HORA);
         limiteOuErro('anonimo-global', 600, HORA);
         const r = auth.criarAnonimo(corpo.aparelho);
-        return { status: 201, corpo: { usuario: r.usuario }, cabecalhos: { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } };
+        return { status: 201, corpo: { usuario: r.usuario, contas: r.contas }, cabecalhos: { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } };
     });
 
     rotas.adicionar('POST', '/v1/auth/confirmar', { livre: true, limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, corpo }) => {
         const e = normalizarEmail(corpo.email);
         if (!e) throw new ErroHttp(400, 'codigo_invalido');
         limiteOuErro(`confirmar-ip:${chaveIp(ipDe(req))}`, 10, 15 * 60 * 1000);
-        const r = auth.confirmar(e, corpo.codigo, corpo.aparelho, lerCookies(req)[nomeCookie]);
+        const r = auth.confirmar(e, corpo.codigo, corpo.aparelho, lerCookies(req)[nomeCookie], req.headers['x-aeon-conta'], corpo.modo);
         return {
-            corpo: { usuario: r.usuario, vinculou: r.vinculou, fundiu: r.fundiu },
-            // com conta anonima no aparelho a sessao continua a mesma; so uma sessao nova leva cookie novo
+            corpo: { usuario: r.usuario, contas: r.contas, acao: r.acao },
+            // com sessao no aparelho ela continua a mesma; so uma sessao nova leva cookie novo
             cabecalhos: r.token ? { 'Set-Cookie': cookieSessao(r.token, Math.floor(SESSAO_MS / 1000)) } : {},
         };
     });
@@ -101,8 +101,25 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     });
 
     rotas.adicionar('GET', '/v1/eu', {}, async ({ sessao }) => ({
-        corpo: { email: sessao.usuario.email, anonimo: sessao.usuario.email === null, criado_em: sessao.usuario.criado_em },
+        corpo: { id: sessao.usuario.id, email: sessao.usuario.email, anonimo: sessao.usuario.email === null, criado_em: sessao.usuario.criado_em, contas: sessao.contas },
     }));
+
+    // Varias contas no mesmo aparelho: a sessao (um cookie) liga-se a elas; o cabecalho X-Aeon-Conta escolhe a em uso.
+    rotas.adicionar('GET', '/v1/contas', {}, async ({ sessao }) => ({ corpo: { contas: sessao.contas } }));
+
+    rotas.adicionar('POST', '/v1/contas/anonima', { limiteCorpo: LIMITE_CORPO_AUTH }, async ({ sessao }) => {
+        limiteOuErro(`anonima:${sessao.sessaoId}`, 10, HORA);
+        limiteOuErro('anonimo-global', 600, HORA);
+        const r = auth.adicionarAnonima(sessao.sessaoId);
+        return { status: 201, corpo: { usuario: r.usuario, contas: r.contas } };
+    });
+
+    rotas.adicionar('DELETE', '/v1/contas/:id', {}, async ({ sessao, params }) => {
+        const uid = Number(params.id);
+        const r = Number.isInteger(uid) ? auth.desvincular(sessao.sessaoId, uid) : null;
+        if (!r) throw new ErroHttp(404, 'nao_encontrado');
+        return { corpo: { ok: true, contas: r.contas }, cabecalhos: r.sessaoFechada ? { 'Set-Cookie': cookieSessao('', 0) } : {} };
+    });
 
     rotas.adicionar('GET', '/v1/aparelhos', {}, async ({ sessao }) => ({
         corpo: { aparelhos: auth.aparelhos(sessao.usuario.id, sessao.sessaoId) },
@@ -111,7 +128,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     rotas.adicionar('DELETE', '/v1/aparelhos/:id', {}, async ({ sessao, params }) => {
         const era = params.id === sessao.sessaoId;
         if (!auth.encerrarAparelho(sessao.usuario.id, params.id)) throw new ErroHttp(404, 'nao_encontrado');
-        return { corpo: { ok: true }, cabecalhos: era ? { 'Set-Cookie': cookieSessao('', 0) } : {} };
+        return { corpo: { ok: true }, cabecalhos: era && !auth.sessaoAberta(params.id) ? { 'Set-Cookie': cookieSessao('', 0) } : {} };
     });
 
     rotas.adicionar('GET', '/v1/sync', {}, async ({ sessao, url }) => {
@@ -143,8 +160,11 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         if (corpo.confirmo !== 'apagar') throw new ErroHttp(400, 'confirmacao_necessaria');
         const emailDoUsuario = sessao.usuario.email;
         sync.apagarConta(sessao.usuario.id);
+        auth.varrer();
         if (emailDoUsuario) enviarEmail(emailDoUsuario, mensagemContaApagada());
-        return { corpo: { ok: true }, cabecalhos: { 'Set-Cookie': cookieSessao('', 0) } };
+        // se o aparelho ainda tem outras contas, a sessao (e o cookie) continua
+        const resta = auth.sessaoAberta(sessao.sessaoId) ? auth.contas(sessao.sessaoId) : [];
+        return { corpo: { ok: true, contas: resta }, cabecalhos: resta.length ? {} : { 'Set-Cookie': cookieSessao('', 0) } };
     });
 
     async function tratar(req, res) {
@@ -185,7 +205,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
                 res.writeHead(204, {
                     ...cabecalhos,
                     'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Access-Control-Allow-Headers': 'Content-Type, X-Aeon-Conta',
                     'Access-Control-Max-Age': '600',
                 });
                 return res.end();
@@ -199,7 +219,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
             let sessao = null;
             if (!rota.opcoes.livre) {
                 const token = lerCookies(req)[nomeCookie];
-                sessao = auth.sessaoDoToken(token);
+                sessao = auth.sessaoDoToken(token, req.headers['x-aeon-conta']);
                 if (!sessao) throw new ErroHttp(401, 'nao_autenticado');
                 usuarioId = sessao.usuario.id;
             }
@@ -225,7 +245,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
                 else res.end();
             }
         } finally {
-            log({ evento: 'pedido', metodo: req.method, rota: caminho.replace(/\/aparelhos\/[^/]+$/, '/aparelhos/:id'), status, ms: relogio() - inicio, usuario: usuarioId });
+            log({ evento: 'pedido', metodo: req.method, rota: caminho.replace(/\/aparelhos\/[^/]+$/, '/aparelhos/:id').replace(/\/contas\/\d+$/, '/contas/:id'), status, ms: relogio() - inicio, usuario: usuarioId });
         }
     }
 

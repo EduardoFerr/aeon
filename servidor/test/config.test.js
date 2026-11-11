@@ -30,6 +30,6 @@ test('fora de produção aceita localhost e e-mail no console', () => {
 
 test('migrações rodam uma vez e o banco fica na versão certa', () => {
     const db = abrirBanco(':memory:');
-    assert.equal(db.prepare('PRAGMA user_version').get().user_version, 2);
+    assert.equal(db.prepare('PRAGMA user_version').get().user_version, 3);
     assert.equal(db.prepare("SELECT COUNT(*) AS n FROM sqlite_master WHERE name IN ('usuarios','codigos','sessoes','itens')").get().n, 4);
 });
