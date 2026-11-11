@@ -22,41 +22,41 @@ export class TarotCardInfo extends HTMLElement {
                     <p id="card-description"></p>
                     <div class="card-border">
                         <p>
-                            <strong>Descrição Simbólica: </strong><br><span id="card-symbolic-description"></span>
+                            <strong>Descrição simbólica</strong><span id="card-symbolic-description"></span>
                         </p>
                         <p>
-                            <strong>Mensagem Esotérica: </strong><br><span id="card-message-esoteric"></span>
+                            <strong>Mensagem esotérica</strong><span id="card-message-esoteric"></span>
                         </p>
                     </div>
                     <div class="card-border">
                         <p >
-                            <strong id="rotulo-maior">Oitava Maior: </strong><span id="card-maior"></span>
+                            <strong id="rotulo-maior">Oitava maior</strong><span id="card-maior"></span>
                         </p>
                         <p >
-                            <strong id="rotulo-menor">Oitava Menor: </strong><span id="card-menor"></span>
+                            <strong id="rotulo-menor">Oitava menor</strong><span id="card-menor"></span>
                         </p>
                     </div>
                     <div class="card-border non-wrap">
                         <p id="card-numero">
-                            <strong>Número: </strong><span></span>
+                            <strong>Número</strong><span></span>
                         </p>
                         <p id="card-arcano">
-                            <strong>Arcano: </strong><span></span>
+                            <strong>Arcano</strong><span></span>
                         </p>
                         <p id="card-suit">
-                            <strong>Naipe: </strong><span></span>
+                            <strong>Naipe</strong><span></span>
                         </p>
                         <p id="card-element">
-                            <strong>Elemento: </strong><span></span>
+                            <strong>Elemento</strong><span></span>
                         </p>
                         <p id="card-astrology">
-                            <strong>Astrologia: </strong><span></span>
+                            <strong>Astrologia</strong><span></span>
                         </p>
                     </div>
                     <section id="card-arvore" class="card-arvore" aria-labelledby="card-arvore-titulo"></section>
                     <div class="card-border">
-                        <p><strong>Alquimia Interna: </strong><span id="card-internal-alchemy"></span></p>
-                        <p><strong>Prática Mágica: </strong><span id="card-magical-practice"></span></p>
+                        <p><strong>Alquimia interna</strong><span id="card-internal-alchemy"></span></p>
+                        <p><strong>Prática mágica</strong><span id="card-magical-practice"></span></p>
                     </div>
                     <div id="card-meditation-reflection"></div>
                     <div id="card-past-present-future"></div>
@@ -158,8 +158,8 @@ export class TarotCardInfo extends HTMLElement {
         this.preencherLinha('#card-astrology', cardData.astrology);
 
         // As cartas já reescritas usam Luz e Sombra; as demais ainda têm Oitava Maior e Menor
-        this.querySelector('#rotulo-maior').textContent = cardData.texto_thoth ? 'Luz: ' : 'Oitava Maior: ';
-        this.querySelector('#rotulo-menor').textContent = cardData.texto_thoth ? 'Sombra: ' : 'Oitava Menor: ';
+        this.querySelector('#rotulo-maior').textContent = cardData.texto_thoth ? 'Luz' : 'Oitava maior';
+        this.querySelector('#rotulo-menor').textContent = cardData.texto_thoth ? 'Sombra' : 'Oitava menor';
         this.definirTexto('#card-maior', cardData.eighth_greater || not_found, usados);
         this.definirTexto('#card-menor', cardData.eighth_lesser || not_found, usados);
         this.definirTexto('#card-internal-alchemy', cardData.internal_alchemy || not_found, usados);
@@ -167,7 +167,7 @@ export class TarotCardInfo extends HTMLElement {
 
         // Meditação e reflexão
         const meditationContainer = this.querySelector('#card-meditation-reflection');
-        meditationContainer.innerHTML = '<strong>Meditação e Reflexão:</strong>';
+        meditationContainer.innerHTML = '<strong>Meditação e reflexão</strong>';
         if (cardData.meditation_reflection) {
             const list = document.createElement('ul');
             cardData.meditation_reflection.forEach(item => {
@@ -189,7 +189,7 @@ export class TarotCardInfo extends HTMLElement {
         const tempos = ['past', 'present', 'future'];
         pastPresentFutureContainer.innerHTML = tempos
             .map((chave, i) => `
-            <p><strong>${rotulos[i]}:</strong> <br> ${linkarTermos(cardData.past_present_future?.[chave] || 'Não disponível.', usados)}</p>`)
+            <p><strong>${rotulos[i]}</strong>${linkarTermos(cardData.past_present_future?.[chave] || 'Não disponível.', usados)}</p>`)
             .join('');
 
         this.montarArvore(cardData, usados);
@@ -239,7 +239,7 @@ export function abrirResumoCarta(carta, { frase = '', rotulo = '', gatilho } = {
         gatilho,
         corpo: `<div class="sob-carta"><img src="assets/cards/crowley-${esc(carta.order)}.jpg" alt="${esc(carta.name || '')}" width="274" height="410">
             <div>${rotulo ? `<p class="rot">${esc(rotulo)}</p>` : ''}<p>${esc(texto)}</p></div></div>
-            <button type="button" class="btn btn-ghost" data-foco data-inteira style="margin-top:14px">Abrir a carta inteira ${ic('seta')}</button>`,
+            <button type="button" class="btn btn-primary" data-foco data-inteira style="margin-top:14px">Abrir a carta inteira ${ic('seta')}</button>`,
     });
     c.corpo.querySelector('[data-inteira]').addEventListener('click', () => {
         c.fechar(false);
