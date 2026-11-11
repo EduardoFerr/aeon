@@ -402,7 +402,7 @@
       "Lamed"
     ],
     "auto": true,
-    "curto": "Décima segunda letra; significa aguilhão, a vara que conduz o boi. É a letra do Ajuste, no caminho 22, sob Libra.",
+    "curto": "Décima segunda letra; significa aguilhão, a vara que conduz o boi. É a letra do Ajustamento, no caminho 22, sob Libra.",
     "mais": "Ensina corrigindo, e é a letra mais alta do alfabeto. O caminho liga Geburah a Tiphareth.",
     "ver_tambem": [
       "caminho",
@@ -528,7 +528,7 @@
       "Shin"
     ],
     "auto": true,
-    "curto": "Vigésima primeira letra; significa dente. É a letra do Éon, no caminho 31, ligada ao Fogo e ao espírito.",
+    "curto": "Vigésima primeira letra; significa dente. É a letra do Aeon, no caminho 31, ligada ao Fogo e ao espírito.",
     "mais": "Tem três traços, como três línguas de fogo, e é uma das letras-mãe. O caminho liga Hod a Malkuth.",
     "ver_tambem": [
       "caminho",
@@ -979,7 +979,7 @@
       "Nuit"
     ],
     "auto": true,
-    "curto": "Deusa do espaço infinito e das estrelas em Thelema; seu corpo arqueado é o céu. Aparece na Estrela e no Éon.",
+    "curto": "Deusa do espaço infinito e das estrelas em Thelema; seu corpo arqueado é o céu. Aparece na Estrela e no Aeon.",
     "mais": "O nome vem da deusa egípcia Nut. É o infinito do espaço, a possibilidade de tudo; seu par, Hadit, é o ponto onde tudo se experimenta.",
     "ver_tambem": [
       "hadit",
@@ -1008,7 +1008,7 @@
     ],
     "auto": true,
     "curto": "Deus egípcio de cabeça de falcão. Em Thelema, é o deus da nova era, que se abre em 1904; aparece como criança e como guerreiro.",
-    "mais": "Hoor-paar-kraat é o Hórus criança, do silêncio; Ra-Hoor-Khuit, o Hórus guerreiro, da ação. A carta do Éon traz a sua era.",
+    "mais": "Hoor-paar-kraat é o Hórus criança, do silêncio; Ra-Hoor-Khuit, o Hórus guerreiro, da ação. A carta do Aeon traz a sua era.",
     "ver_tambem": [
       "eon-de-horus",
       "thelema"
@@ -1019,7 +1019,8 @@
     "termo": "éon",
     "aliases": [
       "Éon",
-      "éon"
+      "éon",
+      "Aeon"
     ],
     "auto": false,
     "curto": "Uma era de longa duração, marcada por um princípio dominante. Em Thelema, a história se divide em éons: o de Ísis, o de Osíris e o de Hórus.",
@@ -1038,7 +1039,7 @@
     ],
     "auto": false,
     "curto": "A era que, segundo Thelema, começou em 1904 com o Livro da Lei e tem como centro a vontade verdadeira de cada pessoa.",
-    "mais": "Sucede o éon de Osíris, regido pela fórmula do deus que morre. O Éon do tarot (carta XX) é o seu retrato.",
+    "mais": "Sucede o éon de Osíris, regido pela fórmula do deus que morre. O Aeon do tarot (carta XX) é o seu retrato.",
     "ver_tambem": [
       "eon",
       "livro-da-lei"
@@ -1094,7 +1095,7 @@
     ],
     "auto": true,
     "curto": "Deusa egípcia da verdade, da ordem e da justiça cósmica. Sua pena servia de contrapeso ao coração dos mortos.",
-    "mais": "Pesar o coração contra a pena de Maat era o juízo dos mortos. Na carta do Ajuste, a figura com espada e balança remete a ela.",
+    "mais": "Pesar o coração contra a pena de Maat era o juízo dos mortos. Na carta do Ajustamento, a figura com espada e balança remete a ela.",
     "ver_tambem": [
       "osiris"
     ]
@@ -1225,7 +1226,7 @@
     ],
     "auto": false,
     "curto": "Baralho de 78 cartas criado por Aleister Crowley e pintado por Lady Frieda Harris. Concluído em 1943, só foi publicado em 1969.",
-    "mais": "Segue a Cabala e a astrologia, com nomes e imagens próprios: Ajuste no lugar de Justiça, Luxúria no de Força, Arte no de Temperança, Éon no de Julgamento e Universo no de Mundo. A Corte é Cavaleiro, Rainha, Príncipe e Princesa.",
+    "mais": "Segue a Cabala e a astrologia, com nomes e imagens próprios: Ajustamento no lugar de Justiça, Luxúria no de Força, Arte no de Temperança, Aeon no de Julgamento e Universo no de Mundo. A Corte é Cavaleiro, Rainha, Príncipe e Princesa.",
     "ver_tambem": [
       "golden-dawn",
       "tarot-de-marselha",
