@@ -1,10 +1,11 @@
 import { criarLeitura, atualizarLeitura, limparPergunta, pedirFoco, LIMITE_PERGUNTA } from '../utils/diario.js';
-import { navigateTo } from '../utils/navigation.js';
+import { navigateTo, consumirEstado } from '../utils/navigation.js';
+import { entradaParaTela } from '../utils/reabrir.js';
 import { loadCards, shuffle } from '../utils/cardsUtil.js';
 import { escaparHtml } from '../utils/glossario.js';
 import { dataLocal } from '../utils/cartaDoDia.js';
 import { ic } from '../utils/glifos.js';
-import { abrir, ehDesktop } from './Sobreposicao.js';
+import { abrir, ehDesktop, avisar } from './Sobreposicao.js';
 import('./TarotCardInfo.js');
 
 const POSICOES = ['passado', 'presente', 'futuro'];
@@ -50,6 +51,7 @@ const TEXTO = {
     acoes: 'Ações',
     acoesTitulo: 'Ações da leitura',
     cartaoFalhou: 'Não foi possível montar o cartão agora.',
+    reabrirFalhou: 'Não encontramos esta leitura no seu diário. Ela pode ter sido apagada.',
     revelada: (pos, carta) => `${pos} revelado: ${carta.name}, ${carta.title}.`,
     todasReveladas: 'As três cartas foram reveladas. Você pode escrever no diário, compartilhar ou fazer uma nova leitura.',
     erro: 'Não foi possível tirar as cartas agora. Recarregue a página.',
@@ -69,7 +71,9 @@ export class ThreeCardGameScreen extends HTMLElement {
         this.baralho = [];
         this.escolhas = []; // indices do baralho tocados, na ordem
         this.entradaId = null;
+        this.dataLeitura = '';
         this.timers = new Set();
+        const pedido = (consumirEstado() || {}).reabrir;
 
         this.innerHTML = `
             <section class="three-card-game leitura" aria-label="${TEXTO.titulo}">
@@ -84,7 +88,33 @@ export class ThreeCardGameScreen extends HTMLElement {
         `;
         document.querySelector('#page-title').textContent = TEXTO.titulo;
         this.palco = this.querySelector('[data-palco]');
-        this.irPara('pergunta', { foco: false });
+        if (pedido) this.reabrirEntrada(pedido);
+        else this.irPara('pergunta', { foco: false });
+    }
+
+    /**
+     * Vem do diario ("Reabrir leitura"): monta as tres cartas ja escolhidas e as vira. Nada e gravado de novo:
+     * a entrada continua a mesma, e o botao final leva de volta a ela.
+     */
+    async reabrirEntrada(id) {
+        let r = null;
+        try {
+            r = entradaParaTela(id, 'leitura', POSICOES, await loadCards());
+        } catch (e) { /* cai no aviso abaixo */ }
+        if (!this.isConnected) return;
+        if (!r) {
+            this.irPara('pergunta', { foco: false });
+            avisar(TEXTO.reabrirFalhou, { erro: true });
+            return;
+        }
+        this.baralho = r.cartas;
+        this.escolhas = [0, 1, 2];
+        this.pergunta = r.pergunta;
+        this.entradaId = r.id;
+        this.dataLeitura = r.data;
+        this.irPara('revelar', { foco: false });
+        this.palco.querySelector('.leitura-titulo')?.focus({ preventScroll: true });
+        this.revelarTodas(0);
     }
 
     disconnectedCallback() {
@@ -406,12 +436,12 @@ export class ThreeCardGameScreen extends HTMLElement {
     }
 
     /** Vira as que faltam, uma a uma, com 500 ms entre elas (sem pausa com movimento reduzido). */
-    revelarTodas() {
+    revelarTodas(escalonamento = ESCALONAMENTO) {
         const botao = this.palco.querySelector('[data-acao="revelar-todas"]');
         if (botao) botao.disabled = true;
         const reduz = reduzMovimento();
         const faltam = [...this.palco.querySelectorAll('tarot-card')].filter((c) => c.isFlipped);
-        faltam.forEach((carta, n) => this.espera(() => carta.isFlipped && carta.flipCard(), reduz ? 0 : n * ESCALONAMENTO));
+        faltam.forEach((carta, n) => this.espera(() => carta.isFlipped && carta.flipCard(), reduz ? 0 : n * escalonamento));
     }
 
     /** Depois das tres reveladas: escrever no diario e nova leitura. */
@@ -457,7 +487,7 @@ export class ThreeCardGameScreen extends HTMLElement {
     async compartilhar() {
         try {
             const { abrirCartaoLeitura } = await import('../utils/cartaoLeitura.js');
-            await abrirCartaoLeitura({ cartas: this.cartasEscolhidas, pergunta: this.pergunta, data: dataLocal() });
+            await abrirCartaoLeitura({ cartas: this.cartasEscolhidas, pergunta: this.pergunta, data: this.dataLeitura || dataLocal() });
         } catch (e) {
             this.anunciar(TEXTO.cartaoFalhou);
         }
@@ -470,6 +500,7 @@ export class ThreeCardGameScreen extends HTMLElement {
         this.escolhas = [];
         this.pergunta = '';
         this.entradaId = null;
+        this.dataLeitura = '';
         this.irPara('pergunta');
     }
 }

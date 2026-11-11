@@ -123,3 +123,6 @@
   .diario-cab { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: var(--sp-2); margin-right: -8px; }
   .diario-dia b { font-size: 2rem; }
 }
+
+.diario-acoes { display: flex; justify-content: flex-end; }
+.diario-acoes .icon { width: 18px; height: 18px; }

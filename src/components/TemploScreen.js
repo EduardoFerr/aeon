@@ -3,10 +3,11 @@ import { carregarTextos, texto, esc } from '../utils/mapaComum.js';
 import { dataLocal } from '../utils/cartaDoDia.js';
 import { ic } from '../utils/glifos.js';
 import { limparPergunta, LIMITE_PERGUNTA, guardarTemplo, apagarEntrada, pedirFoco } from '../utils/diario.js';
-import { navigateTo } from '../utils/navigation.js';
+import { navigateTo, consumirEstado } from '../utils/navigation.js';
+import { entradaParaTela } from '../utils/reabrir.js';
 import { abrir, ehDesktop, avisar, reduzMovimento } from './Sobreposicao.js';
 import {
-    POSICOES, TOTAL, SINTESE, PLANOS, faltamSeis, sinteseLiberada, proximaVaga, proximaLeitura, anterior, seguinte,
+    POSICOES, IDS_POSICAO, TOTAL, SINTESE, PLANOS, faltamSeis, sinteseLiberada, proximaVaga, proximaLeitura, anterior, seguinte,
     vizinho, blocos, linhaResumo, colocarCarta, paraDiario, compararPlanos, equilibrio, juntar,
 } from '../utils/templo.js';
 import('./TarotCardInfo.js');
@@ -25,6 +26,7 @@ const arquivo = (c) => `assets/cards/crowley-${String(c.order).padStart(2, '0')}
  */
 export class TemploScreen extends HTMLElement {
     async connectedCallback() {
+        const pedido = (consumirEstado() || {}).reabrir;
         this.timers = new Set();
         this.fase = 'carregando';
         this.pergunta = '';
@@ -48,7 +50,35 @@ export class TemploScreen extends HTMLElement {
         this.querySelector('.cz-raiz').setAttribute('aria-label', this.t('ui.templo.titulo'));
         document.querySelector('#page-title').textContent = this.t('ui.templo.titulo');
         this.ouvirTeclas();
+        if (pedido && (await this.reabrirEntrada(pedido))) return;
         this.desenharPergunta(true);
+    }
+
+    /**
+     * Vem do diario ("Reabrir leitura"): coloca e vira as cartas guardadas. Nada e gravado de novo: a entrada
+     * continua a mesma, e o botao final leva de volta a ela. Devolve false se nao deu (a tela comeca do zero).
+     */
+    async reabrirEntrada(id) {
+        let r = null;
+        try {
+            const todas = await loadCards();
+            r = entradaParaTela(id, 'templo', IDS_POSICAO, todas);
+            if (r) this.todasCartas = todas;
+        } catch (e) { /* cai no aviso abaixo */ }
+        if (!this.isConnected) return true;
+        if (!r) {
+            avisar('Não encontramos esta leitura no seu diário. Ela pode ter sido apagada.', { erro: true });
+            return false;
+        }
+        this.zerar();
+        this.cartas = r.cartas;
+        this.vir = Array(TOTAL).fill(true);
+        this.pergunta = r.pergunta;
+        this.entradaId = r.id;
+        this.dataLeitura = r.data;
+        this.desenharMesa(false);
+        this.palco.querySelector('.leitura-titulo')?.focus({ preventScroll: true });
+        return true;
     }
 
     disconnectedCallback() {
@@ -95,6 +125,7 @@ export class TemploScreen extends HTMLElement {
         this.lida = Array(TOTAL).fill(false);
         this.aberta = -1;
         this.entradaId = null;
+        this.dataLeitura = '';
     }
 
     nColocadas() { return this.cartas.filter(Boolean).length; }
@@ -566,7 +597,7 @@ export class TemploScreen extends HTMLElement {
         this.fecharSobre(false);
         try {
             const { abrirCartaoTemplo } = await import('../utils/cartaoTemplo.js');
-            await abrirCartaoTemplo({ cartas: this.cartas, pergunta: this.pergunta, data: dataLocal(), relacoes: compararPlanos(this.cartas).map((l) => l.relacao) });
+            await abrirCartaoTemplo({ cartas: this.cartas, pergunta: this.pergunta, data: this.dataLeitura || dataLocal(), relacoes: compararPlanos(this.cartas).map((l) => l.relacao) });
         } catch (e) {
             avisar(this.t('ui.cruz.cartao.erro'), { erro: true });
         }
