@@ -37,3 +37,15 @@
 .prosa :target { scroll-margin-top: 140px; }
 .prosa > ol:first-of-type { padding: var(--sp-5) var(--sp-5) var(--sp-5) calc(var(--sp-5) + 1.4em); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); }
 .pagina .scroll-to-top { bottom: 24px; }
+
+/* Seletor entre os dois guias (livro.html e guia-mapa-astral.html): duas opcoes, a atual com aria-current */
+.guias { display: flex; gap: 4px; width: 100%; max-width: 440px; margin: var(--sp-3) 0 var(--sp-5); padding: 4px; border: 1px solid var(--line-strong); border-radius: var(--r-pill); background: var(--surface); }
+.prosa .guias a { flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 12px; border-radius: var(--r-pill); font-size: var(--fs-sm); font-weight: 500; line-height: 1.2; text-align: center; text-decoration: none; color: var(--text-soft); }
+.prosa .guias a:hover { color: var(--text); }
+.prosa .guias a[aria-current="page"] { color: var(--text); background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line-strong); font-weight: 600; }
+.prosa .guias a:focus-visible { outline-offset: -3px; }
+[data-theme="aurora"] .guias { background: none; }
+[data-theme="aurora"] .prosa .guias a[aria-current="page"] { background: none; box-shadow: inset 0 -2px 0 var(--accent); border-radius: 0; }
+
+/* Celular: o menu das paginas estaticas quebra em duas linhas e, fixo, cobria cerca de um quinto da tela. Aqui ele rola com a pagina. */
+@media (max-width: 859px) { .pagina .topbar { position: static; } }

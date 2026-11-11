@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Adsense-->
+    <meta name="google-adsense-account" content="ca-pub-2759240122102769" />
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YVN8XV3KS1"
+    ></script>
+    <script async>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-YVN8XV3KS1");
+    </script>
+    <title>Guia do Mapa Astral - Aeon Fool</title>
+    <meta name="description" content="Guia simplificado do mapa astral: o que informar, Sol, Lua e Ascendente, signos, planetas, casas, aspectos e a ponte com as cartas do Tarot de Thoth." />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>
+      /* Tema antes da primeira pintura (sem flash do tema errado). Ordem: escolha salva > prefers-color-scheme
+         (escuro = Crepusculo, claro = Aurora). Funciona sem localStorage. So as fontes do tema ativo sao pedidas. */
+      (function () {
+        var d = document.documentElement;
+        var TH = {
+          crepusculo: { scheme: "dark", color: "#14101c",
+            fonts: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap",
+            faces: ['500 1em "Cormorant Garamond"', 'italic 500 1em "Cormorant Garamond"', '400 1em "Inter"', '600 1em "Inter"'] },
+          aurora: { scheme: "light", color: "#f1f3ec",
+            fonts: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,48,300..600;1,48,300..500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap",
+            faces: ['350 1em "Fraunces"', 'italic 400 1em "Fraunces"', '400 1em "Hanken Grotesk"', '600 1em "Hanken Grotesk"'] }
+        };
+        window.AEON_THEMES = TH;
+        var t = null;
+        try { var s = localStorage.getItem("aeon.tema"); if (TH[s]) t = s; } catch (e) {}
+        if (!t) t = window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "aurora" : "crepusculo";
+        d.setAttribute("data-theme", t);
+        d.style.colorScheme = TH[t].scheme;
+        var m = document.createElement("meta"); m.name = "theme-color"; m.content = TH[t].color; document.head.appendChild(m);
+        var l = document.createElement("link"); l.rel = "stylesheet"; l.href = TH[t].fonts; l.id = "font-" + t; document.head.appendChild(l);
+      })();
+    </script>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/guia-mapa.css" />
+  </head>
+  <body id="guia-mapa" class="pagina">
+    <a class="sr" href="#main">Pular para o conteúdo</a>
+    <header class="topbar">
+      <div class="container topbar-in">
+        <a class="brand" href="/" aria-label="Aeon Fool, página inicial"><svg viewBox="-2 -2 134 36" aria-hidden="true" focusable="false"><g fill="none" class="brand-ink" stroke-width="2.2" stroke-linejoin="miter"><path d="M1 30 L13 2 L25 30 M6 19 H20 M37 2 V30 M37 2 H54 M37 16 H51 M37 30 H54 M105 30 V2 L127 30 V2"/></g><g fill="none" class="brand-eye" stroke-width="2.2"><circle cx="79" cy="16" r="14"/><path d="M79 7V25M70 16H88M72.6 9.6L85.4 22.4M85.4 9.6L72.6 22.4" stroke-width="1.4"/><circle cx="79" cy="16" r="2.5"/></g></svg></a>
+        <nav class="sitenav" aria-label="Menu principal">
+          <ul>
+            <li><a href="/livro.html">Guia</a></li>
+            <li><a href="/sobre.html">Sobre Nós</a></li>
+            <li><a href="/contato.html">Contato</a></li>
+            <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          </ul>
+        </nav>
+        <div class="topright">
+          <button class="iconbtn themebtn" type="button" aria-haspopup="dialog">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 100 17c1.3 0 2-.8 2-1.8 0-1.5-1.3-1.7-1.3-3 0-1 .8-1.7 1.8-1.7H17a3.5 3.5 0 003.5-3.5C20.5 6.7 16.7 3.5 12 3.5z"/><circle cx="7.8" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.8" cy="7.8" r="1"/></svg><span class="tl">Tema</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="prosa">
+      <nav class="guias" aria-label="Guias do site">
+        <a href="/livro.html">Guia do Tarot</a>
+        <a href="/guia-mapa-astral.html" aria-current="page">Guia do mapa astral</a>
+      </nav>
+      <h1>Guia simplificado do mapa astral</h1>
+      <p class="lede">
+        Um roteiro curto para montar o mapa pela primeira vez: o que é o mapa,
+        o que informar, o vocabulário essencial e como cada posição se liga a
+        uma carta do Tarot de Thoth.
+      </p>
+
+      <section aria-labelledby="o-que-e">
+        <h2 id="o-que-e">O que é o mapa astral</h2>
+        <p>
+          O mapa astral é um retrato do céu no instante e no lugar do
+          nascimento. Ele registra em que signo estava cada astro, em que ponto
+          do céu ele aparecia e que ângulos os astros formavam entre si.
+        </p>
+        <p>
+          Cada posição tem um significado tradicional, e a leitura junta todas elas.
+          Não é uma previsão fechada, e o mesmo mapa admite mais de uma leitura.
+        </p>
+      </section>
+
+      <section aria-labelledby="o-trio">
+        <h2 id="o-trio">O trio e o Meio do Céu</h2>
+        <p>
+          Três posições abrem a leitura. Um quarto ponto, o Meio do Céu, vem
+          junto com elas.
+        </p>
+        <ul>
+          <li>
+            <strong>Sol</strong>: o signo em que o Sol estava no nascimento. É o
+            signo de que se fala no dia a dia. Representa a vontade e o brilho,
+            e o Sol troca de signo mais ou menos a cada mês.
+          </li>
+          <li>
+            <strong>Lua</strong>: o signo em que a Lua estava. Representa o
+            sentir e o ritmo, o modo de reagir ao que toca.
+          </li>
+          <li>
+            <strong>Ascendente</strong>: o signo que nascia no horizonte leste
+            no instante do nascimento. Representa o modo de chegar e de ser
+            visto, e abre a casa 1.
+          </li>
+          <li>
+            <strong>Meio do Céu</strong>: o ponto da eclíptica, o caminho
+            aparente do Sol no céu, que cruzava o alto do céu no instante do
+            nascimento. Trata do que se constrói à vista e abre a casa 10.
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="o-que-informar">
+        <h2 id="o-que-informar">O que informar, e por que a hora importa</h2>
+        <p>
+          São três dados: <strong>data</strong>, <strong>hora</strong> e
+          <strong>cidade</strong> de nascimento. A cidade fornece a latitude, a
+          longitude e o fuso horário. A hora é a do relógio do lugar, como
+          consta na certidão.
+        </p>
+        <p>
+          A hora pesa porque a Terra gira: a cada instante, outro signo cruza o
+          horizonte leste. Em média, o Ascendente troca de signo a cada duas
+          horas, e o Meio do Céu e as casas acompanham.
+        </p>
+        <p>
+          Sem a hora, o mapa não traz Ascendente, Meio do Céu nem casas, e os
+          astros são lidos para o meio-dia daquela data, no relógio do lugar.
+          Ficam o Sol e a Lua, e a Lua pode ficar em dúvida: ela cruza um signo
+          em pouco mais de dois dias e pode trocar de signo no próprio dia do
+          nascimento. Sem a hora, não há como saber de qual lado ela estava.
+        </p>
+        <p>
+          Perto da divisa entre dois signos, poucos minutos já trocam o signo
+          do Ascendente, do Meio do Céu ou da Lua. Vale conferir a hora no
+          registro de nascimento.
+        </p>
+        <p>
+          Na virada do horário de verão ou de um fuso, o relógio atrasa ou
+          adianta, e uma hora pode ter acontecido duas vezes ou não ter
+          existido. Nesses casos o mapa traz as duas leituras e pergunta qual
+          abrir primeiro. Depois, é possível alternar entre elas.
+        </p>
+      </section>
+
+      <section aria-labelledby="signos">
+        <h2 id="signos">Os 12 signos</h2>
+        <p>
+          O zodíaco é um círculo de 360° dividido em 12 signos de 30° cada. A
+          contagem começa em 0° de Áries. Cada signo ocupa de 0° a 30°, e
+          &ldquo;25° de Áries&rdquo; quer dizer 25 graus dentro de Áries.
+        </p>
+        <p>
+          Cada signo tem um elemento (Fogo, Terra, Ar ou Água), uma modalidade
+          (cardeal começa, fixo sustenta, mutável adapta) e um regente, o
+          planeta que governa o signo. No tarô, os elementos correspondem aos
+          naipes: Fogo a Bastões, Terra a Discos, Ar a Espadas e Água a Taças.
+          Escorpião, Aquário e Peixes têm dois regentes: o tradicional, primeiro,
+          e o moderno.
+        </p>
+        <table>
+          <caption class="sr">Elemento, modalidade e regente de cada signo</caption>
+          <thead>
+            <tr><th scope="col">Signo</th><th scope="col">Elemento</th><th scope="col">Modalidade</th><th scope="col">Regente</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Áries</th><td>Fogo</td><td>Cardeal</td><td>Marte</td></tr>
+            <tr><th scope="row">Touro</th><td>Terra</td><td>Fixo</td><td>Vênus</td></tr>
+            <tr><th scope="row">Gêmeos</th><td>Ar</td><td>Mutável</td><td>Mercúrio</td></tr>
+            <tr><th scope="row">Câncer</th><td>Água</td><td>Cardeal</td><td>Lua</td></tr>
+            <tr><th scope="row">Leão</th><td>Fogo</td><td>Fixo</td><td>Sol</td></tr>
+            <tr><th scope="row">Virgem</th><td>Terra</td><td>Mutável</td><td>Mercúrio</td></tr>
+            <tr><th scope="row">Libra</th><td>Ar</td><td>Cardeal</td><td>Vênus</td></tr>
+            <tr><th scope="row">Escorpião</th><td>Água</td><td>Fixo</td><td>Marte e Plutão</td></tr>
+            <tr><th scope="row">Sagitário</th><td>Fogo</td><td>Mutável</td><td>Júpiter</td></tr>
+            <tr><th scope="row">Capricórnio</th><td>Terra</td><td>Cardeal</td><td>Saturno</td></tr>
+            <tr><th scope="row">Aquário</th><td>Ar</td><td>Fixo</td><td>Saturno e Urano</td></tr>
+            <tr><th scope="row">Peixes</th><td>Água</td><td>Mutável</td><td>Júpiter e Netuno</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="planetas">
+        <h2 id="planetas">Os planetas, os nodos e a retrogradação</h2>
+        <p>
+          Na astrologia, chamam-se planetas os dez astros do Sol a Plutão (Sol
+          e Lua entram na lista por convenção). Cada um trata de um assunto.
+        </p>
+        <dl class="ficha curta">
+          <dt>Sol</dt><dd>a vontade e o brilho: o que a pessoa quer firmar e mostrar.</dd>
+          <dt>Lua</dt><dd>o sentir e o ritmo: o modo de reagir ao que toca.</dd>
+          <dt>Mercúrio</dt><dd>o pensar e o dizer: como se organizam as ideias e se fala.</dd>
+          <dt>Vênus</dt><dd>o escolher e o valorizar: o que atrai e o que se quer por perto.</dd>
+          <dt>Marte</dt><dd>a forma de agir e de se impor.</dd>
+          <dt>Júpiter</dt><dd>onde se busca crescer e confiar.</dd>
+          <dt>Saturno</dt><dd>onde se medem limite e prazo.</dd>
+          <dt>Urano</dt><dd>o que rompe com o hábito e renova.</dd>
+          <dt>Netuno</dt><dd>a imaginação, a intuição e o que é difícil de definir.</dd>
+          <dt>Plutão</dt><dd>as mudanças profundas, o fim de ciclos e o recomeço.</dd>
+        </dl>
+        <p>
+          Os <strong>nodos lunares</strong> são os dois pontos em que a órbita
+          da Lua cruza a eclíptica. O app usa o nodo médio. O Nodo Sul é o ponto
+          oposto ao Nodo Norte, a 180° dele, e a tradição lê o par como um eixo.
+        </p>
+        <p>
+          Um planeta <strong>retrógrado</strong> parece voltar no céu, visto da
+          Terra. Isso acontece porque a Terra o ultrapassa, ou é ultrapassada
+          por ele, em suas órbitas em torno do Sol. O planeta não inverte o
+          curso. Sol e Lua não retrogradam. No mapa, o retrógrado leva a marca
+          R, e a leitura trata esse trecho como uma posição revista antes de
+          seguir adiante.
+        </p>
+      </section>
+
+      <section aria-labelledby="casas">
+        <h2 id="casas">As 12 casas</h2>
+        <p>
+          As casas dividem o céu visto do lugar de nascimento em doze áreas, e
+          cada uma corresponde a um tema da vida. O signo diz como um astro
+          atua; a casa diz onde. Dependem da hora e do lugar.
+        </p>
+        <ol class="casas">
+          <li><strong>Casa 1:</strong> corpo e chegada.</li>
+          <li><strong>Casa 2:</strong> posses e recursos.</li>
+          <li><strong>Casa 3:</strong> palavra e vizinhança.</li>
+          <li><strong>Casa 4:</strong> a raiz.</li>
+          <li><strong>Casa 5:</strong> criação e jogo.</li>
+          <li><strong>Casa 6:</strong> o ofício diário.</li>
+          <li><strong>Casa 7:</strong> o par e o sócio.</li>
+          <li><strong>Casa 8:</strong> o que se compartilha.</li>
+          <li><strong>Casa 9:</strong> viagem longa e crença.</li>
+          <li><strong>Casa 10:</strong> vida pública e vocação.</li>
+          <li><strong>Casa 11:</strong> amigos e projetos coletivos.</li>
+          <li><strong>Casa 12:</strong> o recolhido e os bastidores.</li>
+        </ol>
+        <p>
+          Na roda do zodíaco, a casa 1 começa no Ascendente, à esquerda, e as
+          outras seguem em volta.
+        </p>
+        <p>
+          O app calcula as casas por três sistemas: <strong>Placidus</strong>,
+          o padrão, <strong>Signos Inteiros</strong> e <strong>Igual</strong>.
+          A aba Casas permite trocar de um para outro.
+        </p>
+        <ul>
+          <li>
+            No Placidus, o trajeto de um ponto do horizonte até o alto do céu é
+            dividido em três partes iguais no tempo. Por isso as casas saem de
+            tamanhos desiguais. A casa 1 abre no Ascendente e a casa 10, no Meio
+            do Céu.
+          </li>
+          <li>
+            Em Signos Inteiros, cada casa é um signo inteiro de 30°, a começar
+            pelo signo do Ascendente.
+          </li>
+          <li>
+            No Igual, cada casa mede 30°, a contar do grau exato do Ascendente.
+          </li>
+        </ul>
+        <p>
+          Acima de 66° de latitude, norte ou sul, o Placidus não existe. Nesse
+          caso, ou se o cálculo não convergir, o app troca para Signos Inteiros
+          e avisa.
+        </p>
+        <p>
+          <strong>Um exemplo de leitura: Sol em Áries na casa 11.</strong> O Sol
+          trata da vontade e do brilho. Áries é fogo cardeal, regido por Marte, e
+          dá a essa vontade a forma de agir antes de ter o plano pronto. A casa
+          11 é a dos amigos e dos projetos coletivos. Lidos juntos: a vontade de
+          começar se mostra no grupo, na iniciativa de pôr uma causa comum em
+          andamento.
+        </p>
+      </section>
+
+      <section aria-labelledby="aspectos">
+        <h2 id="aspectos">Os cinco aspectos</h2>
+        <p>
+          Aspecto é a distância angular entre dois astros, medida ao longo do
+          zodíaco. O app usa os cinco aspectos maiores, e cada um descreve uma
+          relação entre os dois astros, não um veredito.
+        </p>
+        <dl class="ficha">
+          <dt>Conjunção, 0°</dt><dd>os dois astros estão no mesmo ponto e atuam juntos, como um só assunto.</dd>
+          <dt>Sextil, 60°</dt><dd>os dois astros estão a dois signos de distância e podem colaborar, se a pessoa aproveitar a combinação.</dd>
+          <dt>Quadratura, 90°</dt><dd>os dois astros puxam em direções diferentes, e a leitura trata de achar um arranjo entre os dois.</dd>
+          <dt>Trígono, 120°</dt><dd>os dois astros estão em signos do mesmo elemento e se combinam com facilidade.</dd>
+          <dt>Oposição, 180°</dt><dd>os dois astros estão frente a frente, cada um de um lado do céu, e a leitura trata de achar o equilíbrio entre os polos.</dd>
+        </dl>
+        <p>
+          O ângulo real raramente é exato. O <strong>orbe</strong> é a diferença,
+          em graus, entre a distância real dos astros e o ângulo exato: dois
+          astros a 118° formam um trígono com orbe de 2°. O app aceita orbe de
+          até 8° na conjunção e na oposição, de até 7° na quadratura e no
+          trígono e de até 5° no sextil. Quanto menor o orbe, mais exato o
+          aspecto.
+        </p>
+        <p>
+          Na roda do zodíaco, uma linha liga cada par de astros em aspecto:
+          cheia e grossa na oposição, tracejada na quadratura, fina e cheia no
+          trígono, pontilhada no sextil. A conjunção não leva linha: os astros
+          aparecem lado a lado.
+        </p>
+      </section>
+
+      <section aria-labelledby="ponte">
+        <h2 id="ponte">A ponte com o tarô</h2>
+        <p>
+          No Tarot de Thoth, o zodíaco tem cartas, em três camadas:
+        </p>
+        <ul>
+          <li>
+            <strong>Signo</strong> (30°): cada signo tem uma carta dos Arcanos
+            Maiores, como O Imperador para Áries e O Ajuste para Libra.
+          </li>
+          <li>
+            <strong>Decano</strong> (10°): cada signo se divide em três decanos,
+            e cada decano tem uma carta numerada, do Dois ao Dez.
+          </li>
+          <li>
+            <strong>Faixa da Corte</strong> (30°): cada Cavaleiro, Rainha e
+            Príncipe cobre uma faixa que começa aos 20° de um signo e termina
+            aos 20° do seguinte. As doze faixas fecham o círculo, e todo grau
+            cai em exatamente uma. As Princesas ficam de fora: ligam-se aos
+            quadrantes do céu, não aos signos.
+          </li>
+        </ul>
+        <p>
+          Um exemplo: Sol em Áries, a 25°. Lembrando que cada signo ocupa de 0° a
+          30°, esse Sol está a 25 graus dentro de Áries, no último decano.
+        </p>
+        <table>
+          <caption class="sr">As três cartas do Sol em Áries, a 25 graus</caption>
+          <thead>
+            <tr><th scope="col">Camada</th><th scope="col">Onde cai</th><th scope="col">Carta</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Signo</th><td>Áries</td><td>O Imperador</td></tr>
+            <tr><th scope="row">Decano</th><td>3º, de 20° a 30°</td><td>Quatro de Bastões</td></tr>
+            <tr><th scope="row">Corte</th><td>de 20° de Áries a 20° de Touro</td><td>Príncipe de Discos</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Na leitura do Sol, da Lua e do Ascendente, o Aeon Fool mostra as três
+          cartas lado a lado, com os rótulos <em>Carta do decano</em> (com o
+          número dele), <em>Carta do signo</em> e <em>Corte</em>. Tocar numa
+          delas abre o resumo da carta.
+        </p>
+      </section>
+
+      <section aria-labelledby="no-app">
+        <h2 id="no-app">Como ler o seu mapa no Aeon Fool</h2>
+        <ol class="passos">
+          <li>
+            Abra o <a href="/?profile">Perfil</a>. Em <strong>Meus dados</strong>,
+            toque em <strong>Preencher meus dados</strong>. Se já houver um
+            mapa, toque em <strong>Ler o meu mapa</strong>.
+          </li>
+          <li>
+            Informe o apelido (opcional), a data, a hora e a cidade. Sem a hora,
+            marque <strong>Não sei a hora</strong>. A busca da cidade é pelo
+            início do nome; fora do Brasil, só aparecem cidades com mais de 15
+            mil habitantes. Se a sua não estiver na lista, escolha
+            <strong>Informar as coordenadas</strong>: latitude e longitude (sul
+            e oeste levam sinal de menos, e no Brasil as duas são negativas) e o
+            fuso no formato America/Sao_Paulo.
+          </li>
+          <li>
+            Toque em <strong>Montar o mapa astral</strong>. Se a hora for
+            ambígua ou inexistente, o app pergunta qual leitura abrir primeiro.
+          </li>
+          <li>
+            Percorra as quatro abas:
+            <ul>
+              <li><strong>Resumo</strong>: a roda do zodíaco e a tabela de posições.</li>
+              <li><strong>Leitura</strong>: Sol, Lua, Ascendente, Planetas, Nodos, Retrógrados e Elementos.</li>
+              <li><strong>Casas</strong>: as doze casas, com a escolha do sistema.</li>
+              <li><strong>Aspectos</strong>: os ângulos entre os astros.</li>
+            </ul>
+          </li>
+          <li>
+            Na aba <strong>Leitura</strong>, abra Sol, Lua ou Ascendente: as três
+            cartas aparecem ali. Toque numa carta para abrir o resumo dela, com
+            a imagem inteira.
+          </li>
+          <li>
+            Para compartilhar, use <strong>Compartilhar</strong>. O texto e o
+            cartão levam só a leitura, com signos e cartas. Data, hora e lugar
+            de nascimento só entram se você marcar a caixa.
+          </li>
+        </ol>
+        <p>
+          O mapa é calculado no próprio aparelho. Data, hora e lugar de
+          nascimento ficam só nele, no navegador, e não são enviados a nenhum
+          servidor nem aparecem na URL. Os mapas guardados somem se os dados do
+          site forem limpos.
+        </p>
+      </section>
+
+      <section aria-labelledby="continuar">
+        <h2 id="continuar">Para continuar</h2>
+        <ul>
+          <li>
+            <a href="/livro.html">Guia do Tarot</a>: a origem do baralho, as
+            78 cartas e as técnicas de leitura.
+          </li>
+          <li>
+            <a href="/?profile">Perfil</a>: monte o seu mapa e leia as cartas
+            ligadas às suas posições.
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <div class="container foot">
+        <p>&copy; 2025 Aeon Fool. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2759240122102769"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="src/utils/tema.js"></script>
+  </body>
+</html>

@@ -2,6 +2,6 @@
 body#book .prosa { max-width: 720px; }
 body#book .prosa p, body#book .prosa li { font-size: 1.1rem; line-height: 1.85; }
 body#book .prosa h1 { font-size: clamp(2rem, 6vw, 2.75rem); margin-top: var(--sp-7); padding-top: var(--sp-5); border-top: 1px solid var(--line); }
-body#book .prosa h1:first-child { margin-top: 0; padding-top: 0; border-top: 0; font-size: var(--fs-h1); }
+body#book .prosa h1:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; font-size: var(--fs-h1); }
 body#book .prosa h2 { font-size: clamp(1.5rem, 4.4vw, 2rem); padding-left: 14px; border-left: 3px solid var(--accent); }
 body#book .prosa h3 { font-size: 1.3rem; }

@@ -50,6 +50,7 @@ export default defineConfig({
         sobre: path.resolve(__dirname, "sobre.html"),
         contato: path.resolve(__dirname, "contato.html"),
         livro: path.resolve(__dirname, "livro.html"),
+        "guia-mapa-astral": path.resolve(__dirname, "guia-mapa-astral.html"),
         // pagina de erro do GitHub Pages: servida em dist/404.html para qualquer URL inexistente
         "404": path.resolve(__dirname, "404.html"),
         "politica-privacidade": path.resolve(

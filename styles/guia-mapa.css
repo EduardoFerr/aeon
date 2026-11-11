@@ -1,0 +1,46 @@
+/* Guia simplificado do mapa astral (guia-mapa-astral.html): leitura curta. Cor, fonte e casca vem de main.css
+   (tokens dos temas); aqui so o que e desta pagina. Medida de leitura de 30rem para as linhas ficarem em 68 caracteres ou menos. */
+body#guia-mapa .prosa { max-width: 720px; }
+body#guia-mapa .prosa > p, body#guia-mapa .prosa section > p, body#guia-mapa .prosa li, body#guia-mapa .prosa dd { max-width: 30rem; }
+body#guia-mapa .prosa .lede { font-size: 1.2rem; line-height: 1.6; color: var(--text); margin-bottom: var(--sp-4); }
+body#guia-mapa .prosa h1 { font-size: clamp(2rem, 6vw, 2.75rem); }
+body#guia-mapa .prosa h2 { font-size: clamp(1.4rem, 4.2vw, 1.8rem); padding-left: 14px; border-left: 3px solid var(--accent); margin-top: var(--sp-7); }
+body#guia-mapa .prosa section:first-of-type h2 { margin-top: var(--sp-6); }
+
+/* Tabelas: cabem na largura do celular, quebrando a linha dentro da celula (sem rolagem lateral) */
+body#guia-mapa .prosa table { display: table; table-layout: auto; width: 100%; max-width: 30rem; border: 1px solid var(--line-strong); }
+body#guia-mapa .prosa th, body#guia-mapa .prosa td { padding: 8px 10px; line-height: 1.35; vertical-align: top; overflow-wrap: break-word; }
+body#guia-mapa .prosa tbody th { font-weight: 600; background: none; white-space: nowrap; }
+body#guia-mapa .prosa tbody tr:nth-child(even) > * { background: var(--surface); }
+body#guia-mapa .prosa thead th { background: var(--surface-2); }
+
+@media (max-width: 419px) {
+  body#guia-mapa .prosa table { font-size: 0.8125rem; }
+  body#guia-mapa .prosa th, body#guia-mapa .prosa td { padding: 7px 6px; }
+}
+
+/* Fichas (planetas e aspectos): termo e descricao lado a lado; no celular, o termo ocupa a linha de cima */
+body#guia-mapa .prosa .ficha { max-width: 30rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; margin: 0 0 var(--sp-4); border-top: 1px solid var(--line); }
+body#guia-mapa .prosa .ficha dt { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.15rem; line-height: 1.2; color: var(--text); padding: var(--sp-3) 0 2px; }
+body#guia-mapa .prosa .ficha dd { margin: 0; padding: 0 0 var(--sp-3); border-bottom: 1px solid var(--line); font-size: 1.05rem; line-height: 1.6; color: var(--text-soft); }
+@media (min-width: 600px) {
+  body#guia-mapa .prosa .ficha { grid-template-columns: 11rem minmax(0, 1fr); column-gap: 0; }
+  body#guia-mapa .prosa .ficha dt { padding: var(--sp-3) 0; border-bottom: 1px solid var(--line); }
+  body#guia-mapa .prosa .ficha dd { padding: var(--sp-3) 0 var(--sp-3) var(--sp-4); }
+}
+
+/* Casas e passos: lista numerada com o numero em destaque */
+body#guia-mapa .prosa ol.casas, body#guia-mapa .prosa ol.passos { list-style: none; padding: 0; margin: 0 0 var(--sp-4); counter-reset: n; max-width: 30rem; }
+body#guia-mapa .prosa ol.casas > li, body#guia-mapa .prosa ol.passos > li { position: relative; margin: 0; padding: var(--sp-2) 0 var(--sp-2) 0; border-bottom: 1px solid var(--line); line-height: 1.6; }
+body#guia-mapa .prosa ol.casas > li:first-child, body#guia-mapa .prosa ol.passos > li:first-child { border-top: 1px solid var(--line); }
+body#guia-mapa .prosa ol.passos > li { counter-increment: n; padding: var(--sp-3) 0 var(--sp-3) 44px; }
+body#guia-mapa .prosa ol.passos > li::before { content: counter(n); position: absolute; left: 0; top: var(--sp-3); width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--accent); border-radius: var(--r-pill); color: var(--accent); font-weight: 600; font-size: var(--fs-sm); }
+
+/* Ficha curta (planetas): termo de uma palavra, mesmo no celular fica ao lado da descricao */
+body#guia-mapa .prosa .ficha.curta { grid-template-columns: 6.75rem minmax(0, 1fr); column-gap: 0; }
+body#guia-mapa .prosa .ficha.curta dt { padding: var(--sp-2) 0; border-bottom: 1px solid var(--line); font-size: 1.1rem; }
+body#guia-mapa .prosa .ficha.curta dd { padding: var(--sp-2) 0 var(--sp-2) var(--sp-3); font-size: 1.05rem; line-height: 1.55; }
+
+body#guia-mapa .prosa ol.passos ul { margin: var(--sp-2) 0 0; padding-left: 1.2em; }
+body#guia-mapa .prosa ol.passos ul li { margin: 0 0 var(--sp-1); }
+body#guia-mapa .prosa .ficha dd { max-width: none; }
