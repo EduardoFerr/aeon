@@ -5,6 +5,7 @@ import { apagarMapaComDesfazer } from './desfazerMapa.js';
 import { avisar } from './Sobreposicao.js';
 import { SYNC_ATIVA } from '../utils/contaEstado.js';
 import { registrosFicam } from '../utils/conta.js';
+import { versoAtual, definirPreferencia, atualizarSigno, aplicarVerso, urlDoVerso, NOMES, EVENTO_VERSO } from '../utils/verso.js';
 if (SYNC_ATIVA) import('./ContaPanel.js');
 import { desenharAvisoBackup } from './AvisoBackup.js';
 import { VERSAO, buscarAtualizacao, recarregarDoZero } from '../utils/atualizacao.js';
@@ -57,6 +58,13 @@ const T = {
     abas: 'Seções do perfil',
     grupoMapas: 'Mapas',
     grupoDados: 'Dados',
+    versoTitulo: 'Verso das cartas',
+    versoSemMapa: 'Monte o seu mapa astral e ganhe o verso do seu signo solar, com a constelação, o planeta regente e as cores do seu elemento.',
+    versoComMapa: (n) => `Suas cartas viradas para baixo usam o verso do seu signo solar, ${n}. Você pode voltar ao verso padrão do Aeon quando quiser.`,
+    versoCalculando: 'Preparando o verso do seu signo...',
+    versoMeuSigno: 'Meu signo',
+    versoPadrao: 'Padrão',
+    versoMontar: 'Montar meu mapa',
     registrosAqui: 'Seus registros ficam só neste aparelho. Limpar os dados do site no navegador apaga o diário e os mapas, por isso exporte um backup de vez em quando.',
     registrosAquiConta: 'Seus registros ficam neste aparelho e na sua conta do Aeon. Se você limpar os dados do navegador, ligar a sincronização de novo traz tudo de volta. Mesmo assim, exporte um backup de vez em quando.',
     versaoTitulo: 'Versão do app',
@@ -101,6 +109,10 @@ export class PerfilScreen extends HTMLElement {
         this.desligar = aoMudar(() => {
             if (!(this.sobre && this.sobre.aberto)) this.desenhar();
         });
+        // o verso mudou (escolha da pessoa, ou o signo terminou de ser calculado): refaz so o painel do verso
+        this.aoVerso = () => this.atualizarPainelVerso(true);
+        window.addEventListener(EVENTO_VERSO, this.aoVerso);
+        atualizarSigno().then(() => aplicarVerso());
         await this.desenhar();
         focarCabecalho('#perfil-h1');
         const a = this.estado.aviso;
@@ -111,6 +123,7 @@ export class PerfilScreen extends HTMLElement {
 
     disconnectedCallback() {
         if (this.desligar) this.desligar();
+        window.removeEventListener(EVENTO_VERSO, this.aoVerso);
         if (this.sobre && this.sobre.aberto) this.sobre.fechar(false);
     }
 
@@ -167,7 +180,7 @@ export class PerfilScreen extends HTMLElement {
 
     painelAba(dados) {
         if (this.aba === 'mapas') return this.painelMapas(...dados);
-        return `<div data-backup></div><div class="info-grid">${this.painelPriv(!dados[0] && !dados[2].length)}${SYNC_ATIVA ? '<conta-panel></conta-panel>' : ''}${this.painelVersao()}</div>`;
+        return `<div data-backup></div><div class="info-grid">${this.painelVerso()}${this.painelPriv(!dados[0] && !dados[2].length)}${SYNC_ATIVA ? '<conta-panel></conta-panel>' : ''}${this.painelVersao()}</div>`;
     }
 
     async desenhar(foco) {
@@ -246,6 +259,35 @@ export class PerfilScreen extends HTMLElement {
         return `<section class="painel" aria-labelledby="pv-t"><div class="p-icon">${ic('cadeado')}<h3 id="pv-t">${T.privacidade}</h3></div><p>${esc(this.t('ui.aviso.privacidade'))}</p><p class="registros-aqui">${registrosFicam(T.registrosAqui, T.registrosAquiConta)}</p>
             <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="exportar" aria-describedby="d-exp"${vazio ? ' disabled' : ''}>${ic('baixar')}${T.exportar}</button><button class="btn btn-ghost" type="button" data-exec="importar" aria-describedby="d-imp">${ic('copiar')}${T.importarBackup}</button></div>
             <p class="nota-geonames" id="d-exp">${esc(this.t('ui.dados.exportar'))}</p><p class="nota-geonames" id="d-imp">${esc(this.t('ui.dados.importar'))}</p></section>`;
+    }
+
+    /** Verso das cartas: o do signo solar (se ha mapa principal) ou o padrao do Aeon. */
+    painelVerso() {
+        const v = versoAtual();
+        let corpo;
+        if (!v.temMapa) {
+            corpo = `<p>${T.versoSemMapa}</p><div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="verso-mapa">${T.versoMontar}</button></div>`;
+        } else if (!v.signo) {
+            corpo = `<p>${T.versoCalculando}</p>`;
+        } else {
+            const op = (id, modo, rot, sub) => `<button type="button" class="verso-op" data-exec="${modo}" aria-pressed="${v.id === id}"><img src="${urlDoVerso(id)}" alt="" width="72" height="108" loading="lazy" decoding="async"><span class="verso-rot">${rot}<small>${esc(sub)}</small></span></button>`;
+            corpo = `<p>${esc(T.versoComMapa(NOMES[v.signo]))}</p><div class="verso-escolha" role="group" aria-label="${T.versoTitulo}">${op(v.signo, 'verso-auto', T.versoMeuSigno, NOMES[v.signo])}${op('padrao', 'verso-padrao', T.versoPadrao, 'Aeon')}</div>`;
+        }
+        return `<section class="painel" aria-labelledby="vc-t" data-verso><div class="p-icon">${ic('cartas')}<h3 id="vc-t">${T.versoTitulo}</h3></div>${corpo}</section>`;
+    }
+
+    /** Redesenha so o painel do verso (depois de escolher, ou quando o signo termina de ser calculado). */
+    atualizarPainelVerso(manterFoco) {
+        const el = this.querySelector('[data-verso]');
+        if (!el) return;
+        const tinha = manterFoco && el.contains(document.activeElement) ? document.activeElement.dataset.exec : null;
+        el.outerHTML = this.painelVerso();
+        const novo = this.querySelector('[data-verso]');
+        novo.querySelectorAll('[data-exec]').forEach((b) => b.addEventListener('click', () => this.executar(b.dataset.exec, b)));
+        if (tinha) {
+            const alvo = novo.querySelector(`[data-exec="${tinha}"]`);
+            if (alvo) alvo.focus({ preventScroll: true });
+        }
     }
 
     /** Versao do app, com os botoes "Buscar atualizacao" e "Recarregar do zero". */
@@ -368,6 +410,9 @@ export class PerfilScreen extends HTMLElement {
         else if (id === 'recarregar-zero') this.recarregarDoZero(botao);
         else if (id === 'importar') this.querySelector('[data-arquivo]').click();
         else if (id === 'apagar') this.apagarMapa();
+        else if (id === 'verso-auto' || id === 'verso-padrao') {
+            definirPreferencia(id === 'verso-padrao' ? 'padrao' : 'auto'); // aplicarVerso avisa, e o painel se refaz
+        } else if (id === 'verso-mapa') this.trocarAba('mapas', true);
     }
 
     abrirAcoes(botao) {

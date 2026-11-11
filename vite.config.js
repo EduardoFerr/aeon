@@ -125,6 +125,16 @@ export default defineConfig({
         // guarda cada arquivo para o mapa funcionar sem rede.
         runtimeCaching: [
           {
+            // Versos das cartas (webp): cada pessoa baixa so o dela. Cache primeiro, porque nunca mudam sob o mesmo nome.
+            urlPattern: ({ url }) => /^\/assets\/versos\/verso-[a-z]+\.webp$/.test(url.pathname),
+            handler: "CacheFirst",
+            options: {
+              cacheName: "aeon-versos",
+              expiration: { maxEntries: 16, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
+          {
             // Os textos mudam a cada versao: rede primeiro (com o cache como reserva offline), para quem ja
             // visitou o site nunca ver uma tela nova com textos antigos faltando.
             urlPattern: ({ url }) => url.pathname === "/data/astro/textos.json",
