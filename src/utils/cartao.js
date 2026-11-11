@@ -25,6 +25,9 @@ const TEXTO = {
     textoCompartilhar: (nome) => `Minha carta de hoje no Aeon Fool: ${nome}. aeonfool.com`,
 };
 
+/** Interruptor da previa do cartao da leitura (tres cartas e cruz): a pergunta e o dado mais pessoal, entao fica fora por padrao. */
+export const TEXTO_PERGUNTA_NO_CARTAO = 'Mostrar a minha pergunta no cartão';
+
 export const PAL = {
     crepusculo: {
         ink: '#f1e9e0', soft: '#b8abb8', mute: '#9c93aa', accent: '#e8b7a0', key: '#d9a24a', tree: '232,183,160', bg: '#14101c',

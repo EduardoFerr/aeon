@@ -4526,5 +4526,580 @@
   "limite": 200,
   "categoria": "ui",
   "marcadores": []
+ },
+ {
+  "id": "ui.cruz.titulo",
+  "limite": 30,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.descricao",
+  "limite": 270,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.tir.titulo",
+  "limite": 14,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.tir.lead",
+  "limite": 40,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.tir.cruz.nome",
+  "limite": 7,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.tir.cruz.linha",
+  "limite": 90,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.tir.cruz.n",
+  "limite": 14,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.tir.tres.nome",
+  "limite": 19,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.tir.tres.linha",
+  "limite": 70,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.tir.tres.n",
+  "limite": 14,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.passos",
+  "limite": 25,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.passo.pergunta",
+  "limite": 14,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.passo.montar",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.passo.revelar",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.perg.titulo",
+  "limite": 35,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.perg.rotulo",
+  "limite": 35,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.perg.dica",
+  "limite": 110,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.perg.ph",
+  "limite": 35,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.embaralhar",
+  "limite": 15,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.embaralhando",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.embaralhando.anuncio",
+  "limite": 35,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.montar.titulo",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.montar.dica",
+  "limite": 95,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.montar.n",
+  "limite": 30,
+  "categoria": "ui",
+  "marcadores": [
+   "n"
+  ]
+ },
+ {
+  "id": "ui.cruz.montar.refazer",
+  "limite": 30,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.montar.feita",
+  "limite": 75,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.montar.colocada",
+  "limite": 45,
+  "categoria": "ui",
+  "marcadores": [
+   "pos",
+   "falta"
+  ]
+ },
+ {
+  "id": "ui.cruz.baralho",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.baralho.aria",
+  "limite": 75,
+  "categoria": "ui",
+  "marcadores": [
+   "pos"
+  ]
+ },
+ {
+  "id": "ui.cruz.falta",
+  "limite": 15,
+  "categoria": "ui",
+  "marcadores": [
+   "n"
+  ]
+ },
+ {
+  "id": "ui.cruz.falta.um",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.no.vazio",
+  "limite": 105,
+  "categoria": "ui",
+  "marcadores": [
+   "pos",
+   "leg"
+  ]
+ },
+ {
+  "id": "ui.cruz.no.colocada",
+  "limite": 100,
+  "categoria": "ui",
+  "marcadores": [
+   "pos"
+  ]
+ },
+ {
+  "id": "ui.cruz.no.travada",
+  "limite": 100,
+  "categoria": "ui",
+  "marcadores": [
+   "pos",
+   "leg",
+   "falta"
+  ]
+ },
+ {
+  "id": "ui.cruz.no.costas",
+  "limite": 105,
+  "categoria": "ui",
+  "marcadores": [
+   "pos",
+   "leg"
+  ]
+ },
+ {
+  "id": "ui.cruz.no.lida",
+  "limite": 80,
+  "categoria": "ui",
+  "marcadores": [
+   "pos",
+   "nome",
+   "titulo"
+  ]
+ },
+ {
+  "id": "ui.cruz.no.virada",
+  "limite": 105,
+  "categoria": "ui",
+  "marcadores": [
+   "pos",
+   "nome",
+   "titulo"
+  ]
+ },
+ {
+  "id": "ui.cruz.sintese.espera",
+  "limite": 95,
+  "categoria": "ui",
+  "marcadores": [
+   "falta"
+  ]
+ },
+ {
+  "id": "ui.cruz.rev.titulo",
+  "limite": 25,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.rev.dica",
+  "limite": 65,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.lidas",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": [
+   "n"
+  ]
+ },
+ {
+  "id": "ui.cruz.final.titulo",
+  "limite": 14,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.final.dica",
+  "limite": 40,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.virar-todas",
+  "limite": 19,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.viradas.anuncio",
+  "limite": 95,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.guardar",
+  "limite": 25,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.ver-diario",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.compartilhar",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.outra",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.guardada",
+  "limite": 35,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.desfazer",
+  "limite": 14,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.guardar.erro",
+  "limite": 60,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.cartao.erro",
+  "limite": 55,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.lista",
+  "limite": 35,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.posicao",
+  "limite": 25,
+  "categoria": "ui",
+  "marcadores": [
+   "n"
+  ]
+ },
+ {
+  "id": "ui.cruz.abrir-carta",
+  "limite": 30,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.anterior",
+  "limite": 35,
+  "categoria": "ui",
+  "marcadores": [
+   "pos"
+  ]
+ },
+ {
+  "id": "ui.cruz.proxima",
+  "limite": 35,
+  "categoria": "ui",
+  "marcadores": [
+   "pos"
+  ]
+ },
+ {
+  "id": "ui.cruz.anuncio.lida",
+  "limite": 35,
+  "categoria": "ui",
+  "marcadores": [
+   "pos",
+   "nome",
+   "lidas"
+  ]
+ },
+ {
+  "id": "ui.cruz.anuncio.virada",
+  "limite": 55,
+  "categoria": "ui",
+  "marcadores": [
+   "pos",
+   "nome",
+   "lidas"
+  ]
+ },
+ {
+  "id": "ui.cruz.pos.momento",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.momento.leg",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": [],
+  "permite": [
+   "você"
+  ]
+ },
+ {
+  "id": "ui.cruz.pos.momento.sig",
+  "limite": 65,
+  "categoria": "ui",
+  "marcadores": [],
+  "permite": [
+   "você"
+  ]
+ },
+ {
+  "id": "ui.cruz.pos.ajuda",
+  "limite": 8,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.ajuda.leg",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.ajuda.sig",
+  "limite": 80,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.obstaculo",
+  "limite": 15,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.obstaculo.leg",
+  "limite": 15,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.obstaculo.sig",
+  "limite": 75,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.caminho",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.caminho.leg",
+  "limite": 19,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.caminho.sig",
+  "limite": 70,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.sintese",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.sintese.leg",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.pos.sintese.sig",
+  "limite": 60,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.rot.dilema",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.rot.luz",
+  "limite": 5,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.rot.sombra",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.rot.leva",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.rot.levar",
+  "limite": 15,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.rot.recado",
+  "limite": 10,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.rot.desenho",
+  "limite": 25,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.frase.nota",
+  "limite": 55,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.frase.espera",
+  "limite": 85,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.erro.titulo",
+  "limite": 55,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.erro.texto",
+  "limite": 125,
+  "categoria": "ui",
+  "marcadores": []
+ },
+ {
+  "id": "ui.cruz.erro.de-novo",
+  "limite": 20,
+  "categoria": "ui",
+  "marcadores": []
  }
 ]

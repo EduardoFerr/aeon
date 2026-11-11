@@ -98,17 +98,22 @@ let seq = 0;
  * Abre uma sobreposicao.
  * @param {{tipo:'gaveta'|'sheet'|'dialogo'|'popover'|'confirmacao', titulo:string, corpo:string|Node,
  *   gatilho?:HTMLElement, ancora?:HTMLElement, foco?:string, fecharFora?:boolean, contexto?:string,
- *   aoFechar?:Function, classe?:string, descricao?:string}} o
+ *   aoFechar?:Function, classe?:string, descricao?:string, rodape?:string|Node,
+ *   lado?:'direita', referencia?:HTMLElement, largura?:number, mantemSe?:string}} o
  * `sheet` vira dialogo no desktop; `popover` vira sheet no celular.
- * @returns {{raiz:HTMLElement, painel:HTMLElement, corpo:HTMLElement, fechar:Function, trocarCorpo:Function, aberto:boolean}}
+ * `rodape` fica fora da area rolavel. Popover com lado 'direita' abre ao lado de `referencia`, na altura da
+ * ancora; `mantemSe` e um seletor de cliques que nao fecham o popover (a cruz continua clicavel).
+ * @returns {{raiz:HTMLElement, painel:HTMLElement, corpo:HTMLElement, fechar:Function, trocarCorpo:Function,
+ *   trocarTitulo:Function, trocarContexto:Function, trocarRodape:Function, trocarGatilho:Function, reposicionar:Function, aberto:boolean}}
  */
 export function abrir(o) {
+    esconderAviso();
     const desk = ehDesktop();
     let tipo = o.tipo;
     if (tipo === 'sheet' && desk) tipo = 'dialogo';
     if (tipo === 'popover' && !desk) tipo = 'sheet';
     const modal = tipo !== 'popover';
-    const gatilho = o.gatilho || document.activeElement;
+    let gatilho = o.gatilho || document.activeElement;
     const id = `sob-t-${++seq}`;
     const ehSheet = tipo === 'sheet';
     const raiz = document.createElement('div');
@@ -120,8 +125,9 @@ export function abrir(o) {
         <section class="sob-pn sob-${tipo} ${o.classe || ''}" role="${papel}" aria-modal="${modal}" aria-labelledby="${id}"${o.descricao ? ` aria-describedby="${id}-d"` : ''} data-h="meia">
             ${alca}
             <header class="sob-cab"><h2 id="${id}" tabindex="-1">${o.titulo}</h2><span class="sob-bt">${ampliar}<button type="button" class="iconbtn round" data-sob-x aria-label="${T.fechar}">${ic('x')}</button></span></header>
-            ${o.contexto ? `<div class="sob-ctx">${o.contexto}</div>` : ''}
+            <div class="sob-ctx"${o.contexto ? '' : ' hidden'}>${o.contexto || ''}</div>
             <div class="sob-corpo"></div>
+            ${o.rodape ? '<div class="sob-rod"></div>' : ''}
         </section>`;
     const painel = raiz.querySelector('.sob-pn');
     const corpo = raiz.querySelector('.sob-corpo');
@@ -133,6 +139,13 @@ export function abrir(o) {
         }
     };
     poe(o.corpo);
+    const rod = raiz.querySelector('.sob-rod');
+    const poeRodape = (c) => {
+        if (!rod) return;
+        if (typeof c === 'string') rod.innerHTML = c;
+        else rod.replaceChildren(c);
+    };
+    if (o.rodape) poeRodape(o.rodape);
     if (o.descricao) {
         const p1 = corpo.querySelector('p');
         if (p1) p1.id = `${id}-d`;
@@ -140,27 +153,48 @@ export function abrir(o) {
     }
     document.body.append(raiz);
 
-    // popover: posiciona junto da ancora sem sair da janela
-    if (tipo === 'popover') {
-        const a = o.ancora || gatilho;
+    // popover: posiciona junto da ancora sem sair da janela (ou ao lado de `referencia`, na altura da ancora)
+    const posicionar = (ancora) => {
+        if (tipo !== 'popover') return;
+        const a = ancora || o.ancora || gatilho;
         const r = a && a.getBoundingClientRect ? a.getBoundingClientRect() : { left: 24, bottom: 120, top: 100 };
-        const larg = Math.min(360, innerWidth - 24);
+        const larg = Math.min(o.largura || 360, innerWidth - 24);
         painel.style.width = `${larg}px`;
-        const left = Math.max(12, Math.min(r.left, innerWidth - larg - 12));
-        painel.style.left = `${left}px`;
+        if (o.lado === 'direita' && o.referencia) {
+            const ref = o.referencia.getBoundingClientRect();
+            painel.style.left = `${Math.min(ref.right + 40, innerWidth - larg - 12)}px`;
+            painel.style.bottom = 'auto';
+            painel.style.top = '0px';
+            painel.style.maxHeight = `${innerHeight - 96}px`;
+            const h = painel.getBoundingClientRect().height;
+            painel.style.top = `${Math.max(76, Math.min(r.top - 8, innerHeight - h - 16))}px`;
+            return;
+        }
+        painel.style.left = `${Math.max(12, Math.min(r.left, innerWidth - larg - 12))}px`;
         const abaixo = innerHeight - r.bottom - 16;
         const acima = r.top - 16;
         if (abaixo >= 260 || abaixo >= acima) {
+            painel.style.bottom = 'auto';
             painel.style.top = `${r.bottom + 8}px`;
             painel.style.maxHeight = `${Math.max(160, abaixo - 8)}px`;
         } else {
+            painel.style.top = 'auto';
             painel.style.bottom = `${innerHeight - r.top + 8}px`;
             painel.style.maxHeight = `${Math.max(160, acima - 8)}px`;
         }
-    }
+    };
+    posicionar();
 
     let aberto = true;
-    const ctrl = { raiz, painel, corpo, trocarCorpo: poe, get aberto() { return aberto; } };
+    const titulo = raiz.querySelector(`#${id}`);
+    const ctx = raiz.querySelector('.sob-ctx');
+    const ctrl = {
+        raiz, painel, corpo, trocarCorpo: poe, trocarRodape: poeRodape, reposicionar: posicionar,
+        trocarTitulo: (t) => { titulo.textContent = t; },
+        trocarContexto: (h) => { ctx.innerHTML = h || ''; ctx.hidden = !h; },
+        trocarGatilho: (el) => { gatilho = el; }, // o foco volta ao gatilho de agora, nao ao que abriu
+        get aberto() { return aberto; },
+    };
     const instante = reduzMovimento();
     const modalCtl = ativarModal(raiz, { aoEsc: () => fechar(), modal });
 
@@ -179,6 +213,7 @@ export function abrir(o) {
     ctrl.fechar = fechar;
 
     const fora = (e) => {
+        if (o.mantemSe && e.target.closest && e.target.closest(o.mantemSe)) return;
         if (!painel.contains(e.target) && e.target !== gatilho && !(gatilho && gatilho.contains && gatilho.contains(e.target))) fechar();
     };
     if (tipo === 'popover') document.addEventListener('pointerdown', fora, true);
@@ -269,21 +304,62 @@ export function abrir(o) {
 
 let toastEl = null;
 let toastTimer = 0;
-/** Confirmacao curta ("Mapa guardado", "Texto copiado"). Fica numa regiao role=status, some sozinha. */
-export function avisar(msg, { erro = false } = {}) {
+let agendarAtual = null;
+/** Fecha o aviso na tela (e apaga o texto depois da saida), para o proximo dialogo ou menu nao herdar a mensagem. */
+export function esconderAviso() {
+    if (!toastEl) return;
+    clearTimeout(toastTimer);
+    agendarAtual = null;
+    toastEl.classList.remove('on');
+    const el = toastEl;
+    setTimeout(() => { if (!el.classList.contains('on')) el.innerHTML = ''; }, 300);
+}
+/**
+ * Confirmacao curta ("Mapa guardado", "Texto copiado"). Fica numa regiao role=status, some sozinha.
+ * Com `desfazer: { rotulo, aoClicar }` vira o aviso de uma exclusao: o botao "Desfazer" fica 8 s
+ * (pausa com o ponteiro ou o foco em cima), e um novo aviso fecha o anterior sem desfazer nada.
+ */
+export function avisar(msg, { erro = false, desfazer = null } = {}) {
     if (!toastEl) {
         toastEl = document.createElement('div');
         toastEl.className = 'toast';
         toastEl.setAttribute('role', 'status');
         toastEl.setAttribute('aria-live', 'polite');
         document.body.append(toastEl);
+        for (const a of ['pointerenter', 'focusin']) toastEl.addEventListener(a, () => clearTimeout(toastTimer));
+        for (const a of ['pointerleave', 'focusout']) toastEl.addEventListener(a, () => agendarAtual && agendarAtual());
+        // Desfazer pelo teclado: o botao fica no fim da pagina, longe do foco, entao Ctrl/Cmd+Z (fora de campos de texto) aciona o mesmo botao
+        document.addEventListener('keydown', (e) => {
+            if (!(e.ctrlKey || e.metaKey) || e.shiftKey || e.altKey || String(e.key).toLowerCase() !== 'z') return;
+            const f = document.activeElement;
+            if (f && (f.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(f.tagName))) return;
+            const b = toastEl.classList.contains('on') && toastEl.querySelector('.toast-acao');
+            if (!b) return;
+            e.preventDefault();
+            b.click();
+        });
     }
-    toastEl.innerHTML = `${ic(erro ? 'erro' : 'ok')}<span></span>`;
+    clearTimeout(toastTimer);
+    toastEl.innerHTML = `${ic(erro ? 'erro' : 'ok')}<span></span>${desfazer ? `<button type="button" class="btn btn-terciario toast-acao" aria-keyshortcuts="Control+Z Meta+Z">${desfazer.rotulo || 'Desfazer'}</button>` : ''}`;
     toastEl.classList.toggle('erro', erro);
+    toastEl.classList.toggle('com-acao', !!desfazer);
+    const esconder = () => toastEl && toastEl.classList.remove('on');
+    const agendar = () => {
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(esconder, desfazer ? 8000 : 3200);
+    };
+    agendarAtual = agendar;
+    if (desfazer) {
+        const b = toastEl.querySelector('.toast-acao');
+        b.addEventListener('click', () => {
+            clearTimeout(toastTimer);
+            esconder();
+            desfazer.aoClicar();
+        });
+    }
     requestAnimationFrame(() => {
         toastEl.querySelector('span').textContent = msg;
         toastEl.classList.add('on');
     });
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toastEl && toastEl.classList.remove('on'), 3200);
+    agendar();
 }

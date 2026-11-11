@@ -317,6 +317,16 @@ export function apagar(id) {
     return gravar(doc);
 }
 
+/** Copia do perfil agora, para o Desfazer de uma exclusao. */
+export function instantaneo() {
+    return JSON.parse(JSON.stringify(carregar()));
+}
+
+/** Devolve o perfil ao estado da copia (o Desfazer). */
+export function restaurar(copia) {
+    return gravar(sanearDoc(copia));
+}
+
 /* ---------- backup (perfil e diario em um arquivo so) ---------- */
 
 export function exportar() {

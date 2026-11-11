@@ -1,5 +1,18 @@
 /* Aeon: sistema de design. Tokens compartilhados (escala, espaco, ritmo) e componentes que leem as variaveis dos temas
-   (tema-crepusculo.css e tema-aurora.css). Cor, fonte, raio e textura vivem nos temas; aqui so var(--nome). */
+   (tema-crepusculo.css e tema-aurora.css). Cor, fonte, raio e textura vivem nos temas; aqui so var(--nome).
+
+   ESCALA DE ESPACO (unica; todo margin, padding e gap novo usa estes degraus, nada de numero solto):
+     --sp-1   4 px  respiro minimo (icone e rotulo, linhas de um mesmo bloco)
+     --sp-2   8 px  itens de uma mesma familia (chips, botoes lado a lado)
+     --sp-3  12 px  campos de um formulario, linhas de uma lista
+     --sp-4  16 px  MARGEM LATERAL das telas (--gutter), distancia padrao entre blocos
+     --sp-5  24 px  entre secoes dentro de uma tela; padding de cartao
+     --sp-6  32 px  titulo de secao para o conteudo; margem lateral no desktop (>= 600 px usa --sp-5)
+     --sp-7  48 px  pausas grandes (antes do rodape)
+     --sp-8  72 px  respiro de abertura
+   Margem lateral: --gutter (16 px, 24 px a partir de 600 px) vale em TODAS as telas, via .container.
+   Abaixo da barra do topo: #main tem padding-top. Acima da barra inferior: --float-b (barra + area segura + --sp-4),
+   usado pelo voltar ao topo e pelos avisos. */
 
 /* fontes de reserva com metricas ajustadas (size-adjust medido), para a troca da fonte nao deslocar o layout */
 @font-face { font-family: "Inter Fallback"; src: local("Arial"); size-adjust: 105.7%; }
@@ -13,7 +26,11 @@
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 72px;
   --ease-ritual: cubic-bezier(0.2, 0.7, 0.2, 1); --t-flip: 750ms; --container: 1080px;
   --topbar-h: 60px; --bnav-h: 64px;
+  --gutter: var(--sp-4);
+  --nav-total: calc(var(--bnav-h) + env(safe-area-inset-bottom, 0px));
+  --float-b: calc(var(--nav-total) + var(--sp-4));
 }
+@media (min-width: 600px) { :root { --gutter: var(--sp-5); } }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scrollbar-width: none; }
@@ -22,7 +39,7 @@ body {
   margin: 0; background: var(--bg); color: var(--text);
   font-family: var(--font-ui); font-size: var(--fs-md); line-height: 1.6;
   -webkit-font-smoothing: antialiased; min-height: 100vh;
-  padding-bottom: calc(var(--bnav-h) + env(safe-area-inset-bottom));
+  padding-bottom: var(--nav-total);
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
@@ -34,8 +51,9 @@ button { font: inherit; color: inherit; }
 .sr:focus { position: fixed; z-index: 100; top: 8px; left: 8px; width: auto; height: auto; clip: auto; padding: 10px 16px; background: var(--accent); color: var(--accent-ink); border-radius: var(--r-sm); }
 .icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
-.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 16px; }
-@media (min-width: 600px) { .container { padding-inline: 24px; } }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+/* nada colado na barra do topo */
+#main { padding-top: var(--sp-3); }
 
 /* tipografia */
 .eyebrow { font-size: var(--fs-xs); letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
@@ -74,63 +92,100 @@ h3.display { font-size: var(--fs-h3); line-height: 1.2; }
 @media (max-width: 859px) { .themebtn .tl { display: none; } .themebtn { width: 44px; padding: 0; border-radius: 50%; } }
 
 /* botoes */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 26px; border-radius: var(--r-pill); border: 1px solid transparent; font: 600 var(--fs-md)/1 var(--font-ui); text-decoration: none; cursor: pointer; transition: background 0.3s var(--ease-ritual), transform 0.3s var(--ease-ritual), box-shadow 0.3s; }
-.btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 8px 28px -8px var(--glow), var(--sh-1); }
-.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
-.btn-ghost { background: transparent; color: var(--text); border-color: var(--control); }
-.btn-ghost:hover { background: var(--surface-2); }
+/* sistema de botoes: UM tamanho (40 px visuais, area de toque de 44 px por pseudo-elemento, 14 px peso 500; a primaria 600).
+   Sem brilho e sem deslocamento no hover. Raio por tema (--r-btn); pilula so em .chip e .filtro.
+   Primaria: preenchida, uma por tela. Secundaria (.btn-ghost): contorno --control (3:1). Terciaria (.btn-terciario): texto no acento.
+   Destrutiva (.btn-perigo): texto vermelho; .cheio so na confirmacao final do dialogo. */
+.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 16px; border-radius: var(--r-btn); border: 1px solid transparent; background: transparent; color: var(--text); font: 500 0.875rem/1 var(--font-ui); text-decoration: none; cursor: pointer; transition: background-color 0.18s, color 0.18s, border-color 0.18s; }
+.btn::after { content: ""; position: absolute; inset: -3px 0; }
+.btn .icon { width: 18px; height: 18px; flex: none; }
+.btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.btn:disabled, .btn[disabled], .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+.btn-ghost, .btn-secundario { background: transparent; color: var(--text); border-color: var(--control); }
+.btn-ghost:hover:not(:disabled), .btn-secundario:hover:not(:disabled) { background: var(--surface-2); }
+.btn-terciario { padding: 0 12px; color: var(--accent); background: transparent; border-color: transparent; }
+.btn-terciario:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.btn.btn-perigo { color: var(--err); border-color: transparent; background: transparent; padding: 0 12px; }
+.btn.btn-perigo:hover:not(:disabled) { background: color-mix(in srgb, var(--err) 14%, transparent); }
+.btn.btn-perigo.cheio { background: var(--err); color: var(--err-ink); border-color: var(--err); font-weight: 600; padding: 0 16px; }
+.btn.btn-perigo.cheio:hover:not(:disabled) { background: color-mix(in srgb, var(--err) 88%, #fff); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* colunas de texto e titulo de pagina */
-.page-title { padding-block: var(--sp-6) var(--sp-4); }
+.page-title { padding-block: var(--sp-4); }
 .page-title h1 { font-family: var(--font-display); font-weight: var(--w-display); font-size: var(--fs-h1); line-height: 1.06; letter-spacing: -0.01em; text-align: left; margin: 0; }
 .screen-actions { display: flex; justify-content: center; padding-block: var(--sp-5) var(--sp-6); }
 
-/* rodape */
-.foot { padding-block: var(--sp-7) var(--sp-6); margin-top: var(--sp-6); border-top: 1px solid var(--line); color: var(--text-mute); font-size: var(--fs-sm); text-align: center; display: grid; gap: var(--sp-3); justify-items: center; }
+/* rodape: respiro em cima e embaixo (a barra inferior nao encosta nos links) e links com 44 px de toque */
+.foot { padding-block: var(--sp-7) calc(var(--sp-6) + var(--sp-4)); margin-top: var(--sp-6); border-top: 1px solid var(--line); color: var(--text-mute); font-size: var(--fs-sm); text-align: center; display: grid; gap: var(--sp-2); justify-items: center; }
 .foot p { margin: 0; }
-.foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px; }
-.foot a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text-soft); text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 var(--sp-2); }
+.foot a { display: inline-flex; align-items: center; min-height: 44px; padding-inline: var(--sp-3); color: var(--text-soft); text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
 .foot a:hover { color: var(--text); }
+@media (min-width: 860px) { .foot { padding-bottom: var(--sp-6); } }
 
-/* voltar ao topo */
-.scroll-to-top { position: fixed; z-index: 25; right: 16px; bottom: calc(var(--bnav-h) + 16px + env(safe-area-inset-bottom)); width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--control); background: var(--surface); color: var(--text); box-shadow: var(--sh-2); cursor: pointer; display: none; align-items: center; justify-content: center; padding: 0; }
+/* voltar ao topo: acima da barra inferior (--float-b); o script de index.html so o mostra com rolagem relevante e
+   o levanta (--lift) para nao cobrir o texto do rodape. Some enquanto um aviso esta na tela. */
+.scroll-to-top { position: fixed; z-index: 25; right: var(--gutter); bottom: max(var(--float-b), var(--lift, 0px)); width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--control); background: var(--surface); color: var(--text); box-shadow: var(--sh-2); cursor: pointer; display: none; align-items: center; justify-content: center; padding: 0; }
 .scroll-to-top:hover { background: var(--surface-2); }
-@media (min-width: 860px) { .scroll-to-top { bottom: 24px; right: 24px; } }
+body:has(.toast.on) .scroll-to-top { visibility: hidden; }
+@media (min-width: 860px) { .scroll-to-top { bottom: max(var(--sp-5), var(--lift, 0px)); } }
 
-/* seletor de tema (painel pequeno, radiogroup) */
-dialog.sheet { border: 1px solid var(--line-strong); border-radius: var(--r-md); background: var(--surface); color: var(--text); padding: 20px; width: min(94vw, 420px); max-height: 94vh; box-shadow: var(--sh-3); overflow-x: hidden; overflow-y: auto; container-type: inline-size; }
+/* filete de tarô: linha fina com um losango no centro. Classe .filete-titulo em qualquer titulo; ja aplicado
+   por aqui aos titulos de pagina e ao da Home (um filete por tela, sem repetir no cartao). Cor: --line-strong (a linha) e --filete-glifo (o losango, no tema). */
+.filete-titulo::after, .page-title h1::after, .home-sobre h2::after {
+  content: ""; display: block; height: 10px; margin-top: var(--sp-3);
+  background:
+    linear-gradient(var(--line-strong), var(--line-strong)) left center / calc(50% - 12px) 1px no-repeat,
+    linear-gradient(var(--line-strong), var(--line-strong)) right center / calc(50% - 12px) 1px no-repeat,
+    var(--filete-glifo) center / 10px 10px no-repeat;
+}
+
+/* transicao curta entre telas: so opacidade (nao cria deslocamento nem mexe em rolagem ou foco) */
+#app.tela-in { animation: tela-in 180ms ease-out both; }
+@keyframes tela-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* seletor de tema (painel pequeno, radiogroup). Cada miniatura leva data-theme do proprio tema: le os tokens reais
+   (fundo, fonte, acento, raio do botao), entao nunca diverge do tema de verdade. */
+dialog.sheet { border: 1px solid var(--line-strong); border-radius: var(--r-md); background: var(--surface); color: var(--text); padding: var(--sp-5); width: min(94vw, 440px); max-height: 94vh; box-shadow: var(--sh-3); overflow-x: hidden; overflow-y: auto; container-type: inline-size; }
 dialog.sheet::backdrop { background: var(--overlay); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 dialog.sheet[open] { animation: rise 400ms var(--ease-ritual) both; }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.sheet-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.sheet-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); margin-bottom: var(--sp-4); }
 .sheet-head h2 { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.5rem; }
-.themes { display: grid; gap: 10px; margin-bottom: 4px; }
-.themeopt { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 14px; align-items: center; padding: 14px; border-radius: var(--r-md); border: 1px solid var(--control); background: var(--surface); cursor: pointer; color: var(--text); }
-.themeopt:hover { background: var(--surface-2); }
-.themeopt[aria-checked="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); background: var(--surface-2); }
-.themeopt b { display: block; font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.35rem; line-height: 1.1; margin-bottom: 2px; }
-.themeopt .tx > span { display: block; color: var(--text-soft); font-size: var(--fs-sm); line-height: 1.45; }
-.themeopt .tx > .st { margin-top: 4px; min-height: 1.3em; font-size: var(--fs-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
-.themeopt b, .themeopt .tx > span { overflow-wrap: anywhere; }
-.swatch { width: 64px; height: 84px; border-radius: 6px; position: relative; overflow: hidden; border: 1px solid rgba(128, 128, 128, 0.35); }
-.sw-crepusculo { background: radial-gradient(70% 55% at 50% 0%, rgba(232, 183, 160, 0.35), transparent 70%), #14101c; }
-.sw-crepusculo::before { content: ""; position: absolute; left: 14px; right: 14px; top: 20px; bottom: 14px; border-radius: 4px; border: 1.5px solid #d9a24a; background: #1e1828; }
-.sw-crepusculo::after { content: ""; position: absolute; left: 24px; right: 24px; top: 32px; height: 4px; border-radius: 4px; background: #e8b7a0; box-shadow: 0 10px 0 #b8abb8, 0 20px 0 #b8abb8; }
-.sw-aurora { background: linear-gradient(115deg, transparent 10%, rgba(255, 247, 214, 0.9) 10% 34%, transparent 34%), #f1f3ec; }
-.sw-aurora::before { content: ""; position: absolute; left: 14px; right: 14px; top: 12px; bottom: 12px; border-radius: 50px 50px 3px 3px; border: 1.5px solid #2a47a6; background: #fbfcf8; }
-.sw-aurora::after { content: ""; position: absolute; left: 24px; right: 24px; top: 42px; height: 4px; border-radius: 1px; background: #2a47a6; box-shadow: 0 10px 0 #434c63, 0 20px 0 #434c63; }
-@container (max-width: 17em) {
-  .themeopt { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .themeopt .swatch { width: 100%; height: 44px; }
-}
+.themes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); }
+.themeopt { position: relative; display: grid; gap: var(--sp-3); align-content: start; padding: 0; border: 0; background: none; cursor: pointer; color: var(--text); border-radius: var(--r-md); }
+.themeopt:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+.pv { position: relative; display: grid; align-content: space-between; gap: var(--sp-3); min-height: 168px; padding: var(--sp-3); border-radius: var(--r-md); background: var(--bg); color: var(--text); border: 1px solid var(--line-strong); overflow: hidden; font-family: var(--font-ui); transition: box-shadow 0.2s, border-color 0.2s; }
+.pv[data-theme="crepusculo"] { background: radial-gradient(90% 55% at 50% 0%, var(--glow), transparent 75%), var(--bg); }
+.pv[data-theme="aurora"] { background: linear-gradient(115deg, transparent 6%, rgb(var(--beam) / 0.7) 6% 30%, transparent 30%), var(--bg); }
+.pv .pv-eb { font-size: 0.5625rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.pv .pv-ti { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.25rem; line-height: 1.05; letter-spacing: -0.01em; margin-top: var(--sp-1); text-wrap: balance; }
+.pv .pv-ca { display: flex; gap: var(--sp-2); align-items: flex-end; }
+.pv .pv-carta { width: 26px; aspect-ratio: 2 / 3; border-radius: var(--r-card); background: var(--surface-2); border: 1.5px solid var(--accent); flex: none; }
+.pv .pv-bt { display: inline-flex; align-items: center; justify-content: center; min-height: 26px; padding: 0 var(--sp-3); border-radius: var(--r-btn); background: var(--accent); color: var(--accent-ink); font-size: 0.6875rem; font-weight: 600; }
+.pv .pv-lin { display: grid; gap: 4px; flex: 1; }
+.pv .pv-lin i { display: block; height: 3px; border-radius: 3px; background: var(--text-soft); opacity: 0.7; }
+.pv .pv-lin i:last-child { width: 60%; }
+.themeopt:hover .pv { border-color: var(--control); }
+.themeopt[aria-checked="true"] .pv { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.pv-ck { position: absolute; bottom: var(--sp-3); right: var(--sp-3); width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; opacity: 0; transform: scale(0.7); transition: opacity 0.2s, transform 0.2s var(--ease-ritual); }
+.pv-ck .icon { width: 14px; height: 14px; stroke-width: 2.4; }
+.themeopt[aria-checked="true"] .pv-ck { opacity: 1; transform: none; }
+.themeopt .tx { display: grid; gap: 2px; padding-inline: 2px; text-align: left; }
+.themeopt b { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.25rem; line-height: 1.1; }
+.themeopt .tx > span { color: var(--text-soft); font-size: var(--fs-sm); line-height: 1.35; }
+@container (max-width: 14em) { .themes { grid-template-columns: minmax(0, 1fr); } .pv { min-height: 0; } }
 
 /* troca suave entre temas (View Transitions quando existir; senao, transicao de cor). Nunca recarrega nem mexe no estado. */
-html.theme-vt::view-transition-old(root), html.theme-vt::view-transition-new(root) { animation-duration: 420ms; animation-timing-function: ease; }
-html.theme-anim body, html.theme-anim .topbar::before, html.theme-anim .mainnav, html.theme-anim .btn, html.theme-anim .iconbtn, html.theme-anim .panel-card, html.theme-anim .info-content { transition: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease; }
+html.theme-vt::view-transition-old(root), html.theme-vt::view-transition-new(root) { animation-duration: 320ms; animation-timing-function: ease; }
+html.theme-anim body, html.theme-anim .topbar::before, html.theme-anim .mainnav, html.theme-anim .btn, html.theme-anim .iconbtn, html.theme-anim .panel-card, html.theme-anim .info-content { transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease; }
 
 /* movimento reduzido: sem animacao de entrada, sem flip animado, sem troca animada */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
   html.theme-vt::view-transition-old(root), html.theme-vt::view-transition-new(root) { animation: none !important; }
+  #app.tela-in { animation: none; }
 }

@@ -4,7 +4,8 @@ import { hash, dataLocal } from './cartaDoDia.js';
  * Diario: anotacoes e leituras, guardadas so no aparelho.
  *
  * Chave: "aeon:v2:diario"  ->  { v: 2, entradas: [Entrada], ocultos: [id] }
- *   Entrada = { id, t (ISO), tipo: "dia" | "leitura" | "mapa", cartas: [{ order, pos? }], nota, m (ISO da ultima edicao da nota), rotulo?, pergunta? (so leitura, ate 200 caracteres) }
+ *   Entrada = { id, t (ISO), tipo: "dia" | "leitura" | "mapa" | "cruz", cartas: [{ order, pos? }], nota, m (ISO da ultima edicao da nota), rotulo?, pergunta? (leitura e cruz, ate 200 caracteres) }
+ *   cruz = as 5 cartas da cruz, cada uma com pos (momento, ajuda, obstaculo, caminho, sintese). Versoes antigas do app ignoram esse tipo.
  *   ocultos = ids de leituras do historico antigo que a pessoa apagou do diario (so esconde, nao apaga o antigo).
  *
  * O historico antigo (chave "tarotHistory", storage.js) e lido SOMENTE LEITURA e convertido por order;
@@ -23,6 +24,7 @@ const LIMITE_LEITURA_IMPORTACAO = 2000; // quantas entradas do arquivo sao ao me
 
 const POSICOES = ['passado', 'presente', 'futuro'];
 const POSICOES_MAPA = ['sol', 'lua', 'asc'];
+export const POSICOES_CRUZ = ['momento', 'ajuda', 'obstaculo', 'caminho', 'sintese'];
 const RE_ID = /^[A-Za-z0-9_-]{1,64}$/;
 const PERIGOSAS = ['__proto__', 'constructor', 'prototype'];
 
@@ -66,19 +68,22 @@ export function sanearEntrada(bruta) {
     const t = tem(bruta, 't') ? dataValida(bruta.t) : null;
     if (!t) return null;
     const tipo = tem(bruta, 'tipo') ? bruta.tipo : null;
-    if (tipo !== 'dia' && tipo !== 'leitura' && tipo !== 'mapa') return null;
+    if (tipo !== 'dia' && tipo !== 'leitura' && tipo !== 'mapa' && tipo !== 'cruz') return null;
     if (!tem(bruta, 'cartas') || !Array.isArray(bruta.cartas)) return null;
-    const maximo = tipo === 'dia' ? 1 : 3;
+    const maximo = tipo === 'dia' ? 1 : tipo === 'cruz' ? POSICOES_CRUZ.length : 3;
     const cartas = [];
     for (const c of bruta.cartas.slice(0, maximo)) {
         if (!c || typeof c !== 'object' || PERIGOSAS.some((k) => tem(c, k))) return null;
         const order = tem(c, 'order') && typeof c.order === 'number' ? c.order : NaN;
         if (!Number.isInteger(order) || order < 0 || order > 77) return null;
         const item = { order };
-        if (tem(c, 'pos') && (tipo === 'mapa' ? POSICOES_MAPA : POSICOES).includes(c.pos)) item.pos = c.pos;
+        const validas = tipo === 'mapa' ? POSICOES_MAPA : tipo === 'cruz' ? POSICOES_CRUZ : POSICOES;
+        if (tem(c, 'pos') && validas.includes(c.pos)) item.pos = c.pos;
         cartas.push(item);
     }
     if (!cartas.length) return null;
+    // a cruz so vale inteira: cinco cartas diferentes, uma em cada posicao (senao o desenho nao se sustenta)
+    if (tipo === 'cruz' && !(cartas.length === POSICOES_CRUZ.length && cartas.every((c) => c.pos) && new Set(cartas.map((c) => c.pos)).size === POSICOES_CRUZ.length && new Set(cartas.map((c) => c.order)).size === POSICOES_CRUZ.length)) return null;
     const entrada = {
         id: bruta.id,
         t,
@@ -90,7 +95,7 @@ export function sanearEntrada(bruta) {
     if (tem(bruta, 'rotulo') && typeof bruta.rotulo === 'string' && bruta.rotulo.trim()) {
         entrada.rotulo = limparTexto(bruta.rotulo, 40);
     }
-    if (tipo === 'leitura' && tem(bruta, 'pergunta')) {
+    if ((tipo === 'leitura' || tipo === 'cruz') && tem(bruta, 'pergunta')) {
         const pergunta = limparPergunta(bruta.pergunta);
         if (pergunta) entrada.pergunta = pergunta;
     }
@@ -291,6 +296,28 @@ export function criarLeitura(cartas, pergunta = '') {
 }
 
 /**
+ * Cria uma entrada de cruz de cinco cartas (so quando a pessoa escolhe guardar).
+ * cartas: [{order, pos}] com as cinco posicoes (momento, ajuda, obstaculo, caminho, sintese); pergunta e opcional.
+ */
+export function guardarCruz(cartas, pergunta = '') {
+    const doc = carregar();
+    const agora = new Date();
+    const id = `cruz-${agora.getTime().toString(36)}-${Math.floor(Math.random() * 1296).toString(36)}`;
+    const nova = sanearEntrada({
+        id,
+        t: agora.toISOString(),
+        tipo: 'cruz',
+        cartas: cartas.map((c) => ({ order: Number(c.order), pos: c.pos })),
+        nota: '',
+        pergunta,
+    });
+    if (!nova) return { id, ok: false };
+    doc.entradas.push(nova);
+    aplicarLimite(doc);
+    return { id, ok: gravar(doc) };
+}
+
+/**
  * Cria uma entrada de mapa astral: as cartas do decano do Sol, da Lua e do Ascendente (pos: sol, lua, asc)
  * e, como rotulo, so os signos. NAO leva data, hora nem local de nascimento.
  */
@@ -355,6 +382,29 @@ export function apagarEntrada(id) {
     doc.entradas = doc.entradas.filter((e) => e.id !== id);
     if (id.startsWith('antigo-') && !doc.ocultos.includes(id)) doc.ocultos.push(id);
     return gravar(doc);
+}
+
+/** Copia do diario agora (e do historico antigo, que o apagar tudo pode remover), para o Desfazer. */
+export function instantaneo() {
+    let antigo = null;
+    try {
+        antigo = localStorage.getItem(CHAVE_ANTIGA);
+    } catch (e) {
+        /* sem armazenamento */
+    }
+    return { doc: JSON.parse(JSON.stringify(carregar())), antigo };
+}
+
+/** Devolve o diario ao estado da copia (o Desfazer), inclusive o historico antigo se ele foi removido. */
+export function restaurar(copia) {
+    if (copia.antigo != null) {
+        try {
+            if (localStorage.getItem(CHAVE_ANTIGA) == null) localStorage.setItem(CHAVE_ANTIGA, copia.antigo);
+        } catch (e) {
+            /* sem armazenamento: a restauracao do diario segue */
+        }
+    }
+    return gravar(sanearDoc(copia.doc));
 }
 
 /**
@@ -463,4 +513,51 @@ export function consumirAviso() {
     const a = avisoPendente;
     avisoPendente = '';
     return a;
+}
+
+/* ---------- agrupamento por mes (so apresentacao; nao mexe nos dados) ---------- */
+
+const RE_ID_DIA = /^dia-(\d{4})-(\d{2})-(\d{2})$/;
+const fmtMes = new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric' });
+const fmtSemana = new Intl.DateTimeFormat('pt-BR', { weekday: 'short' });
+
+/**
+ * Data de calendario de uma entrada, no fuso do aparelho. A carta do dia usa a data do id
+ * (o dia em que foi tirada); as demais usam `t`. Leitura antiga sem data legivel vem com semData.
+ * -> { semData, ano, mes (1-12), dia, semana (abreviada, sem ponto), chave ('2026-11' ou 'sem-data'), iso ('2026-11-09') }
+ */
+export function diaDaEntrada(e) {
+    if (e.rotulo && String(e.t).startsWith('2000-01-01')) return { semData: true, ano: 0, mes: 0, dia: 0, semana: '', chave: 'sem-data', iso: '' };
+    const m = e.tipo === 'dia' ? RE_ID_DIA.exec(e.id) : null;
+    const d = m ? new Date(+m[1], +m[2] - 1, +m[3], 12) : new Date(e.t);
+    const ano = d.getFullYear();
+    const mes = d.getMonth() + 1;
+    const dia = d.getDate();
+    const mm = String(mes).padStart(2, '0');
+    return {
+        semData: false, ano, mes, dia,
+        semana: fmtSemana.format(d).replace('.', ''),
+        chave: `${ano}-${mm}`,
+        iso: `${ano}-${mm}-${String(dia).padStart(2, '0')}`,
+    };
+}
+
+/** 'novembro de 2026' para a chave de um grupo. */
+export function rotuloMes(ano, mes) {
+    return fmtMes.format(new Date(ano, mes - 1, 15));
+}
+
+/** Agrupa entradas (ja ordenadas) por mes, na ordem em que cada mes aparece. -> [{ chave, ano, mes, itens }] */
+export function agruparPorMes(entradas) {
+    const grupos = new Map();
+    for (const e of entradas) {
+        const d = diaDaEntrada(e);
+        let g = grupos.get(d.chave);
+        if (!g) {
+            g = { chave: d.chave, ano: d.ano, mes: d.mes, itens: [] };
+            grupos.set(d.chave, g);
+        }
+        g.itens.push(e);
+    }
+    return [...grupos.values()];
 }

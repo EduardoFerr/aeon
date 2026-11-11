@@ -42,7 +42,7 @@ const TEXTO = {
     toqueParaRevelar: 'Toque na carta para revelar',
     revelarTodas: 'Revelar todas',
     novaLeitura: 'Nova leitura',
-    luz: 'Luz.',
+    luz: 'Luz',
     abrir: 'Abrir a carta',
     escreverDiario: 'Escrever no diário',
     compartilhar: 'Compartilhar',
@@ -53,7 +53,6 @@ const TEXTO = {
     revelada: (pos, carta) => `${pos} revelado: ${carta.name}, ${carta.title}.`,
     todasReveladas: 'As três cartas foram reveladas. Você pode escrever no diário, compartilhar ou fazer uma nova leitura.',
     erro: 'Não foi possível tirar as cartas agora. Recarregue a página.',
-    voltar: 'Voltar',
 };
 
 const reduzMovimento = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -81,11 +80,9 @@ export class ThreeCardGameScreen extends HTMLElement {
                 </ol>
                 <p class="sr" role="status" aria-live="polite" data-anuncio></p>
                 <div class="leitura-palco" data-palco></div>
-                <div class="screen-actions"><button type="button" class="btn btn-ghost" data-ir="home">${TEXTO.voltar}</button></div>
             </section>
         `;
         document.querySelector('#page-title').textContent = TEXTO.titulo;
-        this.querySelector('[data-ir]').addEventListener('click', () => navigateTo('home'));
         this.palco = this.querySelector('[data-palco]');
         this.irPara('pergunta', { foco: false });
     }
@@ -350,7 +347,7 @@ export class ThreeCardGameScreen extends HTMLElement {
                 <li class="leitura-slot" data-slot="${k}">
                     <h3 class="leitura-pos">${ROTULOS[k]}</h3>
                     <div class="leitura-slot-carta">
-                        <tarot-card data-order="${Number(c.order)}" show-back rotulo-verso="${ROTULOS[k]}, carta virada para baixo. Ative para revelar."></tarot-card>
+                        <tarot-card data-order="${Number(c.order)}" data-botao-abrir show-back rotulo-verso="${ROTULOS[k]}, carta virada para baixo. Ative para revelar."></tarot-card>
                     </div>
                     <div class="leitura-interp" data-interp><p class="leitura-espera">${TEXTO.toqueParaRevelar}</p></div>
                 </li>`
@@ -387,6 +384,7 @@ export class ThreeCardGameScreen extends HTMLElement {
         if (!slot) return;
         const k = Number(slot.dataset.slot);
         const carta = this.cartasEscolhidas[k];
+        const tinhaFoco = !!(e.detail && e.detail.tinhaFoco);
         const interp = slot.querySelector('[data-interp]');
         if (!carta || interp.dataset.aberta) return;
         const texto = (carta.past_present_future && carta.past_present_future[CAMPOS[k]]) || carta.message_esoteric || '';
@@ -394,8 +392,10 @@ export class ThreeCardGameScreen extends HTMLElement {
         interp.innerHTML = `
             <p class="leitura-rotulo">${TEMPOS[k]}</p>
             <p class="leitura-texto">${escaparHtml(texto)}</p>
-            ${carta.eighth_greater ? `<p class="leitura-luz"><strong>${TEXTO.luz}</strong> ${escaparHtml(carta.eighth_greater)}</p>` : ''}
-            <button type="button" class="btn btn-ghost" data-abrir="${k}">${TEXTO.abrir}</button>`;
+            ${carta.eighth_greater ? `<div class="leitura-luz"><p class="leitura-rotulo">${TEXTO.luz}</p><p>${escaparHtml(carta.eighth_greater)}</p></div>` : ''}
+            <button type="button" class="btn btn-terciario" data-abrir="${k}">${TEXTO.abrir}${ic('seta')}</button>`;
+        // a carta aberta sai da ordem de foco (o "Abrir a carta" abaixo faz o mesmo): o foco acompanha
+        if (tinhaFoco) interp.querySelector('[data-abrir]').focus({ preventScroll: true });
         this.reveladas += 1;
         if (this.reveladas < 3) {
             this.anunciar(TEXTO.revelada(ROTULOS[k], carta));
@@ -421,7 +421,7 @@ export class ThreeCardGameScreen extends HTMLElement {
         // uma acao principal visivel; compartilhar e nova leitura ficam no menu Acoes (Nova leitura repete "Leitura" da barra)
         acoes.innerHTML = `
             <button type="button" class="btn btn-primary" data-acao="diario">${TEXTO.escreverDiario}</button>
-            <button type="button" class="iconbtn" data-acao="acoes" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${TEXTO.acoes}</button>`;
+            <button type="button" class="btn btn-terciario" data-acao="acoes" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${TEXTO.acoes}</button>`;
         acoes.querySelector('[data-acao="diario"]').addEventListener('click', () => {
             if (this.entradaId) pedirFoco(this.entradaId);
             navigateTo('history');

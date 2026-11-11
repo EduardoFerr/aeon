@@ -8,7 +8,7 @@
   --key: #b83a24;
   --luz: #6e4a00; --luz-wash: #f5e8c4;
   --sombra: #38397e; --sombra-wash: #e2e4f4;
-  --ok: #1f6b45; --warn: #8a5a00; --err: #a12d2d; --focus: #2a47a6;
+  --ok: #1f6b45; --warn: #8a5a00; --err: #a12d2d; --focus: #2a47a6; --err-ink: #ffffff;
   --glow: rgba(42, 71, 166, 0.28); --glow-cool: rgba(42, 71, 166, 0.08);
   --shadow-color: 24 32 58;
   --sh-1: 0 1px 0 rgb(24 32 58 / 0.06); --sh-2: 0 1px 0 rgb(24 32 58 / 0.06), 0 14px 28px -16px rgb(24 32 58 / 0.32); --sh-3: 0 2px 0 rgb(24 32 58 / 0.05), 0 28px 44px -22px rgb(24 32 58 / 0.45);
@@ -16,11 +16,12 @@
   --motif: rgba(42, 71, 166, 0.22); --motif-strong: rgba(42, 71, 166, 0.5);
   --beam: 255 247 214;
   --overlay: rgba(24, 32, 58, 0.5);
+  --filete-glifo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 .5L9.5 5 5 9.5.5 5z' fill='none' stroke='%2376806a' stroke-width='1'/%3E%3C/svg%3E");
   --el-ar: #1f6b45; --el-terra: #8a5a00; --el-agua: #2a47a6; --el-fogo: #b83a24;
   --font-display: "Fraunces", "Fraunces Fallback", Georgia, serif;
   --font-ui: "Hanken Grotesk", "Hanken Fallback", system-ui, -apple-system, sans-serif;
   --w-display: 350;
-  --r-sm: 4px; --r-md: 10px; --r-pill: 4px; --r-card: 4px;
+  --r-btn: 4px; --r-sm: 4px; --r-md: 10px; --r-pill: 4px; --r-card: 4px;
 }
 /* textura: grao de papel e feixe de luz com caixilho */
 [data-theme="aurora"] body::before {
@@ -39,7 +40,5 @@
 @media (min-width: 860px) { [data-theme="aurora"] .mainnav a[aria-current="page"] { background: none; color: var(--text); box-shadow: inset 0 -2px 0 var(--accent); border-radius: 0; } }
 @media (max-width: 859px) { [data-theme="aurora"] .mainnav a[aria-current="page"]::before { content: ""; position: absolute; top: 0; width: 28px; height: 3px; background: var(--accent); border-radius: 0 0 3px 3px; } }
 [data-theme="aurora"] .eyebrow { font-weight: 600; }
-[data-theme="aurora"] .btn-primary { box-shadow: 0 1px 0 rgb(0 0 0 / 0.15), 0 12px 22px -12px var(--accent); }
-[data-theme="aurora"] .btn-ghost { font-weight: 600; }
 [data-theme="aurora"] .panel-card { box-shadow: var(--sh-2); }
 [data-theme="aurora"] .card-front img, [data-theme="aurora"] .card-back, [data-theme="aurora"] .hero-art img, [data-theme="aurora"] .info-art img { box-shadow: var(--sh-2); }

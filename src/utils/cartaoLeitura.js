@@ -6,7 +6,7 @@
  */
 import {
     W, H, PAL, temaAtual, carregarImagem, esperarFontes, padraoGrao, quebrar, espacar, centro,
-    fundoCrepusculo, fundoAurora, moldura, logo, divisor, desenharCarta, paraBlob, baixarCartao,
+    fundoCrepusculo, fundoAurora, moldura, logo, divisor, desenharCarta, paraBlob, baixarCartao, TEXTO_PERGUNTA_NO_CARTAO,
 } from './cartao.js';
 
 const ROTULOS = ['Passado', 'Presente', 'Futuro'];
@@ -27,7 +27,7 @@ const TEXTO = {
 };
 
 /** Quebra o texto em ate `max` linhas; se passar, a ultima termina em reticencias (e no fecho, se houver). */
-function limitar(ctx, texto, largura, max, fecho = '') {
+export function limitar(ctx, texto, largura, max, fecho = '') {
     let linhas = quebrar(ctx, texto, largura);
     if (linhas.length <= max) return linhas;
     linhas = linhas.slice(0, max - 1).concat(linhas.slice(max - 1).join(' '));
@@ -38,7 +38,7 @@ function limitar(ctx, texto, largura, max, fecho = '') {
 }
 
 /** Menor tamanho que serve: tenta cada tamanho da lista ate o texto caber em `max` linhas dentro da largura. */
-function ajustar(ctx, texto, largura, tamanhos, max, fonte) {
+export function ajustar(ctx, texto, largura, tamanhos, max, fonte) {
     let px = tamanhos[0];
     let linhas = [];
     for (const t of tamanhos) {
@@ -220,6 +220,7 @@ function montar() {
             <button class="iconbtn round" type="button" data-f aria-label="${TEXTO.fechar}"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
         </div>
         <div class="cartao-previa" data-previa></div>
+        <label class="cartao-pergunta" data-pergunta hidden><input type="checkbox" data-com-pergunta><span>${TEXTO_PERGUNTA_NO_CARTAO}</span></label>
         <div class="btn-row cartao-acoes">
             <button class="btn btn-primary" type="button" data-baixar>${TEXTO.baixar}</button>
             <button class="btn btn-ghost" type="button" data-compartilhar>${TEXTO.compartilhar}</button>
@@ -245,6 +246,10 @@ function montar() {
         const r = await compartilharCartaoLeitura(ultimo.cv, ultimo.dados.data, ultimo.dados.cartas);
         msg(r === 'baixado' ? TEXTO.semCompartilhar : r === 'erro' ? TEXTO.falhou : '');
     });
+    // a pergunta fica fora do cartao por padrao; o interruptor a coloca
+    dialogo.querySelector('[data-com-pergunta]').addEventListener('change', (e) => {
+        if (ultimo) desenhar({ ...ultimo.dados, comPergunta: e.target.checked });
+    });
     // trocou o tema com o cartao aberto: refaz no tema novo
     document.addEventListener('aeon:tema', () => {
         if (dialogo.open && ultimo) desenhar(ultimo.dados);
@@ -257,7 +262,7 @@ async function desenhar(dados) {
     msg.textContent = TEXTO.fazendo;
     const pedido = (desenhar.n = (desenhar.n || 0) + 1);
     try {
-        const cv = await gerarCartaoLeitura(dados);
+        const cv = await gerarCartaoLeitura({ ...dados, pergunta: dados.comPergunta ? dados.pergunta : '' });
         if (pedido !== desenhar.n) return; // chegou um pedido mais novo
         cv.setAttribute('role', 'img');
         cv.setAttribute('aria-label', TEXTO.previa(dados.cartas));
@@ -270,10 +275,14 @@ async function desenhar(dados) {
     }
 }
 
-/** Abre a previa do cartao com Baixar e Compartilhar. dados: { cartas, pergunta, data } */
+/** Abre a previa do cartao com Baixar e Compartilhar. dados: { cartas, pergunta, data }. A pergunta so entra se a pessoa ligar o interruptor. */
 export function abrirCartaoLeitura(dados) {
     if (!dialogo) montar();
     dialogo.dataset.pronto = 'false';
+    const tg = dialogo.querySelector('[data-pergunta]');
+    tg.hidden = !dados.pergunta;
+    tg.querySelector('input').checked = false;
+    dados = { ...dados, comPergunta: false };
     dialogo.querySelector('[data-previa]').replaceChildren();
     ultimo = null;
     if (!dialogo.open) dialogo.showModal();

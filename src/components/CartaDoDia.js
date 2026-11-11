@@ -4,6 +4,8 @@ import { baixarLembrete } from '../utils/lembrete.js';
 import { escaparHtml } from '../utils/glossario.js';
 import { guardarDia, obter, aoMudar, pedirFoco } from '../utils/diario.js';
 import { navigateTo } from '../utils/navigation.js';
+import { abrir as abrirSobreposicao, ehDesktop } from './Sobreposicao.js';
+import { ic } from '../utils/glifos.js';
 
 const TEXTO = {
     titulo: 'Sua carta de hoje',
@@ -13,6 +15,8 @@ const TEXTO = {
     pergunta: 'Para levar o dia',
     abrir: 'Abrir a carta',
     compartilhar: 'Compartilhar',
+    acoes: 'Ações',
+    acoesTitulo: 'Ações da carta de hoje',
     guardar: 'Guardar no diário',
     verNoDiario: 'Ver no diário',
     rotuloVerso: 'Sua carta de hoje, de costas. Ative para virar.',
@@ -74,7 +78,7 @@ export class CartaDoDia extends HTMLElement {
         corpo.dataset.virada = String(this.virada);
         corpo.innerHTML = `
             <div class="dia-carta">
-                <tarot-card data-order="${Number(c.order)}" ${this.virada ? '' : 'show-back'} rotulo-verso="${TEXTO.rotuloVerso}"></tarot-card>
+                <tarot-card data-order="${Number(c.order)}" data-botao-abrir ${this.virada ? '' : 'show-back'} rotulo-verso="${TEXTO.rotuloVerso}"></tarot-card>
             </div>
             <div class="dia-texto">
                 <div class="dia-estado dia-fechada">
@@ -93,32 +97,51 @@ export class CartaDoDia extends HTMLElement {
                         <p class="dia-rotulo">${TEXTO.pergunta}</p>
                         <p class="dia-frase">${escaparHtml(this.pergunta)}</p>
                     </div>` : ''}
-                    <div class="btn-row dia-acoes">
+                    <div class="dia-acoes">
                         <button type="button" class="btn btn-primary" data-acao="abrir">${TEXTO.abrir}</button>
                         <button type="button" class="btn btn-ghost" data-acao="guardar"></button>
-                        <button type="button" class="btn btn-ghost" data-acao="compartilhar" aria-haspopup="dialog">${TEXTO.compartilhar}</button>
                     </div>
+                    <button type="button" class="dia-mais" data-acao="acoes" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${TEXTO.acoes}</button>
                 </div>
             </div>
             <p class="sr" role="status" aria-live="polite" data-anuncio></p>
         `;
         this.querySelector('.dia').insertAdjacentHTML('beforeend', '<div class="dia-semana" data-semana></div>');
 
-        this.querySelector('tarot-card').addEventListener('carta-virada', () => this.aoVirar());
+        this.querySelector('tarot-card').addEventListener('carta-virada', (e) => this.aoVirar(e.detail && e.detail.tinhaFoco));
         this.querySelector('[data-acao="abrir"]').addEventListener('click', (e) => {
             const info = document.querySelector('tarot-card-info');
             if (info) info.showInfo(this.carta, e.currentTarget);
         });
-        this.querySelector('[data-acao="compartilhar"]').addEventListener('click', () => {
-            // o cartao so e montado agora, sob demanda: o modulo nem e baixado antes do clique
-            import('../utils/cartao.js').then((m) => m.abrirCartao({ carta: this.carta, pergunta: this.pergunta, data: this.data }));
-        });
+        this.querySelector('[data-acao="acoes"]').addEventListener('click', (e) => this.abrirAcoes(e.currentTarget));
         this.querySelector('[data-acao="guardar"]').addEventListener('click', () => this.guardar());
         if (this.desligarDiario) this.desligarDiario();
         this.desligarDiario = aoMudar(() => this.rotularGuardar());
         this.rotularGuardar();
         this.atualizarEstado();
         this.pintarSemana();
+    }
+
+    /** Compartilhar e lembrar ficam no menu Acoes: a carta mostra so Abrir (principal) e Guardar. */
+    abrirAcoes(botao) {
+        botao.setAttribute('aria-expanded', 'true');
+        const item = (id, rot, i) => `<button class="sob-acao" type="button" data-exec="${id}">${ic(i)}${rot}</button>`;
+        const c = abrirSobreposicao({
+            tipo: ehDesktop() ? 'popover' : 'gaveta', titulo: TEXTO.acoesTitulo, gatilho: botao,
+            corpo: `<nav aria-label="${TEXTO.acoesTitulo}">${item('compartilhar', TEXTO.compartilhar, 'compartilhar')}${item('lembrar', TEXTO.lembrar, 'relogio')}</nav>`,
+            aoFechar: () => botao.setAttribute('aria-expanded', 'false'),
+        });
+        c.corpo.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-exec]');
+            if (!b) return;
+            c.fechar();
+            if (b.dataset.exec === 'compartilhar') {
+                // o cartao so e montado agora, sob demanda: o modulo nem e baixado antes do clique
+                import('../utils/cartao.js').then((m) => m.abrirCartao({ carta: this.carta, pergunta: this.pergunta, data: this.data }));
+            } else {
+                this.querySelector('[data-lembrete-msg]').textContent = baixarLembrete() ? TEXTO.lembreteOk : TEXTO.lembreteFalhou;
+            }
+        });
     }
 
     /** "Guardar no diario" cria (ou atualiza) a entrada unica do dia e leva a nota; depois vira "Ver no diario". */
@@ -149,20 +172,18 @@ export class CartaDoDia extends HTMLElement {
                     </li>`).join('')}
             </ul>
             <p class="dia-frase-semana">${fraseDaSemana(semana, this.data)}</p>
-            <button type="button" class="btn btn-ghost dia-lembrar" data-acao="lembrar">${TEXTO.lembrar}</button>
             <p class="dia-msg" role="status" aria-live="polite" data-lembrete-msg></p>`;
-        this.querySelector('[data-acao="lembrar"]').addEventListener('click', () => {
-            this.querySelector('[data-lembrete-msg]').textContent = baixarLembrete() ? TEXTO.lembreteOk : TEXTO.lembreteFalhou;
-        });
     }
 
-    aoVirar() {
+    aoVirar(tinhaFoco) {
         if (this.virada) return;
         this.virada = true;
         marcarVirada(this.carta, this.data);
         this.atualizarEstado();
         this.pintarSemana();
         this.querySelector('[data-anuncio]').textContent = TEXTO.anuncio(this.carta);
+        // a carta aberta deixa de ser o botao (o "Abrir a carta" ao lado faz o mesmo): o foco que estava nela acompanha
+        if (tinhaFoco) this.querySelector('[data-acao="abrir"]').focus({ preventScroll: true });
         this.dispatchEvent(new CustomEvent('dia-virada', { bubbles: true, detail: { carta: this.carta } }));
     }
 

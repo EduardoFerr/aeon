@@ -45,8 +45,6 @@ export class TarotCard extends HTMLElement {
         if (!this.cardData) return; // Espaço reservado (sem carta sorteada): sem interação
 
         // Acessível por teclado e leitor de tela
-        this.tabIndex = 0;
-        this.setAttribute('role', 'button');
         this.atualizarRotulo();
 
         this.addEventListener('click', () => this.flipCard());
@@ -58,7 +56,21 @@ export class TarotCard extends HTMLElement {
         });
     }
 
+    /**
+     * Com data-botao-abrir, a carta aberta tem ao lado um botao visivel ("Abrir a carta") para o mesmo detalhe.
+     * Tocar na carta continua abrindo (conveniencia do toque), mas ela sai da ordem de foco e do leitor de tela
+     * como botao, para o mesmo comando nao ser anunciado duas vezes. Virada para baixo, e o unico comando.
+     */
     atualizarRotulo() {
+        const duplicada = this.hasAttribute('data-botao-abrir') && !this.isFlipped;
+        if (duplicada) {
+            this.removeAttribute('tabindex');
+            this.removeAttribute('role');
+            this.removeAttribute('aria-label');
+            return;
+        }
+        this.tabIndex = 0;
+        this.setAttribute('role', 'button');
         this.setAttribute(
             'aria-label',
             this.isFlipped
@@ -75,11 +87,12 @@ export class TarotCard extends HTMLElement {
 
         // Se a carta está virada para baixo, realiza o flip
         if (this.isFlipped) {
+            const tinhaFoco = document.activeElement === this;
             this.isFlipped = false;
             cardElement.classList.remove('flipped');
             this.atualizarRotulo();
-            // Quem hospeda a carta (carta do dia) fica sabendo que ela foi virada
-            this.dispatchEvent(new CustomEvent('carta-virada', { bubbles: true, detail: { carta: this.cardData } }));
+            // Quem hospeda a carta (carta do dia) fica sabendo que ela foi virada (e se o foco estava nela)
+            this.dispatchEvent(new CustomEvent('carta-virada', { bubbles: true, detail: { carta: this.cardData, tinhaFoco } }));
         } else {
             // Acessa o modal global e passa o cardData
             const infoComponent = document.querySelector('tarot-card-info');

@@ -62,6 +62,7 @@ for (const [id, e] of idsLista) {
   if (/[{}]/.test(t.replace(/\{[^{}]*\}/g, ""))) erro(id, "chave solta no texto");
 
   for (const [nome, re] of VETOS) {
+    if (e.permite && e.permite.includes(nome)) continue; // rotulo de interface que usa a palavra de proposito
     const a = t.match(re);
     if (a) erro(id, `termo vetado (${nome}: "${a[0]}")`);
   }

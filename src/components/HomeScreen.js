@@ -1,13 +1,11 @@
 import { navigateTo } from '../utils/navigation.js';
 import './CartaDoDia.js';
-import { listar, principal } from '../utils/perfil.js';
+import { principal } from '../utils/perfil.js';
 
 const icone = (corpo) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${corpo}</svg>`;
 
 const ICONES = {
     tirar: icone('<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M12 9l1.2 2.4 2.6.3-1.9 1.8.5 2.6L12 14.8 9.6 16.1l.5-2.6-1.9-1.8 2.6-.3z"/>'),
-    tres: icone('<rect x="2.5" y="6" width="5.5" height="12" rx="1"/><rect x="9.2" y="4" width="5.6" height="16" rx="1"/><rect x="16" y="6" width="5.5" height="12" rx="1"/>'),
-    cartas: icone('<rect x="4" y="5" width="10" height="15" rx="1.5"/><path d="M8 3h10a2 2 0 012 2v12"/>'),
     mapa: icone('<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/>'),
 };
 
@@ -16,7 +14,7 @@ const acao = (ir, icon, nome, linha, extra = '') =>
 
 export class HomeScreen extends HTMLElement {
     connectedCallback() {
-        const temMapa = listar().length > 0;
+        const temMapa = !!principal(); // o atalho e do mapa principal; so o mapa de outra pessoa nao conta
         this.innerHTML = `
             <section class="home-screen">
                 <header class="home-cab">
@@ -28,12 +26,10 @@ export class HomeScreen extends HTMLElement {
 
                 <nav aria-label="Por onde começar">
                     <ul class="home-acoes">
-                        ${acao('three-card-game', ICONES.tirar, 'Tirar cartas', 'Faça a sua tiragem', ' destaque')}
-                        ${acao('three-card-game', ICONES.tres, 'Três cartas', 'Passado, presente, rumo')}
-                        ${acao('all-cards', ICONES.cartas, 'Cartas', 'As 78 do baralho')}
+                        ${acao('tiragens', ICONES.tirar, 'Tirar cartas', 'Cruz ou três cartas', ' destaque')}
                         ${temMapa
-                            ? acao('mapa', ICONES.mapa, 'Seu mapa', 'Abrir o mapa principal')
-                            : acao('novo-mapa', ICONES.mapa, 'Mapa astral', 'Uma carta para cada ponto')}
+                            ? acao('mapa', ICONES.mapa, 'Seu mapa', 'O mapa principal')
+                            : acao('novo-mapa', ICONES.mapa, 'Mapa astral', 'Crie o seu')}
                     </ul>
                 </nav>
 
@@ -59,9 +55,10 @@ export class HomeScreen extends HTMLElement {
             botao.addEventListener('click', () => {
                 const ir = botao.dataset.ir;
                 if (ir === 'mapa') {
-                    const m = principal() || listar()[0];
+                    const m = principal();
                     navigateTo('mapa', m ? { id: m.id } : null);
-                } else navigateTo(ir);
+                } else if (ir === 'novo-mapa') navigateTo('novo-mapa', { meusDados: true }); // sem mapa guardado: a tela "Meus dados"
+                else navigateTo(ir);
             });
         });
     }

@@ -1,7 +1,6 @@
 /* Paginas estaticas (sobre, contato, politica de privacidade, guia): herdam tokens, fontes e a casca do site */
 .sitenav { order: 3; width: 100%; }
-.sitenav ul { list-style: none; margin: 0; padding: 0 0 8px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-.sitenav ul::-webkit-scrollbar { display: none; }
+.sitenav ul { list-style: none; margin: 0; padding: 0 0 8px; display: flex; flex-wrap: wrap; gap: 0 4px; }
 .sitenav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: var(--r-pill); font-size: var(--fs-sm); font-weight: 500; text-decoration: none; color: var(--text-soft); white-space: nowrap; }
 .sitenav a:hover { color: var(--text); }
 .sitenav a[aria-current="page"] { color: var(--text); background: var(--surface-2); }

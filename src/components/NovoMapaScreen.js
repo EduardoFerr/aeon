@@ -1,7 +1,8 @@
 import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
 import { ic } from '../utils/glifos.js';
+import { avisar } from './Sobreposicao.js';
 import { loadCards } from '../utils/cardsUtil.js';
-import { obter, principal, atualizar, salvarMeusDados, mesmaDefinicao, apelido, LIMITE_APELIDO, persiste } from '../utils/perfil.js';
+import { obter, principal, adicionar, atualizar, salvarMeusDados, mesmaDefinicao, apelido, LIMITE_APELIDO, persiste } from '../utils/perfil.js';
 import { carregarTextos, carregarMotor, texto, esc, nomeMes, calcular, marcadoresHora, atribuicaoGeoNames } from '../utils/mapaComum.js';
 
 /*
@@ -12,11 +13,8 @@ import { carregarTextos, carregarMotor, texto, esc, nomeMes, calcular, marcadore
 
 /* Textos que ainda nao tem id em textos.json (a interface criada para o formulario). */
 const T = {
-    novo: 'Novo mapa',
+    novo: 'Nova pessoa',
     editar: 'Editar dados',
-    paraQuem: 'Para quem é',
-    paraMim: 'Para mim',
-    outra: 'Outra pessoa',
     nome: 'Nome do mapa',
     opcional: '(opcional)',
     exNome: 'Ex.: Mãe, Júlia',
@@ -40,6 +38,8 @@ const T = {
     ambiguaTitulo: 'Esse horário aconteceu duas vezes',
     inexistenteTitulo: 'Essa hora não existiu',
     voltar: 'Voltar ao perfil',
+    guardadoOk: 'Mapa guardado neste aparelho.',
+    repetidoOk: 'Esse mapa já estava guardado. Nada foi duplicado.',
     erroRotulo: 'Dê um nome a este mapa, como Mãe ou Júlia.',
     erroData: 'Escolha o dia, o mês e o ano.',
     erroFuturo: 'A data de nascimento não pode estar no futuro.',
@@ -74,7 +74,7 @@ export class NovoMapaScreen extends HTMLElement {
         // "Meus dados": editar o mapa principal, ou o primeiro preenchimento vindo do convite do Perfil
         this.modoEu = !!(m ? m.principal : est.meusDados && !this.temPrincipal);
         this.st = {
-            para: m ? (m.principal ? 'mim' : 'outra') : this.modoEu ? 'mim' : this.temPrincipal ? 'outra' : 'mim',
+            para: m ? (m.principal ? 'mim' : 'outra') : this.modoEu ? 'mim' : 'outra', // para si, so pela tela Meus dados
             rotulo: m ? m.rotulo : '',
             apelido: this.modoEu ? apelido() : '',
             dia: m ? String(Number(m.data.slice(8))) : '',
@@ -97,6 +97,8 @@ export class NovoMapaScreen extends HTMLElement {
             status: '',
         };
         document.querySelector('#page-title').textContent = this.modoEu ? 'Meus dados' : m ? T.editar : T.novo;
+        const pt = document.querySelector('.page-title');
+        if (pt) pt.classList.add('sr');
         this.innerHTML = '<div class="mapa-tela" aria-busy="true"></div>';
         try {
             this.textos = await carregarTextos();
@@ -107,7 +109,12 @@ export class NovoMapaScreen extends HTMLElement {
         if (this.modoEu) document.querySelector('#page-title').textContent = this.t('ui.meusdados.titulo', {}, 'Meus dados');
         this.token = 0;
         this.desenhar();
-        focarCabecalho('#page-title');
+        focarCabecalho('#form-h');
+    }
+
+    disconnectedCallback() {
+        const t = document.querySelector('.page-title');
+        if (t) t.classList.remove('sr');
     }
 
     t(id, vars, padrao) {
@@ -132,7 +139,6 @@ export class NovoMapaScreen extends HTMLElement {
         const resumo = erros.length
             ? `<section class="aviso erro resumo-erros" role="alert" tabindex="-1" id="resumo">${ic('erro')}<h3>Confira ${erros.length} ${erros.length === 1 ? 'campo' : 'campos'} antes de calcular</h3><div><ul>${erros.map(([k, v]) => `<li><a href="#" data-foco="${campoDe[k]}">${esc(v)}</a></li>`).join('')}</ul></div></section>`
             : '';
-        const mostrarPara = !this.editando && !this.temPrincipal && !this.modoEu;
         const rotuloObrigatorio = s.para === 'outra';
         const titulo = this.modoEu ? this.t('ui.meusdados.titulo', {}, 'Meus dados') : this.editando ? T.editar : T.novo;
         const campoNome = this.modoEu
@@ -152,8 +158,8 @@ export class NovoMapaScreen extends HTMLElement {
                ${s.local ? `<div class="local-ok">${ic('ok')}<span>${esc(s.local.nome)}</span></div>` : ''}
                <span class="dica" id="d-local">${esc(this.t('ui.form.local'))}</span><span class="dica">${T.foraDoBrasil}</span><button class="link-btn" type="button" data-acao="coord">${ic('pino')}${T.coordenadas}</button>`;
         this.innerHTML = `<div class="mapa-tela"><form class="form-mapa" id="form" novalidate aria-label="${esc(titulo)}">
+            <div class="mc-bar form-cab"><button class="iconbtn round mc-voltar" type="button" data-acao="voltar" aria-label="${T.voltar}" title="${T.voltar}">${ic('voltar')}</button><div class="mc-tit"><h2 id="form-h" tabindex="-1">${esc(titulo)}</h2></div></div>
             ${resumo}<div id="pendente-area">${s.pendente ? this.htmlPendente() : ''}</div>
-            ${mostrarPara ? `<fieldset class="campo"><legend>${T.paraQuem}</legend><div class="seg"><label><input type="radio" name="para" value="mim"${s.para === 'mim' ? ' checked' : ''}>${T.paraMim}</label><label><input type="radio" name="para" value="outra"${s.para === 'outra' ? ' checked' : ''}>${T.outra}</label></div></fieldset>` : ''}
             ${campoNome}
             <fieldset class="campo" id="c-data" aria-describedby="d-data"><legend>${T.data}</legend><div class="trio">
               <div><label class="rot-mini" for="c-dia">${T.dia}</label><input class="entrada" id="c-dia" inputmode="numeric" maxlength="2" autocomplete="off" placeholder="DD" value="${esc(s.dia)}"${this.inv('data')}></div>
@@ -168,8 +174,7 @@ export class NovoMapaScreen extends HTMLElement {
             <div class="rodape-form"><button class="btn btn-primary" type="submit">${esc(this.modoEu && this.editando ? this.t('ui.meusdados.salvar') : this.t('ui.btn.calcular', {}, 'Montar o mapa astral'))}</button>
               <p class="nota-priv">${ic('cadeado')}<span>${this.modoEu ? esc(this.t('ui.meusdados.form.privado')) : T.privado}</span></p>
               <p class="sr" role="status" aria-live="polite" data-status>${esc(s.status)}</p>
-              <p class="nota-geonames">${atribuicaoGeoNames(this.textos)}</p>
-              <button class="link-btn" type="button" data-acao="voltar">${ic('voltar')}${T.voltar}</button></div>
+              <p class="nota-geonames">${atribuicaoGeoNames(this.textos)}</p></div>
           </form></div>`;
         this.ligar();
         this.desenharSugestoes();
@@ -264,12 +269,7 @@ export class NovoMapaScreen extends HTMLElement {
             this.enviar();
         });
         f.addEventListener('change', (e) => {
-            if (e.target.name === 'para') {
-                this.guardarCampos();
-                s.para = e.target.value;
-                this.desenhar();
-                this.querySelector('[name="para"]:checked').focus();
-            } else if (e.target.id === 'c-semhora') {
+            if (e.target.id === 'c-semhora') {
                 this.guardarCampos();
                 s.semHora = e.target.checked;
                 this.invalidarPendente();
@@ -502,8 +502,16 @@ export class NovoMapaScreen extends HTMLElement {
             return;
         }
         if (!this.editando) {
-            // mapa novo: mostra primeiro o resultado, so guarda quando a pessoa confirmar la
-            navigateTo('mapa', { entrada: { ...entrada, escolha: s.escolhido ? s.escolha : 0 } });
+            // mapa novo: guarda direto e abre o mapa guardado (apagar e reversivel, entao nao ha etapa "nao guardado")
+            const n = adicionar({ ...entrada, escolha: s.escolhido ? s.escolha : 0 });
+            if (!n.id) {
+                s.erros = { local: n.motivo === 'limite' ? T.erroLimite : T.erroGuardar };
+                this.desenhar();
+                return;
+            }
+            if (!n.ok) persiste();
+            navigateTo('mapa', { id: n.id });
+            avisar(n.repetido ? T.repetidoOk : T.guardadoOk);
             return;
         }
         const r = atualizar(this.editando.id, entrada);

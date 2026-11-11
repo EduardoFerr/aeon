@@ -11,7 +11,7 @@ tarot-card:focus-visible .tarot-card { outline: 2px solid var(--focus); outline-
 .tarot-card { perspective: 1100px; position: relative; display: block; width: 100%; aspect-ratio: 2 / 3; border-radius: var(--r-card); transition: transform 0.45s var(--ease-ritual); }
 tarot-card:hover .tarot-card { transform: translateY(-4px); }
 /* espaco reservado para o nome embaixo (evita salto de layout quando a fonte chega) */
-.card-container tarot-card { padding-bottom: 3.6rem; }
+.card-container tarot-card { padding-bottom: 2.9rem; }
 
 .card-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform var(--t-flip) var(--ease-ritual); }
 .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
@@ -26,21 +26,22 @@ tarot-card:hover .tarot-card { transform: translateY(-4px); }
 .card-element::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; vertical-align: 0.12em; border-radius: 50%; background: var(--el, var(--text-mute)); }
 
 /* grade das cartas */
-.all-cards-screen .card-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 14px; padding-block: var(--sp-4) var(--sp-3); }
+.all-cards-screen .card-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-4) var(--sp-3); padding-block: var(--sp-3) var(--sp-3); }
 .all-cards-screen .card-container:empty { min-height: 100vh; }
-@media (min-width: 640px) { .all-cards-screen .card-container { grid-template-columns: repeat(3, 1fr); gap: 28px 20px; } }
+@media (min-width: 640px) { .all-cards-screen .card-container { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5) var(--sp-4); } }
 @media (min-width: 960px) { .all-cards-screen .card-container { grid-template-columns: repeat(5, 1fr); } }
 
 /* filtros e contagem da grade */
-.grade-ferramentas { padding-top: var(--sp-4); }
-.chips { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; margin-inline: -16px; padding: 4px 16px; scrollbar-width: none; overscroll-behavior-x: contain; }
+.grade-ferramentas { padding-top: var(--sp-2); display: grid; gap: var(--sp-3); }
+.chips { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; margin-inline: -16px; padding: 4px 16px; scrollbar-width: none; overscroll-behavior-x: contain; scroll-padding-inline: 16px; }
 .chips::-webkit-scrollbar { display: none; }
-.chip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: var(--r-pill); border: 1px solid var(--control); background: transparent; color: var(--text); font: 500 var(--fs-sm)/1 var(--font-ui); white-space: nowrap; scroll-snap-align: start; cursor: pointer; transition: background 0.3s, color 0.3s, border-color 0.3s; }
-.chip small { color: var(--text-soft); font-size: var(--fs-xs); font-weight: 600; font-variant-numeric: tabular-nums; }
+.chip { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; border-radius: var(--r-pill); border: 1px solid var(--control); background: transparent; color: var(--text); font: 500 var(--fs-sm)/1 var(--font-ui); white-space: nowrap; scroll-snap-align: start; cursor: pointer; transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.chip::after { content: ""; position: absolute; inset: -2px 0; }
+.chip small { color: var(--text-mute); font-size: var(--fs-xs); font-weight: 500; font-variant-numeric: tabular-nums; }
 .chip:hover { background: var(--surface-2); }
-.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-.chip[aria-pressed="true"] small { color: var(--accent-ink); opacity: 0.8; }
-.grade-contagem { min-height: 1.6em; margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--text-soft); }
+.chip[aria-pressed="true"] { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: var(--accent); color: var(--text); }
+.chip[aria-pressed="true"] small { color: var(--accent); }
+.grade-contagem { margin: 0; font-size: var(--fs-sm); line-height: 1.4; color: var(--text-mute); }
 @media (max-width: 599px) {
   .chips { padding-right: 40px; }
   .chips[data-dir="true"] { -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
@@ -50,12 +51,12 @@ tarot-card:hover .tarot-card { transform: translateY(-4px); }
 @media (min-width: 600px) { .chips { flex-wrap: wrap; margin: 0; padding: 4px 0; overflow: visible; } }
 
 /* campo de busca */
-.grade-busca { position: relative; display: flex; align-items: center; margin-bottom: var(--sp-3); }
+.grade-busca { position: relative; display: flex; align-items: center; }
 .grade-busca > .icon { position: absolute; left: 16px; color: var(--text-soft); pointer-events: none; }
 .grade-busca input { width: 100%; min-height: 48px; padding: 0 52px 0 46px; border-radius: var(--r-pill); border: 1px solid var(--control); background: var(--surface); color: var(--text); font: 400 var(--fs-md)/1.2 var(--font-ui); -webkit-appearance: none; appearance: none; }
 .grade-busca input::placeholder { color: var(--text-soft); opacity: 1; }
 .grade-busca input::-webkit-search-cancel-button, .grade-busca input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
-.grade-busca input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--r-pill); }
+.grade-busca input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--r-pill); border-color: var(--accent); }
 .grade-limpar { position: absolute; right: 2px; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: transparent; color: var(--text-soft); cursor: pointer; }
 .grade-limpar:hover { background: var(--surface-2); color: var(--text); }
 @media (min-width: 640px) { .grade-busca { max-width: 440px; } }
