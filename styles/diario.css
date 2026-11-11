@@ -12,7 +12,7 @@
 .diario-meta .icon { width: 16px; height: 16px; color: var(--accent); vertical-align: -3px; margin-right: 8px; }
 .diario-contagem:empty { display: none; }
 .diario-contagem { white-space: nowrap; }
-.diario-contagem::before { content: "\00B7"; margin: 0 8px; color: var(--text-mute); }
+
 .diario-ferr { grid-area: ferr; display: flex; gap: 8px; align-items: center; }
 .diario-ferr [hidden] { display: none !important; }
 @media (max-width: 899px) { .diario-exportar { display: none; } }

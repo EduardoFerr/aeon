@@ -17,12 +17,12 @@ import('./TarotCardInfo.js');
 
 /* Textos que ainda nao tem id em textos.json (a interface criada para o Perfil). */
 const T = {
-    eyebrow: 'Neste aparelho',
+    eyebrow: 'Seu espaço',
     titulo: 'Perfil',
     ler: 'Ler o meu mapa',
     lerEste: 'Ler este mapa',
     outros: 'Mapas de outras pessoas',
-    outrosVazio: 'Guarde o mapa de quem você quer ler. Fica só neste aparelho.',
+    outrosVazio: 'Guarde o mapa de quem você quer ler.',
     ver: 'Ver',
     emExibicao: 'Em exibição',
     semHora: 'Sem hora',
@@ -37,17 +37,17 @@ const T = {
     apagarMeus: 'Apagar meus dados',
     apagarEste: 'Apagar este mapa',
     apagar: 'Apagar',
-    privacidade: 'Privacidade e backup',
+    privacidade: 'Backup',
     exportar: 'Exportar backup',
     importarBackup: 'Importar backup',
     naoCalculado: 'Não calculado',
     semAsc: 'Sem a hora, sem Ascendente',
-    guardadoOk: 'Mapa guardado neste aparelho.',
+    guardadoOk: 'Mapa guardado.',
     repetidoOk: 'Esse mapa já estava guardado. Nada foi duplicado.',
     semHoraTitulo: 'Mapa sem hora de nascimento',
     latAltaTitulo: 'Local em latitude alta',
     semArmazenamento: 'Este navegador não deixa guardar dados. O perfil vale só enquanto esta página estiver aberta.',
-    exportado: 'Backup baixado. Guarde o arquivo em um lugar seguro, ele traz apelido, data, hora e lugar de nascimento.',
+    exportado: 'Backup baixado.',
     erroExportar: 'Não foi possível gerar o backup.',
     erroLer: 'Não foi possível ler o arquivo.',
     erroTamanho: 'O arquivo passa de 1 MB. Escolha um backup do Aeon Fool.',
@@ -64,7 +64,6 @@ const T = {
     versoMeuSigno: 'Meu signo',
     versoPadrao: 'Padrão',
     versoMontar: 'Montar meu mapa',
-    registrosAqui: 'Seus registros ficam só neste aparelho. Limpar os dados do site no navegador apaga o diário e os mapas, por isso exporte um backup de vez em quando.',
     versaoTitulo: 'Versão do app',
     buscar: 'Buscar atualização',
     buscando: 'Buscando atualização...',
@@ -254,7 +253,7 @@ export class PerfilScreen extends HTMLElement {
     }
 
     painelPriv(vazio) {
-        return `<section class="painel" aria-labelledby="pv-t"><div class="p-icon">${ic('cadeado')}<h3 id="pv-t">${T.privacidade}</h3></div><p>${esc(this.t('ui.aviso.privacidade'))}</p><p class="registros-aqui">${T.registrosAqui}</p>
+        return `<section class="painel" aria-labelledby="pv-t"><div class="p-icon">${ic('baixar')}<h3 id="pv-t">${T.privacidade}</h3></div>
             <div class="btn-row"><button class="btn btn-ghost" type="button" data-exec="exportar" aria-describedby="d-exp"${vazio ? ' disabled' : ''}>${ic('baixar')}${T.exportar}</button><button class="btn btn-ghost" type="button" data-exec="importar" aria-describedby="d-imp">${ic('copiar')}${T.importarBackup}</button></div>
             <p class="nota-geonames" id="d-exp">${esc(this.t('ui.dados.exportar'))}</p><p class="nota-geonames" id="d-imp">${esc(this.t('ui.dados.importar'))}</p></section>`;
     }

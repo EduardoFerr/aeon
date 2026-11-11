@@ -32,13 +32,12 @@ const T = {
     lat: 'Latitude', lon: 'Longitude', fuso: 'Fuso horário (nome IANA)',
     dicaCoord: 'Latitude de −90 a 90 e longitude de −180 a 180. Sul e oeste levam o sinal de menos. No Brasil, as duas são negativas. O fuso é o nome da lista IANA, como America/Sao_Paulo.',
     voltarBusca: 'Voltar a buscar por cidade',
-    privado: 'Os dados de nascimento ficam só neste aparelho.',
     naoAchouTitulo: 'Não encontramos esse local',
     usarHorario: 'Usar este horário',
     ambiguaTitulo: 'Esse horário aconteceu duas vezes',
     inexistenteTitulo: 'Essa hora não existiu',
     voltar: 'Voltar ao perfil',
-    guardadoOk: 'Mapa guardado neste aparelho.',
+    guardadoOk: 'Mapa guardado.',
     repetidoOk: 'Esse mapa já estava guardado. Nada foi duplicado.',
     erroRotulo: 'Dê um nome a este mapa, como Mãe ou Júlia.',
     erroData: 'Escolha o dia, o mês e o ano.',
@@ -49,7 +48,7 @@ const T = {
     erroFuso: 'Informe o fuso no formato IANA, como America/Sao_Paulo.',
     erroRepetido: 'Já existe um mapa guardado com essa mesma data, hora e lugar.',
     erroLimite: 'O perfil guarda até 50 mapas. Apague algum para adicionar outro.',
-    erroGuardar: 'Não foi possível guardar o mapa neste aparelho. O navegador pode estar bloqueando o armazenamento.',
+    erroGuardar: 'Não foi possível guardar o mapa. O navegador pode estar bloqueando o armazenamento.',
     sugestoes: 'Locais encontrados',
     achados: (n) => `${n} ${n === 1 ? 'local encontrado' : 'locais encontrados'}.`,
 };
@@ -172,7 +171,6 @@ export class NovoMapaScreen extends HTMLElement {
               <span class="dica" id="d-hora">${esc(s.semHora ? this.t('ui.form.semhora') : this.t('ui.form.hora'))}</span></fieldset>
             <div class="campo" id="c-local"><label class="rot" for="${s.coord ? 'c-lat' : 'c-q'}">${T.local}</label>${localHtml}</div>
             <div class="rodape-form"><button class="btn btn-primary" type="submit">${esc(this.modoEu && this.editando ? this.t('ui.meusdados.salvar') : this.t('ui.btn.calcular', {}, 'Montar o mapa astral'))}</button>
-              <p class="nota-priv">${ic('cadeado')}<span>${this.modoEu ? esc(this.t('ui.meusdados.form.privado')) : T.privado}</span></p>
               <p class="sr" role="status" aria-live="polite" data-status>${esc(s.status)}</p>
               <p class="nota-geonames">${atribuicaoGeoNames(this.textos)}</p></div>
           </form></div>`;

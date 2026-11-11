@@ -4327,12 +4327,6 @@
   "marcadores": []
  },
  {
-  "id": "ui.aviso.privacidade",
-  "limite": 300,
-  "categoria": "ui",
-  "marcadores": []
- },
- {
   "id": "ui.roda.alt",
   "limite": 260,
   "categoria": "ui",
@@ -4346,7 +4340,7 @@
  },
  {
   "id": "ui.diario.nota",
-  "limite": 200,
+  "limite": 140,
   "categoria": "ui",
   "marcadores": []
  },
@@ -4429,12 +4423,6 @@
   "marcadores": []
  },
  {
-  "id": "ui.meusdados.form.privado",
-  "limite": 130,
-  "categoria": "ui",
-  "marcadores": []
- },
- {
   "id": "ui.meusdados.salvo",
   "limite": 60,
   "categoria": "ui",
@@ -4442,7 +4430,7 @@
  },
  {
   "id": "ui.apagar.confirma",
-  "limite": 220,
+  "limite": 140,
   "categoria": "ui",
   "marcadores": []
  },
@@ -4460,7 +4448,7 @@
  },
  {
   "id": "ui.dados.exportar",
-  "limite": 240,
+  "limite": 160,
   "categoria": "ui",
   "marcadores": []
  },
@@ -4868,7 +4856,7 @@
  },
  {
   "id": "ui.cruz.guardar.erro",
-  "limite": 60,
+  "limite": 50,
   "categoria": "ui",
   "marcadores": []
  },

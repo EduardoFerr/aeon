@@ -8,11 +8,11 @@ import { avisar } from './Sobreposicao.js';
  * "Dispensar" esconde por 14 dias. As regras ficam em utils/versao.js.
  */
 export const TEXTO_BACKUP = {
-    aviso: 'Faça um backup dos seus registros. Se você limpar os dados do site no navegador, o diário e os mapas deste aparelho são apagados.',
+    aviso: 'Faça um backup dos seus registros para não perdê-los.',
     exportar: 'Exportar agora',
     dispensar: 'Dispensar',
     rotulo: 'Lembrete de backup',
-    exportado: 'Backup baixado. Guarde o arquivo em um lugar seguro, ele traz apelido, data, hora e lugar de nascimento.',
+    exportado: 'Backup baixado.',
     erro: 'Não foi possível gerar o backup.',
     dispensado: 'Lembrete escondido por 14 dias.',
 };
