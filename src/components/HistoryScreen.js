@@ -1,7 +1,8 @@
 import { loadCards } from '../utils/cardsUtil.js';
 import { escaparHtml } from '../utils/glossario.js';
 import { dataLocal } from '../utils/cartaDoDia.js';
-import { navigateTo } from '../utils/navigation.js';
+import { navigateTo, registrarGuardaSaida } from '../utils/navigation.js';
+import { gravarRascunho, lerRascunho, limparRascunho, limparTodosRascunhos } from '../utils/rascunhos.js';
 import { ic } from '../utils/glifos.js';
 import { abrir, avisar } from './Sobreposicao.js';
 import { registrosFicam } from '../utils/conta.js';
@@ -34,6 +35,17 @@ const TEXTO = {
     rotuloNotaTemplo: 'O que esse templo despertou',
     dica: 'Anote o que veio à mente.',
     salvando: 'Salvando...',
+    rascunho: 'Alterações não salvas',
+    salvarNota: 'Salvar',
+    descartar: 'Descartar',
+    notaSalva: 'Nota salva.',
+    notaDescartada: 'Alterações descartadas.',
+    saidaTitulo: 'Nota não salva',
+    saidaUma: 'Você tem uma nota com alterações que ainda não foram salvas.',
+    saidaVarias: (n) => `Você tem ${n} notas com alterações que ainda não foram salvas.`,
+    saidaSalvar: 'Salvar e sair',
+    saidaDescartar: 'Descartar e sair',
+    saidaFicar: 'Continuar editando',
     salvo: 'Salvo neste aparelho',
     falha: 'Não foi possível salvar',
     limiteAtingido: 'Limite atingido',
@@ -82,7 +94,7 @@ const POS = {
     'mental-voce': 'Mental · você', 'afetivo-voce': 'Afetivo · você', 'fisico-voce': 'Físico · você',
     'mental-outra': 'Mental · outra pessoa', 'afetivo-outra': 'Afetivo · outra pessoa', 'fisico-outra': 'Físico · outra pessoa',
 };
-const ESPERA = 800; // ms de pausa na digitacao antes de salvar
+const ESPERA_RASCUNHO = 300; // ms de pausa na digitacao antes de guardar o rascunho (a nota salva so muda em "Salvar")
 const SEMANA = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
 const SEMANA_LONGA = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
 const fmtDiaCurto = new Intl.DateTimeFormat('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' });
@@ -107,13 +119,13 @@ function dataLegivel(e) {
     return `${fmtDia.format(d)}, ${fmtHora.format(d)}`;
 }
 
-/** O Diario: linha do tempo de cartas do dia e leituras, cada uma com uma area de nota (autosave). */
+/** O Diario: linha do tempo de cartas do dia e leituras, cada uma com uma area de nota (salva so em "Salvar"). */
 export class HistoryScreen extends HTMLElement {
     async connectedCallback() {
         this.nos = new Map(); // id -> { li, json, capa }
         this.mes = null; // { ano, mes } exibido no calendario
         this.sel = null; // dia escolhido: 'AAAA-MM-DD' ou 'sem-data'
-        this.sujas = new Map(); // id -> timer de salvamento pendente
+        this.sujas = new Map(); // id -> timer do rascunho (a entrada tem alteracoes nao salvas)
         this.cartas = new Map();
         this.local = false;
 
@@ -183,7 +195,14 @@ export class HistoryScreen extends HTMLElement {
         };
         document.addEventListener('visibilitychange', this.aoSair);
         window.addEventListener('pagehide', this.aoSair);
-        // Antes de aplicar uma versao nova do app (recarrega a pagina), nada fica pendente
+        this.desligarGuarda = registrarGuardaSaida((retomar) => this.perguntarAoSair(retomar));
+        this.aoFechar = (ev) => {
+            if (!this.sujas.size) return;
+            this.salvarTudo(); // o rascunho fica guardado; o navegador ainda pergunta antes de fechar
+            ev.preventDefault();
+        };
+        window.addEventListener('beforeunload', this.aoFechar);
+        // Antes de aplicar uma versao nova do app (recarrega a pagina), o que foi digitado fica como rascunho
         this.aoAtualizar = () => this.salvarTudo();
         window.addEventListener(EVENTO_ANTES, this.aoAtualizar);
         this.reconciliar();
@@ -193,12 +212,14 @@ export class HistoryScreen extends HTMLElement {
     }
 
     disconnectedCallback() {
-        this.salvarTudo(); // ao sair da tela nada fica pendente
+        this.salvarTudo(); // ao sair da tela o que foi digitado fica como rascunho
         if (this.sobre && this.sobre.aberto) this.sobre.fechar(false);
         if (this.desligar) this.desligar();
         document.removeEventListener('visibilitychange', this.aoSair);
         window.removeEventListener('pagehide', this.aoSair);
+        window.removeEventListener('beforeunload', this.aoFechar);
         window.removeEventListener(EVENTO_ANTES, this.aoAtualizar);
+        if (this.desligarGuarda) this.desligarGuarda();
     }
 
     /* ---------- lista ---------- */
@@ -214,6 +235,7 @@ export class HistoryScreen extends HTMLElement {
             if (!ids.has(id)) {
                 r.li.remove();
                 this.nos.delete(id);
+                this.guardarRascunho(id, r.li);
                 this.limparTimer(id);
             }
         }
@@ -452,23 +474,33 @@ export class HistoryScreen extends HTMLElement {
                             <p class="diario-estado" id="${idNota}-estado" role="status" aria-live="polite" data-estado></p>
                             <p class="diario-contador" data-contador hidden></p>
                         </div>
+                        <div class="diario-nota-acoes" data-nota-acoes hidden>
+                            <button type="button" class="btn btn-ghost" data-acao="salvar-nota">${TEXTO.salvarNota}</button>
+                            <button type="button" class="btn btn-terciario" data-acao="descartar-nota">${TEXTO.descartar}</button>
+                        </div>
                     </div>
                 </div>
                 ${reabrivel ? `<div class="diario-acoes"><button type="button" class="btn btn-ghost" data-acao="reabrir" aria-describedby="${idTit}">${ic('leitura')}${TEXTO.reabrir}</button></div>` : ''}
             </article>`;
         const ta = li.querySelector('textarea');
-        ta.value = e.nota;
+        const rascunho = lerRascunho(e.id);
+        ta.value = rascunho !== null && rascunho !== e.nota ? rascunho : e.nota;
         this.contar(li);
+        if (ta.value !== e.nota) this.marcar(e.id, li, e.nota);
 
         ta.addEventListener('input', () => {
             this.contar(li);
-            this.estado(li, 'salvando');
-            this.limparTimer(e.id);
-            this.sujas.set(e.id, setTimeout(() => this.salvar(e.id), ESPERA));
+            this.marcar(e.id, li);
         });
-        ta.addEventListener('blur', () => {
-            if (this.sujas.has(e.id)) this.salvar(e.id);
+        ta.addEventListener('blur', () => this.guardarRascunho(e.id, li));
+        ta.addEventListener('keydown', (ev) => {
+            if ((ev.metaKey || ev.ctrlKey) && ev.key === 'Enter') {
+                ev.preventDefault();
+                this.salvar(e.id);
+            }
         });
+        li.querySelector('[data-acao="salvar-nota"]').addEventListener('click', () => this.salvar(e.id));
+        li.querySelector('[data-acao="descartar-nota"]').addEventListener('click', () => this.descartar(e.id));
         li.querySelectorAll('.diario-mini').forEach((b) =>
             b.addEventListener('click', () => {
                 const info = document.querySelector('tarot-card-info');
@@ -480,7 +512,7 @@ export class HistoryScreen extends HTMLElement {
         const reab = li.querySelector('[data-acao="reabrir"]');
         if (reab) {
             reab.addEventListener('click', () => {
-                this.salvarTudo(); // a nota que ainda esta sendo digitada fica gravada antes de sair
+                this.salvarTudo(); // o que esta sendo digitado fica como rascunho; se houver, a saida ainda pergunta
                 navigateTo(leitura ? 'three-card-game' : cruz ? 'cruz' : 'templo', { reabrir: e.id });
             });
         }
@@ -488,7 +520,7 @@ export class HistoryScreen extends HTMLElement {
         return { li, json: JSON.stringify(e), capa: JSON.stringify({ ...e, nota: '', m: '' }) };
     }
 
-    /* ---------- nota: autosave ---------- */
+    /* ---------- nota: rascunho, salvar e descartar ---------- */
 
     contar(li) {
         const n = Math.min(li.querySelector('textarea').value.length, LIMITE_NOTA);
@@ -500,8 +532,37 @@ export class HistoryScreen extends HTMLElement {
 
     estado(li, qual) {
         const p = li.querySelector('[data-estado]');
-        p.textContent = qual === 'salvando' ? TEXTO.salvando : qual === 'salvo' ? TEXTO.salvo : TEXTO.falha;
+        p.textContent = qual === 'rascunho' ? TEXTO.rascunho : qual === 'salvo' ? TEXTO.salvo : qual === 'vazio' ? '' : TEXTO.falha;
         p.dataset.estado = qual;
+    }
+
+    /** A nota salva da entrada (o que esta no diario, nao o que esta na caixa). */
+    notaSalva(id, padrao = '') {
+        const e = listar().find((x) => x.id === id);
+        return e ? e.nota : padrao;
+    }
+
+    /** O texto da caixa mudou: guarda como rascunho (nao toca na nota salva) e mostra Salvar e Descartar. */
+    marcar(id, li, salva = this.notaSalva(id)) {
+        const ta = li.querySelector('textarea');
+        const acoes = li.querySelector('[data-nota-acoes]');
+        if (ta.value === salva) {
+            this.limparTimer(id);
+            limparRascunho(id);
+            acoes.hidden = true;
+            this.estado(li, 'vazio');
+            return;
+        }
+        clearTimeout(this.sujas.get(id));
+        this.sujas.set(id, setTimeout(() => this.guardarRascunho(id, li), ESPERA_RASCUNHO));
+        acoes.hidden = false;
+        this.estado(li, 'rascunho');
+    }
+
+    guardarRascunho(id, li) {
+        const ta = li && li.querySelector('textarea');
+        if (!ta || !this.sujas.has(id)) return;
+        gravarRascunho(id, ta.value);
     }
 
     limparTimer(id) {
@@ -509,24 +570,117 @@ export class HistoryScreen extends HTMLElement {
         this.sujas.delete(id);
     }
 
+    /** Salva a nota (so por escolha da pessoa). O aviso traz "Desfazer", que devolve o texto de antes. */
     salvar(id) {
         const r = this.nos.get(id);
-        this.limparTimer(id);
-        if (!r) return;
+        if (!r) return false;
+        const ta = r.li.querySelector('textarea');
+        const anterior = this.notaSalva(id);
+        const texto = ta.value;
         this.local = true; // a propria gravacao nao deve redesenhar a lista
         let resultado;
         try {
-            resultado = salvarNota(id, r.li.querySelector('textarea').value);
+            resultado = salvarNota(id, texto);
         } finally {
             this.local = false;
         }
-        this.estado(r.li, resultado.ok ? 'salvo' : 'falha');
+        if (!resultado.ok) {
+            this.estado(r.li, 'falha'); // o rascunho continua guardado
+            return false;
+        }
+        this.limparTimer(id);
+        limparRascunho(id);
+        r.li.querySelector('[data-nota-acoes]').hidden = true;
+        this.estado(r.li, 'salvo');
         const atual = listar().find((e) => e.id === id);
         if (atual) r.json = JSON.stringify(atual);
+        if (anterior !== texto) {
+            avisar(TEXTO.notaSalva, {
+                desfazer: {
+                    rotulo: TEXTO.desfazer,
+                    aoClicar: () => {
+                        this.local = true;
+                        try {
+                            salvarNota(id, anterior);
+                        } finally {
+                            this.local = false;
+                        }
+                        const no = this.nos.get(id);
+                        if (no) {
+                            no.li.querySelector('textarea').value = anterior;
+                            this.contar(no.li);
+                            this.estado(no.li, 'salvo');
+                            const nova = listar().find((e) => e.id === id);
+                            if (nova) no.json = JSON.stringify(nova);
+                        }
+                    },
+                },
+            });
+        }
+        return true;
     }
 
+    /** Volta a caixa para a nota salva e apaga o rascunho. O aviso traz "Desfazer", que devolve o que foi digitado. */
+    descartar(id) {
+        const r = this.nos.get(id);
+        if (!r) return;
+        const ta = r.li.querySelector('textarea');
+        const digitado = ta.value;
+        ta.value = this.notaSalva(id);
+        this.contar(r.li);
+        this.marcar(id, r.li);
+        ta.focus({ preventScroll: true });
+        avisar(TEXTO.notaDescartada, {
+            desfazer: {
+                rotulo: TEXTO.desfazer,
+                aoClicar: () => {
+                    const no = this.nos.get(id);
+                    if (!no) return;
+                    const campo = no.li.querySelector('textarea');
+                    campo.value = digitado;
+                    this.contar(no.li);
+                    this.marcar(id, no.li);
+                    this.guardarRascunho(id, no.li);
+                },
+            },
+        });
+    }
+
+    /** Guarda o que foi digitado como rascunho (a nota salva nao muda). */
     salvarTudo() {
-        for (const id of [...this.sujas.keys()]) this.salvar(id);
+        for (const id of [...this.sujas.keys()]) {
+            const r = this.nos.get(id);
+            if (r) this.guardarRascunho(id, r.li);
+        }
+    }
+
+    /** Ao sair da tela com notas nao salvas: Salvar, Descartar ou Continuar editando. */
+    perguntarAoSair(retomar) {
+        const pendentes = [...this.sujas.keys()].filter((id) => this.nos.has(id));
+        if (!pendentes.length) return false;
+        const gatilho = document.activeElement && document.activeElement !== document.body ? document.activeElement : null;
+        const c = abrir({
+            tipo: 'confirmacao', titulo: TEXTO.saidaTitulo, gatilho, descricao: true,
+            corpo: `<p>${pendentes.length === 1 ? TEXTO.saidaUma : TEXTO.saidaVarias(pendentes.length)}</p>
+                <div class="sob-pilha" style="margin-top:18px"><button class="btn btn-ghost cheio" type="button" data-salvar>${TEXTO.saidaSalvar}</button>
+                <button class="btn btn-perigo" type="button" data-descartar>${TEXTO.saidaDescartar}</button>
+                <button class="btn btn-terciario" type="button" data-foco data-ficar>${TEXTO.saidaFicar}</button></div>`,
+        });
+        c.corpo.addEventListener('click', (ev) => {
+            if (ev.target.closest('[data-ficar]')) return c.fechar();
+            if (ev.target.closest('[data-salvar]')) {
+                for (const id of pendentes) this.salvar(id);
+            } else if (ev.target.closest('[data-descartar]')) {
+                for (const id of pendentes) {
+                    this.limparTimer(id);
+                    limparRascunho(id);
+                }
+            } else return undefined;
+            c.fechar(false);
+            retomar();
+            return undefined;
+        });
+        return true;
     }
 
     focarNota(id) {
@@ -549,6 +703,7 @@ export class HistoryScreen extends HTMLElement {
         this.salvarTudo();
         const copia = instantaneo();
         this.limparTimer(id);
+        limparRascunho(id);
         this.local = true;
         try {
             apagarEntrada(id);
@@ -660,6 +815,7 @@ export class HistoryScreen extends HTMLElement {
                 this.salvarTudo();
                 const copia = instantaneo();
                 for (const id of [...this.sujas.keys()]) this.limparTimer(id);
+                limparTodosRascunhos();
                 this.local = true;
                 try {
                     apagarTudo({ tambemAntigo: antigo });
