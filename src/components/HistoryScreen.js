@@ -36,6 +36,7 @@ const TEXTO = {
     falha: 'Não foi possível salvar',
     limiteAtingido: 'Limite atingido',
     apagar: 'Apagar registro',
+    reabrir: 'Reabrir leitura',
     entradaApagada: 'Entrada apagada',
     desfazer: 'Desfazer',
     voltou: 'Entrada de volta no diário',
@@ -407,6 +408,7 @@ export class HistoryScreen extends HTMLElement {
         const mapa = e.tipo === 'mapa';
         const cruz = e.tipo === 'cruz';
         const templo = e.tipo === 'templo';
+        const reabrivel = leitura || cruz || templo;
         const idNota = `nota-${e.id}`;
         const idTit = `tit-${e.id}`;
         const quando = escaparHtml(dataLegivel(e));
@@ -450,6 +452,7 @@ export class HistoryScreen extends HTMLElement {
                         </div>
                     </div>
                 </div>
+                ${reabrivel ? `<div class="diario-acoes"><button type="button" class="btn btn-ghost" data-acao="reabrir" aria-describedby="${idTit}">${ic('leitura')}${TEXTO.reabrir}</button></div>` : ''}
             </article>`;
         const ta = li.querySelector('textarea');
         ta.value = e.nota;
@@ -472,6 +475,13 @@ export class HistoryScreen extends HTMLElement {
             })
         );
         li.querySelector('[data-acao="apagar"]').addEventListener('click', () => this.apagar(e.id, li));
+        const reab = li.querySelector('[data-acao="reabrir"]');
+        if (reab) {
+            reab.addEventListener('click', () => {
+                this.salvarTudo(); // a nota que ainda esta sendo digitada fica gravada antes de sair
+                navigateTo(leitura ? 'three-card-game' : cruz ? 'cruz' : 'templo', { reabrir: e.id });
+            });
+        }
 
         return { li, json: JSON.stringify(e), capa: JSON.stringify({ ...e, nota: '', m: '' }) };
     }
