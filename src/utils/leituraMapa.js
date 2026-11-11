@@ -1,4 +1,5 @@
 import { texto, grauTexto, SIGNO_ELEMENTO } from './mapaComum.js';
+import { SIGNOS } from '../astro/constantes.js';
 
 /**
  * Monta a leitura do mapa por secao a partir do mapa calculado e dos textos (public/data/astro/textos.json).
@@ -15,6 +16,7 @@ const ASP = { conjuncao: 'con', sextil: 'sex', quadratura: 'qua', trigono: 'tri'
 const ORDINAL = ['primeiro', 'segundo', 'terceiro'];
 const PLANETAS = ['mercurio', 'venus', 'marte', 'jupiter', 'saturno', 'urano', 'netuno', 'plutao'];
 const GLIFO_ELEMENTO = { fogo: 'aries', terra: 'touro', ar: 'gemeos', agua: 'cancer' };
+const REGENTE = { aries: 'Marte', touro: 'Vênus', gemeos: 'Mercúrio', cancer: 'Lua', leao: 'Sol', virgem: 'Mercúrio', libra: 'Vênus', escorpio: 'Marte', escorpiao: 'Marte e Plutão', sagitario: 'Júpiter', capricornio: 'Saturno', aquario: 'Saturno e Urano', peixes: 'Júpiter e Netuno' };
 const MODALIDADES = [['card', 'Cardinal'], ['fix', 'Fixo'], ['mut', 'Mutável']];
 const ELEMENTOS = [['fogo', 'Fogo'], ['terra', 'Terra'], ['ar', 'Ar'], ['agua', 'Água']];
 /** Regentes do signo do Ascendente; nos tres signos de dupla regencia o texto mostra as duas. */
@@ -86,6 +88,11 @@ export function montarLeitura(calc, textos) {
         const f = [['Corpo', p.nome], ['Signo', p.signoNome], ['Grau', grauTexto(p)]];
         if (p.casa) f.push(['Casa', String(p.casa)]);
         f.push(['Decano', `${p.decano}º`]);
+        const sg = SIGNOS.find((x) => x.id === p.signo);
+        if (sg) {
+            f.push(['Elemento', sg.elemento], ['Modalidade', sg.modalidade === 'Cardinal' ? 'Cardeal' : sg.modalidade]);
+            if (REGENTE[p.signo]) f.push(['Regente', REGENTE[p.signo]]);
+        }
         return f;
     };
     const ponto = (id, chave, titulo, glifo, introId) => {
