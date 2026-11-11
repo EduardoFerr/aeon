@@ -20,7 +20,6 @@ import('./TarotCardInfo.js');
 const TEXTO = {
     titulo: 'Diário',
     sub: 'O que cada carta despertou, guardado com data.',
-    privado: 'Suas anotações ficam só neste aparelho.',
     semArmazenamento: 'Este navegador não deixa guardar dados. Suas anotações valem só enquanto esta página estiver aberta.',
     tipoDia: 'Carta do dia',
     tipoLeitura: 'Leitura de 3 cartas',
@@ -46,7 +45,7 @@ const TEXTO = {
     saidaSalvar: 'Salvar e sair',
     saidaDescartar: 'Descartar e sair',
     saidaFicar: 'Continuar editando',
-    salvo: 'Salvo neste aparelho',
+    salvo: 'Salvo',
     falha: 'Não foi possível salvar',
     limiteAtingido: 'Limite atingido',
     apagar: 'Apagar registro',
@@ -107,7 +106,7 @@ const DESKTOP = '(min-width: 900px)';
 const fmtHora = new Intl.DateTimeFormat('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
 const mais = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
-const textoApagarTudo = (n) => `${n === 1 ? '1 registro será apagado' : `${n} registros serão apagados`} deste aparelho, com as anotações. A carta do dia e a semana em estrelas não são apagadas.`;
+const textoApagarTudo = (n) => `${n === 1 ? '1 registro será apagado' : `${n} registros serão apagados`}, com as anotações. A carta do dia e a semana em estrelas não são apagadas.`;
 
 function dataLegivel(e) {
     if (e.rotulo && e.t.startsWith('2000-01-01')) return e.rotulo; // leitura antiga sem data que o navegador entenda
@@ -134,7 +133,7 @@ export class HistoryScreen extends HTMLElement {
                 <header class="diario-topo">
                     <div class="diario-tit">
                         <p class="diario-sub">${TEXTO.sub}</p>
-                        <p class="diario-meta"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>${TEXTO.privado}</span><span class="diario-contagem" data-contagem></span></p>
+                        <p class="diario-meta"><span class="diario-contagem" data-contagem></span></p>
                     </div>
                     <div class="diario-ferr">
                         <button class="btn btn-ghost diario-exportar" type="button" data-exec="exportar">${ic('baixar')}${TEXTO.exportarCurto}</button>
@@ -793,7 +792,7 @@ export class HistoryScreen extends HTMLElement {
         this.reconciliar();
         const aviso = consumirAviso();
         if (aviso) this.querySelector('[data-aviso]').textContent = aviso;
-        if (!r.ok) return avisar(`${mais(r.importadas, 'entrada importada', 'entradas importadas')}, mas não foi possível guardar neste aparelho.`, { erro: true });
+        if (!r.ok) return avisar(`${mais(r.importadas, 'entrada importada', 'entradas importadas')}, mas não foi possível guardar.`, { erro: true });
         if (!r.importadas) return avisar(TEXTO.semNovidade);
         const sobra = r.ignoradas ? ` ${mais(r.ignoradas, 'já estava no diário ou não pôde ser lida', 'já estavam no diário ou não puderam ser lidas')}.` : '';
         avisar(`${mais(r.importadas, 'entrada importada', 'entradas importadas')}.${sobra}`);

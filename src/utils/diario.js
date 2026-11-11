@@ -533,7 +533,7 @@ export function importar(texto) {
     doc.ocultos = doc.ocultos.filter((id) => !vistosNoArquivo.has(id));
     aplicarLimite(doc);
     const ok = gravar(doc);
-    return { ok, motivo: ok ? '' : 'Não foi possível guardar neste aparelho.', importadas, ignoradas };
+    return { ok, motivo: ok ? '' : 'Não foi possível guardar.', importadas, ignoradas };
 }
 
 /* ---------- sincronizacao com a conta (o motor esta em conta.js) ---------- */
