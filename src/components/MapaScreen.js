@@ -327,7 +327,7 @@ export class MapaScreen extends HTMLElement {
         if (s.legenda) h += `<p class="leit-intro mute">${linkarTermos(s.legenda, usados)}</p>`;
         if (s.ponto) {
             const p = s.ponto;
-            h += `<ul class="fatos" aria-label="Dados da posição">${p.fatos.map(([k, v]) => `<li><strong>${k === 'Casa' || k === 'Decano' ? `<button class="termo" type="button" data-termo="${k.toLowerCase()}" aria-label="O que é ${k.toLowerCase()}?">${k}</button>` : k}</strong>${esc(v)}</li>`).join('')}</ul>`;
+            h += `<ul class="fatos" aria-label="Dados da posição">${p.fatos.map(([k, v]) => `<li><strong>${['Casa', 'Decano', 'Elemento', 'Modalidade', 'Regente'].includes(k) ? `<button class="termo" type="button" data-termo="${k.toLowerCase()}" aria-label="O que é ${k.toLowerCase()}?">${k}</button>` : k}</strong>${esc(v)}</li>`).join('')}</ul>`;
             h += this.cartas3(p.cartas);
             const rot = !p.casa || s.id === 'asc' ? ROTULOS_PONTO.filter((x) => x !== 'Na casa') : ROTULOS_PONTO;
             h += `<div class="mc-acc">${p.paragrafos.map((txt, i) => this.acc(rot[i] || T.mais, `<div class="leit-texto">${this.paragrafos([txt], usados)}</div>`, i === 0)).join('')}</div>`;
