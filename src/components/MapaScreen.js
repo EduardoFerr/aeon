@@ -1,7 +1,7 @@
 import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.js';
 import { gl, ic } from '../utils/glifos.js';
 import { loadCards } from '../utils/cardsUtil.js';
-import { obter, principal, listar, adicionar, apelido, persiste, definirPreferencias } from '../utils/perfil.js';
+import { obter, principal, listar, apelido, definirPreferencias } from '../utils/perfil.js';
 import { baixarBackup } from '../utils/backup.js';
 import { criarMapa } from '../utils/diario.js';
 import { carregarTextos, texto, esc, calcular, dataExtenso, grauTexto, casaDa, marcadoresHora, atribuicaoGeoNames, SIGNO_ELEMENTO } from '../utils/mapaComum.js';
@@ -11,6 +11,7 @@ import { carregarGlossario, linkarTermos } from '../utils/glossario.js';
 import { abrirGlossario } from './GlossarioModal.js';
 import { abrirResumoCarta } from './TarotCardInfo.js';
 import { abrir, avisar, ehDesktop } from './Sobreposicao.js';
+import { abrirMenuAcoes } from './menuAcoes.js';
 import { apagarMapaComDesfazer } from './desfazerMapa.js';
 
 /**
@@ -22,17 +23,8 @@ import { apagarMapaComDesfazer } from './desfazerMapa.js';
 const T = {
     titulo: 'Seu mapa',
     eyebrow: 'Mapa astral',
-    guardarPerfil: 'Guardar no perfil',
     guardarDiario: 'Guardar no diário',
-    descartar: 'Descartar',
-    naoGuardado: 'Não guardado',
-    novoTitulo: 'Mapa ainda não guardado',
-    novoTexto: 'Confira o resultado. Ele só entra no perfil se você tocar em Guardar no perfil.',
     escolhaGravada: 'Leitura guardada neste mapa.',
-    guardadoVer: 'Guardado, ver no perfil',
-    guardadoOk: 'Mapa guardado neste aparelho.',
-    repetidoOk: 'Esse mapa já estava guardado. Nada foi duplicado.',
-    erroGuardar: 'Não foi possível guardar o mapa agora.',
     semHoraTitulo: 'Mapa sem hora de nascimento',
     latAltaTitulo: 'Local em latitude alta',
     ambiguaTitulo: 'Essa hora aconteceu duas vezes',
@@ -49,6 +41,8 @@ const T = {
     compLeitura: 'Compartilhar esta leitura',
     copiar: 'Copiar texto',
     compartilhar: 'Compartilhar texto',
+    compartilharRot: 'Compartilhar',
+    trocarMapa: 'Trocar mapa',
     cartao: 'Baixar cartão',
     ver: 'Ver o texto que será compartilhado',
     copiado: 'Texto copiado.',
@@ -65,8 +59,10 @@ const T = {
     trocarTitulo: 'Trocar de mapa',
     trocarAberto: 'aberto',
     novoMapa: 'Novo mapa',
+    grupoGuardar: 'Guardar',
+    grupoCompartilhar: 'Compartilhar',
+    grupoMapa: 'Mapa',
     apagar: 'Apagar',
-    apagarBtn: 'Apagar o mapa agora',
     editar: 'Editar dados',
     exportar: 'Exportar',
     sistemaRot: 'Sistema de casas',
@@ -99,8 +95,7 @@ export class MapaScreen extends HTMLElement {
     async connectedCallback() {
         const est = consumirEstado() || {};
         this.m = (est.id && obter(est.id)) || principal();
-        this.salvo = !!(this.m && this.m.id);
-        const lem = (this.salvo && LEMBRADO.get(this.m.id)) || {};
+        const lem = (this.m && LEMBRADO.get(this.m.id)) || {};
         this.aba = est.secao ? 'leitura' : lem.aba || 'resumo';
         this.secaoId = est.secao || lem.sec || 'sol';
         this.incluir = false;
@@ -165,13 +160,13 @@ export class MapaScreen extends HTMLElement {
     }
 
     lembrar() {
-        if (this.salvo) LEMBRADO.set(this.m.id, { aba: this.aba, sec: this.secaoId });
+        LEMBRADO.set(this.m.id, { aba: this.aba, sec: this.secaoId });
     }
 
     /* ---------- pecas ---------- */
 
-    aviso(tipo, icone, titulo, corpo, extra = '') {
-        return `<section class="aviso ${tipo}" role="${tipo === 'atencao' || tipo === 'erro' ? 'alert' : 'status'}">${ic(icone)}<h3>${esc(titulo)}</h3><div><p>${esc(corpo)}</p>${extra}</div></section>`;
+    aviso(tipo, icone, titulo, corpo) {
+        return `<section class="aviso ${tipo}" role="${tipo === 'atencao' || tipo === 'erro' ? 'alert' : 'status'}">${ic(icone)}<h3>${esc(titulo)}</h3><div><p>${esc(corpo)}</p></div></section>`;
     }
 
     latAlta() {
@@ -183,9 +178,6 @@ export class MapaScreen extends HTMLElement {
         const c = this.calc;
         const aba = this.aba;
         let h = '';
-        if (!this.salvo && aba === 'resumo') {
-            h += this.aviso('info', 'info', T.novoTitulo, T.novoTexto, `<div class="btn-row"><button class="btn btn-primary" type="button" data-acao="guardar-perfil">${ic('guardar')}${T.guardarPerfil}</button></div>`);
-        }
         if (c.semHora) h += this.aviso('atencao', 'relogio', T.semHoraTitulo, this.t('ui.aviso.semhora'));
         if (this.latAlta() && (aba === 'resumo' || aba === 'casas')) h += this.aviso('info', 'info', T.latAltaTitulo, this.t('ui.aviso.latalta'));
         if (this.marc) {
@@ -350,58 +342,42 @@ export class MapaScreen extends HTMLElement {
     /* ---------- acoes ---------- */
 
     grupos() {
-        const g = [];
-        const guardar = [this.salvo ? { id: 'perfil', rot: T.guardadoVer, ic: 'ok' } : { id: 'guardar-perfil', rot: T.guardarPerfil, ic: 'guardar' }, { id: 'diario', rot: T.guardarDiario, ic: 'diario' }];
-        g.push(['Guardar', guardar]);
-        g.push(['Compartilhar', [{ id: 'compartilhar', rot: 'Compartilhar', ic: 'compartilhar' }, { id: 'cartao', rot: T.cartao, ic: 'baixar' }]]);
-        if (this.salvo) g.push(['Mapa', [{ id: 'editar', rot: T.editar, ic: 'editar' }, { id: 'trocar', rot: 'Trocar mapa', ic: 'trocar' }, { id: 'exportar', rot: T.exportar, ic: 'copiar' }]]);
-        g.push(['', [this.salvo ? { id: 'apagar', rot: T.apagar, ic: 'lixo', perigo: true } : { id: 'descartar', rot: T.descartar, ic: 'lixo', perigo: true }]]);
-        return g;
+        return [
+            [T.grupoGuardar, [{ id: 'diario', rot: T.guardarDiario, ic: 'diario' }]],
+            [T.grupoCompartilhar, [{ id: 'compartilhar', rot: T.compartilharRot, ic: 'compartilhar' }, { id: 'cartao', rot: T.cartao, ic: 'baixar' }]],
+            [T.grupoMapa, [{ id: 'editar', rot: T.editar, ic: 'editar' }, { id: 'trocar', rot: T.trocarMapa, ic: 'trocar' }, { id: 'exportar', rot: T.exportar, ic: 'copiar' }]],
+            ['', [{ id: 'apagar', rot: T.apagar, ic: 'lixo', perigo: true }]],
+        ];
     }
 
-    menuHtml() {
-        return `<nav aria-label="${T.acoesTitulo}">${this.grupos().map(([titulo, itens]) => `${titulo ? `<p class="sob-grupo">${titulo}</p>` : '<div class="sob-sep"></div>'}${itens.map((a) => `<button class="sob-acao${a.perigo ? ' perigo' : ''}" type="button" data-exec="${a.id}">${ic(a.ic)}${esc(a.rot)}</button>`).join('')}`).join('')}</nav>`;
-    }
-
+    /** Barra do desktop: duas acoes a vista e o menu "Ações" com o resto. */
     barraHtml() {
-        const btn = (a, cls) => `<button class="btn ${cls}" type="button" data-exec="${a.id}">${ic(a.ic)}${esc(a.rot)}</button>`;
-        const icone = (a, perigo) => `<button class="iconbtn round${perigo ? ' perigo' : ''}" type="button" data-exec="${a.id}" aria-label="${esc(a.rot)}" title="${esc(a.rot)}">${ic(a.ic)}</button>`;
-        const salvo = this.salvo;
-        return `${salvo ? btn({ id: 'perfil', rot: T.guardadoVer, ic: 'ok' }, 'btn-ghost') : btn({ id: 'guardar-perfil', rot: T.guardarPerfil, ic: 'guardar' }, 'btn-primary')}
-            ${btn({ id: 'diario', rot: T.guardarDiario, ic: 'diario' }, 'btn-ghost')}${btn({ id: 'compartilhar', rot: 'Compartilhar', ic: 'compartilhar' }, 'btn-ghost')}${btn({ id: 'cartao', rot: T.cartao, ic: 'baixar' }, 'btn-ghost')}
-            <span class="sep" aria-hidden="true"></span>
-            ${salvo ? `${icone({ id: 'editar', rot: T.editar, ic: 'editar' })}${icone({ id: 'trocar', rot: 'Trocar mapa', ic: 'trocar' })}${icone({ id: 'exportar', rot: T.exportar, ic: 'copiar' })}${icone({ id: 'apagar', rot: T.apagar, ic: 'lixo' }, true)}` : icone({ id: 'descartar', rot: T.descartar, ic: 'lixo' }, true)}`;
+        const btn = (id, rot, i) => `<button class="btn btn-ghost" type="button" data-exec="${id}">${ic(i)}${esc(rot)}</button>`;
+        return `${btn('diario', T.guardarDiario, 'diario')}${btn('compartilhar', T.compartilharRot, 'compartilhar')}${this.botaoAcoes()}`;
     }
 
-    abrirGaveta(botao) {
-        botao.setAttribute('aria-expanded', 'true');
-        const c = abrir({
-            tipo: 'gaveta', titulo: T.acoesTitulo, gatilho: botao,
+    botaoAcoes() {
+        return `<button class="btn btn-ghost" type="button" data-abrir-acoes aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${T.acoes}</button>`;
+    }
+
+    abrirAcoes(botao) {
+        this.sobre = abrirMenuAcoes({
+            botao,
+            titulo: T.acoesTitulo,
             contexto: `<b>${esc(this.nomeMapa() || T.titulo)}</b>${esc(this.dadosLinha())}`,
-            corpo: this.menuHtml(),
-            aoFechar: () => botao.setAttribute('aria-expanded', 'false'),
+            grupos: this.grupos(),
+            aoEscolher: (id, gatilho) => this.executar(id, gatilho),
         });
-        c.corpo.addEventListener('click', (e) => {
-            const b = e.target.closest('[data-exec]');
-            if (!b) return;
-            const id = b.dataset.exec;
-            c.fechar();
-            this.executar(id, botao);
-        });
-        this.sobre = c;
     }
 
     executar(id, gatilho) {
-        if (id === 'guardar-perfil') this.guardarNoPerfil();
-        else if (id === 'perfil') navigateTo('perfil', this.m.id ? { selecionar: this.m.id } : null);
-        else if (id === 'diario') this.guardarNoDiario();
+        if (id === 'diario') this.guardarNoDiario();
         else if (id === 'compartilhar') this.abrirCompartilhar(gatilho);
         else if (id === 'cartao') this.baixarCartao(this.escopo());
         else if (id === 'editar') navigateTo('novo-mapa', { editar: this.m.id });
         else if (id === 'trocar') this.abrirTrocar(gatilho);
         else if (id === 'exportar') avisar(baixarBackup() ? T.backupOk : T.backupErro, { erro: false });
         else if (id === 'apagar') this.apagarEste();
-        else if (id === 'descartar') navigateTo('perfil');
     }
 
     /* ---------- compartilhar ---------- */
@@ -554,19 +530,6 @@ export class MapaScreen extends HTMLElement {
 
     /* ---------- guardar ---------- */
 
-    guardarNoPerfil() {
-        const r = adicionar({ rotulo: this.m.rotulo, data: this.m.data, hora: this.m.hora, local: this.m.local, escolha: this.escolha, casas: this.casas, principal: !!this.m.principal });
-        if (!r.id) {
-            avisar(T.erroGuardar, { erro: true });
-            return;
-        }
-        this.m = obter(r.id) || this.m;
-        this.salvo = true;
-        if (!r.ok) persiste();
-        avisar(r.repetido ? T.repetidoOk : T.guardadoOk);
-        this.desenhar(ehDesktop() ? '.mc-barra [data-exec="perfil"]' : '#abrir-acoes');
-    }
-
     guardarNoDiario() {
         const p = this.calc.pontos;
         const cartas = [['sol', p.sol], ['lua', p.lua], ['asc', this.calc.semHora ? null : p.asc]]
@@ -643,9 +606,9 @@ export class MapaScreen extends HTMLElement {
             this.irParaSecao(sec.dataset.sec, true);
             return;
         }
-        const ac = e.target.closest('#abrir-acoes');
+        const ac = e.target.closest('[data-abrir-acoes]');
         if (ac) {
-            this.abrirGaveta(ac);
+            this.abrirAcoes(ac);
             return;
         }
         const ex = e.target.closest('[data-exec]');
@@ -656,8 +619,7 @@ export class MapaScreen extends HTMLElement {
         const b = e.target.closest('[data-acao]');
         if (!b) return;
         const a = b.dataset.acao;
-        if (a === 'perfil') navigateTo('perfil', this.m.id ? { selecionar: this.m.id } : null);
-        else if (a === 'guardar-perfil') this.guardarNoPerfil();
+        if (a === 'perfil') navigateTo('perfil', { selecionar: this.m.id });
     }
 
     teclou(e) {
@@ -684,7 +646,7 @@ export class MapaScreen extends HTMLElement {
                 return;
             }
             this.status = `${T.mostrando} ${this.marc.rotulos[this.escolha]}.`;
-            if (this.salvo && this.m.id && definirPreferencias(this.m.id, { escolha: this.escolha })) this.status += ` ${T.escolhaGravada}`;
+            if (definirPreferencias(this.m.id, { escolha: this.escolha })) this.status += ` ${T.escolhaGravada}`;
             this.desenhar('input[name="leitura-hora"]:checked');
             return;
         }
@@ -695,7 +657,7 @@ export class MapaScreen extends HTMLElement {
             } catch (err) {
                 return;
             }
-            const gravou = this.salvo && this.m.id && definirPreferencias(this.m.id, { casas: this.casas });
+            const gravou = definirPreferencias(this.m.id, { casas: this.casas });
             this.desenhar('#sel-casas');
             if (gravou) avisar(T.sistemaGravado);
         }
@@ -720,14 +682,13 @@ export class MapaScreen extends HTMLElement {
 
     estrutura() {
         const nome = this.nomeMapa() || T.titulo;
-        const guardarIcone = this.salvo ? '' : `<button class="iconbtn round mc-guardar" type="button" data-acao="guardar-perfil" aria-label="${T.guardarPerfil}" title="${T.guardarPerfil}">${ic('guardar')}</button>`;
         const abas = ABAS.map(([k, n]) => `<button class="mc-tab" type="button" role="tab" id="t-${k}" aria-selected="${k === this.aba}" aria-controls="painel-mapa" data-aba="${k}" tabindex="${k === this.aba ? 0 : -1}">${n}</button>`).join('');
         return `<div class="mapa-tela mc" data-aba="${this.aba}">
             <div class="mc-cab">
               <div class="mc-bar">
                 <button class="iconbtn round mc-voltar" type="button" data-acao="perfil" aria-label="${T.voltarPerfil}" title="${T.voltarPerfil}">${ic('voltar')}</button>
-                <div class="mc-tit"><h2 id="mapa-h" tabindex="-1">${esc(nome)}</h2>${this.salvo ? '' : `<span class="mc-estado">${T.naoGuardado}</span>`}<p class="mc-dados mc-so-desk">${esc(this.dadosLinha())}</p></div>
-                <span class="mc-so-cel mc-bar-acoes">${guardarIcone}<button class="iconbtn" id="abrir-acoes" type="button" aria-haspopup="dialog" aria-expanded="false">${ic('maisv')}${T.acoes}</button></span>
+                <div class="mc-tit"><h2 id="mapa-h" tabindex="-1">${esc(nome)}</h2><p class="mc-dados mc-so-desk">${esc(this.dadosLinha())}</p></div>
+                <span class="mc-so-cel mc-bar-acoes">${this.botaoAcoes()}</span>
               </div>
               <div class="mc-barra mc-so-desk" role="toolbar" aria-label="${T.acoesTitulo}">${this.barraHtml()}</div>
               <div class="mc-tabs" role="tablist" aria-label="${T.abas}">${abas}</div>
