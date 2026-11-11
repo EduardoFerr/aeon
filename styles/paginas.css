@@ -47,5 +47,7 @@
 [data-theme="aurora"] .guias { background: none; }
 [data-theme="aurora"] .prosa .guias a[aria-current="page"] { background: none; box-shadow: inset 0 -2px 0 var(--accent); border-radius: 0; }
 
-/* Celular: o menu das paginas estaticas quebra em duas linhas e, fixo, cobria cerca de um quinto da tela. Aqui ele rola com a pagina. */
-@media (max-width: 859px) { .pagina .topbar { position: static; } }
+/* Celular: o menu das paginas estaticas quebra em duas linhas e, fixo, cobria cerca de um quinto da tela. Aqui ele rola com a pagina.
+   Tem de ser relative (nao static): o veu do cabecalho (.topbar::before, absolute + inset 0) precisa ter o cabecalho como referencia,
+   senao cobre a tela inteira e esconde o inicio do texto. */
+@media (max-width: 859px) { .pagina .topbar { position: relative; } }
