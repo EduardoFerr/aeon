@@ -1,4 +1,5 @@
 import { shuffle } from './cardsUtil.js';
+import { chaveDe } from './contas.js';
 
 /**
  * Carta do dia: sorteio unico por dia, guardado so no aparelho.
@@ -63,7 +64,7 @@ function podar(estado, hoje) {
 function carregar() {
     let bruto;
     try {
-        bruto = localStorage.getItem(CHAVE_DIA);
+        bruto = localStorage.getItem(chaveDe('dia'));
     } catch (e) {
         return { estado: memoria || vazio(), persiste: false };
     }
@@ -79,7 +80,7 @@ function gravar(estado, hoje) {
     podar(estado, hoje);
     memoria = estado;
     try {
-        localStorage.setItem(CHAVE_DIA, JSON.stringify(estado));
+        localStorage.setItem(chaveDe('dia'), JSON.stringify(estado));
         gravacaoFalhou = false;
         return true;
     } catch (e) {

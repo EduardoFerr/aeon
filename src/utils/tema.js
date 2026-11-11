@@ -2,9 +2,13 @@ import { esconderAviso } from '../components/Sobreposicao.js';
 import { iniciarAtualizacao } from './atualizacao.js';
 import { SYNC_ATIVA } from './contaEstado.js';
 import { iniciarVerso } from './verso.js';
+import { vigiarTrocaEmOutraAba } from './contas.js';
 
 // Todas as paginas carregam este arquivo: e daqui que o service worker e registrado e que a versao nova e avisada.
 iniciarAtualizacao();
+
+// Contas no aparelho: se outra aba trocar a conta ativa, esta recarrega para nao misturar dados.
+vigiarTrocaEmOutraAba();
 
 // Verso das cartas: o do signo solar de quem tem mapa principal, ou o padrao do Aeon.
 iniciarVerso();

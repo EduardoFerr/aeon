@@ -1,3 +1,4 @@
+import { chaveDe } from './contas.js';
 /**
  * Rascunhos das notas do Diario: o que a pessoa digitou e ainda NAO salvou.
  *
@@ -14,7 +15,7 @@ const RE_ID = /^[A-Za-z0-9_-]{1,64}$/;
 
 function ler() {
     try {
-        const b = JSON.parse(localStorage.getItem(CHAVE_RASCUNHOS));
+        const b = JSON.parse(localStorage.getItem(chaveDe('rascunhos')));
         if (!b || typeof b !== 'object' || b.v !== 1 || !b.itens || typeof b.itens !== 'object' || Array.isArray(b.itens)) return {};
         const saida = {};
         for (const [id, it] of Object.entries(b.itens).slice(0, LIMITE_ITENS * 2)) {
@@ -28,8 +29,8 @@ function ler() {
 
 function gravar(itens) {
     try {
-        if (Object.keys(itens).length) localStorage.setItem(CHAVE_RASCUNHOS, JSON.stringify({ v: 1, itens }));
-        else localStorage.removeItem(CHAVE_RASCUNHOS);
+        if (Object.keys(itens).length) localStorage.setItem(chaveDe('rascunhos'), JSON.stringify({ v: 1, itens }));
+        else localStorage.removeItem(chaveDe('rascunhos'));
         return true;
     } catch (e) {
         return false;

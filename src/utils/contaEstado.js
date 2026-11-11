@@ -1,3 +1,4 @@
+import { chaveDe } from './contas.js';
 /**
  * Estado da sincronizacao com a conta (so no aparelho, fora do arquivo de backup).
  *
@@ -40,7 +41,7 @@ function mapaDeDatas(obj) {
 
 export function lerEstado() {
     try {
-        const bruto = JSON.parse(localStorage.getItem(CHAVE_CONTA));
+        const bruto = JSON.parse(localStorage.getItem(chaveDe('conta')));
         if (!bruto || typeof bruto !== 'object' || bruto.v !== 1) return vazio();
         return {
             v: 1,
@@ -61,7 +62,7 @@ export function lerEstado() {
 export function salvarEstado(parte) {
     const novo = { ...lerEstado(), ...parte };
     try {
-        localStorage.setItem(CHAVE_CONTA, JSON.stringify(novo));
+        localStorage.setItem(chaveDe('conta'), JSON.stringify(novo));
     } catch (e) {
         /* sem armazenamento: a sincronizacao nao liga */
     }
@@ -70,7 +71,7 @@ export function salvarEstado(parte) {
 
 export function limparEstado() {
     try {
-        localStorage.removeItem(CHAVE_CONTA);
+        localStorage.removeItem(chaveDe('conta'));
     } catch (e) {
         /* nada a apagar */
     }
