@@ -517,3 +517,19 @@ details.acc > .corpo { padding: 2px 0 16px; display: grid; gap: 12px; min-width:
 .conta-opcao.perigo strong { color: var(--err); }
 .conta-acoes { display: flex; align-items: center; gap: var(--sp-1); flex-wrap: wrap; justify-content: flex-end; }
 textarea.entrada { line-height: 1.4; }
+
+/* Conta: botao no cabecalho, convite (Home e Diario) e painel dentro da gaveta */
+.contabtn { position: relative; }
+.contabtn .ponto { position: absolute; top: 7px; right: 7px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--bg); background: transparent; display: none; }
+.contabtn[data-estado="ligada"] .ponto { display: block; background: var(--ok, var(--accent)); }
+.contabtn[data-estado="sincronizando"] .ponto { display: block; background: var(--accent); }
+.contabtn[data-estado="erro"] .ponto { display: block; background: var(--err); }
+.topright { display: flex; align-items: center; gap: 8px; }
+.convite-conta { display: flex; gap: var(--sp-3); align-items: flex-start; padding: var(--sp-3) var(--sp-4); margin: var(--sp-4) 0; border-radius: var(--r-md); border: 1px solid var(--line-strong); background: var(--surface); }
+.convite-conta .convite-ico { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+.convite-conta .convite-ico .icon { width: 22px; height: 22px; }
+.convite-conta .convite-corpo { display: grid; gap: var(--sp-2); min-width: 0; }
+.convite-conta p { color: var(--text); font-size: var(--fs-sm); line-height: 1.5; }
+.convite-conta .btn-row { gap: var(--sp-2); }
+.sob-corpo conta-panel .painel { border: 0; padding: 0; background: none; box-shadow: none; }
+.sob-corpo conta-panel .p-icon { display: none; }
