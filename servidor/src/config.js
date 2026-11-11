@@ -10,6 +10,7 @@ export const CODIGO_REENVIO_MS = 30 * 1000;
 export const CODIGO_BLOQUEIO_MS = 6 * 60 * 60 * 1000;
 export const ENVIOS_POR_HORA_GLOBAL = 100;
 export const MAX_SESSOES_POR_USUARIO = 20;
+export const MAX_CONTAS_POR_SESSAO = 10;
 export const LIMITE_LINHAS_USUARIO = 5000;
 export const EXPURGO_MARCAS_MS = 365 * 24 * 60 * 60 * 1000;
 export const SESSAO_MS = 365 * 24 * 60 * 60 * 1000;

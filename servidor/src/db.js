@@ -53,9 +53,47 @@ const MIGRACOES = [
         );
         CREATE INDEX itens_seq ON itens(usuario_id, seq);
     `),
+    // 2: contas anonimas. O e-mail passa a poder ser nulo (a conta nasce sem e-mail; o login so o associa depois).
+    // O SQLite nao troca NOT NULL no lugar: recria a tabela (com as chaves estrangeiras desligadas, como ele manda).
+    (db) =>
+        db.exec(`
+        CREATE TABLE usuarios_novo (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT UNIQUE,
+            criado_em TEXT NOT NULL,
+            ultimo_acesso TEXT NOT NULL,
+            seq INTEGER NOT NULL DEFAULT 0
+        );
+        INSERT INTO usuarios_novo (id, email, criado_em, ultimo_acesso, seq) SELECT id, email, criado_em, ultimo_acesso, seq FROM usuarios;
+        DROP TABLE usuarios;
+        ALTER TABLE usuarios_novo RENAME TO usuarios;
+    `),
+    // 3: varias contas por aparelho. A sessao (um cookie por aparelho) deixa de ter uma conta so e passa a ligar-se a varias,
+    // pela tabela sessao_contas. Recria sessoes sem usuario_id, com as ligacoes atuais copiadas antes.
+    (db) =>
+        db.exec(`
+        CREATE TABLE sessoes_nova (
+            id TEXT PRIMARY KEY,
+            token_hash TEXT NOT NULL UNIQUE,
+            aparelho TEXT NOT NULL,
+            criada_em TEXT NOT NULL,
+            ultimo_uso TEXT NOT NULL
+        );
+        INSERT INTO sessoes_nova (id, token_hash, aparelho, criada_em, ultimo_uso) SELECT id, token_hash, aparelho, criada_em, ultimo_uso FROM sessoes;
+        CREATE TABLE sessao_contas (
+            sessao_id TEXT NOT NULL REFERENCES sessoes(id) ON DELETE CASCADE,
+            usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+            vinculada_em TEXT NOT NULL,
+            PRIMARY KEY (sessao_id, usuario_id)
+        );
+        INSERT INTO sessao_contas (sessao_id, usuario_id, vinculada_em) SELECT id, usuario_id, criada_em FROM sessoes;
+        CREATE INDEX sessao_contas_usuario ON sessao_contas (usuario_id);
+        DROP TABLE sessoes;
+        ALTER TABLE sessoes_nova RENAME TO sessoes;
+    `),
 ];
 
-export function abrirBanco(caminho) {
+export function abrirBanco(caminho, { ateVersao = MIGRACOES.length } = {}) {
     if (caminho !== ':memory:') mkdirSync(dirname(caminho), { recursive: true });
     const db = new DatabaseSync(caminho);
     db.exec('PRAGMA journal_mode = WAL');
@@ -63,15 +101,21 @@ export function abrirBanco(caminho) {
     db.exec('PRAGMA busy_timeout = 5000');
     db.exec('PRAGMA synchronous = NORMAL');
     const versao = db.prepare('PRAGMA user_version').get().user_version;
-    for (let v = versao; v < MIGRACOES.length; v++) {
+    for (let v = versao; v < ateVersao; v++) {
+        // PRAGMA foreign_keys nao muda dentro de transacao: desliga antes, confere depois e religa.
+        db.exec('PRAGMA foreign_keys = OFF');
         db.exec('BEGIN');
         try {
             MIGRACOES[v](db);
             db.exec(`PRAGMA user_version = ${v + 1}`);
+            const quebradas = db.prepare('PRAGMA foreign_key_check').all();
+            if (quebradas.length) throw new Error(`migracao ${v + 1} deixou chaves estrangeiras quebradas`);
             db.exec('COMMIT');
         } catch (e) {
             db.exec('ROLLBACK');
             throw e;
+        } finally {
+            db.exec('PRAGMA foreign_keys = ON');
         }
     }
     return db;
