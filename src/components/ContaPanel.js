@@ -8,6 +8,7 @@ import {
 } from '../utils/conta.js';
 import { contaAtiva, criarContaLocal, listarContas, removerContaLocal, trocarConta } from '../utils/contas.js';
 import { lerEstado } from '../utils/contaEstado.js';
+import { guardarPendente, lerPendente, limparPendente } from '../utils/contaPendente.js';
 
 /**
  * Textos do painel de conta. Regra de produto: nenhum texto aqui diz o que e guardado nem como. So o que a pessoa
@@ -167,6 +168,14 @@ export class ContaPanel extends HTMLElement {
         if (e.fase === 'juntar') this.passo = 'retomar';
         this.email = e.email;
         this.vincular = false;
+        // pediu o codigo e saiu para ler o e-mail (a pagina pode ter recarregado): volta para a tela do codigo
+        const p0 = this.passo !== 'retomar' ? lerPendente() : null;
+        const pendente = p0 && p0.vincular === (e.fase === 'ligada') ? p0 : null; // pendencia velha de outra situacao nao vale
+        if (pendente) {
+            this.passo = 'codigo';
+            this.email = pendente.email;
+            this.vincular = pendente.vincular;
+        }
         this.erro = '';
         this.resumo = null;
         this.chave = '';
@@ -178,7 +187,10 @@ export class ContaPanel extends HTMLElement {
             if (this.passo === 'ligada') this.atualizarStatus();
         });
         if (this.passo === 'retomar') this.retomar();
-        else this.desenhar();
+        else {
+            this.desenhar();
+            if (pendente) this.iniciarContagem(Math.max(0, 30 - Math.floor((Date.now() - pendente.pedidoEm) / 1000)));
+        }
     }
 
     disconnectedCallback() {
@@ -357,8 +369,12 @@ export class ContaPanel extends HTMLElement {
             return this.ir('email');
         }
         if (nome === 'com-chave') return this.ir('chave-entrar');
+        if (nome === 'voltar-inicio') limparPendente();
         if (nome === 'voltar-inicio') return this.ir(estadoConta().fase === 'ligada' ? 'ligada' : 'inicio');
-        if (nome === 'voltar') return this.ir(this.vincular ? 'ligada' : 'inicio');
+        if (nome === 'voltar') {
+            limparPendente();
+            return this.ir(this.vincular ? 'ligada' : 'inicio');
+        }
         if (nome === 'concluir') return this.ir('ligada');
         if (nome === 'copiar') {
             const ok = await copiarTexto(this.chave || verChave());
@@ -369,7 +385,10 @@ export class ContaPanel extends HTMLElement {
             return this.desenhar(false);
         }
         if (nome === 'nova-chave') return this.novaChave(botao);
-        if (nome === 'trocar-email') return this.ir('email');
+        if (nome === 'trocar-email') {
+            limparPendente();
+            return this.ir('email');
+        }
         if (nome === 'reenviar') return this.enviarCodigo(true);
         if (nome === 'entrar-de-novo') {
             this.vincular = false;
@@ -460,6 +479,7 @@ export class ContaPanel extends HTMLElement {
         if (!reenvio) this.desenhar(false);
         try {
             await pedirCodigo(this.email);
+            guardarPendente({ email: this.email, vincular: this.vincular });
             this.ocupado = false;
             this.passo = 'codigo';
             this.erro = '';
@@ -504,12 +524,14 @@ export class ContaPanel extends HTMLElement {
         try {
             if (this.vincular) {
                 await confirmarCodigo(this.email, codigo, { destino: 'vincular' });
+                limparPendente();
                 clearInterval(this.contador);
                 this.vincular = false;
                 avisar('E-mail adicionado.');
                 return this.ir('ligada');
             }
             const r = await confirmarCodigo(this.email, codigo, { destino: this.destino() });
+            limparPendente();
             clearInterval(this.contador);
             return this.depoisDeEntrar(r);
         } catch (e) {
