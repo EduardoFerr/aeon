@@ -78,7 +78,7 @@ export class CartaDoDia extends HTMLElement {
         corpo.dataset.virada = String(this.virada);
         corpo.innerHTML = `
             <div class="dia-carta">
-                <tarot-card data-order="${Number(c.order)}" ${this.virada ? '' : 'show-back'} rotulo-verso="${TEXTO.rotuloVerso}"></tarot-card>
+                <tarot-card data-order="${Number(c.order)}" data-botao-abrir ${this.virada ? '' : 'show-back'} rotulo-verso="${TEXTO.rotuloVerso}"></tarot-card>
             </div>
             <div class="dia-texto">
                 <div class="dia-estado dia-fechada">
@@ -108,7 +108,7 @@ export class CartaDoDia extends HTMLElement {
         `;
         this.querySelector('.dia').insertAdjacentHTML('beforeend', '<div class="dia-semana" data-semana></div>');
 
-        this.querySelector('tarot-card').addEventListener('carta-virada', () => this.aoVirar());
+        this.querySelector('tarot-card').addEventListener('carta-virada', (e) => this.aoVirar(e.detail && e.detail.tinhaFoco));
         this.querySelector('[data-acao="abrir"]').addEventListener('click', (e) => {
             const info = document.querySelector('tarot-card-info');
             if (info) info.showInfo(this.carta, e.currentTarget);
@@ -175,13 +175,15 @@ export class CartaDoDia extends HTMLElement {
             <p class="dia-msg" role="status" aria-live="polite" data-lembrete-msg></p>`;
     }
 
-    aoVirar() {
+    aoVirar(tinhaFoco) {
         if (this.virada) return;
         this.virada = true;
         marcarVirada(this.carta, this.data);
         this.atualizarEstado();
         this.pintarSemana();
         this.querySelector('[data-anuncio]').textContent = TEXTO.anuncio(this.carta);
+        // a carta aberta deixa de ser o botao (o "Abrir a carta" ao lado faz o mesmo): o foco que estava nela acompanha
+        if (tinhaFoco) this.querySelector('[data-acao="abrir"]').focus({ preventScroll: true });
         this.dispatchEvent(new CustomEvent('dia-virada', { bubbles: true, detail: { carta: this.carta } }));
     }
 

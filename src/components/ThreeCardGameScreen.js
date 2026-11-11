@@ -347,7 +347,7 @@ export class ThreeCardGameScreen extends HTMLElement {
                 <li class="leitura-slot" data-slot="${k}">
                     <h3 class="leitura-pos">${ROTULOS[k]}</h3>
                     <div class="leitura-slot-carta">
-                        <tarot-card data-order="${Number(c.order)}" show-back rotulo-verso="${ROTULOS[k]}, carta virada para baixo. Ative para revelar."></tarot-card>
+                        <tarot-card data-order="${Number(c.order)}" data-botao-abrir show-back rotulo-verso="${ROTULOS[k]}, carta virada para baixo. Ative para revelar."></tarot-card>
                     </div>
                     <div class="leitura-interp" data-interp><p class="leitura-espera">${TEXTO.toqueParaRevelar}</p></div>
                 </li>`
@@ -384,6 +384,7 @@ export class ThreeCardGameScreen extends HTMLElement {
         if (!slot) return;
         const k = Number(slot.dataset.slot);
         const carta = this.cartasEscolhidas[k];
+        const tinhaFoco = !!(e.detail && e.detail.tinhaFoco);
         const interp = slot.querySelector('[data-interp]');
         if (!carta || interp.dataset.aberta) return;
         const texto = (carta.past_present_future && carta.past_present_future[CAMPOS[k]]) || carta.message_esoteric || '';
@@ -393,6 +394,8 @@ export class ThreeCardGameScreen extends HTMLElement {
             <p class="leitura-texto">${escaparHtml(texto)}</p>
             ${carta.eighth_greater ? `<div class="leitura-luz"><p class="leitura-rotulo">${TEXTO.luz}</p><p>${escaparHtml(carta.eighth_greater)}</p></div>` : ''}
             <button type="button" class="btn btn-terciario" data-abrir="${k}">${TEXTO.abrir}${ic('seta')}</button>`;
+        // a carta aberta sai da ordem de foco (o "Abrir a carta" abaixo faz o mesmo): o foco acompanha
+        if (tinhaFoco) interp.querySelector('[data-abrir]').focus({ preventScroll: true });
         this.reveladas += 1;
         if (this.reveladas < 3) {
             this.anunciar(TEXTO.revelada(ROTULOS[k], carta));
