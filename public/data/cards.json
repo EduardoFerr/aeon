@@ -288,7 +288,7 @@
     "texto_thoth": true
   },
   {
-    "name": "O Ajuste",
+    "name": "O Ajustamento",
     "title": "A Verdade na Medida",
     "number": 8,
     "isMajorArcana": true,
@@ -298,7 +298,7 @@
     "element": "Ar",
     "sign": "Libra",
     "planet": null,
-    "description": "No Tarô de Thoth, a Justiça se chama Ajuste: não só julga, corrige até tudo ficar na medida. O signo é Libra, o da balança, de Ar, e a letra, Lamed, é o aguilhão, vara que guia o boi. O caminho 22 liga Geburah, o Rigor, a Tiphareth, a Beleza. Uma figura com a espada em pé diante de si fica entre os pratos de uma grande balança, cercada de esferas azuis e verdes.",
+    "description": "No Tarô de Thoth, a Justiça se chama Ajustamento: não só julga, corrige até tudo ficar na medida. O signo é Libra, o da balança, de Ar, e a letra, Lamed, é o aguilhão, vara que guia o boi. O caminho 22 liga Geburah, o Rigor, a Tiphareth, a Beleza. Uma figura com a espada em pé diante de si fica entre os pratos de uma grande balança, cercada de esferas azuis e verdes.",
     "hebrew_letter": "Lamed (ל)",
     "astrology": "Libra",
     "description_symbolic": "Lamed é o aguilhão que conduz o boi, imagem de ensino pela correção. Do rigor de Geburah ao centro de Tiphareth segue o caminho 22. Uma figura velada, de espada erguida diante do corpo, é ladeada pelos dois pratos de uma grande balança, entre esferas azuis e verdes e feixes de luz. Libra é o signo da balança, e a tradição astrológica tem Saturno como exaltado ali. A figura se associa a Maat, deusa da verdade.",
@@ -720,8 +720,8 @@
     "texto_thoth": true
   },
   {
-    "name": "O Éon",
-    "title": "O Novo Éon",
+    "name": "O Aeon",
+    "title": "O Novo Aeon",
     "number": 20,
     "isMajorArcana": true,
     "eighth_greater": "Despertar, recomeço e vontade própria que se afirma.",
@@ -730,7 +730,7 @@
     "element": "Fogo",
     "sign": null,
     "planet": "Plutão",
-    "description": "Ocupando o lugar do Julgamento no Thoth, o Éon marca a virada de uma era. Shin, letra do dente e da chama, corresponde à carta, de elemento Fogo; astrólogos modernos a ligam a Plutão, planeta da transformação profunda. O caminho 31 leva de Hod, o Esplendor, a Malkuth, o mundo material. Uma figura azul se arqueia como um céu sobre outra, sentada num halo luminoso.",
+    "description": "Ocupando o lugar do Julgamento no Thoth, o Aeon marca a virada de uma era. Shin, letra do dente e da chama, corresponde à carta, de elemento Fogo; astrólogos modernos a ligam a Plutão, planeta da transformação profunda. O caminho 31 leva de Hod, o Esplendor, a Malkuth, o mundo material. Uma figura azul se arqueia como um céu sobre outra, sentada num halo luminoso.",
     "hebrew_letter": "Shin (ש)",
     "astrology": "Plutão",
     "description_symbolic": "Shin é o dente e a chama, a letra do fogo e do espírito, de três traços como três línguas de fogo. De Hod a Malkuth, o caminho 31 leva a mente ao mundo. Uma figura azul se arqueia como um céu sobre uma figura sentada, envolta num halo luminoso: é Nuit, e a tradição lê no halo e na figura sentada Hadit e Hórus, as três figuras de Thelema que dão nome à nova era.",
@@ -2453,7 +2453,7 @@
     "element": "Terra",
     "sign": "Capricórnio",
     "planet": "Sol",
-    "description": "Chesed, a quarta esfera da Árvore da Vida (o mapa da Cabala), dá estrutura ao Quatro de Discos, Poder: uma posição conquistada e uma base firme. O Sol, que traz luz e ordem, rege o último decano de Capricórnio (20 a 30 graus), de 11/01 a 20/01. Na imagem, uma fortaleza quadrada tem uma torre em cada canto e uma só ponte de entrada.",
+    "description": "Chesed, a quarta esfera da Árvore da Vida (o mapa da Cabala), dá estrutura ao Quatro de Discos, Poder: uma posição conquistada e uma base firme. O Sol, que traz luz e ordem, rege o último decano de Capricórnio (20 a 30 graus), de 11/01 a 19/01. Na imagem, uma fortaleza quadrada tem uma torre em cada canto e uma só ponte de entrada.",
     "description_symbolic": "Uma fortaleza quadrada de muros escuros mostra, em cada canto, uma torre de topo claro marcada por um triângulo; no meio, um pátio amarelo em forma de cruz e, embaixo, uma ponte estreita sobre uma faixa azul de linhas verdes. O fundo laranja afunila em perspectiva. Quatro é o número de Chesed, e o Sol em Capricórnio põe luz e ordem na montanha.",
     "message_esoteric": "Você levantou algo seu, como um cargo, um patrimônio ou uma autoridade, e agora cabe guardá-lo com método. Mantenha as contas organizadas, as regras claras e os limites definidos. Só não feche todas as portas: proteger demais deixa você sem ninguém por perto. Deixe uma entrada livre para gente e ideias novas.",
     "meditation_reflection": [
@@ -2475,7 +2475,7 @@
       "planet": "Sol",
       "sign": "Capricórnio",
       "degrees": "20 a 30 graus de Capricórnio",
-      "dates": "11/01 a 20/01"
+      "dates": "11/01 a 19/01"
     },
     "texto_thoth": true
   },
