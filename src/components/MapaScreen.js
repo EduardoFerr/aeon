@@ -2,7 +2,6 @@ import { navigateTo, consumirEstado, focarCabecalho } from '../utils/navigation.
 import { gl, ic } from '../utils/glifos.js';
 import { loadCards } from '../utils/cardsUtil.js';
 import { obter, principal, listar, apelido, definirPreferencias } from '../utils/perfil.js';
-import { baixarBackup } from '../utils/backup.js';
 import { criarMapa } from '../utils/diario.js';
 import { carregarTextos, texto, esc, calcular, dataExtenso, grauTexto, casaDa, marcadoresHora, atribuicaoGeoNames, SIGNO_ELEMENTO } from '../utils/mapaComum.js';
 import { montarLeitura, textoDaSecao } from '../utils/leituraMapa.js';
@@ -53,18 +52,16 @@ const T = {
     cartaoErro: 'Não foi possível montar o cartão agora.',
     diarioOk: 'Guardado no diário.',
     diarioErro: 'Não foi possível guardar no diário agora.',
-    backupOk: 'Backup baixado. Guarde o arquivo em um lugar seguro, ele traz datas, horas e lugares de nascimento.',
-    backupErro: 'Não foi possível gerar o backup.',
     mostrando: 'Mostrando a leitura de',
     trocarTitulo: 'Trocar de mapa',
     trocarAberto: 'aberto',
-    novoMapa: 'Novo mapa',
+    novoMapa: 'Adicionar pessoa',
     grupoGuardar: 'Guardar',
     grupoCompartilhar: 'Compartilhar',
     grupoMapa: 'Mapa',
     apagar: 'Apagar',
     editar: 'Editar dados',
-    exportar: 'Exportar',
+    editarMeus: 'Editar meus dados',
     sistemaRot: 'Sistema de casas',
     sistemaAjuda: 'Placidus é o mais usado. Signos Inteiros faz de cada signo uma casa. Igual dá 30° a cada casa, a contar do Ascendente.',
     sistemaLatAlta: 'Em latitude alta, perto dos círculos polares, Placidus não existe: o mapa usa Signos Inteiros.',
@@ -101,7 +98,7 @@ export class MapaScreen extends HTMLElement {
         this.incluir = false;
         this.status = '';
         const titulo = document.querySelector('#page-title');
-        if (titulo) titulo.textContent = T.titulo;
+        if (titulo) titulo.textContent = T.eyebrow;
         const pt = document.querySelector('.page-title');
         if (pt) pt.classList.add('sr');
         if (!this.m) {
@@ -342,10 +339,15 @@ export class MapaScreen extends HTMLElement {
     /* ---------- acoes ---------- */
 
     grupos() {
+        // no desktop, Guardar no diario e Compartilhar ja estao na barra: o menu so lista o que falta
+        const aVista = ehDesktop();
+        const guardar = aVista ? [] : [[T.grupoGuardar, [{ id: 'diario', rot: T.guardarDiario, ic: 'diario' }]]];
+        const comp = [...(aVista ? [] : [{ id: 'compartilhar', rot: T.compartilharRot, ic: 'compartilhar' }]), { id: 'cartao', rot: T.cartao, ic: 'baixar' }];
+        // o backup completo mora no Perfil (aba Dados), nao no menu de um mapa
         return [
-            [T.grupoGuardar, [{ id: 'diario', rot: T.guardarDiario, ic: 'diario' }]],
-            [T.grupoCompartilhar, [{ id: 'compartilhar', rot: T.compartilharRot, ic: 'compartilhar' }, { id: 'cartao', rot: T.cartao, ic: 'baixar' }]],
-            [T.grupoMapa, [{ id: 'editar', rot: T.editar, ic: 'editar' }, { id: 'trocar', rot: T.trocarMapa, ic: 'trocar' }, { id: 'exportar', rot: T.exportar, ic: 'copiar' }]],
+            ...guardar,
+            [T.grupoCompartilhar, comp],
+            [T.grupoMapa, [{ id: 'editar', rot: this.m.principal ? T.editarMeus : T.editar, ic: 'editar' }, { id: 'trocar', rot: T.trocarMapa, ic: 'trocar' }]],
             ['', [{ id: 'apagar', rot: T.apagar, ic: 'lixo', perigo: true }]],
         ];
     }
@@ -376,7 +378,6 @@ export class MapaScreen extends HTMLElement {
         else if (id === 'cartao') this.baixarCartao(this.escopo());
         else if (id === 'editar') navigateTo('novo-mapa', { editar: this.m.id });
         else if (id === 'trocar') this.abrirTrocar(gatilho);
-        else if (id === 'exportar') avisar(baixarBackup() ? T.backupOk : T.backupErro, { erro: false });
         else if (id === 'apagar') this.apagarEste();
     }
 
@@ -681,7 +682,7 @@ export class MapaScreen extends HTMLElement {
     }
 
     estrutura() {
-        const nome = this.nomeMapa() || T.titulo;
+        const nome = this.m.principal ? T.titulo : this.nomeMapa() || T.titulo; // o principal e "Seu mapa", como na Home
         const abas = ABAS.map(([k, n]) => `<button class="mc-tab" type="button" role="tab" id="t-${k}" aria-selected="${k === this.aba}" aria-controls="painel-mapa" data-aba="${k}" tabindex="${k === this.aba ? 0 : -1}">${n}</button>`).join('');
         return `<div class="mapa-tela mc" data-aba="${this.aba}">
             <div class="mc-cab">
@@ -709,7 +710,7 @@ export class MapaScreen extends HTMLElement {
             if (inicio) focarCabecalho('#mapa-h');
             return;
         }
-        if (h1) h1.textContent = T.titulo;
+        if (h1) h1.textContent = T.eyebrow; // h1 da pagina: "Mapa astral"; o titulo a vista (h2) diz de quem e
         this.innerHTML = this.estrutura();
         this.ajustar();
         if (inicio) {
