@@ -5,6 +5,8 @@ import { navigateTo, registrarGuardaSaida } from '../utils/navigation.js';
 import { gravarRascunho, lerRascunho, limparRascunho, limparTodosRascunhos } from '../utils/rascunhos.js';
 import { ic } from '../utils/glifos.js';
 import { abrir, avisar } from './Sobreposicao.js';
+import { SYNC_ATIVA } from '../utils/contaEstado.js';
+if (SYNC_ATIVA) import('./ConviteConta.js');
 import { desenharAvisoBackup } from './AvisoBackup.js';
 import { registrarBackup } from '../utils/backup.js';
 import { listar as listarMapas } from '../utils/perfil.js';
@@ -141,6 +143,7 @@ export class HistoryScreen extends HTMLElement {
                     <input type="file" accept="application/json,.json" hidden data-arquivo>
                 </header>
                 <div data-backup></div>
+                ${SYNC_ATIVA ? '<convite-conta></convite-conta>' : ''}
                 <p class="diario-aviso" role="status" aria-live="polite" data-aviso></p>
                 <div class="diario-vazio" data-vazio hidden>
                     <h2>${TEXTO.vazioTitulo}</h2>

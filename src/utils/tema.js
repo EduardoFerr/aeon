@@ -14,7 +14,11 @@ vigiarTrocaEmOutraAba();
 iniciarVerso();
 
 // Sincronizacao com a conta: so existe no build com VITE_SYNC=1 (o if some do pacote quando desligada).
-if (SYNC_ATIVA) import('./conta.js').then((m) => m.iniciarConta());
+if (SYNC_ATIVA) {
+    import('./conta.js').then((m) => m.iniciarConta());
+    // botao de conta sempre a vista no cabecalho do app (nuvem com o estado)
+    import('../components/ContaBotao.js').then((m) => m.montarBotaoConta());
+}
 
 /**
  * Tema da pagina (Crepusculo e Aurora). O script inline do <head> escolhe o tema antes da primeira

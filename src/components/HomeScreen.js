@@ -1,6 +1,8 @@
 import { navigateTo } from '../utils/navigation.js';
 import './CartaDoDia.js';
 import { principal } from '../utils/perfil.js';
+import { SYNC_ATIVA } from '../utils/contaEstado.js';
+if (SYNC_ATIVA) import('./ConviteConta.js');
 
 const icone = (corpo) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${corpo}</svg>`;
 
@@ -23,6 +25,8 @@ export class HomeScreen extends HTMLElement {
                 </header>
 
                 <carta-do-dia></carta-do-dia>
+
+                ${SYNC_ATIVA ? '<convite-conta></convite-conta>' : ''}
 
                 <nav aria-label="Por onde começar">
                     <ul class="home-acoes">
