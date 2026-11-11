@@ -332,7 +332,7 @@ test('sair encerra a sessão e esquece a conta aqui, sem tocar nos registros', {
     assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM itens').get().n > 0, true, 'a conta guarda a copia');
 });
 
-test('apagar os dados da conta limpa o servidor e mantém tudo no aparelho', { skip: pular }, async (t) => {
+test('encerrar a conta tira o aparelho da conta e mantém tudo no aparelho', { skip: pular }, async (t) => {
     const s = await subir();
     t.after(() => s.app.fechar());
     await configurarAparelhoA(s);
@@ -341,8 +341,8 @@ test('apagar os dados da conta limpa o servidor e mantém tudo no aparelho', { s
     await entrarComo(s, 'ana@exemplo.com');
     await C.ligar();
     await C.apagarDadosDoServidor();
-    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM usuarios').get().n, 0);
-    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM itens').get().n, 0);
+    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM usuarios WHERE email IS NOT NULL').get().n, 0); // o e-mail ficou livre
+    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM sessao_contas').get().n, 0);
     assert.equal(D.listar().length, 1);
     assert.equal(P.listar().length, 1);
     assert.equal(C.estadoConta().fase, 'desligada');

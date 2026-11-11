@@ -97,6 +97,12 @@ const MIGRACOES = [
         ALTER TABLE usuarios ADD COLUMN chave_hash TEXT;
         CREATE UNIQUE INDEX usuarios_chave ON usuarios (chave_hash) WHERE chave_hash IS NOT NULL;
     `),
+    // 5: encerrar conta. A conta sai de circulacao (sem sessao, sem e-mail e sem chave, que ficam livres para uma conta nova).
+    (db) =>
+        db.exec(`
+        ALTER TABLE usuarios ADD COLUMN desativada_em TEXT;
+        ALTER TABLE usuarios ADD COLUMN email_anterior TEXT;
+    `),
 ];
 
 export function abrirBanco(caminho, { ateVersao = MIGRACOES.length } = {}) {

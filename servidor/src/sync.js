@@ -189,12 +189,16 @@ export function criarSync({ db, relogio }) {
                 .map(paraSaida);
         },
 
-        /** Apaga a conta e tudo o que depende dela (sessões e itens saem em cascata). */
-        apagarConta(uid) {
+        /** Encerra a conta: sai de todos os aparelhos e libera o e-mail e a chave. */
+        encerrarConta(uid) {
             transacao(db, () => {
                 const u = db.prepare('SELECT email FROM usuarios WHERE id = ?').get(uid);
-                if (u) db.prepare('DELETE FROM codigos WHERE email = ?').run(u.email);
-                db.prepare('DELETE FROM usuarios WHERE id = ?').run(uid);
+                if (!u) return;
+                if (u.email) db.prepare('DELETE FROM codigos WHERE email = ?').run(u.email);
+                db.prepare('DELETE FROM sessao_contas WHERE usuario_id = ?').run(uid);
+                db.prepare(
+                    'UPDATE usuarios SET desativada_em = ?, email_anterior = email, email = NULL, chave_hash = NULL WHERE id = ?',
+                ).run(new Date(relogio()).toISOString(), uid);
             });
         },
     };

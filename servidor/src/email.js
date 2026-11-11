@@ -105,19 +105,19 @@ export const mensagemCodigo = (codigo) => {
     };
 };
 
-export const mensagemContaApagada = () => {
-    const corpo = `${paragrafo('Seus dados e a sua conta foram apagados do servidor do Aeon, como você pediu.')}
-      ${paragrafo('O que está guardado neste aparelho continua nele. Se quiser sincronizar de novo, é só ligar a sincronização no app.')}
+export const mensagemContaEncerrada = () => {
+    const corpo = `${paragrafo('Sua conta do Aeon foi encerrada, como você pediu. Ela não aparece mais em nenhum aparelho.')}
+      ${paragrafo('O que está neste aparelho continua nele. Se quiser criar um login de novo, é só pedir no app.')}
       ${paragrafo('Se você não pediu isso, responda este e-mail avisando.')}`;
     return {
-        assunto: 'Seus dados foram apagados do Aeon',
+        assunto: 'Sua conta do Aeon foi encerrada',
         texto: [
-            'Seus dados e a sua conta foram apagados do servidor do Aeon, como você pediu.',
+            'Sua conta do Aeon foi encerrada, como você pediu. Ela não aparece mais em nenhum aparelho.',
             '',
-            'O que está guardado neste aparelho continua nele. Se quiser sincronizar de novo, é só ligar a sincronização no app.',
+            'O que está neste aparelho continua nele. Se quiser criar um login de novo, é só pedir no app.',
             '',
             'Se você não pediu isso, responda este e-mail avisando.',
         ].join('\n'),
-        html: moldura({ previa: 'Seus dados foram apagados da sua conta do Aeon.', titulo: 'Seus dados foram apagados', corpo, rodape: RODAPE }),
+        html: moldura({ previa: 'Sua conta do Aeon foi encerrada.', titulo: 'Sua conta foi encerrada', corpo, rodape: RODAPE }),
     };
 };
