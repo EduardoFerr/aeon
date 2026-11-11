@@ -7,14 +7,13 @@ import { avisar, reduzMovimento } from './Sobreposicao.js';
 
 const TEXTO = {
     titulo: 'Biscoito da sorte',
-    lead: 'Uma frase curta e seis números, só por diversão.',
+    lead: 'Uma frase curta e seis números da sorte.',
     dica: 'Toque no biscoito para quebrar.',
     preparando: 'Preparando o biscoito…',
     rotuloBiscoito: 'Biscoito da sorte, fechado. Toque para quebrar.',
     seloPrimeiro: 'Biscoito de hoje',
     seloExtra: 'Mais um biscoito',
     rotuloNumeros: 'Seus números da sorte',
-    nota: 'Só por diversão.',
     copiar: 'Copiar',
     compartilhar: 'Compartilhar',
     outro: 'Quebrar outro',
@@ -101,7 +100,6 @@ export class BiscoitoScreen extends HTMLElement {
                                 <ol class="bsc-numeros" aria-label="${TEXTO.rotuloNumeros}" data-numeros></ol>
                             </article>
                         </div>
-                        <p class="bsc-nota">${TEXTO.nota}</p>
                         <div class="bsc-acoes">
                             <button type="button" class="btn btn-primary" data-acao="copiar">${ic('copiar')}${TEXTO.copiar}</button>
                             <button type="button" class="btn btn-ghost" data-acao="compartilhar">${ic('compartilhar')}${TEXTO.compartilhar}</button>
@@ -278,7 +276,7 @@ export class BiscoitoScreen extends HTMLElement {
                 /* sem vibracao: o tremor visual ja deu o retorno */
             }
         }, ESPERA_VIBRA);
-        // o ultimo bloco a surgir (acoes, "quebrar outro" e nota, juntos) termina a animacao
+        // o ultimo bloco a surgir (acoes e "quebrar outro", juntos) termina a animacao
         const alvo = this.querySelector('.bsc-mais');
         this.fimAlvo = alvo;
         this.aoFimAnimacao = (e) => { if (e.target === alvo) this.finalizar(); };

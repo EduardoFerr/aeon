@@ -13,7 +13,6 @@ const TEXTO = {
     titulo: 'Seu biscoito em imagem',
     eyebrow: 'BISCOITO DA SORTE',
     rotulo: 'SEUS NÚMEROS DA SORTE',
-    nota: 'Só por diversão.',
     site: 'AEONFOOL.COM',
     baixar: 'Baixar',
     compartilhar: 'Compartilhar',
@@ -161,7 +160,6 @@ export async function gerarCartaoBiscoito({ item, tema }) {
 
     // ---- nota e rodape
     ctx.textAlign = 'center';
-    ctx.fillStyle = P.mute; ctx.font = `500 26px ${P.fu}`; centro(ctx, TEXTO.nota, y + h + 64);
     espacar(ctx, 7); centro(ctx, TEXTO.site, H - 150); espacar(ctx, 0);
     return cv;
 }
