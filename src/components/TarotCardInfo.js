@@ -19,10 +19,8 @@ export class TarotCardInfo extends HTMLElement {
                     <div class="info-body">
                     <div class="info-art halo"><img id="card-image" src="assets/back.jpg" alt="Carta não revelada" width="274" height="410"></div>
                     <p id="card-name"></p>
+                    <p id="card-description"></p>
                     <div class="card-border">
-                        <p>
-                            <strong>Descrição</strong><span id="card-description"></span>
-                        </p>
                         <p>
                             <strong>Mensagem esotérica</strong><span id="card-message-esoteric"></span>
                         </p>
