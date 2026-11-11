@@ -18,7 +18,7 @@ export async function subir(extra = {}) {
     const relogio = () => agora;
     const enviados = [];
     const logs = [];
-    const email = { async enviar(m) { enviados.push(m); } };
+    const email = { async enviar(m) { if (extra.falhaEmail) throw extra.falhaEmail; enviados.push(m); } };
     const app = criarApp({ config, db: abrirBanco(':memory:'), email, relogio, log: (o) => logs.push(o) });
     const porta = await app.escutar(0, '127.0.0.1');
     const base = `http://127.0.0.1:${porta}`;

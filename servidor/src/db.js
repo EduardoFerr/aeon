@@ -12,18 +12,25 @@ const MIGRACOES = [
     (db) =>
         db.exec(`
         CREATE TABLE usuarios (
-            id INTEGER PRIMARY KEY,
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             email TEXT NOT NULL UNIQUE,
             criado_em TEXT NOT NULL,
             ultimo_acesso TEXT NOT NULL,
             seq INTEGER NOT NULL DEFAULT 0
         );
+        -- O código não é guardado: sai de HMAC(SEGREDO, e-mail + semente). Pedir de novo dentro da validade reenvia
+        -- o mesmo código e NÃO zera as tentativas (senão cada pedido daria mais 5 palpites).
         CREATE TABLE codigos (
             email TEXT PRIMARY KEY,
-            hash TEXT NOT NULL,
+            semente TEXT NOT NULL,
             criado_em INTEGER NOT NULL,
+            enviado_em INTEGER NOT NULL,
             expira_em INTEGER NOT NULL,
             tentativas INTEGER NOT NULL DEFAULT 0
+        );
+        CREATE TABLE bloqueios (
+            email TEXT PRIMARY KEY,
+            ate INTEGER NOT NULL
         );
         CREATE TABLE sessoes (
             id TEXT PRIMARY KEY,

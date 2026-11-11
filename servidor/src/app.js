@@ -1,11 +1,12 @@
 import { createServer } from 'node:http';
 import { abrirBanco } from './db.js';
 import {
-    LIMITE_CORPO_AUTH, LIMITE_CORPO_SYNC, SESSAO_MS,
+    ENVIOS_POR_HORA_GLOBAL, LIMITE_CORPO_AUTH, LIMITE_CORPO_SYNC, SESSAO_MS,
 } from './config.js';
 import {
     ErroHttp, criarRoteador, lerCookies, lerCorpo, montarCookie, responder,
 } from './http.js';
+import { baseDoEmail, chaveIp } from './ip.js';
 import { criarLimitador } from './limites.js';
 import { criarAuth, normalizarEmail } from './auth.js';
 import { criarSync } from './sync.js';
@@ -32,7 +33,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     function enviarEmail(para, mensagem) {
         const p = Promise.resolve()
             .then(() => email.enviar({ para, ...mensagem }))
-            .catch((e) => log({ evento: 'email_falhou', motivo: String(e && e.message).slice(0, 120) }))
+            .catch((e) => log({ evento: 'email_falhou', motivo: String((e && (e.code || e.responseCode)) || 'erro').slice(0, 40) }))
             .finally(() => envios.delete(p));
         envios.add(p);
     }
@@ -58,9 +59,12 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     rotas.adicionar('POST', '/v1/auth/pedir', { livre: true, limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, corpo }) => {
         const e = normalizarEmail(corpo.email);
         if (!e) throw new ErroHttp(400, 'email_invalido');
-        const ip = ipDe(req);
+        const ip = chaveIp(ipDe(req));
+        const caixa = baseDoEmail(e);
+        limiteOuErro('pedir-global', ENVIOS_POR_HORA_GLOBAL, HORA); // protege a cota do SMTP e a reputação do domínio
         limiteOuErro(`pedir-ip:${ip}`, 20, HORA);
-        limiteOuErro(`pedir-email:${e}`, 5, HORA);
+        limiteOuErro(`pedir-ip-email:${ip}:${caixa}`, 5, HORA); // um IP só não esgota o limite da caixa de outra pessoa
+        limiteOuErro(`pedir-email:${caixa}`, 15, HORA);
         const codigo = auth.novoCodigo(e);
         enviarEmail(e, mensagemCodigo(codigo));
         return { status: 202, corpo: { ok: true } };
@@ -69,7 +73,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     rotas.adicionar('POST', '/v1/auth/confirmar', { livre: true, limiteCorpo: LIMITE_CORPO_AUTH }, async ({ req, corpo }) => {
         const e = normalizarEmail(corpo.email);
         if (!e) throw new ErroHttp(400, 'codigo_invalido');
-        limiteOuErro(`confirmar-ip:${ipDe(req)}`, 10, 15 * 60 * 1000);
+        limiteOuErro(`confirmar-ip:${chaveIp(ipDe(req))}`, 10, 15 * 60 * 1000);
         const r = auth.confirmar(e, corpo.codigo, corpo.aparelho);
         return {
             corpo: { usuario: r.usuario },
@@ -101,15 +105,22 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         return { corpo: { ok: true }, cabecalhos: era ? { 'Set-Cookie': cookieSessao('', 0) } : {} };
     });
 
-    rotas.adicionar('GET', '/v1/sync', {}, async ({ sessao, url }) => ({
-        corpo: sync.ler(sessao.usuario.id, url.searchParams.get('desde')),
-    }));
+    rotas.adicionar('GET', '/v1/sync', {}, async ({ sessao, url }) => {
+        limiteOuErro(`sync:${sessao.usuario.id}`, 60, 60 * 1000);
+        return { corpo: sync.ler(sessao.usuario.id, url.searchParams.get('desde')) };
+    });
 
-    rotas.adicionar('POST', '/v1/sync', { limiteCorpo: LIMITE_CORPO_SYNC }, async ({ sessao, corpo }) => ({
-        corpo: sync.enviar(sessao.usuario.id, corpo.desde, corpo.itens),
-    }));
+    rotas.adicionar('POST', '/v1/sync', { limiteCorpo: LIMITE_CORPO_SYNC }, async ({ sessao, corpo }) => {
+        limiteOuErro(`sync:${sessao.usuario.id}`, 60, 60 * 1000);
+        return { corpo: sync.enviar(sessao.usuario.id, corpo.desde, corpo.itens) };
+    });
 
-    rotas.adicionar('GET', '/v1/exportar', {}, async ({ sessao }) => ({
+    rotas.adicionar('GET', '/v1/exportar', {}, async ({ sessao }) => {
+        limiteOuErro(`exportar:${sessao.usuario.id}`, 10, 60 * 1000);
+        return await exportarDe(sessao);
+    });
+
+    const exportarDe = async (sessao) => ({
         corpo: {
             versao: 1,
             exportado_em: new Date(relogio()).toISOString(),
@@ -117,7 +128,7 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
             itens: sync.exportar(sessao.usuario.id),
         },
         cabecalhos: { 'Content-Disposition': 'attachment; filename="aeon-meus-dados.json"' },
-    }));
+    });
 
     rotas.adicionar('DELETE', '/v1/conta', { limiteCorpo: LIMITE_CORPO_AUTH }, async ({ sessao, corpo }) => {
         if (corpo.confirmo !== 'apagar') throw new ErroHttp(400, 'confirmacao_necessaria');
@@ -129,8 +140,8 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
 
     async function tratar(req, res) {
         const inicio = relogio();
-        const url = new URL(req.url, 'http://x');
-        const caminho = url.pathname.replace(/\/+$/, '') || '/';
+        let url;
+        let caminho = '?';
         let status = 500;
         let usuarioId;
         const cabecalhos = {
@@ -143,6 +154,12 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
         if (config.cookieSeguro) cabecalhos['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains';
 
         try {
+            try {
+                url = new URL(req.url, 'http://x');
+            } catch {
+                throw new ErroHttp(400, 'url_invalida'); // ex.: "GET //[": não pode derrubar o processo
+            }
+            caminho = url.pathname.replace(/\/+$/, '') || '/';
             const origem = req.headers.origin;
             const origemOk = typeof origem === 'string' && origens.has(origem);
             const achado = rotas.achar(req.method, caminho);
@@ -204,9 +221,12 @@ export function criarApp({ config, db = abrirBanco(config.caminhoBanco), email, 
     }
 
     const servidor = createServer((req, res) => {
-        tratar(req, res);
+        tratar(req, res).catch(() => {
+            // última barreira: nada que escape do tratamento pode derrubar o processo
+            try { res.destroy(); } catch { /* já fechado */ }
+        });
     });
-    servidor.requestTimeout = 30_000;
+    servidor.requestTimeout = 120_000;
     servidor.headersTimeout = 10_000;
     servidor.keepAliveTimeout = 5_000;
 

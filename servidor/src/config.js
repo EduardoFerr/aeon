@@ -6,6 +6,12 @@
 export const CODIGO_VALE_MS = 10 * 60 * 1000;
 export const CODIGO_TENTATIVAS = 5;
 export const CODIGO_REENVIO_MS = 30 * 1000;
+/** Depois de 5 erros, o e-mail fica sem receber código novo por 6 horas (vale por e-mail, não por código). */
+export const CODIGO_BLOQUEIO_MS = 6 * 60 * 60 * 1000;
+export const ENVIOS_POR_HORA_GLOBAL = 100;
+export const MAX_SESSOES_POR_USUARIO = 20;
+export const LIMITE_LINHAS_USUARIO = 5000;
+export const EXPURGO_MARCAS_MS = 365 * 24 * 60 * 60 * 1000;
 export const SESSAO_MS = 365 * 24 * 60 * 60 * 1000;
 export const SESSAO_RENOVA_APOS_MS = 60 * 60 * 1000;
 export const LIMITE_ITEM_BYTES = 1024 * 1024;

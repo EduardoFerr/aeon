@@ -89,7 +89,11 @@ export function criarRoteador() {
                 existe = true;
                 if (r.metodo !== metodo) continue;
                 const params = {};
-                r.nomes.forEach((n, i) => (params[n] = decodeURIComponent(m[i + 1])));
+                try {
+                    r.nomes.forEach((n, i) => (params[n] = decodeURIComponent(m[i + 1])));
+                } catch {
+                    return { rota: null, params: {}, existe: false }; // % malformado: não existe
+                }
                 return { rota: r, params, existe };
             }
             return { rota: null, params: {}, existe };

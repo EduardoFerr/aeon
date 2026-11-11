@@ -1,12 +1,12 @@
 import { transacao } from './db.js';
 import {
-    LIMITE_DIARIO, LIMITE_ITEM_BYTES, LIMITE_ITENS_POR_PEDIDO, LIMITE_USUARIO_BYTES, PAGINA_SYNC,
+    LIMITE_LINHAS_USUARIO, LIMITE_DIARIO, LIMITE_ITEM_BYTES, LIMITE_ITENS_POR_PEDIDO, LIMITE_USUARIO_BYTES, PAGINA_SYNC,
 } from './config.js';
 import { ErroHttp } from './http.js';
 
 const TIPOS = new Set(['perfil', 'diario', 'mapa']);
 const RE_ID = /^[A-Za-z0-9_-]{1,64}$/;
-const FUTURO_TOLERADO_MS = 5 * 60 * 1000;
+const FUTURO_TOLERADO_MS = 30 * 1000;
 
 /**
  * Sincronização por itens. O servidor não interpreta o conteúdo: guarda o JSON como texto legível e devolve igual.
@@ -114,7 +114,10 @@ export function criarSync({ db, relogio }) {
                 if (seq >= inicio) {
                     const diario = db.prepare("SELECT COUNT(*) AS n FROM itens WHERE usuario_id = ? AND tipo = 'diario' AND apagado = 0").get(uid).n;
                     if (diario > LIMITE_DIARIO) throw new ErroHttp(413, 'limite_do_diario', { limite: LIMITE_DIARIO });
-                    const bytes = db.prepare('SELECT COALESCE(SUM(LENGTH(CAST(dados AS BLOB))), 0) AS b FROM itens WHERE usuario_id = ?').get(uid).b;
+                    // conta também marcas de exclusão e itens vazios: cada linha pesa o id e um custo fixo
+                    const linhas = db.prepare('SELECT COUNT(*) AS n FROM itens WHERE usuario_id = ?').get(uid).n;
+                    if (linhas > LIMITE_LINHAS_USUARIO) throw new ErroHttp(413, 'limite_de_itens', { limite: LIMITE_LINHAS_USUARIO });
+                    const bytes = db.prepare('SELECT COALESCE(SUM(LENGTH(CAST(dados AS BLOB)) + LENGTH(id) + 64), 0) AS b FROM itens WHERE usuario_id = ?').get(uid).b;
                     if (bytes > LIMITE_USUARIO_BYTES) throw new ErroHttp(413, 'limite_de_espaco', { limite_bytes: LIMITE_USUARIO_BYTES });
                     db.prepare('UPDATE usuarios SET seq = ? WHERE id = ?').run(seq, uid);
                 }

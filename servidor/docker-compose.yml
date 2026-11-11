@@ -6,6 +6,7 @@
 services:
   api:
     build: .
+    container_name: aeon-api
     restart: unless-stopped
     env_file: .env
     environment:
