@@ -17,11 +17,13 @@ const TEXTO = {
     semArmazenamento: 'Este navegador não deixa guardar dados. Suas anotações valem só enquanto esta página estiver aberta.',
     tipoDia: 'Carta do dia',
     tipoLeitura: 'Leitura de 3 cartas',
+    tipoCruz: 'Cruz de cinco cartas',
     tipoMapa: 'Mapa astral',
     rotuloNotaMapa: 'O que esse mapa despertou',
     pergunta: 'Pergunta:',
     rotuloNotaDia: 'O que essa carta despertou',
     rotuloNotaLeitura: 'O que essa leitura despertou',
+    rotuloNotaCruz: 'O que essa cruz despertou',
     dica: 'Anote o que veio à mente.',
     salvando: 'Salvando...',
     salvo: 'Salvo neste aparelho',
@@ -59,7 +61,10 @@ const TEXTO = {
     cartaSem: 'Carta',
 };
 
-const POS = { passado: 'Passado', presente: 'Presente', futuro: 'Futuro', sol: 'Sol', lua: 'Lua', asc: 'Ascendente' };
+const POS = {
+    passado: 'Passado', presente: 'Presente', futuro: 'Futuro', sol: 'Sol', lua: 'Lua', asc: 'Ascendente',
+    momento: 'Momento', ajuda: 'Ajuda', obstaculo: 'Obstáculo', caminho: 'Caminho', sintese: 'Síntese',
+};
 const ESPERA = 800; // ms de pausa na digitacao antes de salvar
 const PAGINA = 50;
 const PERTO_DO_LIMITE = 1800;
@@ -237,13 +242,14 @@ export class HistoryScreen extends HTMLElement {
         li.dataset.id = e.id;
         const leitura = e.tipo === 'leitura';
         const mapa = e.tipo === 'mapa';
+        const cruz = e.tipo === 'cruz';
         const idNota = `nota-${e.id}`;
         const idTit = `tit-${e.id}`;
         const quando = escaparHtml(dataLegivel(e));
         const d = diaDaEntrada(e);
         const hora = !d.semData && !(e.tipo === 'dia' && RE_ID_DIA.test(e.id)) ? fmtHora.format(new Date(e.t)) : '';
-        const tipo = (leitura ? TEXTO.tipoLeitura : mapa ? TEXTO.tipoMapa : TEXTO.tipoDia) + (mapa && e.rotulo ? ` (${escaparHtml(e.rotulo)})` : '');
-        const rotuloNota = leitura ? TEXTO.rotuloNotaLeitura : mapa ? TEXTO.rotuloNotaMapa : TEXTO.rotuloNotaDia;
+        const tipo = (leitura ? TEXTO.tipoLeitura : cruz ? TEXTO.tipoCruz : mapa ? TEXTO.tipoMapa : TEXTO.tipoDia) + (mapa && e.rotulo ? ` (${escaparHtml(e.rotulo)})` : '');
+        const rotuloNota = leitura ? TEXTO.rotuloNotaLeitura : cruz ? TEXTO.rotuloNotaCruz : mapa ? TEXTO.rotuloNotaMapa : TEXTO.rotuloNotaDia;
         const minis = e.cartas
             .map((c) => {
                 const carta = this.cartas.get(c.order);
@@ -270,7 +276,7 @@ export class HistoryScreen extends HTMLElement {
                 </header>
                 ${e.pergunta ? `<p class="diario-pergunta"><span class="sr">${TEXTO.pergunta} </span><q>${escaparHtml(e.pergunta)}</q></p>` : ''}
                 <div class="diario-corpo">
-                    <ul class="diario-cartas${leitura || mapa ? ' tres' : ''}">${minis}</ul>
+                    <ul class="diario-cartas${leitura || mapa ? ' tres' : cruz ? ' cinco' : ''}">${minis}</ul>
                     <div class="diario-nota">
                         <label class="sr" for="${idNota}">${rotuloNota}</label>
                         <textarea id="${idNota}" rows="2" maxlength="${LIMITE_NOTA}" placeholder="${rotuloNota}. ${TEXTO.dica}" aria-describedby="${idNota}-estado"></textarea>
