@@ -1,6 +1,7 @@
 import { hash, dataLocal } from './cartaDoDia.js';
 import { marcarApagado, desmarcarApagado } from './contaEstado.js';
 import { pedirPersistencia } from './persistencia.js';
+import { chaveDe, contaAtiva, CONTA_INICIAL } from './contas.js';
 
 /**
  * Diario: anotacoes e leituras, guardadas so no aparelho.
@@ -133,7 +134,7 @@ function sanearDoc(bruto) {
 function carregar() {
     let bruto;
     try {
-        bruto = localStorage.getItem(CHAVE_DIARIO);
+        bruto = localStorage.getItem(chaveDe('diario'));
         leituraFalhou = false;
     } catch (e) {
         leituraFalhou = true;
@@ -152,7 +153,7 @@ function gravar(doc) {
     memoria = doc;
     let ok = true;
     try {
-        localStorage.setItem(CHAVE_DIARIO, JSON.stringify(doc)); // escrita atomica: um unico setItem
+        localStorage.setItem(chaveDe('diario'), JSON.stringify(doc)); // escrita atomica: um unico setItem
         gravacaoFalhou = false;
         pedirPersistencia();
     } catch (e) {
@@ -181,7 +182,7 @@ export function aoMudar(fn) {
 
 if (typeof window !== 'undefined') {
     window.addEventListener('storage', (e) => {
-        if (e.key === CHAVE_DIARIO || e.key === CHAVE_ANTIGA || e.key === null) avisar();
+        if (e.key === chaveDe('diario') || e.key === CHAVE_ANTIGA || e.key === null) avisar();
     });
 }
 
@@ -200,7 +201,11 @@ export function persiste() {
 
 /* ---------- historico antigo (somente leitura) ---------- */
 
+/** O historico antigo (tarotHistory) pertence a conta inicial: as outras contas nunca o veem. */
+const temAntigo = () => contaAtiva() === CONTA_INICIAL;
+
 function lerAntigo() {
+    if (!temAntigo()) return [];
     let lista;
     try {
         lista = JSON.parse(localStorage.getItem(CHAVE_ANTIGA));
@@ -419,7 +424,7 @@ export function apagarEntrada(id) {
 export function instantaneo() {
     let antigo = null;
     try {
-        antigo = localStorage.getItem(CHAVE_ANTIGA);
+        antigo = temAntigo() ? localStorage.getItem(CHAVE_ANTIGA) : null;
     } catch (e) {
         /* sem armazenamento */
     }
@@ -429,7 +434,7 @@ export function instantaneo() {
 /** Devolve o diario ao estado da copia (o Desfazer), inclusive o historico antigo se ele foi removido. */
 export function restaurar(copia) {
     (copia.doc && Array.isArray(copia.doc.entradas) ? copia.doc.entradas : []).forEach((e) => e && typeof e.id === 'string' && desmarcarApagado('diario', e.id));
-    if (copia.antigo != null) {
+    if (copia.antigo != null && temAntigo()) {
         try {
             if (localStorage.getItem(CHAVE_ANTIGA) == null) localStorage.setItem(CHAVE_ANTIGA, copia.antigo);
         } catch (e) {

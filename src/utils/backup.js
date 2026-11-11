@@ -1,7 +1,8 @@
 import { exportar, listar as listarMapas } from './perfil.js';
 import { listar as listarDiario } from './diario.js';
 import { dataLocal } from './cartaDoDia.js';
-import { CHAVE_ULTIMO_BACKUP, CHAVE_BACKUP_DISPENSADO, precisaAvisoBackup } from './versao.js';
+import { chaveDe } from './contas.js';
+import { precisaAvisoBackup } from './versao.js';
 
 const ler = (chave) => {
     try {
@@ -20,12 +21,12 @@ const gravar = (chave) => {
 
 /** Anota que a pessoa exportou os registros agora. */
 export function registrarBackup() {
-    gravar(CHAVE_ULTIMO_BACKUP);
+    gravar(chaveDe('ultimo-backup'));
 }
 
 /** "Dispensar" no lembrete: some por 14 dias. */
 export function dispensarAvisoBackup() {
-    gravar(CHAVE_BACKUP_DISPENSADO);
+    gravar(chaveDe('backup-dispensado'));
 }
 
 /** O lembrete de backup deve aparecer agora (Perfil, aba Dados, e topo do Diario)? */
@@ -33,8 +34,8 @@ export function avisoBackupAtivo() {
     return precisaAvisoBackup({
         entradas: listarDiario().length,
         mapas: listarMapas().length,
-        ultimoBackup: ler(CHAVE_ULTIMO_BACKUP),
-        dispensadoEm: ler(CHAVE_BACKUP_DISPENSADO),
+        ultimoBackup: ler(chaveDe('ultimo-backup')),
+        dispensadoEm: ler(chaveDe('backup-dispensado')),
     });
 }
 

@@ -1,4 +1,5 @@
 import { principal, aoMudar as aoMudarPerfil } from './perfil.js';
+import { chaveDe } from './contas.js';
 
 /**
  * Verso das cartas.
@@ -62,7 +63,7 @@ export function assinaturaDoMapa(m) {
 /** Signo solar guardado para o mapa principal atual, ou null se ainda nao foi calculado (ou o mapa mudou). */
 export function signoGuardado(m = principal()) {
     if (!m) return null;
-    const c = ler(CHAVE_SIGNO);
+    const c = ler(chaveDe('verso-signo'));
     return c && c.assinatura === assinaturaDoMapa(m) && SIGNOS.includes(c.signo) ? c.signo : null;
 }
 
@@ -90,7 +91,7 @@ export async function atualizarSigno(calcularFn) {
         const signo = calc && calc.pontos && calc.pontos.sol && calc.pontos.sol.signo;
         if (!SIGNOS.includes(signo)) return null;
         const atual = principal();
-        if (atual && assinaturaDoMapa(atual) === assinaturaDoMapa(m)) gravar(CHAVE_SIGNO, { assinatura: assinaturaDoMapa(m), signo });
+        if (atual && assinaturaDoMapa(atual) === assinaturaDoMapa(m)) gravar(chaveDe('verso-signo'), { assinatura: assinaturaDoMapa(m), signo });
         return signo;
     } catch (e) {
         return null;

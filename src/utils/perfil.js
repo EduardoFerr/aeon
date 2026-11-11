@@ -1,6 +1,7 @@
 import { exportar as exportarDiario, importar as importarDiario } from './diario.js';
 import { pedirPersistencia } from './persistencia.js';
 import { marcarApagado, desmarcarApagado } from './contaEstado.js';
+import { chaveDe } from './contas.js';
 
 /**
  * Perfil e mapas astrais guardados, so no aparelho.
@@ -144,7 +145,7 @@ function sanearDoc(bruto) {
 function carregar() {
     let bruto;
     try {
-        bruto = localStorage.getItem(CHAVE_PERFIL);
+        bruto = localStorage.getItem(chaveDe('perfil'));
         leituraFalhou = false;
     } catch (e) {
         leituraFalhou = true;
@@ -163,7 +164,7 @@ function gravar(doc) {
     memoria = doc;
     let ok = true;
     try {
-        localStorage.setItem(CHAVE_PERFIL, JSON.stringify(doc));
+        localStorage.setItem(chaveDe('perfil'), JSON.stringify(doc));
         gravacaoFalhou = false;
         pedirPersistencia();
     } catch (e) {
@@ -191,7 +192,7 @@ export function aoMudar(fn) {
 
 if (typeof window !== 'undefined') {
     window.addEventListener('storage', (e) => {
-        if (e.key === CHAVE_PERFIL || e.key === null) avisar();
+        if (e.key === chaveDe('perfil') || e.key === null) avisar();
     });
 }
 
