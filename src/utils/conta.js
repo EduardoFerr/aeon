@@ -7,7 +7,7 @@ import {
 import {
     aoMudar as aoMudarPerfil, aplicarRemotosPerfil, mapasParaSync, perfilParaSync,
 } from './perfil.js';
-import { criarContaLocal } from './contas.js';
+import { chaveDe, criarContaLocal } from './contas.js';
 
 /**
  * Sincronizacao OPCIONAL com a conta do Aeon (servidor em api.aeonfool.com). Desligada por padrao.
@@ -59,11 +59,6 @@ function avisarConta() {
     });
 }
 
-/** Texto de privacidade que muda com a conta: onde os registros ficam. */
-export function registrosFicam(padrao, comConta) {
-    return SYNC_ATIVA && lerEstado().ligada ? comConta : padrao;
-}
-
 /* ---------- API ---------- */
 
 export class ErroConta extends Error {
@@ -112,7 +107,7 @@ export function motivoDoErro(e) {
     if (e.status === 401 || e.status === 403) return 'sessao';
     if (e.status === 429) return 'limite';
     if (e.status === 413) return 'espaco';
-    return e.codigo === 'codigo_invalido' || e.codigo === 'email_invalido' || e.codigo === 'chave_invalida' ? e.codigo : 'servidor';
+    return e.codigo === 'email_ocupado' || e.codigo === 'codigo_invalido' || e.codigo === 'email_invalido' || e.codigo === 'chave_invalida' ? e.codigo : 'servidor';
 }
 
 function nomeDoAparelho() {
@@ -158,8 +153,28 @@ async function guardarLogin(usuario, chave, destino) {
     return {};
 }
 
-/** Confirma o codigo. Se der certo, a pessoa esta dentro da conta, mas a sincronizacao so liga em ligar(). */
+/**
+ * Confirma o codigo. Se der certo, a pessoa esta dentro da conta, mas a sincronizacao so liga em ligar().
+ * `destino: 'vincular'` e para quem ja tem conta (com chave) e quer ACRESCENTAR um e-mail a ela: se o e-mail ainda nao
+ * tem conta, passa a ser dela; se ja tem, nada muda e o erro e 'email_ocupado'.
+ */
 export async function confirmarCodigo(email, codigo, { destino = 'esta' } = {}) {
+    if (destino === 'vincular') {
+        const r = await chamar('POST', '/auth/confirmar', { email, codigo, aparelho: nomeDoAparelho(), modo: 'adicionar' });
+        if (r.acao !== 'vinculou') {
+            if (r.acao === 'adicionar') {
+                try {
+                    await chamar('DELETE', `/contas/${r.usuario.id}`, {});
+                } catch (e) {
+                    /* a conta so ficou ligada a este aparelho; some sozinha da sessao com o tempo */
+                }
+            }
+            throw new ErroConta(409, 'email_ocupado');
+        }
+        salvarEstado({ email: r.usuario.email, erro: '' });
+        avisarConta();
+        return r.usuario;
+    }
     const r = await chamar('POST', '/auth/confirmar', { email, codigo, aparelho: nomeDoAparelho(), modo: 'adicionar' }, { semConta: true });
     const extra = await guardarLogin(r.usuario, '', destino);
     return { ...r.usuario, ...extra };
@@ -222,6 +237,37 @@ async function reentrar() {
     } catch (e) {
         return false;
     }
+}
+
+/** Quantos registros ha na conta local ativa, para a tela decidir se ha o que perguntar. */
+export function registrosLocais() {
+    return { diario: entradasParaSync().length, mapas: mapasParaSync().length };
+}
+
+/** Apaga so os registros da conta local ativa (diario, mapas, apelido, rascunhos). Nao anota exclusao, nao mexe no estado da conta. */
+export function apagarRegistrosLocais() {
+    ['perfil', 'diario', 'rascunhos', 'dia', 'verso-signo'].forEach((b) => {
+        try {
+            localStorage.removeItem(chaveDe(b));
+        } catch (e) {
+            /* sem armazenamento: nada a apagar */
+        }
+    });
+}
+
+/**
+ * "Ficar com as duas": a conta do servidor em que a pessoa acabou de entrar sai desta conta local e ganha uma conta local
+ * propria (ja ligada, vai receber os registros dela); esta volta a ser so deste aparelho, com os registros intactos.
+ * -> o id da conta local nova (quem chamou troca para ela).
+ */
+export function moverLigacaoParaNovaConta() {
+    const est = lerEstado();
+    const id = criarContaLocal();
+    if (!id) throw new ErroConta(409, 'muitas_contas');
+    salvarEstado({ ...est, ligada: true, entrou: true, cursor: 0, enviados: {}, apagados: {}, ultima: '', erro: '' }, id);
+    limparEstado();
+    avisarConta();
+    return id;
 }
 
 /** Quanto ha na conta e aqui, para a tela mostrar antes de juntar. */

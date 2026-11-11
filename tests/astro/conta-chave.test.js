@@ -267,3 +267,89 @@ test('quem tem conta com e-mail e nunca teve chave pode gerar uma, e ela entra e
     assert.deepEqual(D.listar().map((e) => e.id), [leitura.id]);
     assert.equal(C.estadoConta().email, 'ana@exemplo.com');
 });
+
+test('"ficar com as duas": a conta do servidor vai para uma conta local nova e a atual segue intacta', { skip: pular }, async (t) => {
+    const s = await subir();
+    t.after(() => s.app.fechar());
+    aparelho(s, 'a');
+    D.criarLeitura(cartas, 'da casa');
+    const { chave } = await C.gerarChave();
+    await C.sincronizar();
+    await quieto();
+
+    aparelho(s, 'b');
+    const doCelular = D.criarLeitura(cartas, 'do celular');
+    assert.deepEqual(C.registrosLocais(), { diario: 1, mapas: 0 });
+    await C.entrarComChave(chave);
+    assert.equal(C.estadoConta().fase, 'juntar');
+    const nova = C.moverLigacaoParaNovaConta();
+    assert.equal(C.estadoConta().servidorId, 0); // a conta ativa voltou a ser so deste aparelho
+    assert.equal(C.estadoConta().chave, undefined);
+    assert.deepEqual(D.listar().map((e) => e.id), [doCelular.id]);
+    K.trocarConta(nova, () => {});
+    assert.equal(C.estadoConta().fase, 'ligada');
+    assert.equal(C.estadoConta().temChave, true);
+    await C.sincronizar();
+    await quieto();
+    assert.deepEqual(D.listar().map((e) => e.pergunta), ['da casa']);
+});
+
+test('"descartar": apagar os registros daqui e ligar deixa só o que já estava na conta', { skip: pular }, async (t) => {
+    const s = await subir();
+    t.after(() => s.app.fechar());
+    aparelho(s, 'a');
+    D.criarLeitura(cartas, 'da casa');
+    const { chave } = await C.gerarChave();
+    await C.sincronizar();
+    await quieto();
+
+    aparelho(s, 'b');
+    D.criarLeitura(cartas, 'do celular');
+    await C.entrarComChave(chave);
+    C.apagarRegistrosLocais();
+    assert.equal(D.listar().length, 0);
+    const r = await C.ligar();
+    assert.equal(r.ok, true);
+    await quieto();
+    assert.deepEqual(D.listar().map((e) => e.pergunta), ['da casa']);
+    assert.equal(contaNoServidor(s), 1);
+    // nada foi anotado como exclusao: a conta continua com a leitura da casa
+    assert.equal(itensDe(s, C.estadoConta().servidorId).length, 1);
+});
+
+test('adicionar e-mail a uma conta com chave; e-mail que já tem conta é recusado sem mexer em nada', { skip: pular }, async (t) => {
+    const s = await subir();
+    t.after(() => s.app.fechar());
+    aparelho(s, 'a');
+    D.criarLeitura(cartas, 'um');
+    await C.gerarChave();
+    await C.sincronizar();
+    await quieto();
+    const id = C.estadoConta().servidorId;
+    const pedir = async (email) => {
+        await C.pedirCodigo(email);
+        await s.app.ocioso();
+        return /é (\d{6})\./.exec(s.enviados[s.enviados.length - 1].texto)[1];
+    };
+    await C.confirmarCodigo('ana@exemplo.com', await pedir('ana@exemplo.com'), { destino: 'vincular' });
+    assert.equal(C.estadoConta().email, 'ana@exemplo.com');
+    assert.equal(C.estadoConta().servidorId, id);
+    assert.equal(s.app.db.prepare('SELECT email FROM usuarios WHERE id = ?').get(id).email, 'ana@exemplo.com');
+
+    // outra conta anonima (outro "dono") tenta usar o mesmo e-mail
+    s.avancar(31 * 60 * 1000);
+    const c2 = K.criarContaLocal();
+    K.trocarConta(c2, () => {});
+    D.criarLeitura(cartas, 'dois');
+    await C.gerarChave();
+    const idB = C.estadoConta().servidorId;
+    await assert.rejects(
+        async () => C.confirmarCodigo('ana@exemplo.com', await pedir('ana@exemplo.com'), { destino: 'vincular' }),
+        (e) => C.motivoDoErro(e) === 'email_ocupado',
+    );
+    assert.equal(C.estadoConta().email, '');
+    assert.equal(C.estadoConta().servidorId, idB);
+    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM usuarios').get().n, 2);
+    // a conta da ana nao ficou ligada a esta sessao por engano: continuam so as duas contas deste aparelho
+    assert.equal(s.app.db.prepare('SELECT COUNT(*) AS n FROM sessao_contas').get().n, 2);
+});
