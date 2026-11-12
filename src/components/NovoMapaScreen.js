@@ -37,6 +37,7 @@ const T = {
     ambiguaTitulo: 'Esse horário aconteceu duas vezes',
     inexistenteTitulo: 'Essa hora não existiu',
     voltar: 'Voltar ao perfil',
+    voltarTiragens: 'Voltar às tiragens',
     guardadoOk: 'Mapa guardado.',
     repetidoOk: 'Esse mapa já estava guardado. Nada foi duplicado.',
     erroRotulo: 'Dê um nome a este mapa, como Mãe ou Júlia.',
@@ -67,6 +68,7 @@ const fusoOk = (tz) => {
 export class NovoMapaScreen extends HTMLElement {
     async connectedCallback() {
         const est = consumirEstado() || {};
+        this.de = est.de === 'tiragens' ? 'tiragens' : null; // veio do cartao da tela Tiragens: a seta volta para la
         this.editando = est.editar ? obter(est.editar) : null;
         this.temPrincipal = !!principal();
         const m = this.editando;
@@ -157,7 +159,7 @@ export class NovoMapaScreen extends HTMLElement {
                ${s.local ? `<div class="local-ok">${ic('ok')}<span>${esc(s.local.nome)}</span></div>` : ''}
                <span class="dica" id="d-local">${esc(this.t('ui.form.local'))}</span><span class="dica">${T.foraDoBrasil}</span><button class="link-btn" type="button" data-acao="coord">${ic('pino')}${T.coordenadas}</button>`;
         this.innerHTML = `<div class="mapa-tela"><form class="form-mapa" id="form" novalidate aria-label="${esc(titulo)}">
-            <div class="mc-bar form-cab"><button class="iconbtn round mc-voltar" type="button" data-acao="voltar" aria-label="${T.voltar}" title="${T.voltar}">${ic('voltar')}</button><div class="mc-tit"><h2 id="form-h" tabindex="-1">${esc(titulo)}</h2></div></div>
+            <div class="mc-bar form-cab"><button class="iconbtn round mc-voltar" type="button" data-acao="voltar" aria-label="${this.de ? T.voltarTiragens : T.voltar}" title="${this.de ? T.voltarTiragens : T.voltar}">${ic('voltar')}</button><div class="mc-tit"><h2 id="form-h" tabindex="-1">${esc(titulo)}</h2></div></div>
             ${resumo}<div id="pendente-area">${s.pendente ? this.htmlPendente() : ''}</div>
             ${campoNome}
             <fieldset class="campo" id="c-data" aria-describedby="d-data"><legend>${T.data}</legend><div class="trio">
@@ -303,7 +305,7 @@ export class NovoMapaScreen extends HTMLElement {
                 s.coord = false;
                 this.desenhar('#c-q');
             }
-            if (b.dataset.acao === 'voltar') navigateTo('perfil', this.editando ? { selecionar: this.editando.id } : null);
+            if (b.dataset.acao === 'voltar') navigateTo(this.de || 'perfil', this.de ? null : this.editando ? { selecionar: this.editando.id } : null);
             if (b.dataset.acao === 'usar-horario') {
                 const r = this.querySelector('[name="amb"]:checked');
                 s.escolha = r ? Number(r.value) : s.escolha;

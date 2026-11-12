@@ -1,7 +1,7 @@
-/* Telas da aba Tiragens: a escolha, a cruz, o templo e a leitura de tres cartas. */
-const TIRAGENS = ['tiragens', 'cruz', 'templo', 'three-card-game'];
+/* Telas da aba Tiragens: a escolha, a cruz, o templo, a leitura de tres cartas e o biscoito da sorte. */
+const TIRAGENS = ['tiragens', 'cruz', 'templo', 'three-card-game', 'biscoito'];
 
-/** Marca no menu a pagina atual (so visual e aria-current; a navegacao em si nao muda). O biscoito e filho da Home: marca "Inicio". */
+/** Marca no menu a pagina atual (so visual e aria-current; a navegacao em si nao muda). */
 function marcarNavAtual(page) {
     const PERFIL = ['perfil', 'novo-mapa', 'mapa'];
     const atual = PERFIL.includes(page) ? 'perfil' : TIRAGENS.includes(page) ? 'tiragens' : ['all-cards', 'history'].includes(page) ? page : 'home';
@@ -49,7 +49,7 @@ const posicoes = {};
 let telaAtual = null;
 let primeira = true;
 let montada = false; // so guarda a rolagem de uma tela que chegou a montar
-const abaDe = (page) => (['perfil', 'novo-mapa', 'mapa'].includes(page) ? 'perfil' : TIRAGENS.includes(page) ? 'tiragens' : page === 'biscoito' ? 'home' : page);
+const abaDe = (page) => (['perfil', 'novo-mapa', 'mapa'].includes(page) ? 'perfil' : TIRAGENS.includes(page) ? 'tiragens' : page);
 const reduz = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const irPara = (y) => window.scrollTo({ top: y, left: 0, behavior: 'auto' }); // nunca animado: nao e um gesto do usuario
 
