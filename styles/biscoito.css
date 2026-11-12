@@ -17,29 +17,31 @@
 .bsc { display: grid; justify-items: center; gap: var(--sp-5); max-width: 560px; margin-inline: auto; text-align: center; padding-bottom: var(--sp-5); }
 .bsc-lead { color: var(--text-soft); font-size: var(--fs-lg); max-width: 34ch; text-wrap: balance; }
 
-/* palco: proporcao do biscoito (240 x 170); o inteiro e as metades ocupam o mesmo retangulo */
-.bsc-palco { position: relative; width: min(78vw, 300px); aspect-ratio: 240 / 170; margin-top: var(--sp-2); }
-.bsc-inteiro { position: absolute; inset: 0; display: block; padding: 0; border: 0; background: none; cursor: pointer; border-radius: var(--r-md); -webkit-tap-highlight-color: transparent; }
-.bsc-inteiro::after { content: ""; position: absolute; inset: -8px; }               /* alvo de toque generoso */
-.bsc-inteiro:focus-visible { outline: 2px solid var(--focus); outline-offset: 6px; }
-.bsc-inteiro svg, .bsc-metade svg { display: block; width: 100%; height: auto; overflow: visible; }
-.bsc-inteiro { transition: transform 120ms var(--ease-ritual); }
-.bsc-inteiro:active { transform: scale(0.97); }
+/* os tres biscoitos do dia: cada um e um botao com o inteiro (fechado) ou as duas metades (aberto) */
+.bsc-trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 420px; margin-top: var(--sp-3); padding-inline: 6px; }
+.bsc-bisc { position: relative; display: block; min-width: 0; padding: 0; border: 0; background: none; cursor: pointer; aspect-ratio: 240 / 170; border-radius: var(--r-md); -webkit-tap-highlight-color: transparent; transition: transform 120ms var(--ease-ritual), translate 160ms var(--ease-ritual); }
+.bsc-bisc::after { content: ""; position: absolute; inset: -6px; }                 /* alvo de toque generoso */
+.bsc-bisc::before { content: ""; position: absolute; inset: -10px -5px; border-radius: var(--r-md); border: 1.5px solid transparent; transition: border-color 160ms, background-color 160ms; }
+.bsc-bisc[aria-current="true"]::before { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.bsc-bisc[aria-current="true"] { translate: 0 -3px; }
+.bsc-bisc:focus-visible { outline: 2px solid var(--focus); outline-offset: 6px; }
+.bsc-bisc:active { transform: scale(0.97); }
+.bsc-b-fechado, .bsc-b-aberto { position: absolute; inset: 0; }
+.bsc-b-fechado svg, .bsc-metade svg { display: block; width: 100%; height: auto; overflow: visible; }
 .bsc-metade { position: absolute; top: 0; height: 100%; width: calc(134 / 240 * 100%); }
 .bsc-m-e { left: 0; transform-origin: 10% 90%; }
 .bsc-m-d { right: 0; transform-origin: 90% 90%; }
-.bsc-chao { position: absolute; left: 6%; right: 6%; bottom: 0; height: 9%; border-radius: 50%; background: var(--bsc-chao); }
 
 /* estado final e o estado base: tudo visivel, nada deslocado. Movimento so entra por cima (abaixo). */
-.bsc[data-estado="fechado"] .bsc-metades, .bsc[data-estado="fechado"] .bsc-baixo-corpo { visibility: hidden; }
-.bsc[data-estado="aberto"] .bsc-inteiro, .bsc[data-estado="quebrando"] .bsc-inteiro { visibility: hidden; pointer-events: none; }
-.bsc[data-estado="aberto"] .bsc-m-e, .bsc[data-estado="quebrando"] .bsc-m-e { transform: translate(-9%, 3%) rotate(-12deg); }
-.bsc[data-estado="aberto"] .bsc-m-d, .bsc[data-estado="quebrando"] .bsc-m-d { transform: translate(9%, 3%) rotate(12deg); }
+.bsc-bisc[data-estado="fechado"] .bsc-b-aberto { visibility: hidden; }
+.bsc-bisc[data-estado="aberto"] .bsc-b-fechado, .bsc-bisc[data-estado="quebrando"] .bsc-b-fechado { visibility: hidden; }
+.bsc-bisc[data-estado="aberto"] .bsc-m-e, .bsc-bisc[data-estado="quebrando"] .bsc-m-e { transform: translate(-7%, 3%) rotate(-10deg); }
+.bsc-bisc[data-estado="aberto"] .bsc-m-d, .bsc-bisc[data-estado="quebrando"] .bsc-m-d { transform: translate(7%, 3%) rotate(10deg); }
 
 .bsc-dica { color: var(--text-soft); font-size: var(--fs-sm); min-height: 1.6em; }
-.bsc[data-estado="aberto"] .bsc-dica, .bsc[data-estado="quebrando"] .bsc-dica { visibility: hidden; }
-.bsc-baixo { display: grid; justify-items: center; gap: var(--sp-4); width: 100%; min-height: 300px; }
+.bsc-baixo { display: grid; justify-items: center; align-content: start; gap: var(--sp-4); width: 100%; min-height: 300px; }
 .bsc-baixo-corpo { display: grid; justify-items: center; gap: var(--sp-4); width: 100%; }
+.bsc[data-vazio] .bsc-baixo-corpo { visibility: hidden; }
 
 /* tirinha: papel com as pontas em V. A sombra vai no wrapper (clip-path corta box-shadow) */
 .bsc-papel { width: min(100%, 358px); filter: drop-shadow(0 10px 18px var(--bsc-queda)); rotate: -0.6deg; }
@@ -59,60 +61,42 @@
   box-shadow: inset 0 2px 0 rgb(255 255 255 / 0.28), inset 0 -2px 0 rgb(0 0 0 / 0.1);
   font-family: var(--font-ui); font-weight: 600; font-size: clamp(0.9375rem, 4.4vw, 1.0625rem); font-variant-numeric: tabular-nums lining-nums; line-height: 1; }
 .bsc-acoes { display: grid; grid-template-columns: repeat(2, minmax(0, auto)); justify-content: center; gap: 12px; }
-.bsc-mais { display: grid; justify-items: center; gap: var(--sp-1); }
-.bsc-resta { color: var(--text-soft); font-size: var(--fs-sm); }
 .bsc-erro { display: grid; justify-items: center; gap: var(--sp-3); color: var(--text-soft); }
-
-/* ---------- movimento: so com preferencia padrao; tudo em transform e opacity ---------- */
-@media (prefers-reduced-motion: no-preference) {
-  .bsc[data-estado="fechado"] .bsc-inteiro svg { animation: bsc-flutua 4.2s ease-in-out infinite; }
-  .bsc[data-estado="quebrando"] .bsc-inteiro { visibility: visible; animation: bsc-trinca 900ms linear both; }
-  .bsc[data-estado="quebrando"] .bsc-m-e { animation: bsc-abre-e 900ms var(--ease-ritual) both; }
-  .bsc[data-estado="quebrando"] .bsc-m-d { animation: bsc-abre-d 900ms var(--ease-ritual) both; }
-  .bsc[data-estado="quebrando"] .bsc-metades { animation: bsc-aparece 900ms linear both; }
-  .bsc[data-estado="quebrando"] .bsc-papel { animation: bsc-sai 800ms var(--ease-ritual) 420ms both; }
-  .bsc[data-estado="quebrando"] .bsc-selo, .bsc[data-estado="quebrando"] .bsc-frase { animation: bsc-surge 450ms ease-out 1100ms both; }
-  .bsc[data-estado="quebrando"] .bsc-rotulo { animation: bsc-surge 300ms ease-out 1450ms both; }
-  .bsc[data-estado="quebrando"] .bsc-ficha { animation: bsc-ficha 380ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(1550ms + var(--i) * 190ms) both; }
-  .bsc[data-estado="quebrando"] .bsc-acoes, .bsc[data-estado="quebrando"] .bsc-mais { animation: bsc-surge 300ms ease-out 2700ms both; }
-  .bsc[data-pulado] * { animation: none !important; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .bsc[data-estado="quebrando"] .bsc-baixo-corpo, .bsc[data-estado="quebrando"] .bsc-metades { animation: bsc-aparece 200ms linear both; }
-}
-@keyframes bsc-flutua { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
-@keyframes bsc-trinca {   /* 0 a 180 ms: treme; some no instante da troca pelas metades */
-  0% { transform: rotate(0); opacity: 1; } 5% { transform: rotate(-2.5deg); } 10% { transform: rotate(2.5deg); } 15% { transform: rotate(-1.5deg); }
-  20% { transform: rotate(0); opacity: 1; } 20.1%, 100% { opacity: 0; }
-}
-@keyframes bsc-aparece { 0%, 20% { opacity: 0; } 20.1% { opacity: 1; } 100% { opacity: 1; } }
-@keyframes bsc-abre-e { 0%, 20% { transform: translate(0, 0) rotate(0); } 100% { transform: translate(-9%, 3%) rotate(-12deg); } }
-@keyframes bsc-abre-d { 0%, 20% { transform: translate(0, 0) rotate(0); } 100% { transform: translate(9%, 3%) rotate(12deg); } }
-@keyframes bsc-sai { 0% { opacity: 0; transform: translateY(-120px) scale(0.55); } 35% { opacity: 1; } 100% { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes bsc-surge { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-@keyframes bsc-ficha { from { opacity: 0; transform: translateY(8px) scale(0.6); } to { opacity: 1; transform: none; } }
-/* a tirinha nasce entre as metades: sobe por baixo delas */
-.bsc-palco { z-index: 1; }
-.bsc[data-estado="aberto"] .bsc-baixo, .bsc[data-estado="quebrando"] .bsc-baixo { margin-top: -56px; }
-.bsc[data-estado="aberto"] .bsc-chao, .bsc[data-estado="quebrando"] .bsc-chao { opacity: 0; }
-
-/* ---------- complementos da implementacao ---------- */
-.bsc[data-erro] .bsc-dica { visibility: hidden; }
 .bsc-erro[hidden] { display: none; }
 .bsc-erro p { margin: 0; }
-.bsc-mais .btn[hidden] { display: none; }
-.bsc-dica, .bsc-resta, .bsc-lead { margin: 0; }
+.bsc-dica, .bsc-lead { margin: 0; }
+.bsc[data-erro] .bsc-dica { visibility: hidden; }
+
+/* ---------- movimento: so com preferencia padrao; tudo em transform e opacity (cerca de 1,5 s) ---------- */
 @media (prefers-reduced-motion: no-preference) {
+  .bsc-bisc[data-estado="fechado"] .bsc-b-fechado svg { animation: bsc-flutua 4.2s ease-in-out infinite; animation-delay: calc(var(--l) * -1.4s); }
+  .bsc-bisc[data-estado="quebrando"] .bsc-b-fechado { visibility: visible; animation: bsc-trinca 700ms linear both; }
+  .bsc-bisc[data-estado="quebrando"] .bsc-b-aberto { animation: bsc-aparece 700ms linear both; }
+  .bsc-bisc[data-estado="quebrando"] .bsc-m-e { animation: bsc-abre-e 700ms var(--ease-ritual) both; }
+  .bsc-bisc[data-estado="quebrando"] .bsc-m-d { animation: bsc-abre-d 700ms var(--ease-ritual) both; }
+  .bsc[data-anima] .bsc-papel { animation: bsc-sai 500ms var(--ease-ritual) 250ms both; }
+  .bsc[data-anima] .bsc-selo, .bsc[data-anima] .bsc-frase { animation: bsc-surge 300ms ease-out 600ms both; }
+  .bsc[data-anima] .bsc-rotulo { animation: bsc-surge 250ms ease-out 750ms both; }
+  .bsc[data-anima] .bsc-ficha { animation: bsc-ficha 240ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(800ms + var(--i) * 80ms) both; }
+  .bsc[data-anima] .bsc-acoes { animation: bsc-surge 250ms ease-out 1250ms both; }
+  .bsc-baixo-corpo.bsc-troca { animation: bsc-fade 180ms ease-out; }
+  .bsc[data-pulado] * { animation: none !important; }
   .bsc-espera { animation: bsc-treme 360ms linear; }
 }
+@media (prefers-reduced-motion: reduce) {
+  /* sem tremor, sem deslocamento, sem atraso: um fade unico de 200 ms ja nas posicoes finais */
+  .bsc-bisc[data-estado="quebrando"] .bsc-b-aberto, .bsc[data-anima] .bsc-baixo-corpo { animation: bsc-fade 200ms linear both; }
+}
+@keyframes bsc-flutua { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes bsc-trinca {   /* 0 a 180 ms: treme; some no instante da troca pelas metades */
+  0% { transform: rotate(0); opacity: 1; } 8% { transform: rotate(-2.5deg); } 16% { transform: rotate(2.5deg); } 24% { transform: rotate(-1.5deg); }
+  26% { transform: rotate(0); opacity: 1; } 26.1%, 100% { opacity: 0; }
+}
+@keyframes bsc-aparece { 0%, 26% { opacity: 0; } 26.1% { opacity: 1; } 100% { opacity: 1; } }
+@keyframes bsc-abre-e { 0%, 26% { transform: translate(0, 0) rotate(0); } 100% { transform: translate(-7%, 3%) rotate(-10deg); } }
+@keyframes bsc-abre-d { 0%, 26% { transform: translate(0, 0) rotate(0); } 100% { transform: translate(7%, 3%) rotate(10deg); } }
+@keyframes bsc-sai { 0% { opacity: 0; transform: translateY(-28px) scale(0.9); } 60% { opacity: 1; } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes bsc-surge { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes bsc-ficha { from { opacity: 0; transform: translateY(8px) scale(0.6); } to { opacity: 1; transform: none; } }
+@keyframes bsc-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes bsc-treme { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-2.5deg); } 45% { transform: rotate(2.5deg); } 70% { transform: rotate(-1.5deg); } }
-
-/* cartao largo da Home: a porta para a tela do biscoito */
-.acao-card.largo { width: 100%; max-width: 880px; margin: var(--sp-3) auto 0; flex-direction: row; justify-content: flex-start; gap: var(--sp-3); min-height: 72px; padding: 14px 16px; text-align: left; }
-.acao-card.largo .ico { width: 30px; height: 30px; }
-.acao-card.largo .largo-texto { display: grid; gap: 2px; min-width: 0; flex: 1; }
-.acao-card.largo b { margin-top: 0; font-size: 1.25rem; }
-.acao-card.largo .largo-linha { display: block; color: var(--text-soft); }
-.acao-card.largo .largo-linha.frase { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-@media (min-width: 860px) { .acao-card.largo { max-width: 560px; } }
-.bsc-chao { display: none; } /* o biscoito inteiro ja traz a propria sombra no chao */

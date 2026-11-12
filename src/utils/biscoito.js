@@ -94,8 +94,9 @@ export const textoParaCopiar = (item) => `${item.texto}\nNúmeros da sorte: ${fo
 export const textoParaCompartilhar = (item) =>
     `Meu biscoito da sorte no Aeon Fool: “${item.texto}” Números: ${formatarNumeros(item.numeros)}. aeonfool.com`;
 
-export const anuncioDaQuebra = (item) =>
-    `Biscoito quebrado. ${item.texto} Seus números da sorte: ${numerosFalados(item.numeros)}.`;
+/** Para o leitor de tela: "Biscoito 2 quebrado. frase Seus numeros da sorte: 7, 14." (ou "Biscoito 2. ..." ao reler). */
+export const anuncioDoBiscoito = (item, lugar, quebrou) =>
+    `Biscoito ${lugar + 1}${quebrou ? ' quebrado' : ''}. ${item.texto} Seus números da sorte: ${numerosFalados(item.numeros)}.`;
 
 /** Copia texto simples. Clipboard API; se falhar, textarea + execCommand. Devolve true/false. */
 export async function copiarTexto(texto) {

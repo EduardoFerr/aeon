@@ -32,6 +32,7 @@ const T = {
     legenda: 'Legenda da roda',
     corpo: 'Corpo',
     voltarPerfil: 'Voltar ao perfil',
+    voltarTiragens: 'Voltar às tiragens',
     acoes: 'Ações',
     acoesTitulo: 'Ações do mapa',
     abas: 'Seções do mapa',
@@ -92,6 +93,7 @@ const LEMBRADO = new Map();
 export class MapaScreen extends HTMLElement {
     async connectedCallback() {
         const est = consumirEstado() || {};
+        this.de = est.de === 'tiragens' ? 'tiragens' : null; // veio do cartao da tela Tiragens: a seta volta para la
         this.m = (est.id && obter(est.id)) || principal();
         const lem = (this.m && LEMBRADO.get(this.m.id)) || {};
         this.aba = est.secao ? 'leitura' : lem.aba || 'resumo';
@@ -621,7 +623,7 @@ export class MapaScreen extends HTMLElement {
         const b = e.target.closest('[data-acao]');
         if (!b) return;
         const a = b.dataset.acao;
-        if (a === 'perfil') navigateTo('perfil', { selecionar: this.m.id });
+        if (a === 'perfil') navigateTo(this.de || 'perfil', this.de ? null : { selecionar: this.m.id });
     }
 
     teclou(e) {
@@ -688,7 +690,7 @@ export class MapaScreen extends HTMLElement {
         return `<div class="mapa-tela mc" data-aba="${this.aba}">
             <div class="mc-cab">
               <div class="mc-bar">
-                <button class="iconbtn round mc-voltar" type="button" data-acao="perfil" aria-label="${T.voltarPerfil}" title="${T.voltarPerfil}">${ic('voltar')}</button>
+                <button class="iconbtn round mc-voltar" type="button" data-acao="perfil" aria-label="${this.de ? T.voltarTiragens : T.voltarPerfil}" title="${this.de ? T.voltarTiragens : T.voltarPerfil}">${ic('voltar')}</button>
                 <div class="mc-tit"><h2 id="mapa-h" tabindex="-1">${esc(nome)}</h2><p class="mc-dados mc-so-desk">${esc(this.dadosLinha())}</p></div>
                 <span class="mc-so-cel mc-bar-acoes">${this.botaoAcoes()}</span>
               </div>

@@ -736,7 +736,7 @@
  "ui.cruz.titulo": "Cruz de cinco cartas",
  "ui.cruz.descricao": "Cruz de cinco cartas. Momento fica no topo, Ajuda à esquerda, Obstáculo à direita, Caminho na base e Síntese no centro. Use as setas do teclado para andar pela cruz e Enter para virar a carta e ler o que a posição quer dizer.",
  "ui.cruz.tir.titulo": "Tiragens",
- "ui.cruz.tir.lead": "Escolha o jeito de fazer sua pergunta",
+ "ui.cruz.tir.lead": "Escolha por onde começar",
  "ui.cruz.tir.cruz.nome": "Cruz",
  "ui.cruz.tir.cruz.linha": "Momento, ajuda, obstáculo, caminho e a síntese, que reúne tudo.",
  "ui.cruz.tir.cruz.n": "5 cartas",
