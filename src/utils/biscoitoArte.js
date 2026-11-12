@@ -34,3 +34,6 @@ export function svgComCores(svg, tema, largura, altura) {
     const trocado = svg.replace(/var\(--bsc-([a-z-]+),\s*((?:rgba?\([^)]*\)|[^)])*)\)/g, (_, nome, fallback) => cores[nome] || fallback.trim());
     return trocado.replace('<svg ', `<svg width="${largura}" height="${altura}" `);
 }
+
+/** IDs unicos quando o mesmo desenho aparece mais de uma vez na pagina (gradientes e recortes): acrescenta -sufixo. */
+export const svgComSufixo = (svg, sufixo) => svg.replace(/bi-(massa|corte|corpo)-([ied])/g, `bi-$1-$2-${sufixo}`);

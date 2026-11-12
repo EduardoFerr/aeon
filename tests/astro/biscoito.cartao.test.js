@@ -81,7 +81,7 @@ test('o SVG inline e decorativo: sem role nem aria-label proprios e com ids unic
 /* ---------- regras de texto nos arquivos novos ---------- */
 
 const ARQUIVOS = [
-    'src/components/BiscoitoScreen.js', 'src/components/HomeScreen.js', 'src/utils/biscoito.js', 'src/utils/biscoitoDia.js',
+    'src/components/BiscoitoScreen.js', 'src/components/TiragensScreen.js', 'src/utils/biscoito.js', 'src/utils/biscoitoDia.js',
     'src/utils/biscoitoArte.js', 'src/utils/cartaoBiscoito.js', 'styles/biscoito.css', 'tools/validar-biscoito.mjs',
 ];
 
@@ -102,9 +102,29 @@ test('os textos da interface nao falam de onde o que e guardado nem de privacida
         const bloco = /const TEXTO = \{[\s\S]*?\n\};/.exec(t)[0];
         for (const re of proibidas) assert.ok(!re.test(bloco), `${a}: texto bate com ${re}`);
     }
+});
+
+test('a tela nao tem mais os textos do biscoito unico, nem "so por diversao"', () => {
+    const velhos = [/diversão/i, /Quebrar outro/, /Mais um biscoito/, /acabaram/, /ainda pode quebrar/];
+    for (const a of ['src/components/BiscoitoScreen.js', 'src/utils/cartaoBiscoito.js', 'src/components/TiragensScreen.js']) {
+        const t = readFileSync(path.join(raiz, a), 'utf8');
+        for (const re of velhos) assert.ok(!re.test(t), `${a} ainda tem ${re}`);
+    }
+});
+
+test('a Home nao tem mais a faixa de atalhos nem o cartao do biscoito', () => {
     const home = readFileSync(path.join(raiz, 'src/components/HomeScreen.js'), 'utf8');
-    const cartao = /function cartaoBiscoito[\s\S]*?\r?\n}\r?\n/.exec(home)[0];
-    for (const re of proibidas) assert.ok(!re.test(cartao), `Home: cartao bate com ${re}`);
+    for (const re of [/acao-card/, /home-acoes/, /data-ir/, /biscoito/i]) assert.ok(!re.test(home), `Home ainda tem ${re}`);
+    assert.ok(/carta-do-dia/.test(home) && /home-sobre/.test(home));
+});
+
+test('Tiragens lista os cinco cartoes na ordem e o biscoito marca a aba Tiragens', () => {
+    const t = readFileSync(path.join(raiz, 'src/components/TiragensScreen.js'), 'utf8');
+    const ordem = ["op('cruz'", "op('three-card-game'", "op('templo'", "op(temMapa ?", "op('biscoito'"].map((x) => t.indexOf(x));
+    assert.ok(ordem.every((i) => i > 0), 'falta um cartao');
+    assert.deepEqual([...ordem].sort((a, b) => a - b), ordem);
+    const nav = readFileSync(path.join(raiz, 'src/utils/navigation.js'), 'utf8');
+    assert.ok(/const TIRAGENS = \[[^\]]*'biscoito'/.test(nav));
 });
 
 test('o JSON das frases nao entra no precache do service worker', () => {

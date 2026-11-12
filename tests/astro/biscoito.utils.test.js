@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
     validarItem, filtrarLista, carregarBiscoito, limparCache, indiceAleatorio, formatarNumeros, numerosFalados,
-    textoParaCopiar, textoParaCompartilhar, anuncioDaQuebra, copiarTexto, MIN_ITENS,
+    textoParaCopiar, textoParaCompartilhar, anuncioDoBiscoito, copiarTexto, MIN_ITENS,
 } from '../../src/utils/biscoito.js';
 
 const item = (id = 1, extra = {}) => ({ id, texto: `Frase número ${id}.`, numeros: [7, 14, 23, 31, 45, 58], ...extra });
@@ -79,7 +79,8 @@ test('copiar: exatamente tres linhas (frase, numeros da sorte, endereco), texto 
 test('texto de compartilhar e anuncio do leitor de tela', () => {
     const x = item(1, { texto: 'A calma também é uma forma de coragem.' });
     assert.equal(textoParaCompartilhar(x), 'Meu biscoito da sorte no Aeon Fool: “A calma também é uma forma de coragem.” Números: 07 14 23 31 45 58. aeonfool.com');
-    assert.equal(anuncioDaQuebra(x), 'Biscoito quebrado. A calma também é uma forma de coragem. Seus números da sorte: 7, 14, 23, 31, 45, 58.');
+    assert.equal(anuncioDoBiscoito(x, 1, true), 'Biscoito 2 quebrado. A calma também é uma forma de coragem. Seus números da sorte: 7, 14, 23, 31, 45, 58.');
+    assert.equal(anuncioDoBiscoito(x, 0, false), 'Biscoito 1. A calma também é uma forma de coragem. Seus números da sorte: 7, 14, 23, 31, 45, 58.');
 });
 
 test('copiarTexto usa a area de transferencia; se ela falha e nao ha document, devolve false sem lancar', async () => {
